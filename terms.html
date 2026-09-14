@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("powerduck-theme");
+        var theme = saved === "light" || saved === "dark"
+          ? saved
+          : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <title>Terms of Service — Powerduck</title>
+    <meta name="description" content="Terms of Service for Powerduck website and open source projects. Learn about the terms and conditions for using our products." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.powerduck.com/terms.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Powerduck" />
+    <meta property="og:title" content="Terms of Service — Powerduck" />
+    <meta property="og:description" content="Terms of Service for Powerduck website and open source projects. Learn about the terms and conditions for using our products." />
+    <meta property="og:url" content="https://www.powerduck.com/terms.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Terms of Service — Powerduck" />
+    <meta name="twitter:description" content="Terms of Service for Powerduck website and open source projects. Learn about the terms and conditions for using our products." />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0b0f14"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="stylesheet" href="assets/css/common.css" />
+  </head>
+  <body>
+    <header class="site-header"><div class="nav-inner">
+    <a href="index.html" class="brand" aria-label="Powerduck home">
+      <img src="assets/images/logo.svg" alt="Powerduck logo" class="brand-logo" />
+      <span>Powerduck</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+                <li><a href="index.html#spec-editor">Spec Editor</a></li>
+        <li><a href="index.html#api-debug">API Debug</a></li>
+        <li><a href="index.html#mcp-server">MCP Server</a></li>
+        <li><a href="index.html#api-docs">API Docs</a></li>
+        <li><a href="index.html#licensing">Licensing</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Open Source <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <div class="dropdown-section-title">Open Source Libraries</div><a class="dropdown-item" href="opensource/md-editor.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/md-editor</span><span class="pkg-desc">Embeddable Markdown editor with math, mindmaps & code highlighting</span></div></a><a class="dropdown-item" href="opensource/conf-patch.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/conf-patch</span><span class="pkg-desc">Two-layer config editor with OpenAPI validation & atomic writes</span></div></a><a class="dropdown-item" href="opensource/openapi-cli.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-cli</span><span class="pkg-desc">CI-ready CLI for batch-testing OpenAPI across 6 protocols</span></div></a><a class="dropdown-item" href="opensource/openapi-codegen.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-codegen</span><span class="pkg-desc">Generate runnable HTTP code from OpenAPI (21 languages)</span></div></a><a class="dropdown-item" href="opensource/openapi-mcp-server.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-mcp-server</span><span class="pkg-desc">Turn OpenAPI specs into production MCP servers with Web UI</span></div></a><a class="dropdown-item" href="opensource/openapi-request.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-request</span><span class="pkg-desc">OpenAPI 3.2 collection debugger with HTTP/SSE/WebSocket</span></div></a><a class="dropdown-item" href="opensource/x-to-openapi.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/x-to-openapi</span><span class="pkg-desc">Convert cURL commands & Postman collections to OpenAPI 3.2</span></div></a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn-docs" href="index.html#api-docs" aria-label="Powerduck documentation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg><span>Docs</span></a>
+      <a class="btn-github" href="https://github.com/Powerduckie" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg><span class="gh-text">GitHub</span></a>
+      <button class="nav-icon-btn theme-toggle" data-theme-toggle title="Toggle color theme" aria-label="Toggle color theme"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+    </div>
+  </div></header>
+    <main>
+<section class="legal-hero">
+      <div class="container">
+        <p class="legal-kicker">Legal</p>
+        <h1>Terms of Service</h1>
+        <p>
+          These Terms govern your use of Powerduck (the open-source
+          software) and Powerduck Cloud (the hosted service).
+        </p>
+        <p class="legal-updated">Last updated: September 10, 2026</p>
+      </div>
+    </section>
+
+    <article class="legal-content">
+      <div class="legal-toc">
+        <h4>On this page</h4>
+        <ol>
+          <li><a href="#acceptance">Acceptance of Terms</a></li>
+          <li><a href="#definitions">Definitions</a></li>
+          <li><a href="#license">Open-Source License</a></li>
+          <li><a href="#service">Powerduck Cloud Service</a></li>
+          <li><a href="#accounts">User Accounts</a></li>
+          <li><a href="#acceptable">Acceptable Use Policy</a></li>
+          <li><a href="#content">Your Content</a></li>
+          <li><a href="#payment">Payment &amp; Billing</a></li>
+          <li><a href="#subscriptions">Subscriptions &amp; Cancellation</a></li>
+          <li><a href="#termination">Termination</a></li>
+          <li><a href="#ip">Intellectual Property</a></li>
+          <li><a href="#disclaimers">Disclaimers</a></li>
+          <li><a href="#liability">Limitation of Liability</a></li>
+          <li><a href="#indemnification">Indemnification</a></li>
+          <li><a href="#modifications">Modifications to Service</a></li>
+          <li><a href="#governing">Governing Law &amp; Dispute Resolution</a></li>
+          <li><a href="#misc">Miscellaneous</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ol>
+      </div>
+
+      <h2 id="acceptance">1. Acceptance of Terms</h2>
+      <p>
+        By accessing or using Powerduck (the open-source software) or Powerduck
+        Cloud (the hosted service), collectively referred to as the "Services",
+        you agree to be bound by these Terms of Service ("Terms"). If you do not
+        agree to these Terms, you may not use the Services.
+      </p>
+      <p>
+        These Terms apply to all users, including visitors, registered users, and
+        organizations that access the Services on behalf of a business entity. If
+        you are using the Services on behalf of an organization, you represent and
+        warrant that you have the authority to bind that organization to these
+        Terms, and "you" will refer to that organization.
+      </p>
+      <p>
+        We may update these Terms from time to time. We will notify you of
+        material changes by posting the updated Terms on this page and updating
+        the "Last updated" date. Your continued use of the Services after the
+        effective date of the updated Terms constitutes your acceptance of the
+        changes.
+      </p>
+
+      <h2 id="definitions">2. Definitions</h2>
+      <ul>
+        <li><strong>"Powerduck"</strong> refers to the open-source markdown editor library, including all source code, documentation, and related materials.</li>
+        <li><strong>"Powerduck Cloud"</strong> refers to the hosted platform for publishing, sharing, and managing markdown documents, including all features, functionality, and services provided through the platform.</li>
+        <li><strong>"Services"</strong> refers collectively to Powerduck and Powerduck Cloud.</li>
+        <li><strong>"User"</strong> or "you" refers to any individual or entity that accesses or uses the Services.</li>
+        <li><strong>"Content"</strong> refers to any text, images, files, documents, or other materials that you upload, create, or transmit through the Services.</li>
+        <li><strong>"Paddle"</strong> refers to Paddle Ltd, the merchant of record for all purchases made through Powerduck Cloud.</li>
+      </ul>
+
+      <h2 id="license">3. Open-Source License</h2>
+      <p>
+        Powerduck is released under the <strong>MIT License</strong>. You are free
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the software, subject to the following conditions:
+      </p>
+      <ul>
+        <li>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the software.</li>
+        <li>The software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement.</li>
+        <li>In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.</li>
+      </ul>
+      <p>
+        The MIT License applies solely to the open-source editor library. Powerduck
+        Cloud, the hosted service, is governed by the remaining sections of these
+        Terms.
+      </p>
+
+      <h2 id="service">4. Powerduck Cloud Service</h2>
+      <p>
+        Powerduck Cloud is a hosted platform for publishing, sharing, and managing
+        markdown documents. Features may include:
+      </p>
+      <ul>
+        <li>Permanent document links with custom domains</li>
+        <li>Access control and privacy settings (public, private, password-protected)</li>
+        <li>Team workspaces and collaboration features</li>
+        <li>Version history and document management</li>
+        <li>Analytics and engagement metrics</li>
+        <li>API access for integration with other services</li>
+      </ul>
+      <p>
+        We reserve the right to modify, suspend, or discontinue any feature of the
+        Cloud service at any time, with or without notice. We will provide
+        reasonable advance notice for material changes that negatively affect paid
+        subscribers.
+      </p>
+      <p>
+        We do not guarantee that the Service will be uninterrupted, timely, secure,
+        or error-free. We may perform maintenance, upgrades, or other changes to
+        the Service from time to time, which may result in temporary interruptions.
+      </p>
+
+      <h2 id="accounts">5. User Accounts</h2>
+      <p>
+        To use Powerduck Cloud, you must create an account. You agree to:
+      </p>
+      <ul>
+        <li>Provide accurate, current, and complete information during registration.</li>
+        <li>Maintain and promptly update your account information to keep it accurate, current, and complete.</li>
+        <li>Maintain the security of your account and password.</li>
+        <li>Not share your account credentials with any third party.</li>
+        <li>Notify us immediately of any unauthorized use of your account or any other security breach.</li>
+        <li>Be responsible for all activities that occur under your account.</li>
+      </ul>
+      <p>
+        You may not use another person's account without their express permission.
+        We reserve the right to suspend or terminate accounts that violate these
+        Terms or that we believe, in our sole discretion, pose a security risk to
+        other users or the Service.
+      </p>
+
+      <h2 id="acceptable">6. Acceptable Use Policy</h2>
+      <p>
+        You agree not to use the Services to:
+      </p>
+      <ul>
+        <li>Violate any applicable laws, regulations, or third-party rights.</li>
+        <li>Upload, transmit, or distribute any Content that is unlawful, harmful, threatening, abusive, harassing, tortious, defamatory, vulgar, obscene, libelous, invasive of another's privacy, hateful, or racially, ethnically, or otherwise objectionable.</li>
+        <li>Upload, transmit, or distribute any Content that infringes on any patent, trademark, trade secret, copyright, or other proprietary rights of any party.</li>
+        <li>Upload, transmit, or distribute any malicious software, including viruses, worms, Trojan horses, ransomware, or other harmful code.</li>
+        <li>Attempt to gain unauthorized access to, interfere with, damage, or disrupt the Services, servers, or networks connected to the Services.</li>
+        <li>Use the Services to send unsolicited or unauthorized advertising, promotional materials, spam, or any other form of solicitation.</li>
+        <li>Impersonate any person or entity, or falsely state or otherwise misrepresent your affiliation with a person or entity.</li>
+        <li>Use the Services for any purpose that is unlawful or prohibited by these Terms.</li>
+        <li>Reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code of the Services, except as expressly permitted by applicable law.</li>
+        <li>Use automated systems or scripts to access, scrape, or crawl the Services without our prior written consent.</li>
+      </ul>
+      <p>
+        We reserve the right to investigate and take appropriate legal action against
+        anyone who violates this policy, including removing offending Content,
+        suspending or terminating accounts, and reporting violations to law
+        enforcement authorities.
+      </p>
+
+      <h2 id="content">7. Your Content</h2>
+      <p>
+        You retain all rights, title, and interest in and to your Content. By
+        uploading, creating, or transmitting Content through the Services, you
+        grant us a worldwide, non-exclusive, royalty-free, sublicensable, and
+        transferable license to use, reproduce, distribute, prepare derivative
+        works of, display, and perform your Content solely for the purpose of
+        providing and improving the Services.
+      </p>
+      <p>
+        This license ends when you delete your Content or terminate your account,
+        except that your Content may persist in backup copies for a reasonable
+        period of time (but will not be made available to others unless you have
+        made it public).
+      </p>
+      <p>
+        You represent and warrant that:
+      </p>
+      <ul>
+        <li>You own or have the necessary rights, licenses, and permissions to upload and use your Content.</li>
+        <li>Your Content does not violate any applicable laws, regulations, or third-party rights, including intellectual property rights and privacy rights.</li>
+        <li>Your Content does not contain any malicious software or harmful code.</li>
+      </ul>
+      <p>
+        We are not responsible for the Content uploaded by users. We do not endorse,
+        support, represent, or guarantee the completeness, truthfulness, accuracy,
+        or reliability of any Content. You acknowledge that by using the Services,
+        you may be exposed to Content that is offensive, indecent, or objectionable.
+      </p>
+      <p>
+        We reserve the right to remove or disable access to any Content that we
+        believe, in our sole discretion, violates these Terms or is otherwise
+        objectionable. We may also remove or disable access to Content upon
+        receiving a valid notice of claimed copyright infringement.
+      </p>
+
+      <h2 id="payment">8. Payment &amp; Billing</h2>
+      <p>
+        Powerduck Cloud offers both free and paid subscription plans. Paid plans
+        are billed in advance on a monthly or annual basis, depending on the plan
+        you select.
+      </p>
+      <p>
+        All payments are processed by <strong>Paddle</strong>, which acts as the
+        merchant of record for your purchase. Paddle is responsible for billing,
+        invoicing, VAT/GST collection, and refund processing. Your payment
+        statement will show a charge from "Paddle*" or "PADDLE.NET".
+      </p>
+      <p>
+        By providing payment information, you represent and warrant that:
+      </p>
+      <ul>
+        <li>You are authorized to use the payment method you provide.</li>
+        <li>The payment information you provide is accurate, current, and complete.</li>
+        <li>You will promptly update your payment information if it changes.</li>
+      </ul>
+      <p>
+        Prices for paid plans are subject to change. We will provide at least 30
+        days' notice before any price change takes effect for existing subscribers.
+        Price changes will apply at the next billing cycle after the notice period.
+      </p>
+      <p>
+        All fees are non-refundable except as provided in our
+        <a href="refunds.html">Refund Policy</a> or as required by applicable law.
+        Taxes, including VAT and GST, are calculated based on the billing address
+        you provide and are collected by Paddle.
+      </p>
+
+      <h2 id="subscriptions">9. Subscriptions &amp; Cancellation</h2>
+      <p>
+        Subscriptions renew automatically at the end of each billing period unless
+        you cancel before the renewal date. You may cancel your subscription at any
+        time from your account settings or by contacting us at
+        <a href="mailto:contact@neatico.com">contact@neatico.com</a>.
+      </p>
+      <p>
+        Cancellation stops future billing but does not provide a refund for the
+        current billing period. You retain access to paid features until the end of
+        the current billing period. After the billing period ends, your account will
+        be downgraded to the free plan, and you may lose access to certain features
+        and Content.
+      </p>
+      <p>
+        If you cancel within the first 30 days of your initial purchase, you may be
+        eligible for a full refund in accordance with our
+        <a href="refunds.html">Refund Policy</a>. EU consumers may also have the
+        right to withdraw from their purchase within 14 days in accordance with the
+        EU Consumer Rights Directive.
+      </p>
+
+      <h2 id="termination">10. Termination</h2>
+      <p>
+        You may terminate your account at any time by contacting us at
+        <a href="mailto:contact@neatico.com">contact@neatico.com</a>. Upon
+        termination, you will lose access to your account and the Services, and we
+        may delete your Content in accordance with our data retention policies.
+      </p>
+      <p>
+        We may suspend or terminate your access to the Services at any time, with or
+        without cause, and with or without notice, including if:
+      </p>
+      <ul>
+        <li>You violate these Terms or our other policies.</li>
+        <li>Your account is inactive for an extended period of time.</li>
+        <li>We believe, in our sole discretion, that your actions pose a risk to other users or the Services.</li>
+        <li>We are required to do so by law or legal process.</li>
+        <li>The Services are no longer commercially viable.</li>
+      </ul>
+      <p>
+        Upon termination, all provisions of these Terms that by their nature should
+        survive termination will survive, including the intellectual property
+        provisions, disclaimers, limitation of liability, and indemnification
+        provisions.
+      </p>
+
+      <h2 id="ip">11. Intellectual Property</h2>
+      <p>
+        The Services, including all software, code, designs, text, graphics, logos,
+        icons, images, audio, video, and other materials, are the property of
+        Powerduck Limited or its licensors and are protected by copyright, trademark,
+        and other intellectual property laws.
+      </p>
+      <p>
+        The Powerduck name, logo, and product names are trademarks of Powerduck
+        Limited. You may not use these trademarks without our prior written consent,
+        except as necessary to identify the Services in accordance with common
+        industry practice.
+      </p>
+      <p>
+        Nothing in these Terms grants you any right, title, or interest in or to the
+        Services or any intellectual property rights, except for the limited license
+        to use the Services in accordance with these Terms.
+      </p>
+
+      <h2 id="disclaimers">12. Disclaimers</h2>
+      <p>
+        THE SERVICES ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT
+        WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. POWERDUCK LIMITED
+        DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+        IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+        TITLE, AND NON-INFRINGEMENT.
+      </p>
+      <p>
+        We do not warrant that:
+      </p>
+      <ul>
+        <li>The Services will meet your requirements or expectations.</li>
+        <li>The Services will be uninterrupted, timely, secure, or error-free.</li>
+        <li>The results obtained from using the Services will be accurate or reliable.</li>
+        <li>The quality of any products, services, information, or other materials purchased or obtained through the Services will meet your expectations.</li>
+        <li>Any errors in the Services will be corrected.</li>
+      </ul>
+      <p>
+        Some jurisdictions do not allow the exclusion of certain warranties, so the
+        above exclusions may not apply to you. In such jurisdictions, our liability
+        will be limited to the greatest extent permitted by law.
+      </p>
+
+      <h2 id="liability">13. Limitation of Liability</h2>
+      <p>
+        IN NO EVENT SHALL POWERDUCK LIMITED, ITS AFFILIATES, OR THEIR RESPECTIVE
+        DIRECTORS, OFFICERS, EMPLOYEES, AGENTS, OR LICENSORS BE LIABLE FOR ANY
+        INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING
+        BUT NOT LIMITED TO LOSS OF PROFITS, LOSS OF DATA, LOSS OF GOODWILL, LOSS
+        OF USE, COST OF PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES, OR ANY OTHER
+        INDIRECT DAMAGES, ARISING OUT OF OR IN CONNECTION WITH THESE TERMS OR THE
+        SERVICES, WHETHER IN AN ACTION OF CONTRACT, TORT (INCLUDING NEGLIGENCE),
+        STRICT LIABILITY, OR OTHERWISE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+        DAMAGES.
+      </p>
+      <p>
+        IN NO EVENT SHALL THE TOTAL AGGREGATE LIABILITY OF POWERDUCK LIMITED AND ITS
+        AFFILIATES FOR ALL CLAIMS RELATING TO THE SERVICES EXCEED THE GREATER OF:
+        (A) THE AMOUNT YOU PAID TO POWERDUCK LIMITED FOR THE SERVICES DURING THE
+        TWELVE (12) MONTHS PRIOR TO THE EVENT GIVING RISE TO THE CLAIM; OR (B)
+        ONE HUNDRED UNITED STATES DOLLARS (USD $100).
+      </p>
+      <p>
+        The limitations in this section apply to the maximum extent permitted by
+        applicable law. Some jurisdictions do not allow the limitation or exclusion
+        of liability for incidental or consequential damages, so the above
+        limitations or exclusions may not apply to you.
+      </p>
+      <p>
+        Nothing in these Terms limits or excludes our liability for death or personal
+        injury caused by our negligence, fraud, or fraudulent misrepresentation, or
+        any other liability that cannot be limited or excluded under applicable law.
+      </p>
+
+      <h2 id="indemnification">14. Indemnification</h2>
+      <p>
+        You agree to defend, indemnify, and hold harmless Powerduck Limited, its
+        affiliates, and their respective directors, officers, employees, agents, and
+        licensors from and against any and all claims, damages, obligations, losses,
+        liabilities, costs, or debt, and expenses (including but not limited to
+        attorney's fees) arising from:
+      </p>
+      <ul>
+        <li>Your use of and access to the Services.</li>
+        <li>Your violation of any provision of these Terms.</li>
+        <li>Your violation of any third-party right, including without limitation any copyright, property, or privacy right.</li>
+        <li>Any claim that your Content caused damage to a third party.</li>
+        <li>Your breach of any representation, warranty, or covenant in these Terms.</li>
+      </ul>
+      <p>
+        This defense and indemnification obligation will survive these Terms and your
+        use of the Services. We reserve the right, at our own expense, to assume the
+        exclusive defense and control of any matter otherwise subject to
+        indemnification by you, in which event you will cooperate with us in
+        asserting any available defenses.
+      </p>
+
+      <h2 id="modifications">15. Modifications to Service</h2>
+      <p>
+        We reserve the right to modify, suspend, or discontinue the Services, or any
+        part of them, at any time, with or without notice. We will not be liable to
+        you or any third party for any modification, suspension, or discontinuance of
+        the Services.
+      </p>
+      <p>
+        We may also impose limits on certain features or restrict your access to parts
+        or all of the Services without notice or liability. We will provide reasonable
+        advance notice for material changes that negatively affect paid subscribers.
+      </p>
+
+      <h2 id="governing">16. Governing Law &amp; Dispute Resolution</h2>
+      <h3>16.1 Governing Law</h3>
+      <p>
+        These Terms and any dispute or claim arising out of or in connection with
+        them or their subject matter or formation (including non-contractual disputes
+        or claims) shall be governed by and construed in accordance with the laws of
+        the <strong>State of Delaware, United States of America</strong>, without
+        regard to its conflict of law provisions.
+      </p>
+      <p>
+        The United Nations Convention on Contracts for the International Sale of Goods
+        shall not apply to these Terms.
+      </p>
+
+      <h3>16.2 Dispute Resolution</h3>
+      <p>
+        Any dispute, controversy, or claim arising out of or relating to these Terms
+        or the breach, termination, or validity thereof shall be finally settled by
+        binding arbitration administered by the <strong>American Arbitration
+        Association (AAA)</strong> in accordance with its Commercial Arbitration Rules.
+      </p>
+      <p>
+        The arbitration shall be conducted in <strong>Wilmington, Delaware, United
+        States</strong>, in the English language. The arbitral tribunal shall consist
+        of one (1) arbitrator appointed in accordance with the AAA rules. The
+        arbitrator's award shall be final and binding on the parties, and judgment on
+        the award may be entered in any court having jurisdiction thereof.
+      </p>
+      <p>
+        Each party shall bear its own costs and expenses, including attorney's fees,
+        incurred in connection with the arbitration, except that the arbitrator may
+        award costs and expenses, including reasonable attorney's fees, to the
+        prevailing party.
+      </p>
+
+      <h3>16.3 Exceptions to Arbitration</h3>
+      <p>
+        Notwithstanding the foregoing, either party may seek injunctive or other
+        equitable relief in any court of competent jurisdiction to protect its
+        intellectual property rights or to prevent irreparable harm, pending the
+        outcome of arbitration.
+      </p>
+      <p>
+        If you are a consumer residing in the European Union, you may bring proceedings
+        in the courts of your Member State of residence, and nothing in these Terms
+        shall deprive you of the protection afforded to you by mandatory provisions of
+        the law of that Member State.
+      </p>
+
+      <h3>16.4 Class Action Waiver</h3>
+      <p>
+        TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, YOU AND POWERDUCK LIMITED
+        AGREE THAT ANY DISPUTE RESOLUTION PROCEEDINGS WILL BE CONDUCTED ONLY ON AN
+        INDIVIDUAL BASIS AND NOT IN A CLASS, CONSOLIDATED, OR REPRESENTATIVE ACTION.
+        IF FOR ANY REASON A CLAIM PROCEEDS IN COURT RATHER THAN IN ARBITRATION, YOU
+        AND POWERDUCK LIMITED WAIVE ANY RIGHT TO A JURY TRIAL AND AGREE THAT PROCEEDINGS
+        WILL BE CONDUCTED ONLY ON AN INDIVIDUAL BASIS AND NOT IN A CLASS, CONSOLIDATED,
+        OR REPRESENTATIVE ACTION.
+      </p>
+
+      <h2 id="misc">17. Miscellaneous</h2>
+      <h3>17.1 Entire Agreement</h3>
+      <p>
+        These Terms, together with our <a href="privacy.html">Privacy Policy</a>,
+        <a href="refunds.html">Refund Policy</a>, and
+        <a href="cookie.html">Cookie Notice</a>, constitute the entire agreement
+        between you and Powerduck Limited regarding the Services and supersede all
+        prior or contemporaneous agreements, representations, warranties, and
+        understandings, whether written or oral, relating to the Services.
+      </p>
+
+      <h3>17.2 Severability</h3>
+      <p>
+        If any provision of these Terms is held to be invalid, illegal, or
+        unenforceable by a court of competent jurisdiction, the remaining provisions
+        shall remain in full force and effect. The invalid, illegal, or unenforceable
+        provision shall be modified to the minimum extent necessary to make it valid,
+        legal, and enforceable while preserving the intent of the parties.
+      </p>
+
+      <h3>17.3 Waiver</h3>
+      <p>
+        No waiver of any provision of these Terms shall be deemed a further or
+        continuing waiver of such provision or any other provision, and our failure to
+        assert any right or provision under these Terms shall not constitute a waiver
+        of such right or provision.
+      </p>
+
+      <h3>17.4 Assignment</h3>
+      <p>
+        You may not assign or transfer these Terms, in whole or in part, without our
+        prior written consent. We may assign or transfer these Terms, in whole or in
+        part, to any affiliate, successor, or acquirer in connection with a merger,
+        acquisition, reorganization, or sale of assets, without your consent.
+      </p>
+
+      <h3>17.5 Notices</h3>
+      <p>
+        We may provide notices to you via email, regular mail, or postings on the
+        Services. You agree that all notices, agreements, and other communications that
+        we provide to you electronically satisfy any legal requirement that such
+        communications be in writing.
+      </p>
+
+      <h3>17.6 Force Majeure</h3>
+      <p>
+        We shall not be liable for any failure or delay in performing our obligations
+        under these Terms due to causes beyond our reasonable control, including but
+        not limited to acts of God, war, terrorism, riots, embargoes, acts of civil
+        or military authorities, fire, floods, accidents, strikes, or shortages of
+        transportation, facilities, fuel, energy, labor, or materials.
+      </p>
+
+      <h3>17.7 No Third-Party Beneficiaries</h3>
+      <p>
+        These Terms are for the sole benefit of the parties and their respective
+        successors and permitted assigns, and nothing herein, express or implied, is
+        intended to or shall confer upon any other person or entity any legal or
+        equitable right, benefit, or remedy of any nature whatsoever.
+      </p>
+
+      <h2 id="contact">18. Contact</h2>
+      <p>
+        If you have any questions about these Terms, please contact us at:
+      </p>
+      <p>
+        <strong>Powerduck Limited</strong><br>
+        Email: <a href="mailto:contact@neatico.com">contact@neatico.com</a><br>
+        Website: <a href="https://www.powerduck.com">https://www.powerduck.com</a>
+      </p>
+      <p>
+        We will respond to all inquiries within 2 business days.
+      </p>
+    </article>
+    </main>
+  <footer class="site-footer">
+  <div class="footer-shell">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" aria-label="Powerduck home">
+          <img src="assets/images/logo.svg" alt="Powerduck logo" class="brand-logo" />
+          <span>Powerduck</span>
+        </a>
+        <p>Building developer tools for the modern API workflow. Open source, production-ready, and community-driven.</p>
+      </div>
+      <div class="footer-column">
+        <h6>Product</h6>
+        <ul>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#opensource">Open Source</a></li>
+          <li><a href="opensource/md-editor.html">MD Editor</a></li>
+          <li><a href="opensource/openapi-cli.html">OpenAPI CLI</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>Documentation</h6>
+        <ul>
+          <li><a href="index.html#features">Getting Started</a></li>
+          <li><a href="index.html#api-docs">API Reference</a></li>
+          <li><a href="opensource/openapi-parser.html">OpenAPI Parser</a></li>
+          <li><a href="opensource/md-editor.html">MD Editor</a></li>
+          <li><a href="opensource/openapi-cli.html">CLI Tools</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>Resources</h6>
+        <ul>
+          <li><a href="https://github.com/Powerduckie" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.npmjs.com/search?q=%40powerduck" target="_blank" rel="noopener noreferrer">npm Packages</a></li>
+          <li><a href="mailto:contact@neatico.com">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>Legal</h6>
+        <ul>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="refunds.html">Refund Policy</a></li>
+          <li><a href="cookie.html">Cookie Notice</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 POWERDUCK LIMITED. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="cookie.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="assets/js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("powerduck-theme");
+        var theme = saved === "light" || saved === "dark"
+          ? saved
+          : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <title>Privacy Policy — Powerduck</title>
+    <meta name="description" content="Privacy Policy for Powerduck website and open source projects. Learn how we collect, use, and protect your personal information." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.powerduck.com/privacy.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Powerduck" />
+    <meta property="og:title" content="Privacy Policy — Powerduck" />
+    <meta property="og:description" content="Privacy Policy for Powerduck website and open source projects. Learn how we collect, use, and protect your personal information." />
+    <meta property="og:url" content="https://www.powerduck.com/privacy.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Privacy Policy — Powerduck" />
+    <meta name="twitter:description" content="Privacy Policy for Powerduck website and open source projects. Learn how we collect, use, and protect your personal information." />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0b0f14"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="stylesheet" href="assets/css/common.css" />
+  </head>
+  <body>
+    <header class="site-header"><div class="nav-inner">
+    <a href="index.html" class="brand" aria-label="Powerduck home">
+      <img src="assets/images/logo.svg" alt="Powerduck logo" class="brand-logo" />
+      <span>Powerduck</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+                <li><a href="index.html#spec-editor">Spec Editor</a></li>
+        <li><a href="index.html#api-debug">API Debug</a></li>
+        <li><a href="index.html#mcp-server">MCP Server</a></li>
+        <li><a href="index.html#api-docs">API Docs</a></li>
+        <li><a href="index.html#licensing">Licensing</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Open Source <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <div class="dropdown-section-title">Open Source Libraries</div><a class="dropdown-item" href="opensource/md-editor.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/md-editor</span><span class="pkg-desc">Embeddable Markdown editor with math, mindmaps & code highlighting</span></div></a><a class="dropdown-item" href="opensource/conf-patch.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/conf-patch</span><span class="pkg-desc">Two-layer config editor with OpenAPI validation & atomic writes</span></div></a><a class="dropdown-item" href="opensource/openapi-cli.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-cli</span><span class="pkg-desc">CI-ready CLI for batch-testing OpenAPI across 6 protocols</span></div></a><a class="dropdown-item" href="opensource/openapi-codegen.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-codegen</span><span class="pkg-desc">Generate runnable HTTP code from OpenAPI (21 languages)</span></div></a><a class="dropdown-item" href="opensource/openapi-mcp-server.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-mcp-server</span><span class="pkg-desc">Turn OpenAPI specs into production MCP servers with Web UI</span></div></a><a class="dropdown-item" href="opensource/openapi-request.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-request</span><span class="pkg-desc">OpenAPI 3.2 collection debugger with HTTP/SSE/WebSocket</span></div></a><a class="dropdown-item" href="opensource/x-to-openapi.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/x-to-openapi</span><span class="pkg-desc">Convert cURL commands & Postman collections to OpenAPI 3.2</span></div></a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn-docs" href="index.html#api-docs" aria-label="Powerduck documentation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg><span>Docs</span></a>
+      <a class="btn-github" href="https://github.com/Powerduckie" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg><span class="gh-text">GitHub</span></a>
+      <button class="nav-icon-btn theme-toggle" data-theme-toggle title="Toggle color theme" aria-label="Toggle color theme"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+    </div>
+  </div></header>
+    <main>
+<section class="legal-hero">
+      <div class="container">
+        <p class="legal-kicker">Legal</p>
+        <h1>Privacy Policy</h1>
+        <p>
+          How we collect, use, store, and protect your personal information when
+          you use Powerduck and Powerduck Cloud.
+        </p>
+        <p class="legal-updated">Last updated: September 10, 2026</p>
+      </div>
+    </section>
+
+    <article class="legal-content">
+      <div class="legal-toc">
+        <h4>On this page</h4>
+        <ol>
+          <li><a href="#controller">Data Controller</a></li>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#collect">Information We Collect</a></li>
+          <li><a href="#use">How We Use Your Information</a></li>
+          <li><a href="#legal-basis">Legal Basis for Processing</a></li>
+          <li><a href="#sharing">Information Sharing</a></li>
+          <li><a href="#retention">Data Retention</a></li>
+          <li><a href="#security">Security</a></li>
+          <li><a href="#rights">Your Rights</a></li>
+          <li><a href="#international">International Data Transfers</a></li>
+          <li><a href="#cookies">Cookies &amp; Tracking</a></li>
+          <li><a href="#children">Children's Privacy</a></li>
+          <li><a href="#ccpa">California Privacy Rights</a></li>
+          <li><a href="#changes">Changes to This Policy</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ol>
+      </div>
+
+      <h2 id="controller">1. Data Controller</h2>
+      <p>
+        The data controller responsible for your personal information under this
+        Privacy Policy is:
+      </p>
+      <p>
+        <strong>Powerduck Limited</strong><br>
+        Email: <a href="mailto:contact@neatico.com">contact@neatico.com</a><br>
+        Website: <a href="https://www.powerduck.com">https://www.powerduck.com</a>
+      </p>
+      <p>
+        For the purposes of the General Data Protection Regulation (GDPR) and
+        applicable UK data protection laws, Powerduck Limited is the data
+        controller of your personal information. We have not appointed a Data
+        Protection Officer (DPO) as we are not required to do so under applicable
+        law. However, all privacy inquiries should be directed to
+        <a href="mailto:contact@neatico.com">contact@neatico.com</a>.
+      </p>
+
+      <h2 id="overview">2. Overview</h2>
+      <p>
+        Powerduck ("we", "us", "our") respects your privacy and is committed to
+        protecting your personal information. This Privacy Policy explains what
+        information we collect when you use Powerduck (the open-source library)
+        and Powerduck Cloud (the hosted service), how we use it, and the choices
+        you have.
+      </p>
+      <p>
+        <strong>Important:</strong> The open-source editor itself does not collect
+        any data. When you embed the editor in your own application, all content
+        stays on your servers and devices. This policy primarily applies to
+        Powerduck Cloud and our website.
+      </p>
+      <p>
+        This policy applies to all users of our website and services, including
+        visitors, registered users, and organizations that access the Services on
+        behalf of a business entity.
+      </p>
+
+      <h2 id="collect">3. Information We Collect</h2>
+      <h3>3.1 Information You Provide</h3>
+      <ul>
+        <li><strong>Account information:</strong> name, email address, and password when you create a Powerduck Cloud account.</li>
+        <li><strong>Billing information:</strong> payment card details (processed by our payment provider Paddle, not stored on our servers), billing address, and tax identification numbers.</li>
+        <li><strong>Content:</strong> markdown documents, files, and other data you upload or create through Powerduck Cloud.</li>
+        <li><strong>Communications:</strong> messages you send to our support team or through feedback channels.</li>
+        <li><strong>Profile information:</strong> optional information such as company name, job title, and avatar.</li>
+      </ul>
+
+      <h3>3.2 Information Collected Automatically</h3>
+      <ul>
+        <li><strong>Log data:</strong> IP address, browser type, operating system, referring URLs, pages visited, and timestamps.</li>
+        <li><strong>Usage data:</strong> features used, document counts, and performance metrics to help us improve the service.</li>
+        <li><strong>Device information:</strong> device type, screen resolution, and language settings.</li>
+        <li><strong>Cookies and similar technologies:</strong> as described in our <a href="cookie.html">Cookie Notice</a>.</li>
+      </ul>
+
+      <h3>3.3 Information from Third Parties</h3>
+      <p>
+        We may receive information about you from third parties, including:
+      </p>
+      <ul>
+        <li><strong>Payment providers:</strong> Paddle may provide us with transaction information, billing address, and tax details.</li>
+        <li><strong>Analytics providers:</strong> aggregated and anonymized usage data from analytics services.</li>
+        <li><strong>Authentication providers:</strong> if you sign in using a third-party service, we may receive your name and email address from that provider.</li>
+      </ul>
+
+      <h2 id="use">4. How We Use Your Information</h2>
+      <p>We use the information we collect for the following purposes:</p>
+      <ul>
+        <li><strong>To provide and maintain the Service:</strong> including creating accounts, processing transactions, and delivering features.</li>
+        <li><strong>To process payments:</strong> including managing subscriptions, invoicing, and collecting applicable taxes.</li>
+        <li><strong>To authenticate users and secure accounts:</strong> including verifying your identity and preventing unauthorized access.</li>
+        <li><strong>To improve the Service:</strong> including analyzing usage patterns, fixing bugs, and developing new features.</li>
+        <li><strong>To communicate with you:</strong> including sending service-related notifications, billing confirmations, security alerts, and support responses.</li>
+        <li><strong>To personalize your experience:</strong> including remembering your preferences and settings.</li>
+        <li><strong>To comply with legal obligations:</strong> including responding to legal requests and enforcing our Terms of Service.</li>
+        <li><strong>To prevent fraud and abuse:</strong> including monitoring for suspicious activity and protecting our users and services.</li>
+      </ul>
+      <p>
+        <strong>We do not sell your personal information</strong> to third parties
+        for commercial purposes. We do not use your personal information for
+        targeted advertising.
+      </p>
+
+      <h2 id="legal-basis">5. Legal Basis for Processing (GDPR)</h2>
+      <p>
+        Under the GDPR, we rely on the following legal bases for processing your
+        personal information:
+      </p>
+      <ul>
+        <li><strong>Contractual necessity (Article 6(1)(b)):</strong> processing is necessary for the performance of our contract with you, including providing the Service, processing payments, and maintaining your account.</li>
+        <li><strong>Legitimate interests (Article 6(1)(f)):</strong> processing is necessary for our legitimate interests, including improving the Service, ensuring security, preventing fraud, and communicating with you about updates.</li>
+        <li><strong>Consent (Article 6(1)(a)):</strong> where we rely on your consent, such as for non-essential cookies and marketing communications. You may withdraw your consent at any time.</li>
+        <li><strong>Legal obligation (Article 6(1)(c)):</strong> processing is necessary for compliance with a legal obligation, including tax reporting, accounting, and responding to legal requests.</li>
+      </ul>
+
+      <h2 id="sharing">6. Information Sharing</h2>
+      <p>We may share your information with the following categories of recipients:</p>
+      <h3>6.1 Service Providers</h3>
+      <p>
+        We share information with third-party service providers who help us operate
+        the Service. These providers are contractually required to protect your
+        data and may only process it on our behalf and in accordance with our
+        instructions.
+      </p>
+      <ul>
+        <li><strong>Payment processors:</strong> Paddle (billing, invoicing, tax collection, refund processing).</li>
+        <li><strong>Hosting providers:</strong> cloud infrastructure providers who host our servers and data.</li>
+        <li><strong>Analytics services:</strong> privacy-friendly analytics providers who help us understand usage patterns.</li>
+        <li><strong>Email service providers:</strong> providers who help us send transactional and support emails.</li>
+        <li><strong>Customer support tools:</strong> providers who help us manage support tickets and communications.</li>
+      </ul>
+
+      <h3>6.2 Legal Authorities</h3>
+      <p>
+        We may disclose your information when required by law, court order, or
+        government request, or when we believe in good faith that disclosure is
+        necessary to:
+      </p>
+      <ul>
+        <li>Comply with applicable laws, regulations, or legal process.</li>
+        <li>Protect our rights, property, or safety, or that of our users or the public.</li>
+        <li>Detect, prevent, or address fraud, security, or technical issues.</li>
+        <li>Enforce our Terms of Service or other agreements.</li>
+      </ul>
+
+      <h3>6.3 Business Transfers</h3>
+      <p>
+        In the event of a merger, acquisition, reorganization, or sale of assets,
+        your personal information may be transferred as part of that transaction.
+        We will notify you before your personal information is transferred and
+        becomes subject to a different privacy policy.
+      </p>
+
+      <h3>6.4 With Your Consent</h3>
+      <p>
+        We may share your information with third parties when you have given us
+        explicit consent to do so.
+      </p>
+
+      <h2 id="retention">7. Data Retention</h2>
+      <p>
+        We retain your personal information only for as long as necessary to
+        fulfill the purposes for which it was collected, including for the
+        purposes of satisfying any legal, accounting, or reporting requirements.
+      </p>
+      <table style="width:100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--line);">
+            <th style="text-align: left; padding: 8px 12px;">Category of Data</th>
+            <th style="text-align: left; padding: 8px 12px;">Retention Period</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--line);">
+            <td style="padding: 8px 12px;">Account information</td>
+            <td style="padding: 8px 12px;">For the duration of your account, plus 30 days after deletion</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--line);">
+            <td style="padding: 8px 12px;">Billing and transaction records</td>
+            <td style="padding: 8px 12px;">7 years (as required by tax and accounting laws)</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--line);">
+            <td style="padding: 8px 12px;">Content (documents, files)</td>
+            <td style="padding: 8px 12px;">For the duration of your account, plus 30 days after deletion</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--line);">
+            <td style="padding: 8px 12px;">Log and usage data</td>
+            <td style="padding: 8px 12px;">12 months (anonymized after 90 days)</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--line);">
+            <td style="padding: 8px 12px;">Support communications</td>
+            <td style="padding: 8px 12px;">3 years after the last communication</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 12px;">Marketing communications</td>
+            <td style="padding: 8px 12px;">Until you opt out or unsubscribe</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        When we no longer need your personal information, we will securely delete
+        or anonymize it in accordance with applicable law.
+      </p>
+
+      <h2 id="security">8. Security</h2>
+      <p>
+        We implement appropriate technical and organizational measures to protect
+        your personal information against unauthorized access, alteration,
+        disclosure, or destruction. These measures include:
+      </p>
+      <ul>
+        <li><strong>Encryption in transit:</strong> all data transmitted between your browser and our servers is encrypted using TLS 1.2 or later.</li>
+        <li><strong>Encryption at rest:</strong> sensitive data is encrypted using industry-standard encryption algorithms.</li>
+        <li><strong>Access controls:</strong> access to personal information is restricted to authorized personnel who need it to perform their duties.</li>
+        <li><strong>Regular security audits:</strong> we conduct regular security assessments and penetration testing.</li>
+        <li><strong>Data minimization:</strong> we collect only the information necessary to provide the Service.</li>
+        <li><strong>Secure payment processing:</strong> payment card data is processed by Paddle and never stored on our servers.</li>
+      </ul>
+      <p>
+        Despite these measures, no method of transmission over the Internet or
+        electronic storage is 100% secure. While we strive to use commercially
+        acceptable means to protect your personal information, we cannot guarantee
+        its absolute security.
+      </p>
+
+      <h2 id="rights">9. Your Rights (GDPR)</h2>
+      <p>
+        If you are a resident of the European Economic Area (EEA) or the United
+        Kingdom, you have the following rights under the GDPR and UK GDPR:
+      </p>
+      <ul>
+        <li><strong>Right of access (Article 15):</strong> you have the right to obtain a copy of the personal information we hold about you.</li>
+        <li><strong>Right to rectification (Article 16):</strong> you have the right to request correction of inaccurate or incomplete personal information.</li>
+        <li><strong>Right to erasure (Article 17):</strong> you have the right to request deletion of your personal information, where we no longer have a legitimate reason to process it.</li>
+        <li><strong>Right to restriction of processing (Article 18):</strong> you have the right to request restriction of processing in certain circumstances.</li>
+        <li><strong>Right to data portability (Article 20):</strong> you have the right to receive your personal information in a structured, commonly used, and machine-readable format, or to request transfer to another controller.</li>
+        <li><strong>Right to object (Article 21):</strong> you have the right to object to processing based on our legitimate interests or for direct marketing purposes.</li>
+        <li><strong>Right to withdraw consent (Article 7(3)):</strong> where we rely on your consent, you have the right to withdraw it at any time.</li>
+        <li><strong>Right to lodge a complaint (Article 77):</strong> you have the right to lodge a complaint with your local data protection authority.</li>
+      </ul>
+      <p>
+        To exercise any of these rights, please contact us at
+        <a href="mailto:contact@neatico.com">contact@neatico.com</a>. We will
+        respond to your request within <strong>30 days</strong>. There is no fee
+        for exercising your rights, unless your request is excessive, repetitive,
+        or manifestly unfounded, in which case we may charge a reasonable fee.
+      </p>
+
+      <h2 id="international">10. International Data Transfers</h2>
+      <p>
+        Your personal information may be transferred to, and processed in,
+        countries other than the country in which you reside. These countries may
+        have data protection laws that differ from, and in some cases may be less
+        protective than, the laws of your country.
+      </p>
+      <p>
+        When we transfer personal information from the EEA or UK to countries that
+        have not been deemed adequate by the European Commission or UK Secretary of
+        State, we use appropriate safeguards to ensure an adequate level of
+        protection, including:
+      </p>
+      <ul>
+        <li><strong>Standard Contractual Clauses (SCCs):</strong> we use the European Commission's Standard Contractual Clauses for transfers to third countries.</li>
+        <li><strong>Data Processing Agreements (DPAs):</strong> we enter into DPAs with our service providers that include appropriate data protection safeguards.</li>
+        <li><strong>Encryption and security measures:</strong> we implement technical measures to protect personal information during transfer and storage.</li>
+      </ul>
+      <p>
+        For more information about international data transfers or to obtain a copy
+        of the relevant safeguards, please contact us at
+        <a href="mailto:contact@neatico.com">contact@neatico.com</a>.
+      </p>
+
+      <h2 id="cookies">11. Cookies &amp; Tracking</h2>
+      <p>
+        We use cookies and similar technologies to collect information about how you
+        interact with our website and services. For detailed information about the
+        cookies we use, their purposes, and how to control them, please see our
+        <a href="cookie.html">Cookie Notice</a>.
+      </p>
+      <p>
+        You can control cookies through your browser settings. Most browsers allow
+        you to refuse or accept cookies, delete existing cookies, and set
+        preferences for certain websites. Please note that disabling essential
+        cookies may affect the functionality of our website.
+      </p>
+
+      <h2 id="children">12. Children's Privacy</h2>
+      <p>
+        Our Service is not intended for children under the age of 16, and we do
+        not knowingly collect personal information from children under 16. If we
+        become aware that we have collected personal information from a child under
+        16, we will take steps to delete that information as soon as possible.
+      </p>
+      <p>
+        If you are a parent or guardian and believe that your child has provided us
+        with personal information, please contact us at
+        <a href="mailto:contact@neatico.com">contact@neatico.com</a>.
+      </p>
+
+      <h2 id="ccpa">13. California Privacy Rights (CCPA/CPRA)</h2>
+      <p>
+        If you are a resident of California, you have the following rights under
+        the California Consumer Privacy Act (CCPA), as amended by the California
+        Privacy Rights Act (CPRA):
+      </p>
+      <ul>
+        <li><strong>Right to know:</strong> you have the right to request information about the personal information we collect, use, and disclose about you.</li>
+        <li><strong>Right to delete:</strong> you have the right to request deletion of your personal information, subject to certain exceptions.</li>
+        <li><strong>Right to opt out of sale:</strong> we do not sell your personal information. If we were to do so in the future, you would have the right to opt out.</li>
+        <li><strong>Right to correct:</strong> you have the right to request correction of inaccurate personal information.</li>
+        <li><strong>Right to limit use:</strong> you have the right to limit the use of sensitive personal information.</li>
+        <li><strong>Right to non-discrimination:</strong> we will not discriminate against you for exercising your CCPA rights.</li>
+      </ul>
+      <p>
+        To exercise any of these rights, please contact us at
+        <a href="mailto:contact@neatico.com">contact@neatico.com</a>. We will
+        verify your identity before responding to your request.
+      </p>
+
+      <h2 id="changes">14. Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time to reflect changes in
+        our practices or for other operational, legal, or regulatory reasons. We
+        will notify you of any material changes by posting the updated policy on
+        this page and updating the "Last updated" date at the top of this page.
+        For significant changes, we may also send you an email notification or
+        display a prominent notice on our website.
+      </p>
+      <p>
+        We encourage you to review this Privacy Policy periodically to stay informed
+        about how we protect your information. Your continued use of the Service
+        after the effective date of the updated policy constitutes your acceptance
+        of the changes.
+      </p>
+
+      <h2 id="contact">15. Contact</h2>
+      <p>
+        If you have any questions, concerns, or requests regarding this Privacy
+        Policy or our data practices, please contact us at:
+      </p>
+      <p>
+        <strong>Powerduck Limited</strong><br>
+        Email: <a href="mailto:contact@neatico.com">contact@neatico.com</a><br>
+        Website: <a href="https://www.powerduck.com">https://www.powerduck.com</a>
+      </p>
+      <p>
+        We will respond to all privacy inquiries within 30 days. If you are not
+        satisfied with our response, you may have the right to lodge a complaint
+        with your local data protection authority.
+      </p>
+    </article>
+    </main>
+  <footer class="site-footer">
+  <div class="footer-shell">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" aria-label="Powerduck home">
+          <img src="assets/images/logo.svg" alt="Powerduck logo" class="brand-logo" />
+          <span>Powerduck</span>
+        </a>
+        <p>Building developer tools for the modern API workflow. Open source, production-ready, and community-driven.</p>
+      </div>
+      <div class="footer-column">
+        <h6>Product</h6>
+        <ul>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#opensource">Open Source</a></li>
+          <li><a href="opensource/md-editor.html">MD Editor</a></li>
+          <li><a href="opensource/openapi-cli.html">OpenAPI CLI</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>Documentation</h6>
+        <ul>
+          <li><a href="index.html#features">Getting Started</a></li>
+          <li><a href="index.html#api-docs">API Reference</a></li>
+          <li><a href="opensource/openapi-parser.html">OpenAPI Parser</a></li>
+          <li><a href="opensource/md-editor.html">MD Editor</a></li>
+          <li><a href="opensource/openapi-cli.html">CLI Tools</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>Resources</h6>
+        <ul>
+          <li><a href="https://github.com/Powerduckie" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.npmjs.com/search?q=%40powerduck" target="_blank" rel="noopener noreferrer">npm Packages</a></li>
+          <li><a href="mailto:contact@neatico.com">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>Legal</h6>
+        <ul>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="refunds.html">Refund Policy</a></li>
+          <li><a href="cookie.html">Cookie Notice</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 POWERDUCK LIMITED. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="cookie.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="assets/js/common.js"></script>
+</body>
+</html>

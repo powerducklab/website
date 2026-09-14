@@ -1,0 +1,1824 @@
+<!doctype html>
+
+<html lang="en" data-theme="light">
+  <head>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("powerduck-theme");
+        var theme = saved === "light" || saved === "dark"
+          ? saved
+          : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link rel="canonical" href="https://www.powerduck.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Powerduck" />
+    <meta property="og:title" content="Powerduck — Open Source Developer Tools for API Workflow" />
+    <meta property="og:description" content="Powerduck builds open source developer tools for the modern API workflow. Markdown editor, OpenAPI parser, code generator, CLI, and more." />
+    <meta property="og:url" content="https://www.powerduck.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Powerduck — Open Source Developer Tools for API Workflow" />
+    <meta name="twitter:description" content="Powerduck builds open source developer tools for the modern API workflow. Markdown editor, OpenAPI parser, code generator, CLI, and more." />
+
+    <title>Powerduck — OpenAPI Editor, API Debugger & MCP Server Generator</title>
+
+    <meta
+      name="description"
+      content="A local-first OpenAPI workbench. Edit your specification, debug APIs against the contract, generate MCP servers, and publish API documentation from one source of truth."
+    />
+
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/contour.css" />
+  </head>
+
+  <body>
+    <div class="page-shell">
+      <!-- =======================================================================
+     NAV
+     ======================================================================= -->
+
+      <header class="nav">
+        <div class="nav-inner">
+          <a href="#" class="brand" aria-label="Powerduck home">
+            <img src="assets/images/logo.svg" alt="Powerduck logo" class="brand-mark" />
+
+            <span>Powerduck</span>
+          </a>
+
+          <nav class="nav-links">
+            <a href="#spec-editor">Spec Editor</a>
+            <a href="#api-debug">API Debug</a>
+            <a href="#mcp-server">MCP Server</a>
+            <a href="#api-docs">API Docs</a>
+            <a href="#licensing">Licensing</a>
+            <a href="#faq">FAQ</a>
+          <div class="nav-dropdown"><button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Open Source <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="nav-dropdown-menu" role="menu"><div class="dropdown-section-title">Open Source Libraries</div><a class="dropdown-item" href="opensource/md-editor.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/md-editor</span><span class="pkg-desc">Embeddable Markdown editor with math, mindmaps & code highlighting</span></div></a><a class="dropdown-item" href="opensource/conf-patch.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/conf-patch</span><span class="pkg-desc">Two-layer config editor with OpenAPI validation & atomic writes</span></div></a><a class="dropdown-item" href="opensource/openapi-cli.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-cli</span><span class="pkg-desc">CI-ready CLI for batch-testing OpenAPI across 6 protocols</span></div></a><a class="dropdown-item" href="opensource/openapi-codegen.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-codegen</span><span class="pkg-desc">Generate runnable HTTP code from OpenAPI (21 languages)</span></div></a><a class="dropdown-item" href="opensource/openapi-mcp-server.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-mcp-server</span><span class="pkg-desc">Turn OpenAPI specs into production MCP servers with Web UI</span></div></a><a class="dropdown-item" href="opensource/openapi-request.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-request</span><span class="pkg-desc">OpenAPI 3.2 collection debugger with HTTP/SSE/WebSocket</span></div></a><a class="dropdown-item" href="opensource/x-to-openapi.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/x-to-openapi</span><span class="pkg-desc">Convert cURL commands & Postman collections to OpenAPI 3.2</span></div></a></div></div></nav>
+
+          <div class="nav-actions">
+            <a class="btn-docs" href="#api-docs" aria-label="Powerduck documentation">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
+              <span>Docs</span>
+            </a>
+            <a class="btn-github" href="https://github.com/PowerDuckie" target="_blank" rel="noopener noreferrer" aria-label="Powerduck on GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:16px;height:16px"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span class="gh-text">GitHub</span>
+            </a>
+
+            <button
+              class="theme-toggle" data-theme-toggle id="themeToggle"
+              type="button"
+              aria-label="Toggle color theme"
+            >
+              <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none">
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="4"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+                <path
+                  d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+
+            <a class="btn btn-primary btn-sm" href="#download"> Download </a>
+          </div>
+        </div>
+      
+    <style>
+    .nav-dropdown:hover .nav-dropdown-menu { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+    .nav-dropdown:hover .chevron { transform:rotate(180deg); }
+    .nav-dropdown.open .nav-dropdown-menu { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+    </style>
+    </header>
+
+      <!-- =======================================================================
+     HERO
+     ======================================================================= -->
+
+      <section class="hero">
+        <p class="eyebrow">
+          <span class="status-dot"></span>
+          Local-first — your spec never leaves the machine
+        </p>
+
+        <h1>One <code>openapi.yaml</code>. Your entire API workbench.</h1>
+
+        <p class="hero-sub">
+          Powerduck works with the OpenAPI specification already in your repository — no migration required.
+          Edit the contract, debug APIs against it, generate MCP tools from it,
+          and publish documentation from the same source of truth.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#download"> Download Powerduck </a>
+
+          <a class="btn btn-secondary" href="#licensing">
+            Licensing &amp; evaluation
+          </a>
+        </div>
+
+        <p class="hero-micro">
+          Evaluate free for as long as you like. Buy when it sticks.
+        </p>
+
+        <p class="hero-strip">
+          macOS · Windows · Linux &nbsp;·&nbsp; OpenAPI 3.0 / 3.1 / 3.2
+          &nbsp;·&nbsp; Local-first &nbsp;·&nbsp; edits files in place
+        </p>
+      </section>
+
+      <!-- =======================================================================
+     SPEC LOADER
+     ======================================================================= -->
+
+      <section class="loader-section">
+        <form class="spec-input" onsubmit="return false;">
+          <input
+            type="url"
+            aria-label="OpenAPI specification URL"
+            placeholder="https://api.example.com/openapi.yaml"
+          />
+
+          <button class="btn btn-primary btn-sm" type="submit">
+            Load spec
+          </button>
+        </form>
+
+        <div class="examples">
+          <span class="examples-label">Try:</span>
+
+          <button class="chip" type="button">Petstore</button>
+          <button class="chip" type="button">Stripe</button>
+          <button class="chip" type="button">GitHub</button>
+
+          <button class="chip chip-warning" type="button">
+            Commerce API — has issues
+          </button>
+
+          <button class="chip" type="button">Open a local file…</button>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     INTERACTIVE PRODUCT DEMO
+     ======================================================================= -->
+
+      <section class="demo-section">
+        <div class="demo-shell">
+          <div class="demo-tabs-wrap">
+            <div
+              class="demo-tabs"
+              role="tablist"
+              aria-label="Powerduck product surfaces"
+            >
+              <button
+                class="demo-tab"
+                role="tab"
+                aria-selected="true"
+                data-tab="editor"
+              >
+                Spec Editor
+              </button>
+
+              <button
+                class="demo-tab"
+                role="tab"
+                aria-selected="false"
+                data-tab="debug"
+              >
+                API Debug
+              </button>
+
+              <button
+                class="demo-tab"
+                role="tab"
+                aria-selected="false"
+                data-tab="mcp"
+              >
+                MCP Server
+              </button>
+
+              <button
+                class="demo-tab"
+                role="tab"
+                aria-selected="false"
+                data-tab="docs"
+              >
+                API Docs
+              </button>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     SPEC EDITOR
+     ================================================================ -->
+
+          <div class="stage on" id="stage-editor" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path"> ~/commerce-api/openapi.yaml </span>
+
+              <span class="pill"> OpenAPI 3.1.0 </span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill pill-warn"> 3 problems </span>
+
+              <span class="pill"> unsaved </span>
+            </div>
+
+            <div class="editor-demo">
+              <aside class="outline">
+                <div class="panel-label">Outline</div>
+
+                <div class="tree-row indent-1">▾ info</div>
+                <div class="tree-row indent-3">title</div>
+                <div class="tree-row indent-3">version</div>
+                <div class="tree-row indent-3">contact</div>
+
+                <div class="tree-row indent-3">
+                  license
+                  <span class="flag">⚠</span>
+                </div>
+
+                <div class="tree-row indent-1">▸ servers</div>
+
+                <div class="tree-row indent-1">▾ paths</div>
+
+                <div class="tree-row indent-2">▾ /auth/login</div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag post">POST</span>
+                  loginUser
+                </div>
+
+                <div class="tree-row indent-2">▾ /users</div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag get">GET</span>
+                  listUsers
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag post">POST</span>
+                  createUser
+                </div>
+
+                <div class="tree-row indent-2">▾ /users/{id}</div>
+
+                <div class="tree-row indent-4 active">
+                  <span class="method-tag get">GET</span>
+                  getUser
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag put">PUT</span>
+                  updateUser
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag delete">DEL</span>
+                  deleteUser
+                </div>
+
+                <div class="tree-row indent-2">▾ /orders</div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag get">GET</span>
+                  listOrders
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag post">POST</span>
+                  createOrder
+                </div>
+
+                <div class="tree-row indent-1">▾ components</div>
+
+                <div class="tree-row indent-2">▸ schemas (14)</div>
+
+                <div class="tree-row indent-2">▸ responses (6)</div>
+
+                <div class="tree-row indent-2">▸ parameters (4)</div>
+
+                <div class="tree-row indent-2">▸ securitySchemes (2)</div>
+              </aside>
+
+              <div class="editor-main">
+                <div class="code-area">
+                  <div class="code-line" style="--lvl: 0">
+                    <span class="code-number">142</span>
+                    <span class="code-content">
+                      <span class="syntax-key">/users/{id}:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 1">
+                    <span class="code-number">143</span>
+                    <span class="code-content">
+                      <span class="syntax-key">get:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line highlight" style="--lvl: 2">
+                    <span class="code-number">144</span>
+                    <span class="code-content">
+                      <span class="syntax-key">operationId:</span>
+                      <span class="syntax-string">getUser</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">145</span>
+                    <span class="code-content">
+                      <span class="syntax-key">summary:</span>
+                      <span class="syntax-string">Retrieve a user</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">146</span>
+                    <span class="code-content">
+                      <span class="syntax-key">tags:</span>
+                      [<span class="syntax-string">Users</span>]
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">147</span>
+                    <span class="code-content">
+                      <span class="syntax-key">parameters:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 3">
+                    <span class="code-number">148</span>
+                    <span class="code-content">
+                      <span class="syntax-key">- $ref:</span>
+                      <span class="syntax-string"
+                        >'#/components/parameters/UserId'</span
+                      >
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">149</span>
+                    <span class="code-content">
+                      <span class="syntax-key">responses:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 3">
+                    <span class="code-number">150</span>
+                    <span class="code-content">
+                      <span class="syntax-number">'200':</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 4">
+                    <span class="code-number">151</span>
+                    <span class="code-content">
+                      <span class="syntax-key">description:</span>
+                      <span class="syntax-string">The requested user</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 4">
+                    <span class="code-number">152</span>
+                    <span class="code-content">
+                      <span class="syntax-key">content:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 5">
+                    <span class="code-number">153</span>
+                    <span class="code-content">
+                      <span class="syntax-key">application/json:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 6">
+                    <span class="code-number">154</span>
+                    <span class="code-content">
+                      <span class="syntax-key">schema:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 7">
+                    <span class="code-number">155</span>
+                    <span class="code-content">
+                      <span class="syntax-key">$ref:</span>
+                      <span class="syntax-string"
+                        >'#/components/schemas/User'</span
+                      >
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 3">
+                    <span class="code-number error">156</span>
+                    <span class="code-content">
+                      <span class="syntax-number">'404':</span>
+                      <span class="syntax-comment"
+                        ># description is required</span
+                      >
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 4">
+                    <span class="code-number">157</span>
+                    <span class="code-content">
+                      <span class="squiggle syntax-key">contents:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 5">
+                    <span class="code-number">158</span>
+                    <span class="code-content">
+                      <span class="syntax-key">application/json:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 6">
+                    <span class="code-number">159</span>
+                    <span class="code-content">
+                      <span class="syntax-key">schema:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 7">
+                    <span class="code-number">160</span>
+                    <span class="code-content">
+                      <span class="syntax-key">$ref:</span>
+                      <span class="squiggle syntax-string"
+                        >'#/components/schemas/Erorr'</span
+                      >
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 1">
+                    <span class="code-number">161</span>
+                    <span class="code-content">
+                      <span class="syntax-key">delete:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number error">162</span>
+                    <span class="code-content">
+                      <span class="syntax-key">summary:</span>
+                      <span class="syntax-string">Delete a user</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="problems">
+                  <div class="problems-head">
+                    <strong>Problems</strong>
+                    <span>2 errors · 1 warning</span>
+                    <span class="pill">validated against 3.1 dialect</span>
+                  </div>
+
+                  <div class="problem-row">
+                    <span class="problem-location">156:9</span>
+                    <span class="problem-message">
+                      <strong>contents</strong> is not a valid Response Object
+                      key. Did you mean <strong>content</strong>?
+                    </span>
+                    <span class="problem-rule">oas3-schema</span>
+                  </div>
+
+                  <div class="problem-row">
+                    <span class="problem-location">160:24</span>
+                    <span class="problem-message">
+                      Unresolved <strong>$ref</strong> —
+                      <code>schemas/Erorr</code> does not exist.
+                    </span>
+                    <span class="problem-rule">ref-resolution</span>
+                  </div>
+
+                  <div class="problem-row">
+                    <span class="problem-location">162:7</span>
+                    <span class="problem-message">
+                      Operation has no <strong>operationId</strong>. It will be
+                      skipped when generating MCP tools.
+                    </span>
+                    <span class="problem-rule">operation-operationId</span>
+                  </div>
+                </div>
+
+                <div class="status-bar">
+                  <span>Ln 156, Col 9</span>
+                  <span>YAML</span>
+                  <span>UTF-8</span>
+                  <span>Spaces: 2</span>
+                  <span>3.1.0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     API DEBUG
+     ================================================================ -->
+
+          <div class="stage" id="stage-debug" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path">
+                Collections generated from openapi.yaml
+              </span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill"> Postman import </span>
+
+              <span class="pill pill-ok"> contract checks on </span>
+            </div>
+
+            <div class="debug-demo">
+              <aside class="collection">
+                <div class="panel-label">Commerce API</div>
+
+                <div class="collection-row">▾ Auth</div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag post">POST</span>
+                  loginUser
+                </div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag post">POST</span>
+                  refreshToken
+                </div>
+
+                <div class="collection-row">▾ Users</div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag get">GET</span>
+                  listUsers
+                </div>
+
+                <div class="collection-row indent-3 active">
+                  <span class="method-tag get">GET</span>
+                  getUser
+                </div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag put">PUT</span>
+                  updateUser
+                </div>
+
+                <div class="collection-row">▾ Orders</div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag get">GET</span>
+                  listOrders
+                </div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag post">POST</span>
+                  createOrder
+                </div>
+              </aside>
+
+              <div class="request-pane">
+                <div class="url-bar">
+                  <span class="http-method">GET ▾</span>
+
+                  <div class="request-url">
+                    {{baseUrl}}/users/<span class="request-var">{{userId}}</span
+                    >?include=profile
+                  </div>
+
+                  <span class="environment"> Staging ▾ </span>
+
+                  <button class="btn btn-primary btn-sm">Send</button>
+                </div>
+
+                <div class="subtabs">
+                  <span class="subtab">Params <i class="badge">1</i></span>
+                  <span class="subtab">Auth <i class="badge">bearer</i></span>
+                  <span class="subtab">Headers <i class="badge">3</i></span>
+                  <span class="subtab active">Body</span>
+                  <span class="subtab">Scripts</span>
+                  <span class="subtab">Settings</span>
+                </div>
+
+                <div class="request-body">
+                  # GET has no requestBody in the specification — body
+                  disabled<br />
+                  # Path parameter id resolved from environment → userId =
+                  usr_8Kd2Xa
+                </div>
+
+                <div class="response-meta">
+                  <span class="pill pill-ok">200 OK</span>
+                  <span class="pill">148 ms</span>
+                  <span class="pill">1.2 KB</span>
+
+                  <span class="chrome-spacer"></span>
+
+                  <span class="pill pill-warn"> Contract: 1 mismatch </span>
+                </div>
+
+                <div class="subtabs">
+                  <span class="subtab active">Body</span>
+                  <span class="subtab">Headers <i class="badge">9</i></span>
+                  <span class="subtab">Cookies</span>
+                  <span class="subtab">Contract <i class="badge">1</i></span>
+                  <span class="subtab">Timeline</span>
+                </div>
+
+                <div class="response-body">
+                  <pre>{
+  <span class="syntax-key">"id"</span>: <span class="syntax-string">"usr_8Kd2Xa"</span>,
+  <span class="syntax-key">"email"</span>: <span class="syntax-string">"ada@example.com"</span>,
+  <span class="syntax-key">"created"</span>: <span class="syntax-number">1757030400</span>,
+  <span class="syntax-key">"profile"</span>: {
+    <span class="syntax-key">"name"</span>: <span class="syntax-string">"Ada L."</span>,
+    <span class="syntax-key">"locale"</span>: <span class="syntax-string">"en-GB"</span>
+  },
+  <span class="squiggle syntax-key">"scope"</span>: <span class="syntax-string">"users:read orders:read"</span>
+}</pre>
+                </div>
+
+                <div class="contract-warning">
+                  <strong>
+                    Contract mismatch — response differs from the specification
+                  </strong>
+
+                  <code>scope</code> is present in the response but is not
+                  declared on <code>components/schemas/User</code>. Add the
+                  property to the schema or remove it from the handler.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     MCP SERVER
+     ================================================================ -->
+
+          <div class="stage" id="stage-mcp" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path"> mcp://localhost:7433 </span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill pill-ok">running</span>
+              <span class="pill">stdio + HTTP</span>
+            </div>
+
+            <div class="mcp-demo">
+              <div class="mcp-header">
+                <h4>Generated from openapi.yaml</h4>
+
+                <span class="pill">6 tools</span>
+                <span class="pill">7 resources</span>
+                <span class="pill pill-warn">1 degraded</span>
+                <span class="pill pill-ok">regenerates on save</span>
+              </div>
+
+              <p class="mcp-description">
+                Every operation with an operationId becomes a tool. Arguments
+                come from parameters and requestBody. Nothing is hand-written.
+              </p>
+
+              <div class="tools-grid">
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    POST /auth/login → operationId → <strong>loginUser</strong>
+                  </div>
+
+                  <h5>loginUser</h5>
+
+                  <p>Exchange credentials for a bearer token.</p>
+
+                  <div class="arguments">
+                    <span class="argument">email : string</span>
+                    <span class="argument">password : string</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-ok">healthy</span>
+                    args from requestBody
+                  </div>
+                </div>
+
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    GET /users/{id} → operationId → <strong>getUser</strong>
+                  </div>
+
+                  <h5>getUser</h5>
+
+                  <p>Retrieve a single user by identifier.</p>
+
+                  <div class="arguments">
+                    <span class="argument">id : string</span>
+                    <span class="argument">include? : string</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-ok">healthy</span>
+                    args from 2 parameters
+                  </div>
+                </div>
+
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    POST /orders → operationId → <strong>createOrder</strong>
+                  </div>
+
+                  <h5>createOrder</h5>
+
+                  <p>Create an order for the authenticated customer.</p>
+
+                  <div class="arguments">
+                    <span class="argument">items : array</span>
+                    <span class="argument">currency : string</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-ok">healthy</span>
+                    args from requestBody
+                  </div>
+                </div>
+
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    POST /orders/{id}/refund → operationId →
+                    <strong>refundOrder</strong>
+                  </div>
+
+                  <h5>refundOrder</h5>
+
+                  <p>Refund an order in full or in part.</p>
+
+                  <div class="arguments">
+                    <span class="argument">id : string</span>
+                    <span class="argument">amount? : integer</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-warn">degraded</span>
+                    amount has no description
+                  </div>
+                </div>
+              </div>
+
+              <div class="mcp-log">
+                <span class="log-time">14:02:11</span> watch openapi.yaml
+                changed <span class="log-time">(line 144)</span><br />
+                <span class="log-time">14:02:11</span> build parsed 3.1.0 · 11
+                operations · 14 schemas<br />
+                <span class="log-time">14:02:11</span> build
+                <span class="log-ok">6 tools</span>, 7 resources ·
+                <span class="log-warn">1 skipped (no operationId)</span><br />
+                <span class="log-time">14:02:12</span> serve listening on stdio
+                and http://localhost:7433<br />
+                <span class="log-time">14:02:31</span> call
+                <span class="log-ok">getUser</span> { id: "usr_8Kd2Xa" } → 200
+                in 148 ms
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     API DOCS
+     ================================================================ -->
+
+          <div class="stage" id="stage-docs" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path">
+                docs.example.dev/reference/users/get
+              </span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill">static export</span>
+              <span class="pill pill-ok">in sync with spec</span>
+            </div>
+
+            <div class="docs-demo">
+              <aside class="docs-nav">
+                <div class="docs-group">Getting started</div>
+
+                <a href="#">Introduction</a>
+                <a href="#">Authentication</a>
+                <a href="#">Errors</a>
+                <a href="#">Pagination</a>
+
+                <div class="docs-group">Core resources</div>
+
+                <a href="#">Users</a>
+                <a href="#" class="active">Retrieve a user</a>
+                <a href="#">List users</a>
+                <a href="#">Update a user</a>
+                <a href="#">Orders</a>
+                <a href="#">Refunds</a>
+              </aside>
+
+              <main class="docs-main">
+                <h3>Retrieve a user</h3>
+
+                <p class="endpoint-path">GET /v1/users/{id}</p>
+
+                <p class="docs-lede">
+                  Returns the user object for a valid identifier. If the user
+                  has been deleted, an Error object is returned with status 404.
+                </p>
+
+                <div class="docs-heading">Path parameters</div>
+
+                <div class="parameter-list">
+                  <div class="parameter">
+                    <div>
+                      <span class="parameter-name">id</span>
+                      <span class="parameter-type">string</span>
+                      <span class="required">Required</span>
+                    </div>
+
+                    <div class="parameter-description">
+                      The identifier of the user, prefixed with
+                      <code>usr_</code>.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="docs-heading">Query parameters</div>
+
+                <div class="parameter-list">
+                  <div class="parameter">
+                    <div>
+                      <span class="parameter-name">include</span>
+                      <span class="parameter-type">string</span>
+                    </div>
+
+                    <div class="parameter-description">
+                      Expand a related object.
+                    </div>
+                  </div>
+                </div>
+              </main>
+
+              <aside class="code-panel">
+                <div class="languages">
+                  <span class="language active">cURL</span>
+                  <span class="language">Node</span>
+                  <span class="language">Python</span>
+                  <span class="language">Go</span>
+                </div>
+
+                <div class="code-panel-title">Request</div>
+
+                <div class="code-box">
+                  <pre><span class="cmd">curl</span> https://api.example.dev/v1/users/usr_8Kd2Xa \
+  <span class="flag-code">-H</span> <span class="string-code">"Authorization: Bearer $API_KEY"</span> \
+  <span class="flag-code">-G</span> <span class="flag-code">-d</span> <span class="string-code">include=profile</span></pre>
+                </div>
+
+                <div class="code-panel-title">Response</div>
+
+                <div class="code-box">
+                  <pre>{
+  <span class="key-code">"id"</span>: <span class="string-code">"usr_8Kd2Xa"</span>,
+  <span class="key-code">"email"</span>: <span class="string-code">"ada@example.com"</span>,
+  <span class="key-code">"created"</span>: <span class="number-code">1757030400</span>
+}</pre>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: SPEC EDITOR
+     ======================================================================= -->
+
+      <section class="feature-section" id="spec-editor">
+        <div class="section-shell">
+          <div class="feature-layout">
+            <div class="feature-copy">
+              <p class="section-kicker">OpenAPI spec editor</p>
+
+              <h2 class="section-title">OpenAPI Spec Editor</h2>
+
+              <p class="section-deck">
+                The outline follows the specification's real structure, not a
+                guess based on indentation. Navigate paths and components as a
+                tree, and fix errors where they live.
+              </p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong>Schema-aware validation.</strong>
+                  Validate against the 3.0, 3.1 or 3.2 dialect your file
+                  actually declares.
+                </li>
+
+                <li>
+                  <strong>Resolved $ref navigation.</strong>
+                  Jump to definitions, inspect usages, and get suggestions for
+                  misspelled references.
+                </li>
+
+                <li>
+                  <strong>Edits in place.</strong>
+                  Your repository remains the source of truth.
+                </li>
+
+                <li>
+                  <strong>Problems with rule names.</strong>
+                  CI failures and editor diagnostics speak the same vocabulary.
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-preview mini-spec-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"> openapi.yaml </span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill pill-warn"> 3 problems </span>
+              </div>
+
+              <div class="preview-body mini-editor">
+                <div class="mini-tree">
+                  <div class="mini-tree-row">▾ info</div>
+                  <div class="mini-tree-row">▾ paths</div>
+                  <div class="mini-tree-row">　/users</div>
+                  <div class="mini-tree-row active">　/users/{id}</div>
+                  <div class="mini-tree-row">　/orders</div>
+                  <div class="mini-tree-row">▾ components</div>
+                  <div class="mini-tree-row">　schemas</div>
+                  <div class="mini-tree-row">　responses</div>
+                </div>
+
+                <div class="mini-code">
+                  <div class="mini-code-content">
+                    <div class="mini-line">
+                      <span class="mini-ln">142</span>
+                      <span>/users/{id}:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">143</span>
+                      <span> get:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">144</span>
+                      <span> operationId: getUser</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">145</span>
+                      <span> responses:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">156</span>
+                      <span class="squiggle"> contents:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">160</span>
+                      <span class="squiggle">$ref: Erorr</span>
+                    </div>
+                  </div>
+
+                  <div class="mini-problems">
+                    <div class="mini-problem-head">
+                      Problems · 2 errors · 1 warning
+                    </div>
+
+                    <div class="mini-problem">
+                      <b>156:9</b>
+                      contents is not a valid Response Object key
+                    </div>
+
+                    <div class="mini-problem">
+                      <b>160:24</b>
+                      Unresolved $ref. Closest match: Error
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: API DEBUG
+     ======================================================================= -->
+
+      <section class="feature-section" id="api-debug">
+        <div class="section-shell">
+          <div class="feature-layout reverse">
+            <div class="feature-preview mini-debug-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"> API Debug </span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill pill-ok"> contract checks on </span>
+              </div>
+
+              <div class="preview-body mini-debug">
+                <div class="mini-collection">
+                  <div class="mini-tree-row">▾ Users</div>
+                  <div class="mini-tree-row">　GET listUsers</div>
+                  <div class="mini-tree-row active">　GET getUser</div>
+                  <div class="mini-tree-row">▾ Orders</div>
+                  <div class="mini-tree-row">　POST createOrder</div>
+                </div>
+
+                <div class="mini-request">
+                  <div class="mini-url">
+                    <span class="mini-method">GET</span>
+
+                    <span class="mini-url-input">
+                      {{baseUrl}}/users/{{userId}}
+                    </span>
+
+                    <span class="mini-send"> Send </span>
+                  </div>
+
+                  <div class="mini-tabs">
+                    <span>Params</span>
+                    <span>Auth</span>
+                    <span class="active">Body</span>
+                    <span>Headers</span>
+                  </div>
+
+                  <div class="mini-response">
+                    <pre>{
+  "id": "usr_8Kd2Xa",
+  "email": "ada@example.com",
+  <span class="squiggle">"scope"</span>: "users:read"
+}</pre>
+                  </div>
+
+                  <div class="mini-contract">
+                    Contract mismatch — "scope" is not declared on User.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-copy">
+              <p class="section-kicker">API debugging</p>
+
+              <h2 class="section-title">API Debugging Against Your Spec</h2>
+
+              <p class="section-deck">
+                A request builder shaped like the tools developers already use,
+                plus one thing those tools cannot do by default: verify
+                responses against the contract.
+              </p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong>Collections generated from paths and tags.</strong>
+                  No import step and nothing to manually re-sync.
+                </li>
+
+                <li>
+                  <strong>Contract checks on every response.</strong>
+                  Detect undeclared properties, missing fields and type drift
+                  inline.
+                </li>
+
+                <li>
+                  <strong>Environments and variables.</strong>
+                  Reuse existing development and staging configurations.
+                </li>
+
+                <li>
+                  <strong>Security from securitySchemes.</strong>
+                  Bearer, API key and OAuth configuration starts from the
+                  specification.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: MCP
+     ======================================================================= -->
+
+      <section class="feature-section" id="mcp-server">
+        <div class="section-shell">
+          <div class="feature-layout">
+            <div class="feature-copy">
+              <p class="section-kicker">MCP server generator</p>
+
+              <h2 class="section-title">Generate an MCP Server from OpenAPI</h2>
+
+              <p class="section-deck">
+                Your specification is already a tool manifest. Powerduck compiles
+                it into a runnable MCP server and shows exactly which OpenAPI
+                fields produced each tool.
+              </p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong>Visible provenance.</strong>
+                  Every tool traces back to its operation, operationId and
+                  schema.
+                </li>
+
+                <li>
+                  <strong>Degraded and skipped states.</strong>
+                  Missing metadata is visible instead of silently producing weak
+                  tools.
+                </li>
+
+                <li>
+                  <strong>Regenerates on save.</strong>
+                  Change the specification and tools update without a build
+                  step.
+                </li>
+
+                <li>
+                  <strong>Local transports.</strong>
+                  Run through stdio or HTTP for local agents and workflows.
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-preview mini-mcp-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"> mcp://localhost:7433 </span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill pill-ok"> running </span>
+              </div>
+
+              <div class="preview-body mini-mcp">
+                <div class="mini-mcp-header">
+                  <span class="mini-mcp-title">
+                    Generated from openapi.yaml
+                  </span>
+
+                  <span class="mini-mcp-count">6 tools</span>
+                  <span class="mini-mcp-count">7 resources</span>
+                </div>
+
+                <div class="mini-tools">
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">
+                      GET /users/{id} → operationId
+                    </div>
+
+                    <div class="mini-tool-name">getUser</div>
+
+                    <div class="mini-tool-args">id: string</div>
+                  </div>
+
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">
+                      POST /orders → operationId
+                    </div>
+
+                    <div class="mini-tool-name">createOrder</div>
+
+                    <div class="mini-tool-args">items: array</div>
+                  </div>
+
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">POST /auth/login</div>
+
+                    <div class="mini-tool-name">loginUser</div>
+
+                    <div class="mini-tool-args">email, password</div>
+                  </div>
+
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">DELETE /users/{id}</div>
+
+                    <div class="mini-tool-name">skipped</div>
+
+                    <div class="mini-tool-args">missing operationId</div>
+                  </div>
+                </div>
+
+                <div class="mini-log">
+                  14:02 build 6 tools, 7 resources<br />
+                  14:02 serve listening on :7433<br />
+                  14:03 call getUser → 200
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: DOCS
+     ======================================================================= -->
+
+      <section class="feature-section" id="api-docs">
+        <div class="section-shell">
+          <div class="feature-layout reverse">
+            <div class="feature-preview mini-doc-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"> API Reference </span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill"> static export </span>
+              </div>
+
+              <div class="preview-body mini-docs">
+                <div class="mini-doc-nav">
+                  <div class="mini-doc-nav-title">Users</div>
+
+                  <div class="mini-doc-nav-item">Overview</div>
+
+                  <div class="mini-doc-nav-item active">Retrieve a user</div>
+
+                  <div class="mini-doc-nav-item">List users</div>
+
+                  <div class="mini-doc-nav-item">Update user</div>
+                </div>
+
+                <div class="mini-doc-main">
+                  <h4>Retrieve a user</h4>
+
+                  <div class="mini-doc-path">GET /v1/users/{id}</div>
+
+                  <div class="mini-doc-text">
+                    Returns the user object for a valid identifier.
+                  </div>
+
+                  <div class="mini-doc-section">Path parameters</div>
+
+                  <div class="mini-doc-param">id · string · required</div>
+
+                  <div class="mini-doc-section">Returns</div>
+
+                  <div class="mini-doc-param">User · object</div>
+                </div>
+
+                <div class="mini-doc-code">
+                  <pre>
+curl /users/{id}
+
+{
+  "id": "usr_...",
+  "email": "ada@..."
+}</pre
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-copy">
+              <p class="section-kicker">API documentation generator</p>
+
+              <h2 class="section-title">
+                API Documentation from the Same Contract
+              </h2>
+
+              <p class="section-deck">
+                Reference documentation generated directly from your OpenAPI
+                model, exported as static files and hosted wherever you want.
+              </p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong>Parameter tables from schemas.</strong>
+                  Required flags, enums and descriptions stay synchronized.
+                </li>
+
+                <li>
+                  <strong>Multi-language samples.</strong>
+                  Generate cURL, Node, Python and Go examples from operations.
+                </li>
+
+                <li>
+                  <strong>Responses from the real contract.</strong>
+                  Success and error responses come from the same objects your
+                  debugger validates.
+                </li>
+
+                <li>
+                  <strong>Static export.</strong>
+                  No runtime dependency and no documentation platform lock-in.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     ONE SOURCE OF TRUTH
+     ======================================================================= -->
+
+      <section class="section product-story-section">
+        <div class="section-shell">
+          <div class="product-story-head">
+            <div>
+              <p class="section-kicker">One source of truth</p>
+              <h2 class="section-title">
+                One OpenAPI file.<br />Four native capabilities.
+              </h2>
+            </div>
+
+            <p class="product-story-deck">
+              Open <strong>openapi.yaml</strong> or
+              <strong>openapi.json</strong> locally and Powerduck turns the
+              contract you already own into a complete API workspace. No import.
+              No conversion. No parallel collections. No cloud copy.
+            </p>
+          </div>
+
+          <div
+            class="product-flow"
+            aria-label="One local OpenAPI file powers four Powerduck capabilities"
+          >
+            <div class="product-flow-source">
+              <div class="product-flow-eyebrow">OPEN LOCALLY</div>
+              <div class="product-file-icon">{ }</div>
+              <div class="product-file-name">openapi.yaml</div>
+              <div class="product-file-alt">or openapi.json</div>
+              <p>The file stays in your repository.</p>
+            </div>
+
+            <div class="product-flow-connector" aria-hidden="true">
+              <span></span>
+            </div>
+
+            <div class="product-flow-tools">
+              <div class="product-flow-tool">
+                <span class="product-flow-index">01</span>
+                <strong>Spec Editor</strong>
+                <p>Edit, navigate and validate the real contract.</p>
+              </div>
+              <div class="product-flow-tool">
+                <span class="product-flow-index">02</span>
+                <strong>API Debug</strong>
+                <p>Send requests generated from the same operations.</p>
+              </div>
+              <div class="product-flow-tool">
+                <span class="product-flow-index">03</span>
+                <strong>MCP Server</strong>
+                <p>Compile operations into agent-ready tools.</p>
+              </div>
+              <div class="product-flow-tool">
+                <span class="product-flow-index">04</span>
+                <strong>API Docs</strong>
+                <p>Publish documentation from the same source.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-positioning">
+            <div class="positioning-statement">
+              <span class="positioning-mark">Powerduck</span>
+              <h3>Not another API client.<br />Not another spec viewer.</h3>
+              <p>
+                It is the local-native workspace built around the OpenAPI file
+                itself.
+              </p>
+            </div>
+
+            <div class="positioning-points">
+              <div>
+                <span>NO CLOUD</span
+                ><strong>Your spec never needs to leave your machine.</strong>
+              </div>
+              <div>
+                <span>NO SYNC</span
+                ><strong
+                  >There is nothing else to keep aligned with the
+                  contract.</strong
+                >
+              </div>
+              <div>
+                <span>NO COPY</span
+                ><strong>Your existing YAML or JSON is the workspace.</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     LICENSING
+     ======================================================================= -->
+
+      <section class="section" id="licensing">
+        <div class="section-shell">
+          <p class="section-kicker">Licensing</p>
+
+          <h2 class="section-title">
+            Buy the desktop license once. Subscribe only if you need hosting.
+          </h2>
+
+          <p class="section-deck">
+            Powerduck Desktop is a perpetual license — the same local-first
+            product shown above, with nothing that phones home. Hosted MCP
+            endpoints are optional and stay separate from the local workflow.
+          </p>
+
+          <div class="pricing-grid">
+            <div class="pricing-card featured" id="download">
+              <h3>Powerduck Desktop</h3>
+
+              <p class="pricing-tag">Perpetual license · one-time purchase</p>
+
+              <div class="price">
+                <span class="price-value"> $89 </span>
+
+                <span class="price-period"> per user, once </span>
+              </div>
+
+              <ul class="pricing-list">
+                <li>Spec Editor, API Debug, MCP Server and API Docs</li>
+
+                <li>All updates within the major version</li>
+
+                <li>Fully offline · no account · no telemetry</li>
+
+                <li>Personal license for every machine you own</li>
+
+                <li>Volume, site and educational licenses available</li>
+              </ul>
+
+              <a href="#" class="btn btn-primary"> Buy a license </a>
+
+              <a href="#" class="btn btn-secondary"> Download Powerduck </a>
+
+              <p class="pricing-note">macOS 12+ · Windows 10+ · Linux</p>
+            </div>
+
+            <div class="pricing-card">
+              <h3>Powerduck Cloud</h3>
+
+              <p class="pricing-tag">
+                Optional hosted MCP endpoint · billed monthly
+              </p>
+
+              <div class="price">
+                <span class="price-value"> $29 </span>
+
+                <span class="price-period"> per spec, per month </span>
+              </div>
+
+              <ul class="pricing-list">
+                <li>Stable HTTPS MCP URL for teams and agents</li>
+
+                <li>Deploy from Git branches automatically</li>
+
+                <li>Access tokens and request logs</li>
+
+                <li>Hosted reference docs on your own domain</li>
+              </ul>
+
+              <a href="#" class="btn btn-secondary"> Start a 14-day trial </a>
+
+              <p class="pricing-note">
+                Not required for the desktop application. Cancel anytime and
+                your local workflow keeps running.
+              </p>
+            </div>
+          </div>
+
+          <div class="eval-bar">
+            <strong>Evaluation:</strong>
+
+            Powerduck is fully functional before you buy, with no time limit and
+            no feature gates. You will occasionally see a reminder to purchase a
+            license.
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FAQ
+     ======================================================================= -->
+
+      <section class="section" id="faq">
+        <div class="section-shell">
+          <div class="faq-shell">
+            <div class="faq-heading">
+              <p class="section-kicker">FAQ</p>
+
+              <h2 class="section-title">Questions developers ask first</h2>
+
+              <p class="section-deck">
+                The practical details around local files, OpenAPI versions, MCP
+                generation and licensing.
+              </p>
+            </div>
+
+            <details open>
+              <summary>
+                Does Powerduck upload my OpenAPI specification anywhere?
+              </summary>
+
+              <p>
+                No. The desktop application reads and writes OpenAPI files
+                directly from your filesystem. There is no account, no sync and
+                no telemetry. Only optional hosted services involve a remote
+                server.
+              </p>
+            </details>
+
+            <details>
+              <summary>Which OpenAPI versions are supported?</summary>
+
+              <p>
+                OpenAPI 3.0, 3.1 and 3.2. Powerduck detects the declared version
+                and validates against the appropriate dialect instead of using a
+                lowest common denominator.
+              </p>
+            </details>
+
+            <details>
+              <summary>How does the MCP server get generated?</summary>
+
+              <p>
+                Operations with an operationId become MCP tools. Arguments are
+                derived from parameters and requestBody schemas. Component
+                schemas can be exposed as resources. The generated server
+                updates whenever the specification changes.
+              </p>
+            </details>
+
+            <details>
+              <summary>Is the desktop license a subscription?</summary>
+
+              <p>
+                No. Powerduck Desktop is a perpetual license purchased once.
+                Updates within the major version are included. Future major
+                upgrades remain optional.
+              </p>
+            </details>
+
+            <details>
+              <summary>Can I keep using Postman collections?</summary>
+
+              <p>
+                Yes. Existing collections and environments can continue to be
+                used. Powerduck treats the OpenAPI specification as the
+                authoritative contract and helps identify where requests drift
+                from it.
+              </p>
+            </details>
+
+            <details>
+              <summary>Does it work in CI?</summary>
+
+              <p>
+                Yes. The same validation and generation engine is exposed through
+                <a href="opensource/openapi-cli.html" style="color: var(--accent); text-decoration: underline;">@powerduck/openapi-cli</a>,
+                a CI-ready command-line tool that runs during pull requests and
+                automated pipelines. It supports batch testing across 6 protocols
+                (HTTP, SSE, WebSocket, gRPC, MCP, tRPC), configurable concurrency,
+                and JUnit-compatible reports for CI integration.
+              </p>
+              <p style="margin-top: 8px;">
+                <a href="opensource/openapi-cli.html" class="btn btn-secondary" style="display: inline-flex; padding: 6px 14px; font-size: 13px;">Explore openapi-cli →</a>
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FOOTER
+     ======================================================================= -->
+
+      <footer class="site-footer">
+  <div class="footer-shell">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" aria-label="Powerduck home">
+          <img src="assets/images/logo.svg" alt="Powerduck logo" class="brand-logo" />
+          <span>Powerduck</span>
+        </a>
+        <p>Building developer tools for the modern API workflow. Open source, production-ready, and community-driven.</p>
+      </div>
+      <div class="footer-column">
+        <h6>Product</h6>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#opensource">Open Source</a></li>
+          <li><a href="opensource/md-editor.html">MD Editor</a></li>
+          <li><a href="opensource/openapi-cli.html">OpenAPI CLI</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>Documentation</h6>
+        <ul>
+          <li><a href="#features">Getting Started</a></li>
+          <li><a href="#api-docs">API Reference</a></li>
+          <li><a href="opensource/openapi-parser.html">OpenAPI Parser</a></li>
+          <li><a href="opensource/md-editor.html">MD Editor</a></li>
+          <li><a href="opensource/openapi-cli.html">CLI Tools</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>Resources</h6>
+        <ul>
+          <li><a href="https://github.com/PowerDuckie" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.npmjs.com/search?q=%40powerduck" target="_blank" rel="noopener noreferrer">npm Packages</a></li>
+          <li><a href="mailto:contact@neatico.com">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>Legal</h6>
+        <ul>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="refunds.html">Refund Policy</a></li>
+          <li><a href="cookie.html">Cookie Notice</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 POWERDUCK LIMITED. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="cookie.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+
+    <!-- =======================================================================
+     JAVASCRIPT
+     ======================================================================= -->
+
+    <script>
+      (function () {
+        "use strict";
+
+        /* ------------------------------------------------------------------------
+     Theme
+     ------------------------------------------------------------------------ */
+        /* ------------------------------------------------------------------------
+     Product demo tabs
+     ------------------------------------------------------------------------ */
+
+        var tabs = document.querySelectorAll("[data-tab]");
+
+        var stageMap = {
+          editor: document.getElementById("stage-editor"),
+          debug: document.getElementById("stage-debug"),
+          mcp: document.getElementById("stage-mcp"),
+          docs: document.getElementById("stage-docs"),
+        };
+
+        function activateTab(key) {
+          tabs.forEach(function (tab) {
+            var active = tab.getAttribute("data-tab") === key;
+
+            tab.setAttribute("aria-selected", active ? "true" : "false");
+          });
+
+          Object.keys(stageMap).forEach(function (name) {
+            var stage = stageMap[name];
+
+            if (!stage) {
+              return;
+            }
+
+            stage.classList.toggle("on", name === key);
+          });
+        }
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            var key = tab.getAttribute("data-tab");
+
+            activateTab(key);
+          });
+        });
+
+        /* ------------------------------------------------------------------------
+     Deep-link mapping
+     ------------------------------------------------------------------------ */
+
+        var hashMap = {
+          "#spec-editor": "editor",
+          "#api-debug": "debug",
+          "#mcp-server": "mcp",
+          "#api-docs": "docs",
+        };
+
+        function activateFromHash() {
+          var key = hashMap[window.location.hash];
+
+          if (key) {
+            activateTab(key);
+          }
+        }
+
+        activateFromHash();
+
+        window.addEventListener("hashchange", activateFromHash);
+
+        /* ------------------------------------------------------------------------
+     Navigation -> corresponding demo surface
+     ------------------------------------------------------------------------ */
+
+        document
+          .querySelectorAll(
+            'a[href="#spec-editor"],' +
+              'a[href="#api-debug"],' +
+              'a[href="#mcp-server"],' +
+              'a[href="#api-docs"]',
+          )
+          .forEach(function (link) {
+            link.addEventListener("click", function () {
+              var key = hashMap[link.getAttribute("href")];
+
+              if (key) {
+                activateTab(key);
+              }
+            });
+          });
+      })();
+    </script>
+    <script src="assets/js/common.js"></script>
+</body>
+</html>

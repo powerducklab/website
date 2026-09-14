@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("powerduck-theme");
+        var theme = saved === "light" || saved === "dark"
+          ? saved
+          : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <title>Refund Policy — Powerduck</title>
+    <meta name="description" content="Refund Policy for Powerduck products and services. Learn about our refund eligibility and process." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.powerduck.com/refunds.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Powerduck" />
+    <meta property="og:title" content="Refund Policy — Powerduck" />
+    <meta property="og:description" content="Refund Policy for Powerduck products and services. Learn about our refund eligibility and process." />
+    <meta property="og:url" content="https://www.powerduck.com/refunds.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Refund Policy — Powerduck" />
+    <meta name="twitter:description" content="Refund Policy for Powerduck products and services. Learn about our refund eligibility and process." />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0b0f14"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="stylesheet" href="assets/css/common.css" />
+  </head>
+  <body>
+    <header class="site-header"><div class="nav-inner">
+    <a href="index.html" class="brand" aria-label="Powerduck home">
+      <img src="assets/images/logo.svg" alt="Powerduck logo" class="brand-logo" />
+      <span>Powerduck</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+                <li><a href="index.html#spec-editor">Spec Editor</a></li>
+        <li><a href="index.html#api-debug">API Debug</a></li>
+        <li><a href="index.html#mcp-server">MCP Server</a></li>
+        <li><a href="index.html#api-docs">API Docs</a></li>
+        <li><a href="index.html#licensing">Licensing</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Open Source <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <div class="dropdown-section-title">Open Source Libraries</div><a class="dropdown-item" href="opensource/md-editor.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/md-editor</span><span class="pkg-desc">Embeddable Markdown editor with math, mindmaps & code highlighting</span></div></a><a class="dropdown-item" href="opensource/conf-patch.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/conf-patch</span><span class="pkg-desc">Two-layer config editor with OpenAPI validation & atomic writes</span></div></a><a class="dropdown-item" href="opensource/openapi-cli.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-cli</span><span class="pkg-desc">CI-ready CLI for batch-testing OpenAPI across 6 protocols</span></div></a><a class="dropdown-item" href="opensource/openapi-codegen.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-codegen</span><span class="pkg-desc">Generate runnable HTTP code from OpenAPI (21 languages)</span></div></a><a class="dropdown-item" href="opensource/openapi-mcp-server.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-mcp-server</span><span class="pkg-desc">Turn OpenAPI specs into production MCP servers with Web UI</span></div></a><a class="dropdown-item" href="opensource/openapi-request.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-request</span><span class="pkg-desc">OpenAPI 3.2 collection debugger with HTTP/SSE/WebSocket</span></div></a><a class="dropdown-item" href="opensource/x-to-openapi.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/x-to-openapi</span><span class="pkg-desc">Convert cURL commands & Postman collections to OpenAPI 3.2</span></div></a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn-docs" href="index.html#api-docs" aria-label="Powerduck documentation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg><span>Docs</span></a>
+      <a class="btn-github" href="https://github.com/Powerduckie" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg><span class="gh-text">GitHub</span></a>
+      <button class="nav-icon-btn theme-toggle" data-theme-toggle title="Toggle color theme" aria-label="Toggle color theme"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+    </div>
+  </div></header>
+    <main>
+<section class="legal-hero">
+      <div class="container">
+        <p class="legal-kicker">Legal</p>
+        <h1>Refund Policy</h1>
+        <p>
+          Our commitment to fair and transparent billing for Powerduck
+          Cloud subscriptions.
+        </p>
+        <p class="legal-updated">Last updated: September 10, 2026</p>
+      </div>
+    </section>
+
+    <article class="legal-content">
+      <div class="legal-toc">
+        <h4>On this page</h4>
+        <ol>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#guarantee">30-Day Money-Back Guarantee</a></li>
+          <li><a href="#eu-rights">EU Consumer Right of Withdrawal</a></li>
+          <li><a href="#eligibility">Eligibility</a></li>
+          <li><a href="#how-to">How to Request a Refund</a></li>
+          <li><a href="#subscriptions">Subscriptions &amp; Renewals</a></li>
+          <li><a href="#processing">Refund Processing Time</a></li>
+          <li><a href="#exclusions">Exclusions</a></li>
+          <li><a href="#paddle">Paddle as Merchant of Record</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ol>
+      </div>
+
+      <h2 id="overview">1. Overview</h2>
+      <p>
+        This Refund Policy applies to paid subscriptions and one-time purchases
+        made through Powerduck Cloud (the "Service"). We want you to be satisfied
+        with your purchase. If you are not, this policy explains your refund rights
+        and how to exercise them.
+      </p>
+      <div style="background: var(--bg-soft); border-left: 3px solid var(--accent); padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0;">
+        <strong>Digital Product Notice:</strong> Powerduck Cloud is a digital service
+        provided under a license, not a sale. Upon purchase, you receive a limited,
+        non-exclusive, non-transferable license to access and use the Service for the
+        duration of your subscription. Because digital services are immediately
+        accessible and fully performed upon activation, refund rights are limited as
+        described in this policy, except where mandatory consumer protection laws
+        require otherwise.
+      </div>
+      <p>
+        All payments are processed by <strong>Paddle</strong>, which acts as the
+        merchant of record for your purchase. Paddle is responsible for billing,
+        invoicing, VAT/GST collection, and refund processing. Your payment
+        statement will show a charge from "Paddle*" or "PADDLE.NET".
+      </p>
+
+      <h2 id="guarantee">2. 30-Day Money-Back Guarantee</h2>
+      <p>
+        We offer a <strong>30-day money-back guarantee</strong> on all initial
+        purchases of Powerduck Cloud subscriptions. If you are not satisfied with
+        the Service for any reason, you may request a full refund within 30
+        calendar days of your initial purchase date.
+      </p>
+      <p>
+        This guarantee applies to your first subscription to each plan tier. It
+        does not apply to subsequent renewals, additional purchases, or purchases
+        made after the initial 30-day window has expired.
+      </p>
+
+      <h2 id="eu-rights">3. EU Consumer Right of Withdrawal</h2>
+      <p>
+        If you are a consumer residing in the European Union, you have the right
+        to withdraw from your purchase within <strong>14 calendar days</strong>
+        without giving any reason, in accordance with the EU Consumer Rights
+        Directive (2011/83/EU). This right applies in addition to, and does not
+        replace, our 30-day money-back guarantee.
+      </p>
+      <p>
+        To exercise the right of withdrawal, you must inform us of your decision
+        to withdraw by means of a clear statement (e.g., a letter sent by post,
+        fax, or email). You may use the model withdrawal form provided below, but
+        it is not mandatory.
+      </p>
+      <p><strong>Model Withdrawal Form:</strong></p>
+      <div style="background: var(--bg-soft); border: 1px solid var(--line); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: var(--mono); font-size: 13px; line-height: 1.6;">
+        To: Powerduck Limited<br>
+        Email: contact@neatico.com<br><br>
+        I/We hereby give notice that I/We withdraw from my/our contract of sale
+        of the following service:<br><br>
+        Service: [Powerduck Cloud plan name]<br>
+        Ordered on: [date]<br>
+        Received on: [date]<br><br>
+        Name of consumer(s): [your name]<br>
+        Address of consumer(s): [your address]<br>
+        Signature of consumer(s): [signature] (only if notified on paper)<br>
+        Date: [date]
+      </div>
+      <p>
+        If you withdraw from this contract, we shall reimburse to you all payments
+        received from you, including the costs of delivery (with the exception of
+        supplementary costs arising if you chose a type of delivery other than the
+        least expensive type of standard delivery offered by us), without undue
+        delay and in any event not later than 14 days from the day on which we are
+        informed about your decision to withdraw from this contract.
+      </p>
+      <p>
+        <strong>Important:</strong> By purchasing the Service, you acknowledge
+        that the Service begins immediately upon purchase. You agree that the
+        Service is fully performed once you have been granted access, and you
+        expressly acknowledge that you lose your right of withdrawal once the
+        Service has been fully performed. If you exercise your right of withdrawal
+        after the Service has begun, you will be required to pay for any part of
+        the Service that has been provided up to the time you notify us of
+        withdrawal.
+      </p>
+
+      <h2 id="eligibility">4. Eligibility</h2>
+      <p>To be eligible for a refund under this policy:</p>
+      <ul>
+        <li>The request must be made within 30 days of the initial purchase date (or 14 days for EU withdrawal rights).</li>
+        <li>The refund applies to the subscription fee paid for the current billing period.</li>
+        <li>You must not have violated our <a href="terms.html">Terms of Service</a>.</li>
+        <li>Accounts suspended or terminated for abuse, fraud, or policy violations are not eligible for a refund.</li>
+        <li>Refunds are not available for purchases made using a free trial or promotional code, unless required by law.</li>
+      </ul>
+
+      <h2 id="how-to">5. How to Request a Refund</h2>
+      <p>To request a refund, please contact our support team at <a href="mailto:contact@neatico.com">contact@neatico.com</a> with the following information:</p>
+      <ul>
+        <li>The email address associated with your account.</li>
+        <li>The subscription plan and purchase date.</li>
+        <li>The Paddle invoice or order number (found in your purchase confirmation email).</li>
+        <li>A brief reason for the refund request (optional but appreciated).</li>
+      </ul>
+      <p>
+        We aim to respond to all refund requests within <strong>2 business days</strong>.
+        If your refund is approved, it will be processed by Paddle and credited to
+        your original payment method.
+      </p>
+
+      <h2 id="subscriptions">6. Subscriptions &amp; Renewals</h2>
+      <h3>6.1 Automatic Renewals</h3>
+      <p>
+        Subscriptions renew automatically at the end of each billing period. You
+        may cancel at any time before the renewal date to prevent being charged
+        for the next period. Cancellation does not provide a refund for the
+        current billing period.
+      </p>
+      <p>
+        Refunds for renewal charges are handled at our discretion and are generally
+        not provided unless the Service was unavailable for a significant portion
+        of the billing period, or as required by applicable law.
+      </p>
+
+      <h3>6.2 Plan Upgrades</h3>
+      <p>
+        When you upgrade to a higher-tier plan, you will be charged the prorated
+        difference for the remainder of your current billing period. Upgrade
+        charges are not separately refundable but are covered under the 30-day
+        guarantee if the initial purchase was within the window.
+      </p>
+
+      <h3>6.3 Plan Downgrades</h3>
+      <p>
+        Downgrades take effect at the next billing cycle. No partial refund is
+        issued for the remainder of the current period at the higher tier.
+      </p>
+
+      <h2 id="processing">7. Refund Processing Time</h2>
+      <p>
+        Once a refund is approved, it is processed immediately by Paddle. Depending
+        on your bank or credit card issuer, it may take <strong>5 to 10 business
+        days</strong> for the refund to appear on your statement. Paddle will send
+        you a confirmation email once the refund has been processed.
+      </p>
+
+      <h2 id="exclusions">8. Exclusions</h2>
+      <p>The following are not eligible for a refund:</p>
+      <ul>
+        <li>Renewal charges after the initial 30-day guarantee period.</li>
+        <li>Purchases made more than 30 days ago (or 14 days for EU withdrawal).</li>
+        <li>Accounts terminated for violation of our Terms of Service.</li>
+        <li>Partial use of the Service during the billing period (unless the Service was unavailable).</li>
+        <li>Purchases made using a free trial or promotional code, unless required by law.</li>
+        <li>Any charges incurred from third-party services or add-ons.</li>
+      </ul>
+
+      <h2 id="paddle">9. Paddle as Merchant of Record</h2>
+      <p>
+        Paddle Ltd ("Paddle") is the merchant of record for all purchases made
+        through the Service. This means:
+      </p>
+      <ul>
+        <li>Paddle is responsible for processing your payment, issuing invoices, and collecting applicable taxes (VAT, GST, sales tax).</li>
+        <li>Paddle is the seller of record and is responsible for handling refund requests in accordance with this policy and applicable consumer protection laws.</li>
+        <li>Your payment statement will show a charge from "Paddle*" or "PADDLE.NET".</li>
+        <li>For billing inquiries, you may contact Paddle directly at <a href="https://paddle.com/support" target="_blank" rel="noopener noreferrer">paddle.com/support</a> or contact us at <a href="mailto:contact@neatico.com">contact@neatico.com</a>.</li>
+      </ul>
+      <p>
+        Paddle's privacy policy applies to the personal information Paddle collects
+        in connection with processing your payment. For more information, see
+        <a href="https://paddle.com/privacy" target="_blank" rel="noopener noreferrer">Paddle's Privacy Policy</a>.
+      </p>
+
+      <h2 id="contact">10. Contact</h2>
+      <p>
+        If you have any questions about this Refund Policy or wish to request a
+        refund, please contact us at:
+      </p>
+      <p>
+        <strong>Powerduck Limited</strong><br>
+        Email: <a href="mailto:contact@neatico.com">contact@neatico.com</a><br>
+        Website: <a href="https://www.powerduck.com">https://www.powerduck.com</a>
+      </p>
+      <p>
+        We will respond to all refund requests and inquiries within 2 business days.
+      </p>
+    </article>
+    </main>
+  <footer class="site-footer">
+  <div class="footer-shell">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" aria-label="Powerduck home">
+          <img src="assets/images/logo.svg" alt="Powerduck logo" class="brand-logo" />
+          <span>Powerduck</span>
+        </a>
+        <p>Building developer tools for the modern API workflow. Open source, production-ready, and community-driven.</p>
+      </div>
+      <div class="footer-column">
+        <h6>Product</h6>
+        <ul>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#opensource">Open Source</a></li>
+          <li><a href="opensource/md-editor.html">MD Editor</a></li>
+          <li><a href="opensource/openapi-cli.html">OpenAPI CLI</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>Documentation</h6>
+        <ul>
+          <li><a href="index.html#features">Getting Started</a></li>
+          <li><a href="index.html#api-docs">API Reference</a></li>
+          <li><a href="opensource/openapi-parser.html">OpenAPI Parser</a></li>
+          <li><a href="opensource/md-editor.html">MD Editor</a></li>
+          <li><a href="opensource/openapi-cli.html">CLI Tools</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>Resources</h6>
+        <ul>
+          <li><a href="https://github.com/Powerduckie" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.npmjs.com/search?q=%40powerduck" target="_blank" rel="noopener noreferrer">npm Packages</a></li>
+          <li><a href="mailto:contact@neatico.com">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>Legal</h6>
+        <ul>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="refunds.html">Refund Policy</a></li>
+          <li><a href="cookie.html">Cookie Notice</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 POWERDUCK LIMITED. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="cookie.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="assets/js/common.js"></script>
+</body>
+</html>

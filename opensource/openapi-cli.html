@@ -1,0 +1,1165 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("powerduck-theme");
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+    <title>@powerduck/openapi-cli — CI-Ready API Testing CLI for OpenAPI</title>
+    <meta
+      name="description"
+      content="CI-ready command-line tool for testing OpenAPI APIs. 6 protocols (HTTP, SSE, WebSocket, GraphQL, gRPC, MCP). Declarative assertions. 3 report formats (JSON, CLI, HTML). Built-in Postman script support."
+    />
+    <meta
+      name="keywords"
+      content="openapi cli, api testing, ci testing, http test, sse test, websocket test, graphql test, grpc test, mcp test, api assertions, postman scripts"
+    />
+    <meta name="author" content="Powerduck Open source" />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://www.powerduck.com/opensource/openapi-cli.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Powerduck Open source" />
+    <meta
+      property="og:title"
+      content="@powerduck/openapi-cli — CI-Ready API Testing CLI"
+    />
+    <meta
+      property="og:description"
+      content="6 protocols, declarative assertions, 3 report formats. Postman script support."
+    />
+    <meta property="og:url" content="https://www.powerduck.com/openapi-cli" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="@powerduck/openapi-cli" />
+    <meta
+      name="twitter:description"
+      content="CI-ready API testing CLI for OpenAPI."
+    />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0b0f14"
+      media="(prefers-color-scheme: dark)"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "@powerduck/openapi-cli",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Cross-platform",
+        "description": "CI-ready CLI for testing OpenAPI APIs with 6 protocols, declarative assertions, and 3 report formats.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "license": "https://opensource.org/licenses/MIT",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Powerduck Open source",
+          "url": "https://www.powerduck.com"
+        },
+        "softwareVersion": "0.2.1",
+        "programmingLanguage": ["TypeScript", "JavaScript"]
+      }
+    </script>
+    <link rel="stylesheet" href="../assets/css/common.css" />
+    <link rel="stylesheet" href="./assets/css/shared.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="nav-inner">
+        
+        <a href="../index.html" class="brand" aria-label="Powerduck home">
+          <img
+            src="../assets/images/logo.svg"
+            alt="Powerduck logo"
+            class="brand-logo"
+          />
+          <span>Powerduck</span> <span class="accent">Open source</span>
+        </a>
+        <nav aria-label="Main navigation">
+          <ul class="nav-links">
+            <li>
+              <a
+                href="https://www.powerduck.com/docs/openapi-cli/introduction"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Documentation</a
+              >
+            </li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#quickstart">Quick Start</a></li>
+            <li><a href="#config">Config</a></li>
+            <li><a href="#api">API</a></li>
+            <li class="nav-dropdown">
+              <button
+                class="nav-dropdown-trigger"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Open Source
+                <svg
+                  class="chevron"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="nav-dropdown-menu" role="menu">
+                <div class="dropdown-section-title">Open Source Libraries</div>
+                <a class="dropdown-item" href="md-editor.html" role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/md-editor</span
+                    ><span class="pkg-desc"
+                      >Embeddable Markdown editor with math, mindmaps & code
+                      highlighting</span
+                    >
+                  </div></a
+                ><a class="dropdown-item" href="conf-patch.html" role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/conf-patch</span
+                    ><span class="pkg-desc"
+                      >Two-layer config editor with OpenAPI validation & atomic
+                      writes</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="openapi-cli.html"
+                  role="menuitem"
+                  aria-current="page"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/openapi-cli</span
+                    ><span class="pkg-desc"
+                      >CI-ready CLI for batch-testing OpenAPI across 6
+                      protocols</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="openapi-codegen.html"
+                  role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/openapi-codegen</span
+                    ><span class="pkg-desc"
+                      >Generate runnable HTTP code from OpenAPI (21
+                      languages)</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="openapi-mcp-server.html"
+                  role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/openapi-mcp-server</span
+                    ><span class="pkg-desc"
+                      >Turn OpenAPI specs into production MCP servers with Web
+                      UI</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="openapi-request.html"
+                  role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/openapi-request</span
+                    ><span class="pkg-desc"
+                      >OpenAPI 3.2 collection debugger with
+                      HTTP/SSE/WebSocket</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="x-to-openapi.html"
+                  role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/x-to-openapi</span
+                    ><span class="pkg-desc"
+                      >Convert cURL commands & Postman collections to OpenAPI
+                      3.2</span
+                    >
+                  </div></a
+                >
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div class="nav-actions">
+          <a
+          class="btn-docs"
+          href="https://www.powerduck.com/docs/openapi-cli/introduction"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Documentation"
+          aria-label="View documentation"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+            />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="8" y1="13" x2="16" y2="13" />
+            <line x1="8" y1="17" x2="13" y2="17" />
+          </svg>
+          <span class="nav-docs-text">Docs</span></a
+        >
+          <a
+            class="nav-icon-btn"
+            href="https://www.npmjs.com/package/@powerduck/openapi-cli"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="npm package"
+            aria-label="View on npm"
+            ><img
+              src="./assets/images/npm.svg"
+              alt="npm package"
+              class="nav-icon-img"
+          /></a>
+          <a
+            class="btn-github"
+            href="https://github.com/powerducklab/openapi-cli"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+              /></svg
+            ><span class="gh-text">GitHub</span></a
+          >
+          <button
+            class="nav-icon-btn theme-toggle"
+            data-theme-toggle
+            title="Toggle color theme"
+            aria-label="Toggle color theme"
+          >
+            <svg
+              class="icon-moon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg
+            ><svg
+              class="icon-sun"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-badge">
+            <span class="dot"></span> v0.2.1 &mdash; MIT Licensed &mdash; 225+
+            tests passing
+          </div>
+          <h1>CI-Ready <span class="hl">API Testing</span> for OpenAPI</h1>
+          <p class="lead">
+            Test your OpenAPI APIs from the command line. 6 protocols,
+            declarative assertions, 3 report formats. Postman script support.
+            Drop into any CI pipeline.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#quickstart">Get Started</a
+            ><a
+              class="btn btn-secondary"
+              href="https://www.powerduck.com/docs/openapi-cli/introduction"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Document</a
+            >
+          </div>
+          <div class="install-cmd" role="group">
+            <span class="prefix">$</span
+            ><span class="cmd" id="installText"
+              >npm install -g @powerduck/openapi-cli</span
+            ><button
+              class="copy"
+              id="copyInstall"
+              type="button"
+              aria-label="Copy install command"
+            >
+              Copy
+            </button>
+          </div>
+          <div class="hero-meta">
+            <span>6 Protocols</span><span>Declarative Assertions</span
+            ><span>3 Report Formats</span><span>Postman Scripts</span
+            ><span>CI Ready</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="quickstart">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">Quick Start</div>
+            <h2 class="section-title">Test your API in minutes</h2>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="code-tabs">
+                <button class="code-tab active" onclick="showTab(this, 'cli')">
+                  CLI Usage
+                </button>
+                <button class="code-tab" onclick="showTab(this, 'config')">
+                  Config File
+                </button>
+                <button
+                  class="code-tab"
+                  onclick="showTab(this, 'programmatic')"
+                >
+                  Programmatic
+                </button>
+                <button class="code-tab" onclick="showTab(this, 'assertions')">
+                  Assertions
+                </button>
+              </div>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="code-body">
+              <pre
+                id="code-cli"
+              ><span class="line"><span class="com"># Install globally</span></span>
+<span class="line">npm install -g @powerduck/openapi-cli</span>
+<span class="line"></span>
+<span class="line"><span class="com"># Run tests from an OpenAPI spec (no subcommand, flat options)</span></span>
+<span class="line">openapi-cli --spec ./openapi.yaml</span>
+<span class="line"></span>
+<span class="line"><span class="com"># With config file and HTML report</span></span>
+<span class="line">openapi-cli --config ./api-tests.json --format html --output ./reports</span>
+<span class="line"></span>
+<span class="line"><span class="com"># Filter by tag and method</span></span>
+<span class="line">openapi-cli --spec ./openapi.yaml --tag users --method get</span>
+<span class="line"></span>
+<span class="line"><span class="com"># Remote spec with auth</span></span>
+<span class="line">openapi-cli --spec https://api.example.com/openapi.json --bearer $TOKEN</span></pre>
+              <pre
+                id="code-config"
+                style="display: none"
+              ><span class="line"><span class="com">// api-tests.json — complete config reference (JSON only, not YAML)</span></span>
+<span class="line">{</span>
+<span class="line">  <span class="com">// Required: path to OpenAPI 3.2 spec (JSON or YAML)</span></span>
+<span class="line">  <span class="str">"specPath"</span>: <span class="str">"./openapi.json"</span>,</span>
+<span class="line"></span>
+<span class="line">  <span class="com">// Override server URL from the spec</span></span>
+<span class="line">  <span class="str">"serverUrl"</span>: <span class="str">"https://api.example.com/v1"</span>,</span>
+<span class="line"></span>
+<span class="line">  <span class="com">// Report output (default: "./openapi-cli-report")</span></span>
+<span class="line">  <span class="str">"outputDir"</span>: <span class="str">"./reports"</span>,</span>
+<span class="line">  <span class="str">"formats"</span>: [<span class="str">"cli"</span>, <span class="str">"json"</span>, <span class="str">"html"</span>],</span>
+<span class="line"></span>
+<span class="line">  <span class="com">// Performance</span></span>
+<span class="line">  <span class="str">"concurrency"</span>: 5,</span>
+<span class="line">  <span class="str">"timeout"</span>: 30000,</span>
+<span class="line"></span>
+<span class="line">  <span class="com">// Filter which operations to test</span></span>
+<span class="line">  <span class="str">"filter"</span>: {</span>
+<span class="line">    <span class="str">"methods"</span>: [<span class="str">"get"</span>, <span class="str">"post"</span>, <span class="str">"put"</span>, <span class="str">"delete"</span>],</span>
+<span class="line">    <span class="str">"paths"</span>: [<span class="str">"^/users"</span>, <span class="str">"^/orders"</span>],</span>
+<span class="line">    <span class="str">"tags"</span>: [<span class="str">"users"</span>, <span class="str">"orders"</span>],</span>
+<span class="line">    <span class="str">"operationIds"</span>: [<span class="str">"getUser"</span>, <span class="str">"createOrder"</span>]</span>
+<span class="line">  },</span>
+<span class="line"></span>
+<span class="line">  <span class="com">// Authentication (bearer | basic | apikey | none)</span></span>
+<span class="line">  <span class="str">"auth"</span>: {</span>
+<span class="line">    <span class="str">"type"</span>: <span class="str">"bearer"</span>,</span>
+<span class="line">    <span class="str">"token"</span>: <span class="str">"${API_TOKEN}"</span></span>
+<span class="line">  },</span>
+<span class="line"></span>
+<span class="line">  <span class="com">// Extra headers sent with every request</span></span>
+<span class="line">  <span class="str">"headers"</span>: {</span>
+<span class="line">    <span class="str">"X-Request-Id"</span>: <span class="str">"cli-test"</span>,</span>
+<span class="line">    <span class="str">"X-Environment"</span>: <span class="str">"staging"</span></span>
+<span class="line">  },</span>
+<span class="line"></span>
+<span class="line">  <span class="com">// Postman variables ({{name}}) to inject</span></span>
+<span class="line">  <span class="str">"variables"</span>: {</span>
+<span class="line">    <span class="str">"baseUrl"</span>: <span class="str">"https://api.example.com"</span>,</span>
+<span class="line">    <span class="str">"userId"</span>: <span class="str">"123"</span></span>
+<span class="line">  },</span>
+<span class="line"></span>
+<span class="line">  <span class="com">// Proxy &amp; TLS</span></span>
+<span class="line">  <span class="str">"proxy"</span>: <span class="str">"http://proxy:8080"</span>,</span>
+<span class="line">  <span class="str">"tls"</span>: {</span>
+<span class="line">    <span class="str">"caCert"</span>: <span class="str">"./certs/ca.pem"</span>,</span>
+<span class="line">    <span class="str">"clientCert"</span>: <span class="str">"./certs/client.pem"</span>,</span>
+<span class="line">    <span class="str">"clientKey"</span>: <span class="str">"./certs/client-key.pem"</span>,</span>
+<span class="line">    <span class="str">"strictSSL"</span>: <span class="kw">true</span></span>
+<span class="line">  },</span>
+<span class="line"></span>
+<span class="line">  <span class="com">// Behavior</span></span>
+<span class="line">  <span class="str">"failOnError"</span>: <span class="kw">true</span>,</span>
+<span class="line">  <span class="str">"envFile"</span>: <span class="str">"./.env"</span>,</span>
+<span class="line"></span>
+<span class="line">  <span class="com">// gRPC (optional)</span></span>
+<span class="line">  <span class="str">"grpcReflection"</span>: <span class="kw">true</span>,</span>
+<span class="line">  <span class="str">"grpcProtoPaths"</span>: [<span class="str">"./proto"</span>],</span>
+<span class="line"></span>
+<span class="line">  <span class="com">// MCP (optional)</span></span>
+<span class="line">  <span class="str">"mcpTransport"</span>: <span class="str">"streamable-http"</span>,</span>
+<span class="line">  <span class="str">"mcpCommand"</span>: <span class="str">"npx"</span>,</span>
+<span class="line">  <span class="str">"mcpArgs"</span>: [<span class="str">"@powerduck/openapi-mcp-server"</span>],</span>
+<span class="line">  <span class="str">"mcpCwd"</span>: <span class="str">"./mcp-server"</span></span>
+<span class="line">}</span></pre>
+              <pre
+                id="code-programmatic"
+                style="display: none"
+              ><span class="line"><span class="kw">import</span> { runTests, resolveConfig, generateJsonReport, printCliReport } <span class="kw">from</span> <span class="str">"@powerduck/openapi-cli"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Resolve config from CLI args (synchronous)</span></span>
+<span class="line"><span class="kw">const</span> config = <span class="fn">resolveConfig</span>({ spec: <span class="str">"./openapi.yaml"</span> });</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Run all tests (async)</span></span>
+<span class="line"><span class="kw">const</span> report = <span class="kw">await</span> <span class="fn">runTests</span>(config);</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Print CLI report to stdout</span></span>
+<span class="line"><span class="fn">printCliReport</span>(report);</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Generate JSON report (synchronous, returns file path)</span></span>
+<span class="line"><span class="kw">const</span> reportPath = <span class="fn">generateJsonReport</span>(report, <span class="str">"./reports"</span>);</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Exit with non-zero code if tests failed</span></span>
+<span class="line">process.<span class="fn">exit</span>(report.summary.failed === 0 ? 0 : 1);</span></pre>
+              <pre
+                id="code-assertions"
+                style="display: none"
+              ><span class="line"><span class="kw">import</span> { runDeclarativeAssertions, resolveJsonPath } <span class="kw">from</span> <span class="str">"@powerduck/openapi-cli"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Assertion context (the response under test)</span></span>
+<span class="line"><span class="kw">const</span> ctx = {</span>
+<span class="line">  status: 200,</span>
+<span class="line">  headers: { <span class="str">"content-type"</span>: <span class="str">"application/json"</span> },</span>
+<span class="line">  body: { data: { id: 1, name: <span class="str">"John"</span> }, meta: { total: 100 } },</span>
+<span class="line">  durationMs: 150,</span>
+<span class="line">};</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Declarative assertions using the built-in assertion DSL</span></span>
+<span class="line"><span class="kw">const</span> assertions = [</span>
+<span class="line">  { name: <span class="str">"status is 200"</span>, assert: <span class="str">"status"</span>, value: 200 },</span>
+<span class="line">  { name: <span class="str">"content-type is json"</span>, assert: <span class="str">"header"</span>, key: <span class="str">"content-type"</span>, contains: <span class="str">"json"</span> },</span>
+<span class="line">  { name: <span class="str">"name is John"</span>, assert: <span class="str">"jsonPath"</span>, path: <span class="str">"data.name"</span>, equals: <span class="str">"John"</span> },</span>
+<span class="line">  { name: <span class="str">"total exists"</span>, assert: <span class="str">"jsonPath"</span>, path: <span class="str">"meta.total"</span>, exists: <span class="kw">true</span> },</span>
+<span class="line">  { name: <span class="str">"response under 1s"</span>, assert: <span class="str">"responseTime"</span>, max: 1000 },</span>
+<span class="line">];</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Run assertions (assertions first, context second)</span></span>
+<span class="line"><span class="kw">const</span> results = <span class="fn">runDeclarativeAssertions</span>(assertions, ctx);</span>
+<span class="line">console.<span class="fn">log</span>(results.<span class="fn">every</span>(r => r.passed) ? <span class="str">"All passed"</span> : <span class="str">"Some failed"</span>);</span></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section section-alt" id="features">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">Features</div>
+            <h2 class="section-title">Everything for API testing</h2>
+            <p class="section-deck">
+              Built for CI/CD pipelines and local development.
+            </p>
+          </div>
+          <div class="bento-grid">
+            <div class="bento-card featured">
+              <div class="bento-icon accent">01</div>
+              <h3>Six Protocols</h3>
+              <p>
+                HTTP, SSE, WebSocket, GraphQL, gRPC, and MCP. One config, one
+                runner, all protocols. Auto-detect protocol from operation
+                metadata.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon purple">02</div>
+              <h3>Declarative Assertions</h3>
+              <p>
+                Define assertions in YAML/JSON: status code, headers, body JSON
+                paths, response time.
+                <code>runDeclarativeAssertions()</code> evaluates them against
+                responses.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon ok">03</div>
+              <h3>Three Report Formats</h3>
+              <p>
+                JSON for machine parsing, CLI for terminal output with color and
+                progress bars, HTML for dashboards.
+                <code>generateJsonReport()</code>,
+                <code>printCliReport()</code>,
+                <code>generateHtmlReport()</code>.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon warn">04</div>
+              <h3>Postman Script Support</h3>
+              <p>
+                <code>extractPostmanScripts()</code> extracts and runs Postman
+                test scripts (pm.test, pm.expect) from imported collections.
+                Compatible with Postman v2.0/v2.1.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon blue">05</div>
+              <h3>Filtering & Concurrency</h3>
+              <p>
+                Filter operations by method, path, tag, or operationId via
+                <code>FilterConfig</code>. Configurable concurrency limit for
+                parallel test execution.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon danger">06</div>
+              <h3>Auth & TLS</h3>
+              <p>
+                Bearer token, API key, basic auth, OAuth2 via
+                <code>AuthConfig</code>. Custom TLS certificates and insecure
+                mode via <code>TlsConfig</code>. Remote spec loading with
+                timeout.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="protocols">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">Protocols</div>
+            <h2 class="section-title">Six protocols, one runner</h2>
+            <p class="section-deck">
+              Test any API type from a single configuration.
+            </p>
+          </div>
+          <div class="bento-grid cols-3">
+            <div class="bento-card">
+              <div class="bento-icon accent">HTTP</div>
+              <h3>HTTP / REST</h3>
+              <p>
+                Standard HTTP requests with full method, header, body, and query
+                support. Response time tracking and body capture.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon purple">SSE</div>
+              <h3>Server-Sent Events</h3>
+              <p>
+                Connect to SSE endpoints, capture event streams, assert on event
+                data and timing. Auto-detect from content-type.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon ok">WS</div>
+              <h3>WebSocket</h3>
+              <p>
+                Connect, send messages, receive responses. Assert on message
+                content and sequence. Manual session support.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon warn">GQL</div>
+              <h3>GraphQL</h3>
+              <p>
+                Send queries and mutations. Introspect schemas. Assert on
+                response data and errors. Variable support.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon blue">gRPC</div>
+              <h3>gRPC</h3>
+              <p>
+                Unary and streaming calls. Proto file loading and reflection.
+                Assert on response messages and metadata.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon danger">MCP</div>
+              <h3>MCP</h3>
+              <p>
+                Call MCP tools, list resources, resolve prompts. SSE and stdio
+                transports. Assert on tool output.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="api">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">API Reference</div>
+            <h2 class="section-title">Programmatic API</h2>
+            <p class="section-deck">
+              Use the CLI as a library in your Node.js scripts.
+            </p>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">runTests(config)</span
+              ><span class="api-desc"
+                >Run all API tests defined in the configuration</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <table class="api-params">
+                  <thead>
+                    <tr>
+                      <th>Parameter</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>config<span class="required">required</span></td>
+                      <td>CliConfig</td>
+                      <td>
+                        Test configuration (spec, baseUrl, auth, filter,
+                        assertions, concurrency, timeout)
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="api-example">
+                  <div class="api-example-label">Returns</div>
+                  <pre>
+TestReport { summary: TestSummary; results: TestResult[] }</pre
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">resolveConfig(args)</span
+              ><span class="api-desc"
+                >Resolve and validate configuration from CLI args and/or config
+                file</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Merges CLI args with config file, resolves environment
+                  variables, validates required fields. Returns a complete
+                  CliConfig.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">loadSpec(config)</span
+              ><span class="api-desc"
+                >Load an OpenAPI spec from local file or remote URL</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Supports JSON and YAML. Remote loading with configurable
+                  timeout. Use <code>isRemoteSpec(spec)</code> to check if a
+                  spec path is a URL.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name"
+                >runDeclarativeAssertions(response, assertions)</span
+              ><span class="api-desc"
+                >Evaluate declarative assertions against an HTTP response</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Operators: equals, notEquals, contains, notContains, exists,
+                  notExists, greaterThan, lessThan, greaterThanOrEqual,
+                  lessThanOrEqual, matches, isType.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">extractAssertions(operation)</span
+              ><span class="api-desc"
+                >Extract assertions from OpenAPI operation extensions</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Reads <code>x-assertions</code> extension from OpenAPI
+                  operations. Returns DeclarativeAssertion[].
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">extractPostmanScripts(collection)</span
+              ><span class="api-desc"
+                >Extract Postman test scripts from a Postman collection</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Extracts pre-request and test scripts from Postman v2.0/v2.1
+                  collections. Returns scripts keyed by request name.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">resolveJsonPath(obj, path)</span
+              ><span class="api-desc"
+                >Resolve a JSONPath expression against an object</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Supports dot notation, bracket notation, array indices, and
+                  wildcards. Returns the resolved value or undefined.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">generateJsonReport(report, dir)</span
+              ><span class="api-desc">Generate a JSON report file</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Writes report-YYYYMMDD-HHmmss.json to the specified directory.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">printCliReport(report)</span
+              ><span class="api-desc"
+                >Print a formatted CLI report to stdout</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Color-coded output with progress bar, per-operation results,
+                  and summary. Also available as
+                  <code>generateCliReport(report)</code> returning a string.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">generateHtmlReport(report, dir)</span
+              ><span class="api-desc">Generate an HTML report file</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Self-contained HTML report with interactive results, charts,
+                  and detailed assertion views.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method type">const</span
+              ><span class="api-name">DEFAULT_CONFIG</span
+              ><span class="api-desc">Default configuration values</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Default concurrency: 5, timeout: 10000ms, report format: cli.
+                  Merge with your config via resolveConfig.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-alt">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number">6</div>
+              <div class="stat-label">Protocols</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">3</div>
+              <div class="stat-label">Report Formats</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">11</div>
+              <div class="stat-label">Assertion Operators</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">MIT</div>
+              <div class="stat-label">License</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-shell">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="../index.html" class="brand" aria-label="Powerduck home">
+              <img
+                src="../assets/images/logo.svg"
+                alt="Powerduck logo"
+                class="brand-logo"
+              />
+              <span>Powerduck</span>
+            </a>
+            <p>
+              Building developer tools for the modern API workflow. Open source,
+              production-ready, and community-driven.
+            </p>
+          </div>
+          <div class="footer-column">
+            <h6>Product</h6>
+            <ul>
+              <li><a href="../index.html#features">Features</a></li>
+              <li><a href="../index.html#opensource">Open Source</a></li>
+              <li><a href="../opensource/md-editor.html">MD Editor</a></li>
+              <li><a href="../opensource/openapi-cli.html">OpenAPI CLI</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h6>Resources</h6>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/PowerDuckie"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.npmjs.com/search?q=%40powerduck"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >npm Packages</a
+                >
+              </li>
+              <li><a href="mailto:contact@neatico.com">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h6>Legal</h6>
+            <ul>
+              <li><a href="../terms.html">Terms of Service</a></li>
+              <li><a href="../privacy.html">Privacy Policy</a></li>
+              <li><a href="../refunds.html">Refund Policy</a></li>
+              <li><a href="../cookie.html">Cookie Notice</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 POWERDUCK LIMITED. All rights reserved.</span>
+          <div class="footer-bottom-links">
+            <a href="../terms.html">Terms</a>
+            <a href="../privacy.html">Privacy</a>
+            <a href="../cookie.html">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        "use strict";
+        function toggleTheme() {
+          var h = document.documentElement;
+          var n = h.getAttribute("data-theme") === "dark" ? "light" : "dark";
+          h.setAttribute("data-theme", n);
+          try {
+            localStorage.setItem("pd-theme", n);
+          } catch (e) {}
+        }
+        function showTab(btn, id) {
+          if (!btn || !id) return;
+          var block = btn.closest(".code-block");
+          if (!block) return;
+          var tabs = block.querySelectorAll(".code-tab");
+          for (var i = 0; i < tabs.length; i++)
+            tabs[i].classList.remove("active");
+          btn.classList.add("active");
+          var pres = block.querySelectorAll(".code-body pre");
+          for (var j = 0; j < pres.length; j++) pres[j].style.display = "none";
+          var target = block.querySelector("#code-" + id);
+          if (target) target.style.display = "block";
+        }
+        function toggleApi(el) {
+          if (el) el.classList.toggle("open");
+        }
+        function copyText(text, btn) {
+          if (!text || !btn) return;
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard
+              .writeText(text)
+              .then(function () {
+                var orig = btn.textContent;
+                btn.textContent = "Copied";
+                setTimeout(function () {
+                  btn.textContent = orig;
+                }, 1500);
+              })
+              .catch(function () {});
+          }
+        }
+        function copyCode(btn) {
+          if (!btn) return;
+          var block = btn.closest(".code-block");
+          if (!block) return;
+          var active =
+            block.querySelector(".code-body pre[style*=block]") ||
+            block.querySelector(".code-body pre");
+          if (active && active.textContent) copyText(active.textContent, btn);
+        }
+        function initTabs() {
+          var blocks = document.querySelectorAll(".code-block");
+          for (var i = 0; i < blocks.length; i++) {
+            var pres = blocks[i].querySelectorAll(".code-body pre");
+            var activeTab = blocks[i].querySelector(".code-tab.active");
+            var activeId = "";
+            if (activeTab) {
+              var onclick = activeTab.getAttribute("onclick") || "";
+              var parts = onclick.split("'");
+              if (parts.length >= 2) activeId = parts[1];
+            }
+            for (var j = 0; j < pres.length; j++) {
+              if (activeId && pres[j].id === "code-" + activeId) {
+                pres[j].style.display = "block";
+              } else if (j > 0) {
+                pres[j].style.display = "none";
+              }
+            }
+          }
+        }
+        function initCopyInstall() {
+          var btn = document.getElementById("copyInstall");
+          var txt = document.getElementById("installText");
+          if (btn && txt) {
+            btn.addEventListener("click", function () {
+              copyText(txt.textContent, btn);
+            });
+          }
+        }
+        window.toggleTheme = toggleTheme;
+        window.showTab = showTab;
+        window.toggleApi = toggleApi;
+        window.copyCode = copyCode;
+        window.copyText = copyText;
+        try {
+          var saved = localStorage.getItem("pd-theme");
+          if (saved) document.documentElement.setAttribute("data-theme", saved);
+          else if (
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+          )
+            document.documentElement.setAttribute("data-theme", "dark");
+        } catch (e) {}
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", function () {
+            initTabs();
+            initCopyInstall();
+          });
+        } else {
+          initTabs();
+          initCopyInstall();
+        }
+      })();
+    </script>
+    <script src="../assets/js/common.js"></script>
+  </body>
+</html>

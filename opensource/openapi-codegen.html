@@ -1,0 +1,1292 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("powerduck-theme");
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+    <title>
+      @powerduck/openapi-codegen — Generate HTTP Client Code from OpenAPI
+    </title>
+    <meta
+      name="description"
+      content="Generate runnable HTTP request examples from OpenAPI documents. 21 languages, 41 language/client combinations. Browser-compatible, zero runtime dependencies. Built-in plugin system for custom generators."
+    />
+    <meta
+      name="keywords"
+      content="openapi codegen, http client generator, api code generation, typescript fetch, python requests, go http, openapi to code, sdk generator"
+    />
+    <meta name="author" content="Powerduck Open source" />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://www.powerduck.com/opensource/openapi-codegen.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Powerduck Open source" />
+    <meta
+      property="og:title"
+      content="@powerduck/openapi-codegen — Generate HTTP Client Code from OpenAPI"
+    />
+    <meta
+      property="og:description"
+      content="21 languages, 41 clients, browser-compatible, zero runtime dependencies."
+    />
+    <meta
+      property="og:url"
+      content="https://www.powerduck.com/openapi-codegen"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="@powerduck/openapi-codegen" />
+    <meta
+      name="twitter:description"
+      content="Generate HTTP client code from OpenAPI."
+    />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0b0f14"
+      media="(prefers-color-scheme: dark)"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "@powerduck/openapi-codegen",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Cross-platform",
+        "description": "Generate runnable HTTP request examples from OpenAPI documents. 21 languages, 41 clients.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "license": "https://opensource.org/licenses/MIT",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Powerduck Open source",
+          "url": "https://www.powerduck.com"
+        },
+        "softwareVersion": "0.5.1",
+        "programmingLanguage": ["TypeScript", "JavaScript"]
+      }
+    </script>
+    <link rel="stylesheet" href="../assets/css/common.css" />
+    <link rel="stylesheet" href="./assets/css/shared.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="nav-inner">
+      
+        <a href="../index.html" class="brand" aria-label="Powerduck home">
+          <img
+            src="../assets/images/logo.svg"
+            alt="Powerduck logo"
+            class="brand-logo"
+          />
+          <span>Powerduck</span> <span class="accent">Open source</span>
+        </a>
+        <nav aria-label="Main navigation">
+          <ul class="nav-links">
+            <li>
+              <a
+                href="https://www.powerduck.com/docs/openapi-codegen/introduction"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Documentation</a
+              >
+            </li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#languages">Languages</a></li>
+            <li><a href="#quickstart">Quick Start</a></li>
+            <li><a href="#api">API</a></li>
+            <li class="nav-dropdown">
+              <button
+                class="nav-dropdown-trigger"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Open Source
+                <svg
+                  class="chevron"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="nav-dropdown-menu" role="menu">
+                <div class="dropdown-section-title">Open Source Libraries</div>
+                <a class="dropdown-item" href="md-editor.html" role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/md-editor</span
+                    ><span class="pkg-desc"
+                      >Embeddable Markdown editor with math, mindmaps & code
+                      highlighting</span
+                    >
+                  </div></a
+                ><a class="dropdown-item" href="conf-patch.html" role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/conf-patch</span
+                    ><span class="pkg-desc"
+                      >Two-layer config editor with OpenAPI validation & atomic
+                      writes</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="openapi-cli.html"
+                  role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/openapi-cli</span
+                    ><span class="pkg-desc"
+                      >CI-ready CLI for batch-testing OpenAPI across 6
+                      protocols</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="openapi-codegen.html"
+                  role="menuitem"
+                  aria-current="page"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/openapi-codegen</span
+                    ><span class="pkg-desc"
+                      >Generate runnable HTTP code from OpenAPI (21
+                      languages)</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="openapi-mcp-server.html"
+                  role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/openapi-mcp-server</span
+                    ><span class="pkg-desc"
+                      >Turn OpenAPI specs into production MCP servers with Web
+                      UI</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="openapi-request.html"
+                  role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/openapi-request</span
+                    ><span class="pkg-desc"
+                      >OpenAPI 3.2 collection debugger with
+                      HTTP/SSE/WebSocket</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="x-to-openapi.html"
+                  role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/x-to-openapi</span
+                    ><span class="pkg-desc"
+                      >Convert cURL commands & Postman collections to OpenAPI
+                      3.2</span
+                    >
+                  </div></a
+                >
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div class="nav-actions">
+            <a
+          class="btn-docs"
+          href="https://www.powerduck.com/docs/openapi-codegen/introduction"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Documentation"
+          aria-label="View documentation"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+            />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="8" y1="13" x2="16" y2="13" />
+            <line x1="8" y1="17" x2="13" y2="17" />
+          </svg>
+          <span class="nav-docs-text">Docs</span></a
+        >
+          <a
+            class="nav-icon-btn"
+            href="https://www.npmjs.com/package/@powerduck/openapi-codegen"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="npm package"
+            aria-label="View on npm"
+            ><img
+              src="./assets/images/npm.svg"
+              alt="npm package"
+              class="nav-icon-img"
+          /></a>
+          <a
+            class="btn-github"
+            href="https://github.com/powerducklab/openapi-codegen"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+              /></svg
+            ><span class="gh-text">GitHub</span></a
+          >
+          <button
+            class="nav-icon-btn theme-toggle"
+            data-theme-toggle
+            title="Toggle color theme"
+            aria-label="Toggle color theme"
+          >
+            <svg
+              class="icon-moon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg
+            ><svg
+              class="icon-sun"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-badge">
+            <span class="dot"></span> v0.5.1 &mdash; MIT Licensed &mdash; 418+
+            tests passing
+          </div>
+          <h1>
+            Generate <span class="hl">HTTP client code</span> from any OpenAPI
+            doc.
+          </h1>
+          <p class="lead">
+            Drop-in code generation for 21 languages and 41 language/client
+            combinations. Browser-compatible, zero runtime dependencies, with a
+            plugin system for custom generators.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#quickstart">Get Started</a
+            ><a
+              class="btn btn-secondary"
+              href="https://www.powerduck.com/docs/openapi-codegen/introduction"
+              >Document</a
+            ><a
+              class="btn btn-demo"
+              href="https://www.powerduck.com/demo/openapi-codegen"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Live Demo</a
+            >
+          </div>
+          <div class="install-cmd" role="group">
+            <span class="prefix">$</span
+            ><span class="cmd" id="installText"
+              >npm install @powerduck/openapi-codegen</span
+            ><button
+              class="copy"
+              id="copyInstall"
+              type="button"
+              aria-label="Copy install command"
+            >
+              Copy
+            </button>
+          </div>
+          <div class="hero-meta">
+            <span>21 Languages</span><span>41 Clients</span
+            ><span>Browser Ready</span><span>Zero Runtime Deps</span
+            ><span>Plugin System</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="quickstart">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">Quick Start</div>
+            <h2 class="section-title">Generate code in three lines</h2>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="code-tabs">
+                <button
+                  class="code-tab active"
+                  onclick="showTab(this, 'basic')"
+                >
+                  Basic
+                </button>
+                <button class="code-tab" onclick="showTab(this, 'custom')">
+                  Custom Generator
+                </button>
+                <button class="code-tab" onclick="showTab(this, 'plugin')">
+                  Plugin
+                </button>
+                <button class="code-tab" onclick="showTab(this, 'list')">
+                  List Generators
+                </button>
+              </div>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="code-body">
+              <pre
+                id="code-basic"
+              ><span class="line"><span class="kw">import</span> { generate } <span class="kw">from</span> <span class="str">"@powerduck/openapi-codegen"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="kw">const</span> document = {</span>
+<span class="line">  openapi: <span class="str">"3.1.0"</span>,</span>
+<span class="line">  info: { title: <span class="str">"Demo API"</span>, version: <span class="str">"1.0.0"</span> },</span>
+<span class="line">  servers: [{ url: <span class="str">"https://api.example.com/v1"</span> }],</span>
+<span class="line">  paths: {</span>
+<span class="line">    <span class="str">"/users/{id}"</span>: {</span>
+<span class="line">      get: {</span>
+<span class="line">        operationId: <span class="str">"getUser"</span>,</span>
+<span class="line">        parameters: [{ name: <span class="str">"id"</span>, in: <span class="str">"path"</span>, required: <span class="kw">true</span>, schema: { type: <span class="str">"string"</span> } }],</span>
+<span class="line">        responses: { <span class="str">"200"</span>: { description: <span class="str">"OK"</span> } },</span>
+<span class="line">      },</span>
+<span class="line">    },</span>
+<span class="line">  },</span>
+<span class="line">};</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Full GenerateOptions — all fields shown</span></span>
+<span class="line"><span class="kw">const</span> code = <span class="fn">generate</span>({</span>
+<span class="line">  document,                          <span class="com">// OpenAPI document (required if no request)</span></span>
+<span class="line">  path: <span class="str">"/users/{id}"</span>,             <span class="com">// Operation path</span></span>
+<span class="line">  method: <span class="str">"get"</span>,                  <span class="com">// HTTP method</span></span>
+<span class="line">  language: <span class="str">"python"</span>,              <span class="com">// Target language (required)</span></span>
+<span class="line">  client: <span class="str">"requests"</span>,              <span class="com">// HTTP client (required)</span></span>
+<span class="line">  serverUrl: <span class="str">"https://api.example.com/v1"</span>, <span class="com">// Override servers[0].url</span></span>
+<span class="line">  securityValues: { bearerAuth: <span class="str">"my-token"</span> }, <span class="com">// Auth values</span></span>
+<span class="line">  softRefMode: <span class="kw">false</span>,              <span class="com">// Soft $ref resolution</span></span>
+<span class="line">});</span>
+<span class="line"></span>
+<span class="line">console.<span class="fn">log</span>(code);</span></pre>
+              <pre
+                id="code-custom"
+                style="display: none"
+              ><span class="line"><span class="kw">import</span> { register, generate } <span class="kw">from</span> <span class="str">"@powerduck/openapi-codegen"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Register a custom generator — full RequestIR API shown</span></span>
+<span class="line"><span class="fn">register</span>({</span>
+<span class="line">  language: <span class="str">"mylang"</span>,</span>
+<span class="line">  client: <span class="str">"myclient"</span>,</span>
+<span class="line">  <span class="fn">generate</span>(request) {</span>
+<span class="line">    <span class="com">// RequestIR fields:</span></span>
+<span class="line">    <span class="kw">const</span> { method, baseUrl, path, parameters, headers, body, security } = request;</span>
+<span class="line">    <span class="com">// parameters: Parameter[] — { name, in: "path"|"query"|"header"|"cookie", value, style?, explode?, allowReserved? }</span></span>
+<span class="line">    <span class="com">// headers: Parameter[] — same shape as parameters</span></span>
+<span class="line">    <span class="com">// body?: Body — { mediaType, value, encoding? }</span></span>
+<span class="line">    <span class="com">// security: Security[] — { name, type, scheme?, in?, paramName?, value }</span></span>
+<span class="line">    <span class="kw">return</span> <span class="str">`// ${method.toUpperCase()} ${baseUrl}${path}`</span>;</span>
+<span class="line">  },</span>
+<span class="line">});</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Or pass a pre-built RequestIR directly (no document needed)</span></span>
+<span class="line"><span class="kw">const</span> code = <span class="fn">generate</span>({</span>
+<span class="line">  language: <span class="str">"mylang"</span>,</span>
+<span class="line">  client: <span class="str">"myclient"</span>,</span>
+<span class="line">  request: {</span>
+<span class="line">    method: <span class="str">"post"</span>,</span>
+<span class="line">    baseUrl: <span class="str">"https://api.example.com"</span>,</span>
+<span class="line">    path: <span class="str">"/users"</span>,</span>
+<span class="line">    parameters: [{ name: <span class="str">"verbose"</span>, in: <span class="str">"query"</span>, value: <span class="kw">true</span> }],</span>
+<span class="line">    headers: [{ name: <span class="str">"X-Request-Id"</span>, in: <span class="str">"header"</span>, value: <span class="str">"abc-123"</span> }],</span>
+<span class="line">    body: { mediaType: <span class="str">"application/json"</span>, value: { name: <span class="str">"John"</span> } },</span>
+<span class="line">    security: [{ name: <span class="str">"bearerAuth"</span>, type: <span class="str">"http"</span>, scheme: <span class="str">"bearer"</span>, value: <span class="str">"token"</span> }],</span>
+<span class="line">  },</span>
+<span class="line">});</span></pre>
+              <pre
+                id="code-plugin"
+                style="display: none"
+              ><span class="line"><span class="kw">import</span> { use } <span class="kw">from</span> <span class="str">"@powerduck/openapi-codegen"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="kw">const</span> myPlugin = {</span>
+<span class="line">  name: <span class="str">"my-custom-plugin"</span>,</span>
+<span class="line">  <span class="fn">register</span>({ register }) {</span>
+<span class="line">    <span class="fn">register</span>({</span>
+<span class="line">      language: <span class="str">"pluginlang"</span>,</span>
+<span class="line">      client: <span class="str">"pluginclient"</span>,</span>
+<span class="line">      <span class="fn">generate</span>(req) { <span class="kw">return</span> <span class="str">`// ${req.method}`</span>; },</span>
+<span class="line">    });</span>
+<span class="line">  },</span>
+<span class="line">};</span>
+<span class="line"></span>
+<span class="line"><span class="fn">use</span>(myPlugin);</span></pre>
+              <pre
+                id="code-list"
+                style="display: none"
+              ><span class="line"><span class="kw">import</span> { list, get } <span class="kw">from</span> <span class="str">"@powerduck/openapi-codegen"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="kw">const</span> all = <span class="fn">list</span>();</span>
+<span class="line">console.<span class="fn">log</span>(<span class="str">`Available: ${all.length} generators`</span>);</span>
+<span class="line">all.<span class="fn">forEach</span>(({ language, client }) => console.<span class="fn">log</span>(<span class="str">`${language}/${client}`</span>));</span>
+<span class="line"></span>
+<span class="line"><span class="kw">const</span> gen = <span class="fn">get</span>(<span class="str">"javascript"</span>, <span class="str">"fetch"</span>);</span></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section section-alt" id="features">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">Features</div>
+            <h2 class="section-title">
+              Everything you need for code generation
+            </h2>
+            <p class="section-deck">
+              Built for API documentation, SDK scaffolding, and developer
+              tooling.
+            </p>
+          </div>
+          <div class="bento-grid">
+            <div class="bento-card featured">
+              <div class="bento-icon accent">01</div>
+              <h3>21 Languages, 41 Clients</h3>
+              <p>
+                TypeScript fetch/axios/node, Python requests/httpx/aiohttp, Go
+                net/http/fasthttp, Java OkHttp/Unirest, Ruby, PHP, cURL, wget,
+                and more.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon purple">02</div>
+              <h3>Browser Compatible</h3>
+              <p>
+                Pure TypeScript with no Node.js dependencies. Runs in browsers,
+                Edge Functions, Web Workers, and any modern JS runtime.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon ok">03</div>
+              <h3>Zero Runtime Dependencies</h3>
+              <p>
+                No heavy dependencies shipped to your users. The entire
+                generator compiles to a small, tree-shakeable ESM/CJS bundle.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon warn">04</div>
+              <h3>Plugin System</h3>
+              <p>
+                Register custom generators with <code>register()</code> or
+                <code>use(plugin)</code>. Extend or override any built-in
+                language without forking.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon blue">05</div>
+              <h3>Accurate $ref Resolution</h3>
+              <p>
+                Properly resolves OpenAPI <code>$ref</code> pointers for request
+                bodies, parameters, and schemas. Handles circular references
+                safely.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon danger">06</div>
+              <h3>Security Value Injection</h3>
+              <p>
+                Pass <code>securityValues</code> to inject API keys, bearer
+                tokens, and basic auth credentials directly into generated code.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="languages">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">Languages</div>
+            <h2 class="section-title">21 languages out of the box</h2>
+            <p class="section-deck">
+              Call <code>list()</code> to get the full list of available
+              language/client pairs.
+            </p>
+          </div>
+          <div class="lang-grid">
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/javascript.svg"
+                alt="JavaScript"
+                loading="lazy"
+              /><span class="lang-name">JavaScript</span
+              ><span class="lang-clients"
+                >fetch · axios · jQuery · XHR · ofetch</span
+              >
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/node.svg"
+                alt="Node.js"
+                loading="lazy"
+              /><span class="lang-name">Node.js</span
+              ><span class="lang-clients">fetch · axios · ofetch · undici</span>
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/python.svg"
+                alt="Python"
+                loading="lazy"
+              /><span class="lang-name">Python</span
+              ><span class="lang-clients">requests · httpx · aiohttp</span>
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/go.svg"
+                alt="Go"
+                loading="lazy"
+              /><span class="lang-name">Go</span
+              ><span class="lang-clients">new-request</span>
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/java.svg"
+                alt="Java"
+                loading="lazy"
+              /><span class="lang-name">Java</span
+              ><span class="lang-clients"
+                >OkHttp · Unirest · AsyncHttp · java-net-http</span
+              >
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/kotlin.svg"
+                alt="Kotlin"
+                loading="lazy"
+              /><span class="lang-name">Kotlin</span
+              ><span class="lang-clients">OkHttp</span>
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/ruby.svg"
+                alt="Ruby"
+                loading="lazy"
+              /><span class="lang-name">Ruby</span
+              ><span class="lang-clients">net-http</span>
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/php.svg"
+                alt="PHP"
+                loading="lazy"
+              /><span class="lang-name">PHP</span
+              ><span class="lang-clients">cURL · Guzzle · Laravel HTTP</span>
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/shell.svg"
+                alt="Shell"
+                loading="lazy"
+              /><span class="lang-name">Shell</span
+              ><span class="lang-clients">cURL · wget · HTTPie</span>
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/c.svg"
+                alt="C"
+                loading="lazy"
+              /><span class="lang-name">C</span
+              ><span class="lang-clients">libcurl</span>
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/csharp.svg"
+                alt="C#"
+                loading="lazy"
+              /><span class="lang-name">C#</span
+              ><span class="lang-clients">HttpClient · RestSharp</span>
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/fsharp.svg"
+                alt="F#"
+                loading="lazy"
+              /><span class="lang-name">F#</span
+              ><span class="lang-clients">HttpClient</span>
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/dart.svg"
+                alt="Dart"
+                loading="lazy"
+              /><span class="lang-name">Dart</span
+              ><span class="lang-clients">http</span>
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/swift.svg"
+                alt="Swift"
+                loading="lazy"
+              /><span class="lang-name">Swift</span
+              ><span class="lang-clients">NSURLSession</span>
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/objc.svg"
+                alt="Objective-C"
+                loading="lazy"
+              /><span class="lang-name">Objective-C</span
+              ><span class="lang-clients">NSURLSession</span>
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/rust.svg"
+                alt="Rust"
+                loading="lazy"
+              /><span class="lang-name">Rust</span
+              ><span class="lang-clients">reqwest</span>
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/clojure.svg"
+                alt="Clojure"
+                loading="lazy"
+              /><span class="lang-name">Clojure</span
+              ><span class="lang-clients">clj-http</span>
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/ocaml.svg"
+                alt="OCaml"
+                loading="lazy"
+              /><span class="lang-name">OCaml</span
+              ><span class="lang-clients">cohttp</span>
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/r.svg"
+                alt="R"
+                loading="lazy"
+              /><span class="lang-name">R</span
+              ><span class="lang-clients">httr2</span>
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/powershell.svg"
+                alt="PowerShell"
+                loading="lazy"
+              /><span class="lang-name">PowerShell</span
+              ><span class="lang-clients"
+                >Invoke-RestMethod · Invoke-WebRequest</span
+              >
+            </div>
+            <div class="lang-item">
+              <img
+                class="lang-icon"
+                src="./assets/images/http.svg"
+                alt="HTTP"
+                loading="lazy"
+              /><span class="lang-name">HTTP</span
+              ><span class="lang-clients">http1 (raw)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="api">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">API Reference</div>
+            <h2 class="section-title">Complete API surface</h2>
+            <p class="section-deck">
+              Click any entry to expand parameters and examples.
+            </p>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">generate(options)</span
+              ><span class="api-desc"
+                >Generate an HTTP request example for an OpenAPI operation</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <table class="api-params">
+                  <thead>
+                    <tr>
+                      <th>Parameter</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>options.document</td>
+                      <td>object</td>
+                      <td>
+                        OpenAPI document object (required when no
+                        <code>request</code>)
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>options.path</td>
+                      <td>string</td>
+                      <td>
+                        Operation path, e.g.
+                        <code>"/users/{id}"</code> (required with document)
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>options.method</td>
+                      <td>string</td>
+                      <td>
+                        HTTP method lowercase: get, post, put, delete, patch
+                        (required with document)
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        options.language<span class="required">required</span>
+                      </td>
+                      <td>string</td>
+                      <td>Target language, e.g. <code>"python"</code></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        options.client<span class="required">required</span>
+                      </td>
+                      <td>string</td>
+                      <td>HTTP client, e.g. <code>"requests"</code></td>
+                    </tr>
+                    <tr>
+                      <td>options.request</td>
+                      <td>RequestIR</td>
+                      <td>Pre-normalized request (skips document lookup)</td>
+                    </tr>
+                    <tr>
+                      <td>options.serverUrl</td>
+                      <td>string</td>
+                      <td>Override server base URL</td>
+                    </tr>
+                    <tr>
+                      <td>options.securityValues</td>
+                      <td>object</td>
+                      <td>Map of security scheme names to values</td>
+                    </tr>
+                    <tr>
+                      <td>options.softRefMode</td>
+                      <td>boolean</td>
+                      <td>Graceful $ref resolution mode</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">register(generator)</span
+              ><span class="api-desc"
+                >Register a custom language/client generator</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <table class="api-params">
+                  <thead>
+                    <tr>
+                      <th>Parameter</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        generator.language<span class="required">required</span>
+                      </td>
+                      <td>string</td>
+                      <td>Language identifier</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        generator.client<span class="required">required</span>
+                      </td>
+                      <td>string</td>
+                      <td>Client identifier</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        generator.generate<span class="required">required</span>
+                      </td>
+                      <td>(req: RequestIR) => string</td>
+                      <td>Generation function</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">get(language, client)</span
+              ><span class="api-desc"
+                >Get a generator by language and client</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <div class="api-example">
+                  <div class="api-example-label">Returns</div>
+                  <pre>Generator | undefined</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">list()</span
+              ><span class="api-desc">List all available generators</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <div class="api-example">
+                  <div class="api-example-label">Returns</div>
+                  <pre>Array&lt;{ language: string; client: string }&gt;</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">use(plugin)</span
+              ><span class="api-desc"
+                >Apply a plugin that can register custom generators</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <table class="api-params">
+                  <thead>
+                    <tr>
+                      <th>Parameter</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        plugin.register<span class="required">required</span>
+                      </td>
+                      <td>(ctx: { register }) => void</td>
+                      <td>Plugin registration hook</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">registerBuiltins()</span
+              ><span class="api-desc"
+                >Explicitly register all built-in generators (auto-called on
+                import)</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Idempotent. Safe to call multiple times; only registers on
+                  first invocation.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method type">type</span
+              ><span class="api-name">GenerateOptions</span
+              ><span class="api-desc">Options object for generate()</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Exported from the package root. Includes document, path,
+                  method, language, client, request, serverUrl, securityValues,
+                  softRefMode.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method type">type</span
+              ><span class="api-name">Generator</span
+              ><span class="api-desc">Custom generator interface</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <div class="api-example">
+                  <div class="api-example-label">Shape</div>
+                  <pre>
+{ language: string; client: string; generate: (request: RequestIR) => string }</pre
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-alt">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number">21</div>
+              <div class="stat-label">Languages</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">41</div>
+              <div class="stat-label">Client Pairs</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">0</div>
+              <div class="stat-label">Runtime Deps</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">MIT</div>
+              <div class="stat-label">License</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-shell">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="../index.html" class="brand" aria-label="Powerduck home">
+              <img
+                src="../assets/images/logo.svg"
+                alt="Powerduck logo"
+                class="brand-logo"
+              />
+              <span>Powerduck</span>
+            </a>
+            <p>
+              Building developer tools for the modern API workflow. Open source,
+              production-ready, and community-driven.
+            </p>
+          </div>
+          <div class="footer-column">
+            <h6>Product</h6>
+            <ul>
+              <li><a href="../index.html#features">Features</a></li>
+              <li><a href="../index.html#opensource">Open Source</a></li>
+              <li><a href="../opensource/md-editor.html">MD Editor</a></li>
+              <li><a href="../opensource/openapi-cli.html">OpenAPI CLI</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h6>Resources</h6>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/PowerDuckie"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.npmjs.com/search?q=%40powerduck"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >npm Packages</a
+                >
+              </li>
+              <li><a href="mailto:contact@neatico.com">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h6>Legal</h6>
+            <ul>
+              <li><a href="../terms.html">Terms of Service</a></li>
+              <li><a href="../privacy.html">Privacy Policy</a></li>
+              <li><a href="../refunds.html">Refund Policy</a></li>
+              <li><a href="../cookie.html">Cookie Notice</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 POWERDUCK LIMITED. All rights reserved.</span>
+          <div class="footer-bottom-links">
+            <a href="../terms.html">Terms</a>
+            <a href="../privacy.html">Privacy</a>
+            <a href="../cookie.html">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        "use strict";
+        function toggleTheme() {
+          var h = document.documentElement;
+          var n = h.getAttribute("data-theme") === "dark" ? "light" : "dark";
+          h.setAttribute("data-theme", n);
+          try {
+            localStorage.setItem("pd-theme", n);
+          } catch (e) {}
+        }
+        function showTab(btn, id) {
+          if (!btn || !id) return;
+          var block = btn.closest(".code-block");
+          if (!block) return;
+          var tabs = block.querySelectorAll(".code-tab");
+          for (var i = 0; i < tabs.length; i++)
+            tabs[i].classList.remove("active");
+          btn.classList.add("active");
+          var pres = block.querySelectorAll(".code-body pre");
+          for (var j = 0; j < pres.length; j++) pres[j].style.display = "none";
+          var target = block.querySelector("#code-" + id);
+          if (target) target.style.display = "block";
+        }
+        function toggleApi(el) {
+          if (el) el.classList.toggle("open");
+        }
+        function copyText(text, btn) {
+          if (!text || !btn) return;
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard
+              .writeText(text)
+              .then(function () {
+                var orig = btn.textContent;
+                btn.textContent = "Copied";
+                setTimeout(function () {
+                  btn.textContent = orig;
+                }, 1500);
+              })
+              .catch(function () {});
+          }
+        }
+        function copyCode(btn) {
+          if (!btn) return;
+          var block = btn.closest(".code-block");
+          if (!block) return;
+          var active =
+            block.querySelector('.code-body pre[style*="block"]') ||
+            block.querySelector(".code-body pre");
+          if (active && active.textContent) copyText(active.textContent, btn);
+        }
+        function initTabs() {
+          var blocks = document.querySelectorAll(".code-block");
+          for (var i = 0; i < blocks.length; i++) {
+            var pres = blocks[i].querySelectorAll(".code-body pre");
+            var activeTab = blocks[i].querySelector(".code-tab.active");
+            for (var j = 0; j < pres.length; j++) {
+              if (
+                activeTab &&
+                pres[j].id ===
+                  "code-" +
+                    activeTab.getAttribute("onclick").match(/'([^']+)'/)[1]
+              ) {
+                pres[j].style.display = "block";
+              } else if (j > 0) {
+                pres[j].style.display = "none";
+              }
+            }
+          }
+        }
+        function initCopyInstall() {
+          var btn = document.getElementById("copyInstall");
+          var txt = document.getElementById("installText");
+          if (btn && txt) {
+            btn.addEventListener("click", function () {
+              copyText(txt.textContent, btn);
+            });
+          }
+        }
+        window.toggleTheme = toggleTheme;
+        window.showTab = showTab;
+        window.toggleApi = toggleApi;
+        window.copyCode = copyCode;
+        window.copyText = copyText;
+        try {
+          var saved = localStorage.getItem("pd-theme");
+          if (saved) document.documentElement.setAttribute("data-theme", saved);
+          else if (
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+          )
+            document.documentElement.setAttribute("data-theme", "dark");
+        } catch (e) {}
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", function () {
+            initTabs();
+            initCopyInstall();
+          });
+        } else {
+          initTabs();
+          initCopyInstall();
+        }
+      })();
+    </script>
+    <script src="../assets/js/common.js"></script>
+  </body>
+</html>

@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("powerduck-theme");
+        var theme = saved === "light" || saved === "dark"
+          ? saved
+          : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <title>@powerduck/conf-patch — Two-Layer Config Editor for JSON, JSONC & YAML</title>
+  <meta name="description" content="Production-grade two-layer configuration editor. Pure core functions for browser-safe patching. File layer with atomic writes and file locks for Node.js/Electron. RFC 6902 JSON Patch. OpenAPI spec validation built in." />
+  <meta name="keywords" content="config editor, json patch, yaml patch, rfc 6902, atomic write, file lock, openapi validation, electron config, browser config" />
+  <meta name="author" content="Powerduck Open source" /><meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.powerduck.com/opensource/conf-patch.html" />
+  <meta property="og:type" content="website" /><meta property="og:site_name" content="Powerduck Open source" />
+  <meta property="og:title" content="@powerduck/conf-patch — Two-Layer Config Editor" />
+  <meta property="og:description" content="Pure core + file layer. Atomic writes, file locks, RFC 6902, OpenAPI validation." />
+  <meta property="og:url" content="https://www.powerduck.com/opensource/conf-patch" />
+  <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="@powerduck/conf-patch" />
+  <meta name="twitter:description" content="Two-layer config editor for JSON, JSONC & YAML." />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0b0f14" media="(prefers-color-scheme: dark)" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"@powerduck/conf-patch","applicationCategory":"DeveloperApplication","operatingSystem":"Cross-platform","description":"Two-layer configuration editor with pure core for browser and file layer with atomic writes for Node.js.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"license":"https://opensource.org/licenses/MIT","publisher":{"@type":"Organization","name":"Powerduck Open source","url":"https://www.powerduck.com"},"softwareVersion":"0.3.2","programmingLanguage":["TypeScript","JavaScript"]}</script>
+  <link rel="stylesheet" href="../assets/css/common.css" />
+  <link rel="stylesheet" href="./assets/css/shared.css" />
+</head>
+<body>
+  <header class="site-header"><div class="nav-inner">
+    <a href="../index.html" class="brand" aria-label="Powerduck home">
+      <img src="../assets/images/logo.svg" alt="Powerduck logo" class="brand-logo" />
+      <span>Powerduck</span> <span class="accent">Open source</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li><li><a href="#layers">Two Layers</a></li><li><a href="#quickstart">Quick Start</a></li><li><a href="#api">API</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Open Source <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <div class="dropdown-section-title">Open Source Libraries</div><a class="dropdown-item" href="md-editor.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/md-editor</span><span class="pkg-desc">Embeddable Markdown editor with math, mindmaps & code highlighting</span></div></a><a class="dropdown-item" href="conf-patch.html" role="menuitem" aria-current="page"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/conf-patch</span><span class="pkg-desc">Two-layer config editor with OpenAPI validation & atomic writes</span></div></a><a class="dropdown-item" href="openapi-cli.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-cli</span><span class="pkg-desc">CI-ready CLI for batch-testing OpenAPI across 6 protocols</span></div></a><a class="dropdown-item" href="openapi-codegen.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-codegen</span><span class="pkg-desc">Generate runnable HTTP code from OpenAPI (21 languages)</span></div></a><a class="dropdown-item" href="openapi-mcp-server.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-mcp-server</span><span class="pkg-desc">Turn OpenAPI specs into production MCP servers with Web UI</span></div></a><a class="dropdown-item" href="openapi-request.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-request</span><span class="pkg-desc">OpenAPI 3.2 collection debugger with HTTP/SSE/WebSocket</span></div></a><a class="dropdown-item" href="x-to-openapi.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/x-to-openapi</span><span class="pkg-desc">Convert cURL commands & Postman collections to OpenAPI 3.2</span></div></a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn-docs" href="https://www.powerduck.com/docs/conf-patch/introduction" target="_blank" rel="noopener noreferrer" title="Documentation" aria-label="View documentation">
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+            />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="8" y1="13" x2="16" y2="13" />
+            <line x1="8" y1="17" x2="13" y2="17" />
+          </svg>
+        <span class="nav-docs-text">Docs</span></a>
+      <a class="nav-icon-btn" href="https://www.npmjs.com/package/@powerduck/conf-patch" target="_blank" rel="noopener noreferrer" title="npm package" aria-label="View on npm"><img src="./assets/images/npm.svg" alt="npm package" class="nav-icon-img" /></a>
+      <a class="btn-github" href="https://github.com/powerducklab/conf-patch" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg><span class="gh-text">GitHub</span></a>
+      <button class="nav-icon-btn theme-toggle" data-theme-toggle title="Toggle color theme" aria-label="Toggle color theme"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+    </div>
+  </div></header>
+
+  <main>
+  <section class="hero"><div class="container">
+    <div class="hero-badge"><span class="dot"></span> @latest &mdash; MIT Licensed &mdash; 280+ tests passing</div>
+    <h1>Two-Layer <span class="hl">Config Editor</span> for JSON, JSONC & YAML</h1>
+    <p class="lead">Pure core functions for browser-safe patching. File layer with atomic writes and file locks for Node.js/Electron. RFC 6902 JSON Patch. OpenAPI spec validation built in. Dual ESM/CJS module.</p>
+    <div class="hero-cta"><a class="btn btn-primary" href="#quickstart">Get Started</a><a class="btn btn-secondary" href="https://www.powerduck.com/docs/conf-patch/introduction" target="_blank" rel="noopener noreferrer">Document</a><a class="btn btn-demo" href="https://www.powerduck.com/demo/conf-patch" target="_blank" rel="noopener noreferrer">Live Demo</a></div>
+    <div class="install-cmd" role="group"><span class="prefix">$</span><span class="cmd" id="installText">npm install @powerduck/conf-patch</span><button class="copy" id="copyInstall" type="button" aria-label="Copy install command">Copy</button></div>
+    <div class="hero-meta"><span>JSON + JSONC + YAML</span><span>RFC 6902 Patch</span><span>Atomic Writes</span><span>File Locks</span><span>Browser Safe</span><span>OpenAPI Validation</span></div>
+  </div></section>
+
+  <section class="section section-alt" id="quickstart"><div class="container">
+    <div class="section-head"><div class="section-kicker">Quick Start</div><h2 class="section-title">Patch configs in seconds</h2></div>
+    <div class="code-block">
+      <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div>
+        <div class="code-tabs">
+          <button class="code-tab active" onclick="showTab(this,'core')">Core (Browser)</button>
+          <button class="code-tab" onclick="showTab(this,'file')">File (Node)</button>
+          <button class="code-tab" onclick="showTab(this,'patch')">JSON Patch</button>
+          <button class="code-tab" onclick="showTab(this,'validate')">OpenAPI Validate</button>
+        </div>
+        <button class="code-copy" onclick="copyCode(this)">Copy</button>
+      </div>
+      <div class="code-body">
+        <pre id="code-core"><span class="line"><span class="kw">import</span> { patchContent, setContentValue } <span class="kw">from</span> <span class="str">"@powerduck/conf-patch/core"</span>;</span>
+<span class="line"><span class="kw">import</span> { detectFormat } <span class="kw">from</span> <span class="str">"@powerduck/conf-patch"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Patch a config string (works in browser, no fs dependency)</span></span>
+<span class="line"><span class="kw">const</span> original = <span class="str">`{"name": "app", "version": "1.0.0"}`</span>;</span>
+<span class="line"><span class="kw">const</span> patched = <span class="fn">patchContent</span>(original, [</span>
+<span class="line">  { op: <span class="str">"replace"</span>, path: [<span class="str">"version"</span>], value: <span class="str">"2.0.0"</span> },</span>
+<span class="line">  { op: <span class="str">"add"</span>, path: [<span class="str">"author"</span>], value: <span class="str">"Powerduck"</span> },</span>
+<span class="line">], <span class="str">"json"</span>);</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Or use the convenience setter</span></span>
+<span class="line"><span class="kw">const</span> updated = <span class="fn">setContentValue</span>(original, [<span class="str">"version"</span>], <span class="str">"3.0.0"</span>, <span class="str">"json"</span>);</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Detect format from a file path (by extension)</span></span>
+<span class="line"><span class="kw">const</span> format = <span class="fn">detectFormat</span>(<span class="str">"./config.yaml"</span>); <span class="com">// "yaml"</span></span></pre>
+        <pre id="code-file" style="display:none"><span class="line"><span class="kw">import</span> { readConfigFile, writeConfigFile, setConfigValue, deleteConfigValue, patchConfigFile, withFileLock } <span class="kw">from</span> <span class="str">"@powerduck/conf-patch"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Read raw config file content (returns string, not parsed object)</span></span>
+<span class="line"><span class="kw">const</span> raw = <span class="kw">await</span> <span class="fn">readConfigFile</span>(<span class="str">"./config.yaml"</span>);</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Write config file (full WriteConfigOptions shown)</span></span>
+<span class="line"><span class="kw">await</span> <span class="fn">writeConfigFile</span>(<span class="str">"./config.yaml"</span>, raw, {</span>
+<span class="line">  lock: <span class="kw">true</span>,                          <span class="com">// Enable file locking (default: true)</span></span>
+<span class="line">  lockTimeoutMs: 10000,                 <span class="com">// Max wait for lock</span></span>
+<span class="line">  lockRetryDelayMs: 25,                 <span class="com">// Delay between retries</span></span>
+<span class="line">  lockStaleThresholdMs: 30000,          <span class="com">// Lock age before stale</span></span>
+<span class="line">  allowStaleRecovery: <span class="kw">false</span>,          <span class="com">// Auto-reclaim stale locks</span></span>
+<span class="line">});</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Set a value by path (auto-detects format from extension)</span></span>
+<span class="line"><span class="kw">await</span> <span class="fn">setConfigValue</span>(<span class="str">"./config.yaml"</span>, [<span class="str">"server"</span>, <span class="str">"port"</span>], 8080, {</span>
+<span class="line">  format: <span class="str">"yaml"</span>,                      <span class="com">// Override auto-detection: "json" | "jsonc" | "yaml"</span></span>
+<span class="line">  strict: <span class="kw">true</span>,                        <span class="com">// Throw on failed ops (default: true)</span></span>
+<span class="line">  lock: <span class="kw">true</span>,                          <span class="com">// Use file lock during write</span></span>
+<span class="line">});</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Delete a value by path</span></span>
+<span class="line"><span class="kw">await</span> <span class="fn">deleteConfigValue</span>(<span class="str">"./config.yaml"</span>, [<span class="str">"server"</span>, <span class="str">"host"</span>]);</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Batch patch with explicit file lock (full FileLockOptions shown)</span></span>
+<span class="line"><span class="kw">await</span> <span class="fn">withFileLock</span>([<span class="str">"./config.yaml"</span>, <span class="str">"./secrets.json"</span>], <span class="kw">async</span> () => {</span>
+<span class="line">  <span class="kw">await</span> <span class="fn">patchConfigFile</span>(<span class="str">"./config.yaml"</span>, [</span>
+<span class="line">    { op: <span class="str">"replace"</span>, path: [<span class="str">"server"</span>, <span class="str">"port"</span>], value: 9090 },</span>
+<span class="line">    { op: <span class="str">"add"</span>, path: [<span class="str">"server"</span>, <span class="str">"host"</span>], value: <span class="str">"0.0.0.0"</span> },</span>
+<span class="line">    { op: <span class="str">"remove"</span>, path: [<span class="str">"features"</span>, 0] },</span>
+<span class="line">  ], { strict: <span class="kw">false</span> }); <span class="com">// Non-strict: skip failed ops</span></span>
+<span class="line">}, {</span>
+<span class="line">  timeoutMs: 10000,                      <span class="com">// Max wait for all locks</span></span>
+<span class="line">  retryDelayMs: 25,                      <span class="com">// Initial retry delay</span></span>
+<span class="line">  staleThresholdMs: 30000,               <span class="com">// Lock age before stale</span></span>
+<span class="line">  allowStaleRecovery: <span class="kw">false</span>,           <span class="com">// Auto-reclaim stale locks</span></span>
+<span class="line">});</span></pre>
+        <pre id="code-patch" style="display:none"><span class="line"><span class="kw">import</span> { patchContent } <span class="kw">from</span> <span class="str">"@powerduck/conf-patch/core"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="kw">const</span> yaml = <span class="str">`server:</span>
+<span class="line"><span class="str">  port: 3000</span>
+<span class="line"><span class="str">  host: localhost</span>
+<span class="line"><span class="str">features:</span>
+<span class="line"><span class="str">  - auth</span>
+<span class="line"><span class="str">  - logging`</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="kw">const</span> result = <span class="fn">patchContent</span>(yaml, [</span>
+<span class="line">  { op: <span class="str">"replace"</span>, path: [<span class="str">"server"</span>, <span class="str">"port"</span>], value: 8080 },</span>
+<span class="line">  { op: <span class="str">"replace"</span>, path: [<span class="str">"features"</span>, 1], value: <span class="str">"caching"</span> },</span>
+<span class="line">  { op: <span class="str">"remove"</span>, path: [<span class="str">"server"</span>, <span class="str">"host"</span>] },</span>
+<span class="line">], <span class="str">"yaml"</span>);</span>
+<span class="line"></span>
+<span class="line">console.<span class="fn">log</span>(result);</span></pre>
+        <pre id="code-validate" style="display:none"><span class="line"><span class="kw">import</span> { validateOpenAPISpec, validateOpenAPIFile, OpenApiValidationError } <span class="kw">from</span> <span class="str">"@powerduck/conf-patch"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Validate from content string — full ValidateOpenApiOptions shown</span></span>
+<span class="line"><span class="kw">const</span> spec = JSON.<span class="fn">stringify</span>({ openapi: <span class="str">"3.1.0"</span>, info: { title: <span class="str">"API"</span>, version: <span class="str">"1.0.0"</span> }, paths: {} });</span>
+<span class="line"><span class="kw">try</span> {</span>
+<span class="line">  <span class="kw">const</span> document = <span class="kw">await</span> <span class="fn">validateOpenAPISpec</span>(spec, {</span>
+<span class="line">    inputKind: <span class="str">"content"</span>,              <span class="com">// "content" | "file" — auto-detected</span></span>
+<span class="line">    timeoutMs: 30000,                     <span class="com">// Total operation deadline</span></span>
+<span class="line">    maxInputBytes: 10 * 1024 * 1024,     <span class="com">// Max raw input size (10 MB)</span></span>
+<span class="line">    maxDocumentNodes: 100000,             <span class="com">// Max nodes in parsed document</span></span>
+<span class="line">    maxDocumentDepth: 100,                 <span class="com">// Max nested object/array depth</span></span>
+<span class="line">    maxValidationErrors: 100,              <span class="com">// Max errors in error message</span></span>
+<span class="line">    maxErrorMessageLength: 500,            <span class="com">// Max chars per error</span></span>
+<span class="line">  });</span>
+<span class="line">  console.<span class="fn">log</span>(<span class="str">"Valid:"</span>, document.openapi);</span>
+<span class="line">} <span class="kw">catch</span> (error) {</span>
+<span class="line">  <span class="kw">if</span> (error <span class="kw">instanceof</span> OpenApiValidationError) {</span>
+<span class="line">    console.<span class="fn">error</span>(<span class="str">"Invalid spec:"</span>, error.code, error.message);</span>
+<span class="line">  }</span>
+<span class="line">}</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Validate from file — allowedRootDirectory is REQUIRED for security</span></span>
+<span class="line"><span class="kw">const</span> fromFile = <span class="kw">await</span> <span class="fn">validateOpenAPIFile</span>(<span class="str">"./openapi.yaml"</span>, {</span>
+<span class="line">  allowedRootDirectory: <span class="str">"/path/to/project"</span>,  <span class="com">// REQUIRED: root dir for file access</span></span>
+<span class="line">  baseFilePath: <span class="str">"/path/to/project/openapi.yaml"</span>, <span class="com">// Base for $ref resolution</span></span>
+<span class="line">  timeoutMs: 30000,</span>
+<span class="line">});</span></pre>
+      </div>
+    </div>
+  </div></section>
+  <section class="section section-alt" id="features"><div class="container">
+    <div class="section-head"><div class="section-kicker">Features</div><h2 class="section-title">Production-grade configuration editing</h2><p class="section-deck">Built for Electron apps, CLI tools, and web applications that need reliable config manipulation.</p></div>
+    <div class="bento-grid">
+      <div class="bento-card featured"><div class="bento-icon accent">01</div><h3>Two-Layer Architecture</h3><p>Core layer: pure functions operating on strings, browser-safe, no fs dependency. File layer: atomic writes with file locks for Node.js/Electron. Use what you need.</p></div>
+      <div class="bento-card"><div class="bento-icon purple">02</div><h3>Three Formats</h3><p>JSON, JSONC (with comments), and YAML. Auto-detect format via <code>detectFormat()</code>. Preserve comments and formatting in JSONC and YAML.</p></div>
+      <div class="bento-card"><div class="bento-icon ok">03</div><h3>RFC 6902 JSON Patch</h3><p>Full RFC 6902 support: add, remove, replace, move, copy, test. Batch operations with strict and non-strict modes. Detailed error messages.</p></div>
+      <div class="bento-card"><div class="bento-icon warn">04</div><h3>Atomic Writes & File Locks</h3><p>Write to temp file then rename for crash safety. <code>withFileLock()</code> prevents concurrent writes. Cross-platform advisory locking.</p></div>
+      <div class="bento-card"><div class="bento-icon blue">05</div><h3>OpenAPI Validation</h3><p><code>validateOpenAPISpec()</code> validates OpenAPI 2.0/3.0/3.1 documents. <code>validateOpenAPIFile()</code> validates from file path. Detailed error reporting.</p></div>
+      <div class="bento-card"><div class="bento-icon danger">06</div><h3>Dual Module & Type Safe</h3><p>ESM and CJS exports with full TypeScript types. <code>./core</code> subpath for browser-only usage. Zero runtime dependencies.</p></div>
+    </div>
+  </div></section>
+
+  <section class="section" id="layers"><div class="container">
+    <div class="section-head"><div class="section-kicker">Architecture</div><h2 class="section-title">Two layers, one API</h2><p class="section-deck">Choose the layer that fits your runtime. Both share the same patch semantics.</p></div>
+    <div class="bento-grid cols-2">
+      <div class="bento-card"><div class="bento-icon accent">Core</div><h3>Core Layer (Browser Safe)</h3><p>Pure functions operating on config strings. No Node.js dependencies. Works in browsers, Edge Functions, Web Workers.</p><ul><li><code>patchContent(content, ops, format?)</code></li><li><code>setContentValue(content, path, value, format?)</code></li><li><code>deleteContentValue(content, path, format?)</code></li><li>Import from <code>@powerduck/conf-patch/core</code></li></ul></div>
+      <div class="bento-card"><div class="bento-icon purple">File</div><h3>File Layer (Node.js / Electron)</h3><p>File I/O with atomic writes and advisory locks. Wraps the core layer. Use in Electron main process, CLI tools, and Node.js servers.</p><ul><li><code>readConfigFile(filePath)</code></li><li><code>writeConfigFile(filePath, content)</code></li><li><code>patchConfigFile(filePath, ops)</code></li><li><code>setConfigValue(filePath, path, value)</code></li><li><code>withFileLock(paths, callback)</code></li></ul></div>
+    </div>
+  </div></section>
+
+  
+
+  <section class="section" id="api"><div class="container">
+    <div class="section-head"><div class="section-kicker">API Reference</div><h2 class="section-title">Complete API</h2><p class="section-deck">Core and file layer APIs.</p></div>
+
+    <h3 style="font-size:18px;margin-bottom:16px;color:var(--muted)">Core Layer &mdash; import from <code>@powerduck/conf-patch/core</code></h3>
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">patchContent(content, ops, format?, options?)</span><span class="api-desc">Apply RFC 6902 patch operations to a config string</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><table class="api-params"><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td>content<span class="required">required</span></td><td>string</td><td>Config content (JSON/JSONC/YAML)</td></tr>
+<tr><td>ops<span class="required">required</span></td><td>JsonPatchOp[]</td><td>RFC 6902 operations</td></tr>
+<tr><td>format</td><td>"json" | "jsonc" | "yaml"</td><td>Config format (auto-detected if omitted)</td></tr>
+<tr><td>options.strict</td><td>boolean</td><td>Throw on first failed op <span class="default">default: true</span></td></tr>
+</tbody></table></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">setContentValue(content, path, value, format?, options?)</span><span class="api-desc">Set a single value at a JSON path array (e.g. ["server", "port"])</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><p style="font-size:13px;color:var(--muted);margin:0">Convenience wrapper around patchContent with a single replace/add operation.</p></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">deleteContentValue(content, path, format?, options?)</span><span class="api-desc">Delete a value at a JSON path array (e.g. ["server", "port"])</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><p style="font-size:13px;color:var(--muted);margin:0">Convenience wrapper around patchContent with a single remove operation.</p></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">detectFormat(filePath)</span><span class="api-desc">Auto-detect config format from file extension</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><div class="api-example"><div class="api-example-label">Returns</div><pre>"json" | "jsonc" | "yaml" | null</pre></div></div></div></div>
+
+    <h3 style="font-size:18px;margin:32px 0 16px;color:var(--muted)">File Layer &mdash; import from <code>@powerduck/conf-patch</code></h3>
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">readConfigFile(filePath)</span><span class="api-desc">Read and parse a config file</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><p style="font-size:13px;color:var(--muted);margin:0">Returns parsed config object. Format auto-detected from file extension and content.</p></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">writeConfigFile(filePath, content, options?)</span><span class="api-desc">Atomically write config content to file</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><p style="font-size:13px;color:var(--muted);margin:0">Writes to temp file then renames for crash safety. Creates parent directories if needed.</p></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">patchConfigFile(filePath, ops, options?)</span><span class="api-desc">Read, patch, and atomically write a config file</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><p style="font-size:13px;color:var(--muted);margin:0">Combines read + patchContent + writeConfigFile. Use withFileLock for concurrent safety.</p></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">setConfigValue(filePath, path, value, options?)</span><span class="api-desc">Set a single value in a config file</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><p style="font-size:13px;color:var(--muted);margin:0">Convenience: read, set value, atomic write.</p></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">deleteConfigValue(filePath, path, options?)</span><span class="api-desc">Delete a value from a config file</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><p style="font-size:13px;color:var(--muted);margin:0">Convenience: read, delete value, atomic write.</p></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">withFileLock(paths, callback)</span><span class="api-desc">Execute callback with advisory file locks</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><p style="font-size:13px;color:var(--muted);margin:0">Acquires locks for all paths, executes callback, releases locks. Prevents concurrent writes. Use <code>releaseAllLocalLocks()</code> for cleanup.</p></div></div></div>
+
+    <h3 style="font-size:18px;margin:32px 0 16px;color:var(--muted)">OpenAPI Validation</h3>
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">validateOpenAPISpec(spec, filePath?)</span><span class="api-desc">Validate an OpenAPI spec from string or object</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><p style="font-size:13px;color:var(--muted);margin:0">Supports Swagger 2.0, OpenAPI 3.0, and 3.1. Returns { valid, errors, warnings }.</p></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">validateOpenAPIFile(filePath)</span><span class="api-desc">Validate an OpenAPI spec from a file path</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><p style="font-size:13px;color:var(--muted);margin:0">Reads file and validates. Supports JSON and YAML.</p></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">normalizeFilePath(path)</span><span class="api-desc">Normalize and validate a file path</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><p style="font-size:13px;color:var(--muted);margin:0">Resolves relative paths, normalizes separators, prevents path traversal. Returns null for invalid paths.</p></div></div></div>
+  </div></section>
+
+  <section class="section-alt"><div class="container"><div class="stats-grid">
+    <div class="stat-card"><div class="stat-number">3</div><div class="stat-label">Formats</div></div>
+    <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">Layers</div></div>
+    <div class="stat-card"><div class="stat-number">0</div><div class="stat-label">Runtime Deps</div></div>
+    <div class="stat-card"><div class="stat-number">MIT</div><div class="stat-label">License</div></div>
+  </div></div></section>
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-shell">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="brand" aria-label="Powerduck home">
+          <img src="../assets/images/logo.svg" alt="Powerduck logo" class="brand-logo" />
+          <span>Powerduck</span>
+        </a>
+        <p>Building developer tools for the modern API workflow. Open source, production-ready, and community-driven.</p>
+      </div>
+      <div class="footer-column">
+        <h6>Product</h6>
+        <ul>
+          <li><a href="../index.html#features">Features</a></li>
+          <li><a href="../index.html#opensource">Open Source</a></li>
+          <li><a href="../opensource/md-editor.html">MD Editor</a></li>
+          <li><a href="../opensource/openapi-cli.html">OpenAPI CLI</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>Resources</h6>
+        <ul>
+          <li><a href="https://github.com/PowerDuckie" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.powerduck.com/docs/conf-patch/introduction" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+          <li><a href="https://www.npmjs.com/search?q=%40powerduck" target="_blank" rel="noopener noreferrer">npm Packages</a></li>
+          <li><a href="mailto:contact@neatico.com">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>Legal</h6>
+        <ul>
+          <li><a href="../terms.html">Terms of Service</a></li>
+          <li><a href="../privacy.html">Privacy Policy</a></li>
+          <li><a href="../refunds.html">Refund Policy</a></li>
+          <li><a href="../cookie.html">Cookie Notice</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 POWERDUCK LIMITED. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="../terms.html">Terms</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../cookie.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script>
+  (function(){
+    "use strict";
+    function toggleTheme(){
+      var h=document.documentElement;
+      var n=h.getAttribute("data-theme")==="dark"?"light":"dark";
+      h.setAttribute("data-theme",n);
+      try{localStorage.setItem("pd-theme",n)}catch(e){}
+    }
+    function showTab(btn,id){
+      if(!btn||!id)return;
+      var block=btn.closest(".code-block");
+      if(!block)return;
+      var tabs=block.querySelectorAll(".code-tab");
+      for(var i=0;i<tabs.length;i++)tabs[i].classList.remove("active");
+      btn.classList.add("active");
+      var pres=block.querySelectorAll(".code-body pre");
+      for(var j=0;j<pres.length;j++)pres[j].style.display="none";
+      var target=block.querySelector("#code-"+id);
+      if(target)target.style.display="block";
+    }
+    function toggleApi(el){
+      if(el)el.classList.toggle("open");
+    }
+    function copyText(text,btn){
+      if(!text||!btn)return;
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){
+          var orig=btn.textContent;btn.textContent="Copied";
+          setTimeout(function(){btn.textContent=orig},1500);
+        }).catch(function(){});
+      }
+    }
+    function copyCode(btn){
+      if(!btn)return;
+      var block=btn.closest(".code-block");
+      if(!block)return;
+      var active=block.querySelector(".code-body pre[style*=block]")||block.querySelector(".code-body pre");
+      if(active&&active.textContent)copyText(active.textContent,btn);
+    }
+    function initTabs(){
+      var blocks=document.querySelectorAll(".code-block");
+      for(var i=0;i<blocks.length;i++){
+        var pres=blocks[i].querySelectorAll(".code-body pre");
+        var activeTab=blocks[i].querySelector(".code-tab.active");
+        var activeId="";
+        if(activeTab){
+          var onclick=activeTab.getAttribute("onclick")||"";
+          var parts=onclick.split("'");
+          if(parts.length>=2)activeId=parts[1];
+        }
+        for(var j=0;j<pres.length;j++){
+          if(activeId&&pres[j].id==="code-"+activeId){
+            pres[j].style.display="block";
+          }else if(j>0){
+            pres[j].style.display="none";
+          }
+        }
+      }
+    }
+    function initCopyInstall(){
+      var btn=document.getElementById("copyInstall");
+      var txt=document.getElementById("installText");
+      if(btn&&txt){
+        btn.addEventListener("click",function(){copyText(txt.textContent,btn);});
+      }
+    }
+    window.toggleTheme=toggleTheme;
+    window.showTab=showTab;
+    window.toggleApi=toggleApi;
+    window.copyCode=copyCode;
+    window.copyText=copyText;
+    try{
+      var saved=localStorage.getItem("pd-theme");
+      if(saved)document.documentElement.setAttribute("data-theme",saved);
+      else if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark");
+    }catch(e){}
+    if(document.readyState==="loading"){
+      document.addEventListener("DOMContentLoaded",function(){initTabs();initCopyInstall();});
+    }else{
+      initTabs();initCopyInstall();
+    }
+  })();
+  </script>
+  <script src="../assets/js/common.js"></script>
+</body>
+</html>

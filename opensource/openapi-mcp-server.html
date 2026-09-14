@@ -1,0 +1,1233 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("powerduck-theme");
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+    <title>
+      @powerduck/openapi-mcp-server — Turn Any OpenAPI into an MCP Server
+    </title>
+    <meta
+      name="description"
+      content="Production-oriented OpenAPI to MCP server library. Generate Tools, Prompts and Resources from OpenAPI specs. SSE and stdio transports, admin web UI, auth middleware, HTTP executor."
+    />
+    <meta
+      name="keywords"
+      content="mcp server, model context protocol, openapi to mcp, ai agent tools, mcp sse, mcp stdio, api agent, llm tools"
+    />
+    <meta name="author" content="Powerduck Open source" />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://www.powerduck.com/opensource/openapi-mcp-server.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Powerduck Open source" />
+    <meta
+      property="og:title"
+      content="@powerduck/openapi-mcp-server — Turn Any OpenAPI into an MCP Server"
+    />
+    <meta
+      property="og:description"
+      content="Tools, Prompts and Resources. SSE and stdio transports, admin web UI, auth middleware."
+    />
+    <meta
+      property="og:url"
+      content="https://www.powerduck.com/openapi-mcp-server"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="@powerduck/openapi-mcp-server" />
+    <meta
+      name="twitter:description"
+      content="Turn any OpenAPI spec into an MCP server."
+    />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0b0f14"
+      media="(prefers-color-scheme: dark)"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "@powerduck/openapi-mcp-server",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Cross-platform",
+        "description": "Production-oriented OpenAPI to MCP server with Tools, Prompts, Resources, SSE and stdio transports, admin UI.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "license": "https://opensource.org/licenses/MIT",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Powerduck Open source",
+          "url": "https://www.powerduck.com"
+        },
+        "softwareVersion": "1.1.0",
+        "programmingLanguage": ["TypeScript", "JavaScript"]
+      }
+    </script>
+    <link rel="stylesheet" href="../assets/css/common.css" />
+    <link rel="stylesheet" href="./assets/css/shared.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="nav-inner">
+       
+        <a href="../index.html" class="brand" aria-label="Powerduck home">
+          <img
+            src="../assets/images/logo.svg"
+            alt="Powerduck logo"
+            class="brand-logo"
+          />
+          <span>Powerduck</span> <span class="accent">Open source</span>
+        </a>
+        <nav aria-label="Main navigation">
+          <ul class="nav-links">
+            <li>
+              <a
+                href="https://www.powerduck.com/docs/openapi-mcp-server/introduction"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Documentation</a
+              >
+            </li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#transports">Transports</a></li>
+            <li><a href="#quickstart">Quick Start</a></li>
+            <li><a href="#api">API</a></li>
+            <li class="nav-dropdown">
+              <button
+                class="nav-dropdown-trigger"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Open Source
+                <svg
+                  class="chevron"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="nav-dropdown-menu" role="menu">
+                <div class="dropdown-section-title">Open Source Libraries</div>
+                <a class="dropdown-item" href="md-editor.html" role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/md-editor</span
+                    ><span class="pkg-desc"
+                      >Embeddable Markdown editor with math, mindmaps & code
+                      highlighting</span
+                    >
+                  </div></a
+                ><a class="dropdown-item" href="conf-patch.html" role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/conf-patch</span
+                    ><span class="pkg-desc"
+                      >Two-layer config editor with OpenAPI validation & atomic
+                      writes</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="openapi-cli.html"
+                  role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/openapi-cli</span
+                    ><span class="pkg-desc"
+                      >CI-ready CLI for batch-testing OpenAPI across 6
+                      protocols</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="openapi-codegen.html"
+                  role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/openapi-codegen</span
+                    ><span class="pkg-desc"
+                      >Generate runnable HTTP code from OpenAPI (21
+                      languages)</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="openapi-mcp-server.html"
+                  role="menuitem"
+                  aria-current="page"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/openapi-mcp-server</span
+                    ><span class="pkg-desc"
+                      >Turn OpenAPI specs into production MCP servers with Web
+                      UI</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="openapi-request.html"
+                  role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/openapi-request</span
+                    ><span class="pkg-desc"
+                      >OpenAPI 3.2 collection debugger with
+                      HTTP/SSE/WebSocket</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="x-to-openapi.html"
+                  role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/x-to-openapi</span
+                    ><span class="pkg-desc"
+                      >Convert cURL commands & Postman collections to OpenAPI
+                      3.2</span
+                    >
+                  </div></a
+                >
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div class="nav-actions">
+           <a
+          class="btn-docs"
+          href="https://www.powerduck.com/docs/openapi-mcp-server/introduction"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Documentation"
+          aria-label="View documentation"
+          >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+            />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="8" y1="13" x2="16" y2="13" />
+            <line x1="8" y1="17" x2="13" y2="17" />
+          </svg>
+          <span class="nav-docs-text">Docs</span></a
+        >
+          <a
+            class="nav-icon-btn"
+            href="https://www.npmjs.com/package/@powerduck/openapi-mcp-server"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="npm package"
+            aria-label="View on npm"
+            ><img
+              src="./assets/images/npm.svg"
+              alt="npm package"
+              class="nav-icon-img"
+          /></a>
+          <a
+            class="btn-github"
+            href="https://github.com/powerducklab/openapi-mcp-server"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+              /></svg
+            ><span class="gh-text">GitHub</span></a
+          >
+          <button
+            class="nav-icon-btn theme-toggle"
+            data-theme-toggle
+            title="Toggle color theme"
+            aria-label="Toggle color theme"
+          >
+            <svg
+              class="icon-moon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg
+            ><svg
+              class="icon-sun"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-badge">
+            <span class="dot"></span> v1.1.0 &mdash; MIT Licensed &mdash; 91+
+            tests passing
+          </div>
+          <h1>Turn Any OpenAPI into an <span class="hl">MCP Server</span></h1>
+          <p class="lead">
+            Production-oriented library that converts OpenAPI specs into Model
+            Context Protocol servers. Generate Tools, Prompts, and Resources.
+            SSE and stdio transports. Admin web UI included.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#quickstart">Get Started</a
+            ><a
+              class="btn btn-secondary"
+              href="https://www.powerduck.com/docs/openapi-mcp-server/introduction"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Document</a
+            >
+          </div>
+          <div class="install-cmd" role="group">
+            <span class="prefix">$</span
+            ><span class="cmd" id="installText"
+              >npm install @powerduck/openapi-mcp-server</span
+            ><button
+              class="copy"
+              id="copyInstall"
+              type="button"
+              aria-label="Copy install command"
+            >
+              Copy
+            </button>
+          </div>
+          <div class="hero-meta">
+            <span>Tools + Prompts + Resources</span><span>SSE & stdio</span
+            ><span>Admin Web UI</span><span>Auth Middleware</span
+            ><span>HTTP Executor</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="quickstart">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">Quick Start</div>
+            <h2 class="section-title">Build an MCP server in minutes</h2>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="code-tabs">
+                <button class="code-tab active" onclick="showTab(this, 'sse')">
+                  SSE Server
+                </button>
+                <button class="code-tab" onclick="showTab(this, 'stdio')">
+                  stdio Server
+                </button>
+                <button class="code-tab" onclick="showTab(this, 'tools')">
+                  Generate Tools
+                </button>
+                <button class="code-tab" onclick="showTab(this, 'admin')">
+                  Admin + Auth
+                </button>
+              </div>
+              <button class="code-copy" onclick="copyCode(this)">Copy</button>
+            </div>
+            <div class="code-body">
+              <pre
+                id="code-sse"
+              ><span class="line"><span class="kw">import</span> express <span class="kw">from</span> <span class="str">"express"</span>;</span>
+<span class="line"><span class="kw">import</span> { buildMcpServer, loadOpenApiSpec, attachSseRoutes } <span class="kw">from</span> <span class="str">"@powerduck/openapi-mcp-server"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Load the OpenAPI document once (JSON or YAML)</span></span>
+<span class="line"><span class="kw">const</span> spec = <span class="kw">await</span> <span class="fn">loadOpenApiSpec</span>(<span class="str">"./openapi.json"</span>);</span>
+<span class="line"></span>
+<span class="line"><span class="com">// SpecProvider: () => Document | null</span></span>
+<span class="line"><span class="com">// ContextProvider: () => ExecutionContext</span></span>
+<span class="line"><span class="com">// BuildMcpServerOptions: { protocol?, name?, version?, pageSize?, instructions? }</span></span>
+<span class="line"><span class="kw">const</span> mcp = <span class="fn">buildMcpServer</span>(</span>
+<span class="line">  () => spec,                              <span class="com">// specProvider (required)</span></span>
+<span class="line">  () => ({                                 <span class="com">// contextProvider (optional)</span></span>
+<span class="line">    baseUrlOverride: <span class="str">"https://api.example.com/v1"</span>,</span>
+<span class="line">    upstreamHeaders: { <span class="str">"X-Service"</span>: <span class="str">"mcp-gateway"</span> },</span>
+<span class="line">    requestTimeoutMs: 30000,</span>
+<span class="line">    security: { bearerToken: <span class="str">"upstream-token"</span> },</span>
+<span class="line">    correlationId: <span class="str">"req-123"</span>,</span>
+<span class="line">    onLog: (entry) => console.<span class="fn">log</span>(entry.level, entry.message),</span>
+<span class="line">  }),</span>
+<span class="line">  {                                        <span class="com">// BuildMcpServerOptions (optional)</span></span>
+<span class="line">    name: <span class="str">"My API MCP Server"</span>,</span>
+<span class="line">    version: <span class="str">"1.0.0"</span>,</span>
+<span class="line">    pageSize: 100,                        <span class="com">// Max tools per list response</span></span>
+<span class="line">    instructions: <span class="str">"Use these tools to interact with the My API."</span>,</span>
+<span class="line">  },</span>
+<span class="line">);</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Attach SSE routes to an Express app</span></span>
+<span class="line"><span class="kw">const</span> app = <span class="fn">express</span>();</span>
+<span class="line"><span class="fn">attachSseRoutes</span>(app, () => spec, () => ({}));</span>
+<span class="line">app.<span class="fn">listen</span>(3000, () => console.<span class="fn">log</span>(<span class="str">"MCP SSE server on :3000"</span>));</span></pre>
+              <pre
+                id="code-stdio"
+                style="display: none"
+              ><span class="line"><span class="kw">import</span> { loadOpenApiSpec, startStdioServer } <span class="kw">from</span> <span class="str">"@powerduck/openapi-mcp-server"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Load the OpenAPI document</span></span>
+<span class="line"><span class="kw">const</span> spec = <span class="kw">await</span> <span class="fn">loadOpenApiSpec</span>(<span class="str">"./openapi.yaml"</span>);</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Start stdio server (pass the document directly)</span></span>
+<span class="line"><span class="kw">await</span> <span class="fn">startStdioServer</span>(spec, {}, { name: <span class="str">"My API"</span> });</span></pre>
+              <pre
+                id="code-tools"
+                style="display: none"
+              ><span class="line"><span class="kw">import</span> { loadOpenApiSpec, generateTools, generatePrompts, generateResources } <span class="kw">from</span> <span class="str">"@powerduck/openapi-mcp-server"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="kw">const</span> spec = <span class="kw">await</span> <span class="fn">loadOpenApiSpec</span>(<span class="str">"./openapi.json"</span>);</span>
+<span class="line"></span>
+<span class="line"><span class="kw">const</span> tools = <span class="fn">generateTools</span>(spec);           <span class="com">// MCP Tool[]</span></span>
+<span class="line"><span class="kw">const</span> prompts = <span class="fn">generatePrompts</span>(spec);       <span class="com">// GeneratedPrompt[]</span></span>
+<span class="line"><span class="kw">const</span> resources = <span class="fn">generateResources</span>(spec); <span class="com">// GeneratedResource[]</span></span>
+<span class="line"></span>
+<span class="line">console.<span class="fn">log</span>(<span class="str">`Generated ${tools.length} tools, ${prompts.length} prompts, ${resources.length} resources`</span>);</span></pre>
+              <pre
+                id="code-admin"
+                style="display: none"
+              ><span class="line"><span class="kw">import</span> { startAdminServer } <span class="kw">from</span> <span class="str">"@powerduck/openapi-mcp-server"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Full ServerConfig — all fields shown</span></span>
+<span class="line"><span class="kw">await</span> <span class="fn">startAdminServer</span>({</span>
+<span class="line">  port: 8080,                            <span class="com">// REQUIRED: TCP port (0-65535)</span></span>
+<span class="line">  host: <span class="str">"127.0.0.1"</span>,                    <span class="com">// Bind interface (default: 127.0.0.1)</span></span>
+<span class="line">  apiKey: <span class="str">"mcp_secret_123"</span>,              <span class="com">// Shared secret for admin API</span></span>
+<span class="line">  specPath: <span class="str">"./openapi.json"</span>,             <span class="com">// Spec loaded at startup</span></span>
+<span class="line">  baseUrlOverride: <span class="str">"https://api.example.com/v1"</span>, <span class="com">// Override servers[0].url</span></span>
+<span class="line">  upstreamHeaders: { <span class="str">"X-Service"</span>: <span class="str">"mcp-admin"</span> }, <span class="com">// Headers on every upstream request</span></span>
+<span class="line">  requestTimeoutMs: 30000,               <span class="com">// Per-request upstream timeout</span></span>
+<span class="line">  persistState: <span class="kw">true</span>,                    <span class="com">// Persist spec across restarts</span></span>
+<span class="line">  stateFilePath: <span class="str">"./mcp-state.json"</span>,      <span class="com">// Persisted state location</span></span>
+<span class="line">  allowedOrigins: [<span class="str">"https://app.example.com"</span>], <span class="com">// CORS allowed origins</span></span>
+<span class="line">  allowedHosts: [<span class="str">"localhost"</span>, <span class="str">"127.0.0.1"</span>],</span>
+<span class="line">  maxLogEntries: 1000,                   <span class="com">// Max in-memory log entries</span></span>
+<span class="line">  redactSensitiveHeaders: <span class="kw">true</span>,           <span class="com">// Redact auth headers in logs</span></span>
+<span class="line">  redactHeaderNames: [<span class="str">"X-Internal-Token"</span>], <span class="com">// Additional headers to redact</span></span>
+<span class="line">  security: {                             <span class="com">// Credentials forwarded to upstream</span></span>
+<span class="line">    bearerToken: <span class="str">"upstream-bearer"</span>,</span>
+<span class="line">    basicAuth: { username: <span class="str">"admin"</span>, password: <span class="str">"secret"</span> },</span>
+<span class="line">    apiKeys: { <span class="str">"X-API-Key"</span>: <span class="str">"key-value"</span> },</span>
+<span class="line">  },</span>
+<span class="line">});</span>
+<span class="line">console.<span class="fn">log</span>(<span class="str">"Admin UI at http://localhost:8080"</span>);</span></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section section-alt" id="features">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">Features</div>
+            <h2 class="section-title">Production-grade MCP infrastructure</h2>
+            <p class="section-deck">
+              Everything you need to expose your API to AI agents, securely and
+              reliably.
+            </p>
+          </div>
+          <div class="bento-grid">
+            <div class="bento-card featured">
+              <div class="bento-icon accent">01</div>
+              <h3>Three MCP Primitives</h3>
+              <p>
+                Every OpenAPI operation becomes a Tool via
+                <code>generateTools()</code>. Tags become Prompts via
+                <code>generatePrompts()</code>. Schemas become Resources via
+                <code>generateResources()</code>.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon purple">02</div>
+              <h3>Dual Transports</h3>
+              <p>
+                SSE for browser-based clients via
+                <code>attachSseRoutes()</code>. stdio for local AI assistants
+                via <code>startStdioServer()</code>. Both share the same tool
+                registry.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon ok">03</div>
+              <h3>Admin Web UI</h3>
+              <p>
+                Built-in dashboard via <code>startAdminServer()</code>. Inspect
+                registered tools, prompts, and resources. Test tool calls
+                directly from the browser.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon warn">04</div>
+              <h3>Auth Middleware</h3>
+              <p>
+                <code>createAuthMiddleware()</code> for bearer token, API key,
+                and custom auth strategies. Per-tool permission scopes with
+                Express-compatible middleware.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon blue">05</div>
+              <h3>HTTP Executor</h3>
+              <p>
+                <code>executeToolCall()</code> executes generated tools against
+                the real API. <code>buildRequest()</code> constructs HTTP
+                requests from operation definitions with full parameter mapping.
+              </p>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon danger">06</div>
+              <h3>Spec Utilities</h3>
+              <p>
+                <code>loadOpenApiSpec()</code>, <code>parseSpecContent()</code>,
+                <code>iterateOperations()</code>,
+                <code>findOperationById()</code>,
+                <code>synthesizeOperationId()</code>, and more for working with
+                OpenAPI documents.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="transports">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">Transports</div>
+            <h2 class="section-title">Two transports, one server</h2>
+            <p class="section-deck">
+              Choose the transport that fits your deployment model.
+            </p>
+          </div>
+          <div class="bento-grid cols-2">
+            <div class="bento-card">
+              <div class="bento-icon accent">SSE</div>
+              <h3>Server-Sent Events</h3>
+              <p>
+                HTTP-based transport for remote and browser clients. Ideal for
+                SaaS deployments and web-based AI assistants.
+              </p>
+              <ul>
+                <li><code>attachSseRoutes(app)</code> for Express</li>
+                <li>Event stream for server-to-client</li>
+                <li>POST endpoint for client-to-server</li>
+                <li>Health check endpoints</li>
+                <li>Compatible with MCP Inspector</li>
+              </ul>
+            </div>
+            <div class="bento-card">
+              <div class="bento-icon purple">STDIO</div>
+              <h3>Standard Input/Output</h3>
+              <p>
+                Local process transport for desktop AI assistants. Perfect for
+                Claude Desktop and other local MCP clients.
+              </p>
+              <ul>
+                <li><code>startStdioServer(server)</code></li>
+                <li>JSON-RPC over stdin/stdout</li>
+                <li>Zero network configuration</li>
+                <li>Works with Claude Desktop config</li>
+                <li>stderr for logging and diagnostics</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="api">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">API Reference</div>
+            <h2 class="section-title">Complete API surface</h2>
+            <p class="section-deck">Click any entry to expand.</p>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">buildMcpServer(options)</span
+              ><span class="api-desc"
+                >Build a complete MCP server from an OpenAPI spec</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <table class="api-params">
+                  <thead>
+                    <tr>
+                      <th>Parameter</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        options.spec<span class="required">required</span>
+                      </td>
+                      <td>object | string</td>
+                      <td>OpenAPI document or path to spec file</td>
+                    </tr>
+                    <tr>
+                      <td>options.serverName</td>
+                      <td>string</td>
+                      <td>MCP server display name</td>
+                    </tr>
+                    <tr>
+                      <td>options.toolFilter</td>
+                      <td>(op) => boolean</td>
+                      <td>Filter which operations become tools</td>
+                    </tr>
+                    <tr>
+                      <td>options.specProvider</td>
+                      <td>SpecProvider</td>
+                      <td>Custom spec loading strategy</td>
+                    </tr>
+                    <tr>
+                      <td>options.contextProvider</td>
+                      <td>ContextProvider</td>
+                      <td>Custom request context injection</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">loadOpenApiSpec(source)</span
+              ><span class="api-desc"
+                >Load and parse an OpenAPI spec from file path, URL, or inline
+                string</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Supports JSON and YAML. Resolves local file paths and remote
+                  URLs. Returns a parsed OpenAPI document object.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">generateTools(spec)</span
+              ><span class="api-desc"
+                >Generate MCP Tool definitions from OpenAPI operations</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Each operation becomes a tool with name, description, and
+                  inputSchema derived from parameters and request body. Also
+                  available: <code>generateToolsDetailed()</code> and
+                  <code>buildBindingIndex()</code>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">generatePrompts(spec)</span
+              ><span class="api-desc"
+                >Generate MCP Prompt definitions from OpenAPI tags</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Each tag becomes a prompt template. Use
+                  <code>resolvePrompt(name, args)</code> to render a prompt with
+                  arguments.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">generateResources(spec)</span
+              ><span class="api-desc"
+                >Generate MCP Resource definitions from OpenAPI schemas</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Schemas and examples become readable resources. Use
+                  <code>readResource(uri)</code> to fetch resource content.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">executeToolCall(tool, args)</span
+              ><span class="api-desc"
+                >Execute a generated tool against the real API</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Builds and sends the HTTP request, returns structured MCP
+                  response content. Handles errors gracefully with MCP error
+                  format.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">buildRequest(operation, args)</span
+              ><span class="api-desc"
+                >Build an HTTP request from an OpenAPI operation and
+                arguments</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Maps path params, query params, headers, and request body.
+                  Returns a normalized request descriptor.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name"
+                >attachSseRoutes(app, specProvider, contextProvider?,
+                routeGuard?)</span
+              ><span class="api-desc"
+                >Attach MCP SSE transport routes to an Express app</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <table class="api-params">
+                  <thead>
+                    <tr>
+                      <th>Parameter</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>app<span class="required">required</span></td>
+                      <td>Express</td>
+                      <td>Express application instance</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        specProvider<span class="required">required</span>
+                      </td>
+                      <td>() =&gt; Document</td>
+                      <td>
+                        Function returning the OpenAPI document (lazy
+                        evaluation)
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>contextProvider</td>
+                      <td>() =&gt; ExecutionContext</td>
+                      <td>
+                        Function returning execution context (auth, headers,
+                        etc.)
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>routeGuard</td>
+                      <td>RequestHandler</td>
+                      <td>Optional Express middleware for route-level auth</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name"
+                >startStdioServer(spec, context?, options?)</span
+              ><span class="api-desc"
+                >Start an MCP server over stdio transport</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Reads JSON-RPC messages from stdin, writes responses to
+                  stdout. Logs go to stderr. Options: name, version,
+                  instructions. Returns a handle with close() method.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">startAdminServer(server, options?)</span
+              ><span class="api-desc"
+                >Start the admin web UI for inspecting and testing MCP
+                tools</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <table class="api-params">
+                  <thead>
+                    <tr>
+                      <th>Parameter</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>server<span class="required">required</span></td>
+                      <td>McpServer</td>
+                      <td>Built MCP server</td>
+                    </tr>
+                    <tr>
+                      <td>options.port</td>
+                      <td>number</td>
+                      <td>
+                        Admin server port
+                        <span class="default">default: 3001</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>options.authMiddleware</td>
+                      <td>Middleware</td>
+                      <td>Optional auth middleware</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method fn">function</span
+              ><span class="api-name">createAuthMiddleware(options)</span
+              ><span class="api-desc"
+                >Create Express-compatible auth middleware</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <table class="api-params">
+                  <thead>
+                    <tr>
+                      <th>Parameter</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>options.bearerToken</td>
+                      <td>string | string[]</td>
+                      <td>Valid bearer token(s)</td>
+                    </tr>
+                    <tr>
+                      <td>options.apiKey</td>
+                      <td>string | string[]</td>
+                      <td>Valid API key(s) via x-api-key header</td>
+                    </tr>
+                    <tr>
+                      <td>options.custom</td>
+                      <td>(req) => boolean</td>
+                      <td>Custom auth function</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-section" onclick="toggleApi(this)">
+            <div class="api-header">
+              <span class="api-method class">class</span
+              ><span class="api-name">ServiceRegistry</span
+              ><span class="api-desc"
+                >Runtime registry for managing MCP services</span
+              ><svg
+                class="api-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="api-body">
+              <div class="api-body-inner">
+                <p style="font-size: 13px; color: var(--muted); margin: 0">
+                  Register, unregister, and look up services at runtime.
+                  Supports dynamic tool addition and removal.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-alt">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number">3</div>
+              <div class="stat-label">MCP Primitives</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">2</div>
+              <div class="stat-label">Transports</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">1</div>
+              <div class="stat-label">Admin UI</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">MIT</div>
+              <div class="stat-label">License</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-shell">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="../index.html" class="brand" aria-label="Powerduck home">
+              <img
+                src="../assets/images/logo.svg"
+                alt="Powerduck logo"
+                class="brand-logo"
+              />
+              <span>Powerduck</span>
+            </a>
+            <p>
+              Building developer tools for the modern API workflow. Open source,
+              production-ready, and community-driven.
+            </p>
+          </div>
+          <div class="footer-column">
+            <h6>Product</h6>
+            <ul>
+              <li><a href="../index.html#features">Features</a></li>
+              <li><a href="../index.html#opensource">Open Source</a></li>
+              <li><a href="../opensource/md-editor.html">MD Editor</a></li>
+              <li><a href="../opensource/openapi-cli.html">OpenAPI CLI</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h6>Resources</h6>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/PowerDuckie"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.npmjs.com/search?q=%40powerduck"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >npm Packages</a
+                >
+              </li>
+              <li><a href="mailto:contact@neatico.com">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h6>Legal</h6>
+            <ul>
+              <li><a href="../terms.html">Terms of Service</a></li>
+              <li><a href="../privacy.html">Privacy Policy</a></li>
+              <li><a href="../refunds.html">Refund Policy</a></li>
+              <li><a href="../cookie.html">Cookie Notice</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 POWERDUCK LIMITED. All rights reserved.</span>
+          <div class="footer-bottom-links">
+            <a href="../terms.html">Terms</a>
+            <a href="../privacy.html">Privacy</a>
+            <a href="../cookie.html">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        "use strict";
+        function toggleTheme() {
+          var h = document.documentElement;
+          var n = h.getAttribute("data-theme") === "dark" ? "light" : "dark";
+          h.setAttribute("data-theme", n);
+          try {
+            localStorage.setItem("pd-theme", n);
+          } catch (e) {}
+        }
+        function showTab(btn, id) {
+          if (!btn || !id) return;
+          var block = btn.closest(".code-block");
+          if (!block) return;
+          var tabs = block.querySelectorAll(".code-tab");
+          for (var i = 0; i < tabs.length; i++)
+            tabs[i].classList.remove("active");
+          btn.classList.add("active");
+          var pres = block.querySelectorAll(".code-body pre");
+          for (var j = 0; j < pres.length; j++) pres[j].style.display = "none";
+          var target = block.querySelector("#code-" + id);
+          if (target) target.style.display = "block";
+        }
+        function toggleApi(el) {
+          if (el) el.classList.toggle("open");
+        }
+        function copyText(text, btn) {
+          if (!text || !btn) return;
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard
+              .writeText(text)
+              .then(function () {
+                var orig = btn.textContent;
+                btn.textContent = "Copied";
+                setTimeout(function () {
+                  btn.textContent = orig;
+                }, 1500);
+              })
+              .catch(function () {});
+          }
+        }
+        function copyCode(btn) {
+          if (!btn) return;
+          var block = btn.closest(".code-block");
+          if (!block) return;
+          var active =
+            block.querySelector(".code-body pre[style*=block]") ||
+            block.querySelector(".code-body pre");
+          if (active && active.textContent) copyText(active.textContent, btn);
+        }
+        function initTabs() {
+          var blocks = document.querySelectorAll(".code-block");
+          for (var i = 0; i < blocks.length; i++) {
+            var pres = blocks[i].querySelectorAll(".code-body pre");
+            var activeTab = blocks[i].querySelector(".code-tab.active");
+            var activeId = "";
+            if (activeTab) {
+              var onclick = activeTab.getAttribute("onclick") || "";
+              var parts = onclick.split("'");
+              if (parts.length >= 2) activeId = parts[1];
+            }
+            for (var j = 0; j < pres.length; j++) {
+              if (activeId && pres[j].id === "code-" + activeId) {
+                pres[j].style.display = "block";
+              } else if (j > 0) {
+                pres[j].style.display = "none";
+              }
+            }
+          }
+        }
+        function initCopyInstall() {
+          var btn = document.getElementById("copyInstall");
+          var txt = document.getElementById("installText");
+          if (btn && txt) {
+            btn.addEventListener("click", function () {
+              copyText(txt.textContent, btn);
+            });
+          }
+        }
+        window.toggleTheme = toggleTheme;
+        window.showTab = showTab;
+        window.toggleApi = toggleApi;
+        window.copyCode = copyCode;
+        window.copyText = copyText;
+        try {
+          var saved = localStorage.getItem("pd-theme");
+          if (saved) document.documentElement.setAttribute("data-theme", saved);
+          else if (
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+          )
+            document.documentElement.setAttribute("data-theme", "dark");
+        } catch (e) {}
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", function () {
+            initTabs();
+            initCopyInstall();
+          });
+        } else {
+          initTabs();
+          initCopyInstall();
+        }
+      })();
+    </script>
+    <script src="../assets/js/common.js"></script>
+  </body>
+</html>

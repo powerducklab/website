@@ -1,0 +1,2440 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("powerduck-theme");
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+    <title>
+      PowerDuck MD Editor — Embeddable Markdown Editor with Math, Mindmaps &amp;
+      Mentions
+    </title>
+    <meta
+      name="description"
+      content="A high-performance, embeddable Markdown editor for React and vanilla JS. KaTeX math, Markmap mindmaps, syntax-highlighted code, @mentions, document link cards, task lists, admonitions, configurable toolbar, and standalone renderMarkdown API. Free and open source under MIT."
+    />
+    <meta
+      name="keywords"
+      content="markdown editor, react markdown editor, javascript markdown editor, katex, markmap, mindmap, code highlighting, mentions, embeddable editor, open source, MIT"
+    />
+    <meta name="author" content="PowerDuck MD Editor" />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://www.powerduck.com/opensource/md-editor.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="PowerDuck MD Editor" />
+    <meta
+      property="og:title"
+      content="PowerDuck MD Editor — Embeddable Markdown Editor for Modern Apps"
+    />
+    <meta
+      property="og:description"
+      content="Drop-in Markdown editing with KaTeX math, Markmap mindmaps, syntax-highlighted code, @mentions, document cards, and more. React or vanilla JS. Free &amp; MIT licensed."
+    />
+    <meta property="og:url" content="https://www.powerduck.com/md-editor" />
+    <meta
+      property="og:image"
+      content="https://www.powerduck.com/md-editor/og-image.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="PowerDuck MD Editor — Embeddable Markdown Editor"
+    />
+    <meta
+      name="twitter:description"
+      content="KaTeX math, Markmap mindmaps, syntax highlighting, @mentions, document cards. Free &amp; MIT licensed."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.powerduck.com/md-editor/og-image.png"
+    />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0b0f14"
+      media="(prefers-color-scheme: dark)"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "PowerDuck MD Editor",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Cross-platform",
+        "description": "High-performance embeddable Markdown editor with KaTeX math, Markmap mindmaps, syntax highlighting, @mentions, document link cards, and configurable toolbar.",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Open Source Editor",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Self-hosted MIT-licensed editor, free forever"
+          },
+          {
+            "@type": "Offer",
+            "name": "PowerDuck MD Editor Cloud",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Coming soon"
+          }
+        ],
+        "license": "https://opensource.org/licenses/MIT",
+        "publisher": {
+          "@type": "Organization",
+          "name": "PowerDuck MD Editor",
+          "url": "https://www.powerduck.com/md-editor"
+        },
+        "softwareVersion": "0.10.9",
+        "programmingLanguage": ["TypeScript", "JavaScript"]
+      }
+    </script>
+    <link rel="stylesheet" href="../assets/css/common.css" />
+    <link rel="stylesheet" href="./assets/css/shared.css" />
+    <style>
+      /* ========== Homepage-only styles ========== */
+      /* HERO */
+      .hero {
+        padding: 80px 0 60px;
+        text-align: center;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 14px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        border: 1px solid var(--accent-border);
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 28px;
+      }
+      .hero-badge .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--ok);
+      }
+      .hero h1 {
+        font-size: clamp(36px, 5.5vw, 60px);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        margin-bottom: 20px;
+      }
+      .hero h1 .hl {
+        background: linear-gradient(135deg, var(--accent), var(--purple));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .hero p.lead {
+        max-width: 620px;
+        margin: 0 auto 36px;
+        font-size: 18px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+      .hero-cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+      .install-cmd {
+        display: inline-flex;
+        align-items: center;
+        background: var(--bg-soft);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        overflow: hidden;
+        font-family: var(--mono);
+        font-size: 14px;
+      }
+      .install-cmd .prefix {
+        padding: 10px 12px 10px 16px;
+        color: var(--muted-light);
+      }
+      .install-cmd .cmd {
+        padding: 10px 0;
+        color: var(--ink);
+      }
+      .install-cmd .copy {
+        padding: 10px 14px;
+        border-left: 1px solid var(--line);
+        color: var(--muted);
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        font-size: 12px;
+        font-weight: 600;
+        transition: color 0.15s;
+      }
+      .install-cmd .copy:hover {
+        color: var(--accent);
+      }
+      .hero-meta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        font-size: 13px;
+        color: var(--muted-light);
+        margin-top: 28px;
+      }
+
+      /* SECTION */
+      .section {
+        padding: 80px 0;
+      }
+      .section-alt {
+        background: var(--bg-soft);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+      .section-head {
+        text-align: center;
+        margin-bottom: 56px;
+      }
+      .section-kicker {
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--accent);
+        margin-bottom: 12px;
+      }
+      .section-title {
+        font-size: clamp(28px, 4vw, 42px);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin-bottom: 14px;
+      }
+      .section-deck {
+        max-width: 580px;
+        margin: 0 auto;
+        font-size: 17px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      /* BENTO */
+      .bento {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: minmax(160px, auto);
+        gap: 16px;
+      }
+      .bento-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 28px;
+        position: relative;
+        overflow: hidden;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s,
+          transform 0.2s;
+      }
+      .bento-card:hover {
+        border-color: var(--line-strong);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-2px);
+      }
+      .bento-card.span-2 {
+        grid-column: span 2;
+      }
+      .bento-card.span-3 {
+        grid-column: span 3;
+      }
+      .bento-card.row-2 {
+        grid-row: span 2;
+      }
+      .bento-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        font-size: 18px;
+      }
+      .bento-icon.purple {
+        background: var(--purple-soft);
+        color: var(--purple);
+      }
+      .bento-icon.blue {
+        background: rgba(232, 163, 61, 0.1);
+        color: #d4922f;
+      }
+      .bento-icon.green {
+        background: var(--ok-soft);
+        color: var(--ok);
+      }
+      .bento-icon.red {
+        background: var(--danger-soft);
+        color: var(--danger);
+      }
+      .bento-icon.warn {
+        background: var(--warn-soft);
+        color: var(--warn);
+      }
+      .bento-card h3 {
+        font-size: 17px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        letter-spacing: -0.01em;
+      }
+      .bento-card p {
+        font-size: 14px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .bento-visual {
+        margin-top: 18px;
+        padding: 14px;
+        background: var(--bg-subtle);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        font-family: var(--mono);
+        font-size: 12.5px;
+        line-height: 1.7;
+        overflow: hidden;
+      }
+      .bento-visual .tok-h {
+        color: var(--purple);
+        font-weight: 600;
+      }
+      .bento-visual .tok-lm {
+        color: var(--red);
+      }
+      .bento-visual .tok-meta {
+        color: var(--red);
+      }
+      .bento-visual .tok-code {
+        color: var(--green);
+      }
+      .bento-visual .tok-link {
+        color: var(--blue);
+      }
+      .bento-visual .tok-punc {
+        color: var(--muted-light);
+      }
+      .bento-visual .tok-kw {
+        color: var(--red);
+      }
+      .bento-visual .tok-str {
+        color: var(--green);
+      }
+      .bento-visual .tok-bold {
+        font-weight: 700;
+      }
+      .bento-card.featured {
+        background: linear-gradient(
+          135deg,
+          var(--accent-soft),
+          var(--purple-soft)
+        );
+        border-color: var(--accent-border);
+      }
+      .bento-card.featured h3 {
+        font-size: 20px;
+      }
+      .bento-card.featured p {
+        font-size: 15px;
+      }
+      .mindmap-preview {
+        margin-top: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 110px;
+        position: relative;
+      }
+      .mindmap-svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: visible;
+      }
+      .mindmap-svg path {
+        fill: none;
+        stroke: var(--muted-light);
+        stroke-width: 1.5;
+      }
+      .mindmap-node {
+        position: absolute;
+        padding: 5px 12px;
+        border-radius: 6px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        font-size: 11px;
+        font-weight: 600;
+        white-space: nowrap;
+        z-index: 1;
+      }
+      .mindmap-node.root {
+        background: var(--accent);
+        color: #fff;
+        border-color: var(--accent);
+      }
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 14px;
+      }
+      .tag {
+        padding: 3px 10px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 600;
+        background: var(--bg-soft);
+        border: 1px solid var(--line);
+        color: var(--muted);
+      }
+
+      /* DEMO */
+      .demo-tabs {
+        display: flex;
+        gap: 4px;
+        justify-content: center;
+        margin-bottom: 28px;
+        background: var(--bg-soft);
+        padding: 4px;
+        border-radius: 10px;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid var(--line);
+      }
+      .demo-tab {
+        padding: 8px 18px;
+        border-radius: 7px;
+        font-size: 13px;
+        font-weight: 600;
+        border: none;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .demo-tab.active {
+        background: var(--surface);
+        color: var(--ink);
+        box-shadow: var(--shadow-sm);
+      }
+      .demo-stage {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+      }
+      .demo-chrome {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--line);
+        background: var(--bg-subtle);
+      }
+      .demo-dots {
+        display: flex;
+        gap: 6px;
+      }
+      .demo-dots span {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+      }
+      .demo-dots span:nth-child(1) {
+        background: #ff5f57;
+      }
+      .demo-dots span:nth-child(2) {
+        background: #febc2e;
+      }
+      .demo-dots span:nth-child(3) {
+        background: #28c840;
+      }
+      .demo-filename {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--muted);
+        margin-left: 8px;
+      }
+      .demo-body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 380px;
+      }
+      .demo-source {
+        padding: 20px 20px 20px 0;
+        border-right: 1px solid var(--line);
+        font-family: var(--mono);
+        font-size: 13px;
+        line-height: 1.8;
+        overflow: auto;
+        white-space: pre-wrap;
+        word-break: break-word;
+        counter-reset: line;
+      }
+      .demo-source .line {
+        display: block;
+        padding-left: 52px;
+        position: relative;
+        min-height: 1.8em;
+      }
+      .demo-source .line::before {
+        counter-increment: line;
+        content: counter(line);
+        position: absolute;
+        left: 0;
+        width: 36px;
+        text-align: right;
+        color: var(--muted-light);
+        font-size: 11px;
+        opacity: 0.6;
+        user-select: none;
+      }
+      .demo-preview {
+        padding: 20px;
+        overflow: auto;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .demo-preview h1 {
+        font-size: 24px;
+        font-weight: 800;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--line);
+      }
+      .demo-preview h2 {
+        font-size: 19px;
+        font-weight: 700;
+        margin: 18px 0 10px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--line);
+      }
+      .demo-preview p {
+        margin-bottom: 12px;
+      }
+      .demo-preview ul {
+        padding-left: 20px;
+        margin-bottom: 12px;
+      }
+      .demo-preview li {
+        margin-bottom: 4px;
+      }
+      .demo-preview code {
+        background: var(--bg-soft);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 12.5px;
+      }
+      .demo-preview pre {
+        background: var(--bg-subtle);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 14px;
+        overflow-x: auto;
+        margin-bottom: 12px;
+      }
+      .demo-preview pre code {
+        background: none;
+        padding: 0;
+      }
+      .demo-preview blockquote {
+        border-left: 3px solid var(--accent);
+        padding-left: 14px;
+        color: var(--muted);
+        margin-bottom: 12px;
+      }
+      .demo-preview a {
+        color: var(--blue);
+      }
+      .demo-preview hr {
+        border: none;
+        border-top: 1px solid var(--line);
+        margin: 16px 0;
+      }
+      .demo-preview .math-inline {
+        font-family: "KaTeX_Main", Times, serif;
+        color: var(--purple);
+      }
+      .demo-preview .admonition {
+        padding: 12px 16px;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        background: var(--warn-soft);
+        border-left: 3px solid var(--warn);
+      }
+      .demo-preview .admonition strong {
+        color: var(--warn);
+      }
+      .demo-preview .task-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 4px;
+      }
+      .demo-preview .checkbox {
+        width: 16px;
+        height: 16px;
+        border-radius: 3px;
+        border: 2px solid var(--muted-light);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .demo-preview .checkbox.checked {
+        background: var(--ok);
+        border-color: var(--ok);
+        color: #fff;
+        font-size: 11px;
+      }
+      .demo-preview .mention-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        padding: 1px 8px;
+        border-radius: 999px;
+        font-size: 12.5px;
+        font-weight: 600;
+      }
+      .demo-preview .doc-card {
+        display: flex;
+        gap: 14px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        margin-bottom: 12px;
+        background: var(--bg-subtle);
+      }
+      .demo-preview .doc-card-thumb {
+        width: 100px;
+        height: 72px;
+        border-radius: 6px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-soft),
+          var(--purple-soft)
+        );
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+      }
+      .demo-preview .doc-card-title {
+        font-weight: 700;
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+      .demo-preview .doc-card-desc {
+        font-size: 12.5px;
+        color: var(--muted);
+      }
+
+      /* CODE TOKENS (shared by demo source & masonry code blocks) */
+      .tok-key {
+        color: var(--red);
+      }
+      .tok-str {
+        color: var(--green);
+      }
+      .tok-num {
+        color: var(--blue);
+      }
+      .tok-tag {
+        color: var(--purple);
+      }
+      .tok-com {
+        color: var(--muted-light);
+        font-style: italic;
+      }
+      .tok-attr {
+        color: var(--accent);
+      }
+      .tok-punc {
+        color: var(--muted-light);
+      }
+      .tok-h {
+        color: var(--purple);
+        font-weight: 700;
+      }
+      .tok-lm {
+        color: var(--red);
+        font-weight: 700;
+      }
+      .tok-bold {
+        font-weight: 700;
+      }
+      .tok-link {
+        color: var(--green);
+      }
+      .tok-meta {
+        color: var(--red);
+      }
+      .tok-code {
+        color: var(--green);
+        font-family: var(--mono);
+      }
+      .tok-kw {
+        color: var(--red);
+      }
+
+      /* MASONRY (Quick Start) */
+      .masonry {
+        columns: 2;
+        column-gap: 24px;
+      }
+      .masonry-item {
+        break-inside: avoid;
+        margin-bottom: 24px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .masonry-item:hover {
+        border-color: var(--line-strong);
+        box-shadow: var(--shadow-md);
+      }
+      .masonry-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 18px 22px;
+        border-bottom: 1px solid var(--line);
+        background: var(--bg-subtle);
+      }
+      .masonry-num {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        background: var(--accent);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 800;
+        flex-shrink: 0;
+      }
+      .masonry-head h3 {
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .masonry-head .badge {
+        margin-left: auto;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 3px 10px;
+        border-radius: 999px;
+        background: var(--bg-soft);
+        border: 1px solid var(--line);
+        color: var(--muted);
+      }
+      .masonry-body {
+        padding: 18px 22px;
+      }
+      .masonry-body pre {
+        background: var(--bg-subtle);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 14px 16px;
+        overflow-x: auto;
+        font-family: var(--mono);
+        font-size: 12.5px;
+        line-height: 1.7;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+      .masonry-body p {
+        font-size: 14px;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+
+      /* API */
+      .api-table-wrap {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+      }
+      .api-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+      .api-table th {
+        text-align: left;
+        padding: 14px 18px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+        background: var(--bg-subtle);
+        border-bottom: 1px solid var(--line);
+      }
+      .api-table td {
+        padding: 14px 18px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+      }
+      .api-table tr:last-child td {
+        border-bottom: none;
+      }
+      .api-table tr:hover td {
+        background: var(--bg-subtle);
+      }
+      .api-table code {
+        background: var(--bg-soft);
+        padding: 2px 7px;
+        border-radius: 5px;
+        font-size: 12.5px;
+        color: var(--purple);
+        font-weight: 600;
+      }
+      .api-table .type {
+        color: var(--blue);
+        font-family: var(--mono);
+        font-size: 12.5px;
+      }
+      .api-table .default {
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 12px;
+      }
+      .api-table .desc {
+        color: var(--muted);
+        font-size: 13.5px;
+        line-height: 1.5;
+      }
+      .api-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin-top: 32px;
+      }
+      .api-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+      }
+      .api-card-head {
+        padding: 14px 20px;
+        border-bottom: 1px solid var(--line);
+        background: var(--bg-subtle);
+        font-weight: 700;
+        font-size: 14px;
+      }
+      .api-card-body {
+        padding: 18px 20px;
+      }
+      .api-card-body pre {
+        font-family: var(--mono);
+        font-size: 12.5px;
+        line-height: 1.8;
+        overflow-x: auto;
+      }
+      .shortcut-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 7px 0;
+        border-bottom: 1px solid var(--line);
+        font-size: 13.5px;
+      }
+      .shortcut-row:last-child {
+        border-bottom: none;
+      }
+      .shortcut-row .keys {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      /* PRICING */
+      .pricing-two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .pricing-card-v2 {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        padding: 36px 32px;
+        display: flex;
+        flex-direction: column;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s,
+          transform 0.2s;
+      }
+      .pricing-card-v2:hover {
+        border-color: var(--line-strong);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-3px);
+      }
+      .pricing-card-v2.featured {
+        border: 2px solid var(--accent-border);
+        box-shadow: var(--shadow-md);
+        position: relative;
+      }
+      .pricing-card-v2.featured::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), var(--purple));
+        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+      }
+      .pricing-card-v2-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 12px;
+        border-radius: 999px;
+        background: var(--ok-soft);
+        color: var(--ok);
+        font-size: 11px;
+        font-weight: 700;
+        margin-bottom: 14px;
+        width: fit-content;
+      }
+      .pricing-card-v2-badge.cloud {
+        background: var(--accent-soft);
+        color: var(--accent);
+      }
+      .pricing-card-v2 h3 {
+        font-size: 20px;
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+      .pricing-card-v2-desc {
+        font-size: 14px;
+        color: var(--muted);
+        margin-bottom: 20px;
+        line-height: 1.6;
+        min-height: 44px;
+      }
+      .pricing-card-v2-price {
+        font-size: 42px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 24px;
+        line-height: 1;
+      }
+      .pricing-card-v2-price sup {
+        font-size: 20px;
+        vertical-align: super;
+      }
+      .pricing-card-v2-price span {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--muted);
+      }
+      .pricing-soon {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--muted);
+        letter-spacing: 0.02em;
+      }
+      .pricing-card-v2-features {
+        list-style: none;
+        flex: 1;
+        margin-bottom: 24px;
+      }
+      .pricing-card-v2-features li {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 5px 0;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        line-height: 1.5;
+      }
+      .pricing-card-v2-features li::before {
+        content: "✓";
+        flex-shrink: 0;
+        width: 16px;
+        height: 16px;
+        background: var(--ok-soft);
+        color: var(--ok);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 9px;
+        font-weight: 800;
+        margin-top: 2px;
+      }
+      .pricing-card-v2-cta {
+        width: 100%;
+        justify-content: center;
+        padding: 11px 16px;
+        font-size: 14px;
+      }
+
+      /* FAQ */
+      .faq-list {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      .faq-item {
+        border-bottom: 1px solid var(--line);
+      }
+      .faq-q {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--ink);
+        text-align: left;
+        font-family: inherit;
+      }
+      .faq-q .arrow {
+        transition: transform 0.2s;
+        color: var(--muted);
+        font-size: 18px;
+        flex-shrink: 0;
+        margin-left: 16px;
+      }
+      .faq-item.open .faq-q .arrow {
+        transform: rotate(45deg);
+      }
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      .faq-item.open .faq-a {
+        max-height: 300px;
+      }
+      .faq-a-inner {
+        padding: 0 0 20px;
+        font-size: 14.5px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      /* CTA */
+      .cta {
+        text-align: center;
+        padding: 80px 0;
+        background: linear-gradient(
+          135deg,
+          var(--accent-soft),
+          var(--purple-soft)
+        );
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+      .cta h2 {
+        font-size: clamp(26px, 4vw, 38px);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 14px;
+      }
+      .cta p {
+        color: var(--muted);
+        font-size: 17px;
+        margin-bottom: 28px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Homepage responsive */
+      @media (max-width: 1100px) {
+        .bento {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .bento-card.span-3 {
+          grid-column: span 2;
+        }
+      }
+      @media (max-width: 900px) {
+        .bento {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .bento-card.span-2,
+        .bento-card.span-3 {
+          grid-column: span 2;
+        }
+        .demo-body {
+          grid-template-columns: 1fr;
+        }
+        .demo-source {
+          border-right: none;
+          border-bottom: 1px solid var(--line);
+        }
+        .masonry {
+          columns: 1;
+        }
+        .api-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 768px) {
+        .pricing-two-col {
+          grid-template-columns: 1fr;
+          max-width: 440px;
+        }
+      }
+      @media (max-width: 640px) {
+        .bento {
+          grid-template-columns: 1fr;
+        }
+        .bento-card.span-2,
+        .bento-card.span-3 {
+          grid-column: span 1;
+        }
+        .hero {
+          padding: 56px 0 40px;
+        }
+        .section {
+          padding: 56px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="nav-inner">
+        <a href="../index.html" class="brand" aria-label="Powerduck home">
+          <img
+            src="../assets/images/logo.svg"
+            alt="Powerduck logo"
+            class="brand-logo"
+          />
+          <span>Powerduck</span> <span class="accent">Open source</span>
+        </a>
+        <nav aria-label="Main navigation">
+          <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#quickstart">Quick Start</a></li>
+            <li><a href="#api">API</a></li>
+            <li class="nav-dropdown">
+              <button
+                class="nav-dropdown-trigger"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Open Source
+                <svg
+                  class="chevron"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="nav-dropdown-menu" role="menu">
+                <div class="dropdown-section-title">Open Source Libraries</div>
+                <a
+                  class="dropdown-item"
+                  href="md-editor.html"
+                  role="menuitem"
+                  aria-current="page"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/md-editor</span
+                    ><span class="pkg-desc"
+                      >Embeddable Markdown editor with math, mindmaps & code
+                      highlighting</span
+                    >
+                  </div></a
+                ><a class="dropdown-item" href="conf-patch.html" role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/conf-patch</span
+                    ><span class="pkg-desc"
+                      >Two-layer config editor with OpenAPI validation & atomic
+                      writes</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="openapi-cli.html"
+                  role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/openapi-cli</span
+                    ><span class="pkg-desc"
+                      >CI-ready CLI for batch-testing OpenAPI across 6
+                      protocols</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="openapi-codegen.html"
+                  role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/openapi-codegen</span
+                    ><span class="pkg-desc"
+                      >Generate runnable HTTP code from OpenAPI (21
+                      languages)</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="openapi-mcp-server.html"
+                  role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/openapi-mcp-server</span
+                    ><span class="pkg-desc"
+                      >Turn OpenAPI specs into production MCP servers with Web
+                      UI</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="openapi-request.html"
+                  role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/openapi-request</span
+                    ><span class="pkg-desc"
+                      >OpenAPI 3.2 collection debugger with
+                      HTTP/SSE/WebSocket</span
+                    >
+                  </div></a
+                ><a
+                  class="dropdown-item"
+                  href="x-to-openapi.html"
+                  role="menuitem"
+                  ><div class="dropdown-item-text">
+                    <span class="pkg-name">@powerduck/x-to-openapi</span
+                    ><span class="pkg-desc"
+                      >Convert cURL commands & Postman collections to OpenAPI
+                      3.2</span
+                    >
+                  </div></a
+                >
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div class="nav-actions">
+          <a
+            class="btn-docs"
+            href="https://www.powerduck.com/docs/md-editor/introduction"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Documentation"
+            aria-label="View documentation"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+              />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="8" y1="13" x2="16" y2="13" />
+              <line x1="8" y1="17" x2="13" y2="17" />
+            </svg>
+            <span class="nav-docs-text">Docs</span></a
+          >
+          <a
+            class="nav-icon-btn"
+            href="https://www.npmjs.com/package/@powerduck/md-editor"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="npm package"
+            aria-label="View on npm"
+            ><img
+              src="./assets/images/npm.svg"
+              alt="npm package"
+              class="nav-icon-img"
+          /></a>
+          <a
+            class="btn-github"
+            href="https://github.com/powerducklab/md-editor"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+              /></svg
+            ><span class="gh-text">GitHub</span></a
+          >
+          <button
+            class="nav-icon-btn theme-toggle"
+            data-theme-toggle
+            title="Toggle color theme"
+            aria-label="Toggle color theme"
+          >
+            <svg
+              class="icon-moon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg
+            ><svg
+              class="icon-sun"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-badge">
+            <span class="dot"></span> v0.10.9 &mdash; MIT Licensed &mdash; 406+
+            tests passing
+          </div>
+          <h1>
+            The embeddable <span class="hl">markdown editor</span><br />your app
+            deserves.
+          </h1>
+          <p class="lead">
+            Drop-in Markdown editing with KaTeX math, Markmap mindmaps,
+            syntax-highlighted source, @mentions, document link cards, task
+            lists, and admonitions. Built on CodeMirror 6 for buttery
+            performance. React or vanilla JS.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#quickstart">Get Started</a
+            ><a
+              class="btn"
+              href="https://www.powerduck.com/docs/md-editor/introduction"
+              >Document</a
+            >
+            <a
+              class="btn btn-demo"
+              href="https://www.powerduck.com/demo/md-editor"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Live Demo</a
+            >
+          </div>
+          <div class="install-cmd" role="group" aria-label="Install command">
+            <span class="prefix">$</span
+            ><span class="cmd" id="installText"
+              >npm install @powerduck/md-editor</span
+            ><button
+              class="copy"
+              id="copyInstall"
+              type="button"
+              aria-label="Copy install command"
+            >
+              Copy
+            </button>
+          </div>
+          <div class="hero-meta">
+            <span>React 17+</span><span>Vanilla JS</span><span>TypeScript</span
+            ><span>Light / Dark</span><span>Simple / Complex modes</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="features">
+        <div class="container">
+          <div class="section-head">
+            <p class="section-kicker">Features</p>
+            <h2 class="section-title">Built for real-world writing.</h2>
+            <p class="section-deck">
+              Every primitive you need for production markdown workflows &mdash;
+              math, mindmaps, mentions, code, cards &mdash; without the bloat of
+              a full CMS.
+            </p>
+          </div>
+          <div class="bento">
+            <article class="bento-card span-2 featured">
+              <div class="bento-icon blue">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+              </div>
+              <h3>Source Syntax Highlighting</h3>
+              <p>
+                CodeMirror-powered markdown highlighting in the source pane.
+                Headings in violet, list markers and code labels in red, inline
+                code in green &mdash; with full light/dark palettes and nested
+                language highlighting inside fenced blocks.
+              </p>
+              <div class="bento-visual">
+                <span class="tok-h"># Project Handbook</span>
+
+                <span class="tok-lm">-</span>
+                <span class="tok-bold">Markdown editing</span> with CodeMirror 6
+                <span class="tok-lm">-</span>
+                <span class="tok-code">`inline code`</span> stays green
+
+                <span class="tok-punc">```</span
+                ><span class="tok-meta">typescript</span>
+                <span class="tok-kw">import</span> { Editor }
+                <span class="tok-kw">from</span>
+                <span class="tok-str">"@powerduck/md-editor"</span>;
+                <span class="tok-punc">```</span>
+              </div>
+            </article>
+            <article class="bento-card">
+              <div class="bento-icon purple">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 4h16v16H4z" />
+                  <path d="M8 16V8l3 4 3-4v4" />
+                </svg>
+              </div>
+              <h3>KaTeX Math</h3>
+              <p>
+                Inline <code style="font-size: 12px">$&hellip;$</code> and block
+                <code style="font-size: 12px">$$&hellip;$$</code> formulas
+                rendered with KaTeX. Zero config.
+              </p>
+            </article>
+            <article class="bento-card row-2">
+              <div class="bento-icon green">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="6" cy="12" r="2.5" />
+                  <circle cx="18" cy="6" r="2.5" />
+                  <circle cx="18" cy="18" r="2.5" />
+                  <path d="M8.5 12h4M15.5 7.5 13 10M15.5 16.5 13 14" />
+                </svg>
+              </div>
+              <h3>Markmap Mindmaps</h3>
+              <p>
+                Turn fenced
+                <code style="font-size: 12px">```mindmap</code> blocks into
+                interactive, zoomable mindmaps.
+              </p>
+              <div class="mindmap-preview" aria-hidden="true">
+                <svg
+                  class="mindmap-svg"
+                  viewBox="0 0 280 110"
+                  preserveAspectRatio="none"
+                >
+                  <path d="M52,55 C100,55 120,22 160,22" />
+                  <path d="M52,55 C100,55 120,88 160,88" />
+                </svg>
+                <div class="mindmap-node root" style="left: 8px; top: 43px">
+                  Root
+                </div>
+                <div class="mindmap-node" style="right: 10px; top: 10px">
+                  Branch A
+                </div>
+                <div class="mindmap-node" style="right: 10px; top: 76px">
+                  Branch B
+                </div>
+              </div>
+            </article>
+            <article class="bento-card">
+              <div class="bento-icon blue">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 21c0-4 4-6 8-6s8 2 8 6" />
+                </svg>
+              </div>
+              <h3>@Mentions</h3>
+              <p>
+                Type <strong>@</strong> to trigger a searchable user picker.
+                Async data, keyboard nav, rendered as chips.
+              </p>
+            </article>
+            <article class="bento-card span-2">
+              <div class="bento-icon warn">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M14 3h7v7" />
+                  <path d="M10 14 21 3" />
+                  <path
+                    d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"
+                  />
+                </svg>
+              </div>
+              <h3>Document Link Cards</h3>
+              <p>
+                Type <strong>/</strong> to insert links that auto-fetch OG
+                metadata and render as rich preview cards (thumbnail + title +
+                description), with graceful fallback to plain links.
+              </p>
+              <div
+                class="bento-visual"
+                style="display: flex; gap: 12px; align-items: center"
+              >
+                <div
+                  style="
+                    width: 80px;
+                    height: 56px;
+                    border-radius: 6px;
+                    background: linear-gradient(
+                      135deg,
+                      var(--accent-soft),
+                      var(--purple-soft)
+                    );
+                    flex-shrink: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 18px;
+                  "
+                >
+                  📄
+                </div>
+                <div>
+                  <div
+                    style="
+                      font-weight: 700;
+                      font-size: 13px;
+                      margin-bottom: 3px;
+                      font-family: var(--font);
+                    "
+                  >
+                    Getting Started Guide
+                  </div>
+                  <div
+                    style="
+                      font-size: 11.5px;
+                      color: var(--muted);
+                      font-family: var(--font);
+                    "
+                  >
+                    Quick start for embedding the editor in your app.
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="bento-card">
+              <div class="bento-icon red">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="16" rx="2" />
+                  <path d="M7 9h4M7 13h10" />
+                </svg>
+              </div>
+              <h3>Code Blocks</h3>
+              <p>
+                highlight.js with traffic-light chrome, one-click copy,
+                theme-aware colors. 20+ languages.
+              </p>
+            </article>
+            <article class="bento-card">
+              <div class="bento-icon green">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="16" rx="2" />
+                  <path d="M7 12l3 3 7-7" />
+                </svg>
+              </div>
+              <h3>Task Lists</h3>
+              <p>
+                GFM checkboxes with green-for-done styling. Toggle from toolbar
+                or keyboard.
+              </p>
+            </article>
+            <article class="bento-card">
+              <div class="bento-icon warn">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 2 2 7l10 5 10-5-10-5Z" />
+                  <path d="m2 17 10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+              </div>
+              <h3>Admonition Blocks</h3>
+              <p>
+                <code style="font-size: 12px">:::warning</code>,
+                <code style="font-size: 12px">:::info</code>,
+                <code style="font-size: 12px">:::tip</code>,
+                <code style="font-size: 12px">:::danger</code> and more.
+              </p>
+            </article>
+            <article class="bento-card">
+              <div class="bento-icon purple">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" />
+                </svg>
+              </div>
+              <h3>Incremental Rendering</h3>
+              <p>
+                Block-level diffing re-renders only what changed. Large docs
+                stay smooth at 60fps.
+              </p>
+            </article>
+            <article class="bento-card span-2">
+              <div class="bento-icon blue">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="3" />
+                  <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
+                  />
+                </svg>
+              </div>
+              <h3>Configurable Toolbar &amp; Modes</h3>
+              <p>
+                Show, hide, relabel, or replace any toolbar button with your own
+                icon (ReactNode). Simple mode strips to essentials. 11+ keyboard
+                shortcuts with a Help dialog.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Heading</span><span class="tag">Bold</span
+                ><span class="tag">Italic</span><span class="tag">Link</span
+                ><span class="tag">Image</span><span class="tag">Video</span
+                ><span class="tag">YouTube</span><span class="tag">Table</span
+                ><span class="tag">Math</span><span class="tag">Mindmap</span
+                ><span class="tag">Code</span><span class="tag">Quote</span
+                ><span class="tag">Lists</span><span class="tag">Task</span
+                ><span class="tag">Tips</span>
+              </div>
+            </article>
+            <article class="bento-card">
+              <div class="bento-icon green">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="9" cy="9" r="2" />
+                  <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                </svg>
+              </div>
+              <h3>Image Upload Hook</h3>
+              <p>
+                Paste or drop images.
+                <code style="font-size: 12px">onImageUpload</code> returns the
+                URL to insert.
+              </p>
+            </article>
+            <article class="bento-card">
+              <div class="bento-icon purple">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="4 17 10 11 4 5" />
+                  <line x1="12" y1="19" x2="20" y2="19" />
+                </svg>
+              </div>
+              <h3>Standalone renderMarkdown</h3>
+              <p>
+                Render markdown anywhere with the same math, mindmap, code, and
+                card styling &mdash; no editor needed.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="demo">
+        <div class="container">
+          <div class="section-head">
+            <p class="section-kicker">Live Demo</p>
+            <h2 class="section-title">See it in action.</h2>
+            <p class="section-deck">
+              Four common workflows, rendered exactly as they appear in your
+              app.
+            </p>
+          </div>
+          <div class="demo-tabs" role="tablist" aria-label="Demo tabs">
+            <button
+              class="demo-tab active"
+              role="tab"
+              aria-selected="true"
+              data-tab="overview"
+            >
+              Overview
+            </button>
+            <button
+              class="demo-tab"
+              role="tab"
+              aria-selected="false"
+              data-tab="math"
+            >
+              Math &amp; Mindmap
+            </button>
+            <button
+              class="demo-tab"
+              role="tab"
+              aria-selected="false"
+              data-tab="mentions"
+            >
+              Mentions &amp; Docs
+            </button>
+            <button
+              class="demo-tab"
+              role="tab"
+              aria-selected="false"
+              data-tab="code"
+            >
+              Code &amp; Tasks
+            </button>
+          </div>
+          <div class="demo-stage">
+            <div class="demo-chrome">
+              <div class="demo-dots" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="demo-filename">~/project/README.md</span>
+            </div>
+            <div class="demo-body">
+              <div class="demo-source" id="demoSource"></div>
+              <div class="demo-preview" id="demoPreview"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="quickstart">
+        <div class="container">
+          <div class="section-head">
+            <p class="section-kicker">Quick Start</p>
+            <h2 class="section-title">Up and running in under a minute.</h2>
+            <p class="section-deck">
+              Install, import, render. Six steps covering every integration
+              pattern.
+            </p>
+          </div>
+          <div class="masonry">
+            <div class="masonry-item">
+              <div class="masonry-head">
+                <div class="masonry-num">1</div>
+                <h3>Install</h3>
+                <span class="badge">bash</span>
+              </div>
+              <div class="masonry-body">
+                <pre>npm install @powerduck/md-editor</pre>
+              </div>
+            </div>
+            <div class="masonry-item">
+              <div class="masonry-head">
+                <div class="masonry-num">2</div>
+                <h3>Import styles</h3>
+                <span class="badge">css</span>
+              </div>
+              <div class="masonry-body">
+                <p>
+                  One CSS file covers editor, preview, code blocks, math, and
+                  mindmaps.
+                </p>
+                <pre><span class="tok-key">import</span> <span class="tok-str">"@powerduck/md-editor/dist/style.css"</span>;</pre>
+              </div>
+            </div>
+            <div class="masonry-item">
+              <div class="masonry-head">
+                <div class="masonry-num">3</div>
+                <h3>React component</h3>
+                <span class="badge">tsx</span>
+              </div>
+              <div class="masonry-body">
+                <pre><span class="tok-key">import</span> { useRef } <span class="tok-key">from</span> <span class="tok-str">"react"</span>;
+<span class="tok-key">import</span> {
+  MarkdownEditorReact,
+  <span class="tok-key">type</span> MarkdownEditorHandle,
+} <span class="tok-key">from</span> <span class="tok-str">"@powerduck/md-editor/react"</span>;
+
+<span class="tok-key">export function</span> <span class="tok-tag">App</span>() {
+  <span class="tok-key">const</span> ref = useRef&lt;MarkdownEditorHandle&gt;(<span class="tok-num">null</span>);
+  <span class="tok-key">return</span> (
+    <span class="tok-punc">&lt;</span><span class="tok-tag">MarkdownEditorReact</span>
+      <span class="tok-attr">ref</span>=<span class="tok-punc">{</span>ref<span class="tok-punc">}</span>
+      <span class="tok-attr">defaultValue</span>=<span class="tok-str">"# Hello world"</span>
+      <span class="tok-attr">mode</span>=<span class="tok-str">"complex"</span>
+      <span class="tok-attr">theme</span>=<span class="tok-str">"light"</span>
+      <span class="tok-attr">onChange</span>=<span class="tok-punc">{</span>(v) =&gt; console.<span class="tok-tag">log</span>(v.length)<span class="tok-punc">}</span>
+    <span class="tok-punc">/&gt;</span>
+  );
+}</pre>
+              </div>
+            </div>
+            <div class="masonry-item">
+              <div class="masonry-head">
+                <div class="masonry-num">4</div>
+                <h3>Vanilla JS</h3>
+                <span class="badge">ts</span>
+              </div>
+              <div class="masonry-body">
+                <pre><span class="tok-key">import</span> { MarkdownEditor } <span class="tok-key">from</span> <span class="tok-str">"@powerduck/md-editor"</span>;
+
+<span class="tok-key">const</span> editor = <span class="tok-key">new</span> <span class="tok-tag">MarkdownEditor</span>(container, {
+  value: <span class="tok-str">"# Hello"</span>,
+  mode: <span class="tok-str">"simple"</span>,
+  theme: <span class="tok-str">"dark"</span>,
+});</pre>
+              </div>
+            </div>
+            <div class="masonry-item">
+              <div class="masonry-head">
+                <div class="masonry-num">5</div>
+                <h3>Standalone render</h3>
+                <span class="badge">ts</span>
+              </div>
+              <div class="masonry-body">
+                <p>
+                  Need read-only markdown? Use the same renderer that powers the
+                  preview pane.
+                </p>
+                <pre><span class="tok-key">import</span> { renderMarkdown } <span class="tok-key">from</span> <span class="tok-str">"@powerduck/md-editor"</span>;
+
+<span class="tok-com">// Math, mindmaps, code, admonitions, cards</span>
+<span class="tok-key">const</span> html = <span class="tok-tag">renderMarkdown</span>(<span class="tok-str">"# Title\n\n$E=mc^2$"</span>);
+container.innerHTML = html;</pre>
+              </div>
+            </div>
+            <div class="masonry-item">
+              <div class="masonry-head">
+                <div class="masonry-num">6</div>
+                <h3>Mentions &amp; doc links</h3>
+                <span class="badge">tsx</span>
+              </div>
+              <div class="masonry-body">
+                <pre><span class="tok-punc">&lt;</span><span class="tok-tag">MarkdownEditorReact</span>
+  <span class="tok-attr">defaultValue</span>=<span class="tok-str">"# Note"</span>
+  <span class="tok-attr">mention</span>=<span class="tok-punc">{{</span>
+    <span class="tok-attr">onMentionSearch</span>: <span class="tok-key">async</span> (q) =&gt;
+      users.filter(u =&gt; u.label.includes(q)),
+    <span class="tok-attr">minChars</span>: <span class="tok-num">0</span>,
+  <span class="tok-punc">}}</span>
+  <span class="tok-attr">docLink</span>=<span class="tok-punc">{{</span>
+    <span class="tok-attr">onDocSearch</span>: <span class="tok-key">async</span> (q) =&gt;
+      docs.filter(d =&gt; d.title.includes(q)),
+    <span class="tok-attr">insertStyle</span>: <span class="tok-str">"auto"</span>,
+  <span class="tok-punc">}}</span>
+<span class="tok-punc">/&gt;</span></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="api">
+        <div class="container">
+          <div class="section-head">
+            <p class="section-kicker">API Reference</p>
+            <h2 class="section-title">A small, predictable surface.</h2>
+            <p class="section-deck">
+              Every option is optional. Sensible defaults get you started; full
+              configuration takes over when you need it.
+            </p>
+          </div>
+          <div class="api-table-wrap">
+            <table class="api-table" aria-label="MarkdownEditor props">
+              <thead>
+                <tr>
+                  <th>Prop</th>
+                  <th>Type</th>
+                  <th>Default</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>defaultValue</code></td>
+                  <td class="type">string</td>
+                  <td class="default">""</td>
+                  <td class="desc">Initial markdown content.</td>
+                </tr>
+                <tr>
+                  <td><code>value</code></td>
+                  <td class="type">string</td>
+                  <td class="default">—</td>
+                  <td class="desc">
+                    Controlled value. When provided, the editor becomes
+                    controlled.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>mode</code></td>
+                  <td class="type">"simple" | "complex"</td>
+                  <td class="default">"complex"</td>
+                  <td class="desc">
+                    Simple hides toolbar and status bar for a minimal writing
+                    experience.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>theme</code></td>
+                  <td class="type">"light" | "dark"</td>
+                  <td class="default">"light"</td>
+                  <td class="desc">
+                    Color theme for editor, preview, and code blocks. Switch at
+                    runtime via <code>setTheme()</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>onChange</code></td>
+                  <td class="type">(md: string) =&gt; void</td>
+                  <td class="default">—</td>
+                  <td class="desc">
+                    Fired on every document change (debounced via CodeMirror's
+                    update listener).
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>placeholder</code></td>
+                  <td class="type">string</td>
+                  <td class="default">—</td>
+                  <td class="desc">
+                    Placeholder text shown when the editor is empty.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>lineNumbers</code></td>
+                  <td class="type">boolean</td>
+                  <td class="default">false</td>
+                  <td class="desc">Show line numbers in the source pane.</td>
+                </tr>
+                <tr>
+                  <td><code>autoPreview</code></td>
+                  <td class="type">boolean</td>
+                  <td class="default">true</td>
+                  <td class="desc">
+                    Automatically render the preview pane on change.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>toolbar</code></td>
+                  <td class="type">ToolbarConfig</td>
+                  <td class="default">all buttons</td>
+                  <td class="desc">
+                    Show/hide/relabel/replace any toolbar button with a custom
+                    icon (ReactNode).
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>mention</code></td>
+                  <td class="type">MentionOptions</td>
+                  <td class="default">disabled</td>
+                  <td class="desc">
+                    @mention picker with async search
+                    (<code>onMentionSearch</code>), custom rendering, keyboard
+                    navigation, and <code>onMentionSelect</code> hook.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>docLink</code></td>
+                  <td class="type">DocLinkOptions</td>
+                  <td class="default">disabled</td>
+                  <td class="desc">
+                    /slash document picker with async search
+                    (<code>onDocSearch</code>), OG-metadata fetch hook
+                    (<code>onFetchDocMeta</code>), and
+                    <code>insertStyle</code> ("auto" | "card" | "link").
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>onImageUpload</code></td>
+                  <td class="type">(file: File) =&gt; Promise&lt;string&gt;</td>
+                  <td class="default">—</td>
+                  <td class="desc">
+                    Hook for paste/drop image uploads. Return the resolved URL
+                    to insert.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>includeExamples</code></td>
+                  <td class="type">boolean</td>
+                  <td class="default">false</td>
+                  <td class="desc">
+                    Include example values in generated JSON schemas and
+                    preview.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="api-grid">
+            <div class="api-card">
+              <div class="api-card-head">Instance Methods</div>
+              <div class="api-card-body">
+                <pre>editor.<span class="tok-tag">getValue</span>()       <span class="tok-com">// =&gt; string</span>
+editor.<span class="tok-tag">setValue</span>(md)     <span class="tok-com">// =&gt; void</span>
+editor.<span class="tok-tag">setTheme</span>(<span class="tok-str">"dark"</span>)  <span class="tok-com">// =&gt; void</span>
+editor.<span class="tok-tag">setMode</span>(<span class="tok-str">"simple"</span>) <span class="tok-com">// =&gt; void</span>
+editor.<span class="tok-tag">focus</span>()         <span class="tok-com">// =&gt; void</span>
+editor.<span class="tok-tag">destroy</span>()       <span class="tok-com">// =&gt; void</span></pre>
+              </div>
+            </div>
+            <div class="api-card">
+              <div class="api-card-head">Keyboard Shortcuts</div>
+              <div class="api-card-body">
+                <div class="shortcut-row">
+                  <span>Bold</span><span class="keys">Ctrl/Cmd + B</span>
+                </div>
+                <div class="shortcut-row">
+                  <span>Italic</span><span class="keys">Ctrl/Cmd + I</span>
+                </div>
+                <div class="shortcut-row">
+                  <span>Insert link</span><span class="keys">Ctrl/Cmd + K</span>
+                </div>
+                <div class="shortcut-row">
+                  <span>Inline code</span><span class="keys">Ctrl/Cmd + E</span>
+                </div>
+                <div class="shortcut-row">
+                  <span>Blockquote</span><span class="keys">Ctrl/Cmd + .</span>
+                </div>
+                <div class="shortcut-row">
+                  <span>Code block</span><span class="keys">Ctrl/Cmd + /</span>
+                </div>
+                <div class="shortcut-row">
+                  <span>Task list</span><span class="keys">Alt + T</span>
+                </div>
+                <div class="shortcut-row">
+                  <span>Math formula</span><span class="keys">Alt + M</span>
+                </div>
+                <div class="shortcut-row">
+                  <span>Help dialog</span><span class="keys">Ctrl/Cmd + /</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-head">
+            <p class="section-kicker">FAQ</p>
+            <h2 class="section-title">Questions, answered.</h2>
+          </div>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button class="faq-q" type="button">
+                Does it work with React 17 and 18?<span class="arrow">+</span>
+              </button>
+              <div class="faq-a">
+                <div class="faq-a-inner">
+                  Yes. The React component supports React 17+ as a peer
+                  dependency. It also works with React 18 concurrent features.
+                  Vanilla JS users don't need React at all.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" type="button">
+                How big is the bundle?<span class="arrow">+</span>
+              </button>
+              <div class="faq-a">
+                <div class="faq-a-inner">
+                  The core editor is ~50KB gzipped. CodeMirror, KaTeX, Markmap,
+                  and highlight.js are peer/external dependencies so your
+                  bundler can share them with the rest of your app. Incremental
+                  rendering keeps large documents smooth.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" type="button">
+                Can I customize the toolbar?<span class="arrow">+</span>
+              </button>
+              <div class="faq-a">
+                <div class="faq-a-inner">
+                  Absolutely. Pass a <code>toolbar</code> config to show/hide
+                  individual buttons, relabel them, or replace their icons with
+                  your own ReactNode. Simple mode strips the toolbar entirely
+                  for a distraction-free writing experience.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" type="button">
+                How do @mentions and document links work?<span class="arrow"
+                  >+</span
+                >
+              </button>
+              <div class="faq-a">
+                <div class="faq-a-inner">
+                  Type <strong>@</strong> to trigger a user picker (async search
+                  via <code>onMentionSearch</code>). Type <strong>/</strong> for
+                  document links (<code>onDocSearch</code>). Both support full
+                  keyboard navigation and Enter-to-insert. Mentions render as
+                  chips; doc links render as preview cards with auto-fetched OG
+                  metadata.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" type="button">
+                Is the preview rendering safe?<span class="arrow">+</span>
+              </button>
+              <div class="faq-a">
+                <div class="faq-a-inner">
+                  The renderer uses markdown-it with sane defaults. Raw HTML is
+                  escaped by default. Math and mindmap blocks are rendered in
+                  isolated containers. For production use, always sanitize
+                  user-generated content at your application layer.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" type="button">
+                Can I use it without the editor UI?<span class="arrow">+</span>
+              </button>
+              <div class="faq-a">
+                <div class="faq-a-inner">
+                  Yes. The standalone <code>renderMarkdown()</code> function
+                  renders markdown to HTML with the same math, mindmap, code,
+                  admonition, and card styling &mdash; perfect for read-only
+                  views, comments, or chat messages.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="container">
+          <h2>Start writing beautiful markdown today.</h2>
+          <p>One install. Zero config. Everything your app needs.</p>
+          <div
+            style="
+              display: flex;
+              gap: 12px;
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <a class="btn btn-primary" href="#quickstart">Get Started</a
+            ><a
+              class="btn"
+              href="https://github.com/powerducklab/md-editor"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View on GitHub</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-shell">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="../index.html" class="brand" aria-label="Powerduck home">
+              <img
+                src="../assets/images/logo.svg"
+                alt="Powerduck logo"
+                class="brand-logo"
+              />
+              <span>Powerduck</span>
+            </a>
+            <p>
+              Building developer tools for the modern API workflow. Open source,
+              production-ready, and community-driven.
+            </p>
+          </div>
+          <div class="footer-column">
+            <h6>Product</h6>
+            <ul>
+              <li><a href="../index.html#features">Features</a></li>
+              <li><a href="../index.html#opensource">Open Source</a></li>
+              <li><a href="../opensource/md-editor.html">MD Editor</a></li>
+              <li><a href="../opensource/openapi-cli.html">OpenAPI CLI</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h6>Resources</h6>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/PowerDuckie"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.powerduck.com/docs/md-editor/introduction"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Documentation</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.npmjs.com/search?q=%40powerduck"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >npm Packages</a
+                >
+              </li>
+              <li><a href="mailto:contact@neatico.com">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h6>Legal</h6>
+            <ul>
+              <li><a href="../terms.html">Terms of Service</a></li>
+              <li><a href="../privacy.html">Privacy Policy</a></li>
+              <li><a href="../refunds.html">Refund Policy</a></li>
+              <li><a href="../cookie.html">Cookie Notice</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 POWERDUCK LIMITED. All rights reserved.</span>
+          <div class="footer-bottom-links">
+            <a href="../terms.html">Terms</a>
+            <a href="../privacy.html">Privacy</a>
+            <a href="../cookie.html">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./assets/js/md-editor-theme.js"></script>
+    <script>
+      document
+        .getElementById("copyInstall")
+        .addEventListener("click", function () {
+          var text = document.getElementById("installText").textContent;
+          navigator.clipboard.writeText(text).then(
+            function () {
+              this.textContent = "Copied!";
+              var self = this;
+              setTimeout(function () {
+                self.textContent = "Copy";
+              }, 1500);
+            }.bind(this),
+          );
+        });
+      var demos = {
+        overview: {
+          source:
+            '<span class="tok-h"># Project Handbook</span>\n\nWelcome to the team! This document covers\neverything you need to get started.\n\n<span class="tok-h">## Getting Started</span>\n\n<span class="tok-lm">-</span> <span class="tok-bold">Install dependencies</span>\n<span class="tok-lm">-</span> Run the dev server\n<span class="tok-lm">-</span> Read the <span class="tok-link">contributing guide</span>\n\n<span class="tok-punc">```</span><span class="tok-meta">bash</span>\nnpm install\nnpm run dev\n<span class="tok-punc">```</span>\n\n<span class="tok-punc">></span> Pro tip: use the toolbar for quick formatting.',
+          preview:
+            '<h1>Project Handbook</h1><p>Welcome to the team! This document covers everything you need to get started.</p><h2>Getting Started</h2><ul><li><strong>Install dependencies</strong></li><li>Run the dev server</li><li>Read the <a href="#">contributing guide</a></li></ul><pre><code>npm install\nnpm run dev</code></pre><blockquote>Pro tip: use the toolbar for quick formatting.</blockquote>',
+        },
+        math: {
+          source:
+            '<span class="tok-h"># Math & Mindmaps</span>\n\nInline formula: <span class="tok-code">$E=mc^2$</span>\n\nBlock math:\n<span class="tok-code">$$</span>\n<span class="tok-code">\\int_0^\\infty e^{-x^2} dx = \\frac{\\sqrt{\\pi}}{2}</span>\n<span class="tok-code">$$</span>\n\n<span class="tok-punc">```</span><span class="tok-meta">mindmap</span>\n<span class="tok-h"># Root</span>\n<span class="tok-h">## Branch A</span>\n<span class="tok-lm">-</span> Child 1\n<span class="tok-lm">-</span> Child 2\n<span class="tok-h">## Branch B</span>\n<span class="tok-punc">```</span>',
+          preview:
+            '<h1>Math & Mindmaps</h1><p>Inline formula: <span class="math-inline">E = mc²</span></p><p>Block math:</p><p style="text-align:center;font-size:18px;color:var(--purple);font-family:serif">∫₀^∞ e^(-x²) dx = √π / 2</p><div style="padding:16px;background:var(--bg-subtle);border-radius:8px;border:1px solid var(--line);text-align:center"><div style="display:inline-block;padding:6px 14px;background:var(--accent);color:#fff;border-radius:6px;font-weight:700;font-size:13px">Root</div><div style="display:flex;gap:12px;justify-content:center;margin-top:10px"><div style="padding:5px 12px;background:var(--surface);border:1px solid var(--line);border-radius:6px;font-size:12px;font-weight:600">Branch A</div><div style="padding:5px 12px;background:var(--surface);border:1px solid var(--line);border-radius:6px;font-size:12px;font-weight:600">Branch B</div></div></div>',
+        },
+        mentions: {
+          source:
+            '<span class="tok-h"># Team Notes</span>\n\nHey <span class="tok-link">[@Alice](mention:1)</span>, can you review the PR?\n\nAlso check <span class="tok-link">[@Bob](mention:2)</span>\'s comments.\n\n<span class="tok-punc">:::</span><span class="tok-meta">doc-link</span>\ntitle: Getting Started\nurl: https://docs.example.com/start\nthumbnail: https://picsum.photos/seed/start/96/72\ndescription: Quick start guide\n<span class="tok-punc">:::</span>\n\ncc <span class="tok-link">[@Charlie](mention:3)</span>',
+          preview:
+            '<h1>Team Notes</h1><p>Hey <span class="mention-chip">@Alice</span>, can you review the PR?</p><p>Also check <span class="mention-chip">@Bob</span>\'s comments.</p><div class="doc-card"><div class="doc-card-thumb">📄</div><div><div class="doc-card-title">Getting Started</div><div class="doc-card-desc">Quick start guide for new team members.</div></div></div><p>cc <span class="mention-chip">@Charlie</span></p>',
+        },
+        code: {
+          source:
+            '<span class="tok-h"># Code & Tasks</span>\n\n<span class="tok-punc">```</span><span class="tok-meta">typescript</span>\n<span class="tok-kw">import</span> { Editor } <span class="tok-kw">from</span> <span class="tok-str">"@powerduck/md-editor"</span>;\n\n<span class="tok-kw">const</span> editor = <span class="tok-kw">new</span> <span class="tok-tag">Editor</span>(el, {\n  theme: <span class="tok-str">"dark"</span>,\n  onChange: (md) => save(md),\n});\n<span class="tok-punc">```</span>\n\n<span class="tok-lm">-</span> <span class="tok-punc">[ ]</span> Design the API\n<span class="tok-lm">-</span> <span class="tok-punc">[x]</span> Write tests\n<span class="tok-lm">-</span> <span class="tok-punc">[ ]</span> Ship v1.0\n\n<span class="tok-punc">:::</span><span class="tok-meta">warning</span>\nBreaking change in v2.0.\n<span class="tok-punc">:::</span>',
+          preview:
+            '<h1>Code & Tasks</h1><pre><code><span style="color:var(--red)">import</span> { Editor } <span style="color:var(--red)">from</span> <span style="color:var(--green)">"@powerduck/md-editor"</span>;\n\n<span style="color:var(--red)">const</span> editor = <span style="color:var(--red)">new</span> <span style="color:var(--purple)">Editor</span>(el, {\n  theme: <span style="color:var(--green)">"dark"</span>,\n  onChange: (md) => save(md),\n});</code></pre><div class="task-item"><span class="checkbox checked">✓</span> Design the API</div><div class="task-item"><span class="checkbox"></span> Write tests</div><div class="task-item"><span class="checkbox checked">✓</span> Ship v1.0</div><div class="admonition"><strong>Warning:</strong> Breaking change in v2.0.</div>',
+        },
+      };
+      var sourceEl = document.getElementById("demoSource");
+      var previewEl = document.getElementById("demoPreview");
+      function renderDemo(key) {
+        var lines = demos[key].source.split("\n");
+        sourceEl.innerHTML = lines
+          .map(function (l) {
+            return '<span class="line">' + (l || "&nbsp;") + "</span>";
+          })
+          .join("");
+        previewEl.innerHTML = demos[key].preview;
+      }
+      renderDemo("overview");
+      document.querySelectorAll(".demo-tab").forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          document.querySelectorAll(".demo-tab").forEach(function (t) {
+            t.classList.remove("active");
+            t.setAttribute("aria-selected", "false");
+          });
+          this.classList.add("active");
+          this.setAttribute("aria-selected", "true");
+          renderDemo(this.dataset.tab);
+        });
+      });
+      document.querySelectorAll(".faq-q").forEach(function (q) {
+        q.addEventListener("click", function () {
+          var item = this.parentElement;
+          var wasOpen = item.classList.contains("open");
+          document.querySelectorAll(".faq-item").forEach(function (i) {
+            i.classList.remove("open");
+          });
+          if (!wasOpen) item.classList.add("open");
+        });
+      });
+    </script>
+    <script src="../assets/js/common.js"></script>
+  </body>
+</html>
