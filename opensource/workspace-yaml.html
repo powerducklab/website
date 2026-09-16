@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("powerduck-theme");
+        var theme = saved === "light" || saved === "dark"
+          ? saved
+          : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <title>@powerduck/workspace-yaml — Generate PowerDuck Workspace YAML</title>
+  <meta name="description" content="Generate valid PowerDuck workspace.yaml and OpenAPI YAML files from structured configuration. Parse, validate, and serialize workspace configuration." />
+  <meta name="keywords" content="workspace yaml, powerduck workspace, openapi yaml generator, yaml serialization, config generator" />
+  <meta name="author" content="Powerduck Open source" /><meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.powerduck.com/opensource/workspace-yaml.html" />
+  <meta property="og:type" content="website" /><meta property="og:site_name" content="Powerduck Open source" />
+  <meta property="og:title" content="@powerduck/workspace-yaml — Workspace YAML Generator" />
+  <meta property="og:description" content="Generate PowerDuck workspace.yaml and OpenAPI YAML from structured config." />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"@powerduck/workspace-yaml","applicationCategory":"DeveloperApplication","operatingSystem":"Cross-platform","description":"Generate and parse PowerDuck workspace YAML and OpenAPI YAML files.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"license":"https://opensource.org/licenses/MIT","publisher":{"@type":"Organization","name":"Powerduck","url":"https://www.powerduck.com"},"softwareVersion":"0.2.3","programmingLanguage":["TypeScript","JavaScript"]}</script>
+  <link rel="stylesheet" href="../assets/css/common.css" />
+  <link rel="stylesheet" href="./assets/css/shared.css" />
+</head>
+<body>
+  <header class="site-header"><div class="nav-inner">
+    <a href="../index.html" class="brand" aria-label="Powerduck home">
+      <img src="../assets/images/logo.svg" alt="Powerduck logo" class="brand-logo" />
+      <span>Powerduck</span> <span class="accent">Open source</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li><li><a href="#quickstart">Quick Start</a></li><li><a href="#api">API</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Open Source <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <div class="dropdown-section-title">Open Source Libraries</div>
+            <a class="dropdown-item" href="openapi-parser.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-parser</span><span class="pkg-desc">Parse, upgrade & validate OpenAPI 2.0–3.2 with dereference</span></div></a>
+            <a class="dropdown-item" href="md-editor.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/md-editor</span><span class="pkg-desc">Embeddable Markdown editor with math, mindmaps & code highlighting</span></div></a>
+            <a class="dropdown-item" href="conf-patch.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/conf-patch</span><span class="pkg-desc">Two-layer config editor with OpenAPI validation & atomic writes</span></div></a>
+            <a class="dropdown-item" href="tree.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/tree</span><span class="pkg-desc">Immutable tree data structures with OpenAPI & schema adapters</span></div></a>
+            <a class="dropdown-item" href="schema-editor.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/schema-editor</span><span class="pkg-desc">Schema-aware Monaco editor for JSON, YAML, and JavaScript</span></div></a>
+            <a class="dropdown-item" href="oas-document.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/oas-document</span><span class="pkg-desc">Load, resolve, and navigate OpenAPI documents with examples</span></div></a>
+            <a class="dropdown-item" href="workspace-yaml.html" role="menuitem" aria-current="page"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/workspace-yaml</span><span class="pkg-desc">Generate PowerDuck workspace YAML from OpenAPI documents</span></div></a>
+            <a class="dropdown-item" href="openapi-cli.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-cli</span><span class="pkg-desc">CI-ready CLI for batch-testing OpenAPI across 6 protocols</span></div></a>
+            <a class="dropdown-item" href="openapi-codegen.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-codegen</span><span class="pkg-desc">Generate runnable HTTP code from OpenAPI (21 languages)</span></div></a>
+            <a class="dropdown-item" href="openapi-mcp-server.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-mcp-server</span><span class="pkg-desc">Turn OpenAPI specs into production MCP servers with Web UI</span></div></a>
+            <a class="dropdown-item" href="openapi-request.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-request</span><span class="pkg-desc">OpenAPI 3.2 collection debugger with HTTP/SSE/WebSocket</span></div></a>
+            <a class="dropdown-item" href="x-to-openapi.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/x-to-openapi</span><span class="pkg-desc">Convert cURL commands & Postman collections to OpenAPI 3.2</span></div></a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn-docs" href="https://www.powerduck.com/docs/workspace-yaml/introduction" target="_blank" rel="noopener noreferrer" title="Documentation" aria-label="View documentation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
+        <span class="nav-docs-text">Docs</span></a>
+      <a class="nav-icon-btn" href="https://www.npmjs.com/package/@powerduck/workspace-yaml" target="_blank" rel="noopener noreferrer" title="npm package" aria-label="View on npm"><img src="./assets/images/npm.svg" alt="npm package" class="nav-icon-img" /></a>
+      <a class="btn-github" href="https://github.com/powerducklab/workspace-yaml" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg><span class="gh-text">GitHub</span></a>
+      <button class="nav-icon-btn theme-toggle" data-theme-toggle title="Toggle color theme" aria-label="Toggle color theme"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+    </div>
+  </div></header>
+
+  <main>
+  <section class="hero"><div class="container">
+    <div class="hero-badge"> <img src="https://img.shields.io/npm/v/@powerduck/workspace-yaml"/> &mdash; MIT Licensed &mdash; YAML Generator</div>
+    <h1>Generate <span class="hl">PowerDuck Workspace YAML</span></h1>
+    <p class="lead">Programmatically generate valid <code>workspace.yaml</code> and OpenAPI YAML files from structured configuration. Parse existing workspace YAML, validate the schema, and serialize back with proper formatting.</p>
+    <div class="hero-cta"><a class="btn btn-primary" href="#quickstart">Get Started</a><a class="btn btn-secondary" href="https://www.powerduck.com/docs/workspace-yaml/introduction" target="_blank" rel="noopener noreferrer">Documentation</a><a class="btn btn-demo" href="https://www.powerduck.com/demo/workspace-yaml" target="_blank" rel="noopener noreferrer">Live Demo</a></div>
+    <div class="install-cmd" role="group"><span class="prefix">$</span><span class="cmd" id="installText">npm install @powerduck/workspace-yaml</span><button class="copy" id="copyInstall" type="button" aria-label="Copy install command">Copy</button></div>
+    <div class="hero-meta"><span>workspace.yaml</span><span>OpenAPI YAML</span><span>Parse &amp; Generate</span><span>Type-Safe</span></div>
+  </div></section>
+
+  <section class="section section-alt" id="quickstart"><div class="container">
+    <div class="section-head"><div class="section-kicker">Quick Start</div><h2 class="section-title">Generate in one call</h2></div>
+    <div class="code-block">
+      <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div>
+        <div class="code-tabs">
+          <button class="code-tab active" onclick="showTab(this,'workspace')">Workspace YAML</button>
+          <button class="code-tab" onclick="showTab(this,'openapi')">OpenAPI YAML</button>
+          <button class="code-tab" onclick="showTab(this,'both')">Workspace + API</button>
+          <button class="code-tab" onclick="showTab(this,'parse')">Parse YAML</button>
+        </div>
+        <button class="code-copy" onclick="copyCode(this)">Copy</button>
+      </div>
+      <div class="code-body">
+        <pre id="code-workspace"><span class="line"><span class="kw">import</span> { createWorkspaceYaml } <span class="kw">from</span> <span class="str">"@powerduck/workspace-yaml"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="kw">const</span> yaml = <span class="fn">createWorkspaceYaml</span>({</span>
+<span class="line">  name: <span class="str">"My API Workspace"</span>,</span>
+<span class="line">  version: <span class="str">"1.0.0"</span>,</span>
+<span class="line">  apis: [{</span>
+<span class="line">    name: <span class="str">"Users API"</span>,</span>
+<span class="line">    spec: <span class="str">"./openapi.yaml"</span>,</span>
+<span class="line">    baseUrl: <span class="str">"https://api.example.com"</span>,</span>
+<span class="line">  }],</span>
+<span class="line">});</span>
+<span class="line"></span>
+<span class="line">console.<span class="fn">log</span>(yaml);</span></pre>
+        <pre id="code-openapi" style="display:none"><span class="line"><span class="kw">import</span> { createOpenApiYaml } <span class="kw">from</span> <span class="str">"@powerduck/workspace-yaml"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="kw">const</span> yaml = <span class="fn">createOpenApiYaml</span>({</span>
+<span class="line">  title: <span class="str">"Users API"</span>,</span>
+<span class="line">  version: <span class="str">"1.0.0"</span>,</span>
+<span class="line">  paths: {</span>
+<span class="line">    <span class="str">"/users"</span>: {</span>
+<span class="line">      get: { operationId: <span class="str">"listUsers"</span>, responses: { <span class="str">"200"</span>: { description: <span class="str">"OK"</span> } } },</span>
+<span class="line">    },</span>
+<span class="line">  },</span>
+<span class="line">});</span></pre>
+        <pre id="code-both" style="display:none"><span class="line"><span class="kw">import</span> { createWorkspaceWithApi } <span class="kw">from</span> <span class="str">"@powerduck/workspace-yaml"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Generate both workspace.yaml and openapi.yaml</span></span>
+<span class="line"><span class="kw">const</span> result = <span class="fn">createWorkspaceWithApi</span>({</span>
+<span class="line">  workspace: { name: <span class="str">"My API"</span>, version: <span class="str">"1.0.0"</span> },</span>
+<span class="line">  openapi: { title: <span class="str">"Users API"</span>, version: <span class="str">"1.0.0"</span> },</span>
+<span class="line">});</span>
+<span class="line"></span>
+<span class="line">console.<span class="fn">log</span>(result.workspaceYaml);  <span class="com">// workspace.yaml content</span></span>
+<span class="line">console.<span class="fn">log</span>(result.openApiYaml);     <span class="com">// openapi.yaml content</span></span></pre>
+        <pre id="code-parse" style="display:none"><span class="line"><span class="kw">import</span> { parseWorkspaceYaml } <span class="kw">from</span> <span class="str">"@powerduck/workspace-yaml"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="kw">const</span> config = <span class="fn">parseWorkspaceYaml</span>(yamlString);</span>
+<span class="line">console.<span class="fn">log</span>(config.name, config.apis);</span></pre>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="section section-alt" id="features"><div class="container">
+    <div class="section-head"><div class="section-kicker">Features</div><h2 class="section-title">Workspace configuration, automated</h2><p class="section-deck">Generate valid PowerDuck workspace files without hand-writing YAML.</p></div>
+    <div class="bento-grid">
+      <div class="bento-card featured"><div class="bento-icon accent">01</div><h3>Workspace YAML Generator</h3><p><code>createWorkspaceYaml()</code> produces a properly formatted <code>workspace.yaml</code> with API entries, server URLs, and authentication settings.</p></div>
+      <div class="bento-card"><div class="bento-icon purple">02</div><h3>OpenAPI YAML Generator</h3><p><code>createOpenApiYaml()</code> builds an OpenAPI 3.2 YAML document from structured path and operation data. Consistent formatting, no hand-editing.</p></div>
+      <div class="bento-card"><div class="bento-icon ok">03</div><h3>One-Call Setup</h3><p><code>createWorkspaceWithApi()</code> generates both files together — workspace YAML and the referenced OpenAPI spec — ready to drop into a project.</p></div>
+      <div class="bento-card"><div class="bento-icon warn">04</div><h3>Parse &amp; Validate</h3><p><code>parseWorkspaceYaml()</code> reads existing workspace files into typed <code>WorkspaceConfig</code> objects. Errors are thrown as <code>WorkspaceYamlError</code> with typed codes.</p></div>
+      <div class="bento-card"><div class="bento-icon blue">05</div><h3>Type-Safe Options</h3><p>All generator options are fully typed: <code>CreateWorkspaceOptions</code>, <code>CreateOpenApiOptions</code>, <code>CreateWorkspaceWithApiOptions</code>. IDE autocompletion out of the box.</p></div>
+      <div class="bento-card"><div class="bento-icon danger">06</div><h3>Error Types</h3><p><code>WorkspaceYamlError</code> with <code>WorkspaceYamlErrorCode</code> enumerates specific failure modes: invalid YAML, missing required fields, unsupported options.</p></div>
+    </div>
+  </div></section>
+
+  <section class="section" id="api"><div class="container">
+    <div class="section-head"><div class="section-kicker">API Reference</div><h2 class="section-title">Core functions</h2></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">createWorkspaceYaml(options)</span><span class="api-desc">Generate a workspace.yaml string</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><table class="api-params"><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td>options.name</td><td>string</td><td>Workspace display name</td></tr>
+<tr><td>options.version</td><td>string</td><td>Workspace version</td></tr>
+<tr><td>options.apis</td><td>object[]</td><td>API entries with name, spec path, baseUrl</td></tr>
+</tbody></table><div class="api-example"><div class="api-example-label">Returns</div><pre>string — formatted YAML</pre></div></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">createOpenApiYaml(options)</span><span class="api-desc">Generate an OpenAPI YAML string</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><table class="api-params"><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td>options.title</td><td>string</td><td>API title</td></tr>
+<tr><td>options.version</td><td>string</td><td>API version</td></tr>
+<tr><td>options.paths</td><td>object</td><td>OpenAPI paths object</td></tr>
+</tbody></table><div class="api-example"><div class="api-example-label">Returns</div><pre>string — formatted OpenAPI YAML</pre></div></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">createWorkspaceWithApi(options)</span><span class="api-desc">Generate both workspace and OpenAPI YAML</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><div class="api-example"><div class="api-example-label">Returns</div><pre>WorkspaceWithApiResult { workspaceYaml: string; openApiYaml: string }</pre></div></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">parseWorkspaceYaml(yaml)</span><span class="api-desc">Parse workspace YAML into a typed config object</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><div class="api-example"><div class="api-example-label">Returns</div><pre>WorkspaceConfig — typed workspace configuration</pre></div></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method class">class</span><span class="api-name">WorkspaceYamlError</span><span class="api-desc">Typed error for YAML generation/parsing failures</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><p style="font-size:13px;color:var(--muted);margin:0">Properties: <code>code</code> (WorkspaceYamlErrorCode), <code>message</code>. Use for structured error handling in tooling.</p></div></div></div>
+  </div></section>
+
+  <section class="section-alt"><div class="container"><div class="stats-grid">
+    <div class="stat-card"><div class="stat-number">4</div><div class="stat-label">Core Functions</div></div>
+    <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">YAML Formats</div></div>
+    <div class="stat-card"><div class="stat-number">0.2.3</div><div class="stat-label">Current Version</div></div>
+    <div class="stat-card"><div class="stat-number">MIT</div><div class="stat-label">License</div></div>
+  </div></div></section>
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-shell">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="brand" aria-label="Powerduck home">
+          <img src="../assets/images/logo.svg" alt="Powerduck logo" class="brand-logo" />
+          <span>Powerduck</span>
+        </a>
+        <p>Building developer tools for the modern API workflow. Open source, production-ready, and community-driven.</p>
+      </div>
+      <div class="footer-column">
+        <h6>Product</h6>
+        <ul>
+          <li><a href="../index.html#features">Features</a></li>
+          <li><a href="../index.html#opensource">Open Source</a></li>
+          <li><a href="md-editor.html">MD Editor</a></li>
+          <li><a href="workspace-yaml.html">Workspace YAML</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>Resources</h6>
+        <ul>
+          <li><a href="https://github.com/powerducklab" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.powerduck.com/docs/workspace-yaml/introduction" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+          <li><a href="https://www.npmjs.com/search?q=%40powerduck" target="_blank" rel="noopener noreferrer">npm Packages</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>Legal</h6>
+        <ul>
+          <li><a href="../terms.html">Terms of Service</a></li>
+          <li><a href="../privacy.html">Privacy Policy</a></li>
+          <li><a href="../refunds.html">Refund Policy</a></li>
+          <li><a href="../cookie.html">Cookie Notice</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 POWERDUCK LIMITED. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="../terms.html">Terms</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../cookie.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script>
+  (function(){
+    "use strict";
+    function toggleTheme(){var h=document.documentElement;var n=h.getAttribute("data-theme")==="dark"?"light":"dark";h.setAttribute("data-theme",n);try{localStorage.setItem("pd-theme",n)}catch(e){}}
+    function showTab(btn,id){if(!btn||!id)return;var block=btn.closest(".code-block");if(!block)return;var tabs=block.querySelectorAll(".code-tab");for(var i=0;i<tabs.length;i++)tabs[i].classList.remove("active");btn.classList.add("active");var pres=block.querySelectorAll(".code-body pre");for(var j=0;j<pres.length;j++)pres[j].style.display="none";var target=block.querySelector("#code-"+id);if(target)target.style.display="block";}
+    function toggleApi(el){if(el)el.classList.toggle("open");}
+    function copyText(text,btn){if(!text||!btn)return;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){var orig=btn.textContent;btn.textContent="Copied";setTimeout(function(){btn.textContent=orig},1500);}).catch(function(){});}}
+    function copyCode(btn){if(!btn)return;var block=btn.closest(".code-block");if(!block)return;var active=block.querySelector(".code-body pre[style*=block]")||block.querySelector(".code-body pre");if(active&&active.textContent)copyText(active.textContent,btn);}
+    function initCopyInstall(){var btn=document.getElementById("copyInstall");var txt=document.getElementById("installText");if(btn&&txt)btn.addEventListener("click",function(){copyText(txt.textContent,btn);});}
+    window.toggleTheme=toggleTheme;window.showTab=showTab;window.toggleApi=toggleApi;window.copyCode=copyCode;window.copyText=copyText;
+    if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){initCopyInstall();});}else{initCopyInstall();}
+  })();
+  </script>
+  <script src="../assets/js/common.js"></script>
+</body>
+</html>

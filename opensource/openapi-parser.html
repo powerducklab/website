@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("powerduck-theme");
+        var theme = saved === "light" || saved === "dark"
+          ? saved
+          : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <title>@powerduck/openapi-parser — Parse, Upgrade & Validate OpenAPI Documents</title>
+  <meta name="description" content="Production-grade OpenAPI document parser with upgrade, validation, and dereference. Supports OAS 2.0, 3.0, 3.1, and 3.2. Built on @scalar/openapi-parser with PowerDuck type extensions." />
+  <meta name="keywords" content="openapi parser, openapi validation, openapi upgrade, oas 3.2, dereference, swagger parser" />
+  <meta name="author" content="Powerduck Open source" /><meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.powerduck.com/opensource/openapi-parser.html" />
+  <meta property="og:type" content="website" /><meta property="og:site_name" content="Powerduck Open source" />
+  <meta property="og:title" content="@powerduck/openapi-parser — Parse, Upgrade & Validate OpenAPI" />
+  <meta property="og:description" content="Parse, upgrade, validate, and dereference OpenAPI documents from OAS 2.0 to 3.2." />
+  <meta property="og:url" content="https://www.powerduck.com/opensource/openapi-parser.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"@powerduck/openapi-parser","applicationCategory":"DeveloperApplication","operatingSystem":"Cross-platform","description":"OpenAPI document parser with upgrade, validation, and dereference. Supports OAS 2.0 through 3.2.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"license":"https://opensource.org/licenses/MIT","publisher":{"@type":"Organization","name":"Powerduck","url":"https://www.powerduck.com"},"softwareVersion":"0.3.6","programmingLanguage":["TypeScript","JavaScript"]}</script>
+  <link rel="stylesheet" href="../assets/css/common.css" />
+  <link rel="stylesheet" href="./assets/css/shared.css" />
+</head>
+<body>
+  <header class="site-header"><div class="nav-inner">
+    <a href="../index.html" class="brand" aria-label="Powerduck home">
+      <img src="../assets/images/logo.svg" alt="Powerduck logo" class="brand-logo" />
+      <span>Powerduck</span> <span class="accent">Open source</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li><li><a href="#quickstart">Quick Start</a></li><li><a href="#api">API</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Open Source <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <div class="dropdown-section-title">Open Source Libraries</div>
+            <a class="dropdown-item" href="openapi-parser.html" role="menuitem" aria-current="page"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-parser</span><span class="pkg-desc">Parse, upgrade & validate OpenAPI 2.0–3.2 with dereference</span></div></a>
+            <a class="dropdown-item" href="md-editor.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/md-editor</span><span class="pkg-desc">Embeddable Markdown editor with math, mindmaps & code highlighting</span></div></a>
+            <a class="dropdown-item" href="conf-patch.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/conf-patch</span><span class="pkg-desc">Two-layer config editor with OpenAPI validation & atomic writes</span></div></a>
+            <a class="dropdown-item" href="tree.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/tree</span><span class="pkg-desc">Immutable tree data structures with OpenAPI & schema adapters</span></div></a>
+            <a class="dropdown-item" href="schema-editor.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/schema-editor</span><span class="pkg-desc">Schema-aware Monaco editor for JSON, YAML, and JavaScript</span></div></a>
+            <a class="dropdown-item" href="oas-document.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/oas-document</span><span class="pkg-desc">Load, resolve, and navigate OpenAPI documents with examples</span></div></a>
+            <a class="dropdown-item" href="workspace-yaml.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/workspace-yaml</span><span class="pkg-desc">Generate PowerDuck workspace YAML from OpenAPI documents</span></div></a>
+            <a class="dropdown-item" href="openapi-cli.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-cli</span><span class="pkg-desc">CI-ready CLI for batch-testing OpenAPI across 6 protocols</span></div></a>
+            <a class="dropdown-item" href="openapi-codegen.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-codegen</span><span class="pkg-desc">Generate runnable HTTP code from OpenAPI (21 languages)</span></div></a>
+            <a class="dropdown-item" href="openapi-mcp-server.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-mcp-server</span><span class="pkg-desc">Turn OpenAPI specs into production MCP servers with Web UI</span></div></a>
+            <a class="dropdown-item" href="openapi-request.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/openapi-request</span><span class="pkg-desc">OpenAPI 3.2 collection debugger with HTTP/SSE/WebSocket</span></div></a>
+            <a class="dropdown-item" href="x-to-openapi.html" role="menuitem"><div class="dropdown-item-text"><span class="pkg-name">@powerduck/x-to-openapi</span><span class="pkg-desc">Convert cURL commands & Postman collections to OpenAPI 3.2</span></div></a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn-docs" href="https://www.powerduck.com/docs/openapi-parser/introduction" target="_blank" rel="noopener noreferrer" title="Documentation" aria-label="View documentation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
+        <span class="nav-docs-text">Docs</span></a>
+      <a class="nav-icon-btn" href="https://www.npmjs.com/package/@powerduck/openapi-parser" target="_blank" rel="noopener noreferrer" title="npm package" aria-label="View on npm"><img src="./assets/images/npm.svg" alt="npm package" class="nav-icon-img" /></a>
+      <a class="btn-github" href="https://github.com/powerducklab/openapi-parser" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg><span class="gh-text">GitHub</span></a>
+      <button class="nav-icon-btn theme-toggle" data-theme-toggle title="Toggle color theme" aria-label="Toggle color theme"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+    </div>
+  </div></header>
+
+  <main>
+  <section class="hero"><div class="container">
+    <div class="hero-badge"> <img src="https://img.shields.io/npm/v/@powerduck/openapi-parser"/> &mdash; MIT Licensed &mdash; 100% TypeScript</div>
+    <h1>Parse, Upgrade &amp; Validate <span class="hl">OpenAPI Documents</span></h1>
+    <p class="lead">The foundation layer of the PowerDuck ecosystem. Parse OpenAPI documents from YAML or JSON, upgrade OAS 2.0/3.0/3.1 to 3.2, validate against the spec, and dereference <code>$ref</code> pointers — all in a single, typed package.</p>
+    <div class="hero-cta"><a class="btn btn-primary" href="#quickstart">Get Started</a><a class="btn btn-secondary" href="https://www.powerduck.com/docs/openapi-parser/introduction" target="_blank" rel="noopener noreferrer">Documentation</a><a class="btn btn-demo" href="https://www.powerduck.com/demo/openapi-parser" target="_blank" rel="noopener noreferrer">Live Demo</a></div>
+    <div class="install-cmd" role="group"><span class="prefix">$</span><span class="cmd" id="installText">npm install @powerduck/openapi-parser</span><button class="copy" id="copyInstall" type="button" aria-label="Copy install command">Copy</button></div>
+    <div class="hero-meta"><span>OAS 2.0–3.2</span><span>YAML &amp; JSON</span><span>$ref Dereference</span><span>Type-Safe Types</span><span>Validation Diagnostics</span></div>
+  </div></section>
+
+  <section class="section section-alt" id="quickstart"><div class="container">
+    <div class="section-head"><div class="section-kicker">Quick Start</div><h2 class="section-title">Four operations, zero ceremony</h2></div>
+    <div class="code-block">
+      <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div>
+        <div class="code-tabs">
+          <button class="code-tab active" onclick="showTab(this,'parse')">Parse &amp; Validate</button>
+          <button class="code-tab" onclick="showTab(this,'upgrade')">Upgrade to 3.2</button>
+          <button class="code-tab" onclick="showTab(this,'deref')">Dereference</button>
+          <button class="code-tab" onclick="showTab(this,'types')">Type Exports</button>
+        </div>
+        <button class="code-copy" onclick="copyCode(this)">Copy</button>
+      </div>
+      <div class="code-body">
+        <pre id="code-parse"><span class="line"><span class="kw">import</span> { validate } <span class="kw">from</span> <span class="str">"@powerduck/openapi-parser"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="kw">const</span> result = <span class="kw">await</span> <span class="fn">validate</span>(yamlString);</span>
+<span class="line"><span class="kw">if</span> (result.valid) {</span>
+<span class="line">  console.<span class="fn">log</span>(<span class="str">"Document is valid OpenAPI"</span>);</span>
+<span class="line">} <span class="kw">else</span> {</span>
+<span class="line">  <span class="kw">for</span> (<span class="kw">const</span> issue <span class="kw">of</span> result.errors) {</span>
+<span class="line">    console.<span class="fn">error</span>(issue.message, issue.path);</span>
+<span class="line">  }</span>
+<span class="line">}</span></pre>
+        <pre id="code-upgrade" style="display:none"><span class="line"><span class="kw">import</span> { upgradeOasTo32 } <span class="kw">from</span> <span class="str">"@powerduck/openapi-parser"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Upgrade OAS 2.0, 3.0, or 3.1 document to 3.2</span></span>
+<span class="line"><span class="kw">const</span> result = <span class="kw">await</span> <span class="fn">upgradeOasTo32</span>(oas2Document, {</span>
+<span class="line">  continueOnError: <span class="kw">false</span>,</span>
+<span class="line">});</span>
+<span class="line"></span>
+<span class="line"><span class="kw">if</span> (result.ok) {</span>
+<span class="line">  console.<span class="fn">log</span>(result.document.openapi); <span class="com">// "3.2.0"</span></span>
+<span class="line">} <span class="kw">else</span> {</span>
+<span class="line">  <span class="kw">throw new</span> <span class="type">Error</span>(result.error.message);</span>
+<span class="line">}</span></pre>
+        <pre id="code-deref" style="display:none"><span class="line"><span class="kw">import</span> { dereference } <span class="kw">from</span> <span class="str">"@powerduck/openapi-parser"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="com">// Resolve all $ref pointers</span></span>
+<span class="line"><span class="kw">const</span> result = <span class="kw">await</span> <span class="fn">dereference</span>(document);</span>
+<span class="line">console.<span class="fn">log</span>(result.schema); <span class="com">// Fully resolved document</span></span></pre>
+        <pre id="code-types" style="display:none"><span class="line"><span class="kw">import</span> type {</span>
+<span class="line">  Oas32Document,    <span class="com">// OpenAPI 3.2 document type</span></span>
+<span class="line">  Oas31Document,    <span class="com">// OpenAPI 3.1 document type</span></span>
+<span class="line">  Oas30Document,    <span class="com">// OpenAPI 3.0 document type</span></span>
+<span class="line">  Oas20Document,    <span class="com">// Swagger 2.0 document type</span></span>
+<span class="line">  SchemaObject,     <span class="com">// Schema object (3.2)</span></span>
+<span class="line">  OperationObject,  <span class="com">// Operation object (3.2)</span></span>
+<span class="line">} <span class="kw">from</span> <span class="str">"@powerduck/openapi-parser"</span>;</span></pre>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="section section-alt" id="features"><div class="container">
+    <div class="section-head"><div class="section-kicker">Features</div><h2 class="section-title">The OpenAPI foundation</h2><p class="section-deck">Every PowerDuck tool depends on this package for parsing, upgrading, and validating OpenAPI documents.</p></div>
+    <div class="bento-grid">
+      <div class="bento-card featured"><div class="bento-icon accent">01</div><h3>Multi-Version Support</h3><p>Parse and validate OpenAPI 2.0 (Swagger), 3.0, 3.1, and 3.2. Typed exports for each version let you safely discriminate between document shapes.</p></div>
+      <div class="bento-card"><div class="bento-icon purple">02</div><h3>Upgrade to 3.2</h3><p><code>upgradeOasTo32()</code> migrates older OAS documents to the 3.2 specification. Handles breaking changes, converts formats, and produces a valid 3.2 document.</p></div>
+      <div class="bento-card"><div class="bento-icon ok">03</div><h3>Deep Validation</h3><p><code>validate()</code> checks document structure, schema correctness, and reference integrity. Returns detailed diagnostics with JSON Pointer paths.</p></div>
+      <div class="bento-card"><div class="bento-icon warn">04</div><h3>Dereference</h3><p><code>dereference()</code> resolves all <code>$ref</code> pointers including external URLs and circular references, producing a fully resolved document.</p></div>
+      <div class="bento-card"><div class="bento-icon blue">05</div><h3>Rich Type Exports</h3><p>Type-safe exports for <code>Oas32Document</code>, <code>SchemaObject</code>, <code>OperationObject</code>, <code>ParameterObject</code>, <code>ResponseObject</code>, and more — all from <code>@scalar/openapi-types</code>.</p></div>
+      <div class="bento-card"><div class="bento-icon danger">06</div><h3>Error Types</h3><p><code>OpenApiUpgradeError</code> with typed <code>UpgradeErrorCode</code> values. Use <code>isOpenApiUpgradeError()</code> for safe runtime error discrimination.</p></div>
+    </div>
+  </div></section>
+
+  <section class="section" id="api"><div class="container">
+    <div class="section-head"><div class="section-kicker">API Reference</div><h2 class="section-title">Core API</h2></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">validate(input)</span><span class="api-desc">Validate an OpenAPI document (YAML string, JSON string, or object)</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><p style="font-size:13px;color:var(--muted);margin:0">Wraps <code>@scalar/openapi-parser</code> validate. Accepts YAML/JSON strings or parsed objects. Returns <code>{ valid, errors, warnings }</code> with <code>OpenApiValidationIssue[]</code>.</p></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">upgradeOasTo32(input, options?)</span><span class="api-desc">Upgrade OAS 2.0/3.0/3.1 to OpenAPI 3.2</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><table class="api-params"><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td>input</td><td>string | object</td><td>OAS document (YAML, JSON, or parsed object)</td></tr>
+<tr><td>options.continueOnError</td><td>boolean</td><td>Continue upgrade even if warnings occur <span class="default">default: false</span></td></tr>
+</tbody></table><div class="api-example"><div class="api-example-label">Returns</div><pre>UpgradedDocument { ok: boolean; document?: Oas32Document; error?: OpenApiUpgradeError }</pre></div></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">dereference(input)</span><span class="api-desc">Resolve all $ref pointers in a document</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><p style="font-size:13px;color:var(--muted);margin:0">Wraps <code>@scalar/openapi-parser</code> dereference. Handles local, remote, and circular references.</p></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method fn">function</span><span class="api-name">upgrade(input)</span><span class="api-desc">Upgrade an OpenAPI document to the latest version</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><p style="font-size:13px;color:var(--muted);margin:0">Wraps <code>@scalar/openapi-parser</code> upgrade. Low-level upgrade function; prefer <code>upgradeOasTo32()</code> for typed 3.2 output.</p></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method class">class</span><span class="api-name">OpenApiUpgradeError</span><span class="api-desc">Typed error thrown when OAS upgrade fails</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><p style="font-size:13px;color:var(--muted);margin:0">Properties: <code>code</code> (UpgradeErrorCode), <code>message</code>, <code>source</code>. Use <code>isOpenApiUpgradeError()</code> for runtime type guards.</p></div></div></div>
+
+    <div class="api-section" onclick="toggleApi(this)"><div class="api-header"><span class="api-method enum">enum</span><span class="api-name">UpgradeErrorCode</span><span class="api-desc">Discriminated error codes for upgrade failures</span><svg class="api-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="api-body"><div class="api-body-inner"><p style="font-size:13px;color:var(--muted);margin:0">Enumerates specific failure modes: unsupported version, invalid document, reference resolution failures, and migration errors.</p></div></div></div>
+  </div></section>
+
+  <section class="section-alt"><div class="container"><div class="stats-grid">
+    <div class="stat-card"><div class="stat-number">4</div><div class="stat-label">OAS Versions</div></div>
+    <div class="stat-card"><div class="stat-number">3.2</div><div class="stat-label">Latest Spec</div></div>
+    <div class="stat-card"><div class="stat-number">0.3.6</div><div class="stat-label">Current Version</div></div>
+    <div class="stat-card"><div class="stat-number">MIT</div><div class="stat-label">License</div></div>
+  </div></div></section>
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-shell">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="brand" aria-label="Powerduck home">
+          <img src="../assets/images/logo.svg" alt="Powerduck logo" class="brand-logo" />
+          <span>Powerduck</span>
+        </a>
+        <p>Building developer tools for the modern API workflow. Open source, production-ready, and community-driven.</p>
+      </div>
+      <div class="footer-column">
+        <h6>Product</h6>
+        <ul>
+          <li><a href="../index.html#features">Features</a></li>
+          <li><a href="../index.html#opensource">Open Source</a></li>
+          <li><a href="md-editor.html">MD Editor</a></li>
+          <li><a href="openapi-parser.html">OpenAPI Parser</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>Resources</h6>
+        <ul>
+          <li><a href="https://github.com/powerducklab" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.powerduck.com/docs/openapi-parser/introduction" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+          <li><a href="https://www.npmjs.com/search?q=%40powerduck" target="_blank" rel="noopener noreferrer">npm Packages</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>Legal</h6>
+        <ul>
+          <li><a href="../terms.html">Terms of Service</a></li>
+          <li><a href="../privacy.html">Privacy Policy</a></li>
+          <li><a href="../refunds.html">Refund Policy</a></li>
+          <li><a href="../cookie.html">Cookie Notice</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 POWERDUCK LIMITED. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="../terms.html">Terms</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../cookie.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script>
+  (function(){
+    "use strict";
+    function toggleTheme(){
+      var h=document.documentElement;
+      var n=h.getAttribute("data-theme")==="dark"?"light":"dark";
+      h.setAttribute("data-theme",n);
+      try{localStorage.setItem("pd-theme",n)}catch(e){}
+    }
+    function showTab(btn,id){
+      if(!btn||!id)return;
+      var block=btn.closest(".code-block");
+      if(!block)return;
+      var tabs=block.querySelectorAll(".code-tab");
+      for(var i=0;i<tabs.length;i++)tabs[i].classList.remove("active");
+      btn.classList.add("active");
+      var pres=block.querySelectorAll(".code-body pre");
+      for(var j=0;j<pres.length;j++)pres[j].style.display="none";
+      var target=block.querySelector("#code-"+id);
+      if(target)target.style.display="block";
+    }
+    function toggleApi(el){ if(el)el.classList.toggle("open"); }
+    function copyText(text,btn){
+      if(!text||!btn)return;
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){
+          var orig=btn.textContent;btn.textContent="Copied";
+          setTimeout(function(){btn.textContent=orig},1500);
+        }).catch(function(){});
+      }
+    }
+    function copyCode(btn){
+      if(!btn)return;
+      var block=btn.closest(".code-block");
+      if(!block)return;
+      var active=block.querySelector(".code-body pre[style*=block]")||block.querySelector(".code-body pre");
+      if(active&&active.textContent)copyText(active.textContent,btn);
+    }
+    function initCopyInstall(){
+      var btn=document.getElementById("copyInstall");
+      var txt=document.getElementById("installText");
+      if(btn&&txt)btn.addEventListener("click",function(){copyText(txt.textContent,btn);});
+    }
+    window.toggleTheme=toggleTheme;window.showTab=showTab;window.toggleApi=toggleApi;
+    window.copyCode=copyCode;window.copyText=copyText;
+    if(document.readyState==="loading"){
+      document.addEventListener("DOMContentLoaded",function(){initCopyInstall();});
+    }else{initCopyInstall();}
+  })();
+  </script>
+  <script src="../assets/js/common.js"></script>
+</body>
+</html>
