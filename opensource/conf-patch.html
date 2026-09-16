@@ -410,12 +410,25 @@
 <script>
 (function(){
   var btn=document.querySelector('.nav-hamburger');
-  var nav=document.querySelector('.site-header nav');
+  var nav=document.querySelector('header nav');
   if(btn&&nav){
-    btn.addEventListener('click',function(){
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
       var open=nav.classList.toggle('open');
       btn.classList.toggle('open',open);
       btn.setAttribute('aria-expanded',open);
+    });
+  }
+  // Mobile: toggle dropdown on click (not hover)
+  var dd=document.querySelector('.nav-dropdown');
+  var trigger=document.querySelector('.nav-dropdown-trigger');
+  if(dd&&trigger){
+    trigger.addEventListener('click',function(e){
+      if(window.innerWidth<=900){
+        e.preventDefault();
+        e.stopPropagation();
+        dd.classList.toggle('open');
+      }
     });
   }
   // Close mobile nav when clicking outside

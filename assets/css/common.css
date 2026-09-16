@@ -122,7 +122,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border-bottom: 1px solid var(--line);
 }
 
-.site-header .nav-inner {
+header .nav-inner {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -836,21 +836,27 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 
 @media (max-width: 900px) {
   .nav-hamburger { display: flex; }
-  .site-header .nav-inner { position: relative; }
-  .site-header nav {
-    position: fixed;
-    top: 64px;
+  header .nav-inner { position: relative; }
+  header nav {
+    position: fixed !important;
+    top: 60px;
     left: 0;
     right: 0;
-    background: var(--header-bg);
+    background: #ffffff !important;
     border-bottom: 1px solid var(--line);
     box-shadow: var(--shadow-lg);
-    padding: 12px 20px 20px;
+    padding: 8px 20px 20px;
     transform: translateY(-120%);
     transition: transform 0.25s ease;
-    z-index: 150;
+    z-index: 9999 !important;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+    display: block !important;
   }
-  .site-header nav.open { transform: translateY(0); }
+  [data-theme="dark"] header nav {
+    background: #0b0f14 !important;
+  }
+  header nav.open { transform: translateY(0) !important; }
   .nav-links {
     display: flex !important;
     flex-direction: column;
@@ -860,27 +866,38 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
     padding: 0;
   }
   .nav-links > li > a,
+  .nav-links > a,
   .nav-links .nav-dropdown-trigger {
     padding: 12px 0;
     font-size: 15px;
     border-bottom: 1px solid var(--line);
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    border-left: none;
+    border-right: none;
+    color: var(--ink-soft);
+    text-decoration: none;
   }
   .nav-dropdown-menu {
     position: static;
     transform: none !important;
-    opacity: 1;
-    visibility: visible;
     box-shadow: none;
     border: none;
     padding: 0 0 8px 12px;
     min-width: auto;
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+  }
+  .nav-dropdown.open .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    display: block;
   }
   .nav-dropdown-menu::before { display: none; }
-  .nav-dropdown:hover .nav-dropdown-menu,
-  .nav-dropdown.open .nav-dropdown-menu {
-    transform: none;
-  }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
   .footer-brand { grid-column: 1 / -1; }
 }
