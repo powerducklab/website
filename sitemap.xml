@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.powerduck.com/</loc><lastmod>2026-09-16</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+
+  <!-- Open Source Library Pages -->
+  <url><loc>https://www.powerduck.com/opensource/openapi-parser.html</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.powerduck.com/opensource/tree.html</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.powerduck.com/opensource/md-editor.html</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.powerduck.com/opensource/schema-editor.html</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.powerduck.com/opensource/x-to-openapi.html</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.powerduck.com/opensource/openapi-cli.html</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.powerduck.com/opensource/openapi-codegen.html</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.powerduck.com/opensource/openapi-mcp-server.html</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.powerduck.com/opensource/openapi-request.html</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.powerduck.com/opensource/conf-patch.html</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.powerduck.com/opensource/workspace-yaml.html</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.powerduck.com/opensource/oas-document.html</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Demo -->
+  <url><loc>https://www.powerduck.com/demo/</loc><lastmod>2026-09-16</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Docs: Getting Started -->
+  <url><loc>https://www.powerduck.com/docs/getting-started/introduction/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.powerduck.com/docs/getting-started/installation/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/getting-started/quickstart/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Docs: MD Editor -->
+  <url><loc>https://www.powerduck.com/docs/md-editor/introduction/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.powerduck.com/docs/md-editor/installation/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/md-editor/quickstart/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/md-editor/configuration/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/md-editor/examples/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/md-editor/features/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/md-editor/api-reference/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Docs: Conf Patch -->
+  <url><loc>https://www.powerduck.com/docs/conf-patch/introduction/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.powerduck.com/docs/conf-patch/installation/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/conf-patch/quickstart/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/conf-patch/examples/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/conf-patch/api-reference/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Docs: OpenAPI CLI -->
+  <url><loc>https://www.powerduck.com/docs/openapi-cli/introduction/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-cli/installation/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-cli/quickstart/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-cli/configuration/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-cli/commands/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-cli/examples/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-cli/api-reference/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Docs: OpenAPI Codegen -->
+  <url><loc>https://www.powerduck.com/docs/openapi-codegen/introduction/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-codegen/installation/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-codegen/quickstart/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-codegen/configuration/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-codegen/examples/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-codegen/api-reference/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Docs: OpenAPI MCP Server -->
+  <url><loc>https://www.powerduck.com/docs/openapi-mcp-server/introduction/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-mcp-server/installation/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-mcp-server/quickstart/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-mcp-server/configuration/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-mcp-server/examples/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-mcp-server/api-reference/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Docs: OpenAPI Request -->
+  <url><loc>https://www.powerduck.com/docs/openapi-request/introduction/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-request/installation/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-request/quickstart/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-request/configuration/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-request/examples/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/openapi-request/api-reference/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Docs: X to OpenAPI -->
+  <url><loc>https://www.powerduck.com/docs/x-to-openapi/introduction/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.powerduck.com/docs/x-to-openapi/installation/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/x-to-openapi/quickstart/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/x-to-openapi/examples/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.powerduck.com/docs/x-to-openapi/api-reference/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Legal -->
+  <url><loc>https://www.powerduck.com/privacy.html</loc><lastmod>2026-09-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.powerduck.com/terms.html</loc><lastmod>2026-09-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.powerduck.com/refunds.html</loc><lastmod>2026-09-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.powerduck.com/cookie.html</loc><lastmod>2026-09-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>
