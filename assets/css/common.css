@@ -314,6 +314,26 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   gap: 0;
 }
 
+/* Compact grouped dropdown: one-line items, category headers */
+.nav-dropdown-menu.compact {
+  min-width: 260px;
+}
+
+.nav-dropdown-menu.compact .dropdown-item {
+  padding: 6px 12px;
+  font-size: 12.5px;
+  gap: 8px;
+}
+
+.nav-dropdown-menu.compact .dropdown-item .pkg-name {
+  font-size: 12px;
+}
+
+.nav-dropdown-menu.compact .dropdown-section-title {
+  padding: 8px 12px 4px;
+  margin-top: 2px;
+}
+
 /* ==========================================================================
    Nav Actions (right side)
    ========================================================================== */
