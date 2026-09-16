@@ -807,8 +807,80 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
    Responsive
    ========================================================================== */
 
+/* Hamburger button — hidden on desktop */
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0;
+}
+.nav-hamburger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
 @media (max-width: 900px) {
-  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .site-header .nav-inner { position: relative; }
+  .site-header nav {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow-lg);
+    padding: 12px 20px 20px;
+    transform: translateY(-120%);
+    transition: transform 0.25s ease;
+    z-index: 150;
+  }
+  .site-header nav.open { transform: translateY(0); }
+  .nav-links {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links > li > a,
+  .nav-links .nav-dropdown-trigger {
+    padding: 12px 0;
+    font-size: 15px;
+    border-bottom: 1px solid var(--line);
+    width: 100%;
+  }
+  .nav-dropdown-menu {
+    position: static;
+    transform: none !important;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    border: none;
+    padding: 0 0 8px 12px;
+    min-width: auto;
+  }
+  .nav-dropdown-menu::before { display: none; }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown.open .nav-dropdown-menu {
+    transform: none;
+  }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
   .footer-brand { grid-column: 1 / -1; }
 }
