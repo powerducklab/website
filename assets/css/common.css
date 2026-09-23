@@ -177,6 +177,25 @@ header .nav-inner {
 .nav-links a:hover { color: var(--ink);   text-decoration: none;
 }
 
+/* Standalone nav item (e.g. Pricing) aligned with dropdown triggers */
+.nav-direct {
+  padding: 6px 2px;
+}
+
+/* Right-side sign-in text link */
+.nav-signin {
+  font-size: 13.5px;
+  color: var(--muted);
+  padding: 6px 4px;
+  transition: color 0.15s ease;
+  text-decoration: none;
+}
+
+.nav-signin:hover {
+  color: var(--ink);
+  text-decoration: none;
+}
+
 /* ==========================================================================
    Opensource Dropdown
    ========================================================================== */
