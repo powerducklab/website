@@ -68,7 +68,7 @@
 
       <header class="nav">
         <div class="nav-inner">
-          <a href="#" class="brand" aria-label="Powerduck home">
+          <a href="index.html" class="brand" aria-label="Powerduck home">
             <img
               src="assets/images/logo.svg"
               alt="Powerduck logo"
@@ -98,10 +98,11 @@
           <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="nav-dropdown-menu" role="menu">
+          <a class="dropdown-item" data-cloud-signin="/hub" href="/hub" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title">Hub</span><span class="dropdown-item-desc">Browse public docs and MCP servers</span></span></a>
           <a class="dropdown-item" href="#licensing" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title">Prices</span><span class="dropdown-item-desc">Desktop license and Cloud plans</span></span></a>
-          <a class="dropdown-item" href="https://www.powerduck.com/docs/overview/introduction" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title">Docs</span><span class="dropdown-item-desc">Guides and references</span></span></a>
-          <a class="dropdown-item" href="https://github.com/powerducklab" target="_blank" rel="noopener noreferrer" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title">GitHub</span><span class="dropdown-item-desc">Open source repositories</span></span></a>
+          <a class="dropdown-item" href="docs/cloud/introduction/index.html" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title">Docs</span><span class="dropdown-item-desc">Cloud guides and references</span></span></a>
           <a class="dropdown-item" data-cloud-signin="/signin" href="/signin" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title">Sign in</span><span class="dropdown-item-desc">Open the Cloud console</span></span></a>
+          <a class="dropdown-item" href="https://github.com/powerducklab" target="_blank" rel="noopener noreferrer" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title">GitHub</span><span class="dropdown-item-desc">Open source repositories</span></span></a>
           <a class="dropdown-item" href="#faq" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title">FAQ</span><span class="dropdown-item-desc">Common questions</span></span></a>
         </div>
         </div>
@@ -1793,30 +1794,31 @@ curl /users/{id}
             <div class="footer-column">
               <h6>Product</h6>
               <ul>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#opensource">Open Source</a></li>
-                <li><a href="opensource/md-editor.html">MD Editor</a></li>
-                <li><a href="opensource/openapi-parser.html">OpenAPI Parser</a></li>
-                <li><a href="opensource/schema-editor.html">Schema Editor</a></li>
-                <li><a href="opensource/tree.html">Tree</a></li>
+                <li><a href="#spec-editor">Spec Editor</a></li>
+                <li><a href="#api-debug">API Debug</a></li>
+                <li><a href="#mcp-server">MCP Server</a></li>
+                <li><a href="#api-docs">API Docs</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#licensing">Prices</a></li>
               </ul>
             </div>
             <div class="footer-column">
-              <h6>Documentation</h6>
+              <h6>Cloud</h6>
               <ul>
-                <li><a href="#features">Getting Started</a></li>
-                <li><a href="#api-docs">API Reference</a></li>
-                <li>
-                  <a href="opensource/openapi-parser.html">OpenAPI Parser</a>
-                </li>
-                <li><a href="opensource/md-editor.html">MD Editor</a></li>
-                <li><a href="opensource/openapi-cli.html">CLI Tools</a></li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a data-cloud-signin="/hub" href="/hub">Hub</a></li>
+                <li><a data-cloud-signin="/signin" href="/signin">Sign in</a></li>
+                <li><a href="docs/cloud/quickstart/index.html">Quickstart</a></li>
+                <li><a href="docs/cloud/access-control/index.html">Access Control</a></li>
+                <li><a href="docs/cloud/custom-domains/index.html">Custom Domains</a></li>
+                <li><a href="docs/cloud/billing/index.html">Billing</a></li>
               </ul>
             </div>
             <div class="footer-column">
               <h6>Resources</h6>
               <ul>
+                <li><a href="docs/overview/introduction/index.html">Documentation</a></li>
+                <li><a href="docs/client/introduction/index.html">Client Guide</a></li>
+                <li><a href="docs/cloud/introduction/index.html">Cloud Guide</a></li>
                 <li>
                   <a
                     href="https://github.com/powerducklab"
@@ -1833,7 +1835,7 @@ curl /users/{id}
                     >npm Packages</a
                   >
                 </li>
-                <li><a href="mailto:contact@neatico.com">Contact</a></li>
+                <li><a href="#faq">FAQ</a></li>
               </ul>
             </div>
             <div class="footer-column">
