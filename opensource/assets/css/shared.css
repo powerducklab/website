@@ -1234,3 +1234,32 @@ html[data-theme="dark"] .nav-docs-btn:hover {
   color: #fff;
   border-color: var(--accent);
 }
+
+/* ==========================================================================
+   Unified global navigation
+   The generic .nav-links a rules above also match anchors inside the
+   cross-site dropdown menus. Re-assert the canonical dropdown-item styles at
+   higher specificity so package pages match the rest of the site.
+   ========================================================================== */
+.nav-links .nav-dropdown-menu .dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.nav-links .nav-dropdown-menu .dropdown-item + .dropdown-item {
+  margin-top: 2px;
+}
+
+.nav-links .nav-dropdown-menu .dropdown-item:hover,
+.nav-links .nav-dropdown-menu .dropdown-item:focus-visible {
+  background: var(--accent-soft);
+  color: var(--ink);
+  border-color: var(--accent-border);
+}
