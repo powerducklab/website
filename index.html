@@ -180,6 +180,10 @@
               </svg>
             </button>
 
+            <a class="btn btn-secondary btn-sm" data-cloud-signin="/signin" href="/signin">
+              Sign in
+            </a>
+
             <a class="btn btn-primary btn-sm" href="#download"> Download </a>
           </div>
         </div>
@@ -243,9 +247,10 @@
      ======================================================================= -->
 
       <section class="loader-section">
-        <form class="spec-input" onsubmit="return false;">
+        <form class="spec-input" id="specLoaderForm">
           <input
             type="url"
+            id="specUrlInput"
             aria-label="OpenAPI specification URL"
             placeholder="https://api.example.com/openapi.yaml"
           />
@@ -258,15 +263,38 @@
         <div class="examples">
           <span class="examples-label">Try:</span>
 
-          <button class="chip" type="button">Petstore</button>
-          <button class="chip" type="button">Stripe</button>
-          <button class="chip" type="button">GitHub</button>
+          <button class="chip" type="button" data-handoff="sample" data-sample="petstore">
+            Petstore
+          </button>
+          <button
+            class="chip"
+            type="button"
+            data-handoff="spec"
+            data-spec-url="https://raw.githubusercontent.com/stripe/openapi/master/openapi/spec3.yaml"
+          >
+            Stripe
+          </button>
+          <button
+            class="chip"
+            type="button"
+            data-handoff="git"
+            data-git="https://github.com/powerducklab/spec-examples.git"
+          >
+            GitHub
+          </button>
 
-          <button class="chip chip-warning" type="button">
+          <button
+            class="chip chip-warning"
+            type="button"
+            data-handoff="sample"
+            data-sample="commerce"
+          >
             Commerce API — has issues
           </button>
 
-          <button class="chip" type="button">Open a local file…</button>
+          <button class="chip" type="button" data-handoff="home">
+            Open a local file…
+          </button>
         </div>
       </section>
 
@@ -1604,9 +1632,13 @@ curl /users/{id}
                 <li>Volume, site and educational licenses available</li>
               </ul>
 
-              <a href="#" class="btn btn-primary"> Buy a license </a>
+              <a href="#" class="btn btn-primary" data-desktop-buy>
+                Buy a license
+              </a>
 
-              <a href="#" class="btn btn-secondary"> Download Powerduck </a>
+              <a href="#" class="btn btn-secondary" data-desktop-download>
+                Download Powerduck
+              </a>
 
               <p class="pricing-note">macOS 12+ · Windows 10+ · Linux</p>
             </div>
@@ -1615,13 +1647,13 @@ curl /users/{id}
               <h3>Powerduck Cloud</h3>
 
               <p class="pricing-tag">
-                Optional hosted MCP endpoint · billed monthly
+                Hosted docs &amp; MCP · billed monthly or yearly
               </p>
 
               <div class="price">
-                <span class="price-value"> $29 </span>
+                <span class="price-value"> $19 </span>
 
-                <span class="price-period"> per spec, per month </span>
+                <span class="price-period"> per organization, per month </span>
               </div>
 
               <ul class="pricing-list">
@@ -1634,11 +1666,14 @@ curl /users/{id}
                 <li>Hosted reference docs on your own domain</li>
               </ul>
 
-              <a href="#" class="btn btn-secondary"> Start a 14-day trial </a>
+              <a href="/pricing" class="btn btn-secondary" data-cloud-pricing>
+                See Cloud plans
+              </a>
 
               <p class="pricing-note">
-                Not required for the desktop application. Cancel anytime and
-                your local workflow keeps running.
+                Not required for the desktop application. Yearly billing saves
+                two months; cancel anytime and your local workflow keeps
+                running.
               </p>
             </div>
           </div>
@@ -1943,6 +1978,7 @@ curl /users/{id}
       })();
     </script>
     <script src="assets/js/common.js"></script>
+    <script src="assets/js/cloud.js"></script>
   <script>
 (function(){
   var btn=document.querySelector('.nav-hamburger');
