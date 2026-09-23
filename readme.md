@@ -38,14 +38,16 @@ npm install @powerduck/md-editor
 ```
 
 ```ts
-import { parse } from "@powerduck/openapi-parser";
+import { upgradeOasTo32, isOpenApiUpgradeError } from "@powerduck/openapi-parser";
 
 // Upgrade and validate any OpenAPI document to 3.2
-const result = parse(openApiDoc);
-if (result.valid) {
-  console.log("Valid OpenAPI 3.2:", result.document);
-} else {
-  console.error("Validation errors:", result.errors);
+try {
+  const document = await upgradeOasTo32(openApiDoc);
+  console.log("Valid OpenAPI 3.2:", document);
+} catch (error) {
+  if (isOpenApiUpgradeError(error)) {
+    console.error("Upgrade failed:", error.message, error.issues);
+  }
 }
 ```
 
@@ -53,10 +55,7 @@ if (result.valid) {
 
 Try all libraries in the browser — no signup required:
 
-- [OpenAPI Codegen Playground](https://www.powerduck.com/demo/openapi-codegen)
-- [cURL to OpenAPI Converter](https://www.powerduck.com/demo/x-to-openapi)
-- [Config Patch Editor](https://www.powerduck.com/demo/conf-patch)
-- [Markdown Editor](https://www.powerduck.com/demo/md-editor)
+- [Live Demos](https://www.powerduck.com/demo/)
 
 ## License
 
