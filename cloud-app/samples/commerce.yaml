@@ -1,0 +1,153 @@
+openapi: 3.1.0
+info:
+  title: Commerce API
+  version: 1.0.0
+  description: Orders, products and customers for an online store.
+tags:
+  - name: catalog
+  - name: orders
+  - name: customers
+paths:
+  /products:
+    get:
+      tags: [catalog]
+      summary: List products
+      operationId: listProducts
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        "200":
+          description: A page of products.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductPage"
+    post:
+      tags: [catalog]
+      summary: Create a product
+      operationId: createProduct
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Product"
+      responses:
+        "201":
+          description: The created product.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
+  /orders:
+    get:
+      tags: [orders]
+      summary: List orders
+      operationId: listOrders
+      responses:
+        "200":
+          description: A list of orders.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Order"
+    post:
+      tags: [orders]
+      summary: Place an order
+      operationId: placeOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OrderCreate"
+      responses:
+        "201":
+          description: The placed order.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Order"
+  /customers/{customerId}:
+    get:
+      tags: [customers]
+      summary: Get a customer
+      operationId: getCustomer
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: A single customer.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Customer"
+        "404":
+          description: Customer not found.
+components:
+  schemas:
+    Product:
+      type: object
+      required: [id, name, price]
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        price:
+          type: number
+          format: float
+    ProductPage:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Product"
+        total:
+          type: integer
+    Order:
+      type: object
+      required: [id, items, status]
+      properties:
+        id:
+          type: string
+          format: uuid
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Product"
+        status:
+          type: string
+          enum: [draft, paid, shipped, cancelled]
+    OrderCreate:
+      type: object
+      required: [productIds]
+      properties:
+        productIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+    Customer:
+      type: object
+      required: [id, email]
+      properties:
+        id:
+          type: string
+          format: uuid
+        email:
+          type: string
+          format: email

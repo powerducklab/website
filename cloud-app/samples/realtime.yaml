@@ -1,0 +1,60 @@
+openapi: 3.1.0
+info:
+  title: Realtime API
+  version: 1.0.0
+  description: HTTP, SSE and WebSocket operations to explore multi-protocol support.
+tags:
+  - name: realtime
+paths:
+  /events:
+    get:
+      tags: [realtime]
+      summary: Subscribe to server-sent events
+      operationId: streamEvents
+      responses:
+        "200":
+          description: A stream of events.
+          content:
+            text/event-stream:
+              itemSchema:
+                type: object
+                required: [id, type]
+                properties:
+                  id:
+                    type: string
+                  type:
+                    type: string
+                  message:
+                    type: string
+  /ws:
+    get:
+      tags: [realtime]
+      summary: Open a WebSocket connection
+      operationId: openSocket
+      x-protocol: websocket
+      x-websocket:
+        url: wss://example.com/ws
+        subprotocols: [events.v1]
+      responses:
+        "200":
+          description: WebSocket connection details.
+  /notifications:
+    post:
+      tags: [realtime]
+      summary: Send a notification
+      operationId: sendNotification
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [channel, message]
+              properties:
+                channel:
+                  type: string
+                message:
+                  type: string
+      responses:
+        "202":
+          description: Notification accepted.

@@ -1,0 +1,104 @@
+openapi: 3.1.0
+info:
+  title: Petstore API
+  version: 1.0.0
+  description: A small petstore API for quickly trying Powerduck Cloud.
+tags:
+  - name: pets
+paths:
+  /pets:
+    get:
+      tags: [pets]
+      summary: List pets
+      operationId: listPets
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+      responses:
+        "200":
+          description: A paginated list of pets.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Pet"
+    post:
+      tags: [pets]
+      summary: Create a pet
+      operationId: createPet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PetCreate"
+      responses:
+        "201":
+          description: The created pet.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pet"
+  /pets/{petId}:
+    get:
+      tags: [pets]
+      summary: Get a pet by id
+      operationId: getPet
+      parameters:
+        - name: petId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: A single pet.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pet"
+        "404":
+          description: Pet not found.
+    delete:
+      tags: [pets]
+      summary: Delete a pet
+      operationId: deletePet
+      parameters:
+        - name: petId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "204":
+          description: Pet deleted.
+components:
+  schemas:
+    Pet:
+      type: object
+      required: [id, name]
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        status:
+          type: string
+          enum: [available, pending, sold]
+    PetCreate:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+        status:
+          type: string
+          enum: [available, pending, sold]
