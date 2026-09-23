@@ -13,7 +13,8 @@
     // Origin of the Powerduck Cloud web app.
     cloudBaseUrl:
       window.POWERDUCK_CLOUD_BASE_URL || "http://127.0.0.1:3000",
-    // Set once the desktop one-time checkout and public downloads are live.
+    // Defaults to the Cloud in-app checkout; override for a standalone
+    // destination. Downloads stay unlinked until a public build is published.
     desktopBuyUrl: window.POWERDUCK_DESKTOP_BUY_URL || "",
     desktopDownloadUrl: window.POWERDUCK_DESKTOP_DOWNLOAD_URL || "",
   };
@@ -86,10 +87,11 @@
       el.setAttribute("href", cloudUrl("/pricing"));
     });
 
-    var buy = document.querySelector("[data-desktop-buy]");
-    if (buy && CONFIG.desktopBuyUrl) {
-      buy.setAttribute("href", CONFIG.desktopBuyUrl);
-    }
+    var buyButtons = document.querySelectorAll("[data-desktop-buy]");
+    var buyHref = CONFIG.desktopBuyUrl || cloudUrl("/billing", "buy=desktop");
+    Array.prototype.forEach.call(buyButtons, function (el) {
+      el.setAttribute("href", buyHref);
+    });
     var download = document.querySelector("[data-desktop-download]");
     if (download && CONFIG.desktopDownloadUrl) {
       download.setAttribute("href", CONFIG.desktopDownloadUrl);

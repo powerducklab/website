@@ -314,6 +314,20 @@ header .nav-inner {
   gap: 0;
 }
 
+.dropdown-item-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.dropdown-item:hover .dropdown-item-title { color: var(--accent); }
+
+.dropdown-item-desc {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 1px;
+}
+
 /* Compact grouped dropdown: one-line items, category headers */
 .nav-dropdown-menu.compact {
   min-width: 260px;
@@ -836,22 +850,36 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 
 @media (max-width: 900px) {
   .nav-hamburger { display: flex; }
-  header .nav-inner { position: relative; }
+  /* A solid header on mobile avoids the sticky + backdrop-filter compositing
+     trap that drops overflowing dropdown panels from the painted layer. */
+  header.nav {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: var(--bg) !important;
+  }
+  header .nav-inner { position: static; }
   header nav {
-    position: fixed !important;
-    top: 60px;
+    position: absolute !important;
+    top: 100%;
     left: 0;
     right: 0;
     background: #ffffff !important;
     border-bottom: 1px solid var(--line);
     box-shadow: var(--shadow-lg);
     padding: 8px 20px 20px;
-    transform: translateY(-120%);
-    transition: transform 0.25s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
     z-index: 9999 !important;
-    max-height: calc(100vh - 60px);
+    max-height: calc(100vh - 64px);
     overflow-y: auto;
     display: block !important;
+  }
+  header nav.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) !important;
   }
   [data-theme="dark"] header nav {
     background: #0b0f14 !important;
