@@ -32,6 +32,113 @@
     return /(^|\/)github\.com\//.test(value) || /\.git($|[?#])/.test(value);
   }
 
+  function userInitial(user) {
+    var source =
+      user.displayName || user.username || user.email || "P";
+    var trimmed = source.trim();
+    return trimmed ? trimmed.charAt(0).toUpperCase() : "P";
+  }
+
+  function appendAccountLink(menu, key, href) {
+    var item = document.createElement("a");
+    item.className = "account-item";
+    item.setAttribute("href", cloudUrl(href));
+    item.setAttribute("data-i18n", key);
+    item.textContent = key;
+    menu.appendChild(item);
+  }
+
+  function renderAccountMenu(user) {
+    var slot = document.getElementById("navAccountSlot");
+    if (!slot) return;
+
+    slot.innerHTML = "";
+
+    var dd = document.createElement("div");
+    dd.className = "nav-dropdown";
+
+    var trigger = document.createElement("button");
+    trigger.type = "button";
+    trigger.className = "nav-avatar-btn nav-dropdown-trigger";
+    trigger.setAttribute("aria-label", "Account menu");
+
+    if (user.avatarUrl) {
+      var img = document.createElement("img");
+      img.src = user.avatarUrl;
+      img.alt = "";
+      img.className = "nav-avatar-img";
+      trigger.appendChild(img);
+    } else {
+      var fallback = document.createElement("span");
+      fallback.className = "nav-avatar-fallback";
+      fallback.textContent = userInitial(user);
+      trigger.appendChild(fallback);
+    }
+
+    var menu = document.createElement("div");
+    menu.className = "nav-dropdown-menu align-right account-menu";
+
+    var head = document.createElement("div");
+    head.className = "account-head";
+    var name = document.createElement("div");
+    name.className = "account-name";
+    name.textContent = user.displayName || user.username || "";
+    var email = document.createElement("div");
+    email.className = "account-email";
+    email.textContent = user.email || "";
+    head.appendChild(name);
+    head.appendChild(email);
+    menu.appendChild(head);
+
+    appendAccountLink(menu, "account.console", "/console");
+    appendAccountLink(menu, "account.settings", "/console/settings");
+
+    var signout = document.createElement("button");
+    signout.type = "button";
+    signout.className = "account-item account-danger";
+    signout.setAttribute("data-i18n", "account.signout");
+    signout.textContent = "Sign out";
+    signout.addEventListener("click", function () {
+      signOut();
+    });
+    menu.appendChild(signout);
+
+    dd.appendChild(trigger);
+    dd.appendChild(menu);
+    slot.appendChild(dd);
+
+    if (window.Powerduck && window.Powerduck.applyTranslations) {
+      window.Powerduck.applyTranslations(dd);
+    }
+  }
+
+  function fetchCsrfToken() {
+    return fetch("/api/auth/csrf", { credentials: "include" })
+      .then(function (response) {
+        return response.ok ? response.json() : null;
+      })
+      .then(function (data) {
+        return data && data.csrfToken ? data.csrfToken : null;
+      });
+  }
+
+  function signOut() {
+    fetchCsrfToken()
+      .then(function (token) {
+        return fetch("/api/auth/logout", {
+          method: "POST",
+          credentials: "include",
+          headers: { "x-csrf-token": token || "" }
+        });
+      })
+      .then(function () {
+        window.location.reload();
+      })
+      .catch(function () {
+        /* Keep the current page if sign-out fails. */
+      });
+  }
+
   // Reflect a shared, same-origin session into every "Sign in" control.
   function reflectSession() {
     fetch("/api/auth/me", { credentials: "same-origin" })
@@ -58,6 +165,7 @@
               el.textContent = "Console";
             }
           });
+        renderAccountMenu(data.user);
       })
       .catch(function () {
         /* The signed-out header is the safe default. */

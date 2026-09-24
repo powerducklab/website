@@ -5,7 +5,7 @@
     <script>
       (function () {
         try {
-          var saved = localStorage.getItem("powerduck-theme");
+          var saved = localStorage.getItem("pd_theme");
           var theme =
             saved === "light" || saved === "dark"
               ? saved
@@ -13,7 +13,12 @@
                   window.matchMedia("(prefers-color-scheme: dark)").matches
                 ? "dark"
                 : "light";
-          document.documentElement.setAttribute("data-theme", theme);
+          var root = document.documentElement;
+          root.setAttribute("data-theme", theme);
+          root.classList.add(theme);
+          root.classList.remove(theme === "dark" ? "light" : "dark");
+          var lang = localStorage.getItem("pd_lang");
+          if (lang && lang !== "auto") root.setAttribute("lang", lang);
         } catch (e) {
           document.documentElement.setAttribute("data-theme", "light");
         }
@@ -61,7 +66,7 @@
 
     <meta name="theme-color" content="#ffffff" />
 
-    <link rel="stylesheet" href="assets/css/common.css?v=20260923" />
+    <link rel="stylesheet" href="assets/css/common.css?v=20260924" />
     <link rel="stylesheet" href="assets/css/contour.css" />
   </head>
 
@@ -83,56 +88,77 @@
             <span>Powerduck</span>
           </a>
 
-          <nav class="nav-links">
+          <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+
+          <div class="nav-drawer" id="navDrawer">
+            <nav class="nav-links">
           <div class="nav-dropdown">
           <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-          Client
+          <span data-i18n="nav.client">Client</span>
           <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="nav-dropdown-menu" role="menu">
-          <a class="dropdown-item" href="#spec-editor" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title">Spec Editor</span><span class="dropdown-item-desc">Design OpenAPI in place</span></span></a>
-          <a class="dropdown-item" href="#api-debug" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title">API Debug</span><span class="dropdown-item-desc">Send requests and inspect responses</span></span></a>
-          <a class="dropdown-item" href="#mcp-server" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title">MCP Server</span><span class="dropdown-item-desc">Turn a spec into callable tools</span></span></a>
-          <a class="dropdown-item" href="#api-docs" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title">API Docs</span><span class="dropdown-item-desc">Render documentation from the same spec</span></span></a>
+          <a class="dropdown-item" href="#spec-editor" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.specEditor">Spec Editor</span><span class="dropdown-item-desc" data-i18n="nav.specEditorDesc">Design OpenAPI in place</span></span></a>
+          <a class="dropdown-item" href="#api-debug" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDebug">API Debug</span><span class="dropdown-item-desc" data-i18n="nav.apiDebugDesc">Send requests and inspect responses</span></span></a>
+          <a class="dropdown-item" href="#mcp-server" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.mcpServer">MCP Server</span><span class="dropdown-item-desc" data-i18n="nav.mcpServerDesc">Turn a spec into callable tools</span></span></a>
+          <a class="dropdown-item" href="#api-docs" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDocs">API Docs</span><span class="dropdown-item-desc" data-i18n="nav.apiDocsDesc">Render documentation from the same spec</span></span></a>
         </div>
         </div>
 
           <div class="nav-dropdown">
           <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-          Cloud
+          <span data-i18n="nav.cloud">Cloud</span>
           <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="nav-dropdown-menu" role="menu">
-          <a class="dropdown-item" data-cloud-signin="/hub" href="/hub" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title">Hub</span><span class="dropdown-item-desc">Browse public docs and MCP servers</span></span></a>
-          <a class="dropdown-item" href="docs/cloud/introduction/index.html" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title">Cloud Docs</span><span class="dropdown-item-desc">Hosting, access control, and domains</span></span></a>
-          <a class="dropdown-item" data-cloud-signin="/signin" href="/signin" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title">Sign in</span><span class="dropdown-item-desc">Open the Cloud console</span></span></a>
+          <a class="dropdown-item" data-cloud-signin="/hub" href="/hub" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.hub">Hub</span><span class="dropdown-item-desc" data-i18n="nav.hubDesc">Browse public docs and MCP servers</span></span></a>
+          <a class="dropdown-item" href="docs/cloud/introduction/index.html" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.cloudDocs">Cloud Docs</span><span class="dropdown-item-desc" data-i18n="nav.cloudDocsDesc">Hosting, access control, and domains</span></span></a>
+          <a class="dropdown-item" data-cloud-signin="/signin" href="/signin" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.signin">Sign in</span><span class="dropdown-item-desc" data-i18n="nav.signinDesc">Open the Cloud console</span></span></a>
         </div>
         </div>
 
-          <a class="nav-direct" href="#licensing">Pricing</a>
+          <a class="nav-direct" href="#licensing" data-i18n="nav.pricing">Pricing</a>
 
           <div class="nav-dropdown">
           <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-          Resources
+          <span data-i18n="nav.resources">Resources</span>
           <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="nav-dropdown-menu" role="menu">
-          <a class="dropdown-item" href="docs/overview/introduction/index.html" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title">Documentation</span><span class="dropdown-item-desc">Guides and API references</span></span></a>
-          <a class="dropdown-item" href="demo/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title">Live Demo</span><span class="dropdown-item-desc">Try every tool in the browser</span></span></a>
-          <a class="dropdown-item" href="https://github.com/powerducklab" target="_blank" rel="noopener noreferrer" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title">Open Source</span><span class="dropdown-item-desc">Libraries on GitHub and npm</span></span></a>
+          <a class="dropdown-item" href="docs/overview/introduction/index.html" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.documentation">Documentation</span><span class="dropdown-item-desc" data-i18n="nav.documentationDesc">Guides and API references</span></span></a>
+          <a class="dropdown-item" href="demo/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.liveDemo">Live Demo</span><span class="dropdown-item-desc" data-i18n="nav.liveDemoDesc">Try every tool in the browser</span></span></a>
+          <a class="dropdown-item" href="https://github.com/powerducklab" target="_blank" rel="noopener noreferrer" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.openSource">Open Source</span><span class="dropdown-item-desc" data-i18n="nav.openSourceDesc">Libraries on GitHub and npm</span></span></a>
         </div>
         </div>
-          </nav>
-          
-    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+                      </nav>
 
-          <div class="nav-actions">
+            <div class="nav-actions">
             <a class="nav-icon-btn" href="https://github.com/powerducklab" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12 12-12z"/></svg>
             </a>
-            <a class="nav-signin" data-cloud-signin="/signin" href="/signin">Sign in</a>
+            <div class="nav-account-slot" id="navAccountSlot">
+              <a class="nav-signin" data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">Sign in</a>
+            </div>
+
+            <div class="nav-dropdown" id="langMenu">
+              <button
+                class="nav-icon-btn nav-dropdown-trigger"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-label="Select language"
+              >
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M2 12h20" />
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+              </button>
+              <div class="nav-dropdown-menu align-right" role="menu" id="langMenuContent"></div>
+            </div>
+
             <button
               class="theme-toggle"
               data-theme-toggle
@@ -166,7 +192,8 @@
               </svg>
             </button>
 
-            <a class="btn btn-primary btn-sm" href="https://github.com/powerducklab" target="_blank" rel="noopener noreferrer">Download</a>
+            <a class="btn btn-primary btn-sm" href="https://github.com/powerducklab" target="_blank" rel="noopener noreferrer" data-i18n="nav.download">Download</a>
+            </div>
           </div>
         </div>
 
@@ -197,9 +224,9 @@
           Local-first &amp; AI-native — your spec stays on your machine
         </p>
 
-        <h1>One local <code>openapi.yaml</code>. Your AI team for the whole API lifecycle.</h1>
+        <h1 data-i18n-html="hero.title">One local <code>openapi.yaml</code>. Your AI team for the whole API lifecycle.</h1>
 
-        <p class="hero-sub">
+        <p class="hero-sub" data-i18n="hero.sub">
           Powerduck turns the OpenAPI file already in your repository into a
           local, AI-driven studio. Tell it what you need and it designs
           endpoints, debugs requests, builds and runs scenario tests, mocks the
@@ -209,18 +236,18 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#download"> Download Powerduck </a>
+          <a class="btn btn-primary" href="#download" data-i18n="hero.download"> Download Powerduck </a>
 
-          <a class="btn btn-secondary" href="demo/">
+          <a class="btn btn-secondary" href="demo/" data-i18n="hero.demo">
             Explore the live demo
           </a>
         </div>
 
-        <p class="hero-micro">
+        <p class="hero-micro" data-i18n="hero.micro">
           Evaluate free for as long as you like. Buy when it sticks.
         </p>
 
-        <p class="hero-strip">
+        <p class="hero-strip" data-i18n-html="hero.strip">
           macOS · Windows · Linux &nbsp;·&nbsp; OpenAPI 3.0 / 3.1 / 3.2
           &nbsp;·&nbsp; 100% local-first &nbsp;·&nbsp; bring any OpenAI-compatible
           model &nbsp;·&nbsp; MCP-native
@@ -238,15 +265,16 @@
             id="specUrlInput"
             aria-label="OpenAPI specification URL"
             placeholder="https://api.example.com/openapi.yaml"
+            data-i18n-placeholder="loader.placeholder"
           />
 
-          <button class="btn btn-primary btn-sm" type="submit">
+          <button class="btn btn-primary btn-sm" type="submit" data-i18n="loader.load">
             Load spec
           </button>
         </form>
 
         <div class="examples">
-          <span class="examples-label">Try:</span>
+          <span class="examples-label" data-i18n="loader.try">Try:</span>
 
           <button class="chip" type="button" data-handoff="sample" data-sample="petstore">
             Petstore
@@ -273,11 +301,12 @@
             type="button"
             data-handoff="sample"
             data-sample="commerce"
+            data-i18n="loader.commerceIssue"
           >
             Commerce API — has issues
           </button>
 
-          <button class="chip" type="button" data-handoff="home">
+          <button class="chip" type="button" data-handoff="home" data-i18n="loader.openLocal">
             Open a local file…
           </button>
         </div>
@@ -300,6 +329,7 @@
                 role="tab"
                 aria-selected="true"
                 data-tab="editor"
+                data-i18n="nav.specEditor"
               >
                 Spec Editor
               </button>
@@ -309,6 +339,7 @@
                 role="tab"
                 aria-selected="false"
                 data-tab="debug"
+                data-i18n="nav.apiDebug"
               >
                 API Debug
               </button>
@@ -318,6 +349,7 @@
                 role="tab"
                 aria-selected="false"
                 data-tab="mcp"
+                data-i18n="nav.mcpServer"
               >
                 MCP Server
               </button>
@@ -327,6 +359,7 @@
                 role="tab"
                 aria-selected="false"
                 data-tab="docs"
+                data-i18n="nav.apiDocs"
               >
                 API Docs
               </button>
@@ -1047,11 +1080,11 @@
         <div class="section-shell">
           <div class="feature-layout">
             <div class="feature-copy">
-              <p class="section-kicker">OpenAPI spec editor</p>
+              <p class="section-kicker" data-i18n="f1.kicker">OpenAPI spec editor</p>
 
-              <h2 class="section-title">OpenAPI Spec Editor</h2>
+              <h2 class="section-title" data-i18n="f1.title">OpenAPI Spec Editor</h2>
 
-              <p class="section-deck">
+              <p class="section-deck" data-i18n="f1.deck">
                 The outline follows the specification's real structure, not a
                 guess based on indentation. Navigate paths and components as a
                 tree, and fix errors where they live.
@@ -1059,25 +1092,23 @@
 
               <ul class="feature-list">
                 <li>
-                  <strong>Schema-aware validation.</strong>
-                  Validate against the 3.0, 3.1 or 3.2 dialect your file
-                  actually declares.
+                  <strong data-i18n="f1.b1Title">Schema-aware validation.</strong>
+                  <span data-i18n="f1.b1Body">Validate against the 3.0, 3.1 or 3.2 dialect your file actually declares.</span>
                 </li>
 
                 <li>
-                  <strong>Resolved $ref navigation.</strong>
-                  Jump to definitions, inspect usages, and get suggestions for
-                  misspelled references.
+                  <strong data-i18n="f1.b2Title">Resolved $ref navigation.</strong>
+                  <span data-i18n="f1.b2Body">Jump to definitions, inspect usages, and get suggestions for misspelled references.</span>
                 </li>
 
                 <li>
-                  <strong>Edits in place.</strong>
-                  Your repository remains the source of truth.
+                  <strong data-i18n="f1.b3Title">Edits in place.</strong>
+                  <span data-i18n="f1.b3Body">Your repository remains the source of truth.</span>
                 </li>
 
                 <li>
-                  <strong>Problems with rule names.</strong>
-                  CI failures and editor diagnostics speak the same vocabulary.
+                  <strong data-i18n="f1.b4Title">Problems with rule names.</strong>
+                  <span data-i18n="f1.b4Body">CI failures and editor diagnostics speak the same vocabulary.</span>
                 </li>
               </ul>
             </div>
@@ -1225,11 +1256,11 @@
             </div>
 
             <div class="feature-copy">
-              <p class="section-kicker">API debugging</p>
+              <p class="section-kicker" data-i18n="f2.kicker">API debugging</p>
 
-              <h2 class="section-title">API Debugging Against Your Spec</h2>
+              <h2 class="section-title" data-i18n="f2.title">API Debugging Against Your Spec</h2>
 
-              <p class="section-deck">
+              <p class="section-deck" data-i18n="f2.deck">
                 A request builder shaped like the tools developers already use,
                 plus one thing those tools cannot do by default: verify
                 responses against the contract.
@@ -1237,25 +1268,23 @@
 
               <ul class="feature-list">
                 <li>
-                  <strong>Collections generated from paths and tags.</strong>
-                  No import step and nothing to manually re-sync.
+                  <strong data-i18n="f2.b1Title">Collections generated from paths and tags.</strong>
+                  <span data-i18n="f2.b1Body">No import step and nothing to manually re-sync.</span>
                 </li>
 
                 <li>
-                  <strong>Contract checks on every response.</strong>
-                  Detect undeclared properties, missing fields and type drift
-                  inline.
+                  <strong data-i18n="f2.b2Title">Contract checks on every response.</strong>
+                  <span data-i18n="f2.b2Body">Detect undeclared properties, missing fields and type drift inline.</span>
                 </li>
 
                 <li>
-                  <strong>Environments and variables.</strong>
-                  Reuse existing development and staging configurations.
+                  <strong data-i18n="f2.b3Title">Environments and variables.</strong>
+                  <span data-i18n="f2.b3Body">Reuse existing development and staging configurations.</span>
                 </li>
 
                 <li>
-                  <strong>Security from securitySchemes.</strong>
-                  Bearer, API key and OAuth configuration starts from the
-                  specification.
+                  <strong data-i18n="f2.b4Title">Security from securitySchemes.</strong>
+                  <span data-i18n="f2.b4Body">Bearer, API key and OAuth configuration starts from the specification.</span>
                 </li>
               </ul>
             </div>
@@ -1271,11 +1300,11 @@
         <div class="section-shell">
           <div class="feature-layout">
             <div class="feature-copy">
-              <p class="section-kicker">MCP server generator</p>
+              <p class="section-kicker" data-i18n="f3.kicker">MCP server generator</p>
 
-              <h2 class="section-title">Generate an MCP Server from OpenAPI</h2>
+              <h2 class="section-title" data-i18n="f3.title">Generate an MCP Server from OpenAPI</h2>
 
-              <p class="section-deck">
+              <p class="section-deck" data-i18n="f3.deck">
                 Your specification is already a tool manifest. Powerduck
                 compiles it into a runnable MCP server and shows exactly which
                 OpenAPI fields produced each tool.
@@ -1283,26 +1312,23 @@
 
               <ul class="feature-list">
                 <li>
-                  <strong>Visible provenance.</strong>
-                  Every tool traces back to its operation, operationId and
-                  schema.
+                  <strong data-i18n="f3.b1Title">Visible provenance.</strong>
+                  <span data-i18n="f3.b1Body">Every tool traces back to its operation, operationId and schema.</span>
                 </li>
 
                 <li>
-                  <strong>Degraded and skipped states.</strong>
-                  Missing metadata is visible instead of silently producing weak
-                  tools.
+                  <strong data-i18n="f3.b2Title">Degraded and skipped states.</strong>
+                  <span data-i18n="f3.b2Body">Missing metadata is visible instead of silently producing weak tools.</span>
                 </li>
 
                 <li>
-                  <strong>Regenerates on save.</strong>
-                  Change the specification and tools update without a build
-                  step.
+                  <strong data-i18n="f3.b3Title">Regenerates on save.</strong>
+                  <span data-i18n="f3.b3Body">Change the specification and tools update without a build step.</span>
                 </li>
 
                 <li>
-                  <strong>Local transports.</strong>
-                  Run through stdio or HTTP for local agents and workflows.
+                  <strong data-i18n="f3.b4Title">Local transports.</strong>
+                  <span data-i18n="f3.b4Body">Run through stdio or HTTP for local agents and workflows.</span>
                 </li>
               </ul>
             </div>
@@ -1444,37 +1470,36 @@ curl /users/{id}
             </div>
 
             <div class="feature-copy">
-              <p class="section-kicker">API documentation generator</p>
+              <p class="section-kicker" data-i18n="f4.kicker">API documentation generator</p>
 
-              <h2 class="section-title">
+              <h2 class="section-title" data-i18n="f4.title">
                 API Documentation from the Same Contract
               </h2>
 
-              <p class="section-deck">
+              <p class="section-deck" data-i18n="f4.deck">
                 Reference documentation generated directly from your OpenAPI
                 model, exported as static files and hosted wherever you want.
               </p>
 
               <ul class="feature-list">
                 <li>
-                  <strong>Parameter tables from schemas.</strong>
-                  Required flags, enums and descriptions stay synchronized.
+                  <strong data-i18n="f4.b1Title">Parameter tables from schemas.</strong>
+                  <span data-i18n="f4.b1Body">Required flags, enums and descriptions stay synchronized.</span>
                 </li>
 
                 <li>
-                  <strong>Multi-language samples.</strong>
-                  Generate cURL, Node, Python and Go examples from operations.
+                  <strong data-i18n="f4.b2Title">Multi-language samples.</strong>
+                  <span data-i18n="f4.b2Body">Generate cURL, Node, Python and Go examples from operations.</span>
                 </li>
 
                 <li>
-                  <strong>Responses from the real contract.</strong>
-                  Success and error responses come from the same objects your
-                  debugger validates.
+                  <strong data-i18n="f4.b3Title">Responses from the real contract.</strong>
+                  <span data-i18n="f4.b3Body">Success and error responses come from the same objects your debugger validates.</span>
                 </li>
 
                 <li>
-                  <strong>Static export.</strong>
-                  No runtime dependency and no documentation platform lock-in.
+                  <strong data-i18n="f4.b4Title">Static export.</strong>
+                  <span data-i18n="f4.b4Body">No runtime dependency and no documentation platform lock-in.</span>
                 </li>
               </ul>
             </div>
@@ -1490,13 +1515,13 @@ curl /users/{id}
         <div class="section-shell">
           <div class="product-story-head">
             <div>
-              <p class="section-kicker">One source of truth</p>
-              <h2 class="section-title">
+              <p class="section-kicker" data-i18n="story.kicker">One source of truth</p>
+              <h2 class="section-title" data-i18n-html="story.title">
                 One local OpenAPI file.<br />Every capability, AI-driven.
               </h2>
             </div>
 
-            <p class="product-story-deck">
+            <p class="product-story-deck" data-i18n-html="story.deck">
               Open <strong>openapi.yaml</strong> or
               <strong>openapi.json</strong> locally and Powerduck turns the
               contract you already own into a complete API workspace. No import.
@@ -1516,7 +1541,7 @@ curl /users/{id}
               <div class="product-file-icon">{ }</div>
               <div class="product-file-name">openapi.yaml</div>
               <div class="product-file-alt">or openapi.json</div>
-              <p>The file stays in your repository.</p>
+              <p data-i18n="story.fileNote">The file stays in your repository.</p>
             </div>
 
             <div class="product-flow-connector" aria-hidden="true">
@@ -1526,23 +1551,23 @@ curl /users/{id}
             <div class="product-flow-tools">
               <div class="product-flow-tool">
                 <span class="product-flow-index">01</span>
-                <strong>Spec Editor</strong>
-                <p>Edit, navigate and validate the real contract.</p>
+                <strong data-i18n="nav.specEditor">Spec Editor</strong>
+                <p data-i18n="story.tool1">Edit, navigate and validate the real contract.</p>
               </div>
               <div class="product-flow-tool">
                 <span class="product-flow-index">02</span>
-                <strong>API Debug</strong>
-                <p>Send requests generated from the same operations.</p>
+                <strong data-i18n="nav.apiDebug">API Debug</strong>
+                <p data-i18n="story.tool2">Send requests generated from the same operations.</p>
               </div>
               <div class="product-flow-tool">
                 <span class="product-flow-index">03</span>
-                <strong>MCP Server</strong>
-                <p>Compile operations into agent-ready tools.</p>
+                <strong data-i18n="nav.mcpServer">MCP Server</strong>
+                <p data-i18n="story.tool3">Compile operations into agent-ready tools.</p>
               </div>
               <div class="product-flow-tool">
                 <span class="product-flow-index">04</span>
-                <strong>API Docs</strong>
-                <p>Publish documentation from the same source.</p>
+                <strong data-i18n="nav.apiDocs">API Docs</strong>
+                <p data-i18n="story.tool4">Publish documentation from the same source.</p>
               </div>
             </div>
           </div>
@@ -1550,11 +1575,11 @@ curl /users/{id}
           <div class="product-positioning">
             <div class="positioning-statement">
               <span class="positioning-mark">Powerduck</span>
-              <h3>
+              <h3 data-i18n-html="story.posTitle">
                 Not another API client.<br />Not another spec viewer.<br />An
                 AI-native way to build APIs.
               </h3>
-              <p>
+              <p data-i18n="story.posBody">
                 It is the local-native, AI-driven workspace built around the
                 OpenAPI file itself.
               </p>
@@ -1563,18 +1588,18 @@ curl /users/{id}
             <div class="positioning-points">
               <div>
                 <span>NO CLOUD</span
-                ><strong>Your spec never needs to leave your machine.</strong>
+                ><strong data-i18n="story.point1">Your spec never needs to leave your machine.</strong>
               </div>
               <div>
                 <span>NO SYNC</span
-                ><strong
+                ><strong data-i18n="story.point2"
                   >There is nothing else to keep aligned with the
                   contract.</strong
                 >
               </div>
               <div>
                 <span>NO COPY</span
-                ><strong>Your existing YAML or JSON is the workspace.</strong>
+                ><strong data-i18n="story.point3">Your existing YAML or JSON is the workspace.</strong>
               </div>
             </div>
           </div>
@@ -1587,13 +1612,13 @@ curl /users/{id}
 
       <section class="section" id="licensing">
         <div class="section-shell">
-          <p class="section-kicker">Licensing</p>
+          <p class="section-kicker" data-i18n="lic.kicker">Licensing</p>
 
-          <h2 class="section-title">
+          <h2 class="section-title" data-i18n="lic.title">
             Buy the desktop license once. Subscribe only if you need hosting.
           </h2>
 
-          <p class="section-deck">
+          <p class="section-deck" data-i18n="lic.deck">
             Powerduck Desktop is a perpetual license — the same local-first
             product shown above, with nothing that phones home. Hosted MCP
             endpoints are optional and stay separate from the local workflow.
@@ -1601,67 +1626,67 @@ curl /users/{id}
 
           <div class="pricing-grid">
             <div class="pricing-card featured" id="download">
-              <h3>Powerduck Desktop</h3>
+              <h3 data-i18n="lic.desktopTitle">Powerduck Desktop</h3>
 
-              <p class="pricing-tag">Perpetual license · one-time purchase</p>
+              <p class="pricing-tag" data-i18n="lic.desktopTag">Perpetual license · one-time purchase</p>
 
               <div class="price">
                 <span class="price-value"> $89 </span>
 
-                <span class="price-period"> per user, once </span>
+                <span class="price-period" data-i18n="lic.desktopPeriod"> per user, once </span>
               </div>
 
               <ul class="pricing-list">
-                <li>Spec Editor, API Debug, MCP Server and API Docs</li>
+                <li data-i18n="lic.desktopL1">Spec Editor, API Debug, MCP Server and API Docs</li>
 
-                <li>All updates within the major version</li>
+                <li data-i18n="lic.desktopL2">All updates within the major version</li>
 
-                <li>Fully offline · no account · no telemetry</li>
+                <li data-i18n="lic.desktopL3">Fully offline · no account · no telemetry</li>
 
-                <li>Personal license for every machine you own</li>
+                <li data-i18n="lic.desktopL4">Personal license for every machine you own</li>
 
-                <li>Volume, site and educational licenses available</li>
+                <li data-i18n="lic.desktopL5">Volume, site and educational licenses available</li>
               </ul>
 
-              <a href="#" class="btn btn-primary" data-desktop-buy>
+              <a href="#" class="btn btn-primary" data-desktop-buy data-i18n="lic.buyLicense">
                 Buy a license
               </a>
 
-              <a href="#" class="btn btn-secondary" data-desktop-download>
+              <a href="#" class="btn btn-secondary" data-desktop-download data-i18n="lic.download">
                 Download Powerduck
               </a>
 
-              <p class="pricing-note">macOS 12+ · Windows 10+ · Linux</p>
+              <p class="pricing-note" data-i18n="lic.desktopNote">macOS 12+ · Windows 10+ · Linux</p>
             </div>
 
             <div class="pricing-card">
-              <h3>Powerduck Cloud</h3>
+              <h3 data-i18n="lic.cloudTitle">Powerduck Cloud</h3>
 
-              <p class="pricing-tag">
+              <p class="pricing-tag" data-i18n="lic.cloudTag">
                 Hosted docs &amp; MCP · billed monthly or yearly
               </p>
 
               <div class="price">
                 <span class="price-value"> $19 </span>
 
-                <span class="price-period"> per organization, per month </span>
+                <span class="price-period" data-i18n="lic.cloudPeriod"> per organization, per month </span>
               </div>
 
               <ul class="pricing-list">
-                <li>Stable HTTPS MCP URL for teams and agents</li>
+                <li data-i18n="lic.cloudL1">Stable HTTPS MCP URL for teams and agents</li>
 
-                <li>Deploy from Git branches automatically</li>
+                <li data-i18n="lic.cloudL2">Deploy from Git branches automatically</li>
 
-                <li>Access tokens and request logs</li>
+                <li data-i18n="lic.cloudL3">Access tokens and request logs</li>
 
-                <li>Hosted reference docs on your own domain</li>
+                <li data-i18n="lic.cloudL4">Hosted reference docs on your own domain</li>
               </ul>
 
-              <a href="/pricing" class="btn btn-secondary" data-cloud-pricing>
+              <a href="/pricing" class="btn btn-secondary" data-cloud-pricing data-i18n="lic.seePlans">
                 See Cloud plans
               </a>
 
-              <p class="pricing-note">
+              <p class="pricing-note" data-i18n="lic.cloudNote">
                 Not required for the desktop application. Yearly billing saves
                 two months; cancel anytime and your local workflow keeps
                 running.
@@ -1669,7 +1694,7 @@ curl /users/{id}
             </div>
           </div>
 
-          <div class="eval-bar">
+          <div class="eval-bar" data-i18n-html="lic.eval">
             <strong>Evaluation:</strong>
 
             Powerduck is fully functional before you buy, with no time limit and
@@ -1687,22 +1712,22 @@ curl /users/{id}
         <div class="section-shell">
           <div class="faq-shell">
             <div class="faq-heading">
-              <p class="section-kicker">FAQ</p>
+              <p class="section-kicker" data-i18n="faq.kicker">FAQ</p>
 
-              <h2 class="section-title">Questions developers ask first</h2>
+              <h2 class="section-title" data-i18n="faq.title">Questions developers ask first</h2>
 
-              <p class="section-deck">
+              <p class="section-deck" data-i18n="faq.deck">
                 The practical details around local files, OpenAPI versions, MCP
                 generation and licensing.
               </p>
             </div>
 
             <details open>
-              <summary>
+              <summary data-i18n="faq.q1">
                 Does Powerduck upload my OpenAPI specification anywhere?
               </summary>
 
-              <p>
+              <p data-i18n="faq.a1">
                 No. The desktop application reads and writes OpenAPI files
                 directly from your filesystem. There is no account, no sync and
                 no telemetry. Only optional hosted services involve a remote
@@ -1711,9 +1736,9 @@ curl /users/{id}
             </details>
 
             <details>
-              <summary>Which OpenAPI versions are supported?</summary>
+              <summary data-i18n="faq.q2">Which OpenAPI versions are supported?</summary>
 
-              <p>
+              <p data-i18n="faq.a2">
                 OpenAPI 3.0, 3.1 and 3.2. Powerduck detects the declared version
                 and validates against the appropriate dialect instead of using a
                 lowest common denominator.
@@ -1721,9 +1746,9 @@ curl /users/{id}
             </details>
 
             <details>
-              <summary>How does the MCP server get generated?</summary>
+              <summary data-i18n="faq.q3">How does the MCP server get generated?</summary>
 
-              <p>
+              <p data-i18n="faq.a3">
                 Operations with an operationId become MCP tools. Arguments are
                 derived from parameters and requestBody schemas. Component
                 schemas can be exposed as resources. The generated server
@@ -1732,9 +1757,9 @@ curl /users/{id}
             </details>
 
             <details>
-              <summary>Is the desktop license a subscription?</summary>
+              <summary data-i18n="faq.q4">Is the desktop license a subscription?</summary>
 
-              <p>
+              <p data-i18n="faq.a4">
                 No. Powerduck Desktop is a perpetual license purchased once.
                 Updates within the major version are included. Future major
                 upgrades remain optional.
@@ -1742,9 +1767,9 @@ curl /users/{id}
             </details>
 
             <details>
-              <summary>Can I keep using Postman collections?</summary>
+              <summary data-i18n="faq.q5">Can I keep using Postman collections?</summary>
 
-              <p>
+              <p data-i18n="faq.a5">
                 Yes. Existing collections and environments can continue to be
                 used. Powerduck treats the OpenAPI specification as the
                 authoritative contract and helps identify where requests drift
@@ -1753,19 +1778,15 @@ curl /users/{id}
             </details>
 
             <details>
-              <summary>Does it work in CI?</summary>
+              <summary data-i18n="faq.q6">Does it work in CI?</summary>
 
               <p>
-                Yes. The same validation and generation engine is exposed
-                through
+                <span data-i18n="faq.a6Before">Yes. The same validation and generation engine is exposed through</span>
                 <a
                   href="opensource/openapi-cli.html"
                   style="color: var(--accent); text-decoration: underline"
                   >@powerduck/openapi-cli</a
-                >, a CI-ready command-line tool that runs during pull requests
-                and automated pipelines. It supports batch testing across 6
-                protocols (HTTP, SSE, WebSocket, gRPC, MCP, tRPC), configurable
-                concurrency, and JUnit-compatible reports for CI integration.
+                ><span data-i18n="faq.a6After">, a CI-ready command-line tool that runs during pull requests and automated pipelines. It supports batch testing across 6 protocols (HTTP, SSE, WebSocket, gRPC, MCP, tRPC), configurable concurrency, and JUnit-compatible reports for CI integration.</span>
               </p>
               <p style="margin-top: 8px">
                 <a
@@ -1776,6 +1797,7 @@ curl /users/{id}
                     padding: 6px 14px;
                     font-size: 13px;
                   "
+                  data-i18n="faq.a6Btn"
                   >Explore openapi-cli →</a
                 >
               </p>
@@ -1800,39 +1822,39 @@ curl /users/{id}
                 />
                 <span>Powerduck</span>
               </a>
-              <p>
+              <p data-i18n="footer.brand">
                 Building developer tools for the modern API workflow. Open
                 source, production-ready, and community-driven.
               </p>
             </div>
             <div class="footer-column">
-              <h6>Product</h6>
+              <h6 data-i18n="footer.product">Product</h6>
               <ul>
-                <li><a href="#spec-editor">Spec Editor</a></li>
-                <li><a href="#api-debug">API Debug</a></li>
-                <li><a href="#mcp-server">MCP Server</a></li>
-                <li><a href="#api-docs">API Docs</a></li>
-                <li><a href="#download">Download</a></li>
-                <li><a href="#licensing">Prices</a></li>
+                <li><a href="#spec-editor" data-i18n="nav.specEditor">Spec Editor</a></li>
+                <li><a href="#api-debug" data-i18n="nav.apiDebug">API Debug</a></li>
+                <li><a href="#mcp-server" data-i18n="nav.mcpServer">MCP Server</a></li>
+                <li><a href="#api-docs" data-i18n="nav.apiDocs">API Docs</a></li>
+                <li><a href="#download" data-i18n="nav.download">Download</a></li>
+                <li><a href="#licensing" data-i18n="footer.prices">Prices</a></li>
               </ul>
             </div>
             <div class="footer-column">
-              <h6>Cloud</h6>
+              <h6 data-i18n="nav.cloud">Cloud</h6>
               <ul>
-                <li><a data-cloud-signin="/hub" href="/hub">Hub</a></li>
-                <li><a data-cloud-signin="/signin" href="/signin">Sign in</a></li>
-                <li><a href="docs/cloud/quickstart/index.html">Quickstart</a></li>
-                <li><a href="docs/cloud/access-control/index.html">Access Control</a></li>
-                <li><a href="docs/cloud/custom-domains/index.html">Custom Domains</a></li>
-                <li><a href="docs/cloud/billing/index.html">Billing</a></li>
+                <li><a data-cloud-signin="/hub" href="/hub" data-i18n="nav.hub">Hub</a></li>
+                <li><a data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">Sign in</a></li>
+                <li><a href="docs/cloud/quickstart/index.html" data-i18n="footer.quickstart">Quickstart</a></li>
+                <li><a href="docs/cloud/access-control/index.html" data-i18n="footer.accessControl">Access Control</a></li>
+                <li><a href="docs/cloud/custom-domains/index.html" data-i18n="footer.customDomains">Custom Domains</a></li>
+                <li><a href="docs/cloud/billing/index.html" data-i18n="footer.billing">Billing</a></li>
               </ul>
             </div>
             <div class="footer-column">
-              <h6>Resources</h6>
+              <h6 data-i18n="nav.resources">Resources</h6>
               <ul>
-                <li><a href="docs/overview/introduction/index.html">Documentation</a></li>
-                <li><a href="docs/client/introduction/index.html">Client Guide</a></li>
-                <li><a href="docs/cloud/introduction/index.html">Cloud Guide</a></li>
+                <li><a href="docs/overview/introduction/index.html" data-i18n="nav.documentation">Documentation</a></li>
+                <li><a href="docs/client/introduction/index.html" data-i18n="footer.clientGuide">Client Guide</a></li>
+                <li><a href="docs/cloud/introduction/index.html" data-i18n="footer.cloudGuide">Cloud Guide</a></li>
                 <li>
                   <a
                     href="https://github.com/powerducklab"
@@ -1846,28 +1868,29 @@ curl /users/{id}
                     href="https://www.npmjs.com/search?q=%40powerduck"
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-i18n="footer.npmPackages"
                     >npm Packages</a
                   >
                 </li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#faq" data-i18n="faq.kicker">FAQ</a></li>
               </ul>
             </div>
             <div class="footer-column">
-              <h6>Legal</h6>
+              <h6 data-i18n="footer.legal">Legal</h6>
               <ul>
-                <li><a href="terms.html">Terms of Service</a></li>
-                <li><a href="privacy.html">Privacy Policy</a></li>
-                <li><a href="refunds.html">Refund Policy</a></li>
-                <li><a href="cookie.html">Cookie Notice</a></li>
+                <li><a href="terms.html" data-i18n="footer.terms">Terms of Service</a></li>
+                <li><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
+                <li><a href="refunds.html" data-i18n="footer.refunds">Refund Policy</a></li>
+                <li><a href="cookie.html" data-i18n="footer.cookie">Cookie Notice</a></li>
               </ul>
             </div>
           </div>
           <div class="footer-bottom">
             <span>&copy; 2026 POWERDUCK LIMITED. All rights reserved.</span>
             <div class="footer-bottom-links">
-              <a href="terms.html">Terms</a>
-              <a href="privacy.html">Privacy</a>
-              <a href="cookie.html">Cookies</a>
+              <a href="terms.html" data-i18n="footer.termsShort">Terms</a>
+              <a href="privacy.html" data-i18n="footer.privacyShort">Privacy</a>
+              <a href="cookie.html" data-i18n="footer.cookieShort">Cookies</a>
             </div>
           </div>
         </div>
@@ -1969,48 +1992,28 @@ curl /users/{id}
           });
       })();
     </script>
-    <script src="assets/js/common.js"></script>
-    <script src="assets/js/cloud.js"></script>
+    <script src="assets/js/i18n.js?v=20260924"></script>
+    <script src="assets/js/common.js?v=20260924"></script>
+    <script src="assets/js/cloud.js?v=20260924"></script>
   <script>
 (function(){
   var btn=document.querySelector('.nav-hamburger');
-  var nav=document.querySelector('header nav');
-  if(btn&&nav){
+  var drawer=document.getElementById('navDrawer');
+  if(btn&&drawer){
     btn.addEventListener('click',function(e){
       e.stopPropagation();
-      var open=nav.classList.toggle('open');
+      var open=drawer.classList.toggle('open');
       btn.classList.toggle('open',open);
       btn.setAttribute('aria-expanded',open);
     });
-  }
-  // Mobile: toggle each dropdown on click (not hover)
-  var triggers=document.querySelectorAll('.nav-dropdown-trigger');
-  Array.prototype.forEach.call(triggers,function(trigger){
-    trigger.addEventListener('click',function(e){
-      if(window.innerWidth<=900){
-        e.preventDefault();
-        e.stopPropagation();
-        var dd=trigger.parentNode;
-        while(dd&&!dd.classList.contains('nav-dropdown')){dd=dd.parentNode;}
-        if(dd){
-          var wasOpen=dd.classList.contains('open');
-          // Close sibling dropdowns so only one stays expanded.
-          Array.prototype.forEach.call(dd.parentNode.querySelectorAll('.nav-dropdown'),function(other){
-            other.classList.remove('open');
-          });
-          dd.classList.toggle('open',!wasOpen);
-        }
+    document.addEventListener('click',function(e){
+      if(drawer.classList.contains('open')&&!drawer.contains(e.target)&&!btn.contains(e.target)){
+        drawer.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
       }
     });
-  });
-  // Close mobile nav when clicking outside
-  document.addEventListener('click',function(e){
-    if(nav&&nav.classList.contains('open')&&!nav.contains(e.target)&&!btn.contains(e.target)){
-      nav.classList.remove('open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded','false');
-    }
-  });
+  }
 })();
 </script>
 </body>
