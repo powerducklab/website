@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Powerduck Live Demos - Product and Open-Source Components</title>
+<meta name="description" content="Try the full Powerduck product and individual open-source OpenAPI components: tree, API documentation, schema editor and schema designer." />
+<link rel="canonical" href="https://www.powerduck.com/demos/" />
+<meta name="robots" content="index, follow" />
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #111111;
+    --muted: #5f6670;
+    --line: #e4e3dd;
+    --card: #f7f7f5;
+    --gold: #e5b400;
+    --gold-ink: #1a1a1a;
+    --link: #111111;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d0d0d;
+      --fg: #f2f2f0;
+      --muted: #9aa0a6;
+      --line: #262626;
+      --card: #161616;
+      --link: #f2f2f0;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 56px 24px 72px; }
+  .topnav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; }
+  .brand { font-weight: 700; font-size: 18px; color: var(--fg); text-decoration: none; letter-spacing: -0.01em; }
+  .topnav a { color: var(--muted); text-decoration: none; font-size: 14px; margin-left: 20px; }
+  .topnav a:hover { color: var(--fg); }
+  h1 { font-size: 34px; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 12px; }
+  .lede { color: var(--muted); font-size: 17px; max-width: 640px; margin: 0 0 36px; }
+  .section-label { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 36px 0 14px; }
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .card {
+    display: block; text-decoration: none; color: var(--fg);
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 22px; transition: border-color .15s ease, transform .15s ease;
+  }
+  .card:hover { border-color: var(--fg); transform: translateY(-1px); }
+  .card.feature { background: var(--gold); color: var(--gold-ink); border-color: var(--gold); }
+  .card.feature .desc { color: #3a3300; }
+  .card h3 { margin: 0 0 6px; font-size: 18px; letter-spacing: -0.01em; display: flex; align-items: center; gap: 8px; }
+  .card .desc { font-size: 14px; color: var(--muted); margin: 0 0 14px; }
+  .go { font-size: 14px; font-weight: 600; }
+  .card.feature .go { color: #1a1a1a; }
+  .pills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .pill {
+    border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px;
+    font-size: 13px; color: var(--fg); text-decoration: none; background: var(--bg);
+  }
+  .pill:hover { border-color: var(--fg); }
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--fg); }
+  @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } h1 { font-size: 28px; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topnav">
+      <a class="brand" href="/">Powerduck</a>
+      <div>
+        <a href="/docs/overview/introduction/">Docs</a>
+        <a href="https://github.com/powerducklab">GitHub</a>
+      </div>
+    </nav>
+
+    <h1>Live demos</h1>
+    <p class="lede">Explore the full product or open a focused playground for each open-source component. The desktop client runs fully local and never requires an account.</p>
+
+    <div class="section-label">Full product</div>
+    <div class="grid">
+      <a class="card feature" href="/demo/">
+        <h3>Powerduck Studio</h3>
+        <p class="desc">The complete local-first OpenAPI workspace: AI spec design, API debugging, scenario testing, mock server, API docs and MCP in one place.</p>
+        <span class="go">Open the full demo &rarr;</span>
+      </a>
+    </div>
+
+    <div class="section-label">Open-source component playgrounds</div>
+    <div class="grid">
+      <a class="card" href="/demos/tree/">
+        <h3>Tree</h3>
+        <p class="desc">A high-performance, virtualized tree for navigating OpenAPI documents and JSON Schema, with thousands of nodes and smooth keyboard support.</p>
+        <span class="go">Launch playground &rarr;</span>
+      </a>
+      <a class="card" href="/demos/oas-document/">
+        <h3>API Documentation</h3>
+        <p class="desc">Turn an OpenAPI document into clean, readable API documentation with a navigation tree, method badges and embedded examples.</p>
+        <span class="go">Launch playground &rarr;</span>
+      </a>
+      <a class="card" href="/demos/schema-editor/">
+        <h3>Schema Editor</h3>
+        <p class="desc">A Monaco-based editor for JSON Schema and OpenAPI parameters, with validation and language support across multiple formats.</p>
+        <span class="go">Launch playground &rarr;</span>
+      </a>
+      <a class="card" href="/demos/schema-designer/">
+        <h3>Schema Designer</h3>
+        <p class="desc">Form-driven designers for schemas, parameters and variables with inline editing and structured tables.</p>
+        <span class="go">Launch playground &rarr;</span>
+      </a>
+    </div>
+
+    <div class="section-label">More libraries</div>
+    <div class="pills">
+      <a class="pill" href="https://github.com/powerducklab/md-editor">Markdown Editor</a>
+      <a class="pill" href="https://github.com/powerducklab/conf-patch">Conf Patch</a>
+      <a class="pill" href="https://github.com/powerducklab/workspace-yaml">Workspace YAML</a>
+      <a class="pill" href="https://github.com/powerducklab/openapi-codegen">OpenAPI Codegen</a>
+      <a class="pill" href="https://github.com/powerducklab/openapi-cli">OpenAPI CLI</a>
+      <a class="pill" href="https://github.com/powerducklab/x-to-openapi">X to OpenAPI</a>
+      <a class="pill" href="https://github.com/powerducklab/openapi-request">OpenAPI Request</a>
+      <a class="pill" href="https://github.com/powerducklab/openapi-parser">OpenAPI Parser</a>
+    </div>
+
+    <footer>
+      <span>&copy; <span id="yr"></span> POWERDUCK LIMITED</span>
+      <span><a href="/privacy.html">Privacy</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="https://github.com/powerducklab">GitHub</a></span>
+    </footer>
+  </div>
+  <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+</body>
+</html>

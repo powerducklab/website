@@ -227,11 +227,60 @@
     });
 
     var downloadButtons = document.querySelectorAll("[data-desktop-download]");
-    var downloadHref = "https://github.com/powerducklab";
+    var DOWNLOAD_BASE = "https://cdn.neatico.com/downloads/powerduck/";
+
+    function detectArchitecture() {
+      try {
+        var uaData = navigator.userAgentData
+          ? navigator.userAgentData
+          : null;
+        if (uaData && typeof uaData.getHighEntropyValues === "function") {
+          return uaData
+            .getHighEntropyValues(["architecture"])
+            .then(function (h) {
+              return h && h.architecture;
+            })
+            .catch(function () {
+              return null;
+            });
+        }
+      } catch (_) {
+        /* userAgentData unavailable */
+      }
+      return Promise.resolve(null);
+    }
+
+    function resolveDesktopDownload() {
+      var platform = (navigator.platform || "").toLowerCase();
+      var ua = navigator.userAgent.toLowerCase();
+      var isMac = platform.indexOf("mac") > -1 || ua.indexOf("mac os x") > -1;
+      var isLinux = platform.indexOf("linux") > -1 || ua.indexOf("linux") > -1;
+      return detectArchitecture().then(function (architecture) {
+        if (isMac) {
+          return (
+            DOWNLOAD_BASE +
+            (architecture === "x86" ? "latest-x64.dmg" : "latest-arm64.dmg")
+          );
+        }
+        if (isLinux) {
+          return DOWNLOAD_BASE + "latest-x86_64.AppImage";
+        }
+        // Windows and unknown platforms land on the downloads page.
+        return null;
+      });
+    }
+
     Array.prototype.forEach.call(downloadButtons, function (el) {
-      el.setAttribute("href", downloadHref);
-      el.setAttribute("target", "_blank");
-      el.setAttribute("rel", "noopener noreferrer");
+      el.addEventListener("click", function (event) {
+        event.preventDefault();
+        resolveDesktopDownload().then(function (url) {
+          if (url) {
+            window.location.href = url;
+          } else {
+            window.location.href = "/download.html";
+          }
+        });
+      });
     });
 
     // Reflect the session last so the signed-in state wins over the static
