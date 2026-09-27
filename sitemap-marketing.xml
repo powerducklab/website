@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.powerduck.com/</loc></url>
+  <url><loc>https://www.powerduck.com/opensource/conf-patch.html</loc></url>
+  <url><loc>https://www.powerduck.com/opensource/md-editor.html</loc></url>
+  <url><loc>https://www.powerduck.com/opensource/oas-document.html</loc></url>
+  <url><loc>https://www.powerduck.com/opensource/openapi-cli.html</loc></url>
+  <url><loc>https://www.powerduck.com/opensource/openapi-codegen.html</loc></url>
+  <url><loc>https://www.powerduck.com/opensource/openapi-mcp-server.html</loc></url>
+  <url><loc>https://www.powerduck.com/opensource/openapi-parser.html</loc></url>
+  <url><loc>https://www.powerduck.com/opensource/openapi-request.html</loc></url>
+  <url><loc>https://www.powerduck.com/opensource/schema-editor.html</loc></url>
+  <url><loc>https://www.powerduck.com/opensource/tree.html</loc></url>
+  <url><loc>https://www.powerduck.com/opensource/workspace-yaml.html</loc></url>
+  <url><loc>https://www.powerduck.com/opensource/x-to-openapi.html</loc></url>
+  <url><loc>https://www.powerduck.com/privacy.html</loc></url>
+  <url><loc>https://www.powerduck.com/terms.html</loc></url>
+  <url><loc>https://www.powerduck.com/refunds.html</loc></url>
+  <url><loc>https://www.powerduck.com/cookie.html</loc></url>
+  <url><loc>https://www.powerduck.com/pricing</loc></url>
+  <url><loc>https://www.powerduck.com/cloud</loc></url>
+  <url><loc>https://www.powerduck.com/download.html</loc></url>
+</urlset>

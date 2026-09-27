@@ -1,0 +1,582 @@
+[
+  {
+    "source": "/docs/",
+    "target": "/docs/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/index.html",
+    "target": "/docs/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/getting-started/introduction",
+    "target": "/docs/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/getting-started/introduction/",
+    "target": "/docs/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/getting-started/introduction/index.html",
+    "target": "/docs/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/getting-started/installation",
+    "target": "/docs/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/getting-started/installation/",
+    "target": "/docs/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/getting-started/installation/index.html",
+    "target": "/docs/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/getting-started/quickstart",
+    "target": "/docs/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/getting-started/quickstart/",
+    "target": "/docs/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/getting-started/quickstart/index.html",
+    "target": "/docs/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-CN/",
+    "target": "/docs/zh-CN/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-CN/index.html",
+    "target": "/docs/zh-CN/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-CN/getting-started/introduction",
+    "target": "/docs/zh-CN/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-CN/getting-started/introduction/",
+    "target": "/docs/zh-CN/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-CN/getting-started/introduction/index.html",
+    "target": "/docs/zh-CN/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-CN/getting-started/installation",
+    "target": "/docs/zh-CN/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-CN/getting-started/installation/",
+    "target": "/docs/zh-CN/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-CN/getting-started/installation/index.html",
+    "target": "/docs/zh-CN/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-CN/getting-started/quickstart",
+    "target": "/docs/zh-CN/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-CN/getting-started/quickstart/",
+    "target": "/docs/zh-CN/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-CN/getting-started/quickstart/index.html",
+    "target": "/docs/zh-CN/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-TW/",
+    "target": "/docs/zh-TW/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-TW/index.html",
+    "target": "/docs/zh-TW/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-TW/getting-started/introduction",
+    "target": "/docs/zh-TW/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-TW/getting-started/introduction/",
+    "target": "/docs/zh-TW/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-TW/getting-started/introduction/index.html",
+    "target": "/docs/zh-TW/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-TW/getting-started/installation",
+    "target": "/docs/zh-TW/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-TW/getting-started/installation/",
+    "target": "/docs/zh-TW/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-TW/getting-started/installation/index.html",
+    "target": "/docs/zh-TW/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-TW/getting-started/quickstart",
+    "target": "/docs/zh-TW/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-TW/getting-started/quickstart/",
+    "target": "/docs/zh-TW/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/zh-TW/getting-started/quickstart/index.html",
+    "target": "/docs/zh-TW/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ja-JP/",
+    "target": "/docs/ja-JP/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ja-JP/index.html",
+    "target": "/docs/ja-JP/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ja-JP/getting-started/introduction",
+    "target": "/docs/ja-JP/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ja-JP/getting-started/introduction/",
+    "target": "/docs/ja-JP/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ja-JP/getting-started/introduction/index.html",
+    "target": "/docs/ja-JP/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ja-JP/getting-started/installation",
+    "target": "/docs/ja-JP/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ja-JP/getting-started/installation/",
+    "target": "/docs/ja-JP/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ja-JP/getting-started/installation/index.html",
+    "target": "/docs/ja-JP/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ja-JP/getting-started/quickstart",
+    "target": "/docs/ja-JP/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ja-JP/getting-started/quickstart/",
+    "target": "/docs/ja-JP/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ja-JP/getting-started/quickstart/index.html",
+    "target": "/docs/ja-JP/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ko-KR/",
+    "target": "/docs/ko-KR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ko-KR/index.html",
+    "target": "/docs/ko-KR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ko-KR/getting-started/introduction",
+    "target": "/docs/ko-KR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ko-KR/getting-started/introduction/",
+    "target": "/docs/ko-KR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ko-KR/getting-started/introduction/index.html",
+    "target": "/docs/ko-KR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ko-KR/getting-started/installation",
+    "target": "/docs/ko-KR/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ko-KR/getting-started/installation/",
+    "target": "/docs/ko-KR/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ko-KR/getting-started/installation/index.html",
+    "target": "/docs/ko-KR/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ko-KR/getting-started/quickstart",
+    "target": "/docs/ko-KR/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ko-KR/getting-started/quickstart/",
+    "target": "/docs/ko-KR/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ko-KR/getting-started/quickstart/index.html",
+    "target": "/docs/ko-KR/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/fr-FR/",
+    "target": "/docs/fr-FR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/fr-FR/index.html",
+    "target": "/docs/fr-FR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/fr-FR/getting-started/introduction",
+    "target": "/docs/fr-FR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/fr-FR/getting-started/introduction/",
+    "target": "/docs/fr-FR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/fr-FR/getting-started/introduction/index.html",
+    "target": "/docs/fr-FR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/fr-FR/getting-started/installation",
+    "target": "/docs/fr-FR/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/fr-FR/getting-started/installation/",
+    "target": "/docs/fr-FR/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/fr-FR/getting-started/installation/index.html",
+    "target": "/docs/fr-FR/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/fr-FR/getting-started/quickstart",
+    "target": "/docs/fr-FR/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/fr-FR/getting-started/quickstart/",
+    "target": "/docs/fr-FR/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/fr-FR/getting-started/quickstart/index.html",
+    "target": "/docs/fr-FR/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/de-DE/",
+    "target": "/docs/de-DE/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/de-DE/index.html",
+    "target": "/docs/de-DE/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/de-DE/getting-started/introduction",
+    "target": "/docs/de-DE/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/de-DE/getting-started/introduction/",
+    "target": "/docs/de-DE/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/de-DE/getting-started/introduction/index.html",
+    "target": "/docs/de-DE/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/de-DE/getting-started/installation",
+    "target": "/docs/de-DE/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/de-DE/getting-started/installation/",
+    "target": "/docs/de-DE/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/de-DE/getting-started/installation/index.html",
+    "target": "/docs/de-DE/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/de-DE/getting-started/quickstart",
+    "target": "/docs/de-DE/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/de-DE/getting-started/quickstart/",
+    "target": "/docs/de-DE/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/de-DE/getting-started/quickstart/index.html",
+    "target": "/docs/de-DE/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/es-ES/",
+    "target": "/docs/es-ES/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/es-ES/index.html",
+    "target": "/docs/es-ES/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/es-ES/getting-started/introduction",
+    "target": "/docs/es-ES/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/es-ES/getting-started/introduction/",
+    "target": "/docs/es-ES/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/es-ES/getting-started/introduction/index.html",
+    "target": "/docs/es-ES/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/es-ES/getting-started/installation",
+    "target": "/docs/es-ES/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/es-ES/getting-started/installation/",
+    "target": "/docs/es-ES/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/es-ES/getting-started/installation/index.html",
+    "target": "/docs/es-ES/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/es-ES/getting-started/quickstart",
+    "target": "/docs/es-ES/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/es-ES/getting-started/quickstart/",
+    "target": "/docs/es-ES/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/es-ES/getting-started/quickstart/index.html",
+    "target": "/docs/es-ES/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/pt-BR/",
+    "target": "/docs/pt-BR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/pt-BR/index.html",
+    "target": "/docs/pt-BR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/pt-BR/getting-started/introduction",
+    "target": "/docs/pt-BR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/pt-BR/getting-started/introduction/",
+    "target": "/docs/pt-BR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/pt-BR/getting-started/introduction/index.html",
+    "target": "/docs/pt-BR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/pt-BR/getting-started/installation",
+    "target": "/docs/pt-BR/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/pt-BR/getting-started/installation/",
+    "target": "/docs/pt-BR/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/pt-BR/getting-started/installation/index.html",
+    "target": "/docs/pt-BR/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/pt-BR/getting-started/quickstart",
+    "target": "/docs/pt-BR/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/pt-BR/getting-started/quickstart/",
+    "target": "/docs/pt-BR/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/pt-BR/getting-started/quickstart/index.html",
+    "target": "/docs/pt-BR/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ar-SA/",
+    "target": "/docs/ar-SA/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ar-SA/index.html",
+    "target": "/docs/ar-SA/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ar-SA/getting-started/introduction",
+    "target": "/docs/ar-SA/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ar-SA/getting-started/introduction/",
+    "target": "/docs/ar-SA/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ar-SA/getting-started/introduction/index.html",
+    "target": "/docs/ar-SA/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ar-SA/getting-started/installation",
+    "target": "/docs/ar-SA/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ar-SA/getting-started/installation/",
+    "target": "/docs/ar-SA/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ar-SA/getting-started/installation/index.html",
+    "target": "/docs/ar-SA/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ar-SA/getting-started/quickstart",
+    "target": "/docs/ar-SA/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ar-SA/getting-started/quickstart/",
+    "target": "/docs/ar-SA/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ar-SA/getting-started/quickstart/index.html",
+    "target": "/docs/ar-SA/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/cloud",
+    "target": "/cloud-app/seo/cloud.html",
+    "status": "200"
+  },
+  {
+    "source": "/pricing",
+    "target": "/cloud-app/seo/pricing.html",
+    "status": "200"
+  },
+  {
+    "source": "/signin",
+    "target": "/cloud-app/seo/signin.html",
+    "status": "200"
+  },
+  {
+    "source": "/auth/return",
+    "target": "/cloud-app/seo/auth-return.html",
+    "status": "200"
+  },
+  {
+    "source": "/console",
+    "target": "/cloud-app/seo/console.html",
+    "status": "200"
+  },
+  {
+    "source": "/console/<*>",
+    "target": "/cloud-app/seo/console.html",
+    "status": "200"
+  }
+]
