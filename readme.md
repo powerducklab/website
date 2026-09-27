@@ -1,4 +1,4 @@
-# PowerDuck
+# Powerduck
 
 Open-source developer tools for API-first workflows. We build production-grade libraries for OpenAPI document processing, code generation, Markdown editing, and configuration patching.
 

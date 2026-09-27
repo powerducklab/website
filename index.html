@@ -68,6 +68,7 @@
 
     <link rel="stylesheet" href="assets/css/common.css?v=20260924" />
     <link rel="stylesheet" href="assets/css/contour.css" />
+  <link rel="stylesheet" href="assets/css/product-paths.css" />
   </head>
 
   <body>
@@ -119,7 +120,7 @@
         </div>
         </div>
 
-          <a class="nav-direct" href="#licensing" data-i18n="nav.pricing">Pricing</a>
+          <a class="nav-direct" href="/pricing" data-i18n="nav.pricing">Pricing</a>
 
           <div class="nav-dropdown">
           <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
@@ -129,13 +130,13 @@
         <div class="nav-dropdown-menu" role="menu">
           <a class="dropdown-item" href="docs/overview/introduction/index.html" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.documentation">Documentation</span><span class="dropdown-item-desc" data-i18n="nav.documentationDesc">Guides and API references</span></span></a>
           <a class="dropdown-item" href="demo/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.liveDemo">Live Demo</span><span class="dropdown-item-desc" data-i18n="nav.liveDemoDesc">Try every tool in the browser</span></span></a>
-          <a class="dropdown-item" href="https://github.com/powerducklab" target="_blank" rel="noopener noreferrer" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.openSource">Open Source</span><span class="dropdown-item-desc" data-i18n="nav.openSourceDesc">Libraries on GitHub and npm</span></span></a>
+          <a class="dropdown-item" href="https://github.com/powerducklab" target="_blank" role="menuitem" rel="nofollow noopener noreferrer"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.openSource">Open Source</span><span class="dropdown-item-desc" data-i18n="nav.openSourceDesc">Libraries on GitHub and npm</span></span></a>
         </div>
         </div>
                       </nav>
 
             <div class="nav-actions">
-            <a class="nav-icon-btn" href="https://github.com/powerducklab" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a class="nav-icon-btn" href="https://github.com/powerducklab" target="_blank" aria-label="GitHub" rel="nofollow noopener noreferrer">
               <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12 12-12z"/></svg>
             </a>
             <div class="nav-account-slot" id="navAccountSlot">
@@ -224,16 +225,9 @@
           Local-first &amp; AI-native — your spec stays on your machine
         </p>
 
-        <h1 data-i18n-html="hero.title">One local <code>openapi.yaml</code>. Your AI team for the whole API lifecycle.</h1>
+        <h1 data-i18n-html="hero.title">One local <code>OpenAPI</code> spec.<br>Your AI-native API workspace.</h1>
 
-        <p class="hero-sub" data-i18n="hero.sub">
-          Powerduck turns the OpenAPI file already in your repository into a
-          local, AI-driven studio. Tell it what you need and it designs
-          endpoints, debugs requests, builds and runs scenario tests, mocks the
-          API, writes documentation, and exposes MCP tools — all from that one
-          file, all on your machine. No account, no lock-in, and the same YAML
-          plugs straight into any AI coding agent.
-        </p>
+        <p class="hero-sub" data-i18n="hero.sub">Design, debug, test, mock, document and serve MCP tools from one spec. AI works across the entire API lifecycle; your local file stays the source of truth.</p>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="/download.html" data-i18n="hero.download"> Download Powerduck </a>
@@ -253,6 +247,7 @@
           model &nbsp;·&nbsp; MCP-native
         </p>
       </section>
+
 
       <!-- =======================================================================
      SPEC LOADER
@@ -1610,99 +1605,38 @@ curl /users/{id}
      LICENSING
      ======================================================================= -->
 
-      <section class="section" id="licensing">
-        <div class="section-shell">
-          <p class="section-kicker" data-i18n="lic.kicker">Licensing</p>
-
-          <h2 class="section-title" data-i18n="lic.title">
-            Buy the desktop license once. Subscribe only if you need hosting.
-          </h2>
-
-          <p class="section-deck" data-i18n="lic.deck">
-            Powerduck Desktop is a perpetual license — the same local-first
-            product shown above, with nothing that phones home. Hosted MCP
-            endpoints are optional and stay separate from the local workflow.
-          </p>
-
-          <div class="pricing-grid">
-            <div class="pricing-card featured" id="download">
-              <h3 data-i18n="lic.desktopTitle">Powerduck Desktop</h3>
-
-              <p class="pricing-tag" data-i18n="lic.desktopTag">Perpetual license · one-time purchase</p>
-
-              <div class="price">
-                <span class="price-value"> $89 </span>
-
-                <span class="price-period" data-i18n="lic.desktopPeriod"> per user, once </span>
-              </div>
-
-              <ul class="pricing-list">
-                <li data-i18n="lic.desktopL1">Spec Editor, API Debug, MCP Server and API Docs</li>
-
-                <li data-i18n="lic.desktopL2">All updates within the major version</li>
-
-                <li data-i18n="lic.desktopL3">Fully offline · no account · no telemetry</li>
-
-                <li data-i18n="lic.desktopL4">Personal license for every machine you own</li>
-
-                <li data-i18n="lic.desktopL5">Volume, site and educational licenses available</li>
-              </ul>
-
-              <a href="/console/billing?buy=desktop" class="btn btn-primary" data-desktop-buy data-i18n="lic.buyLicense">
-                Buy a license
-              </a>
-
-              <a href="/download.html" class="btn btn-secondary" data-i18n="lic.download">
-                Download Powerduck
-              </a>
-
-              <p class="pricing-note" data-i18n="lic.desktopNote">macOS 12+ · Windows 10+ · Linux</p>
-            </div>
-
-            <div class="pricing-card">
-              <h3 data-i18n="lic.cloudTitle">Powerduck Cloud</h3>
-
-              <p class="pricing-tag" data-i18n="lic.cloudTag">
-                Hosted docs &amp; MCP · billed monthly or yearly
-              </p>
-
-              <div class="price">
-                <span class="price-value"> $19 </span>
-
-                <span class="price-period" data-i18n="lic.cloudPeriod"> per organization, per month </span>
-              </div>
-
-              <ul class="pricing-list">
-                <li data-i18n="lic.cloudL1">Stable HTTPS MCP URL for teams and agents</li>
-
-                <li data-i18n="lic.cloudL2">Deploy from Git branches automatically</li>
-
-                <li data-i18n="lic.cloudL3">Access tokens and request logs</li>
-
-                <li data-i18n="lic.cloudL4">Hosted reference docs on your own domain</li>
-              </ul>
-
-              <a href="/pricing" class="btn btn-secondary" data-cloud-pricing data-i18n="lic.seePlans">
-                See Cloud plans
-              </a>
-
-              <p class="pricing-note" data-i18n="lic.cloudNote">
-                Not required for the desktop application. Yearly billing saves
-                two months; cancel anytime and your local workflow keeps
-                running.
-              </p>
-            </div>
-          </div>
-
-          <div class="eval-bar" data-i18n-html="lic.eval">
-            <strong>Evaluation:</strong>
-
-            Powerduck is fully functional before you buy, with no time limit and
-            no feature gates. You will occasionally see a reminder to purchase a
-            license.
-          </div>
-        </div>
-      </section>
+      <section class="product-paths" id="licensing" aria-labelledby="product-paths-title">
+<div class="product-paths-heading">
+<h2 id="product-paths-title" data-i18n="guide.title">Choose your next step.</h2>
+<a href="/pricing" data-i18n="guide.compare">Compare products and pricing →</a>
+</div>
+<div class="product-paths-grid">
+<a class="product-path" href="/pricing?product=client">
+<span class="product-path-job" data-i18n="guide.client.job">Build locally</span>
+<h3 data-i18n="guide.client.title">Desktop license</h3>
+<p data-i18n="guide.client.desc">Design, debug and test APIs through chat, using local OpenAPI files.</p>
+<strong data-i18n="guide.client.cost">One-time purchase · perpetual license</strong>
+<span aria-hidden="true"> ↗</span>
+</a>
+<a class="product-path" href="/pricing?product=cloud">
+<span class="product-path-job" data-i18n="guide.cloud.job">Publish online</span>
+<h3 data-i18n="guide.cloud.title">Cloud hosting</h3>
+<p data-i18n="guide.cloud.desc">Share hosted API documentation and MCP services with your team and AI agents.</p>
+<strong data-i18n="guide.cloud.cost">Free tier · monthly or annual plans</strong>
+<span aria-hidden="true"> ↗</span>
+</a>
+<a class="product-path" href="/pricing?product=models">
+<span class="product-path-job" data-i18n="guide.models.job">Choose your model</span>
+<h3 data-i18n="guide.models.title">AI credits</h3>
+<p data-i18n="guide.models.desc">Use hosted models with a credit pack, or configure your own model provider in the desktop app.</p>
+<strong data-i18n="guide.models.cost">Prepaid model credits</strong>
+<span aria-hidden="true"> ↗</span>
+</a>
+</div>
+<p class="product-paths-account">
+<span data-i18n="guide.account">Already have an account? Manage publishing, desktop licenses and AI credits.</span> <a href="/signin" data-i18n="guide.signin">Sign in to your console →</a>
+</p>
+</section>
 
       <!-- =======================================================================
      FAQ
@@ -1834,8 +1768,8 @@ curl /users/{id}
                 <li><a href="#api-debug" data-i18n="nav.apiDebug">API Debug</a></li>
                 <li><a href="#mcp-server" data-i18n="nav.mcpServer">MCP Server</a></li>
                 <li><a href="#api-docs" data-i18n="nav.apiDocs">API Docs</a></li>
-                <li><a href="#download" data-i18n="nav.download">Download</a></li>
-                <li><a href="#licensing" data-i18n="footer.prices">Prices</a></li>
+                <li><a href="/download.html" data-i18n="nav.download">Download</a></li>
+                <li><a href="/pricing" data-i18n="footer.prices">Prices</a></li>
               </ul>
             </div>
             <div class="footer-column">
@@ -1859,17 +1793,17 @@ curl /users/{id}
                   <a
                     href="https://github.com/powerducklab"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    >GitHub</a
+
+                     rel="nofollow noopener noreferrer">GitHub</a
                   >
                 </li>
                 <li>
                   <a
                     href="https://www.npmjs.com/search?q=%40powerduck"
                     target="_blank"
-                    rel="noopener noreferrer"
+
                     data-i18n="footer.npmPackages"
-                    >npm Packages</a
+                     rel="nofollow noopener noreferrer">npm Packages</a
                   >
                 </li>
                 <li><a href="#faq" data-i18n="faq.kicker">FAQ</a></li>
