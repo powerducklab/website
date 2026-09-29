@@ -735,6 +735,22 @@ html.dark .theme-toggle .icon-sun { display: block; }
   max-width: 300px;
 }
 
+.footer-contact {
+  margin: 0;
+}
+
+.footer-contact a {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.footer-contact a:hover {
+  color: var(--ink);
+}
+
 .footer-column h6,
 .footer-col h4 {
   font-size: 11px;
