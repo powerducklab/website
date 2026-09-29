@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/cloud-app/static/css/main.bc4d4e05.css",
-    "main.js": "/cloud-app/static/js/main.4fb4f161.js",
+    "main.js": "/cloud-app/static/js/main.fdcec9f7.js",
     "static/js/9508.ae96b9cf.chunk.js": "/cloud-app/static/js/9508.ae96b9cf.chunk.js",
     "static/js/1706.51df0a69.chunk.js": "/cloud-app/static/js/1706.51df0a69.chunk.js",
     "static/js/7580.b32265de.chunk.js": "/cloud-app/static/js/7580.b32265de.chunk.js",
@@ -321,6 +321,6 @@
   },
   "entrypoints": [
     "static/css/main.bc4d4e05.css",
-    "static/js/main.4fb4f161.js"
+    "static/js/main.fdcec9f7.js"
   ]
 }
