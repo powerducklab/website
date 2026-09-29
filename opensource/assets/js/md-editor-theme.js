@@ -1,4 +1,4 @@
-/* PowerDuck MD Editor — Theme Toggle (shared) */
+/* Powerduck MD Editor — Theme Toggle (shared) */
 (function(){
   var root=document.documentElement;
   var stored=localStorage.getItem('md-editor-theme');
