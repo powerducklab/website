@@ -50,9 +50,7 @@
       content="One local OpenAPI YAML, an AI-driven studio on your machine — design, debug, test, mock, document, and MCP, with any AI coding agent."
     />
 
-    <title>
-      Powerduck — The AI-Native, Local-First OpenAPI Studio
-    </title>
+    <title>Powerduck — The AI-Native, Local-First OpenAPI Studio</title>
 
     <meta
       name="description"
@@ -68,7 +66,7 @@
 
     <link rel="stylesheet" href="assets/css/common.css?v=20260929" />
     <link rel="stylesheet" href="assets/css/contour.css" />
-  <link rel="stylesheet" href="assets/css/product-paths.css" />
+    <link rel="stylesheet" href="assets/css/product-paths.css" />
   </head>
 
   <body>
@@ -89,111 +87,335 @@
             <span>Powerduck</span>
           </a>
 
-          <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <button
+            class="nav-hamburger"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+          >
             <span></span><span></span><span></span>
           </button>
 
           <div class="nav-drawer" id="navDrawer">
             <nav class="nav-links">
-          <div class="nav-dropdown">
-          <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-          <span data-i18n="nav.client">Client</span>
-          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a class="dropdown-item" href="#spec-editor" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.specEditor">Spec Editor</span><span class="dropdown-item-desc" data-i18n="nav.specEditorDesc">Design OpenAPI in place</span></span></a>
-          <a class="dropdown-item" href="#api-debug" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDebug">API Debug</span><span class="dropdown-item-desc" data-i18n="nav.apiDebugDesc">Send requests and inspect responses</span></span></a>
-          <a class="dropdown-item" href="#mcp-server" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.mcpServer">MCP Server</span><span class="dropdown-item-desc" data-i18n="nav.mcpServerDesc">Turn a spec into callable tools</span></span></a>
-          <a class="dropdown-item" href="#api-docs" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDocs">API Docs</span><span class="dropdown-item-desc" data-i18n="nav.apiDocsDesc">Render documentation from the same spec</span></span></a>
-        </div>
-        </div>
+              <div class="nav-dropdown">
+                <button
+                  class="nav-dropdown-trigger"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <span data-i18n="nav.client">Client</span>
+                  <svg
+                    class="chevron"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="#spec-editor" role="menuitem"
+                    ><span class="dropdown-item-text"
+                      ><span
+                        class="dropdown-item-title"
+                        data-i18n="nav.specEditor"
+                        >Spec Editor</span
+                      ><span
+                        class="dropdown-item-desc"
+                        data-i18n="nav.specEditorDesc"
+                        >Design OpenAPI in place</span
+                      ></span
+                    ></a
+                  >
+                  <a class="dropdown-item" href="#api-debug" role="menuitem"
+                    ><span class="dropdown-item-text"
+                      ><span
+                        class="dropdown-item-title"
+                        data-i18n="nav.apiDebug"
+                        >API Debug</span
+                      ><span
+                        class="dropdown-item-desc"
+                        data-i18n="nav.apiDebugDesc"
+                        >Send requests and inspect responses</span
+                      ></span
+                    ></a
+                  >
+                  <a class="dropdown-item" href="#mcp-server" role="menuitem"
+                    ><span class="dropdown-item-text"
+                      ><span
+                        class="dropdown-item-title"
+                        data-i18n="nav.mcpServer"
+                        >MCP Server</span
+                      ><span
+                        class="dropdown-item-desc"
+                        data-i18n="nav.mcpServerDesc"
+                        >Turn a spec into callable tools</span
+                      ></span
+                    ></a
+                  >
+                  <a class="dropdown-item" href="#api-docs" role="menuitem"
+                    ><span class="dropdown-item-text"
+                      ><span class="dropdown-item-title" data-i18n="nav.apiDocs"
+                        >API Docs</span
+                      ><span
+                        class="dropdown-item-desc"
+                        data-i18n="nav.apiDocsDesc"
+                        >Render documentation from the same spec</span
+                      ></span
+                    ></a
+                  >
+                </div>
+              </div>
 
-          <div class="nav-dropdown">
-          <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-          <span data-i18n="nav.cloud">Cloud</span>
-          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a class="dropdown-item" data-cloud-signin="/hub" href="/hub" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.hub">Hub</span><span class="dropdown-item-desc" data-i18n="nav.hubDesc">Browse public docs and MCP servers</span></span></a>
-          <a class="dropdown-item" href="docs/cloud/introduction/index.html" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.cloudDocs">Cloud Docs</span><span class="dropdown-item-desc" data-i18n="nav.cloudDocsDesc">Hosting, access control, and domains</span></span></a>
-          <a class="dropdown-item" data-cloud-signin="/signin" href="/signin" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.signin">Sign in</span><span class="dropdown-item-desc" data-i18n="nav.signinDesc">Open the Cloud console</span></span></a>
-        </div>
-        </div>
+              <div class="nav-dropdown">
+                <button
+                  class="nav-dropdown-trigger"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <span data-i18n="nav.cloud">Cloud</span>
+                  <svg
+                    class="chevron"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a
+                    class="dropdown-item"
+                    data-cloud-signin="/hub"
+                    href="/hub"
+                    role="menuitem"
+                    ><span class="dropdown-item-text"
+                      ><span class="dropdown-item-title" data-i18n="nav.hub"
+                        >Hub</span
+                      ><span class="dropdown-item-desc" data-i18n="nav.hubDesc"
+                        >Browse public docs and MCP servers</span
+                      ></span
+                    ></a
+                  >
+                  <a
+                    class="dropdown-item"
+                    href="docs/cloud/introduction/index.html"
+                    role="menuitem"
+                    ><span class="dropdown-item-text"
+                      ><span
+                        class="dropdown-item-title"
+                        data-i18n="nav.cloudDocs"
+                        >Cloud Docs</span
+                      ><span
+                        class="dropdown-item-desc"
+                        data-i18n="nav.cloudDocsDesc"
+                        >Hosting, access control, and domains</span
+                      ></span
+                    ></a
+                  >
+                  <a
+                    class="dropdown-item"
+                    data-cloud-signin="/signin"
+                    href="/signin"
+                    role="menuitem"
+                    ><span class="dropdown-item-text"
+                      ><span class="dropdown-item-title" data-i18n="nav.signin"
+                        >Sign in</span
+                      ><span
+                        class="dropdown-item-desc"
+                        data-i18n="nav.signinDesc"
+                        >Open the Cloud console</span
+                      ></span
+                    ></a
+                  >
+                </div>
+              </div>
 
-          <a class="nav-direct" href="/pricing" data-i18n="nav.pricing">Pricing</a>
+              <a class="nav-direct" href="/pricing" data-i18n="nav.pricing"
+                >Pricing</a
+              >
 
-          <div class="nav-dropdown">
-          <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-          <span data-i18n="nav.resources">Resources</span>
-          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a class="dropdown-item" href="docs/overview/introduction/index.html" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.documentation">Documentation</span><span class="dropdown-item-desc" data-i18n="nav.documentationDesc">Guides and API references</span></span></a>
-          <a class="dropdown-item" href="demo/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.liveDemo">Live Demo</span><span class="dropdown-item-desc" data-i18n="nav.liveDemoDesc">Try every tool in the browser</span></span></a>
-          <a class="dropdown-item" href="https://github.com/powerducklab" target="_blank" role="menuitem" rel="nofollow noopener noreferrer"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.openSource">Open Source</span><span class="dropdown-item-desc" data-i18n="nav.openSourceDesc">Libraries on GitHub and npm</span></span></a>
-        </div>
-        </div>
-                      </nav>
+              <div class="nav-dropdown">
+                <button
+                  class="nav-dropdown-trigger"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <span data-i18n="nav.resources">Resources</span>
+                  <svg
+                    class="chevron"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a
+                    class="dropdown-item"
+                    href="docs/overview/introduction/index.html"
+                    role="menuitem"
+                    ><span class="dropdown-item-text"
+                      ><span
+                        class="dropdown-item-title"
+                        data-i18n="nav.documentation"
+                        >Documentation</span
+                      ><span
+                        class="dropdown-item-desc"
+                        data-i18n="nav.documentationDesc"
+                        >Guides and API references</span
+                      ></span
+                    ></a
+                  >
+                  <a class="dropdown-item" href="demo/" role="menuitem"
+                    ><span class="dropdown-item-text"
+                      ><span
+                        class="dropdown-item-title"
+                        data-i18n="nav.liveDemo"
+                        >Live Demo</span
+                      ><span
+                        class="dropdown-item-desc"
+                        data-i18n="nav.liveDemoDesc"
+                        >Try every tool in the browser</span
+                      ></span
+                    ></a
+                  >
+                  <a
+                    class="dropdown-item"
+                    href="https://github.com/powerducklab"
+                    target="_blank"
+                    role="menuitem"
+                    rel="nofollow noopener noreferrer"
+                    ><span class="dropdown-item-text"
+                      ><span
+                        class="dropdown-item-title"
+                        data-i18n="nav.openSource"
+                        >Open Source</span
+                      ><span
+                        class="dropdown-item-desc"
+                        data-i18n="nav.openSourceDesc"
+                        >Libraries on GitHub and npm</span
+                      ></span
+                    ></a
+                  >
+                </div>
+              </div>
+            </nav>
 
             <div class="nav-actions">
-            <a class="nav-icon-btn" href="https://github.com/powerducklab" target="_blank" aria-label="GitHub" rel="nofollow noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12 12-12z"/></svg>
-            </a>
-            <div class="nav-account-slot" id="navAccountSlot">
-              <a class="nav-signin" data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">Sign in</a>
-            </div>
-
-            <div class="nav-dropdown" id="langMenu">
-              <button
-                class="nav-icon-btn nav-dropdown-trigger"
-                type="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-                aria-label="Select language"
+              <a
+                class="nav-icon-btn"
+                href="https://github.com/powerducklab"
+                target="_blank"
+                aria-label="GitHub"
+                rel="nofollow noopener noreferrer"
               >
-                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M2 12h20" />
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  width="18"
+                  height="18"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12 12-12z"
+                  />
+                </svg>
+              </a>
+              <div class="nav-account-slot" id="navAccountSlot">
+                <a
+                  class="nav-signin"
+                  data-cloud-signin="/signin"
+                  href="/signin"
+                  data-i18n="nav.signin"
+                  >Sign in</a
+                >
+              </div>
+
+              <div class="nav-dropdown" id="langMenu">
+                <button
+                  class="nav-icon-btn nav-dropdown-trigger"
+                  type="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  aria-label="Select language"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="17"
+                    height="17"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M2 12h20" />
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                    />
+                  </svg>
+                </button>
+                <div
+                  class="nav-dropdown-menu align-right"
+                  role="menu"
+                  id="langMenuContent"
+                ></div>
+              </div>
+
+              <button
+                class="theme-toggle"
+                data-theme-toggle
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle color theme"
+              >
+                <svg
+                  class="theme-icon icon-moon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <svg
+                  class="theme-icon icon-sun"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="4"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  />
+                  <path
+                    d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
                 </svg>
               </button>
-              <div class="nav-dropdown-menu align-right" role="menu" id="langMenuContent"></div>
-            </div>
 
-            <button
-              class="theme-toggle"
-              data-theme-toggle
-              id="themeToggle"
-              type="button"
-              aria-label="Toggle color theme"
-            >
-              <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linejoin="round"
-                />
-              </svg>
-
-              <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none">
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="4"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                />
-                <path
-                  d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                />
-              </svg>
-            </button>
-
-            <a class="btn btn-primary btn-sm" href="/download.html" data-i18n="nav.download">Download</a>
+              <a
+                class="btn btn-primary btn-sm"
+                href="/download.html"
+                data-i18n="nav.download"
+                >Download</a
+              >
             </div>
           </div>
         </div>
@@ -225,12 +447,25 @@
           Local-first &amp; AI-native — your spec stays on your machine
         </p>
 
-        <h1 data-i18n-html="hero.title">One local <code>OpenAPI</code> spec.<br>Your AI-native API workspace.</h1>
+        <h1 data-i18n-html="hero.title">
+          One local <code>OpenAPI</code> spec.<br />Your AI-native API
+          workspace.
+        </h1>
 
-        <p class="hero-sub" data-i18n="hero.sub">Design, debug, test, mock, document and serve MCP tools from one spec. AI works across the entire API lifecycle; your local file stays the source of truth.</p>
+        <p class="hero-sub" data-i18n="hero.sub">
+          Design, debug, test, mock, document and serve MCP tools from one spec.
+          AI works across the entire API lifecycle; your local file stays the
+          source of truth.
+        </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="/download.html" data-i18n="hero.download"> Download Powerduck </a>
+          <a
+            class="btn btn-primary"
+            href="/download.html"
+            data-i18n="hero.download"
+          >
+            Download Powerduck
+          </a>
 
           <a class="btn btn-secondary" href="demo/" data-i18n="hero.demo">
             Explore the live demo
@@ -243,11 +478,10 @@
 
         <p class="hero-strip" data-i18n-html="hero.strip">
           macOS · Windows · Linux &nbsp;·&nbsp; OpenAPI 3.0 / 3.1 / 3.2
-          &nbsp;·&nbsp; 100% local-first &nbsp;·&nbsp; bring any OpenAI-compatible
-          model &nbsp;·&nbsp; MCP-native
+          &nbsp;·&nbsp; 100% local-first &nbsp;·&nbsp; bring any
+          OpenAI-compatible model &nbsp;·&nbsp; MCP-native
         </p>
       </section>
-
 
       <!-- =======================================================================
      SPEC LOADER
@@ -263,7 +497,11 @@
             data-i18n-placeholder="loader.placeholder"
           />
 
-          <button class="btn btn-primary btn-sm" type="submit" data-i18n="loader.load">
+          <button
+            class="btn btn-primary btn-sm"
+            type="submit"
+            data-i18n="loader.load"
+          >
             Load spec
           </button>
         </form>
@@ -271,7 +509,12 @@
         <div class="examples">
           <span class="examples-label" data-i18n="loader.try">Try:</span>
 
-          <button class="chip" type="button" data-handoff="sample" data-sample="petstore">
+          <button
+            class="chip"
+            type="button"
+            data-handoff="sample"
+            data-sample="petstore"
+          >
             Petstore
           </button>
           <button
@@ -301,7 +544,12 @@
             Commerce API — has issues
           </button>
 
-          <button class="chip" type="button" data-handoff="home" data-i18n="loader.openLocal">
+          <button
+            class="chip"
+            type="button"
+            data-handoff="home"
+            data-i18n="loader.openLocal"
+          >
             Open a local file…
           </button>
         </div>
@@ -1075,9 +1323,13 @@
         <div class="section-shell">
           <div class="feature-layout">
             <div class="feature-copy">
-              <p class="section-kicker" data-i18n="f1.kicker">OpenAPI spec editor</p>
+              <p class="section-kicker" data-i18n="f1.kicker">
+                OpenAPI spec editor
+              </p>
 
-              <h2 class="section-title" data-i18n="f1.title">OpenAPI Spec Editor</h2>
+              <h2 class="section-title" data-i18n="f1.title">
+                OpenAPI Spec Editor
+              </h2>
 
               <p class="section-deck" data-i18n="f1.deck">
                 The outline follows the specification's real structure, not a
@@ -1087,23 +1339,40 @@
 
               <ul class="feature-list">
                 <li>
-                  <strong data-i18n="f1.b1Title">Schema-aware validation.</strong>
-                  <span data-i18n="f1.b1Body">Validate against the 3.0, 3.1 or 3.2 dialect your file actually declares.</span>
+                  <strong data-i18n="f1.b1Title"
+                    >Schema-aware validation.</strong
+                  >
+                  <span data-i18n="f1.b1Body"
+                    >Validate against the 3.0, 3.1 or 3.2 dialect your file
+                    actually declares.</span
+                  >
                 </li>
 
                 <li>
-                  <strong data-i18n="f1.b2Title">Resolved $ref navigation.</strong>
-                  <span data-i18n="f1.b2Body">Jump to definitions, inspect usages, and get suggestions for misspelled references.</span>
+                  <strong data-i18n="f1.b2Title"
+                    >Resolved $ref navigation.</strong
+                  >
+                  <span data-i18n="f1.b2Body"
+                    >Jump to definitions, inspect usages, and get suggestions
+                    for misspelled references.</span
+                  >
                 </li>
 
                 <li>
                   <strong data-i18n="f1.b3Title">Edits in place.</strong>
-                  <span data-i18n="f1.b3Body">Your repository remains the source of truth.</span>
+                  <span data-i18n="f1.b3Body"
+                    >Your repository remains the source of truth.</span
+                  >
                 </li>
 
                 <li>
-                  <strong data-i18n="f1.b4Title">Problems with rule names.</strong>
-                  <span data-i18n="f1.b4Body">CI failures and editor diagnostics speak the same vocabulary.</span>
+                  <strong data-i18n="f1.b4Title"
+                    >Problems with rule names.</strong
+                  >
+                  <span data-i18n="f1.b4Body"
+                    >CI failures and editor diagnostics speak the same
+                    vocabulary.</span
+                  >
                 </li>
               </ul>
             </div>
@@ -1253,7 +1522,9 @@
             <div class="feature-copy">
               <p class="section-kicker" data-i18n="f2.kicker">API debugging</p>
 
-              <h2 class="section-title" data-i18n="f2.title">API Debugging Against Your Spec</h2>
+              <h2 class="section-title" data-i18n="f2.title">
+                API Debugging Against Your Spec
+              </h2>
 
               <p class="section-deck" data-i18n="f2.deck">
                 A request builder shaped like the tools developers already use,
@@ -1263,23 +1534,42 @@
 
               <ul class="feature-list">
                 <li>
-                  <strong data-i18n="f2.b1Title">Collections generated from paths and tags.</strong>
-                  <span data-i18n="f2.b1Body">No import step and nothing to manually re-sync.</span>
+                  <strong data-i18n="f2.b1Title"
+                    >Collections generated from paths and tags.</strong
+                  >
+                  <span data-i18n="f2.b1Body"
+                    >No import step and nothing to manually re-sync.</span
+                  >
                 </li>
 
                 <li>
-                  <strong data-i18n="f2.b2Title">Contract checks on every response.</strong>
-                  <span data-i18n="f2.b2Body">Detect undeclared properties, missing fields and type drift inline.</span>
+                  <strong data-i18n="f2.b2Title"
+                    >Contract checks on every response.</strong
+                  >
+                  <span data-i18n="f2.b2Body"
+                    >Detect undeclared properties, missing fields and type drift
+                    inline.</span
+                  >
                 </li>
 
                 <li>
-                  <strong data-i18n="f2.b3Title">Environments and variables.</strong>
-                  <span data-i18n="f2.b3Body">Reuse existing development and staging configurations.</span>
+                  <strong data-i18n="f2.b3Title"
+                    >Environments and variables.</strong
+                  >
+                  <span data-i18n="f2.b3Body"
+                    >Reuse existing development and staging
+                    configurations.</span
+                  >
                 </li>
 
                 <li>
-                  <strong data-i18n="f2.b4Title">Security from securitySchemes.</strong>
-                  <span data-i18n="f2.b4Body">Bearer, API key and OAuth configuration starts from the specification.</span>
+                  <strong data-i18n="f2.b4Title"
+                    >Security from securitySchemes.</strong
+                  >
+                  <span data-i18n="f2.b4Body"
+                    >Bearer, API key and OAuth configuration starts from the
+                    specification.</span
+                  >
                 </li>
               </ul>
             </div>
@@ -1295,9 +1585,13 @@
         <div class="section-shell">
           <div class="feature-layout">
             <div class="feature-copy">
-              <p class="section-kicker" data-i18n="f3.kicker">MCP server generator</p>
+              <p class="section-kicker" data-i18n="f3.kicker">
+                MCP server generator
+              </p>
 
-              <h2 class="section-title" data-i18n="f3.title">Generate an MCP Server from OpenAPI</h2>
+              <h2 class="section-title" data-i18n="f3.title">
+                Generate an MCP Server from OpenAPI
+              </h2>
 
               <p class="section-deck" data-i18n="f3.deck">
                 Your specification is already a tool manifest. Powerduck
@@ -1308,22 +1602,36 @@
               <ul class="feature-list">
                 <li>
                   <strong data-i18n="f3.b1Title">Visible provenance.</strong>
-                  <span data-i18n="f3.b1Body">Every tool traces back to its operation, operationId and schema.</span>
+                  <span data-i18n="f3.b1Body"
+                    >Every tool traces back to its operation, operationId and
+                    schema.</span
+                  >
                 </li>
 
                 <li>
-                  <strong data-i18n="f3.b2Title">Degraded and skipped states.</strong>
-                  <span data-i18n="f3.b2Body">Missing metadata is visible instead of silently producing weak tools.</span>
+                  <strong data-i18n="f3.b2Title"
+                    >Degraded and skipped states.</strong
+                  >
+                  <span data-i18n="f3.b2Body"
+                    >Missing metadata is visible instead of silently producing
+                    weak tools.</span
+                  >
                 </li>
 
                 <li>
                   <strong data-i18n="f3.b3Title">Regenerates on save.</strong>
-                  <span data-i18n="f3.b3Body">Change the specification and tools update without a build step.</span>
+                  <span data-i18n="f3.b3Body"
+                    >Change the specification and tools update without a build
+                    step.</span
+                  >
                 </li>
 
                 <li>
                   <strong data-i18n="f3.b4Title">Local transports.</strong>
-                  <span data-i18n="f3.b4Body">Run through stdio or HTTP for local agents and workflows.</span>
+                  <span data-i18n="f3.b4Body"
+                    >Run through stdio or HTTP for local agents and
+                    workflows.</span
+                  >
                 </li>
               </ul>
             </div>
@@ -1465,7 +1773,9 @@ curl /users/{id}
             </div>
 
             <div class="feature-copy">
-              <p class="section-kicker" data-i18n="f4.kicker">API documentation generator</p>
+              <p class="section-kicker" data-i18n="f4.kicker">
+                API documentation generator
+              </p>
 
               <h2 class="section-title" data-i18n="f4.title">
                 API Documentation from the Same Contract
@@ -1478,23 +1788,41 @@ curl /users/{id}
 
               <ul class="feature-list">
                 <li>
-                  <strong data-i18n="f4.b1Title">Parameter tables from schemas.</strong>
-                  <span data-i18n="f4.b1Body">Required flags, enums and descriptions stay synchronized.</span>
+                  <strong data-i18n="f4.b1Title"
+                    >Parameter tables from schemas.</strong
+                  >
+                  <span data-i18n="f4.b1Body"
+                    >Required flags, enums and descriptions stay
+                    synchronized.</span
+                  >
                 </li>
 
                 <li>
-                  <strong data-i18n="f4.b2Title">Multi-language samples.</strong>
-                  <span data-i18n="f4.b2Body">Generate cURL, Node, Python and Go examples from operations.</span>
+                  <strong data-i18n="f4.b2Title"
+                    >Multi-language samples.</strong
+                  >
+                  <span data-i18n="f4.b2Body"
+                    >Generate cURL, Node, Python and Go examples from
+                    operations.</span
+                  >
                 </li>
 
                 <li>
-                  <strong data-i18n="f4.b3Title">Responses from the real contract.</strong>
-                  <span data-i18n="f4.b3Body">Success and error responses come from the same objects your debugger validates.</span>
+                  <strong data-i18n="f4.b3Title"
+                    >Responses from the real contract.</strong
+                  >
+                  <span data-i18n="f4.b3Body"
+                    >Success and error responses come from the same objects your
+                    debugger validates.</span
+                  >
                 </li>
 
                 <li>
                   <strong data-i18n="f4.b4Title">Static export.</strong>
-                  <span data-i18n="f4.b4Body">No runtime dependency and no documentation platform lock-in.</span>
+                  <span data-i18n="f4.b4Body"
+                    >No runtime dependency and no documentation platform
+                    lock-in.</span
+                  >
                 </li>
               </ul>
             </div>
@@ -1510,7 +1838,9 @@ curl /users/{id}
         <div class="section-shell">
           <div class="product-story-head">
             <div>
-              <p class="section-kicker" data-i18n="story.kicker">One source of truth</p>
+              <p class="section-kicker" data-i18n="story.kicker">
+                One source of truth
+              </p>
               <h2 class="section-title" data-i18n-html="story.title">
                 One local OpenAPI file.<br />Every capability, AI-driven.
               </h2>
@@ -1520,10 +1850,10 @@ curl /users/{id}
               Open <strong>openapi.yaml</strong> or
               <strong>openapi.json</strong> locally and Powerduck turns the
               contract you already own into a complete API workspace. No import.
-              No conversion. No parallel collections. No cloud copy. Describe the
-              outcome in plain language and the built-in assistant carries it out
-              through reviewable steps — and the same file speaks MCP to any AI
-              coding agent.
+              No conversion. No parallel collections. No cloud copy. Describe
+              the outcome in plain language and the built-in assistant carries
+              it out through reviewable steps — and the same file speaks MCP to
+              any AI coding agent.
             </p>
           </div>
 
@@ -1536,7 +1866,9 @@ curl /users/{id}
               <div class="product-file-icon">{ }</div>
               <div class="product-file-name">openapi.yaml</div>
               <div class="product-file-alt">or openapi.json</div>
-              <p data-i18n="story.fileNote">The file stays in your repository.</p>
+              <p data-i18n="story.fileNote">
+                The file stays in your repository.
+              </p>
             </div>
 
             <div class="product-flow-connector" aria-hidden="true">
@@ -1547,22 +1879,30 @@ curl /users/{id}
               <div class="product-flow-tool">
                 <span class="product-flow-index">01</span>
                 <strong data-i18n="nav.specEditor">Spec Editor</strong>
-                <p data-i18n="story.tool1">Edit, navigate and validate the real contract.</p>
+                <p data-i18n="story.tool1">
+                  Edit, navigate and validate the real contract.
+                </p>
               </div>
               <div class="product-flow-tool">
                 <span class="product-flow-index">02</span>
                 <strong data-i18n="nav.apiDebug">API Debug</strong>
-                <p data-i18n="story.tool2">Send requests generated from the same operations.</p>
+                <p data-i18n="story.tool2">
+                  Send requests generated from the same operations.
+                </p>
               </div>
               <div class="product-flow-tool">
                 <span class="product-flow-index">03</span>
                 <strong data-i18n="nav.mcpServer">MCP Server</strong>
-                <p data-i18n="story.tool3">Compile operations into agent-ready tools.</p>
+                <p data-i18n="story.tool3">
+                  Compile operations into agent-ready tools.
+                </p>
               </div>
               <div class="product-flow-tool">
                 <span class="product-flow-index">04</span>
                 <strong data-i18n="nav.apiDocs">API Docs</strong>
-                <p data-i18n="story.tool4">Publish documentation from the same source.</p>
+                <p data-i18n="story.tool4">
+                  Publish documentation from the same source.
+                </p>
               </div>
             </div>
           </div>
@@ -1583,7 +1923,9 @@ curl /users/{id}
             <div class="positioning-points">
               <div>
                 <span>NO CLOUD</span
-                ><strong data-i18n="story.point1">Your spec never needs to leave your machine.</strong>
+                ><strong data-i18n="story.point1"
+                  >Your spec never needs to leave your machine.</strong
+                >
               </div>
               <div>
                 <span>NO SYNC</span
@@ -1594,7 +1936,9 @@ curl /users/{id}
               </div>
               <div>
                 <span>NO COPY</span
-                ><strong data-i18n="story.point3">Your existing YAML or JSON is the workspace.</strong>
+                ><strong data-i18n="story.point3"
+                  >Your existing YAML or JSON is the workspace.</strong
+                >
               </div>
             </div>
           </div>
@@ -1605,38 +1949,71 @@ curl /users/{id}
      LICENSING
      ======================================================================= -->
 
-      <section class="product-paths" id="licensing" aria-labelledby="product-paths-title">
-<div class="product-paths-heading">
-<h2 id="product-paths-title" data-i18n="guide.title">Choose your next step.</h2>
-<a href="/pricing" data-i18n="guide.compare">Compare products and pricing →</a>
-</div>
-<div class="product-paths-grid">
-<a class="product-path" href="/pricing?product=client">
-<span class="product-path-job" data-i18n="guide.client.job">Build locally</span>
-<h3 data-i18n="guide.client.title">Desktop license</h3>
-<p data-i18n="guide.client.desc">Design, debug and test APIs through chat, using local OpenAPI files.</p>
-<strong data-i18n="guide.client.cost">One-time purchase · perpetual license</strong>
-<span aria-hidden="true"> ↗</span>
-</a>
-<a class="product-path" href="/pricing?product=cloud">
-<span class="product-path-job" data-i18n="guide.cloud.job">Publish online</span>
-<h3 data-i18n="guide.cloud.title">Cloud hosting</h3>
-<p data-i18n="guide.cloud.desc">Share hosted API documentation and MCP services with your team and AI agents.</p>
-<strong data-i18n="guide.cloud.cost">Free tier · monthly or annual plans</strong>
-<span aria-hidden="true"> ↗</span>
-</a>
-<a class="product-path" href="/pricing?product=models">
-<span class="product-path-job" data-i18n="guide.models.job">Choose your model</span>
-<h3 data-i18n="guide.models.title">AI credits</h3>
-<p data-i18n="guide.models.desc">Use hosted models with a credit pack, or configure your own model provider in the desktop app.</p>
-<strong data-i18n="guide.models.cost">Prepaid model credits</strong>
-<span aria-hidden="true"> ↗</span>
-</a>
-</div>
-<p class="product-paths-account">
-<span data-i18n="guide.account">Already have an account? Manage publishing, desktop licenses and AI credits.</span> <a href="/signin" data-i18n="guide.signin">Sign in to your console →</a>
-</p>
-</section>
+      <section
+        class="product-paths"
+        id="licensing"
+        aria-labelledby="product-paths-title"
+      >
+        <div class="product-paths-heading">
+          <h2 id="product-paths-title" data-i18n="guide.title">
+            Choose your next step.
+          </h2>
+          <a href="/pricing" data-i18n="guide.compare"
+            >Compare products and pricing →</a
+          >
+        </div>
+        <div class="product-paths-grid">
+          <a class="product-path" href="/pricing?product=client">
+            <span class="product-path-job" data-i18n="guide.client.job"
+              >Build locally</span
+            >
+            <h3 data-i18n="guide.client.title">Desktop license</h3>
+            <p data-i18n="guide.client.desc">
+              Design, debug and test APIs through chat, using local OpenAPI
+              files.
+            </p>
+            <strong data-i18n="guide.client.cost"
+              >One-time purchase · perpetual license</strong
+            >
+            <span aria-hidden="true"> ↗</span>
+          </a>
+          <a class="product-path" href="/pricing?product=cloud">
+            <span class="product-path-job" data-i18n="guide.cloud.job"
+              >Publish online</span
+            >
+            <h3 data-i18n="guide.cloud.title">Cloud hosting</h3>
+            <p data-i18n="guide.cloud.desc">
+              Share hosted API documentation and MCP services with your team and
+              AI agents.
+            </p>
+            <strong data-i18n="guide.cloud.cost"
+              >Free tier · monthly or annual plans</strong
+            >
+            <span aria-hidden="true"> ↗</span>
+          </a>
+          <a class="product-path" href="/pricing?product=models">
+            <span class="product-path-job" data-i18n="guide.models.job"
+              >Choose your model</span
+            >
+            <h3 data-i18n="guide.models.title">AI credits</h3>
+            <p data-i18n="guide.models.desc">
+              Use hosted models with a credit pack, or configure your own model
+              provider in the desktop app.
+            </p>
+            <strong data-i18n="guide.models.cost">Prepaid model credits</strong>
+            <span aria-hidden="true"> ↗</span>
+          </a>
+        </div>
+        <p class="product-paths-account">
+          <span data-i18n="guide.account"
+            >Already have an account? Manage publishing, desktop licenses and AI
+            credits.</span
+          >
+          <a href="/signin" data-i18n="guide.signin"
+            >Sign in to your console →</a
+          >
+        </p>
+      </section>
 
       <!-- =======================================================================
      FAQ
@@ -1648,7 +2025,9 @@ curl /users/{id}
             <div class="faq-heading">
               <p class="section-kicker" data-i18n="faq.kicker">FAQ</p>
 
-              <h2 class="section-title" data-i18n="faq.title">Questions developers ask first</h2>
+              <h2 class="section-title" data-i18n="faq.title">
+                Questions developers ask first
+              </h2>
 
               <p class="section-deck" data-i18n="faq.deck">
                 The practical details around local files, OpenAPI versions, MCP
@@ -1670,7 +2049,9 @@ curl /users/{id}
             </details>
 
             <details>
-              <summary data-i18n="faq.q2">Which OpenAPI versions are supported?</summary>
+              <summary data-i18n="faq.q2">
+                Which OpenAPI versions are supported?
+              </summary>
 
               <p data-i18n="faq.a2">
                 OpenAPI 3.0, 3.1 and 3.2. Powerduck detects the declared version
@@ -1680,7 +2061,9 @@ curl /users/{id}
             </details>
 
             <details>
-              <summary data-i18n="faq.q3">How does the MCP server get generated?</summary>
+              <summary data-i18n="faq.q3">
+                How does the MCP server get generated?
+              </summary>
 
               <p data-i18n="faq.a3">
                 Operations with an operationId become MCP tools. Arguments are
@@ -1691,7 +2074,9 @@ curl /users/{id}
             </details>
 
             <details>
-              <summary data-i18n="faq.q4">Is the desktop license a subscription?</summary>
+              <summary data-i18n="faq.q4">
+                Is the desktop license a subscription?
+              </summary>
 
               <p data-i18n="faq.a4">
                 No. Powerduck Desktop is a perpetual license purchased once.
@@ -1701,7 +2086,9 @@ curl /users/{id}
             </details>
 
             <details>
-              <summary data-i18n="faq.q5">Can I keep using Postman collections?</summary>
+              <summary data-i18n="faq.q5">
+                Can I keep using Postman collections?
+              </summary>
 
               <p data-i18n="faq.a5">
                 Yes. Existing collections and environments can continue to be
@@ -1715,12 +2102,21 @@ curl /users/{id}
               <summary data-i18n="faq.q6">Does it work in CI?</summary>
 
               <p>
-                <span data-i18n="faq.a6Before">Yes. The same validation and generation engine is exposed through</span>
+                <span data-i18n="faq.a6Before"
+                  >Yes. The same validation and generation engine is exposed
+                  through</span
+                >
                 <a
                   href="opensource/openapi-cli.html"
                   style="color: var(--accent); text-decoration: underline"
                   >@powerduck/openapi-cli</a
-                ><span data-i18n="faq.a6After">, a CI-ready command-line tool that runs during pull requests and automated pipelines. It supports batch testing across 6 protocols (HTTP, SSE, WebSocket, gRPC, MCP, tRPC), configurable concurrency, and JUnit-compatible reports for CI integration.</span>
+                ><span data-i18n="faq.a6After"
+                  >, a CI-ready command-line tool that runs during pull requests
+                  and automated pipelines. It supports batch testing across 6
+                  protocols (HTTP, SSE, WebSocket, gRPC, MCP, tRPC),
+                  configurable concurrency, and JUnit-compatible reports for CI
+                  integration.</span
+                >
               </p>
               <p style="margin-top: 8px">
                 <a
@@ -1767,46 +2163,111 @@ curl /users/{id}
             <div class="footer-column">
               <h6 data-i18n="footer.product">Product</h6>
               <ul>
-                <li><a href="#spec-editor" data-i18n="nav.specEditor">Spec Editor</a></li>
-                <li><a href="#api-debug" data-i18n="nav.apiDebug">API Debug</a></li>
-                <li><a href="#mcp-server" data-i18n="nav.mcpServer">MCP Server</a></li>
-                <li><a href="#api-docs" data-i18n="nav.apiDocs">API Docs</a></li>
-                <li><a href="/download.html" data-i18n="nav.download">Download</a></li>
+                <li>
+                  <a href="#spec-editor" data-i18n="nav.specEditor"
+                    >Spec Editor</a
+                  >
+                </li>
+                <li>
+                  <a href="#api-debug" data-i18n="nav.apiDebug">API Debug</a>
+                </li>
+                <li>
+                  <a href="#mcp-server" data-i18n="nav.mcpServer">MCP Server</a>
+                </li>
+                <li>
+                  <a href="#api-docs" data-i18n="nav.apiDocs">API Docs</a>
+                </li>
+                <li>
+                  <a href="/download.html" data-i18n="nav.download">Download</a>
+                </li>
                 <li><a href="/pricing" data-i18n="footer.prices">Prices</a></li>
               </ul>
             </div>
             <div class="footer-column">
               <h6 data-i18n="nav.cloud">Cloud</h6>
               <ul>
-                <li><a data-cloud-signin="/hub" href="/hub" data-i18n="nav.hub">Hub</a></li>
-                <li><a data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">Sign in</a></li>
-                <li><a href="docs/cloud/quickstart/index.html" data-i18n="footer.quickstart">Quickstart</a></li>
-                <li><a href="docs/cloud/access-control/index.html" data-i18n="footer.accessControl">Access Control</a></li>
-                <li><a href="docs/cloud/custom-domains/index.html" data-i18n="footer.customDomains">Custom Domains</a></li>
-                <li><a href="docs/cloud/billing/index.html" data-i18n="footer.billing">Billing</a></li>
+                <li>
+                  <a data-cloud-signin="/hub" href="/hub" data-i18n="nav.hub"
+                    >Hub</a
+                  >
+                </li>
+                <li>
+                  <a
+                    data-cloud-signin="/signin"
+                    href="/signin"
+                    data-i18n="nav.signin"
+                    >Sign in</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="docs/cloud/quickstart/index.html"
+                    data-i18n="footer.quickstart"
+                    >Quickstart</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="docs/cloud/access-control/index.html"
+                    data-i18n="footer.accessControl"
+                    >Access Control</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="docs/cloud/custom-domains/index.html"
+                    data-i18n="footer.customDomains"
+                    >Custom Domains</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="docs/cloud/billing/index.html"
+                    data-i18n="footer.billing"
+                    >Billing</a
+                  >
+                </li>
               </ul>
             </div>
             <div class="footer-column">
               <h6 data-i18n="nav.resources">Resources</h6>
               <ul>
-                <li><a href="docs/overview/introduction/index.html" data-i18n="nav.documentation">Documentation</a></li>
-                <li><a href="docs/client/introduction/index.html" data-i18n="footer.clientGuide">Client Guide</a></li>
-                <li><a href="docs/cloud/introduction/index.html" data-i18n="footer.cloudGuide">Cloud Guide</a></li>
+                <li>
+                  <a
+                    href="docs/overview/introduction/index.html"
+                    data-i18n="nav.documentation"
+                    >Documentation</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="docs/client/introduction/index.html"
+                    data-i18n="footer.clientGuide"
+                    >Client Guide</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="docs/cloud/introduction/index.html"
+                    data-i18n="footer.cloudGuide"
+                    >Cloud Guide</a
+                  >
+                </li>
                 <li>
                   <a
                     href="https://github.com/powerducklab"
                     target="_blank"
-
-                     rel="nofollow noopener noreferrer">GitHub</a
+                    rel="nofollow noopener noreferrer"
+                    >GitHub</a
                   >
                 </li>
                 <li>
                   <a
                     href="https://www.npmjs.com/search?q=%40powerduck"
                     target="_blank"
-
                     data-i18n="footer.npmPackages"
-                     rel="nofollow noopener noreferrer">npm Packages</a
+                    rel="nofollow noopener noreferrer"
+                    >npm Packages</a
                   >
                 </li>
                 <li><a href="#faq" data-i18n="faq.kicker">FAQ</a></li>
@@ -1815,10 +2276,26 @@ curl /users/{id}
             <div class="footer-column">
               <h6 data-i18n="footer.legal">Legal</h6>
               <ul>
-                <li><a href="terms.html" data-i18n="footer.terms">Terms of Service</a></li>
-                <li><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
-                <li><a href="refunds.html" data-i18n="footer.refunds">Refund Policy</a></li>
-                <li><a href="cookie.html" data-i18n="footer.cookie">Cookie Notice</a></li>
+                <li>
+                  <a href="terms.html" data-i18n="footer.terms"
+                    >Terms of Service</a
+                  >
+                </li>
+                <li>
+                  <a href="privacy.html" data-i18n="footer.privacy"
+                    >Privacy Policy</a
+                  >
+                </li>
+                <li>
+                  <a href="refunds.html" data-i18n="footer.refunds"
+                    >Refund Policy</a
+                  >
+                </li>
+                <li>
+                  <a href="cookie.html" data-i18n="footer.cookie"
+                    >Cookie Notice</a
+                  >
+                </li>
               </ul>
             </div>
           </div>
@@ -1932,26 +2409,30 @@ curl /users/{id}
     <script src="assets/js/i18n.js?v=20260924"></script>
     <script src="assets/js/common.js?v=20260924"></script>
     <script src="assets/js/cloud.js?v=20260924"></script>
-  <script>
-(function(){
-  var btn=document.querySelector('.nav-hamburger');
-  var drawer=document.getElementById('navDrawer');
-  if(btn&&drawer){
-    btn.addEventListener('click',function(e){
-      e.stopPropagation();
-      var open=drawer.classList.toggle('open');
-      btn.classList.toggle('open',open);
-      btn.setAttribute('aria-expanded',open);
-    });
-    document.addEventListener('click',function(e){
-      if(drawer.classList.contains('open')&&!drawer.contains(e.target)&&!btn.contains(e.target)){
-        drawer.classList.remove('open');
-        btn.classList.remove('open');
-        btn.setAttribute('aria-expanded','false');
-      }
-    });
-  }
-})();
-</script>
-</body>
+    <script>
+      (function () {
+        var btn = document.querySelector(".nav-hamburger");
+        var drawer = document.getElementById("navDrawer");
+        if (btn && drawer) {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            var open = drawer.classList.toggle("open");
+            btn.classList.toggle("open", open);
+            btn.setAttribute("aria-expanded", open);
+          });
+          document.addEventListener("click", function (e) {
+            if (
+              drawer.classList.contains("open") &&
+              !drawer.contains(e.target) &&
+              !btn.contains(e.target)
+            ) {
+              drawer.classList.remove("open");
+              btn.classList.remove("open");
+              btn.setAttribute("aria-expanded", "false");
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
 </html>
