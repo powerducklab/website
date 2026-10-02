@@ -555,6 +555,11 @@
     "status": "200"
   },
   {
+    "source": "/hub",
+    "target": "/cloud-app/seo/hub.html",
+    "status": "200"
+  },
+  {
     "source": "/pricing",
     "target": "/cloud-app/seo/pricing.html",
     "status": "200"
