@@ -1195,3 +1195,7 @@ Object.assign(window.POWERDUCK_I18N.messages.es, {"hero.title": "Una spec <code>
 // A2A is a desktop/debug protocol, not a claim of CLI or hosted-agent execution.
 Object.assign(window.POWERDUCK_I18N.messages.en, {"a2a.intro": "Design A2A contracts locally, debug JSON-RPC, REST and native gRPC, verify Agent Cards, and export a server project.", "a2a.learn": "Explore A2A support →"});
 Object.assign(window.POWERDUCK_I18N.messages["zh-CN"], {"a2a.intro": "在本地规范中设计 A2A 契约，调试 JSON-RPC、REST 和原生 gRPC，验证 Agent Card 签名并导出服务端项目。", "a2a.learn": "了解 A2A 支持 →"});
+Object.assign(window.POWERDUCK_I18N.messages.ja, {"a2a.intro": "ローカルで A2A 契約を設計し、JSON-RPC・REST・ネイティブ gRPC をデバッグし、Agent Card を検証してサーバープロジェクトをエクスポートできます。", "a2a.learn": "A2A サポートを見る →"});
+Object.assign(window.POWERDUCK_I18N.messages.de, {"a2a.intro": "Entwerfen Sie A2A-Verträge lokal, debuggen Sie JSON-RPC, REST und natives gRPC, prüfen Sie Agent Cards und exportieren Sie ein Serverprojekt.", "a2a.learn": "A2A-Unterstützung entdecken →"});
+Object.assign(window.POWERDUCK_I18N.messages.fr, {"a2a.intro": "Concevez des contrats A2A localement, déboguez JSON-RPC, REST et gRPC natif, vérifiez les Agent Cards et exportez un projet serveur.", "a2a.learn": "Découvrir la prise en charge A2A →"});
+Object.assign(window.POWERDUCK_I18N.messages.es, {"a2a.intro": "Diseña contratos A2A localmente, depura JSON-RPC, REST y gRPC nativo, verifica Agent Cards y exporta un proyecto de servidor.", "a2a.learn": "Explorar la compatibilidad con A2A →"});
