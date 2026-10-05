@@ -227,7 +227,6 @@
     });
 
     var downloadButtons = document.querySelectorAll("[data-desktop-download]");
-    var DOWNLOAD_BASE = "https://cdn.neatico.com/downloads/powerduck/";
 
     function detectArchitecture() {
       try {
@@ -257,13 +256,12 @@
       var isLinux = platform.indexOf("linux") > -1 || ua.indexOf("linux") > -1;
       return detectArchitecture().then(function (architecture) {
         if (isMac) {
-          return (
-            DOWNLOAD_BASE +
-            (architecture === "x86" ? "latest-x64.dmg" : "latest-arm64.dmg")
-          );
+          return architecture === "x86"
+            ? "/api/download/mac-x64"
+            : "/api/download/mac-arm64";
         }
         if (isLinux) {
-          return DOWNLOAD_BASE + "latest-x86_64.AppImage";
+          return "/api/download/linux-x86_64";
         }
         // Windows and unknown platforms land on the downloads page.
         return null;
