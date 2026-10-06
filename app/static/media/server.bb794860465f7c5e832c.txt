@@ -1,0 +1,111 @@
+import express from 'express';
+import grpc from '@grpc/grpc-js';
+import {readFile} from 'node:fs/promises';
+import {timingSafeEqual, randomUUID} from 'node:crypto';
+import {AgentCard, Message} from '@a2a-js/sdk';
+import {AgentEvent, DefaultRequestHandler, InMemoryTaskStore} from '@a2a-js/sdk/server';
+import {jsonRpcHandler, restHandler} from '@a2a-js/sdk/server/express';
+import {A2AService, grpcService} from '@a2a-js/sdk/server/grpc';
+import {importJWK, FlattenedSign} from 'jose';
+import {canonicalizeA2ACard,schema} from './canonicalize.mjs';
+
+// A real handler is mandatory: this server never presents an echo/TODO response as business output.
+const token = process.env.A2A_TOKEN;
+if (!token || token.length < 32) throw new Error('Set A2A_TOKEN to a random secret of at least 32 characters.');
+const handlerUrl = new URL(process.env.HANDLER_URL || '');
+if (!['http:', 'https:'].includes(handlerUrl.protocol) || handlerUrl.username || handlerUrl.password) throw new Error('Invalid HANDLER_URL.');
+const base = new URL(process.env.PUBLIC_URL || 'http://localhost:9999');
+if (!['http:', 'https:'].includes(base.protocol) || base.username || base.password || base.search || base.hash || base.pathname !== '/') throw new Error('PUBLIC_URL must be an HTTP(S) origin.');
+const host = process.env.HOST || '127.0.0.1';
+const port = Number(process.env.PORT || 9999), grpcPort = Number(process.env.GRPC_PORT || 9998);
+for (const value of [port, grpcPort]) if (!Number.isInteger(value) || value < 1 || value > 65535) throw new Error('Invalid listen port.');
+const controllers = new Set();
+const authenticate = value => {
+  const expected = Buffer.from('Bearer ' + token), actual = Buffer.from(String(value || ''));
+  if (expected.length !== actual.length || !timingSafeEqual(expected, actual)) throw new Error('Unauthenticated');
+  return {isAuthenticated:true, userName:'configured-client'};
+};
+const executor = {
+  async execute(context, bus) {
+    if (controllers.size >= 32) throw new Error('Agent is busy; retry later.');
+    const abort = new AbortController(); controllers.add(abort);
+    const timer = setTimeout(()=>abort.abort(), 60000);
+    try {
+      const response = await fetch(handlerUrl, {
+        method:'POST', redirect:'error', signal:abort.signal,
+        headers:{'Content-Type':'application/json', ...(process.env.HANDLER_TOKEN ? {Authorization:'Bearer '+process.env.HANDLER_TOKEN} : {})},
+        body:JSON.stringify({message:Message.toJSON(context.userMessage), contextId:context.contextId}),
+      });
+      if (!response.ok) throw new Error('Business handler returned HTTP ' + response.status);
+      const reader = response.body.getReader(); let size = 0; const chunks = [];
+      try {
+        while (true) { const {done,value} = await reader.read(); if(done) break; size += value.length; if(size > 1048576) throw new Error('Handler response exceeds 1 MiB.'); chunks.push(value); }
+      } finally { await reader.cancel().catch(()=>{}); reader.releaseLock(); }
+      const result = JSON.parse(Buffer.concat(chunks).toString('utf8'));
+      if (!Array.isArray(result.parts) || !result.parts.length) throw new Error('Handler must return an A2A Message with nonempty parts.');
+      const message = Message.fromJSON({...result, messageId:randomUUID(), contextId:context.contextId, role:'ROLE_AGENT'});
+      bus.publish(AgentEvent.message(message));
+    } finally { clearTimeout(timer); controllers.delete(abort); bus.finished(); }
+  },
+  async cancelTask() { throw new Error('This stateless agent returns messages, not persistent tasks.'); },
+};
+const seed = JSON.parse(await readFile(new URL('./agent-card.json', import.meta.url), 'utf8'));
+const tls = process.env.TLS_CERT_FILE && process.env.TLS_KEY_FILE;
+if (host !== '127.0.0.1' && host !== '::1' && !tls) throw new Error('Non-loopback gRPC requires TLS_CERT_FILE and TLS_KEY_FILE.');
+let card = AgentCard.fromJSON({...seed, capabilities:{streaming:true, pushNotifications:false, extendedAgentCard:false},
+  supportedInterfaces:[
+    {url:base.origin+'/rpc', protocolBinding:'JSONRPC', protocolVersion:'1.0'},
+    {url:base.origin+'/rest', protocolBinding:'HTTP+JSON', protocolVersion:'1.0'},
+    {url:process.env.GRPC_PUBLIC_URL || (tls ? 'https://' : 'http://')+'localhost:'+grpcPort, protocolBinding:'GRPC', protocolVersion:'1.0'},
+  ], securitySchemes:{bearer:{httpAuthSecurityScheme:{scheme:'Bearer'}}}, securityRequirements:[{schemes:{bearer:{list:[]}}}],
+});
+let publicJwks;
+if (process.env.SIGNING_JWK_FILE) {
+  const jwk = JSON.parse(await readFile(process.env.SIGNING_JWK_FILE, 'utf8'));
+  if (!jwk.kid || !['ES256','RS256','PS256','EdDSA'].includes(jwk.alg)) throw new Error('Signing JWK requires kid and an allowed alg.');
+  const key = await importJWK(jwk, jwk.alg);
+  const signature = await new FlattenedSign(new TextEncoder().encode(canonicalizeA2ACard(card,schema))).setProtectedHeader({alg:jwk.alg,kid:jwk.kid,typ:'JOSE'}).sign(key);
+  card.signatures = [{protected:signature.protected,signature:signature.signature}];
+  const publicKey = {...jwk}; for (const key of ['d','p','q','dp','dq','qi','oth','k']) delete publicKey[key];
+  publicKey.key_ops = ['verify']; publicJwks = {keys:[publicKey]};
+}
+const requestHandler = new DefaultRequestHandler(card, new InMemoryTaskStore(), executor);
+const app = express(); app.disable('x-powered-by');
+// Explicit opt-in for browser clients; no credentialed wildcard origins.
+const allowedOrigins = new Set((process.env.CORS_ORIGINS || '').split(',').map(value=>value.trim()).filter(Boolean));
+app.use((req,res,next)=>{
+  const origin = req.headers.origin;
+  if (origin) {
+    res.vary('Origin');
+    if (!allowedOrigins.has(origin)) return res.status(403).json({error:'Origin not allowed'});
+    res.set('Access-Control-Allow-Origin',origin);
+    res.set('Access-Control-Allow-Methods','GET, POST, DELETE, OPTIONS');
+    res.set('Access-Control-Allow-Headers','Authorization, Content-Type, A2A-Version, Accept');
+  }
+  if (req.method === 'OPTIONS') return res.sendStatus(204);
+  next();
+});
+app.get('/healthz', (_req,res)=>res.json({ok:true}));
+app.get('/.well-known/agent-card.json', (_req,res)=>res.set('Cache-Control','public, max-age=60').json(card));
+if (publicJwks) app.get('/.well-known/jwks.json', (_req,res)=>res.json(publicJwks));
+app.use((req,res,next)=>{try{authenticate(req.headers.authorization);next();}catch{res.status(401).json({error:'Unauthorized'});}});
+app.use(express.json({limit:'1mb'}));
+const httpUser = async req => authenticate(req.headers.authorization);
+app.use('/rpc', jsonRpcHandler({requestHandler,userBuilder:httpUser}));
+app.use('/rest', restHandler({requestHandler,userBuilder:httpUser}));
+app.use((error,_req,res,_next)=>{res.status(error.status === 413 ? 413 : 400).json({error:'Invalid request'});});
+const httpServer = app.listen(port,host);
+httpServer.requestTimeout = 65000; httpServer.headersTimeout = 10000;
+const grpcServer = new grpc.Server({'grpc.max_receive_message_length':1048576,'grpc.max_send_message_length':1048576});
+grpcServer.addService(A2AService,grpcService({requestHandler,userBuilder:async call=>authenticate(call.metadata.get('authorization')[0])}));
+const credentials = tls ? grpc.ServerCredentials.createSsl(null,[{private_key:await readFile(process.env.TLS_KEY_FILE),cert_chain:await readFile(process.env.TLS_CERT_FILE)}]) : grpc.ServerCredentials.createInsecure();
+await new Promise((resolve,reject)=>grpcServer.bindAsync(host+':'+grpcPort,credentials,error=>error?reject(error):resolve()));
+console.log('A2A HTTP and gRPC listeners ready.');
+let closing = false;
+function shutdown() {
+  if(closing) return; closing = true;
+  for(const controller of controllers) controller.abort();
+  httpServer.close(); grpcServer.tryShutdown(()=>{});
+  setTimeout(()=>{grpcServer.forceShutdown();httpServer.closeAllConnections();},5000).unref();
+}
+process.once('SIGTERM',shutdown); process.once('SIGINT',shutdown);
