@@ -40,6 +40,10 @@
 .dl-linux-build .dl-download { margin-left: auto; }
 .dl-demo-button { margin-top: 26px; }
 .dl-beta-badge { display: inline-flex; align-items: center; margin-left: 8px; padding: 2px 8px; border: 1px solid var(--line-strong); border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-soft); background: var(--bg-subtle); vertical-align: middle; }
+.dl-win-warning { display: flex; align-items: flex-start; gap: 12px; margin: 16px 0 0; padding: 13px 15px; border: 1px solid transparent; border-left: 3px solid var(--warn); border-radius: 10px; background: var(--warn-soft); }
+.dl-win-warning-icon { flex: 0 0 auto; width: 18px; height: 18px; margin-top: 2px; color: var(--warn); }
+.dl-win-warning-title { font-size: 13px; font-weight: 650; color: var(--warn); line-height: 1.4; }
+.dl-win-warning-body { margin-top: 4px; font-size: 12.5px; line-height: 1.65; color: var(--ink-soft); }
 .dl-picker-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 17px 28px; border-top: 1px solid var(--line); background: var(--bg-subtle); }
 .dl-picker-footer a { font-size: 12px; color: var(--muted); text-decoration: none; }
 .dl-start { padding: 48px 0; border-top: 1px solid var(--line); }
@@ -80,6 +84,7 @@
   .dl-build { padding: 12px; }
   .dl-build .dl-download { padding: 10px 6px; gap: 4px; font-size: 12px; }
   .dl-device-note { padding: 12px 18px 0; }
+  .dl-win-warning { padding: 11px 12px; gap: 10px; }
 }
 @media (prefers-reduced-motion: reduce) { .dl-main * { transition: none !important; } }
 /* Keep the shared homepage's generic accordion spacing out of the picker. */

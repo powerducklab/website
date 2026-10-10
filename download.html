@@ -70,7 +70,7 @@
 
     <link rel="stylesheet" href="assets/css/common.css?v=20260924" />
     <link rel="stylesheet" href="assets/css/contour.css" />
-    <link rel="stylesheet" href="assets/css/download.css?v=20260927-2" />
+    <link rel="stylesheet" href="assets/css/download.css?v=20261010" />
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8HXDV7CDEB"></script>
 <script>
@@ -263,12 +263,18 @@ Powerduck.</h1>
         </div>
         <div class="dl-package" id="package-windows" data-package="windows">
           <h3><span data-i18n="dl.windowsTitle">Powerduck for Windows</span> <span class="dl-beta-badge" data-i18n="dl.betaBadge">Beta</span></h3><p data-i18n="dl.windowsDesc" class="dl-muted">Unsigned beta for Windows 10/11. Pick 64-bit (x64) for modern PCs or 32-bit (x86) for older systems. SmartScreen may show a one-time warning until code signing is complete.</p>
+          <div class="dl-win-warning" role="note">
+            <svg class="dl-win-warning-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <div class="dl-win-warning-text">
+              <p class="dl-win-warning-title" data-i18n="dl.winWarningTitle">Windows may warn before the first run</p>
+              <p class="dl-win-warning-body" data-i18n="dl.windowsInstall">This beta is not yet code-signed, so a one-time security prompt is expected. If SmartScreen shows “Windows protected your PC”, choose More info → Run anyway. If Edge or Chrome blocks the download, choose Keep → Keep anyway.</p>
+            </div>
+          </div>
           <div class="dl-builds">
             <div class="dl-build"><div class="dl-chip" aria-hidden="true">x64</div><h4 id="win-x64-title" data-i18n="dl.win64Title">Windows 10/11 · 64-bit</h4><p data-i18n="dl.win64Desc">Recommended for modern PCs</p><a class="dl-download" href="/api/download/windows-x64" aria-labelledby="download-win64 win-x64-title" rel="nofollow noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v5h14v-5"/></svg><span id="download-win64" data-i18n="dl.downloadExe">Download .exe (beta)</span></a></div>
             <div class="dl-build"><div class="dl-chip" aria-hidden="true">x86</div><h4 id="win-x86-title" data-i18n="dl.win32Title">Windows · 32-bit</h4><p data-i18n="dl.win32Desc">For older 32-bit (x86) PCs</p><a class="dl-download" href="/api/download/windows-x86" aria-labelledby="download-win86 win-x86-title" rel="nofollow noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v5h14v-5"/></svg><span id="download-win86" data-i18n="dl.downloadExe">Download .exe (beta)</span></a></div>
           </div>
           <p class="dl-muted" data-i18n="dl.win32Note">The 32-bit build cannot use Oracle Thick mode; the default pure-JS Thin mode works.</p>
-          <p class="dl-install-tip"><span data-i18n="dl.windowsInstall">Beta, not yet code-signed. If SmartScreen shows “Windows protected your PC”, choose More info → Run anyway.</span></p>
         </div>
         <div class="dl-picker-footer"><a href="/docs/overview/installation/"><span data-i18n="dl.installHelp">Installation help</span> <span aria-hidden="true">↗</span></a><a href="/console/billing?buy=desktop"><span data-i18n="dl.licenseLink">Desktop licensing</span> <span aria-hidden="true">↗</span></a></div>
       </section>
@@ -376,7 +382,7 @@ Powerduck.</h1>
     </div>
 
     <script src="assets/js/i18n.js?v=20261006"></script>
-    <script src="assets/js/download-i18n.js?v=20260927-2"></script>
+    <script src="assets/js/download-i18n.js?v=20261010"></script>
     <script src="assets/js/common.js?v=20260924"></script>
     <script src="assets/js/download.js?v=20260927-2"></script>
     <script src="assets/js/cloud.js?v=20260924"></script>
