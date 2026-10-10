@@ -1,23 +1,38 @@
-/* ==========================================================================
-   Powerduck — Static site translations
-   Shared by the marketing landing page. The runtime engine lives in
-   common.js; this file only declares language metadata and message tables.
-   ========================================================================== */
-
+// Shared marketing messages. Keep privacy statements aligned with the desktop consent controls.
 window.POWERDUCK_I18N = {
-  languages: [
-    { code: "auto", native: "Auto" },
-    { code: "en", native: "English" },
-    { code: "zh-CN", native: "简体中文" },
-    { code: "ja", native: "日本語" },
-    { code: "de", native: "Deutsch" },
-    { code: "fr", native: "Français" },
-    { code: "es", native: "Español" }
+  "languages": [
+    {
+      "code": "auto",
+      "native": "Auto"
+    },
+    {
+      "code": "en",
+      "native": "English"
+    },
+    {
+      "code": "zh-CN",
+      "native": "简体中文"
+    },
+    {
+      "code": "ja",
+      "native": "日本語"
+    },
+    {
+      "code": "de",
+      "native": "Deutsch"
+    },
+    {
+      "code": "fr",
+      "native": "Français"
+    },
+    {
+      "code": "es",
+      "native": "Español"
+    }
   ],
-  messages: {
-    en: {
+  "messages": {
+    "en": {
       "common.auto": "Auto (browser language)",
-
       "nav.client": "Client",
       "nav.cloud": "Cloud",
       "nav.pricing": "Pricing",
@@ -52,27 +67,21 @@ window.POWERDUCK_I18N = {
       "account.console": "Console",
       "account.settings": "Settings",
       "account.signout": "Sign out",
-
-      "hero.title": 'One local <code>openapi.yaml</code>. Your AI team for the whole API lifecycle.',
-      "hero.sub":
-        "Powerduck turns the OpenAPI file already in your repository into a local, AI-driven studio. Tell it what you need and it designs endpoints, debugs requests, builds and runs scenario tests, mocks the API, writes documentation, and exposes MCP tools — all from that one file, all on your machine. No account, no lock-in, and the same YAML plugs straight into any AI coding agent.",
-      "hero.download": "Download Powerduck",
+      "hero.title": "Build with AI against your API contract—and verify the result.",
+      "hero.sub": "Start with local OpenAPI, connect a coding agent, debug APIs and check whether the implementation matches the contract.",
+      "hero.download": "Download desktop",
       "hero.demo": "Explore the live demo",
-      "hero.webApp": "Explore the live demo",
-      "hero.micro": "Evaluate free for as long as you like. Buy when it sticks.",
-      "hero.strip":
-        "macOS · Windows · Linux &nbsp;·&nbsp; OpenAPI 3.0 / 3.1 / 3.2 &nbsp;·&nbsp; 100% local-first &nbsp;·&nbsp; bring any OpenAI-compatible model &nbsp;·&nbsp; MCP-native",
-
+      "hero.webApp": "See a working example",
+      "hero.micro": "Local use needs no Cloud purchase. Free use includes one specification slot; approved sharing rewards can add slots. A desktop license removes the slot limit. Your model provider bills your own key; hosted model credits and Cloud hosting are separate.",
+      "hero.strip": "macOS · Windows · Linux &nbsp;·&nbsp; OpenAPI 3.0 / 3.1 / 3.2 &nbsp;·&nbsp; Local-first &nbsp;·&nbsp; bring any OpenAI-compatible model &nbsp;·&nbsp; MCP-native",
       "loader.placeholder": "https://api.example.com/openapi.yaml",
       "loader.load": "Load spec",
       "loader.try": "Try:",
       "loader.commerceIssue": "Commerce API — has issues",
       "loader.openLocal": "Open a local file…",
-
       "f1.kicker": "OpenAPI spec editor",
       "f1.title": "OpenAPI Spec Editor",
-      "f1.deck":
-        "The outline follows the specification's real structure, not a guess based on indentation. Navigate paths and components as a tree, and fix errors where they live.",
+      "f1.deck": "The outline follows the specification's real structure, not a guess based on indentation. Navigate paths and components as a tree, and fix errors where they live.",
       "f1.b1Title": "Schema-aware validation.",
       "f1.b1Body": "Validate against the 3.0, 3.1 or 3.2 dialect your file actually declares.",
       "f1.b2Title": "Resolved $ref navigation.",
@@ -81,11 +90,9 @@ window.POWERDUCK_I18N = {
       "f1.b3Body": "Your repository remains the source of truth.",
       "f1.b4Title": "Problems with rule names.",
       "f1.b4Body": "CI failures and editor diagnostics speak the same vocabulary.",
-
       "f2.kicker": "API debugging",
       "f2.title": "API Debugging Against Your Spec",
-      "f2.deck":
-        "A request builder shaped like the tools developers already use, plus one thing those tools cannot do by default: verify responses against the contract.",
+      "f2.deck": "A request builder shaped like the tools developers already use, plus one thing those tools cannot do by default: verify responses against the contract.",
       "f2.b1Title": "Collections generated from paths and tags.",
       "f2.b1Body": "No import step and nothing to manually re-sync.",
       "f2.b2Title": "Contract checks on every response.",
@@ -94,11 +101,9 @@ window.POWERDUCK_I18N = {
       "f2.b3Body": "Reuse existing development and staging configurations.",
       "f2.b4Title": "Security from securitySchemes.",
       "f2.b4Body": "Bearer, API key and OAuth configuration starts from the specification.",
-
       "f3.kicker": "MCP server generator",
       "f3.title": "Generate an MCP Server from OpenAPI",
-      "f3.deck":
-        "Your specification is already a tool manifest. Powerduck compiles it into a runnable MCP server and shows exactly which OpenAPI fields produced each tool.",
+      "f3.deck": "Your specification is already a tool manifest. Powerduck compiles it into a runnable MCP server and shows exactly which OpenAPI fields produced each tool.",
       "f3.b1Title": "Visible provenance.",
       "f3.b1Body": "Every tool traces back to its operation, operationId and schema.",
       "f3.b2Title": "Degraded and skipped states.",
@@ -107,11 +112,9 @@ window.POWERDUCK_I18N = {
       "f3.b3Body": "Change the specification and tools update without a build step.",
       "f3.b4Title": "Local transports.",
       "f3.b4Body": "Run through stdio or HTTP for local agents and workflows.",
-
       "f4.kicker": "API documentation generator",
       "f4.title": "API Documentation from the Same Contract",
-      "f4.deck":
-        "Reference documentation generated directly from your OpenAPI model, exported as static files and hosted wherever you want.",
+      "f4.deck": "Reference documentation generated directly from your OpenAPI model, exported as static files and hosted wherever you want.",
       "f4.b1Title": "Parameter tables from schemas.",
       "f4.b1Body": "Required flags, enums and descriptions stay synchronized.",
       "f4.b2Title": "Multi-language samples.",
@@ -120,35 +123,28 @@ window.POWERDUCK_I18N = {
       "f4.b3Body": "Success and error responses come from the same objects your debugger validates.",
       "f4.b4Title": "Static export.",
       "f4.b4Body": "No runtime dependency and no documentation platform lock-in.",
-
       "story.kicker": "One source of truth",
       "story.title": "One local OpenAPI file.<br />Every capability, AI-driven.",
-      "story.deck":
-        'Open <strong>openapi.yaml</strong> or <strong>openapi.json</strong> locally and Powerduck turns the contract you already own into a complete API workspace. No import. No conversion. No parallel collections. No cloud copy. Describe the outcome in plain language and the built-in assistant carries it out through reviewable steps — and the same file speaks MCP to any AI coding agent.',
+      "story.deck": "Open <strong>openapi.yaml</strong> or <strong>openapi.json</strong> locally and Powerduck turns the contract you already own into a complete API workspace. No import. No conversion. No parallel collections. No cloud copy. Describe the outcome in plain language and the built-in assistant carries it out through reviewable steps — and the same file speaks MCP to any AI coding agent.",
       "story.fileNote": "The file stays in your repository.",
       "story.tool1": "Edit, navigate and validate the real contract.",
       "story.tool2": "Send requests generated from the same operations.",
       "story.tool3": "Compile operations into agent-ready tools.",
       "story.tool4": "Publish documentation from the same source.",
-      "story.posTitle":
-        "Not another API client.<br />Not another spec viewer.<br />An AI-native way to build APIs.",
-      "story.posBody":
-        "It is the local-native, AI-driven workspace built around the OpenAPI file itself.",
+      "story.posTitle": "Not another API client.<br />Not another spec viewer.<br />An AI-native way to build APIs.",
+      "story.posBody": "It is the local-native, AI-driven workspace built around the OpenAPI file itself.",
       "story.point1": "Your spec never needs to leave your machine.",
       "story.point2": "There is nothing else to keep aligned with the contract.",
       "story.point3": "Your existing YAML or JSON is the workspace.",
-
       "lic.kicker": "Licensing",
-      "lic.title":
-        "Buy the desktop license once. Subscribe only if you need hosting.",
-      "lic.deck":
-        "Powerduck Desktop is a perpetual license — the same local-first product shown above, with nothing that phones home. Hosted MCP endpoints are optional and stay separate from the local workflow.",
+      "lic.title": "Buy the desktop license once. Subscribe only if you need hosting.",
+      "lic.deck": "Powerduck Desktop is a perpetual license — the same local-first product shown above, with nothing that phones home. Hosted MCP endpoints are optional and stay separate from the local workflow.",
       "lic.desktopTitle": "Powerduck Desktop",
       "lic.desktopTag": "Perpetual license · one-time purchase",
       "lic.desktopPeriod": "per user, once",
       "lic.desktopL1": "Spec Editor, API Debug, MCP Server and API Docs",
       "lic.desktopL2": "All updates within the major version",
-      "lic.desktopL3": "Fully offline · no account · no telemetry",
+      "lic.desktopL3": "Local files · no account required for local work",
       "lic.desktopL4": "Personal license for every machine you own",
       "lic.desktopL5": "Volume, site and educational licenses available",
       "lic.buyLicense": "Buy a license",
@@ -162,39 +158,26 @@ window.POWERDUCK_I18N = {
       "lic.cloudL3": "Access tokens and request logs",
       "lic.cloudL4": "Hosted reference docs on your own domain",
       "lic.seePlans": "See Cloud plans",
-      "lic.cloudNote":
-        "Not required for the desktop application. Yearly billing saves two months; cancel anytime and your local workflow keeps running.",
-      "lic.eval":
-        "<strong>Evaluation:</strong> Powerduck is fully functional before you buy, with no time limit and no feature gates. You will occasionally see a reminder to purchase a license.",
-
+      "lic.cloudNote": "Not required for the desktop application. Yearly billing saves two months; cancel anytime and your local workflow keeps running.",
+      "lic.eval": "<strong>Evaluation:</strong> Powerduck is fully functional before you buy, with no time limit and no feature gates. You will occasionally see a reminder to purchase a license.",
       "faq.kicker": "FAQ",
       "faq.title": "Questions developers ask first",
-      "faq.deck":
-        "The practical details around local files, OpenAPI versions, MCP generation and licensing.",
+      "faq.deck": "The practical details around local files, OpenAPI versions, MCP generation and licensing.",
       "faq.q1": "Does Powerduck upload my OpenAPI specification anywhere?",
-      "faq.a1":
-        "No. The desktop application reads and writes OpenAPI files directly from your filesystem. There is no account, no sync and no telemetry. Only optional hosted services involve a remote server.",
+      "faq.a1": "Local files need no account. Remote AI sends relevant context to your configured provider; Cloud publishing uploads selected content when you choose. Optional usage statistics are off by default; see Privacy for fields and controls.",
       "faq.q2": "Which OpenAPI versions are supported?",
-      "faq.a2":
-        "OpenAPI 3.0, 3.1 and 3.2. Powerduck detects the declared version and validates against the appropriate dialect instead of using a lowest common denominator.",
+      "faq.a2": "OpenAPI 3.0, 3.1 and 3.2. Powerduck detects the declared version and validates against the appropriate dialect instead of using a lowest common denominator.",
       "faq.q3": "How does the MCP server get generated?",
-      "faq.a3":
-        "Operations with an operationId become MCP tools. Arguments are derived from parameters and requestBody schemas. Component schemas can be exposed as resources. The generated server updates whenever the specification changes.",
+      "faq.a3": "Operations with an operationId become MCP tools. Arguments are derived from parameters and requestBody schemas. Component schemas can be exposed as resources. The generated server updates whenever the specification changes.",
       "faq.q4": "Is the desktop license a subscription?",
-      "faq.a4":
-        "No. Powerduck Desktop is a perpetual license purchased once. Updates within the major version are included. Future major upgrades remain optional.",
+      "faq.a4": "No. Powerduck Desktop is a perpetual license purchased once. Updates within the major version are included. Future major upgrades remain optional.",
       "faq.q5": "Can I keep using Postman collections?",
-      "faq.a5":
-        "Yes. Existing collections and environments can continue to be used. Powerduck treats the OpenAPI specification as the authoritative contract and helps identify where requests drift from it.",
+      "faq.a5": "Yes. Existing collections and environments can continue to be used. Powerduck treats the OpenAPI specification as the authoritative contract and helps identify where requests drift from it.",
       "faq.q6": "Does it work in CI?",
-      "faq.a6Before":
-        "Yes. The same validation and generation engine is exposed through",
-      "faq.a6After":
-        ", a CI-ready command-line tool that runs during pull requests and automated pipelines. It supports batch testing across 6 protocols (HTTP, SSE, WebSocket, gRPC, MCP, tRPC), configurable concurrency, and JUnit-compatible reports for CI integration.",
+      "faq.a6Before": "Yes. The same validation and generation engine is exposed through",
+      "faq.a6After": ", a CI-ready command-line tool that runs during pull requests and automated pipelines. It supports batch testing across 6 protocols (HTTP, SSE, WebSocket, gRPC, MCP, tRPC), configurable concurrency, and JUnit-compatible reports for CI integration.",
       "faq.a6Btn": "Explore openapi-cli →",
-
-      "footer.brand":
-        "Building developer tools for the modern API workflow. Open source, production-ready, and community-driven.",
+      "footer.brand": "Building developer tools for the modern API workflow. Open source, production-ready, and community-driven.",
       "footer.product": "Product",
       "footer.prices": "Prices",
       "footer.quickstart": "Quickstart",
@@ -211,12 +194,29 @@ window.POWERDUCK_I18N = {
       "footer.cookie": "Cookie Notice",
       "footer.termsShort": "Terms",
       "footer.privacyShort": "Privacy",
-      "footer.cookieShort": "Cookies"
+      "footer.cookieShort": "Cookies",
+      "hero.badge": "Local-first · AI-native — OpenAPI, MCP & A2A on your machine",
+      "guide.title": "Choose your next step.",
+      "guide.compare": "Compare products and pricing →",
+      "guide.account": "Already have an account? Manage publishing, desktop licenses and AI credits.",
+      "guide.signin": "Sign in to your console →",
+      "guide.client.title": "Desktop license",
+      "guide.client.job": "Build locally",
+      "guide.client.cost": "One-time purchase · perpetual license",
+      "guide.client.desc": "Design, debug and test APIs through chat, using local OpenAPI files.",
+      "guide.cloud.title": "Cloud hosting",
+      "guide.cloud.job": "Publish online",
+      "guide.cloud.cost": "Free tier · monthly or annual plans",
+      "guide.cloud.desc": "Share hosted API documentation and MCP services with your team and AI agents.",
+      "guide.models.title": "AI credits",
+      "guide.models.job": "Choose your model",
+      "guide.models.cost": "Prepaid model credits",
+      "guide.models.desc": "Use hosted models with a credit pack, or configure your own model provider in the desktop app.",
+      "a2a.intro": "Beyond REST: debug SSE, WebSocket, GraphQL and native gRPC, design versioned A2A contracts and Agent Cards, verify signatures, and export a runnable server project.",
+      "a2a.learn": "Explore A2A support →"
     },
-
     "zh-CN": {
       "common.auto": "自动（浏览器语言）",
-
       "nav.client": "客户端",
       "nav.cloud": "云端",
       "nav.pricing": "价格",
@@ -251,27 +251,21 @@ window.POWERDUCK_I18N = {
       "account.console": "控制台",
       "account.settings": "设置",
       "account.signout": "退出登录",
-
-      "hero.title": "本地一个 <code>openapi.yaml</code>，就是你贯穿整个 API 生命周期的 AI 团队。",
-      "hero.sub":
-        "Powerduck 把你仓库里已有的 OpenAPI 文件，变成一个本地运行、AI 驱动的工作台。用自然语言告诉它需求，它就会设计接口、调试请求、构建并运行场景测试、Mock 接口、撰写文档、暴露 MCP 工具——全部基于这一个文件，全部在你的机器上完成。无需账号，没有锁定，同一份 YAML 还能直接接入任何 AI 编程助手。",
-      "hero.download": "下载 Powerduck",
+      "hero.title": "让 AI 按你的接口规范开发，并验证结果。",
+      "hero.sub": "从本地 OpenAPI 出发，连接编程 Agent，调试接口并检查实现与规范是否一致。",
+      "hero.download": "下载桌面版",
       "hero.demo": "查看在线演示",
-      "hero.webApp": "查看在线演示",
-      "hero.micro": "免费评估，想用多久用多久；觉得值再购买。",
-      "hero.strip":
-        "macOS · Windows · Linux &nbsp;·&nbsp; OpenAPI 3.0 / 3.1 / 3.2 &nbsp;·&nbsp; 100% 本地优先 &nbsp;·&nbsp; 支持任意 OpenAI 兼容模型 &nbsp;·&nbsp; MCP 原生",
-
+      "hero.webApp": "查看实战示例",
+      "hero.micro": "本地功能不需要购买 Cloud。免费使用包含一个规范名额，审核通过的分享奖励可增加名额；桌面授权解除名额限制。自带 Key 的费用由模型服务商收取，托管模型额度与 Cloud 托管另行计费。",
+      "hero.strip": "macOS · Windows · Linux &nbsp;·&nbsp; OpenAPI 3.0 / 3.1 / 3.2 &nbsp;·&nbsp; 本地优先 &nbsp;·&nbsp; 支持任意 OpenAI 兼容模型 &nbsp;·&nbsp; MCP 原生",
       "loader.placeholder": "https://api.example.com/openapi.yaml",
       "loader.load": "加载规范",
       "loader.try": "试试：",
       "loader.commerceIssue": "电商 API——存在问题",
       "loader.openLocal": "打开本地文件…",
-
       "f1.kicker": "OpenAPI 规范编辑器",
       "f1.title": "OpenAPI 规范编辑器",
-      "f1.deck":
-        "大纲依据规范的真实结构生成，而不是靠缩进猜测。以树形浏览路径和组件，在问题所在处直接修复。",
+      "f1.deck": "大纲依据规范的真实结构生成，而不是靠缩进猜测。以树形浏览路径和组件，在问题所在处直接修复。",
       "f1.b1Title": "基于 Schema 的校验。",
       "f1.b1Body": "按文件实际声明的 3.0、3.1 或 3.2 方言进行校验。",
       "f1.b2Title": "可解析的 $ref 导航。",
@@ -280,11 +274,9 @@ window.POWERDUCK_I18N = {
       "f1.b3Body": "你的仓库始终是唯一事实来源。",
       "f1.b4Title": "问题带规则名。",
       "f1.b4Body": "CI 报错和编辑器诊断使用同一套词汇。",
-
       "f2.kicker": "接口调试",
       "f2.title": "基于规范调试 API",
-      "f2.deck":
-        "请求界面沿用开发者熟悉的工具形态，再加上那些工具默认做不到的一件事：对照契约校验响应。",
+      "f2.deck": "请求界面沿用开发者熟悉的工具形态，再加上那些工具默认做不到的一件事：对照契约校验响应。",
       "f2.b1Title": "按路径和标签自动生成集合。",
       "f2.b1Body": "无需导入，也不用手动重新同步。",
       "f2.b2Title": "每次响应都做契约检查。",
@@ -293,11 +285,9 @@ window.POWERDUCK_I18N = {
       "f2.b3Body": "复用已有的开发、预发配置。",
       "f2.b4Title": "从 securitySchemes 生成鉴权。",
       "f2.b4Body": "Bearer、API Key 和 OAuth 配置都从规范开始。",
-
       "f3.kicker": "MCP 服务器生成器",
       "f3.title": "从 OpenAPI 生成 MCP 服务器",
-      "f3.deck":
-        "你的规范本身就是一份工具清单。Powerduck 把它编译成可运行的 MCP 服务器，并清楚展示每个工具来自哪些 OpenAPI 字段。",
+      "f3.deck": "你的规范本身就是一份工具清单。Powerduck 把它编译成可运行的 MCP 服务器，并清楚展示每个工具来自哪些 OpenAPI 字段。",
       "f3.b1Title": "来源可见。",
       "f3.b1Body": "每个工具都能追溯到它的 operation、operationId 和 schema。",
       "f3.b2Title": "降级与跳过状态。",
@@ -306,11 +296,9 @@ window.POWERDUCK_I18N = {
       "f3.b3Body": "修改规范，工具随之更新，无需构建步骤。",
       "f3.b4Title": "本地传输方式。",
       "f3.b4Body": "通过 stdio 或 HTTP 运行，服务本地助手与工作流。",
-
       "f4.kicker": "接口文档生成器",
       "f4.title": "来自同一契约的 API 文档",
-      "f4.deck":
-        "参考文档直接从 OpenAPI 模型生成，导出为静态文件，想部署到哪里都可以。",
+      "f4.deck": "参考文档直接从 OpenAPI 模型生成，导出为静态文件，想部署到哪里都可以。",
       "f4.b1Title": "从 schema 生成参数表。",
       "f4.b1Body": "必填标记、枚举和描述始终保持同步。",
       "f4.b2Title": "多语言示例。",
@@ -319,33 +307,28 @@ window.POWERDUCK_I18N = {
       "f4.b3Body": "成功和错误响应与调试器校验的是同一批对象。",
       "f4.b4Title": "静态导出。",
       "f4.b4Body": "无运行时依赖，也不被任何文档平台锁定。",
-
       "story.kicker": "唯一事实来源",
       "story.title": "本地一个 OpenAPI 文件，<br />所有能力，皆由 AI 驱动。",
-      "story.deck":
-        "在本地打开 <strong>openapi.yaml</strong> 或 <strong>openapi.json</strong>，Powerduck 就把你已有的契约变成完整的 API 工作台。无需导入、无需转换、没有并行的集合、没有云端副本。用大白话描述想要的结果，内置助手就通过可审阅的步骤完成——同一份文件还能用 MCP 与任何 AI 编程助手对话。",
+      "story.deck": "在本地打开 <strong>openapi.yaml</strong> 或 <strong>openapi.json</strong>，Powerduck 就把你已有的契约变成完整的 API 工作台。无需导入、无需转换、没有并行的集合、没有云端副本。用大白话描述想要的结果，内置助手就通过可审阅的步骤完成——同一份文件还能用 MCP 与任何 AI 编程助手对话。",
       "story.fileNote": "文件始终留在你的仓库里。",
       "story.tool1": "编辑、浏览并校验真实契约。",
       "story.tool2": "发送由同一批 operation 生成的请求。",
       "story.tool3": "把 operation 编译成面向助手的工具。",
       "story.tool4": "从同一来源发布文档。",
-      "story.posTitle":
-        "不是又一个 API 客户端，<br />不是又一个规范查看器，<br />而是一种 AI 原生的 API 构建方式。",
+      "story.posTitle": "不是又一个 API 客户端，<br />不是又一个规范查看器，<br />而是一种 AI 原生的 API 构建方式。",
       "story.posBody": "这是围绕 OpenAPI 文件本身打造的本地原生、AI 驱动工作台。",
       "story.point1": "你的规范根本不需要离开你的机器。",
       "story.point2": "再没有别的东西需要和契约保持同步。",
       "story.point3": "你现有的 YAML 或 JSON 就是工作台。",
-
       "lic.kicker": "授权",
       "lic.title": "桌面授权一次买断；只有需要托管时才订阅。",
-      "lic.deck":
-        "Powerduck 桌面版是永久授权——就是上面展示的同款本地优先产品，不会偷偷联网回传。托管 MCP 端点是可选项，与本地工作流完全分开。",
+      "lic.deck": "Powerduck 桌面版是永久授权——就是上面展示的同款本地优先产品，不会偷偷联网回传。托管 MCP 端点是可选项，与本地工作流完全分开。",
       "lic.desktopTitle": "Powerduck 桌面版",
       "lic.desktopTag": "永久授权 · 一次性购买",
       "lic.desktopPeriod": "每用户，一次付清",
       "lic.desktopL1": "规范编辑器、接口调试、MCP 服务器与接口文档",
       "lic.desktopL2": "大版本内的全部更新",
-      "lic.desktopL3": "完全离线 · 无需账号 · 无遥测",
+      "lic.desktopL3": "本地文件 · 本地功能无需账号",
       "lic.desktopL4": "个人授权可用于你拥有的每一台机器",
       "lic.desktopL5": "提供批量、站点与教育授权",
       "lic.buyLicense": "购买授权",
@@ -359,37 +342,26 @@ window.POWERDUCK_I18N = {
       "lic.cloudL3": "访问令牌与请求日志",
       "lic.cloudL4": "在自有域名上托管参考文档",
       "lic.seePlans": "查看云端方案",
-      "lic.cloudNote":
-        "桌面应用不需要它。按年计费可省两个月；随时可取消，本地工作流照常运行。",
-      "lic.eval":
-        "<strong>评估说明：</strong>购买前 Powerduck 功能完整，没有时间限制，也不锁功能。你只会偶尔看到购买授权的提醒。",
-
+      "lic.cloudNote": "桌面应用不需要它。按年计费可省两个月；随时可取消，本地工作流照常运行。",
+      "lic.eval": "<strong>评估说明：</strong>购买前 Powerduck 功能完整，没有时间限制，也不锁功能。你只会偶尔看到购买授权的提醒。",
       "faq.kicker": "常见问题",
       "faq.title": "开发者最先问的问题",
       "faq.deck": "关于本地文件、OpenAPI 版本、MCP 生成与授权的实用细节。",
       "faq.q1": "Powerduck 会把我的 OpenAPI 规范上传到任何地方吗？",
-      "faq.a1":
-        "不会。桌面应用直接在你的文件系统上读写 OpenAPI 文件。没有账号、没有同步、没有遥测。只有可选的托管服务才会涉及远程服务器。",
+      "faq.a1": "本地文件读写无需账号。远程 AI 会向你配置的模型服务发送相关上下文；主动发布到 Cloud 时上传所选内容。可选使用统计默认关闭，采集字段与开关见隐私说明。",
       "faq.q2": "支持哪些 OpenAPI 版本？",
-      "faq.a2":
-        "OpenAPI 3.0、3.1 和 3.2。Powerduck 会检测声明的版本，并按对应的方言校验，而不是采用最小公约数。",
+      "faq.a2": "OpenAPI 3.0、3.1 和 3.2。Powerduck 会检测声明的版本，并按对应的方言校验，而不是采用最小公约数。",
       "faq.q3": "MCP 服务器是怎么生成的？",
-      "faq.a3":
-        "带 operationId 的 operation 会成为 MCP 工具，参数由 parameters 和 requestBody schema 推导而来。组件 schema 可作为资源暴露。规范一旦变化，生成的服务器就会更新。",
+      "faq.a3": "带 operationId 的 operation 会成为 MCP 工具，参数由 parameters 和 requestBody schema 推导而来。组件 schema 可作为资源暴露。规范一旦变化，生成的服务器就会更新。",
       "faq.q4": "桌面授权是订阅制吗？",
-      "faq.a4":
-        "不是。Powerduck 桌面版是一次性购买的永久授权，大版本内的更新都包含在内，未来的大版本升级仍然可选。",
+      "faq.a4": "不是。Powerduck 桌面版是一次性购买的永久授权，大版本内的更新都包含在内，未来的大版本升级仍然可选。",
       "faq.q5": "我还能继续用 Postman 集合吗？",
-      "faq.a5":
-        "可以。已有的集合和环境都能继续使用。Powerduck 把 OpenAPI 规范当作权威契约，并帮你找出请求与契约的偏差。",
+      "faq.a5": "可以。已有的集合和环境都能继续使用。Powerduck 把 OpenAPI 规范当作权威契约，并帮你找出请求与契约的偏差。",
       "faq.q6": "能用在 CI 里吗？",
       "faq.a6Before": "可以。同一套校验和生成引擎通过",
-      "faq.a6After":
-        " 暴露，这是一个可用于 CI 的命令行工具，在 Pull Request 和自动化流水线中运行。它支持跨 6 种协议（HTTP、SSE、WebSocket、gRPC、MCP、tRPC）批量测试、可配置并发，并生成兼容 JUnit 的报告用于 CI 集成。",
+      "faq.a6After": " 暴露，这是一个可用于 CI 的命令行工具，在 Pull Request 和自动化流水线中运行。它支持跨 6 种协议（HTTP、SSE、WebSocket、gRPC、MCP、tRPC）批量测试、可配置并发，并生成兼容 JUnit 的报告用于 CI 集成。",
       "faq.a6Btn": "了解 openapi-cli →",
-
-      "footer.brand":
-        "为现代 API 工作流打造开发者工具。开源、可用于生产、由社区驱动。",
+      "footer.brand": "为现代 API 工作流打造开发者工具。开源、可用于生产、由社区驱动。",
       "footer.product": "产品",
       "footer.prices": "价格",
       "footer.quickstart": "快速开始",
@@ -406,12 +378,29 @@ window.POWERDUCK_I18N = {
       "footer.cookie": "Cookie 声明",
       "footer.termsShort": "条款",
       "footer.privacyShort": "隐私",
-      "footer.cookieShort": "Cookie"
+      "footer.cookieShort": "Cookie",
+      "hero.badge": "本地优先 · AI 原生 —— OpenAPI、MCP、A2A，全在本机",
+      "guide.title": "按你的需要，选择下一步",
+      "guide.compare": "对比产品与价格 →",
+      "guide.account": "已有账号？管理在线发布、桌面授权和 AI 额度。",
+      "guide.signin": "登录控制台 →",
+      "guide.client.title": "桌面授权",
+      "guide.client.job": "本地开发",
+      "guide.client.cost": "一次购买 · 永久授权",
+      "guide.client.desc": "通过对话设计、调试和测试 API，直接使用本地 OpenAPI 文件。",
+      "guide.cloud.title": "Cloud 托管",
+      "guide.cloud.job": "在线发布",
+      "guide.cloud.cost": "免费方案 · 付费按月或按年",
+      "guide.cloud.desc": "托管 API 文档与 MCP 服务，为团队和 AI 工具提供在线访问。",
+      "guide.models.title": "AI 模型额度",
+      "guide.models.job": "选择模型",
+      "guide.models.cost": "预付模型额度",
+      "guide.models.desc": "购买额度调用托管模型，也可以在桌面应用中配置自己的模型服务商。",
+      "a2a.intro": "不止 REST：调试 SSE、WebSocket、GraphQL 与原生 gRPC；设计带版本的 A2A 契约与 Agent Card、验证签名，并导出可运行的服务端项目。",
+      "a2a.learn": "了解 A2A 支持 →"
     },
-
-    ja: {
+    "ja": {
       "common.auto": "自動（ブラウザの言語）",
-
       "nav.client": "クライアント",
       "nav.cloud": "クラウド",
       "nav.pricing": "料金",
@@ -446,28 +435,21 @@ window.POWERDUCK_I18N = {
       "account.console": "コンソール",
       "account.settings": "設定",
       "account.signout": "サインアウト",
-
-      "hero.title":
-        "ローカルの <code>openapi.yaml</code> ひとつが、API ライフサイクル全体を担うあなたの AI チームに。",
-      "hero.sub":
-        "Powerduck は、リポジトリにすでにある OpenAPI ファイルを、ローカルで動く AI 駆動のスタジオに変えます。自然言語で要望を伝えるだけで、エンドポイントの設計、リクエストのデバッグ、シナリオテストの作成と実行、API のモック、ドキュメント作成、MCP ツールの公開まで、すべてそのファイルから、すべてあなたのマシン上で行います。アカウント不要、ロックインなし。同じ YAML はどんな AI コーディングエージェントにもそのまま接続できます。",
-      "hero.download": "Powerduck をダウンロード",
+      "hero.title": "AI に API 仕様に沿って開発させ、結果を検証する。",
+      "hero.sub": "ローカルの OpenAPI から始め、コーディング Agent を接続。API をデバッグし、実装が仕様に一致するか確認します。",
+      "hero.download": "デスクトップ版をダウンロード",
       "hero.demo": "ライブデモを見る",
-      "hero.webApp": "ライブデモを見る",
-      "hero.micro": "納得するまで無料で評価できます。価値を感じたら購入してください。",
-      "hero.strip":
-        "macOS · Windows · Linux &nbsp;·&nbsp; OpenAPI 3.0 / 3.1 / 3.2 &nbsp;·&nbsp; 100% ローカル優先 &nbsp;·&nbsp; OpenAI 互換モデルを持ち込み可能 &nbsp;·&nbsp; MCP ネイティブ",
-
+      "hero.webApp": "実行できる例を見る",
+      "hero.micro": "ローカル機能に Cloud の購入は不要です。無料利用は仕様ファイル 1 件まで。審査済みの共有特典で枠を追加でき、デスクトップライセンスで枠の制限を解除できます。持ち込みキーの料金はモデル提供者が請求し、ホスト型モデルのクレジットと Cloud は別料金です。",
+      "hero.strip": "macOS · Windows · Linux &nbsp;·&nbsp; OpenAPI 3.0 / 3.1 / 3.2 &nbsp;·&nbsp; ローカル優先 &nbsp;·&nbsp; OpenAI 互換モデルを持ち込み可能 &nbsp;·&nbsp; MCP ネイティブ",
       "loader.placeholder": "https://api.example.com/openapi.yaml",
       "loader.load": "仕様を読み込む",
       "loader.try": "試す：",
       "loader.commerceIssue": "コマース API — 問題あり",
       "loader.openLocal": "ローカルファイルを開く…",
-
       "f1.kicker": "OpenAPI スペックエディタ",
       "f1.title": "OpenAPI スペックエディタ",
-      "f1.deck":
-        "アウトラインは、インデントによる推測ではなく、仕様の実際の構造に従います。パスとコンポーネントをツリーで移動し、問題のある場所で修正できます。",
+      "f1.deck": "アウトラインは、インデントによる推測ではなく、仕様の実際の構造に従います。パスとコンポーネントをツリーで移動し、問題のある場所で修正できます。",
       "f1.b1Title": "スキーマ対応の検証。",
       "f1.b1Body": "ファイルが実際に宣言する 3.0、3.1、3.2 の方言に対して検証します。",
       "f1.b2Title": "解決済み $ref ナビゲーション。",
@@ -476,11 +458,9 @@ window.POWERDUCK_I18N = {
       "f1.b3Body": "リポジトリが唯一の信頼できる情報源であり続けます。",
       "f1.b4Title": "ルール名付きの問題表示。",
       "f1.b4Body": "CI の失敗とエディタの診断が同じ用語で表示されます。",
-
       "f2.kicker": "API デバッグ",
       "f2.title": "仕様に基づく API デバッグ",
-      "f2.deck":
-        "開発者が使い慣れたツールと同じ形状のリクエストビルダーに加え、それらのツールが既定ではできないこと、つまり契約に対するレスポンス検証を提供します。",
+      "f2.deck": "開発者が使い慣れたツールと同じ形状のリクエストビルダーに加え、それらのツールが既定ではできないこと、つまり契約に対するレスポンス検証を提供します。",
       "f2.b1Title": "パスとタグから生成されるコレクション。",
       "f2.b1Body": "インポートの手順も、手動での再同期も不要です。",
       "f2.b2Title": "すべてのレスポンスで契約チェック。",
@@ -489,11 +469,9 @@ window.POWERDUCK_I18N = {
       "f2.b3Body": "既存の開発・ステージング設定を再利用。",
       "f2.b4Title": "securitySchemes から始まる認証。",
       "f2.b4Body": "Bearer、API キー、OAuth の設定が仕様から始まります。",
-
       "f3.kicker": "MCP サーバージェネレータ",
       "f3.title": "OpenAPI から MCP サーバーを生成",
-      "f3.deck":
-        "あなたの仕様は、すでにツールマニフェストです。Powerduck はそれを実行可能な MCP サーバーにコンパイルし、各ツールがどの OpenAPI フィールドから生まれたかを正確に表示します。",
+      "f3.deck": "あなたの仕様は、すでにツールマニフェストです。Powerduck はそれを実行可能な MCP サーバーにコンパイルし、各ツールがどの OpenAPI フィールドから生まれたかを正確に表示します。",
       "f3.b1Title": "見える来歴。",
       "f3.b1Body": "すべてのツールは、その operation、operationId、スキーマまで追跡できます。",
       "f3.b2Title": "劣化およびスキップ状態。",
@@ -502,11 +480,9 @@ window.POWERDUCK_I18N = {
       "f3.b3Body": "仕様を変更すると、ビルドステップなしでツールが更新されます。",
       "f3.b4Title": "ローカルトランスポート。",
       "f3.b4Body": "ローカルエージェントとワークフローのために stdio または HTTP で実行。",
-
       "f4.kicker": "API ドキュメントジェネレータ",
       "f4.title": "同じ契約から生まれる API ドキュメント",
-      "f4.deck":
-        "リファレンスドキュメントは OpenAPI モデルから直接生成され、静的ファイルとして書き出され、好きな場所でホストできます。",
+      "f4.deck": "リファレンスドキュメントは OpenAPI モデルから直接生成され、静的ファイルとして書き出され、好きな場所でホストできます。",
       "f4.b1Title": "スキーマから作られるパラメータ表。",
       "f4.b1Body": "必須フラグ、列挙、説明が同期し続けます。",
       "f4.b2Title": "複数言語のサンプル。",
@@ -515,36 +491,28 @@ window.POWERDUCK_I18N = {
       "f4.b3Body": "成功・エラーレスポンスは、デバッガが検証するのと同じオブジェクトから取得されます。",
       "f4.b4Title": "静的書き出し。",
       "f4.b4Body": "実行時の依存も、ドキュメントプラットフォームへのロックインもありません。",
-
       "story.kicker": "唯一の情報源",
-      "story.title":
-        "ローカルの OpenAPI ファイルひとつ。<br />すべての機能が AI 駆動。",
-      "story.deck":
-        "<strong>openapi.yaml</strong> または <strong>openapi.json</strong> をローカルで開くと、Powerduck はすでに持っている契約を完全な API ワークスペースに変えます。インポート不要、変換不要、並行するコレクションなし、クラウドコピーなし。望む結果を平易な言葉で説明すれば、内蔵アシスタントがレビュー可能な手順で実行します。同じファイルは MCP でどんな AI コーディングエージェントとも対話できます。",
+      "story.title": "ローカルの OpenAPI ファイルひとつ。<br />すべての機能が AI 駆動。",
+      "story.deck": "<strong>openapi.yaml</strong> または <strong>openapi.json</strong> をローカルで開くと、Powerduck はすでに持っている契約を完全な API ワークスペースに変えます。インポート不要、変換不要、並行するコレクションなし、クラウドコピーなし。望む結果を平易な言葉で説明すれば、内蔵アシスタントがレビュー可能な手順で実行します。同じファイルは MCP でどんな AI コーディングエージェントとも対話できます。",
       "story.fileNote": "ファイルはリポジトリ内に残ります。",
       "story.tool1": "実際の契約を編集・移動・検証。",
       "story.tool2": "同じ operation から生成されたリクエストを送信。",
       "story.tool3": "operation をエージェント対応ツールにコンパイル。",
       "story.tool4": "同じソースからドキュメントを公開。",
-      "story.posTitle":
-        "API クライアントの再製でも、<br />仕様ビューアの再製でもなく、<br />AI ネイティブな API 構築の方法。",
-      "story.posBody":
-        "OpenAPI ファイルそのものを中心に構築された、ローカルネイティブで AI 駆動のワークスペースです。",
+      "story.posTitle": "API クライアントの再製でも、<br />仕様ビューアの再製でもなく、<br />AI ネイティブな API 構築の方法。",
+      "story.posBody": "OpenAPI ファイルそのものを中心に構築された、ローカルネイティブで AI 駆動のワークスペースです。",
       "story.point1": "仕様をマシンの外に出す必要はありません。",
       "story.point2": "契約に合わせて管理すべき他のものは存在しません。",
       "story.point3": "既存の YAML または JSON がそのままワークスペースです。",
-
       "lic.kicker": "ライセンス",
-      "lic.title":
-        "デスクトップライセンスは一度購入。ホスティングが必要な場合のみサブスクリプション。",
-      "lic.deck":
-        "Powerduck Desktop は永久ライセンスです。上に示したのと同じローカル優先の製品で、外部への通信はありません。ホスト型 MCP エンドポイントは任意で、ローカルワークフローから分離されています。",
+      "lic.title": "デスクトップライセンスは一度購入。ホスティングが必要な場合のみサブスクリプション。",
+      "lic.deck": "Powerduck Desktop は永久ライセンスです。上に示したのと同じローカル優先の製品で、外部への通信はありません。ホスト型 MCP エンドポイントは任意で、ローカルワークフローから分離されています。",
       "lic.desktopTitle": "Powerduck Desktop",
       "lic.desktopTag": "永久ライセンス · 買い切り",
       "lic.desktopPeriod": "ユーザーごと、一度きり",
       "lic.desktopL1": "スペックエディタ、API デバッグ、MCP サーバー、API ドキュメント",
       "lic.desktopL2": "メジャーバージョン内のすべての更新",
-      "lic.desktopL3": "完全オフライン · アカウント不要 · テレメトリなし",
+      "lic.desktopL3": "ローカルファイル · ローカル利用はアカウント不要",
       "lic.desktopL4": "所有するすべてのマシンで使える個人ライセンス",
       "lic.desktopL5": "ボリューム、サイト、教育機関向けライセンスあり",
       "lic.buyLicense": "ライセンスを購入",
@@ -558,38 +526,26 @@ window.POWERDUCK_I18N = {
       "lic.cloudL3": "アクセストークンとリクエストログ",
       "lic.cloudL4": "独自ドメインでホストするリファレンスドキュメント",
       "lic.seePlans": "クラウドプランを見る",
-      "lic.cloudNote":
-        "デスクトップアプリには不要です。年額請求で2か月分お得になり、いつでもキャンセル可能。ローカルワークフローはそのまま動き続けます。",
-      "lic.eval":
-        "<strong>評価について：</strong>購入前でも Powerduck は完全に機能し、期間制限や機能制限はありません。ライセンス購入のリマインダーがときどき表示されます。",
-
+      "lic.cloudNote": "デスクトップアプリには不要です。年額請求で2か月分お得になり、いつでもキャンセル可能。ローカルワークフローはそのまま動き続けます。",
+      "lic.eval": "<strong>評価について：</strong>購入前でも Powerduck は完全に機能し、期間制限や機能制限はありません。ライセンス購入のリマインダーがときどき表示されます。",
       "faq.kicker": "よくある質問",
       "faq.title": "開発者が最初に尋ねる質問",
-      "faq.deck":
-        "ローカルファイル、OpenAPI バージョン、MCP 生成、ライセンスに関する実務的な詳細。",
+      "faq.deck": "ローカルファイル、OpenAPI バージョン、MCP 生成、ライセンスに関する実務的な詳細。",
       "faq.q1": "Powerduck は私の OpenAPI 仕様をどこかにアップロードしますか？",
-      "faq.a1":
-        "いいえ。デスクトップアプリはファイルシステム上の OpenAPI ファイルを直接読み書きします。アカウント、同期、テレメトリはありません。リモートサーバーが関わるのは任意のホスト型サービスのみです。",
+      "faq.a1": "ローカルファイルの読み書きにアカウントは不要です。リモート AI には設定したプロバイダーへ関連コンテキストを送信します。Cloud への公開時は選択した内容をアップロードします。任意の利用統計は初期設定でオフです。項目と設定はプライバシー説明をご覧ください。",
       "faq.q2": "どの OpenAPI バージョンをサポートしていますか？",
-      "faq.a2":
-        "OpenAPI 3.0、3.1、3.2。Powerduck は宣言されたバージョンを検出し、最小公倍数ではなく該当する方言で検証します。",
+      "faq.a2": "OpenAPI 3.0、3.1、3.2。Powerduck は宣言されたバージョンを検出し、最小公倍数ではなく該当する方言で検証します。",
       "faq.q3": "MCP サーバーはどのように生成されますか？",
-      "faq.a3":
-        "operationId を持つ operation が MCP ツールになります。引数は parameters と requestBody スキーマから導出されます。コンポーネントスキーマはリソースとして公開できます。仕様が変更されるたびに、生成サーバーが更新されます。",
+      "faq.a3": "operationId を持つ operation が MCP ツールになります。引数は parameters と requestBody スキーマから導出されます。コンポーネントスキーマはリソースとして公開できます。仕様が変更されるたびに、生成サーバーが更新されます。",
       "faq.q4": "デスクトップライセンスはサブスクリプションですか？",
-      "faq.a4":
-        "いいえ。Powerduck Desktop は一度購入する永久ライセンスで、メジャーバージョン内の更新が含まれます。将来のメジャーアップグレードは任意です。",
+      "faq.a4": "いいえ。Powerduck Desktop は一度購入する永久ライセンスで、メジャーバージョン内の更新が含まれます。将来のメジャーアップグレードは任意です。",
       "faq.q5": "Postman コレクションを使い続けられますか？",
-      "faq.a5":
-        "はい。既存のコレクションと環境は引き続き使用できます。Powerduck は OpenAPI 仕様を権威ある契約として扱い、リクエストがどこで契約から外れるかを特定するのに役立ちます。",
+      "faq.a5": "はい。既存のコレクションと環境は引き続き使用できます。Powerduck は OpenAPI 仕様を権威ある契約として扱い、リクエストがどこで契約から外れるかを特定するのに役立ちます。",
       "faq.q6": "CI で使えますか？",
       "faq.a6Before": "はい。同じ検証・生成エンジンは",
-      "faq.a6After":
-        "を通じて公開されています。これは CI 対応のコマンドラインツールで、プルリクエストや自動パイプラインで実行されます。6 つのプロトコル（HTTP、SSE、WebSocket、gRPC、MCP、tRPC）にわたる一括テスト、設定可能な並行処理、CI 統合向けの JUnit 互換レポートをサポートします。",
+      "faq.a6After": "を通じて公開されています。これは CI 対応のコマンドラインツールで、プルリクエストや自動パイプラインで実行されます。6 つのプロトコル（HTTP、SSE、WebSocket、gRPC、MCP、tRPC）にわたる一括テスト、設定可能な並行処理、CI 統合向けの JUnit 互換レポートをサポートします。",
       "faq.a6Btn": "openapi-cli を見る →",
-
-      "footer.brand":
-        "最新の API ワークフローのための開発者ツールを構築。オープンソースで、本番対応、コミュニティ駆動。",
+      "footer.brand": "最新の API ワークフローのための開発者ツールを構築。オープンソースで、本番対応、コミュニティ駆動。",
       "footer.product": "製品",
       "footer.prices": "料金",
       "footer.quickstart": "クイックスタート",
@@ -606,12 +562,29 @@ window.POWERDUCK_I18N = {
       "footer.cookie": "Cookie に関する通知",
       "footer.termsShort": "規約",
       "footer.privacyShort": "プライバシー",
-      "footer.cookieShort": "Cookie"
+      "footer.cookieShort": "Cookie",
+      "hero.badge": "ローカルファースト · AI ネイティブ — OpenAPI・MCP・A2A をあなたのマシンで",
+      "guide.title": "次のステップを選ぶ",
+      "guide.compare": "製品と料金を比較 →",
+      "guide.account": "アカウントをお持ちですか？公開、デスクトップライセンス、AI クレジットを管理。",
+      "guide.signin": "コンソールにサインイン →",
+      "guide.client.title": "デスクトップライセンス",
+      "guide.client.job": "ローカルで構築",
+      "guide.client.cost": "買い切り · 永久ライセンス",
+      "guide.client.desc": "ローカルの OpenAPI ファイルを使い、チャットで API を設計、デバッグ、テスト。",
+      "guide.cloud.title": "クラウドホスティング",
+      "guide.cloud.job": "オンラインで公開",
+      "guide.cloud.cost": "無料枠 · 月額または年額プラン",
+      "guide.cloud.desc": "ホスト型 API ドキュメントと MCP サービスをチームや AI エージェントと共有。",
+      "guide.models.title": "AI クレジット",
+      "guide.models.job": "モデルを選ぶ",
+      "guide.models.cost": "前払いモデルクレジット",
+      "guide.models.desc": "クレジットパックでホスト型モデルを使うか、デスクトップアプリで自身のモデルプロバイダーを設定。",
+      "a2a.intro": "REST にとどまらず SSE・WebSocket・GraphQL・ネイティブ gRPC をデバッグ。バージョン管理された A2A 契約と Agent Card の設計、署名検証、そのまま実行できるサーバープロジェクトの書き出しまで対応します。",
+      "a2a.learn": "A2A サポートを見る →"
     },
-
-    de: {
+    "de": {
       "common.auto": "Automatisch (Browsersprache)",
-
       "nav.client": "Client",
       "nav.cloud": "Cloud",
       "nav.pricing": "Preise",
@@ -646,28 +619,21 @@ window.POWERDUCK_I18N = {
       "account.console": "Konsole",
       "account.settings": "Einstellungen",
       "account.signout": "Abmelden",
-
-      "hero.title":
-        "Eine lokale <code>openapi.yaml</code>. Dein KI-Team für den gesamten API-Lebenszyklus.",
-      "hero.sub":
-        "Powerduck verwandelt die OpenAPI-Datei, die bereits in deinem Repository liegt, in ein lokales, KI-gesteuertes Studio. Beschreibe, was du brauchst, und es entwirft Endpunkte, debuggt Anfragen, erstellt und führt Szenariotests aus, mockt die API, schreibt Dokumentation und stellt MCP-Tools bereit – alles aus dieser einen Datei, alles auf deinem Rechner. Kein Konto, keine Bindung, und dieselbe YAML-Datei lässt sich direkt an jedes KI-Coding-Agent anbinden.",
-      "hero.download": "Powerduck herunterladen",
+      "hero.title": "Mit KI nach API-Vertrag entwickeln und das Ergebnis prüfen.",
+      "hero.sub": "Mit lokalem OpenAPI starten, einen Coding-Agent verbinden, APIs debuggen und die Implementierung prüfen.",
+      "hero.download": "Desktop herunterladen",
       "hero.demo": "Live-Demo ansehen",
-      "hero.webApp": "Live-Demo ansehen",
-      "hero.micro": "Kostenlos evaluieren, so lange du willst. Kaufen, wenn es überzeugt.",
-      "hero.strip":
-        "macOS · Windows · Linux &nbsp;·&nbsp; OpenAPI 3.0 / 3.1 / 3.2 &nbsp;·&nbsp; 100% lokal zuerst &nbsp;·&nbsp; jedes OpenAI-kompatible Modell möglich &nbsp;·&nbsp; MCP-nativ",
-
+      "hero.webApp": "Praxisbeispiel ansehen",
+      "hero.micro": "Lokale Nutzung erfordert keinen Cloud-Kauf. Kostenlos ist ein Spezifikationsplatz enthalten; geprüfte Beiträge können weitere Plätze bringen. Die Desktop-Lizenz hebt die Platzgrenze auf. Eigene Modellschlüssel werden vom Anbieter abgerechnet; gehostete KI und Cloud kosten separat.",
+      "hero.strip": "macOS · Windows · Linux &nbsp;·&nbsp; OpenAPI 3.0 / 3.1 / 3.2 &nbsp;·&nbsp; Lokal zuerst &nbsp;·&nbsp; jedes OpenAI-kompatible Modell möglich &nbsp;·&nbsp; MCP-nativ",
       "loader.placeholder": "https://api.example.com/openapi.yaml",
       "loader.load": "Spezifikation laden",
       "loader.try": "Probieren:",
       "loader.commerceIssue": "Commerce-API — enthält Fehler",
       "loader.openLocal": "Lokale Datei öffnen…",
-
       "f1.kicker": "OpenAPI-Spec-Editor",
       "f1.title": "OpenAPI-Spec-Editor",
-      "f1.deck":
-        "Die Gliederung folgt der tatsächlichen Struktur der Spezifikation, nicht einer Schätzung anhand der Einrückung. Navigiere als Baum durch Pfade und Komponenten und behebe Fehler direkt dort, wo sie liegen.",
+      "f1.deck": "Die Gliederung folgt der tatsächlichen Struktur der Spezifikation, nicht einer Schätzung anhand der Einrückung. Navigiere als Baum durch Pfade und Komponenten und behebe Fehler direkt dort, wo sie liegen.",
       "f1.b1Title": "Schema-aware Validierung.",
       "f1.b1Body": "Validiere gegen den 3.0-, 3.1- oder 3.2-Dialekt, den deine Datei tatsächlich deklariert.",
       "f1.b2Title": "Aufgelöste $ref-Navigation.",
@@ -676,11 +642,9 @@ window.POWERDUCK_I18N = {
       "f1.b3Body": "Dein Repository bleibt die maßgebliche Quelle.",
       "f1.b4Title": "Probleme mit Regelnamen.",
       "f1.b4Body": "CI-Fehler und Editor-Diagnosen verwenden denselben Wortschatz.",
-
       "f2.kicker": "API-Debugging",
       "f2.title": "API-Debugging auf Basis deiner Spezifikation",
-      "f2.deck":
-        "Ein Anfrage-Builder in der Form der Tools, die Entwickler bereits nutzen – plus das, was diese Tools standardmäßig nicht können: Antworten gegen den Vertrag prüfen.",
+      "f2.deck": "Ein Anfrage-Builder in der Form der Tools, die Entwickler bereits nutzen – plus das, was diese Tools standardmäßig nicht können: Antworten gegen den Vertrag prüfen.",
       "f2.b1Title": "Kollektionen aus Pfaden und Tags generiert.",
       "f2.b1Body": "Kein Importschritt und nichts, das manuell neu synchronisiert werden muss.",
       "f2.b2Title": "Vertragsprüfung bei jeder Antwort.",
@@ -689,11 +653,9 @@ window.POWERDUCK_I18N = {
       "f2.b3Body": "Vorhandene Entwicklungs- und Staging-Konfigurationen wiederverwenden.",
       "f2.b4Title": "Sicherheit aus securitySchemes.",
       "f2.b4Body": "Bearer-, API-Key- und OAuth-Konfiguration beginnt mit der Spezifikation.",
-
       "f3.kicker": "MCP-Server-Generator",
       "f3.title": "MCP-Server aus OpenAPI generieren",
-      "f3.deck":
-        "Deine Spezifikation ist bereits ein Tool-Manifest. Powerduck kompiliert sie zu einem ausführbaren MCP-Server und zeigt genau, welche OpenAPI-Felder jedes Tool erzeugt haben.",
+      "f3.deck": "Deine Spezifikation ist bereits ein Tool-Manifest. Powerduck kompiliert sie zu einem ausführbaren MCP-Server und zeigt genau, welche OpenAPI-Felder jedes Tool erzeugt haben.",
       "f3.b1Title": "Sichtbare Herkunft.",
       "f3.b1Body": "Jedes Tool lässt sich bis zu seiner Operation, operationId und seinem Schema zurückverfolgen.",
       "f3.b2Title": "Verschlechterte und übersprungene Zustände.",
@@ -702,11 +664,9 @@ window.POWERDUCK_I18N = {
       "f3.b3Body": "Ändere die Spezifikation, und die Tools aktualisieren sich ohne Build-Schritt.",
       "f3.b4Title": "Lokale Transporte.",
       "f3.b4Body": "Über stdio oder HTTP ausführen – für lokale Agenten und Arbeitsabläufe.",
-
       "f4.kicker": "API-Dokumentationsgenerator",
       "f4.title": "API-Dokumentation aus demselben Vertrag",
-      "f4.deck":
-        "Referenzdokumentation, direkt aus deinem OpenAPI-Modell generiert, als statische Dateien exportiert und überall hostbar, wo du willst.",
+      "f4.deck": "Referenzdokumentation, direkt aus deinem OpenAPI-Modell generiert, als statische Dateien exportiert und überall hostbar, wo du willst.",
       "f4.b1Title": "Parametertabellen aus Schemas.",
       "f4.b1Body": "Pflicht-Flags, Enums und Beschreibungen bleiben synchronisiert.",
       "f4.b2Title": "Mehrsprachige Beispiele.",
@@ -715,36 +675,28 @@ window.POWERDUCK_I18N = {
       "f4.b3Body": "Erfolgs- und Fehlerantworten stammen aus denselben Objekten, die dein Debugger validiert.",
       "f4.b4Title": "Statischer Export.",
       "f4.b4Body": "Keine Laufzeitabhängigkeit und keine Bindung an eine Dokumentationsplattform.",
-
       "story.kicker": "Eine einzige Quelle der Wahrheit",
-      "story.title":
-        "Eine lokale OpenAPI-Datei.<br />Jede Funktion, KI-gesteuert.",
-      "story.deck":
-        "Öffne <strong>openapi.yaml</strong> oder <strong>openapi.json</strong> lokal, und Powerduck verwandelt den Vertrag, den du bereits besitzt, in einen vollständigen API-Arbeitsbereich. Kein Import. Keine Konvertierung. Keine parallelen Kollektionen. Keine Cloud-Kopie. Beschreibe das Ergebnis in einfacher Sprache, und der eingebaute Assistent führt es in überprüfbaren Schritten aus – und dieselbe Datei spricht über MCP mit jedem KI-Coding-Agent.",
+      "story.title": "Eine lokale OpenAPI-Datei.<br />Jede Funktion, KI-gesteuert.",
+      "story.deck": "Öffne <strong>openapi.yaml</strong> oder <strong>openapi.json</strong> lokal, und Powerduck verwandelt den Vertrag, den du bereits besitzt, in einen vollständigen API-Arbeitsbereich. Kein Import. Keine Konvertierung. Keine parallelen Kollektionen. Keine Cloud-Kopie. Beschreibe das Ergebnis in einfacher Sprache, und der eingebaute Assistent führt es in überprüfbaren Schritten aus – und dieselbe Datei spricht über MCP mit jedem KI-Coding-Agent.",
       "story.fileNote": "Die Datei bleibt in deinem Repository.",
       "story.tool1": "Den echten Vertrag bearbeiten, navigieren und validieren.",
       "story.tool2": "Anfragen senden, die aus denselben Operationen generiert wurden.",
       "story.tool3": "Operationen in agentenfähige Tools kompilieren.",
       "story.tool4": "Dokumentation aus derselben Quelle veröffentlichen.",
-      "story.posTitle":
-        "Nicht nur ein weiterer API-Client,<br />nicht nur ein weiterer Spec-Viewer,<br />sondern eine KI-native Art, APIs zu bauen.",
-      "story.posBody":
-        "Es ist der lokal-native, KI-gesteuerte Arbeitsbereich, der um die OpenAPI-Datei selbst herum aufgebaut ist.",
+      "story.posTitle": "Nicht nur ein weiterer API-Client,<br />nicht nur ein weiterer Spec-Viewer,<br />sondern eine KI-native Art, APIs zu bauen.",
+      "story.posBody": "Es ist der lokal-native, KI-gesteuerte Arbeitsbereich, der um die OpenAPI-Datei selbst herum aufgebaut ist.",
       "story.point1": "Deine Spezifikation muss deinen Rechner nie verlassen.",
       "story.point2": "Es gibt nichts Weiteres, das mit dem Vertrag abzugleichen wäre.",
       "story.point3": "Deine vorhandene YAML oder JSON ist der Arbeitsbereich.",
-
       "lic.kicker": "Lizenzierung",
-      "lic.title":
-        "Die Desktop-Lizenz einmal kaufen. Nur bei Hosting-Bedarf abonnieren.",
-      "lic.deck":
-        "Powerduck Desktop ist eine permanente Lizenz – dasselbe lokal-zuerst-Produkt wie oben, ohne Kontaktaufnahme nach Hause. Gehostete MCP-Endpunkte sind optional und bleiben vom lokalen Arbeitsablauf getrennt.",
+      "lic.title": "Die Desktop-Lizenz einmal kaufen. Nur bei Hosting-Bedarf abonnieren.",
+      "lic.deck": "Powerduck Desktop ist eine permanente Lizenz – dasselbe lokal-zuerst-Produkt wie oben, ohne Kontaktaufnahme nach Hause. Gehostete MCP-Endpunkte sind optional und bleiben vom lokalen Arbeitsablauf getrennt.",
       "lic.desktopTitle": "Powerduck Desktop",
       "lic.desktopTag": "Permanente Lizenz · Einmalkauf",
       "lic.desktopPeriod": "pro Benutzer, einmalig",
       "lic.desktopL1": "Spec-Editor, API-Debugging, MCP-Server und API-Dokumentation",
       "lic.desktopL2": "Alle Updates innerhalb der Hauptversion",
-      "lic.desktopL3": "Vollständig offline · kein Konto · keine Telemetrie",
+      "lic.desktopL3": "Lokale Dateien · lokal ohne Konto",
       "lic.desktopL4": "Persönliche Lizenz für jeden Rechner in deinem Besitz",
       "lic.desktopL5": "Volumen-, Standort- und Bildungslizenzen verfügbar",
       "lic.buyLicense": "Lizenz kaufen",
@@ -758,39 +710,26 @@ window.POWERDUCK_I18N = {
       "lic.cloudL3": "Zugriffstokens und Anfrageprotokolle",
       "lic.cloudL4": "Gehostete Referenzdokumentation auf deiner eigenen Domain",
       "lic.seePlans": "Cloud-Pläne ansehen",
-      "lic.cloudNote":
-        "Für die Desktop-Anwendung nicht erforderlich. Jährliche Abrechnung spart zwei Monate; jederzeit kündbar, dein lokaler Arbeitsablauf läuft weiter.",
-      "lic.eval":
-        "<strong>Evaluierung:</strong> Powerduck ist vor dem Kauf voll funktionsfähig, ohne Zeitlimit und ohne Funktionssperren. Gelegentlich wird dich eine Erinnerung an den Lizenzkauf erinnern.",
-
+      "lic.cloudNote": "Für die Desktop-Anwendung nicht erforderlich. Jährliche Abrechnung spart zwei Monate; jederzeit kündbar, dein lokaler Arbeitsablauf läuft weiter.",
+      "lic.eval": "<strong>Evaluierung:</strong> Powerduck ist vor dem Kauf voll funktionsfähig, ohne Zeitlimit und ohne Funktionssperren. Gelegentlich wird dich eine Erinnerung an den Lizenzkauf erinnern.",
       "faq.kicker": "FAQ",
       "faq.title": "Fragen, die Entwickler zuerst stellen",
-      "faq.deck":
-        "Die praktischen Details zu lokalen Dateien, OpenAPI-Versionen, MCP-Generierung und Lizenzierung.",
+      "faq.deck": "Die praktischen Details zu lokalen Dateien, OpenAPI-Versionen, MCP-Generierung und Lizenzierung.",
       "faq.q1": "Lädt Powerduck meine OpenAPI-Spezifikation irgendwohin hoch?",
-      "faq.a1":
-        "Nein. Die Desktop-Anwendung liest und schreibt OpenAPI-Dateien direkt auf deinem Dateisystem. Es gibt kein Konto, keine Synchronisierung und keine Telemetrie. Nur optionale gehostete Dienste beziehen einen Remoteserver ein.",
+      "faq.a1": "Lokale Dateien benötigen kein Konto. Remote-KI erhält relevanten Kontext beim konfigurierten Anbieter. Cloud-Veröffentlichung lädt ausgewählte Inhalte hoch. Optionale Nutzungsstatistiken sind standardmäßig aus; Details in der Datenschutzerklärung.",
       "faq.q2": "Welche OpenAPI-Versionen werden unterstützt?",
-      "faq.a2":
-        "OpenAPI 3.0, 3.1 und 3.2. Powerduck erkennt die deklarierte Version und validiert gegen den passenden Dialekt, statt einen kleinsten gemeinsamen Nenner zu verwenden.",
+      "faq.a2": "OpenAPI 3.0, 3.1 und 3.2. Powerduck erkennt die deklarierte Version und validiert gegen den passenden Dialekt, statt einen kleinsten gemeinsamen Nenner zu verwenden.",
       "faq.q3": "Wie wird der MCP-Server generiert?",
-      "faq.a3":
-        "Operationen mit einer operationId werden zu MCP-Tools. Argumente werden aus Parameters und RequestBody-Schemas abgeleitet. Komponentenschemas können als Ressourcen bereitgestellt werden. Der generierte Server aktualisiert sich bei jeder Änderung der Spezifikation.",
+      "faq.a3": "Operationen mit einer operationId werden zu MCP-Tools. Argumente werden aus Parameters und RequestBody-Schemas abgeleitet. Komponentenschemas können als Ressourcen bereitgestellt werden. Der generierte Server aktualisiert sich bei jeder Änderung der Spezifikation.",
       "faq.q4": "Ist die Desktop-Lizenz ein Abonnement?",
-      "faq.a4":
-        "Nein. Powerduck Desktop ist eine einmalig erworbene permanente Lizenz. Updates innerhalb der Hauptversion sind enthalten. Künftige Haupt-Upgrades bleiben optional.",
+      "faq.a4": "Nein. Powerduck Desktop ist eine einmalig erworbene permanente Lizenz. Updates innerhalb der Hauptversion sind enthalten. Künftige Haupt-Upgrades bleiben optional.",
       "faq.q5": "Kann ich Postman-Kollektionen weiterverwenden?",
-      "faq.a5":
-        "Ja. Vorhandene Kollektionen und Umgebungen können weiter verwendet werden. Powerduck behandelt die OpenAPI-Spezifikation als maßgeblichen Vertrag und hilft zu erkennen, wo Anfragen davon abweichen.",
+      "faq.a5": "Ja. Vorhandene Kollektionen und Umgebungen können weiter verwendet werden. Powerduck behandelt die OpenAPI-Spezifikation als maßgeblichen Vertrag und hilft zu erkennen, wo Anfragen davon abweichen.",
       "faq.q6": "Funktioniert es in der CI?",
-      "faq.a6Before":
-        "Ja. Dieselbe Validierungs- und Generierungsengine ist über",
-      "faq.a6After":
-        " verfügbar, ein CI-fähiges Kommandozeilen-Tool, das während Pull-Requests und automatisierten Pipelines läuft. Es unterstützt Stapelprüfungen über 6 Protokolle (HTTP, SSE, WebSocket, gRPC, MCP, tRPC), konfigurierbare Parallelität und JUnit-kompatible Berichte für die CI-Integration.",
+      "faq.a6Before": "Ja. Dieselbe Validierungs- und Generierungsengine ist über",
+      "faq.a6After": " verfügbar, ein CI-fähiges Kommandozeilen-Tool, das während Pull-Requests und automatisierten Pipelines läuft. Es unterstützt Stapelprüfungen über 6 Protokolle (HTTP, SSE, WebSocket, gRPC, MCP, tRPC), konfigurierbare Parallelität und JUnit-kompatible Berichte für die CI-Integration.",
       "faq.a6Btn": "openapi-cli entdecken →",
-
-      "footer.brand":
-        "Wir bauen Entwicklerwerkzeuge für den modernen API-Arbeitsablauf. Open Source, produktionsreif und community-getrieben.",
+      "footer.brand": "Wir bauen Entwicklerwerkzeuge für den modernen API-Arbeitsablauf. Open Source, produktionsreif und community-getrieben.",
       "footer.product": "Produkt",
       "footer.prices": "Preise",
       "footer.quickstart": "Schnellstart",
@@ -807,12 +746,29 @@ window.POWERDUCK_I18N = {
       "footer.cookie": "Cookie-Hinweis",
       "footer.termsShort": "AGB",
       "footer.privacyShort": "Datenschutz",
-      "footer.cookieShort": "Cookies"
+      "footer.cookieShort": "Cookies",
+      "hero.badge": "Local-first · KI-nativ — OpenAPI, MCP & A2A auf Ihrem Rechner",
+      "guide.title": "Wählen Sie Ihren nächsten Schritt.",
+      "guide.compare": "Produkte und Preise vergleichen →",
+      "guide.account": "Sie haben bereits ein Konto? Verwalten Sie Veröffentlichung, Desktop-Lizenzen und KI-Guthaben.",
+      "guide.signin": "Bei der Konsole anmelden →",
+      "guide.client.title": "Desktop-Lizenz",
+      "guide.client.job": "Lokal erstellen",
+      "guide.client.cost": "Einmalkauf · dauerhafte Lizenz",
+      "guide.client.desc": "Entwerfen, debuggen und testen Sie APIs über Chat mit lokalen OpenAPI-Dateien.",
+      "guide.cloud.title": "Cloud-Hosting",
+      "guide.cloud.job": "Online veröffentlichen",
+      "guide.cloud.cost": "Kostenloser Tarif · Monats- oder Jahrespläne",
+      "guide.cloud.desc": "Teilen Sie gehostete API-Dokumentation und MCP-Dienste mit Ihrem Team und KI-Agenten.",
+      "guide.models.title": "KI-Guthaben",
+      "guide.models.job": "Modell wählen",
+      "guide.models.cost": "Prepaid-Modellguthaben",
+      "guide.models.desc": "Nutzen Sie gehostete Modelle mit einem Guthabenpaket oder konfigurieren Sie Ihren eigenen Modellanbieter in der Desktop-App.",
+      "a2a.intro": "Mehr als REST: Debuggen Sie SSE, WebSocket, GraphQL und natives gRPC, entwerfen Sie versionierte A2A-Verträge und Agent Cards, prüfen Signaturen und exportieren ein lauffähiges Serverprojekt.",
+      "a2a.learn": "A2A-Unterstützung entdecken →"
     },
-
-    fr: {
+    "fr": {
       "common.auto": "Automatique (langue du navigateur)",
-
       "nav.client": "Client",
       "nav.cloud": "Cloud",
       "nav.pricing": "Tarifs",
@@ -847,28 +803,21 @@ window.POWERDUCK_I18N = {
       "account.console": "Console",
       "account.settings": "Paramètres",
       "account.signout": "Déconnexion",
-
-      "hero.title":
-        "Un <code>openapi.yaml</code> local. Votre équipe IA pour tout le cycle de vie des API.",
-      "hero.sub":
-        "Powerduck transforme le fichier OpenAPI déjà présent dans votre dépôt en un studio local piloté par l'IA. Décrivez votre besoin et il conçoit les points de terminaison, débogue les requêtes, crée et exécute des tests de scénario, simule l'API, rédige la documentation et expose des outils MCP — tout cela à partir de ce seul fichier, entièrement sur votre machine. Aucun compte, aucune dépendance, et le même YAML se branche directement à n'importe quel agent de programmation IA.",
-      "hero.download": "Télécharger Powerduck",
+      "hero.title": "Développez avec l’IA selon votre contrat API, puis vérifiez le résultat.",
+      "hero.sub": "Partez d’OpenAPI en local, connectez un agent de développement, déboguez et vérifiez la conformité de l’implémentation.",
+      "hero.download": "Télécharger la version desktop",
       "hero.demo": "Voir la démo en direct",
-      "hero.webApp": "Voir la démo en ligne",
-      "hero.micro": "Évaluez gratuitement aussi longtemps que vous voulez. Achetez quand ça vous convainc.",
-      "hero.strip":
-        "macOS · Windows · Linux &nbsp;·&nbsp; OpenAPI 3.0 / 3.1 / 3.2 &nbsp;·&nbsp; 100% local d'abord &nbsp;·&nbsp; tout modèle compatible OpenAI accepté &nbsp;·&nbsp; natif MCP",
-
+      "hero.webApp": "Voir un exemple pratique",
+      "hero.micro": "Aucun achat Cloud n’est nécessaire en local. L’offre gratuite inclut un emplacement de spécification ; des partages approuvés peuvent en ajouter. La licence desktop supprime cette limite. Votre fournisseur facture votre propre clé ; les crédits IA hébergés et le Cloud sont séparés.",
+      "hero.strip": "macOS · Windows · Linux &nbsp;·&nbsp; OpenAPI 3.0 / 3.1 / 3.2 &nbsp;·&nbsp; Local d'abord &nbsp;·&nbsp; tout modèle compatible OpenAI accepté &nbsp;·&nbsp; natif MCP",
       "loader.placeholder": "https://api.example.com/openapi.yaml",
       "loader.load": "Charger la spec",
       "loader.try": "Essayer :",
       "loader.commerceIssue": "API Commerce — contient des erreurs",
       "loader.openLocal": "Ouvrir un fichier local…",
-
       "f1.kicker": "Éditeur de spec OpenAPI",
       "f1.title": "Éditeur de spec OpenAPI",
-      "f1.deck":
-        "Le plan suit la structure réelle de la spécification, et non une supposition basée sur l'indentation. Parcourez les chemins et composants sous forme d'arbre et corrigez les erreurs là où elles se trouvent.",
+      "f1.deck": "Le plan suit la structure réelle de la spécification, et non une supposition basée sur l'indentation. Parcourez les chemins et composants sous forme d'arbre et corrigez les erreurs là où elles se trouvent.",
       "f1.b1Title": "Validation consciente du schéma.",
       "f1.b1Body": "Validez selon le dialecte 3.0, 3.1 ou 3.2 que votre fichier déclare réellement.",
       "f1.b2Title": "Navigation $ref résolue.",
@@ -877,11 +826,9 @@ window.POWERDUCK_I18N = {
       "f1.b3Body": "Votre dépôt reste la source de vérité.",
       "f1.b4Title": "Problèmes avec noms de règles.",
       "f1.b4Body": "Les échecs CI et les diagnostics de l'éditeur utilisent le même vocabulaire.",
-
       "f2.kicker": "Débogage d'API",
       "f2.title": "Déboguer les API à partir de votre spec",
-      "f2.deck":
-        "Un constructeur de requêtes calqué sur les outils que les développeurs utilisent déjà, plus une chose que ces outils ne savent pas faire par défaut : vérifier les réponses par rapport au contrat.",
+      "f2.deck": "Un constructeur de requêtes calqué sur les outils que les développeurs utilisent déjà, plus une chose que ces outils ne savent pas faire par défaut : vérifier les réponses par rapport au contrat.",
       "f2.b1Title": "Collections générées à partir des chemins et tags.",
       "f2.b1Body": "Aucune étape d'import et rien à resynchroniser manuellement.",
       "f2.b2Title": "Contrôle du contrat sur chaque réponse.",
@@ -890,11 +837,9 @@ window.POWERDUCK_I18N = {
       "f2.b3Body": "Réutilisez vos configurations de développement et de préproduction.",
       "f2.b4Title": "Sécurité issue des securitySchemes.",
       "f2.b4Body": "La configuration Bearer, clé API et OAuth part de la spécification.",
-
       "f3.kicker": "Générateur de serveur MCP",
       "f3.title": "Générer un serveur MCP depuis OpenAPI",
-      "f3.deck":
-        "Votre spécification est déjà un manifeste d'outils. Powerduck la compile en un serveur MCP exécutable et montre exactement quels champs OpenAPI ont produit chaque outil.",
+      "f3.deck": "Votre spécification est déjà un manifeste d'outils. Powerduck la compile en un serveur MCP exécutable et montre exactement quels champs OpenAPI ont produit chaque outil.",
       "f3.b1Title": "Provenance visible.",
       "f3.b1Body": "Chaque outil remonte à son opération, son operationId et son schéma.",
       "f3.b2Title": "États dégradés et ignorés.",
@@ -903,11 +848,9 @@ window.POWERDUCK_I18N = {
       "f3.b3Body": "Modifiez la spécification et les outils se mettent à jour sans étape de build.",
       "f3.b4Title": "Transports locaux.",
       "f3.b4Body": "Exécutez via stdio ou HTTP pour les agents et flux locaux.",
-
       "f4.kicker": "Générateur de documentation API",
       "f4.title": "Une documentation API issue du même contrat",
-      "f4.deck":
-        "Documentation de référence générée directement depuis votre modèle OpenAPI, exportée en fichiers statiques et hébergée où vous le souhaitez.",
+      "f4.deck": "Documentation de référence générée directement depuis votre modèle OpenAPI, exportée en fichiers statiques et hébergée où vous le souhaitez.",
       "f4.b1Title": "Tableaux de paramètres issus des schémas.",
       "f4.b1Body": "Les indicateurs obligatoires, énumérations et descriptions restent synchronisés.",
       "f4.b2Title": "Exemples multilingues.",
@@ -916,36 +859,28 @@ window.POWERDUCK_I18N = {
       "f4.b3Body": "Les réponses de succès et d'erreur proviennent des mêmes objets que votre débogueur valide.",
       "f4.b4Title": "Export statique.",
       "f4.b4Body": "Aucune dépendance d'exécution et aucune dépendance à une plateforme de documentation.",
-
       "story.kicker": "Une seule source de vérité",
-      "story.title":
-        "Un fichier OpenAPI local.<br />Chaque fonction, pilotée par IA.",
-      "story.deck":
-        "Ouvrez <strong>openapi.yaml</strong> ou <strong>openapi.json</strong> en local et Powerduck transforme le contrat que vous possédez déjà en un espace de travail API complet. Aucun import. Aucune conversion. Aucune collection parallèle. Aucune copie cloud. Décrivez le résultat en langage simple et l'assistant intégré l'exécute via des étapes révisables — et le même fichier dialogue en MCP avec n'importe quel agent de programmation IA.",
+      "story.title": "Un fichier OpenAPI local.<br />Chaque fonction, pilotée par IA.",
+      "story.deck": "Ouvrez <strong>openapi.yaml</strong> ou <strong>openapi.json</strong> en local et Powerduck transforme le contrat que vous possédez déjà en un espace de travail API complet. Aucun import. Aucune conversion. Aucune collection parallèle. Aucune copie cloud. Décrivez le résultat en langage simple et l'assistant intégré l'exécute via des étapes révisables — et le même fichier dialogue en MCP avec n'importe quel agent de programmation IA.",
       "story.fileNote": "Le fichier reste dans votre dépôt.",
       "story.tool1": "Modifier, parcourir et valider le contrat réel.",
       "story.tool2": "Envoyer des requêtes générées depuis les mêmes opérations.",
       "story.tool3": "Compiler les opérations en outils prêts pour les agents.",
       "story.tool4": "Publier la documentation depuis la même source.",
-      "story.posTitle":
-        "Pas un simple client API de plus,<br />pas un simple lecteur de spec de plus,<br />mais une façon IA-native de construire des API.",
-      "story.posBody":
-        "C'est l'espace de travail local et piloté par l'IA construit autour du fichier OpenAPI lui-même.",
+      "story.posTitle": "Pas un simple client API de plus,<br />pas un simple lecteur de spec de plus,<br />mais une façon IA-native de construire des API.",
+      "story.posBody": "C'est l'espace de travail local et piloté par l'IA construit autour du fichier OpenAPI lui-même.",
       "story.point1": "Votre spec n'a jamais besoin de quitter votre machine.",
       "story.point2": "Il n'y a rien d'autre à maintenir aligné sur le contrat.",
       "story.point3": "Votre YAML ou JSON existant est l'espace de travail.",
-
       "lic.kicker": "Licences",
-      "lic.title":
-        "Achetez la licence desktop une fois. Abonnez-vous uniquement si vous avez besoin d'hébergement.",
-      "lic.deck":
-        "Powerduck Desktop est une licence perpétuelle — le même produit local d'abord présenté ci-dessus, sans aucun appel maison. Les points de terminaison MCP hébergés sont facultatifs et restent séparés du flux local.",
+      "lic.title": "Achetez la licence desktop une fois. Abonnez-vous uniquement si vous avez besoin d'hébergement.",
+      "lic.deck": "Powerduck Desktop est une licence perpétuelle — le même produit local d'abord présenté ci-dessus, sans aucun appel maison. Les points de terminaison MCP hébergés sont facultatifs et restent séparés du flux local.",
       "lic.desktopTitle": "Powerduck Desktop",
       "lic.desktopTag": "Licence perpétuelle · achat unique",
       "lic.desktopPeriod": "par utilisateur, une fois",
       "lic.desktopL1": "Éditeur de spec, débogage API, serveur MCP et docs API",
       "lic.desktopL2": "Toutes les mises à jour au sein de la version majeure",
-      "lic.desktopL3": "Entièrement hors ligne · aucun compte · aucune télémétrie",
+      "lic.desktopL3": "Fichiers locaux · sans compte en local",
       "lic.desktopL4": "Licence personnelle pour chaque machine que vous possédez",
       "lic.desktopL5": "Licences de volume, de site et d'éducation disponibles",
       "lic.buyLicense": "Acheter une licence",
@@ -959,39 +894,26 @@ window.POWERDUCK_I18N = {
       "lic.cloudL3": "Jetons d'accès et journaux de requêtes",
       "lic.cloudL4": "Docs de référence hébergées sur votre propre domaine",
       "lic.seePlans": "Voir les plans Cloud",
-      "lic.cloudNote":
-        "Non requis pour l'application de bureau. La facturation annuelle fait économiser deux mois ; annulez quand vous voulez, votre flux local continue de fonctionner.",
-      "lic.eval":
-        "<strong>Évaluation :</strong> Powerduck est entièrement fonctionnel avant achat, sans limite de temps ni fonctions verrouillées. Vous verrez occasionnellement un rappel pour acheter une licence.",
-
+      "lic.cloudNote": "Non requis pour l'application de bureau. La facturation annuelle fait économiser deux mois ; annulez quand vous voulez, votre flux local continue de fonctionner.",
+      "lic.eval": "<strong>Évaluation :</strong> Powerduck est entièrement fonctionnel avant achat, sans limite de temps ni fonctions verrouillées. Vous verrez occasionnellement un rappel pour acheter une licence.",
       "faq.kicker": "FAQ",
       "faq.title": "Les questions que les développeurs posent en premier",
-      "faq.deck":
-        "Les détails pratiques sur les fichiers locaux, les versions OpenAPI, la génération MCP et les licences.",
+      "faq.deck": "Les détails pratiques sur les fichiers locaux, les versions OpenAPI, la génération MCP et les licences.",
       "faq.q1": "Powerduck téléverse-t-il ma spécification OpenAPI quelque part ?",
-      "faq.a1":
-        "Non. L'application de bureau lit et écrit les fichiers OpenAPI directement sur votre système de fichiers. Il n'y a aucun compte, aucune synchronisation et aucune télémétrie. Seuls les services hébergés facultatifs impliquent un serveur distant.",
+      "faq.a1": "Les fichiers locaux ne nécessitent pas de compte. L’IA distante reçoit le contexte pertinent chez le fournisseur configuré. La publication Cloud envoie le contenu choisi. Les statistiques facultatives sont désactivées par défaut ; consultez la politique de confidentialité.",
       "faq.q2": "Quelles versions d'OpenAPI sont prises en charge ?",
-      "faq.a2":
-        "OpenAPI 3.0, 3.1 et 3.2. Powerduck détecte la version déclarée et valide selon le dialecte approprié au lieu d'utiliser un plus petit commun dénominateur.",
+      "faq.a2": "OpenAPI 3.0, 3.1 et 3.2. Powerduck détecte la version déclarée et valide selon le dialecte approprié au lieu d'utiliser un plus petit commun dénominateur.",
       "faq.q3": "Comment le serveur MCP est-il généré ?",
-      "faq.a3":
-        "Les opérations ayant un operationId deviennent des outils MCP. Les arguments sont dérivés des paramètres et des schémas de requestBody. Les schémas de composants peuvent être exposés comme ressources. Le serveur généré se met à jour à chaque changement de la spécification.",
+      "faq.a3": "Les opérations ayant un operationId deviennent des outils MCP. Les arguments sont dérivés des paramètres et des schémas de requestBody. Les schémas de composants peuvent être exposés comme ressources. Le serveur généré se met à jour à chaque changement de la spécification.",
       "faq.q4": "La licence desktop est-elle un abonnement ?",
-      "faq.a4":
-        "Non. Powerduck Desktop est une licence perpétuelle achetée une fois. Les mises à jour au sein de la version majeure sont incluses. Les futures montées de version majeure restent facultatives.",
+      "faq.a4": "Non. Powerduck Desktop est une licence perpétuelle achetée une fois. Les mises à jour au sein de la version majeure sont incluses. Les futures montées de version majeure restent facultatives.",
       "faq.q5": "Puis-je continuer à utiliser mes collections Postman ?",
-      "faq.a5":
-        "Oui. Les collections et environnements existants peuvent continuer à être utilisés. Powerduck considère la spécification OpenAPI comme le contrat faisant autorité et aide à identifier où les requêtes en dérivent.",
+      "faq.a5": "Oui. Les collections et environnements existants peuvent continuer à être utilisés. Powerduck considère la spécification OpenAPI comme le contrat faisant autorité et aide à identifier où les requêtes en dérivent.",
       "faq.q6": "Est-ce que ça fonctionne en CI ?",
-      "faq.a6Before":
-        "Oui. Le même moteur de validation et de génération est exposé via",
-      "faq.a6After":
-        ", un outil en ligne de commande prêt pour la CI qui s'exécute pendant les pull requests et les pipelines automatisés. Il prend en charge les tests par lots sur 6 protocoles (HTTP, SSE, WebSocket, gRPC, MCP, tRPC), une concurrence configurable et des rapports compatibles JUnit pour l'intégration CI.",
+      "faq.a6Before": "Oui. Le même moteur de validation et de génération est exposé via",
+      "faq.a6After": ", un outil en ligne de commande prêt pour la CI qui s'exécute pendant les pull requests et les pipelines automatisés. Il prend en charge les tests par lots sur 6 protocoles (HTTP, SSE, WebSocket, gRPC, MCP, tRPC), une concurrence configurable et des rapports compatibles JUnit pour l'intégration CI.",
       "faq.a6Btn": "Découvrir openapi-cli →",
-
-      "footer.brand":
-        "Nous créons des outils pour développeurs adaptés au flux API moderne. Open source, prêts pour la production et portés par la communauté.",
+      "footer.brand": "Nous créons des outils pour développeurs adaptés au flux API moderne. Open source, prêts pour la production et portés par la communauté.",
       "footer.product": "Produit",
       "footer.prices": "Tarifs",
       "footer.quickstart": "Démarrage rapide",
@@ -1008,12 +930,29 @@ window.POWERDUCK_I18N = {
       "footer.cookie": "Avis sur les cookies",
       "footer.termsShort": "Conditions",
       "footer.privacyShort": "Confidentialité",
-      "footer.cookieShort": "Cookies"
+      "footer.cookieShort": "Cookies",
+      "hero.badge": "Local-first · natif IA — OpenAPI, MCP et A2A sur votre machine",
+      "guide.title": "Choisissez votre prochaine étape.",
+      "guide.compare": "Comparer les produits et tarifs →",
+      "guide.account": "Vous avez déjà un compte ? Gérez la publication, les licences Bureau et les crédits IA.",
+      "guide.signin": "Se connecter à la console →",
+      "guide.client.title": "Licence Bureau",
+      "guide.client.job": "Créer en local",
+      "guide.client.cost": "Achat unique · licence perpétuelle",
+      "guide.client.desc": "Concevez, déboguez et testez les APIs via le chat, avec des fichiers OpenAPI locaux.",
+      "guide.cloud.title": "Hébergement Cloud",
+      "guide.cloud.job": "Publier en ligne",
+      "guide.cloud.cost": "Offre gratuite · plans mensuels ou annuels",
+      "guide.cloud.desc": "Partagez la documentation API hébergée et les services MCP avec votre équipe et les agents IA.",
+      "guide.models.title": "Crédits IA",
+      "guide.models.job": "Choisir le modèle",
+      "guide.models.cost": "Crédits modèles prépayés",
+      "guide.models.desc": "Utilisez des modèles hébergés avec un pack de crédits, ou configurez votre propre fournisseur dans l'application Bureau.",
+      "a2a.intro": "Au-delà de REST : déboguez SSE, WebSocket, GraphQL et gRPC natif, concevez des contrats A2A versionnés et des Agent Cards, vérifiez les signatures et exportez un projet serveur exécutable.",
+      "a2a.learn": "Découvrir la prise en charge A2A →"
     },
-
-    es: {
+    "es": {
       "common.auto": "Automático (idioma del navegador)",
-
       "nav.client": "Cliente",
       "nav.cloud": "Cloud",
       "nav.pricing": "Precios",
@@ -1048,28 +987,21 @@ window.POWERDUCK_I18N = {
       "account.console": "Consola",
       "account.settings": "Configuración",
       "account.signout": "Cerrar sesión",
-
-      "hero.title":
-        "Un <code>openapi.yaml</code> local. Tu equipo de IA para todo el ciclo de vida de la API.",
-      "hero.sub":
-        "Powerduck convierte el archivo OpenAPI que ya está en tu repositorio en un estudio local impulsado por IA. Describe lo que necesitas y diseñará endpoints, depurará solicitudes, creará y ejecutará pruebas de escenario, simulará la API, redactará documentación y expondrá herramientas MCP, todo desde ese único archivo, todo en tu máquina. Sin cuenta, sin dependencia, y el mismo YAML se conecta directamente con cualquier agente de programación de IA.",
-      "hero.download": "Descargar Powerduck",
+      "hero.title": "Desarrolla con IA según tu contrato API y verifica el resultado.",
+      "hero.sub": "Parte de OpenAPI local, conecta un agente de programación, depura APIs y verifica la implementación.",
+      "hero.download": "Descargar escritorio",
       "hero.demo": "Ver la demo en vivo",
-      "hero.webApp": "Ver la demo en vivo",
-      "hero.micro": "Evalúa gratis todo el tiempo que quieras. Compra cuando te convenza.",
-      "hero.strip":
-        "macOS · Windows · Linux &nbsp;·&nbsp; OpenAPI 3.0 / 3.1 / 3.2 &nbsp;·&nbsp; 100% local primero &nbsp;·&nbsp; admite cualquier modelo compatible con OpenAI &nbsp;·&nbsp; nativo MCP",
-
+      "hero.webApp": "Ver ejemplo práctico",
+      "hero.micro": "No necesitas comprar Cloud para trabajar en local. El uso gratuito incluye un espacio de especificación; los compartidos aprobados pueden añadir más. La licencia de escritorio elimina el límite. Tu proveedor factura tu propia clave; los créditos de IA alojada y Cloud se pagan aparte.",
+      "hero.strip": "macOS · Windows · Linux &nbsp;·&nbsp; OpenAPI 3.0 / 3.1 / 3.2 &nbsp;·&nbsp; Local primero &nbsp;·&nbsp; admite cualquier modelo compatible con OpenAI &nbsp;·&nbsp; nativo MCP",
       "loader.placeholder": "https://api.example.com/openapi.yaml",
       "loader.load": "Cargar spec",
       "loader.try": "Probar:",
       "loader.commerceIssue": "API de comercio — tiene problemas",
       "loader.openLocal": "Abrir un archivo local…",
-
       "f1.kicker": "Editor de specs OpenAPI",
       "f1.title": "Editor de specs OpenAPI",
-      "f1.deck":
-        "El esquema sigue la estructura real de la especificación, no una suposición basada en la sangría. Navega por rutas y componentes como un árbol y corrige los errores justo donde están.",
+      "f1.deck": "El esquema sigue la estructura real de la especificación, no una suposición basada en la sangría. Navega por rutas y componentes como un árbol y corrige los errores justo donde están.",
       "f1.b1Title": "Validación consciente del esquema.",
       "f1.b1Body": "Valida según el dialecto 3.0, 3.1 o 3.2 que tu archivo declara realmente.",
       "f1.b2Title": "Navegación de $ref resuelta.",
@@ -1078,11 +1010,9 @@ window.POWERDUCK_I18N = {
       "f1.b3Body": "Tu repositorio sigue siendo la fuente de verdad.",
       "f1.b4Title": "Problemas con nombres de reglas.",
       "f1.b4Body": "Los fallos de CI y los diagnósticos del editor usan el mismo vocabulario.",
-
       "f2.kicker": "Depuración de API",
       "f2.title": "Depurar APIs según tu spec",
-      "f2.deck":
-        "Un constructor de solicitudes con la forma de las herramientas que los desarrolladores ya usan, además de lo que esas herramientas no pueden hacer por defecto: verificar las respuestas frente al contrato.",
+      "f2.deck": "Un constructor de solicitudes con la forma de las herramientas que los desarrolladores ya usan, además de lo que esas herramientas no pueden hacer por defecto: verificar las respuestas frente al contrato.",
       "f2.b1Title": "Colecciones generadas desde rutas y etiquetas.",
       "f2.b1Body": "Sin paso de importación y nada que volver a sincronizar manualmente.",
       "f2.b2Title": "Comprobación del contrato en cada respuesta.",
@@ -1091,11 +1021,9 @@ window.POWERDUCK_I18N = {
       "f2.b3Body": "Reutiliza las configuraciones de desarrollo y staging existentes.",
       "f2.b4Title": "Seguridad desde securitySchemes.",
       "f2.b4Body": "La configuración de Bearer, clave de API y OAuth empieza desde la especificación.",
-
       "f3.kicker": "Generador de servidor MCP",
       "f3.title": "Generar un servidor MCP desde OpenAPI",
-      "f3.deck":
-        "Tu especificación ya es un manifiesto de herramientas. Powerduck la compila en un servidor MCP ejecutable y muestra exactamente qué campos OpenAPI produjeron cada herramienta.",
+      "f3.deck": "Tu especificación ya es un manifiesto de herramientas. Powerduck la compila en un servidor MCP ejecutable y muestra exactamente qué campos OpenAPI produjeron cada herramienta.",
       "f3.b1Title": "Procedencia visible.",
       "f3.b1Body": "Cada herramienta se remonta a su operación, operationId y esquema.",
       "f3.b2Title": "Estados degradados y omitidos.",
@@ -1104,11 +1032,9 @@ window.POWERDUCK_I18N = {
       "f3.b3Body": "Cambia la especificación y las herramientas se actualizan sin un paso de compilación.",
       "f3.b4Title": "Transportes locales.",
       "f3.b4Body": "Ejecuta mediante stdio o HTTP para agentes y flujos locales.",
-
       "f4.kicker": "Generador de documentación de API",
       "f4.title": "Documentación de API desde el mismo contrato",
-      "f4.deck":
-        "Documentación de referencia generada directamente desde tu modelo OpenAPI, exportada como archivos estáticos y hospedada donde quieras.",
+      "f4.deck": "Documentación de referencia generada directamente desde tu modelo OpenAPI, exportada como archivos estáticos y hospedada donde quieras.",
       "f4.b1Title": "Tablas de parámetros desde esquemas.",
       "f4.b1Body": "Los indicadores obligatorios, enumeraciones y descripciones se mantienen sincronizados.",
       "f4.b2Title": "Ejemplos en varios idiomas.",
@@ -1117,36 +1043,28 @@ window.POWERDUCK_I18N = {
       "f4.b3Body": "Las respuestas de éxito y error provienen de los mismos objetos que valida tu depurador.",
       "f4.b4Title": "Exportación estática.",
       "f4.b4Body": "Sin dependencia en tiempo de ejecución y sin dependencia de ninguna plataforma de documentación.",
-
       "story.kicker": "Una única fuente de verdad",
-      "story.title":
-        "Un archivo OpenAPI local.<br />Cada función, impulsada por IA.",
-      "story.deck":
-        "Abre <strong>openapi.yaml</strong> o <strong>openapi.json</strong> en local y Powerduck convierte el contrato que ya posees en un espacio de trabajo de API completo. Sin importación. Sin conversión. Sin colecciones paralelas. Sin copia en la nube. Describe el resultado en lenguaje sencillo y el asistente integrado lo ejecuta mediante pasos revisables, y el mismo archivo habla MCP con cualquier agente de programación de IA.",
+      "story.title": "Un archivo OpenAPI local.<br />Cada función, impulsada por IA.",
+      "story.deck": "Abre <strong>openapi.yaml</strong> o <strong>openapi.json</strong> en local y Powerduck convierte el contrato que ya posees en un espacio de trabajo de API completo. Sin importación. Sin conversión. Sin colecciones paralelas. Sin copia en la nube. Describe el resultado en lenguaje sencillo y el asistente integrado lo ejecuta mediante pasos revisables, y el mismo archivo habla MCP con cualquier agente de programación de IA.",
       "story.fileNote": "El archivo permanece en tu repositorio.",
       "story.tool1": "Editar, navegar y validar el contrato real.",
       "story.tool2": "Enviar solicitudes generadas desde las mismas operaciones.",
       "story.tool3": "Compilar operaciones en herramientas listas para agentes.",
       "story.tool4": "Publicar documentación desde la misma fuente.",
-      "story.posTitle":
-        "No es otro cliente de API,<br />no es otro visor de specs,<br />sino una forma nativa de IA de construir APIs.",
-      "story.posBody":
-        "Es el espacio de trabajo local e impulsado por IA construido en torno al propio archivo OpenAPI.",
+      "story.posTitle": "No es otro cliente de API,<br />no es otro visor de specs,<br />sino una forma nativa de IA de construir APIs.",
+      "story.posBody": "Es el espacio de trabajo local e impulsado por IA construido en torno al propio archivo OpenAPI.",
       "story.point1": "Tu spec nunca necesita salir de tu máquina.",
       "story.point2": "No hay nada más que mantener alineado con el contrato.",
       "story.point3": "Tu YAML o JSON existente es el espacio de trabajo.",
-
       "lic.kicker": "Licencias",
-      "lic.title":
-        "Compra la licencia de escritorio una vez. Suscríbete solo si necesitas hospedaje.",
-      "lic.deck":
-        "Powerduck Desktop es una licencia perpetua: el mismo producto local primero que se muestra arriba, sin llamadas a casa. Los endpoints MCP hospedados son opcionales y se mantienen separados del flujo local.",
+      "lic.title": "Compra la licencia de escritorio una vez. Suscríbete solo si necesitas hospedaje.",
+      "lic.deck": "Powerduck Desktop es una licencia perpetua: el mismo producto local primero que se muestra arriba, sin llamadas a casa. Los endpoints MCP hospedados son opcionales y se mantienen separados del flujo local.",
       "lic.desktopTitle": "Powerduck Desktop",
       "lic.desktopTag": "Licencia perpetua · compra única",
       "lic.desktopPeriod": "por usuario, una vez",
       "lic.desktopL1": "Editor de specs, depuración de API, servidor MCP y docs de API",
       "lic.desktopL2": "Todas las actualizaciones dentro de la versión principal",
-      "lic.desktopL3": "Totalmente sin conexión · sin cuenta · sin telemetría",
+      "lic.desktopL3": "Archivos locales · sin cuenta para uso local",
       "lic.desktopL4": "Licencia personal para cada máquina que poseas",
       "lic.desktopL5": "Licencias por volumen, de sitio y educativas disponibles",
       "lic.buyLicense": "Comprar una licencia",
@@ -1160,39 +1078,26 @@ window.POWERDUCK_I18N = {
       "lic.cloudL3": "Tokens de acceso y registros de solicitudes",
       "lic.cloudL4": "Documentos de referencia hospedados en tu propio dominio",
       "lic.seePlans": "Ver planes de Cloud",
-      "lic.cloudNote":
-        "No es necesario para la aplicación de escritorio. La facturación anual ahorra dos meses; cancela cuando quieras y tu flujo local seguirá funcionando.",
-      "lic.eval":
-        "<strong>Evaluación:</strong> Powerduck es totalmente funcional antes de comprar, sin límite de tiempo ni funciones bloqueadas. Ocasionalmente verás un recordatorio para comprar una licencia.",
-
+      "lic.cloudNote": "No es necesario para la aplicación de escritorio. La facturación anual ahorra dos meses; cancela cuando quieras y tu flujo local seguirá funcionando.",
+      "lic.eval": "<strong>Evaluación:</strong> Powerduck es totalmente funcional antes de comprar, sin límite de tiempo ni funciones bloqueadas. Ocasionalmente verás un recordatorio para comprar una licencia.",
       "faq.kicker": "Preguntas frecuentes",
       "faq.title": "Preguntas que los desarrolladores hacen primero",
-      "faq.deck":
-        "Los detalles prácticos sobre archivos locales, versiones de OpenAPI, generación de MCP y licencias.",
+      "faq.deck": "Los detalles prácticos sobre archivos locales, versiones de OpenAPI, generación de MCP y licencias.",
       "faq.q1": "¿Powerduck sube mi especificación OpenAPI a algún lugar?",
-      "faq.a1":
-        "No. La aplicación de escritorio lee y escribe archivos OpenAPI directamente en tu sistema de archivos. No hay cuenta, ni sincronización ni telemetría. Solo los servicios hospedados opcionales implican un servidor remoto.",
+      "faq.a1": "Los archivos locales no requieren cuenta. La IA remota recibe el contexto relevante en tu proveedor configurado. Al publicar en Cloud se sube el contenido seleccionado. Las estadísticas opcionales están desactivadas por defecto; consulta Privacidad.",
       "faq.q2": "¿Qué versiones de OpenAPI son compatibles?",
-      "faq.a2":
-        "OpenAPI 3.0, 3.1 y 3.2. Powerduck detecta la versión declarada y valida según el dialecto correspondiente en lugar de usar el mínimo común denominador.",
+      "faq.a2": "OpenAPI 3.0, 3.1 y 3.2. Powerduck detecta la versión declarada y valida según el dialecto correspondiente en lugar de usar el mínimo común denominador.",
       "faq.q3": "¿Cómo se genera el servidor MCP?",
-      "faq.a3":
-        "Las operaciones con un operationId se convierten en herramientas MCP. Los argumentos se derivan de los parámetros y los esquemas de requestBody. Los esquemas de componentes pueden exponerse como recursos. El servidor generado se actualiza cada vez que cambia la especificación.",
+      "faq.a3": "Las operaciones con un operationId se convierten en herramientas MCP. Los argumentos se derivan de los parámetros y los esquemas de requestBody. Los esquemas de componentes pueden exponerse como recursos. El servidor generado se actualiza cada vez que cambia la especificación.",
       "faq.q4": "¿La licencia de escritorio es una suscripción?",
-      "faq.a4":
-        "No. Powerduck Desktop es una licencia perpetua comprada una vez. Las actualizaciones dentro de la versión principal están incluidas. Las futuras actualizaciones mayores siguen siendo opcionales.",
+      "faq.a4": "No. Powerduck Desktop es una licencia perpetua comprada una vez. Las actualizaciones dentro de la versión principal están incluidas. Las futuras actualizaciones mayores siguen siendo opcionales.",
       "faq.q5": "¿Puedo seguir usando colecciones de Postman?",
-      "faq.a5":
-        "Sí. Las colecciones y entornos existentes pueden seguir usándose. Powerduck trata la especificación OpenAPI como el contrato autoritativo y ayuda a identificar dónde las solicitudes se desvían de él.",
+      "faq.a5": "Sí. Las colecciones y entornos existentes pueden seguir usándose. Powerduck trata la especificación OpenAPI como el contrato autoritativo y ayuda a identificar dónde las solicitudes se desvían de él.",
       "faq.q6": "¿Funciona en CI?",
-      "faq.a6Before":
-        "Sí. El mismo motor de validación y generación se expone a través de",
-      "faq.a6After":
-        ", una herramienta de línea de comandos lista para CI que se ejecuta durante los pull requests y los pipelines automatizados. Admite pruebas por lotes en 6 protocolos (HTTP, SSE, WebSocket, gRPC, MCP, tRPC), concurrencia configurable e informes compatibles con JUnit para la integración de CI.",
+      "faq.a6Before": "Sí. El mismo motor de validación y generación se expone a través de",
+      "faq.a6After": ", una herramienta de línea de comandos lista para CI que se ejecuta durante los pull requests y los pipelines automatizados. Admite pruebas por lotes en 6 protocolos (HTTP, SSE, WebSocket, gRPC, MCP, tRPC), concurrencia configurable e informes compatibles con JUnit para la integración de CI.",
       "faq.a6Btn": "Explorar openapi-cli →",
-
-      "footer.brand":
-        "Creamos herramientas para desarrolladores para el flujo de API moderno. Código abierto, listas para producción e impulsadas por la comunidad.",
+      "footer.brand": "Creamos herramientas para desarrolladores para el flujo de API moderno. Código abierto, listas para producción e impulsadas por la comunidad.",
       "footer.product": "Producto",
       "footer.prices": "Precios",
       "footer.quickstart": "Inicio rápido",
@@ -1209,23 +1114,44 @@ window.POWERDUCK_I18N = {
       "footer.cookie": "Aviso de cookies",
       "footer.termsShort": "Términos",
       "footer.privacyShort": "Privacidad",
-      "footer.cookieShort": "Cookies"
+      "footer.cookieShort": "Cookies",
+      "hero.badge": "Local-first · IA nativa — OpenAPI, MCP y A2A en tu equipo",
+      "guide.title": "Elige tu siguiente paso.",
+      "guide.compare": "Comparar productos y precios →",
+      "guide.account": "¿Ya tienes cuenta? Gestiona la publicación, licencias de escritorio y créditos de IA.",
+      "guide.signin": "Iniciar sesión en la consola →",
+      "guide.client.title": "Licencia de escritorio",
+      "guide.client.job": "Crear en local",
+      "guide.client.cost": "Compra única · licencia perpetua",
+      "guide.client.desc": "Diseña, depura y prueba APIs mediante el chat, con archivos OpenAPI locales.",
+      "guide.cloud.title": "Hospedaje Cloud",
+      "guide.cloud.job": "Publicar en línea",
+      "guide.cloud.cost": "Plan gratuito · planes mensuales o anuales",
+      "guide.cloud.desc": "Comparte documentación API hospedada y servicios MCP con tu equipo y agentes de IA.",
+      "guide.models.title": "Créditos de IA",
+      "guide.models.job": "Elegir el modelo",
+      "guide.models.cost": "Créditos de modelo prepagados",
+      "guide.models.desc": "Usa modelos alojados con un paquete de créditos, o configura tu propio proveedor de modelos en la aplicación de escritorio.",
+      "a2a.intro": "Más allá de REST: depura SSE, WebSocket, GraphQL y gRPC nativo, diseña contratos A2A versionados y Agent Cards, verifica firmas y exporta un proyecto de servidor ejecutable.",
+      "a2a.learn": "Explorar la compatibilidad con A2A →"
     }
   }
 };
 
-// Product paths share the same destinations as the pricing page.
-Object.assign(window.POWERDUCK_I18N.messages.en, {"hero.badge": "Local-first · AI-native — OpenAPI, MCP & A2A on your machine", "hero.title": "One <code>OpenAPI</code> spec.<br>AI runs the whole API lifecycle — locally on your machine.", "hero.sub": "Design an API from scratch or scan an existing codebase into OpenAPI. Then debug, scenario-test, mock, document, expose it as MCP tools and connect agents over A2A — all from one local file, with AI at every step. No account, no lock-in; your data never leaves your machine.", "guide.title": "Choose your next step.", "guide.compare": "Compare products and pricing →", "guide.account": "Already have an account? Manage publishing, desktop licenses and AI credits.", "guide.signin": "Sign in to your console →", "guide.client.title": "Desktop license", "guide.client.job": "Build locally", "guide.client.cost": "One-time purchase · perpetual license", "guide.client.desc": "Design, debug and test APIs through chat, using local OpenAPI files.", "guide.cloud.title": "Cloud hosting", "guide.cloud.job": "Publish online", "guide.cloud.cost": "Free tier · monthly or annual plans", "guide.cloud.desc": "Share hosted API documentation and MCP services with your team and AI agents.", "guide.models.title": "AI credits", "guide.models.job": "Choose your model", "guide.models.cost": "Prepaid model credits", "guide.models.desc": "Use hosted models with a credit pack, or configure your own model provider in the desktop app."});
-Object.assign(window.POWERDUCK_I18N.messages["zh-CN"], {"hero.badge": "本地优先 · AI 原生 —— OpenAPI、MCP、A2A，全在本机", "hero.title": "一份 <code>OpenAPI</code>，<br>AI 跑通 API 全生命周期，全程在本机。", "hero.sub": "既可以从零设计 API，也可以直接扫描现有代码生成 OpenAPI。再从同一个本地文件出发，完成调试、场景测试、Mock 与文档，暴露为 MCP 工具并通过 A2A 连接 Agent——每一步都有 AI 参与。无需账号、没有锁定，数据始终留在你的机器上。", "guide.title": "按你的需要，选择下一步", "guide.compare": "对比产品与价格 →", "guide.account": "已有账号？管理在线发布、桌面授权和 AI 额度。", "guide.signin": "登录控制台 →", "guide.client.title": "桌面授权", "guide.client.job": "本地开发", "guide.client.cost": "一次购买 · 永久授权", "guide.client.desc": "通过对话设计、调试和测试 API，直接使用本地 OpenAPI 文件。", "guide.cloud.title": "Cloud 托管", "guide.cloud.job": "在线发布", "guide.cloud.cost": "免费方案 · 付费按月或按年", "guide.cloud.desc": "托管 API 文档与 MCP 服务，为团队和 AI 工具提供在线访问。", "guide.models.title": "AI 模型额度", "guide.models.job": "选择模型", "guide.models.cost": "预付模型额度", "guide.models.desc": "购买额度调用托管模型，也可以在桌面应用中配置自己的模型服务商。"});
-Object.assign(window.POWERDUCK_I18N.messages.ja, {"hero.badge": "ローカルファースト · AI ネイティブ — OpenAPI・MCP・A2A をあなたのマシンで", "hero.title": "1 つの <code>OpenAPI</code> 仕様。<br>AI が API ライフサイクル全体を、あなたのマシンでローカルに実行。", "hero.sub": "ゼロから API を設計することも、既存コードをスキャンして OpenAPI を生成することも可能です。その 1 つのローカルファイルから、デバッグ、シナリオテスト、モック、ドキュメント、MCP ツール公開、A2A によるエージェント連携まで、すべてのステップで AI が支援します。アカウント不要、ロックインなし。データがマシンの外に出ることはありません。", "guide.title": "次のステップを選ぶ", "guide.compare": "製品と料金を比較 →", "guide.account": "アカウントをお持ちですか？公開、デスクトップライセンス、AI クレジットを管理。", "guide.signin": "コンソールにサインイン →", "guide.client.title": "デスクトップライセンス", "guide.client.job": "ローカルで構築", "guide.client.cost": "買い切り · 永久ライセンス", "guide.client.desc": "ローカルの OpenAPI ファイルを使い、チャットで API を設計、デバッグ、テスト。", "guide.cloud.title": "クラウドホスティング", "guide.cloud.job": "オンラインで公開", "guide.cloud.cost": "無料枠 · 月額または年額プラン", "guide.cloud.desc": "ホスト型 API ドキュメントと MCP サービスをチームや AI エージェントと共有。", "guide.models.title": "AI クレジット", "guide.models.job": "モデルを選ぶ", "guide.models.cost": "前払いモデルクレジット", "guide.models.desc": "クレジットパックでホスト型モデルを使うか、デスクトップアプリで自身のモデルプロバイダーを設定。"});
-Object.assign(window.POWERDUCK_I18N.messages.de, {"hero.badge": "Local-first · KI-nativ — OpenAPI, MCP & A2A auf Ihrem Rechner", "hero.title": "Eine <code>OpenAPI</code>-Spec.<br>KI durchläuft den gesamten API-Lebenszyklus – lokal auf Ihrem Rechner.", "hero.sub": "Entwerfen Sie eine API von Grund auf oder scannen Sie einen vorhandenen Codebestand nach OpenAPI. Aus einer einzigen lokalen Datei debuggen Sie, testen Szenarien, mocken, dokumentieren, veröffentlichen MCP-Tools und verbinden Agents über A2A – mit KI in jedem Schritt. Kein Konto, keine Bindung; Ihre Daten verlassen Ihren Rechner nie.", "guide.title": "Wählen Sie Ihren nächsten Schritt.", "guide.compare": "Produkte und Preise vergleichen →", "guide.account": "Sie haben bereits ein Konto? Verwalten Sie Veröffentlichung, Desktop-Lizenzen und KI-Guthaben.", "guide.signin": "Bei der Konsole anmelden →", "guide.client.title": "Desktop-Lizenz", "guide.client.job": "Lokal erstellen", "guide.client.cost": "Einmalkauf · dauerhafte Lizenz", "guide.client.desc": "Entwerfen, debuggen und testen Sie APIs über Chat mit lokalen OpenAPI-Dateien.", "guide.cloud.title": "Cloud-Hosting", "guide.cloud.job": "Online veröffentlichen", "guide.cloud.cost": "Kostenloser Tarif · Monats- oder Jahrespläne", "guide.cloud.desc": "Teilen Sie gehostete API-Dokumentation und MCP-Dienste mit Ihrem Team und KI-Agenten.", "guide.models.title": "KI-Guthaben", "guide.models.job": "Modell wählen", "guide.models.cost": "Prepaid-Modellguthaben", "guide.models.desc": "Nutzen Sie gehostete Modelle mit einem Guthabenpaket oder konfigurieren Sie Ihren eigenen Modellanbieter in der Desktop-App."});
-Object.assign(window.POWERDUCK_I18N.messages.fr, {"hero.badge": "Local-first · natif IA — OpenAPI, MCP et A2A sur votre machine", "hero.title": "Une spec <code>OpenAPI</code>.<br>L'IA couvre tout le cycle de vie de l'API, localement sur votre machine.", "hero.sub": "Concevez une API de zéro ou générez OpenAPI en scannant un code existant. Depuis un seul fichier local, déboguez, testez des scénarios, mockez, documentez, exposez des outils MCP et connectez des agents via A2A, avec l'IA à chaque étape. Sans compte ni verrouillage ; vos données ne quittent jamais votre machine.", "guide.title": "Choisissez votre prochaine étape.", "guide.compare": "Comparer les produits et tarifs →", "guide.account": "Vous avez déjà un compte ? Gérez la publication, les licences Bureau et les crédits IA.", "guide.signin": "Se connecter à la console →", "guide.client.title": "Licence Bureau", "guide.client.job": "Créer en local", "guide.client.cost": "Achat unique · licence perpétuelle", "guide.client.desc": "Concevez, déboguez et testez les APIs via le chat, avec des fichiers OpenAPI locaux.", "guide.cloud.title": "Hébergement Cloud", "guide.cloud.job": "Publier en ligne", "guide.cloud.cost": "Offre gratuite · plans mensuels ou annuels", "guide.cloud.desc": "Partagez la documentation API hébergée et les services MCP avec votre équipe et les agents IA.", "guide.models.title": "Crédits IA", "guide.models.job": "Choisir le modèle", "guide.models.cost": "Crédits modèles prépayés", "guide.models.desc": "Utilisez des modèles hébergés avec un pack de crédits, ou configurez votre propre fournisseur dans l'application Bureau."});
-Object.assign(window.POWERDUCK_I18N.messages.es, {"hero.badge": "Local-first · IA nativa — OpenAPI, MCP y A2A en tu equipo", "hero.title": "Una spec <code>OpenAPI</code>.<br>La IA recorre todo el ciclo de vida de la API, en local en tu equipo.", "hero.sub": "Diseña una API desde cero o genera OpenAPI escaneando un código existente. Desde un único archivo local, depura, prueba escenarios, simula, documenta, expón herramientas MCP y conecta agentes por A2A, con IA en cada paso. Sin cuenta ni bloqueo; tus datos nunca salen de tu equipo.", "guide.title": "Elige tu siguiente paso.", "guide.compare": "Comparar productos y precios →", "guide.account": "¿Ya tienes cuenta? Gestiona la publicación, licencias de escritorio y créditos de IA.", "guide.signin": "Iniciar sesión en la consola →", "guide.client.title": "Licencia de escritorio", "guide.client.job": "Crear en local", "guide.client.cost": "Compra única · licencia perpetua", "guide.client.desc": "Diseña, depura y prueba APIs mediante el chat, con archivos OpenAPI locales.", "guide.cloud.title": "Hospedaje Cloud", "guide.cloud.job": "Publicar en línea", "guide.cloud.cost": "Plan gratuito · planes mensuales o anuales", "guide.cloud.desc": "Comparte documentación API hospedada y servicios MCP con tu equipo y agentes de IA.", "guide.models.title": "Créditos de IA", "guide.models.job": "Elegir el modelo", "guide.models.cost": "Créditos de modelo prepagados", "guide.models.desc": "Usa modelos alojados con un paquete de créditos, o configura tu propio proveedor de modelos en la aplicación de escritorio."});
+Object.assign(window.POWERDUCK_I18N.messages["en"], {"start.example": "A real contract error, then a verified fix", "start.exampleBody": "The contract requires total to be a number. A local backend returns a string. The verifier reports /total must be number; returning a number passes the same check.", "start.title": "Start with three steps", "start.one": "Download desktop and try the local example—no account or model key.", "start.two": "Open your OpenAPI file or scan an existing codebase.", "start.three": "Connect a coding Agent, make a change, and verify the real backend against the contract.", "start.privacy": "Local work, remote services and your choices"});
 
-// A2A is a desktop/debug protocol, not a claim of CLI or hosted-agent execution.
-Object.assign(window.POWERDUCK_I18N.messages.en, {"a2a.intro": "Beyond REST: debug SSE, WebSocket, GraphQL and native gRPC, design versioned A2A contracts and Agent Cards, verify signatures, and export a runnable server project.", "a2a.learn": "Explore A2A support →"});
-Object.assign(window.POWERDUCK_I18N.messages["zh-CN"], {"a2a.intro": "不止 REST：调试 SSE、WebSocket、GraphQL 与原生 gRPC；设计带版本的 A2A 契约与 Agent Card、验证签名，并导出可运行的服务端项目。", "a2a.learn": "了解 A2A 支持 →"});
-Object.assign(window.POWERDUCK_I18N.messages.ja, {"a2a.intro": "REST にとどまらず SSE・WebSocket・GraphQL・ネイティブ gRPC をデバッグ。バージョン管理された A2A 契約と Agent Card の設計、署名検証、そのまま実行できるサーバープロジェクトの書き出しまで対応します。", "a2a.learn": "A2A サポートを見る →"});
-Object.assign(window.POWERDUCK_I18N.messages.de, {"a2a.intro": "Mehr als REST: Debuggen Sie SSE, WebSocket, GraphQL und natives gRPC, entwerfen Sie versionierte A2A-Verträge und Agent Cards, prüfen Signaturen und exportieren ein lauffähiges Serverprojekt.", "a2a.learn": "A2A-Unterstützung entdecken →"});
-Object.assign(window.POWERDUCK_I18N.messages.fr, {"a2a.intro": "Au-delà de REST : déboguez SSE, WebSocket, GraphQL et gRPC natif, concevez des contrats A2A versionnés et des Agent Cards, vérifiez les signatures et exportez un projet serveur exécutable.", "a2a.learn": "Découvrir la prise en charge A2A →"});
-Object.assign(window.POWERDUCK_I18N.messages.es, {"a2a.intro": "Más allá de REST: depura SSE, WebSocket, GraphQL y gRPC nativo, diseña contratos A2A versionados y Agent Cards, verifica firmas y exporta un proyecto de servidor ejecutable.", "a2a.learn": "Explorar la compatibilidad con A2A →"});
+Object.assign(window.POWERDUCK_I18N.messages["zh-CN"], {"start.example": "一个真实的契约错误，以及验证通过的修复", "start.exampleBody": "规范规定 total 为 number，本地后端却返回 string。校验器报告 /total must be number；改为返回数字后，同一检查通过。", "start.title": "三步开始使用", "start.one": "下载桌面版，体验本地示例，无需账号或模型 Key。", "start.two": "打开自己的 OpenAPI，或从已有代码生成规范。", "start.three": "连接编程 Agent，修改实现，再按契约验证真实后端。", "start.privacy": "本地工作、远程服务与你的选择"});
+
+Object.assign(window.POWERDUCK_I18N.messages["ja"], {"start.example": "実際の契約エラーと、検証済みの修正", "start.exampleBody": "仕様では total は number ですが、ローカルサーバーは string を返します。検証は /total must be number と報告し、数値に修正すると同じチェックが成功します。", "start.title": "3 ステップで開始", "start.one": "デスクトップ版でローカルサンプルを試す。アカウントやモデルキーは不要です。", "start.two": "自分の OpenAPI を開くか、既存コードをスキャンします。", "start.three": "Agent を接続して実装を変更し、実際のバックエンドを契約に沿って検証します。", "start.privacy": "ローカル作業とリモートサービスの境界"});
+
+Object.assign(window.POWERDUCK_I18N.messages["en"], {"hero.badge": "Local OpenAPI · optional AI and Cloud", "start.local": "Local example: no account or model key. Cloud purchase is not required."});
+
+Object.assign(window.POWERDUCK_I18N.messages["zh-CN"], {"hero.badge": "本地 OpenAPI · 可选 AI 与 Cloud", "start.local": "本地示例无需账号或模型 Key，也无需购买 Cloud。"});
+
+Object.assign(window.POWERDUCK_I18N.messages["ja"], {"hero.badge": "ローカル OpenAPI · AI と Cloud は任意", "start.local": "ローカルサンプルにアカウントやモデルキーは不要。Cloud 購入も不要です。"});
+
+Object.assign(window.POWERDUCK_I18N.messages["de"], {"hero.badge": "Lokales OpenAPI · KI und Cloud optional", "start.local": "Lokales Beispiel ohne Konto oder Modellschlüssel. Kein Cloud-Kauf nötig."});
+
+Object.assign(window.POWERDUCK_I18N.messages["fr"], {"hero.badge": "OpenAPI local · IA et Cloud facultatifs", "start.local": "Exemple local sans compte ni clé de modèle. Aucun achat Cloud nécessaire."});
+
+Object.assign(window.POWERDUCK_I18N.messages["es"], {"hero.badge": "OpenAPI local · IA y Cloud opcionales", "start.local": "Ejemplo local sin cuenta ni clave de modelo. No requiere comprar Cloud."});

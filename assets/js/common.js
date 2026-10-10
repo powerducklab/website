@@ -325,3 +325,18 @@
   window.Powerduck.applyTranslations = applyTranslations;
   window.Powerduck.setLang = setLang;
 })();
+
+// Bounded campaign attribution only; no fingerprint and no full referrer storage.
+(function () {
+  var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
+  var query = new URLSearchParams(location.search), values = {};
+  keys.forEach(function (key) { var value = query.get(key); if (value && /^[a-zA-Z0-9._~-]{1,80}$/.test(value)) values[key] = value; });
+  document.querySelectorAll('a[href]').forEach(function (link) {
+    try {
+      var url = new URL(link.getAttribute('href'), location.href);
+      if (url.origin !== location.origin || !(/\/download(?:\.html)?$/.test(url.pathname) || url.pathname.indexOf('/api/download/') === 0)) return;
+      Object.keys(values).forEach(function (key) { url.searchParams.set(key, values[key]); });
+      link.setAttribute('href', url.pathname + url.search + url.hash);
+    } catch (_) {}
+  });
+})();

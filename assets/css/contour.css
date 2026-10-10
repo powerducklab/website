@@ -3376,3 +3376,15 @@
           min-height: 420px;
         }
       }
+/* Outcome-first onboarding reuses the existing site typography and controls. */
+.outcome-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  border-top: 1px solid var(--border, #e5e7eb);
+}
+.outcome-section h2 { margin: 0 0 16px; font-size: clamp(24px, 3vw, 36px); line-height: 1.25; }
+.outcome-section p { max-width: 850px; line-height: 1.7; margin: 0 0 20px; }
+.outcome-section ol { margin: 0; padding-inline-start: 24px; }
+.outcome-section li { padding: 6px 0; line-height: 1.6; }
+@media (max-width: 640px) { .outcome-section { padding: 32px 20px; } }
