@@ -67,7 +67,7 @@
     <meta name="theme-color" content="#ffffff" />
 
     <link rel="stylesheet" href="assets/css/common.css?v=20260929" />
-    <link rel="stylesheet" href="assets/css/contour.css" />
+    <link rel="stylesheet" href="assets/css/contour.css?v=20261013" />
     <link rel="stylesheet" href="assets/css/product-paths.css" />
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8HXDV7CDEB"></script>
@@ -471,38 +471,36 @@
           <span class="status-dot"></span>
           <span
             data-i18n="hero.badge"
-            >Local-first · AI-native — OpenAPI, MCP &amp; A2A on your machine</span
+            >The local-first, AI-native OpenAPI studio</span
           >
         </p>
 
-        <h1 data-i18n-html="hero.title">Build with AI against your API contract—and verify the result.</h1>
+        <h1 data-i18n-html="hero.title">The local-first OpenAPI studio where AI builds against your contract &mdash; and verifies the result.</h1>
 
-        <p class="hero-sub" data-i18n="hero.sub">Start with local OpenAPI, connect a coding agent, debug APIs and check whether the implementation matches the contract.</p>
-
-
+        <p class="hero-sub" data-i18n="hero.sub">One OpenAPI file becomes a local workspace for design, debug, test, mock, docs and MCP &mdash; so any AI coding agent builds against your contract and you can verify the real implementation matches it.</p>
 
         <div class="hero-actions">
           <a
             class="btn btn-primary"
-            href="/download.html"
-            data-i18n="hero.download"
+            href="https://www.powerduck.com/app/#/spec"
+            data-i18n="hero.webApp"
           >
-            Download Powerduck
+            Try in browser
           </a>
 
-          <a class="btn btn-secondary" href="https://www.powerduck.com/app/#/spec" data-i18n="hero.webApp">
-            Try online
+          <a class="btn btn-secondary" href="/download.html" data-i18n="hero.download">
+            Download desktop
           </a>
         </div>
 
-        <p class="hero-micro" data-i18n="start.local">
-          Local use needs no Cloud purchase. Free use includes one specification slot; a desktop license removes that limit. Model provider fees and hosted AI credits are separate.
+        <p class="hero-micro" data-i18n="hero.trust">
+          No signup or credit card &nbsp;·&nbsp; Runs fully offline &nbsp;·&nbsp;
+          macOS · Windows · Linux
         </p>
 
-        <p class="hero-strip" data-i18n-html="hero.strip">
-          macOS · Windows · Linux &nbsp;·&nbsp; OpenAPI 3.0 / 3.1 / 3.2
-          &nbsp;·&nbsp; Local-first &nbsp;·&nbsp; bring any
-          OpenAI-compatible model &nbsp;·&nbsp; MCP-native
+        <p class="hero-strip" data-i18n-html="hero.capabilities">
+          Spec Editor &nbsp;·&nbsp; API Debug &nbsp;·&nbsp; Test &nbsp;·&nbsp;
+          Mock &nbsp;·&nbsp; API Docs &nbsp;·&nbsp; MCP Server
         </p>
       </section>
 
@@ -510,80 +508,233 @@
      SPEC LOADER
      ======================================================================= -->
 
-      <section class="section outcome-section" id="contract-example">
-        <h2 data-i18n="start.example">A real contract error, then a verified fix</h2>
-        <p data-i18n="start.exampleBody">The contract requires total to be a number. A local backend returns a string. The verifier reports /total must be number; returning a number passes the same check.</p>
-        <a class="btn btn-secondary" href="/docs/client/contract-example/" data-i18n="start.exampleCta">See a working example</a>
+      <!-- =======================================================================
+     QUICK START (browser vs desktop)
+     ======================================================================= -->
+
+      <section class="section quick-section" id="quickstart">
+        <div class="quick-shell">
+          <div class="quick-head">
+            <p class="section-kicker" data-i18n="quick.kicker">
+              Up and running in 60 seconds
+            </p>
+            <h2 class="section-title" data-i18n="quick.title">
+              Open a real API in your browser &mdash; or work fully offline.
+            </h2>
+            <p class="section-deck" data-i18n="quick.deck">
+              Load a public OpenAPI spec to explore the studio instantly, or
+              install the desktop app for local files, codebase scanning and
+              offline agents.
+            </p>
+          </div>
+
+          <div class="quick-grid">
+            <article class="quick-card quick-card-browser">
+              <div class="quick-card-top">
+                <span class="quick-badge" data-i18n="quick.browserTag"
+                  >No download · no account</span
+                >
+                <h3 data-i18n="quick.browserTitle">Try it in your browser</h3>
+                <p data-i18n="quick.browserBody">
+                  Load a public OpenAPI spec and explore the spec editor, API
+                  debugger and generated docs right now.
+                </p>
+              </div>
+
+              <form class="spec-input" id="specLoaderForm">
+                <input
+                  type="url"
+                  id="specUrlInput"
+                  aria-label="OpenAPI specification URL"
+                  placeholder="https://api.example.com/openapi.yaml"
+                  data-i18n-placeholder="loader.placeholder"
+                />
+
+                <button
+                  class="btn btn-primary btn-sm"
+                  type="submit"
+                  data-i18n="loader.load"
+                >
+                  Load spec
+                </button>
+              </form>
+
+              <div class="examples">
+                <span class="examples-label" data-i18n="loader.try">Try:</span>
+
+                <button
+                  class="chip"
+                  type="button"
+                  data-handoff="sample"
+                  data-sample="petstore"
+                >
+                  Petstore
+                </button>
+                <button
+                  class="chip"
+                  type="button"
+                  data-handoff="spec"
+                  data-spec-url="https://raw.githubusercontent.com/stripe/openapi/master/openapi/spec3.yaml"
+                >
+                  Stripe
+                </button>
+                <button
+                  class="chip"
+                  type="button"
+                  data-handoff="git"
+                  data-git="https://github.com/powerducklab/spec-examples.git"
+                >
+                  GitHub
+                </button>
+
+                <button
+                  class="chip chip-warning"
+                  type="button"
+                  data-handoff="sample"
+                  data-sample="commerce"
+                  data-i18n="loader.commerceIssue"
+                >
+                  Commerce API — has issues
+                </button>
+
+                <button
+                  class="chip"
+                  type="button"
+                  data-handoff="home"
+                  data-i18n="loader.openLocal"
+                >
+                  Open a local file…
+                </button>
+              </div>
+            </article>
+
+            <article class="quick-card quick-card-desktop">
+              <div class="quick-card-top">
+                <span class="quick-badge quick-badge-muted" data-i18n="quick.desktopTag"
+                  >Local files · offline · code scanning</span
+                >
+                <h3 data-i18n="quick.desktopTitle">Go all-in on the desktop app</h3>
+                <p data-i18n="quick.desktopBody">
+                  For local OpenAPI files, scanning an existing codebase,
+                  bringing your own model key, and working fully offline.
+                </p>
+              </div>
+
+              <ol class="quick-steps">
+                <li>
+                  <span class="quick-step-num">1</span>
+                  <span data-i18n="quick.step1"
+                    >Download the app and try the local example — no account or
+                    model key.</span
+                  >
+                </li>
+                <li>
+                  <span class="quick-step-num">2</span>
+                  <span data-i18n="quick.step2"
+                    >Open your OpenAPI file or scan an existing codebase.</span
+                  >
+                </li>
+                <li>
+                  <span class="quick-step-num">3</span>
+                  <span data-i18n="quick.step3"
+                    >Connect a coding agent, change the code, and verify the
+                    real backend against the contract.</span
+                  >
+                </li>
+              </ol>
+
+              <a
+                class="btn btn-primary btn-sm quick-download"
+                href="/download.html"
+                data-i18n="hero.download"
+                >Download desktop</a
+              >
+              <p class="quick-os-note" data-i18n="quick.desktopNote">
+                macOS 12+ · Windows 10+ · Linux
+              </p>
+            </article>
+          </div>
+        </div>
       </section>
-      <section class="section outcome-section" id="start-steps">
-        <h2 data-i18n="start.title">Start with three steps</h2>
-        <ol><li data-i18n="start.one">Download the desktop app and try the local example—no account or model key.</li><li data-i18n="start.two">Open your OpenAPI file or scan an existing codebase.</li><li data-i18n="start.three">Connect a coding Agent, make a change, and verify the real backend against the contract.</li></ol>
-      </section>
-      <section class="loader-section">
-        <form class="spec-input" id="specLoaderForm">
-          <input
-            type="url"
-            id="specUrlInput"
-            aria-label="OpenAPI specification URL"
-            placeholder="https://api.example.com/openapi.yaml"
-            data-i18n-placeholder="loader.placeholder"
-          />
 
-          <button
-            class="btn btn-primary btn-sm"
-            type="submit"
-            data-i18n="loader.load"
-          >
-            Load spec
-          </button>
-        </form>
+      <!-- =======================================================================
+     CONTRACT VERIFICATION (core differentiator)
+     ======================================================================= -->
 
-        <div class="examples">
-          <span class="examples-label" data-i18n="loader.try">Try:</span>
+      <section class="section verify-section" id="contract-example">
+        <div class="verify-shell">
+          <div class="verify-copy">
+            <p class="section-kicker" data-i18n="verify.kicker">
+              Contract verification
+            </p>
+            <h2 class="section-title" data-i18n="verify.title">
+              A real contract error, then a verified fix
+            </h2>
+            <p class="section-deck" data-i18n="verify.deck">
+              Ordinary API clients send the request and show the response.
+              Powerduck also checks every response against the OpenAPI
+              contract, so drift from the spec is caught the moment it happens.
+            </p>
+            <a
+              class="btn btn-secondary"
+              href="/docs/client/contract-example/"
+              data-i18n="start.exampleCta"
+              >See a working example</a
+            >
+          </div>
 
-          <button
-            class="chip"
-            type="button"
-            data-handoff="sample"
-            data-sample="petstore"
-          >
-            Petstore
-          </button>
-          <button
-            class="chip"
-            type="button"
-            data-handoff="spec"
-            data-spec-url="https://raw.githubusercontent.com/stripe/openapi/master/openapi/spec3.yaml"
-          >
-            Stripe
-          </button>
-          <button
-            class="chip"
-            type="button"
-            data-handoff="git"
-            data-git="https://github.com/powerducklab/spec-examples.git"
-          >
-            GitHub
-          </button>
+          <div class="verify-panel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="chrome-path">~/commerce-api — response check</span>
+              <span class="chrome-spacer"></span>
+              <span class="pill">OpenAPI 3.1</span>
+            </div>
 
-          <button
-            class="chip chip-warning"
-            type="button"
-            data-handoff="sample"
-            data-sample="commerce"
-            data-i18n="loader.commerceIssue"
-          >
-            Commerce API — has issues
-          </button>
+            <div class="verify-body">
+              <div class="verify-block">
+                <div class="verify-label" data-i18n="verify.contractRequires">
+                  Contract requires
+                </div>
+                <pre class="verify-code"><code>total:
+  type: number</code></pre>
+              </div>
 
-          <button
-            class="chip"
-            type="button"
-            data-handoff="home"
-            data-i18n="loader.openLocal"
-          >
-            Open a local file…
-          </button>
+              <div class="verify-block verify-bad">
+                <div class="verify-label">
+                  <span class="verify-mark verify-mark-bad" aria-hidden="true">✕</span>
+                  <span data-i18n="verify.responseLabel">Backend returns a string</span>
+                </div>
+                <pre class="verify-code"><code>{
+  "total": "49.00"
+}</code></pre>
+                <div class="verify-msg verify-msg-bad">
+                  <span class="verify-mark verify-mark-bad" aria-hidden="true">✕</span>
+                  <span data-i18n="verify.failMsg"
+                    >/total must be number — response fails the contract</span
+                  >
+                </div>
+              </div>
+
+              <div class="verify-block verify-good">
+                <div class="verify-label">
+                  <span class="verify-mark verify-mark-good" aria-hidden="true">✓</span>
+                  <span data-i18n="verify.fixLabel">Return a number</span>
+                </div>
+                <pre class="verify-code"><code>{
+  "total": 49
+}</code></pre>
+                <div class="verify-msg verify-msg-good">
+                  <span class="verify-mark verify-mark-good" aria-hidden="true">✓</span>
+                  <span data-i18n="verify.passMsg"
+                    >Response matches the contract</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -2434,7 +2585,7 @@ curl /users/{id}
           });
       })();
     </script>
-    <script src="assets/js/i18n.js?v=20261010"></script>
+    <script src="assets/js/i18n.js?v=20261013"></script>
     <script src="assets/js/common.js?v=20260924"></script>
     <script src="assets/js/cloud.js?v=20260924"></script>
     <script>
