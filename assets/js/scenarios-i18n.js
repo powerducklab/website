@@ -1,555 +1,566 @@
-// Scenario copy: all six marketing locales. Load before common.js.
+// Complete workflow copy for all six marketing locales. Load before common.js.
 (function () {
   "use strict";
   var messages = {
     en: {
-      "scenes.kicker": "WHAT CAN YOU DO WITH POWERDUCK?",
-      "scenes.title": "Less API busywork. More working software.",
-      "scenes.intro":
-        "Start with the job you need to get done. Keep your code, API docs and real responses connected.",
       "scenes.all": "Explore all use cases",
-      "scenes.learn": "See how it works",
-      "scenes.agent": "Cursor · Claude Code · Codex",
-      "scenes.promptLabel": "Ask your coding agent",
-      "scenes.prompt":
-        "Use Powerduck to generate API docs for this project and give me a link.",
-      "scenes.result": "Code → API specification → readable docs",
-      "scenes.local":
-        "Local preview by default. Share online after Cloud sign-in and confirmation.",
-      "scenes.pageTitle": "What will you build with Powerduck?",
-      "scenes.pageIntro":
-        "Eight practical ways to go from an API idea or an existing project to something you can inspect, test and share.",
+      "flow.hero": "Your agent writes the code.<br>Powerduck handles the API.",
+      "flow.sub":
+        "Give Codex, Claude Code or Cursor the API contract. Turn code into docs, run business scenarios with AI, and check real results — from a local-first API workspace.",
+      "flow.baseNote":
+        "Local work needs no account. Remote AI uses your chosen model service; online hosting requires a Cloud account.",
+      "flow.kicker": "MORE THAN A REQUEST CLIENT",
+      "flow.title": "Sending a request is just the start.",
+      "flow.intro":
+        "You need APIs that work, docs that match, and an AI that knows what to build. Here’s how Powerduck connects the work.",
+      "flow.baseTitle":
+        "Your everyday API workbench. No account needed to start.",
+      "flow.baseBody":
+        "The essentials you expect from a Postman alternative: import requests, configure auth and environments, inspect responses, add assertions and run mocks. Keep your workspace local.",
+      "flow.base0": "cURL / Postman / OpenAPI import",
+      "flow.base1": "Auth & environments",
+      "flow.base2": "Scripts & assertions",
+      "flow.base3": "Collections & scenario tests",
+      "flow.base4": "Local mock servers",
+      "flow.base5": "7-protocol debugging",
+      "flow.difference": "Now go beyond sending requests.",
+      "flow.all": "Explore all workflows",
+      "flow.1.pain": "Code exists. The API docs don’t.",
+      "flow.1.title": "Code → API",
+      "flow.1.body":
+        "Scan a supported project from your coding agent through MCP. Generate an API definition and open it as documentation.",
+      "flow.result": "WHAT YOU GET",
+      "flow.1.result": "A reviewable API definition + a local docs link.",
+      "flow.promptLabel": "Ask your agent",
+      "flow.1.prompt":
+        "Scan this project and give me an API documentation link.",
+      "flow.try": "Try this workflow",
+      "flow.2.pain": "AI writes endpoints that don’t match the spec.",
+      "flow.2.title": "API → code",
+      "flow.2.body":
+        "Connect your coding agent to Powerduck’s MCP. Let it read the actual paths, schemas and auth before implementing, then verify the running API.",
+      "flow.2.result":
+        "Implementation guided by the contract, checked against real responses.",
+      "flow.2.prompt":
+        "Implement this API from its definition, then run contract tests.",
+      "flow.3.pain": "The business flow works… until the next change.",
+      "flow.3.title": "AI plans. AI tests. You see the results.",
+      "flow.3.body":
+        "Describe a flow such as sign in → create an order → retrieve it. Let AI compose the scenario, pass values between steps and execute the test.",
+      "flow.3.result":
+        "Step-by-step results and failed assertions, not just a generated test script.",
+      "flow.3.prompt":
+        "Test sign in → create an order → retrieve it. Show which step fails.",
+      "flow.4.pain": "Seven protocols. Too many separate tools.",
+      "flow.4.title": "One workspace. Seven protocols.",
+      "flow.4.body":
+        "Debug HTTP, GraphQL, WebSocket, SSE, gRPC, MCP and A2A. Inspect responses, streams and tool calls in the same workspace.",
+      "flow.4.result":
+        "Manual control when you need to inspect exactly what happened.",
+      "flow.5.pain": "An API fails. Now you’re copying logs into chat.",
+      "flow.5.title": "Debug with AI beside the request.",
+      "flow.5.body":
+        "Give the assistant the relevant API context. Ask it to send a request, inspect the response and help narrow down the failure.",
+      "flow.5.result":
+        "A diagnosis grounded in request results, with changes you can review.",
+      "flow.5.prompt":
+        "Investigate why this request fails. Check the response before suggesting a fix.",
+      "flow.6.pain": "Sharing an API means setting up another service.",
+      "flow.6.title": "Publish docs and an MCP endpoint.",
+      "flow.6.body":
+        "Publish a version of your API to Powerduck Cloud. Give people readable docs and give AI clients an MCP endpoint.",
+      "flow.6.result":
+        "Hosted documentation and an MCP URL, without running your own hosting stack.",
+      "scenes.metaTitle":
+        "Powerduck use cases — From code to API docs, testing and mocks",
+      "scenes.metaDescription":
+        "Generate API documentation from your coding agent, debug real requests, check API contracts and mock endpoints before the backend is ready.",
       "scenes.back": "Back to home",
       "scenes.jump": "Find your use case",
-      "scenes.start": "How to get started",
+      "flow.solution": "WITH POWERDUCK",
       "scenes.know": "Good to know",
-      "scenes.guide": "Read the guide",
+      "scenes.s1.note":
+        "Supported frameworks only. Review inferred fields and scan warnings. Local links work on the MCP host while its session is running.",
+      "flow.boundary": "See setup & requirements",
+      "scenes.s3.note":
+        "Checks cover the operations, inputs and assertions you run. They do not prove every behavior of the backend is correct.",
+      "scenes.s8.note":
+        "Protocol support differs between desktop and browser. Use the desktop app for native transports such as gRPC.",
+      "scenes.s5.note":
+        "AI features require a configured model. Context sent to a remote provider leaves your device; manual editing does not require AI.",
+      "scenes.s6.note":
+        "Cloud hosting uses your account quota. The uploaded API definition may contain examples or internal details: review it before sharing.",
       "scenes.ready": "Try it on one API first.",
       "scenes.readyBody":
         "Open a specification you already have, or start with the built-in example. Explore the workflow before connecting your own project.",
       "scenes.download": "Download Powerduck",
       "scenes.example": "Try the browser workspace",
-      "scenes.metaTitle":
-        "Powerduck use cases — From code to API docs, testing and mocks",
-      "scenes.metaDescription":
-        "Generate API documentation from your coding agent, debug real requests, check API contracts and mock endpoints before the backend is ready.",
-      "scenes.s1.title": "Turn your code into API docs — from your editor.",
-      "scenes.s1.body":
-        "Connect Powerduck’s MCP to Cursor, Claude Code or Codex. Ask it to scan your project and return a documentation link, without switching to a separate docs-writing workflow.",
-      "scenes.s1.start":
-        "Configure the developer MCP server with your project folder, then ask your agent to generate a local documentation link.",
-      "scenes.s1.note":
-        "Supported frameworks only. Review inferred fields and scan warnings. Local links work on the MCP host while its session is running.",
-      "scenes.s2.title":
-        "Reproduce an API problem without rebuilding the request.",
-      "scenes.s2.body":
-        "Bring in a cURL command, Postman collection or OpenAPI file. Fill in your environment and credentials, send the request, and inspect what actually came back.",
-      "scenes.s2.start":
-        "Import your request, select a server, then inspect the status, headers and response body in the debugger.",
-      "scenes.s2.note":
-        "Use the desktop app for local services and requests that browser restrictions block. Request scripts and credentials need review.",
-      "scenes.s3.title": "Catch API changes before they break the frontend.",
-      "scenes.s3.body":
-        "A request can return 200 and still return the wrong data. Check actual responses against your OpenAPI definition and run multi-step scenarios after a change.",
-      "scenes.s3.start":
-        "Start your backend, choose the operations or scenario to test, and review failed checks. Your coding agent can also run contract tests through MCP.",
-      "scenes.s3.note":
-        "Checks cover the operations, inputs and assertions you run. They do not prove every behavior of the backend is correct.",
-      "scenes.s4.title": "Build the frontend before the backend is ready.",
-      "scenes.s4.body":
-        "Start a local mock server from your API definition. Give the frontend predictable sample responses while the real endpoints are still being built.",
-      "scenes.s4.start":
-        "Open an OpenAPI file, start a mock server, and point your frontend at its local base URL.",
-      "scenes.s4.note":
-        "Mocks return sample data from the definition. They do not replace your real authentication, database or business logic.",
-      "scenes.s5.title":
-        "Describe an API change. Review it before applying it.",
-      "scenes.s5.body":
-        "Ask Powerduck’s AI assistant to add an endpoint or adjust a schema. Review the proposed changes, then keep the visual editor and YAML in sync.",
-      "scenes.s5.start":
-        "Open a specification, describe what should change, and inspect the proposed patch before accepting it.",
-      "scenes.s5.note":
-        "AI features require a configured model. Context sent to a remote provider leaves your device; manual editing does not require AI.",
-      "scenes.s6.title":
-        "Give your teammates a documentation link, not another file.",
-      "scenes.s6.body":
-        "Publish your API definition to Powerduck Cloud so teammates can read it in a browser. Your coding agent can start this workflow through MCP too.",
-      "scenes.s6.start":
-        "Choose Cloud publishing, sign in and confirm the upload. Share the final documentation URL once publishing finishes.",
-      "scenes.s6.note":
-        "Cloud hosting uses your account quota. The uploaded API definition may contain examples or internal details: review it before sharing.",
-      "scenes.s7.title": "See what your API means for the database.",
-      "scenes.s7.body":
-        "Turn API schemas into tables and relationships. Compare them with existing database evidence and review suggested SQL and a model report.",
-      "scenes.s7.start":
-        "Open Data model, inspect the ER diagram and differences, then generate SQL or a report for review.",
-      "scenes.s7.note":
-        "Powerduck generates SQL; it does not execute DDL. Check the proposed changes and unresolved mappings before applying anything yourself.",
-      "scenes.s8.title": "Debug more than REST without changing tools.",
-      "scenes.s8.body":
-        "Work with HTTP, GraphQL, WebSocket, SSE, gRPC and MCP in the same workspace. Inspect responses, messages or tool results where you sent them.",
-      "scenes.s8.start":
-        "Choose the protocol, configure its connection and authentication, then send a request or inspect the stream.",
-      "scenes.s8.note":
-        "Protocol support differs between desktop and browser. Use the desktop app for native transports such as gRPC.",
     },
     "zh-CN": {
-      "scenes.kicker": "POWERDUCK 能帮你做什么？",
-      "scenes.title": "少一点接口杂活，多一点开发进展。",
-      "scenes.intro": "从你手头的问题出发，让代码、接口文档和真实响应连起来。",
       "scenes.all": "查看全部使用场景",
-      "scenes.learn": "看看怎么用",
-      "scenes.agent": "Cursor · Claude Code · Codex",
-      "scenes.promptLabel": "对你的编程助手说",
-      "scenes.prompt":
-        "用 Powerduck 为这个项目生成 API 文档，给我一个可以打开的链接。",
-      "scenes.result": "项目代码 → 接口定义 → 可阅读的文档",
-      "scenes.local":
-        "默认生成本机预览；登录 Cloud 并确认后，可发布为共享链接。",
-      "scenes.pageTitle": "你想用 Powerduck 解决什么问题？",
-      "scenes.pageIntro":
-        "八个实际场景：从一个 API 想法或现有项目，走到能查看、能测试、能分享的结果。",
+      "flow.hero": "代码交给编程助手。<br>API 交给 Powerduck。",
+      "flow.sub":
+        "让 Codex、Claude Code、Cursor 按接口定义写代码。扫描代码生成文档，让 AI 编排业务测试、执行并给出结果——都从本地优先的 API 工作台开始。",
+      "flow.baseNote":
+        "本地工作无需账号；远程 AI 使用你选择的模型服务，在线托管需要 Cloud 账号。",
+      "flow.kicker": "不止是 POSTMAN 的替代品",
+      "flow.title": "发出请求，只是起点。",
+      "flow.intro":
+        "你真正要的是：接口跑得通，文档跟得上，AI 写的代码不跑偏。把这些工作串起来，才是 Powerduck。",
+      "flow.baseTitle": "日常 API 工作台，该有的都在。打开就用，无需注册。",
+      "flow.baseBody":
+        "导入请求、配置鉴权和环境、查看响应、编写断言、运行 Mock——熟悉的 Postman 核心工作流，在本地继续。",
+      "flow.base0": "导入 cURL / Postman / OpenAPI",
+      "flow.base1": "鉴权与环境变量",
+      "flow.base2": "脚本与断言",
+      "flow.base3": "请求集合与场景测试",
+      "flow.base4": "本地 Mock 服务",
+      "flow.base5": "七种协议调试",
+      "flow.difference": "真正的差异，从这里开始。",
+      "flow.all": "查看全部工作流",
+      "flow.1.pain": "代码都写好了，接口文档还没开始。",
+      "flow.1.title": "代码即接口",
+      "flow.1.body":
+        "在编程助手里连接 Powerduck MCP，扫描已适配框架的项目，生成接口定义并打开文档。",
+      "flow.result": "你得到的结果",
+      "flow.1.result": "一份可审阅的接口定义，以及能打开的本机文档链接。",
+      "flow.promptLabel": "可以直接这样说",
+      "flow.1.prompt": "扫描这个项目，生成 API 文档，给我一个可以打开的链接。",
+      "flow.try": "试试这个流程",
+      "flow.2.pain": "AI 写得很快，接口却和约定对不上。",
+      "flow.2.title": "接口即代码",
+      "flow.2.body":
+        "让编程助手通过 MCP 读取真实的路径、数据结构与鉴权要求，再按定义实现，最后对运行中的接口做验证。",
+      "flow.2.result": "代码有定义可依，结果有真实响应可验。",
+      "flow.2.prompt":
+        "根据这份 API 定义实现接口，再运行契约测试，检查是否一致。",
+      "flow.3.pain": "登录、下单、查询……改一次就得手测一遍。",
+      "flow.3.title": "AI 编排业务测试，执行后直接看结果。",
+      "flow.3.body":
+        "描述业务流程，让 AI 组织测试步骤、传递上一步的返回值，再运行整个场景。",
+      "flow.3.result": "每一步的执行结果和失败断言，不是只给你一段测试代码。",
+      "flow.3.prompt":
+        "测试登录 → 创建订单 → 查询订单，告诉我哪一步失败、为什么。",
+      "flow.4.pain": "HTTP、流式接口、MCP，调一个换一个工具。",
+      "flow.4.title": "七种协议，一个调试工作台。",
+      "flow.4.body":
+        "HTTP、GraphQL、WebSocket、SSE、gRPC、MCP、A2A，在同一工作区查看响应、消息流和工具调用。",
+      "flow.4.result": "需要亲自排查时，每一次请求和返回都看得清。",
+      "flow.5.pain": "接口报错，还得把请求和响应搬到聊天框。",
+      "flow.5.title": "让 AI 在请求旁边帮你排错。",
+      "flow.5.body":
+        "给助手相关接口上下文，让它发送请求、查看返回，结合实际结果定位问题，提出可审阅的修改建议。",
+      "flow.5.result": "基于真实请求结果的排查，而不是凭空猜原因。",
+      "flow.5.prompt": "帮我查这个请求为什么失败，先看响应，再给修改建议。",
+      "flow.6.pain": "想把 API 给别人用，还得折腾文档站和服务。",
+      "flow.6.title": "文档和 MCP 服务，直接托管。",
+      "flow.6.body":
+        "将一个 API 版本发布到 Powerduck Cloud：给人看文档，给 AI 客户端连 MCP。",
+      "flow.6.result": "文档地址 + MCP 服务地址，不用自己搭建托管环境。",
+      "scenes.metaTitle":
+        "Powerduck 使用场景 — 从代码生成文档，到接口测试与 Mock",
+      "scenes.metaDescription":
+        "在编程助手里生成 API 文档链接，复现请求、检查接口是否符合文档，在后端完成前用 Mock 开始联调。",
       "scenes.back": "返回首页",
       "scenes.jump": "找到你的使用场景",
-      "scenes.start": "怎么开始",
+      "flow.solution": "POWERDUCK 的解法",
       "scenes.know": "使用前了解",
-      "scenes.guide": "查看操作指南",
+      "scenes.s1.note":
+        "仅支持已适配的框架，请检查推断字段和扫描提示。本机链接在 MCP 所在电脑上访问，会话结束后失效。",
+      "flow.boundary": "查看配置与使用条件",
+      "scenes.s3.note":
+        "检查范围取决于实际运行的接口、输入和断言，不代表后端所有行为都已验证。",
+      "scenes.s8.note":
+        "桌面版和网页版支持范围不同。gRPC 等原生传输请使用桌面版。",
+      "scenes.s5.note":
+        "AI 功能需要配置模型。使用远程模型时，相关上下文会发送给模型服务商；手动编辑不需要 AI。",
+      "scenes.s6.note":
+        "Cloud 托管受账户额度限制。接口定义可能包含示例或内部信息，分享前请检查内容。",
       "scenes.ready": "先拿一个接口试试。",
       "scenes.readyBody":
         "打开已有的接口定义，或者使用内置示例。先跑通流程，再接入自己的项目。",
       "scenes.download": "下载 Powerduck",
       "scenes.example": "体验网页版工作区",
-      "scenes.metaTitle":
-        "Powerduck 使用场景 — 从代码生成文档，到接口测试与 Mock",
-      "scenes.metaDescription":
-        "在编程助手里生成 API 文档链接，复现请求、检查接口是否符合文档，在后端完成前用 Mock 开始联调。",
-      "scenes.s1.title": "在编程工具里，把项目代码变成接口文档。",
-      "scenes.s1.body":
-        "在 Cursor、Claude Code 或 Codex 中连接 Powerduck 的 MCP，让助手扫描项目并给出文档链接，不用再切换到另一套流程手写文档。",
-      "scenes.s1.start":
-        "为开发者 MCP 配置项目目录，然后让编程助手生成本机文档链接。",
-      "scenes.s1.note":
-        "仅支持已适配的框架，请检查推断字段和扫描提示。本机链接在 MCP 所在电脑上访问，会话结束后失效。",
-      "scenes.s2.title": "接口出了问题，不用从头拼请求。",
-      "scenes.s2.body":
-        "导入 cURL、Postman 集合或 OpenAPI 文件，填好环境和鉴权，直接发送请求，看看服务端到底返回了什么。",
-      "scenes.s2.start":
-        "导入请求、选择服务器，在调试界面查看状态码、响应头和响应内容。",
-      "scenes.s2.note":
-        "访问本地服务或遇到浏览器限制时使用桌面版。运行前检查请求脚本和凭据。",
-      "scenes.s3.title": "接口改坏了，在前端报错之前发现。",
-      "scenes.s3.body":
-        "返回 200，不代表数据就对。用 OpenAPI 定义检查真实响应，改完代码后再跑一遍多步骤业务测试。",
-      "scenes.s3.start":
-        "启动后端，选择接口或业务场景运行测试，查看失败项；也可以让编程助手通过 MCP 执行契约测试。",
-      "scenes.s3.note":
-        "检查范围取决于实际运行的接口、输入和断言，不代表后端所有行为都已验证。",
-      "scenes.s4.title": "后端还没写好，前端也能开始联调。",
-      "scenes.s4.body":
-        "从接口定义启动本地 Mock 服务，给前端提供可预期的示例响应，不必等真实接口全部完成。",
-      "scenes.s4.start":
-        "打开 OpenAPI 文件、启动 Mock 服务，将前端请求地址指向本地 Mock URL。",
-      "scenes.s4.note":
-        "Mock 按接口定义返回示例数据，不能替代真实鉴权、数据库和业务逻辑。",
-      "scenes.s5.title": "说清想改什么，确认后再更新接口。",
-      "scenes.s5.body":
-        "让 Powerduck 的 AI 助手新增接口或调整数据结构。先看清具体改动，再应用到文档，图形编辑与 YAML 保持同步。",
-      "scenes.s5.start":
-        "打开接口定义，描述需要的变化，审阅助手提出的补丁后再接受。",
-      "scenes.s5.note":
-        "AI 功能需要配置模型。使用远程模型时，相关上下文会发送给模型服务商；手动编辑不需要 AI。",
-      "scenes.s6.title": "给同事一个文档链接，不用反复传文件。",
-      "scenes.s6.body":
-        "把接口定义发布到 Powerduck Cloud，让同事在浏览器里阅读；也能从编程助手通过 MCP 发起发布。",
-      "scenes.s6.start":
-        "选择 Cloud 发布，登录并确认上传，完成后分享最终的文档地址。",
-      "scenes.s6.note":
-        "Cloud 托管受账户额度限制。接口定义可能包含示例或内部信息，分享前请检查内容。",
-      "scenes.s7.title": "接口设计好了，数据库该怎么建？",
-      "scenes.s7.body":
-        "从 API 数据结构推导表和关联关系，与已有数据库信息对比，生成可审阅的 SQL 和模型报告。",
-      "scenes.s7.start":
-        "打开数据模型，检查 ER 图和差异，再生成 SQL 或报告供审阅。",
-      "scenes.s7.note":
-        "Powerduck 只生成 SQL，不执行 DDL。请自行确认变更和待解决的映射，再决定是否执行。",
-      "scenes.s8.title": "不止 REST，换协议也不用换工具。",
-      "scenes.s8.body":
-        "在同一工作区调试 HTTP、GraphQL、WebSocket、SSE、gRPC 和 MCP，在发送请求的地方查看响应、消息或工具结果。",
-      "scenes.s8.start":
-        "选择协议，配置连接与鉴权，然后发送请求或查看流式消息。",
-      "scenes.s8.note":
-        "桌面版和网页版支持范围不同。gRPC 等原生传输请使用桌面版。",
-    },
-    de: {
-      "scenes.kicker": "WAS KANN POWERDUCK FÜR DICH TUN?",
-      "scenes.title": "Weniger API-Kleinarbeit. Mehr funktionierende Software.",
-      "scenes.intro":
-        "Beginne mit deiner konkreten Aufgabe. Verbinde Code, API-Dokumentation und echte Antworten.",
-      "scenes.all": "Alle Anwendungsfälle ansehen",
-      "scenes.learn": "So funktioniert es",
-      "scenes.agent": "Cursor · Claude Code · Codex",
-      "scenes.promptLabel": "Frag deinen Coding-Agenten",
-      "scenes.prompt":
-        "Erstelle mit Powerduck eine API-Dokumentation für dieses Projekt und gib mir einen Link.",
-      "scenes.result": "Projektcode → API-Definition → lesbare Dokumentation",
-      "scenes.local":
-        "Standardmäßig lokale Vorschau. Online teilen nach Cloud-Anmeldung und Bestätigung.",
-      "scenes.pageTitle": "Was möchtest du mit Powerduck erreichen?",
-      "scenes.pageIntro":
-        "Acht praktische Wege von einer API-Idee oder einem bestehenden Projekt zu Ergebnissen, die du prüfen, testen und teilen kannst.",
-      "scenes.back": "Zur Startseite",
-      "scenes.jump": "Finde deinen Anwendungsfall",
-      "scenes.start": "So startest du",
-      "scenes.know": "Gut zu wissen",
-      "scenes.guide": "Anleitung lesen",
-      "scenes.ready": "Probiere es zuerst mit einer API aus.",
-      "scenes.readyBody":
-        "Öffne eine vorhandene Spezifikation oder nutze das integrierte Beispiel. Lerne den Ablauf kennen, bevor du dein eigenes Projekt verbindest.",
-      "scenes.download": "Powerduck herunterladen",
-      "scenes.example": "Browser-Workspace ausprobieren",
-      "scenes.metaTitle":
-        "Powerduck-Anwendungsfälle — Von Code zu API-Dokumentation, Tests und Mocks",
-      "scenes.metaDescription":
-        "Erstelle API-Dokumentation mit deinem Coding-Agenten, debugge echte Anfragen, prüfe API-Verträge und simuliere Endpunkte vor Fertigstellung des Backends.",
-      "scenes.s1.title": "Vom Code zur API-Dokumentation — direkt im Editor.",
-      "scenes.s1.body":
-        "Verbinde Powerducks MCP mit Cursor, Claude Code oder Codex. Lass den Agenten dein Projekt analysieren und einen Dokumentationslink liefern, statt Dokumentation separat zu schreiben.",
-      "scenes.s1.start":
-        "Konfiguriere den Entwickler-MCP-Server mit deinem Projektordner und bitte den Agenten um einen lokalen Dokumentationslink.",
-      "scenes.s1.note":
-        "Nur unterstützte Frameworks. Prüfe abgeleitete Felder und Analysehinweise. Lokale Links funktionieren auf dem MCP-Host, solange die Sitzung läuft.",
-      "scenes.s2.title":
-        "API-Probleme reproduzieren, ohne Anfragen neu aufzubauen.",
-      "scenes.s2.body":
-        "Importiere cURL-Befehle, Postman-Sammlungen oder OpenAPI-Dateien. Ergänze Umgebung und Zugangsdaten, sende die Anfrage und prüfe die tatsächliche Antwort.",
-      "scenes.s2.start":
-        "Importiere die Anfrage, wähle einen Server und prüfe Status, Header und Antwortinhalt im Debugger.",
-      "scenes.s2.note":
-        "Nutze die Desktop-App für lokale Dienste und Anfragen, die der Browser blockiert. Prüfe zuvor Skripte und Zugangsdaten.",
-      "scenes.s3.title":
-        "API-Änderungen erkennen, bevor das Frontend ausfällt.",
-      "scenes.s3.body":
-        "Status 200 bedeutet nicht, dass die Daten stimmen. Prüfe echte Antworten gegen deine OpenAPI-Definition und führe nach Änderungen mehrstufige Szenarien aus.",
-      "scenes.s3.start":
-        "Starte das Backend, wähle Operationen oder Testszenarien und prüfe fehlgeschlagene Tests. Auch dein Coding-Agent kann Vertragstests über MCP ausführen.",
-      "scenes.s3.note":
-        "Die Prüfung umfasst nur ausgeführte Operationen, Eingaben und Assertions. Sie bestätigt nicht das gesamte Verhalten des Backends.",
-      "scenes.s4.title": "Das Frontend bauen, bevor das Backend fertig ist.",
-      "scenes.s4.body":
-        "Starte einen lokalen Mock-Server aus deiner API-Definition. Das Frontend erhält vorhersehbare Beispielantworten, während echte Endpunkte noch entstehen.",
-      "scenes.s4.start":
-        "Öffne eine OpenAPI-Datei, starte den Mock-Server und verwende dessen lokale Basis-URL im Frontend.",
-      "scenes.s4.note":
-        "Mocks liefern Beispieldaten aus der Definition. Sie ersetzen weder echte Authentifizierung noch Datenbank oder Geschäftslogik.",
-      "scenes.s5.title": "API-Änderungen beschreiben. Vor dem Anwenden prüfen.",
-      "scenes.s5.body":
-        "Bitte Powerducks KI-Assistenten, einen Endpunkt hinzuzufügen oder ein Schema anzupassen. Prüfe die Vorschläge; visueller Editor und YAML bleiben synchron.",
-      "scenes.s5.start":
-        "Öffne eine Spezifikation, beschreibe die Änderung und prüfe den vorgeschlagenen Patch vor dem Übernehmen.",
-      "scenes.s5.note":
-        "KI-Funktionen erfordern ein konfiguriertes Modell. Bei Remote-Anbietern verlässt der übermittelte Kontext dein Gerät. Manuelles Bearbeiten benötigt keine KI.",
-      "scenes.s6.title":
-        "Teile einen Dokumentationslink statt weiterer Dateien.",
-      "scenes.s6.body":
-        "Veröffentliche deine API-Definition in Powerduck Cloud, damit das Team sie im Browser lesen kann. Dein Coding-Agent kann diesen Ablauf auch über MCP starten.",
-      "scenes.s6.start":
-        "Wähle Cloud-Veröffentlichung, melde dich an und bestätige den Upload. Teile nach Abschluss die endgültige Dokumentations-URL.",
-      "scenes.s6.note":
-        "Für Cloud-Hosting gilt dein Kontolimit. Prüfe die API-Definition vor dem Teilen auf Beispiele und interne Informationen.",
-      "scenes.s7.title": "Verstehen, was deine API für die Datenbank bedeutet.",
-      "scenes.s7.body":
-        "Leite Tabellen und Beziehungen aus API-Schemas ab. Vergleiche sie mit vorhandenen Datenbankinformationen und prüfe SQL-Vorschläge und Modellberichte.",
-      "scenes.s7.start":
-        "Öffne das Datenmodell, prüfe ER-Diagramm und Unterschiede und erzeuge SQL oder einen Bericht zur Durchsicht.",
-      "scenes.s7.note":
-        "Powerduck erzeugt SQL, führt aber kein DDL aus. Prüfe Änderungen und offene Zuordnungen, bevor du selbst etwas ausführst.",
-      "scenes.s8.title": "Mehr als REST debuggen — ohne Werkzeugwechsel.",
-      "scenes.s8.body":
-        "Arbeite mit HTTP, GraphQL, WebSocket, SSE, gRPC und MCP im selben Workspace. Prüfe Antworten, Nachrichten und Tool-Ergebnisse direkt dort.",
-      "scenes.s8.start":
-        "Wähle ein Protokoll, konfiguriere Verbindung und Authentifizierung und sende Anfragen oder untersuche den Stream.",
-      "scenes.s8.note":
-        "Desktop und Browser unterstützen unterschiedliche Funktionen. Native Transporte wie gRPC benötigen die Desktop-App.",
-    },
-    fr: {
-      "scenes.kicker": "QUE POUVEZ-VOUS FAIRE AVEC POWERDUCK ?",
-      "scenes.title":
-        "Moins de tâches répétitives. Plus de logiciel qui fonctionne.",
-      "scenes.intro":
-        "Partez du problème à résoudre. Reliez votre code, votre documentation API et les réponses réelles.",
-      "scenes.all": "Voir tous les cas d’usage",
-      "scenes.learn": "Voir comment faire",
-      "scenes.agent": "Cursor · Claude Code · Codex",
-      "scenes.promptLabel": "Demandez à votre assistant de programmation",
-      "scenes.prompt":
-        "Utilise Powerduck pour générer la documentation API de ce projet et donne-moi un lien.",
-      "scenes.result":
-        "Code du projet → définition API → documentation lisible",
-      "scenes.local":
-        "Aperçu local par défaut. Partage en ligne après connexion au Cloud et confirmation.",
-      "scenes.pageTitle": "Que voulez-vous accomplir avec Powerduck ?",
-      "scenes.pageIntro":
-        "Huit façons concrètes de passer d’une idée d’API ou d’un projet existant à un résultat à consulter, tester et partager.",
-      "scenes.back": "Retour à l’accueil",
-      "scenes.jump": "Trouvez votre cas d’usage",
-      "scenes.start": "Pour commencer",
-      "scenes.know": "À savoir",
-      "scenes.guide": "Lire le guide",
-      "scenes.ready": "Commencez par une seule API.",
-      "scenes.readyBody":
-        "Ouvrez une spécification existante ou essayez l’exemple intégré. Découvrez le parcours avant de connecter votre projet.",
-      "scenes.download": "Télécharger Powerduck",
-      "scenes.example": "Essayer l’espace de travail web",
-      "scenes.metaTitle":
-        "Cas d’usage Powerduck — Du code à la documentation API, aux tests et aux mocks",
-      "scenes.metaDescription":
-        "Générez la documentation API avec votre assistant, déboguez les requêtes, vérifiez les contrats et simulez les endpoints avant que le backend soit prêt.",
-      "scenes.s1.title":
-        "Transformez votre code en documentation API, depuis l’éditeur.",
-      "scenes.s1.body":
-        "Connectez le MCP de Powerduck à Cursor, Claude Code ou Codex. Demandez à l’assistant d’analyser votre projet et de fournir un lien, sans rédiger la documentation à part.",
-      "scenes.s1.start":
-        "Configurez le serveur MCP développeur avec le dossier du projet, puis demandez un lien vers la documentation locale.",
-      "scenes.s1.note":
-        "Frameworks pris en charge uniquement. Vérifiez les champs déduits et les avertissements. Les liens locaux fonctionnent sur l’hôte MCP pendant la session.",
-      "scenes.s2.title":
-        "Reproduisez un problème d’API sans recréer la requête.",
-      "scenes.s2.body":
-        "Importez une commande cURL, une collection Postman ou un fichier OpenAPI. Renseignez l’environnement et les identifiants, puis examinez la réponse réelle.",
-      "scenes.s2.start":
-        "Importez la requête, choisissez un serveur et consultez le statut, les en-têtes et le corps de la réponse dans le débogueur.",
-      "scenes.s2.note":
-        "Utilisez l’application de bureau pour les services locaux et les requêtes bloquées par le navigateur. Vérifiez les scripts et les identifiants.",
-      "scenes.s3.title":
-        "Repérez les changements d’API avant qu’ils ne cassent le frontend.",
-      "scenes.s3.body":
-        "Un statut 200 ne garantit pas des données correctes. Vérifiez les réponses avec votre définition OpenAPI et exécutez des scénarios à plusieurs étapes après chaque changement.",
-      "scenes.s3.start":
-        "Démarrez le backend, choisissez les opérations ou scénarios à tester et examinez les échecs. Votre assistant peut aussi lancer les tests de contrat via MCP.",
-      "scenes.s3.note":
-        "Les contrôles couvrent les opérations, entrées et assertions exécutées. Ils ne garantissent pas tous les comportements du backend.",
-      "scenes.s4.title":
-        "Développez le frontend avant que le backend soit prêt.",
-      "scenes.s4.body":
-        "Lancez un serveur mock local à partir de votre définition API. Le frontend reçoit des exemples prévisibles pendant que les vrais endpoints sont en développement.",
-      "scenes.s4.start":
-        "Ouvrez un fichier OpenAPI, lancez le serveur mock et utilisez son URL locale comme adresse de base du frontend.",
-      "scenes.s4.note":
-        "Les mocks renvoient les exemples de la définition. Ils ne remplacent ni l’authentification réelle, ni la base de données, ni la logique métier.",
-      "scenes.s5.title":
-        "Décrivez une modification d’API. Vérifiez-la avant de l’appliquer.",
-      "scenes.s5.body":
-        "Demandez à l’assistant IA de Powerduck d’ajouter un endpoint ou de modifier un schéma. Examinez les propositions en gardant l’éditeur visuel et le YAML synchronisés.",
-      "scenes.s5.start":
-        "Ouvrez une spécification, décrivez le changement et examinez le correctif proposé avant de l’accepter.",
-      "scenes.s5.note":
-        "Les fonctions IA nécessitent un modèle configuré. Avec un fournisseur distant, le contexte transmis quitte votre appareil. L’édition manuelle ne nécessite pas d’IA.",
-      "scenes.s6.title":
-        "Partagez un lien de documentation plutôt qu’un autre fichier.",
-      "scenes.s6.body":
-        "Publiez votre définition API sur Powerduck Cloud pour que votre équipe la consulte dans un navigateur. Votre assistant peut aussi lancer la publication via MCP.",
-      "scenes.s6.start":
-        "Choisissez la publication Cloud, connectez-vous et confirmez l’envoi. Partagez l’URL finale une fois la publication terminée.",
-      "scenes.s6.note":
-        "L’hébergement Cloud utilise le quota de votre compte. Vérifiez les exemples et les informations internes de la définition avant de la partager.",
-      "scenes.s7.title":
-        "Voyez ce que votre API implique pour la base de données.",
-      "scenes.s7.body":
-        "Déduisez des tables et des relations à partir des schémas API. Comparez-les aux informations de votre base existante et examinez le SQL proposé et le rapport de modèle.",
-      "scenes.s7.start":
-        "Ouvrez le modèle de données, examinez le diagramme ER et les différences, puis générez du SQL ou un rapport à relire.",
-      "scenes.s7.note":
-        "Powerduck génère du SQL mais n’exécute pas de DDL. Vérifiez les changements et les correspondances non résolues avant toute exécution manuelle.",
-      "scenes.s8.title": "Déboguez au-delà de REST sans changer d’outil.",
-      "scenes.s8.body":
-        "Travaillez avec HTTP, GraphQL, WebSocket, SSE, gRPC et MCP dans le même espace. Consultez les réponses, messages et résultats des outils là où vous les avez envoyés.",
-      "scenes.s8.start":
-        "Choisissez le protocole, configurez la connexion et l’authentification, puis envoyez une requête ou examinez le flux.",
-      "scenes.s8.note":
-        "La prise en charge varie entre bureau et navigateur. Utilisez l’application de bureau pour les transports natifs comme gRPC.",
-    },
-    es: {
-      "scenes.kicker": "¿QUÉ PUEDES HACER CON POWERDUCK?",
-      "scenes.title": "Menos tareas repetitivas. Más software que funciona.",
-      "scenes.intro":
-        "Empieza por lo que necesitas resolver. Conecta el código, la documentación de la API y las respuestas reales.",
-      "scenes.all": "Ver todos los casos de uso",
-      "scenes.learn": "Descubre cómo funciona",
-      "scenes.agent": "Cursor · Claude Code · Codex",
-      "scenes.promptLabel": "Pídeselo a tu asistente de programación",
-      "scenes.prompt":
-        "Usa Powerduck para generar la documentación API de este proyecto y dame un enlace.",
-      "scenes.result":
-        "Código del proyecto → definición API → documentación legible",
-      "scenes.local":
-        "Vista previa local por defecto. Comparte en línea tras iniciar sesión en Cloud y confirmar.",
-      "scenes.pageTitle": "¿Qué quieres hacer con Powerduck?",
-      "scenes.pageIntro":
-        "Ocho formas prácticas de pasar de una idea de API o un proyecto existente a algo que puedas consultar, probar y compartir.",
-      "scenes.back": "Volver al inicio",
-      "scenes.jump": "Encuentra tu caso de uso",
-      "scenes.start": "Cómo empezar",
-      "scenes.know": "Ten en cuenta",
-      "scenes.guide": "Leer la guía",
-      "scenes.ready": "Empieza probando una sola API.",
-      "scenes.readyBody":
-        "Abre una especificación existente o usa el ejemplo integrado. Conoce el flujo antes de conectar tu proyecto.",
-      "scenes.download": "Descargar Powerduck",
-      "scenes.example": "Probar el espacio web",
-      "scenes.metaTitle":
-        "Casos de uso de Powerduck — Del código a la documentación API, pruebas y mocks",
-      "scenes.metaDescription":
-        "Genera documentación API con tu asistente, depura solicitudes reales, verifica contratos y simula endpoints antes de que el backend esté listo.",
-      "scenes.s1.title":
-        "Convierte tu código en documentación API desde el editor.",
-      "scenes.s1.body":
-        "Conecta el MCP de Powerduck a Cursor, Claude Code o Codex. Pide al asistente que analice tu proyecto y devuelva un enlace, sin escribir la documentación por separado.",
-      "scenes.s1.start":
-        "Configura el servidor MCP para desarrolladores con la carpeta del proyecto y pide un enlace a la documentación local.",
-      "scenes.s1.note":
-        "Solo frameworks compatibles. Revisa los campos inferidos y las advertencias. Los enlaces locales funcionan en el equipo del servidor MCP mientras dure la sesión.",
-      "scenes.s2.title":
-        "Reproduce un fallo de API sin reconstruir la solicitud.",
-      "scenes.s2.body":
-        "Importa un comando cURL, una colección Postman o un archivo OpenAPI. Configura el entorno y las credenciales, envía la solicitud y examina la respuesta real.",
-      "scenes.s2.start":
-        "Importa la solicitud, selecciona un servidor y revisa el estado, las cabeceras y el cuerpo de la respuesta en el depurador.",
-      "scenes.s2.note":
-        "Usa la aplicación de escritorio para servicios locales y solicitudes bloqueadas por el navegador. Revisa los scripts y las credenciales.",
-      "scenes.s3.title":
-        "Detecta cambios de API antes de que rompan el frontend.",
-      "scenes.s3.body":
-        "Un estado 200 no garantiza que los datos sean correctos. Comprueba las respuestas con tu definición OpenAPI y ejecuta escenarios de varios pasos después de cada cambio.",
-      "scenes.s3.start":
-        "Inicia el backend, elige las operaciones o escenarios que quieras probar y revisa los fallos. Tu asistente también puede ejecutar pruebas de contrato por MCP.",
-      "scenes.s3.note":
-        "Las comprobaciones cubren las operaciones, entradas y aserciones ejecutadas. No garantizan todos los comportamientos del backend.",
-      "scenes.s4.title":
-        "Desarrolla el frontend antes de que el backend esté listo.",
-      "scenes.s4.body":
-        "Inicia un servidor mock local a partir de tu definición API. Ofrece al frontend respuestas de ejemplo predecibles mientras se construyen los endpoints reales.",
-      "scenes.s4.start":
-        "Abre un archivo OpenAPI, inicia el servidor mock y utiliza su URL local como dirección base del frontend.",
-      "scenes.s4.note":
-        "Los mocks devuelven ejemplos de la definición. No sustituyen la autenticación real, la base de datos ni la lógica de negocio.",
-      "scenes.s5.title":
-        "Describe un cambio de API. Revísalo antes de aplicarlo.",
-      "scenes.s5.body":
-        "Pide al asistente de IA de Powerduck que añada un endpoint o ajuste un esquema. Revisa las propuestas y mantén sincronizados el editor visual y el YAML.",
-      "scenes.s5.start":
-        "Abre una especificación, describe el cambio y revisa el parche propuesto antes de aceptarlo.",
-      "scenes.s5.note":
-        "Las funciones de IA necesitan un modelo configurado. Con un proveedor remoto, el contexto enviado sale de tu dispositivo. La edición manual no requiere IA.",
-      "scenes.s6.title":
-        "Comparte un enlace de documentación, no otro archivo.",
-      "scenes.s6.body":
-        "Publica tu definición API en Powerduck Cloud para que el equipo la lea en el navegador. Tu asistente también puede iniciar este proceso mediante MCP.",
-      "scenes.s6.start":
-        "Elige publicar en Cloud, inicia sesión y confirma la carga. Comparte la URL final cuando termine la publicación.",
-      "scenes.s6.note":
-        "El alojamiento Cloud usa la cuota de tu cuenta. Revisa los ejemplos y la información interna de la definición antes de compartirla.",
-      "scenes.s7.title": "Descubre qué implica tu API para la base de datos.",
-      "scenes.s7.body":
-        "Obtén tablas y relaciones a partir de esquemas API. Compáralas con la información de una base existente y revisa el SQL propuesto y el informe del modelo.",
-      "scenes.s7.start":
-        "Abre el modelo de datos, inspecciona el diagrama ER y las diferencias, y genera SQL o un informe para revisar.",
-      "scenes.s7.note":
-        "Powerduck genera SQL, pero no ejecuta DDL. Revisa los cambios y las correspondencias pendientes antes de ejecutar nada por tu cuenta.",
-      "scenes.s8.title": "Depura más que REST sin cambiar de herramienta.",
-      "scenes.s8.body":
-        "Trabaja con HTTP, GraphQL, WebSocket, SSE, gRPC y MCP en el mismo espacio. Inspecciona respuestas, mensajes y resultados donde los solicitaste.",
-      "scenes.s8.start":
-        "Elige el protocolo, configura la conexión y la autenticación, y envía una solicitud o inspecciona el flujo.",
-      "scenes.s8.note":
-        "La compatibilidad varía entre escritorio y navegador. Usa la aplicación de escritorio para transportes nativos como gRPC.",
     },
     ja: {
-      "scenes.kicker": "POWERDUCK でできること",
-      "scenes.title": "API の手間を減らして、開発を前へ。",
-      "scenes.intro":
-        "いま解決したい課題から始めましょう。コード、API ドキュメント、実際のレスポンスをつなぎます。",
       "scenes.all": "すべての活用シーンを見る",
-      "scenes.learn": "使い方を見る",
-      "scenes.agent": "Cursor · Claude Code · Codex",
-      "scenes.promptLabel": "コーディングエージェントに依頼",
-      "scenes.prompt":
-        "Powerduck でこのプロジェクトの API ドキュメントを生成して、開けるリンクをください。",
-      "scenes.result": "プロジェクトのコード → API 定義 → 読めるドキュメント",
-      "scenes.local":
-        "既定ではローカルプレビュー。Cloud にログインして確認すると、オンラインで共有できます。",
-      "scenes.pageTitle": "Powerduck で何を解決しますか？",
-      "scenes.pageIntro":
-        "API のアイデアや既存プロジェクトから、確認・テスト・共有できる成果につなげる8つの活用シーン。",
+      "flow.hero": "コードは AI エージェントに。<br>API は Powerduck に。",
+      "flow.sub":
+        "Codex、Claude Code、Cursor に API 定義を渡す。コードからドキュメントを生成し、AI で業務シナリオを実行して実際の結果を確かめる。ローカル優先の API ワークスペースで。",
+      "flow.baseNote":
+        "ローカル作業はアカウント不要。リモート AI は選択したモデルサービスを使用し、オンライン公開には Cloud アカウントが必要です。",
+      "flow.kicker": "リクエスト送信の、その先へ",
+      "flow.title": "リクエストを送って、終わりではない。",
+      "flow.intro":
+        "動く API、実装に合ったドキュメント、仕様を理解する AI。Powerduck は、その仕事をつなぎます。",
+      "flow.baseTitle": "日々の API 作業に。アカウントなしで始められる。",
+      "flow.baseBody":
+        "リクエストのインポート、認証・環境設定、レスポンス確認、アサーション、Mock。Postman 代替に求める基本機能を、ローカルのワークスペースで。",
+      "flow.base0": "cURL / Postman / OpenAPI のインポート",
+      "flow.base1": "認証と環境変数",
+      "flow.base2": "スクリプトとアサーション",
+      "flow.base3": "コレクションとシナリオテスト",
+      "flow.base4": "ローカル Mock サーバー",
+      "flow.base5": "7 プロトコルのデバッグ",
+      "flow.difference": "送信だけでは解決しない仕事に。",
+      "flow.all": "すべてのワークフローを見る",
+      "flow.1.pain": "コードはある。でも API ドキュメントがない。",
+      "flow.1.title": "コード → API",
+      "flow.1.body":
+        "MCP 経由で対応フレームワークのプロジェクトを解析。API 定義を生成し、ドキュメントとして開きます。",
+      "flow.result": "得られるもの",
+      "flow.1.result": "確認できる API 定義とローカルのドキュメントリンク。",
+      "flow.promptLabel": "エージェントへの依頼例",
+      "flow.1.prompt":
+        "このプロジェクトを解析して、API ドキュメントのリンクをください。",
+      "flow.try": "この流れを試す",
+      "flow.2.pain": "AI が作ったエンドポイントが仕様と違う。",
+      "flow.2.title": "API → コード",
+      "flow.2.body":
+        "エージェントが MCP から実際のパス、スキーマ、認証要件を読んで実装。起動した API を検証します。",
+      "flow.2.result": "定義に基づく実装と、実際のレスポンスによる確認。",
+      "flow.2.prompt":
+        "この API 定義に沿って実装し、契約テストで一致を確認してください。",
+      "flow.3.pain": "業務フローを変更のたびに手動で確認している。",
+      "flow.3.title": "AI が組み立て、実行。結果を確認。",
+      "flow.3.body":
+        "ログイン → 注文作成 → 取得のような流れを伝えると、AI がステップを構成し、値を引き継いで実行します。",
+      "flow.3.result":
+        "生成コードだけでなく、各ステップの結果と失敗したアサーション。",
+      "flow.3.prompt":
+        "ログイン → 注文作成 → 取得をテストし、失敗したステップを教えてください。",
+      "flow.4.pain": "プロトコルが変わるたびにツールを切り替える。",
+      "flow.4.title": "7 プロトコルを一つの場所で。",
+      "flow.4.body":
+        "HTTP、GraphQL、WebSocket、SSE、gRPC、MCP、A2A。レスポンス、ストリーム、ツール呼び出しを同じ画面で確認。",
+      "flow.4.result": "何が起きたかを自分で詳しく調べられる操作性。",
+      "flow.5.pain": "失敗のたびにログをチャットへ貼り付けている。",
+      "flow.5.title": "リクエストの隣で AI とデバッグ。",
+      "flow.5.body":
+        "関連する API 情報を助手に渡し、送信とレスポンス確認を依頼。実際の結果から原因を絞り込みます。",
+      "flow.5.result": "リクエスト結果に基づく調査と、確認できる修正案。",
+      "flow.5.prompt":
+        "このリクエストの失敗を調べてください。修正案の前にレスポンスを確認してください。",
+      "flow.6.pain": "API を共有するために別のサーバーを用意している。",
+      "flow.6.title": "ドキュメントと MCP を公開。",
+      "flow.6.body":
+        "API のバージョンを Powerduck Cloud に公開。人にはドキュメントを、AI クライアントには MCP 接続先を渡せます。",
+      "flow.6.result":
+        "自前のホスティング環境なしで、ドキュメントと MCP の URL。",
+      "scenes.metaTitle":
+        "Powerduck の活用シーン — コードから API ドキュメント、テスト、モックまで",
+      "scenes.metaDescription":
+        "コーディングエージェントで API ドキュメントを生成し、リクエストをデバッグ、API 契約を検証。バックエンドの完成前にモックで開発を進められます。",
       "scenes.back": "ホームに戻る",
       "scenes.jump": "活用シーンを探す",
-      "scenes.start": "始め方",
+      "flow.solution": "POWERDUCK なら",
       "scenes.know": "知っておきたいこと",
-      "scenes.guide": "ガイドを読む",
+      "scenes.s1.note":
+        "対応フレームワークのみ利用できます。推定された項目や警告を確認してください。ローカルリンクは MCP の実行端末で、セッション中のみ有効です。",
+      "flow.boundary": "設定と利用条件を見る",
+      "scenes.s3.note":
+        "検証対象は実行した操作、入力、アサーションの範囲です。バックエンドのすべての動作を保証するものではありません。",
+      "scenes.s8.note":
+        "対応範囲はデスクトップ版とブラウザー版で異なります。gRPC などのネイティブ通信にはデスクトップ版を使ってください。",
+      "scenes.s5.note":
+        "AI 機能にはモデル設定が必要です。リモートモデルへ送るコンテキストは端末の外に出ます。手動編集に AI は不要です。",
+      "scenes.s6.note":
+        "Cloud ホスティングにはアカウントの利用枠が適用されます。共有前に API 定義のサンプルや内部情報を確認してください。",
       "scenes.ready": "まずは1つの API で試してみましょう。",
       "scenes.readyBody":
         "既存の API 定義を開くか、組み込みのサンプルを使ってください。自分のプロジェクトを接続する前に、流れを確認できます。",
       "scenes.download": "Powerduck をダウンロード",
       "scenes.example": "ブラウザー版を試す",
+    },
+    de: {
+      "scenes.all": "Alle Anwendungsfälle ansehen",
+      "flow.hero":
+        "Dein Agent schreibt den Code.<br>Powerduck übernimmt die API.",
+      "flow.sub":
+        "Gib Codex, Claude Code oder Cursor die API-Definition. Erzeuge Dokumentation aus Code, führe Geschäftsabläufe mit KI aus und prüfe echte Ergebnisse — in einem lokalen API-Arbeitsbereich.",
+      "flow.baseNote":
+        "Lokale Arbeit braucht kein Konto. Remote-KI nutzt deinen gewählten Modelldienst; Online-Hosting erfordert ein Cloud-Konto.",
+      "flow.kicker": "MEHR ALS EIN REQUEST-CLIENT",
+      "flow.title": "Eine Anfrage senden ist erst der Anfang.",
+      "flow.intro":
+        "Du brauchst APIs, die funktionieren, passende Dokumentation und eine KI, die weiß, was sie bauen soll. Powerduck verbindet diese Arbeit.",
+      "flow.baseTitle": "Deine API-Werkbank für jeden Tag. Start ohne Konto.",
+      "flow.baseBody":
+        "Die Grundlagen einer Postman-Alternative: Anfragen importieren, Authentifizierung und Umgebungen einrichten, Antworten prüfen, Assertions hinzufügen und Mocks starten. Dein Arbeitsbereich bleibt lokal.",
+      "flow.base0": "cURL / Postman / OpenAPI importieren",
+      "flow.base1": "Authentifizierung & Umgebungen",
+      "flow.base2": "Skripte & Assertions",
+      "flow.base3": "Sammlungen & Szenariotests",
+      "flow.base4": "Lokale Mock-Server",
+      "flow.base5": "7 Protokolle debuggen",
+      "flow.difference": "Hier geht es über Anfragen hinaus.",
+      "flow.all": "Alle Workflows entdecken",
+      "flow.1.pain": "Der Code ist fertig. Die API-Doku fehlt.",
+      "flow.1.title": "Code → API",
+      "flow.1.body":
+        "Analysiere ein unterstütztes Projekt über MCP mit deinem Coding-Agenten. Erzeuge eine API-Definition und öffne sie als Dokumentation.",
+      "flow.result": "DAS ERGEBNIS",
+      "flow.1.result":
+        "Eine prüfbare API-Definition und ein lokaler Dokumentationslink.",
+      "flow.promptLabel": "Auftrag an deinen Agenten",
+      "flow.1.prompt":
+        "Analysiere dieses Projekt und gib mir einen Link zur API-Dokumentation.",
+      "flow.try": "Workflow ausprobieren",
+      "flow.2.pain":
+        "Die KI baut Endpunkte, die nicht zur Spezifikation passen.",
+      "flow.2.title": "API → Code",
+      "flow.2.body":
+        "Lass deinen Agenten per MCP die tatsächlichen Pfade, Schemas und Authentifizierung lesen, bevor er implementiert. Prüfe danach die laufende API.",
+      "flow.2.result":
+        "Implementierung nach Vertrag, geprüft an echten Antworten.",
+      "flow.2.prompt":
+        "Implementiere diese API nach ihrer Definition und führe Vertragstests aus.",
+      "flow.3.pain":
+        "Nach jeder Änderung wird der Geschäftsablauf von Hand getestet.",
+      "flow.3.title": "KI plant und testet. Du siehst die Ergebnisse.",
+      "flow.3.body":
+        "Beschreibe Anmeldung → Bestellung anlegen → abrufen. Die KI erstellt das Szenario, reicht Werte zwischen Schritten weiter und führt es aus.",
+      "flow.3.result":
+        "Ergebnisse je Schritt und fehlgeschlagene Assertions statt nur Testcode.",
+      "flow.3.prompt":
+        "Teste Anmeldung → Bestellung anlegen → abrufen. Zeige den fehlerhaften Schritt.",
+      "flow.4.pain": "Sieben Protokolle. Zu viele einzelne Tools.",
+      "flow.4.title": "Ein Arbeitsbereich. Sieben Protokolle.",
+      "flow.4.body":
+        "Debugge HTTP, GraphQL, WebSocket, SSE, gRPC, MCP und A2A. Prüfe Antworten, Streams und Tool-Aufrufe an einem Ort.",
+      "flow.4.result":
+        "Manuelle Kontrolle, wenn du genau verstehen willst, was passiert ist.",
+      "flow.5.pain": "Eine API scheitert. Du kopierst Logs in den Chat.",
+      "flow.5.title": "KI-Debugging direkt bei der Anfrage.",
+      "flow.5.body":
+        "Gib dem Assistenten den relevanten API-Kontext. Lass ihn eine Anfrage senden, die Antwort prüfen und den Fehler eingrenzen.",
+      "flow.5.result":
+        "Eine Analyse anhand echter Ergebnisse und prüfbare Änderungsvorschläge.",
+      "flow.5.prompt":
+        "Untersuche diesen Fehler. Prüfe die Antwort, bevor du eine Korrektur vorschlägst.",
+      "flow.6.pain":
+        "Zum Teilen der API brauchst du noch einen Hosting-Dienst.",
+      "flow.6.title": "Dokumentation und MCP veröffentlichen.",
+      "flow.6.body":
+        "Veröffentliche eine API-Version in Powerduck Cloud. Menschen erhalten lesbare Dokumentation, KI-Clients einen MCP-Endpunkt.",
+      "flow.6.result":
+        "Dokumentations- und MCP-URL ohne eigene Hosting-Infrastruktur.",
       "scenes.metaTitle":
-        "Powerduck の活用シーン — コードから API ドキュメント、テスト、モックまで",
+        "Powerduck-Anwendungsfälle — Von Code zu API-Dokumentation, Tests und Mocks",
       "scenes.metaDescription":
-        "コーディングエージェントで API ドキュメントを生成し、リクエストをデバッグ、API 契約を検証。バックエンドの完成前にモックで開発を進められます。",
-      "scenes.s1.title": "エディターから、コードを API ドキュメントに。",
-      "scenes.s1.body":
-        "Cursor、Claude Code、Codex に Powerduck の MCP を接続。エージェントにプロジェクトの解析とドキュメントリンクの生成を頼めるので、別途ドキュメントを書く手間を減らせます。",
-      "scenes.s1.start":
-        "開発者向け MCP サーバーにプロジェクトのフォルダーを設定し、ローカルのドキュメントリンクを生成するよう依頼します。",
+        "Erstelle API-Dokumentation mit deinem Coding-Agenten, debugge echte Anfragen, prüfe API-Verträge und simuliere Endpunkte vor Fertigstellung des Backends.",
+      "scenes.back": "Zur Startseite",
+      "scenes.jump": "Finde deinen Anwendungsfall",
+      "flow.solution": "MIT POWERDUCK",
+      "scenes.know": "Gut zu wissen",
       "scenes.s1.note":
-        "対応フレームワークのみ利用できます。推定された項目や警告を確認してください。ローカルリンクは MCP の実行端末で、セッション中のみ有効です。",
-      "scenes.s2.title": "リクエストを組み直さずに、API の問題を再現。",
-      "scenes.s2.body":
-        "cURL、Postman コレクション、OpenAPI ファイルをインポート。環境と認証情報を設定して送信し、サーバーが実際に返した内容を確認できます。",
-      "scenes.s2.start":
-        "リクエストを取り込み、サーバーを選び、デバッガーでステータス、ヘッダー、レスポンス本文を確認します。",
-      "scenes.s2.note":
-        "ローカルサービスやブラウザーに制限されるリクエストにはデスクトップ版を使います。スクリプトと認証情報は実行前に確認してください。",
-      "scenes.s3.title": "フロントエンドが壊れる前に、API の変更を検出。",
-      "scenes.s3.body":
-        "200 が返っても、データが正しいとは限りません。実際のレスポンスを OpenAPI 定義と照合し、変更後に複数ステップのシナリオを実行できます。",
-      "scenes.s3.start":
-        "バックエンドを起動し、対象の操作やシナリオを実行して失敗項目を確認します。エージェントから MCP 経由で契約テストを実行することもできます。",
+        "Nur unterstützte Frameworks. Prüfe abgeleitete Felder und Analysehinweise. Lokale Links funktionieren auf dem MCP-Host, solange die Sitzung läuft.",
+      "flow.boundary": "Einrichtung & Voraussetzungen",
       "scenes.s3.note":
-        "検証対象は実行した操作、入力、アサーションの範囲です。バックエンドのすべての動作を保証するものではありません。",
-      "scenes.s4.title": "バックエンドが未完成でも、フロントエンドを進める。",
-      "scenes.s4.body":
-        "API 定義からローカルのモックサーバーを起動。実際のエンドポイントができる前に、予測できるサンプルレスポンスで開発できます。",
-      "scenes.s4.start":
-        "OpenAPI ファイルを開いてモックサーバーを起動し、フロントエンドの接続先をローカルのベース URL にします。",
-      "scenes.s4.note":
-        "モックは定義に基づくサンプルを返します。実際の認証、データベース、業務ロジックの代わりにはなりません。",
-      "scenes.s5.title": "API の変更を言葉で伝え、確認してから反映。",
-      "scenes.s5.body":
-        "Powerduck の AI アシスタントにエンドポイント追加やスキーマ変更を依頼。提案を確認して反映し、ビジュアルエディターと YAML を同期できます。",
-      "scenes.s5.start":
-        "API 定義を開き、変更内容を伝え、提案されたパッチを確認してから受け入れます。",
-      "scenes.s5.note":
-        "AI 機能にはモデル設定が必要です。リモートモデルへ送るコンテキストは端末の外に出ます。手動編集に AI は不要です。",
-      "scenes.s6.title": "ファイルを送り直さず、ドキュメントリンクを共有。",
-      "scenes.s6.body":
-        "API 定義を Powerduck Cloud に公開すると、チームがブラウザーで読めます。エージェントから MCP 経由で公開を開始することもできます。",
-      "scenes.s6.start":
-        "Cloud 公開を選び、ログインしてアップロードを確認。公開が完了したら最終的なドキュメント URL を共有します。",
-      "scenes.s6.note":
-        "Cloud ホスティングにはアカウントの利用枠が適用されます。共有前に API 定義のサンプルや内部情報を確認してください。",
-      "scenes.s7.title": "API の設計から、必要なデータベースを見通す。",
-      "scenes.s7.body":
-        "API スキーマからテーブルと関連を導き、既存のデータベース情報と比較。SQL の提案やモデルレポートを確認できます。",
-      "scenes.s7.start":
-        "データモデルを開き、ER 図と差分を確認して、レビュー用の SQL やレポートを生成します。",
-      "scenes.s7.note":
-        "Powerduck は SQL を生成しますが、DDL は実行しません。変更案と未解決の対応関係を確認してから、自分で実行してください。",
-      "scenes.s8.title": "REST 以外も、ツールを切り替えずにデバッグ。",
-      "scenes.s8.body":
-        "HTTP、GraphQL、WebSocket、SSE、gRPC、MCP を同じワークスペースで扱えます。送信した場所でレスポンス、メッセージ、ツールの結果を確認できます。",
-      "scenes.s8.start":
-        "プロトコルを選び、接続と認証を設定して、リクエストを送信するかストリームを確認します。",
+        "Die Prüfung umfasst nur ausgeführte Operationen, Eingaben und Assertions. Sie bestätigt nicht das gesamte Verhalten des Backends.",
       "scenes.s8.note":
-        "対応範囲はデスクトップ版とブラウザー版で異なります。gRPC などのネイティブ通信にはデスクトップ版を使ってください。",
+        "Desktop und Browser unterstützen unterschiedliche Funktionen. Native Transporte wie gRPC benötigen die Desktop-App.",
+      "scenes.s5.note":
+        "KI-Funktionen erfordern ein konfiguriertes Modell. Bei Remote-Anbietern verlässt der übermittelte Kontext dein Gerät. Manuelles Bearbeiten benötigt keine KI.",
+      "scenes.s6.note":
+        "Für Cloud-Hosting gilt dein Kontolimit. Prüfe die API-Definition vor dem Teilen auf Beispiele und interne Informationen.",
+      "scenes.ready": "Probiere es zuerst mit einer API aus.",
+      "scenes.readyBody":
+        "Öffne eine vorhandene Spezifikation oder nutze das integrierte Beispiel. Lerne den Ablauf kennen, bevor du dein eigenes Projekt verbindest.",
+      "scenes.download": "Powerduck herunterladen",
+      "scenes.example": "Browser-Workspace ausprobieren",
+    },
+    fr: {
+      "scenes.all": "Voir tous les cas d’usage",
+      "flow.hero": "Votre agent écrit le code.<br>Powerduck s’occupe de l’API.",
+      "flow.sub":
+        "Donnez le contrat API à Codex, Claude Code ou Cursor. Générez la documentation depuis le code, testez vos parcours métier avec l’IA et vérifiez les résultats réels, dans un espace API local.",
+      "flow.baseNote":
+        "Le travail local ne nécessite aucun compte. L’IA distante utilise le modèle choisi ; l’hébergement en ligne nécessite un compte Cloud.",
+      "flow.kicker": "BIEN PLUS QU’UN CLIENT DE REQUÊTES",
+      "flow.title": "Envoyer une requête n’est que le début.",
+      "flow.intro":
+        "Des API qui fonctionnent, une documentation à jour, une IA qui sait quoi implémenter. Powerduck relie ces tâches.",
+      "flow.baseTitle":
+        "Votre atelier API quotidien. Sans compte pour commencer.",
+      "flow.baseBody":
+        "L’essentiel d’une alternative à Postman : importer des requêtes, configurer l’authentification et les environnements, examiner les réponses, ajouter des assertions et lancer des mocks. Le tout en local.",
+      "flow.base0": "Import cURL / Postman / OpenAPI",
+      "flow.base1": "Authentification et environnements",
+      "flow.base2": "Scripts et assertions",
+      "flow.base3": "Collections et tests de scénarios",
+      "flow.base4": "Serveurs mock locaux",
+      "flow.base5": "Débogage de 7 protocoles",
+      "flow.difference": "Allez au-delà de l’envoi de requêtes.",
+      "flow.all": "Découvrir tous les parcours",
+      "flow.1.pain": "Le code existe. Pas la documentation API.",
+      "flow.1.title": "Code → API",
+      "flow.1.body":
+        "Analysez un projet compatible depuis votre agent via MCP. Générez une définition API et ouvrez-la sous forme de documentation.",
+      "flow.result": "LE RÉSULTAT",
+      "flow.1.result":
+        "Une définition à vérifier et un lien de documentation local.",
+      "flow.promptLabel": "Demandez à votre agent",
+      "flow.1.prompt":
+        "Analyse ce projet et donne-moi un lien vers sa documentation API.",
+      "flow.try": "Essayer ce parcours",
+      "flow.2.pain":
+        "L’IA crée des endpoints qui ne respectent pas la spécification.",
+      "flow.2.title": "API → code",
+      "flow.2.body":
+        "Votre agent lit les vrais chemins, schémas et règles d’authentification via MCP avant d’implémenter. Vérifiez ensuite l’API en cours d’exécution.",
+      "flow.2.result":
+        "Une implémentation guidée par le contrat, vérifiée sur les réponses réelles.",
+      "flow.2.prompt":
+        "Implémente cette API à partir de sa définition, puis exécute les tests de contrat.",
+      "flow.3.pain":
+        "Chaque modification impose de retester le parcours à la main.",
+      "flow.3.title": "L’IA prépare et teste. Vous voyez les résultats.",
+      "flow.3.body":
+        "Décrivez connexion → création de commande → consultation. L’IA compose le scénario, transmet les valeurs entre étapes et l’exécute.",
+      "flow.3.result":
+        "Les résultats de chaque étape et les assertions en échec, pas seulement un script.",
+      "flow.3.prompt":
+        "Teste connexion → création de commande → consultation. Montre l’étape qui échoue.",
+      "flow.4.pain": "Sept protocoles. Trop d’outils séparés.",
+      "flow.4.title": "Un espace. Sept protocoles.",
+      "flow.4.body":
+        "Déboguez HTTP, GraphQL, WebSocket, SSE, gRPC, MCP et A2A. Examinez réponses, flux et appels d’outils au même endroit.",
+      "flow.4.result":
+        "Le contrôle manuel pour comprendre précisément ce qui s’est passé.",
+      "flow.5.pain": "L’API échoue. Vous copiez les logs dans un chat.",
+      "flow.5.title": "L’IA débogue à côté de la requête.",
+      "flow.5.body":
+        "Fournissez le contexte API pertinent à l’assistant. Demandez-lui d’envoyer une requête, d’examiner la réponse et de cerner le problème.",
+      "flow.5.result":
+        "Un diagnostic fondé sur les résultats et des modifications à examiner.",
+      "flow.5.prompt":
+        "Cherche pourquoi cette requête échoue. Examine la réponse avant de proposer une correction.",
+      "flow.6.pain": "Partager l’API oblige à monter un autre service.",
+      "flow.6.title": "Publiez documentation et endpoint MCP.",
+      "flow.6.body":
+        "Publiez une version de votre API sur Powerduck Cloud. Les personnes lisent la documentation, les clients IA se connectent au MCP.",
+      "flow.6.result":
+        "Des URL de documentation et de MCP, sans infrastructure d’hébergement à gérer.",
+      "scenes.metaTitle":
+        "Cas d’usage Powerduck — Du code à la documentation API, aux tests et aux mocks",
+      "scenes.metaDescription":
+        "Générez la documentation API avec votre assistant, déboguez les requêtes, vérifiez les contrats et simulez les endpoints avant que le backend soit prêt.",
+      "scenes.back": "Retour à l’accueil",
+      "scenes.jump": "Trouvez votre cas d’usage",
+      "flow.solution": "AVEC POWERDUCK",
+      "scenes.know": "À savoir",
+      "scenes.s1.note":
+        "Frameworks pris en charge uniquement. Vérifiez les champs déduits et les avertissements. Les liens locaux fonctionnent sur l’hôte MCP pendant la session.",
+      "flow.boundary": "Configuration et conditions",
+      "scenes.s3.note":
+        "Les contrôles couvrent les opérations, entrées et assertions exécutées. Ils ne garantissent pas tous les comportements du backend.",
+      "scenes.s8.note":
+        "La prise en charge varie entre bureau et navigateur. Utilisez l’application de bureau pour les transports natifs comme gRPC.",
+      "scenes.s5.note":
+        "Les fonctions IA nécessitent un modèle configuré. Avec un fournisseur distant, le contexte transmis quitte votre appareil. L’édition manuelle ne nécessite pas d’IA.",
+      "scenes.s6.note":
+        "L’hébergement Cloud utilise le quota de votre compte. Vérifiez les exemples et les informations internes de la définition avant de la partager.",
+      "scenes.ready": "Commencez par une seule API.",
+      "scenes.readyBody":
+        "Ouvrez une spécification existante ou essayez l’exemple intégré. Découvrez le parcours avant de connecter votre projet.",
+      "scenes.download": "Télécharger Powerduck",
+      "scenes.example": "Essayer l’espace de travail web",
+    },
+    es: {
+      "scenes.all": "Ver todos los casos de uso",
+      "flow.hero":
+        "Tu agente escribe el código.<br>Powerduck se encarga de la API.",
+      "flow.sub":
+        "Dale el contrato de la API a Codex, Claude Code o Cursor. Genera documentación desde el código, ejecuta flujos de negocio con IA y comprueba resultados reales en un espacio de trabajo local.",
+      "flow.baseNote":
+        "El trabajo local no requiere cuenta. La IA remota usa el servicio de modelos que elijas; el alojamiento en línea requiere una cuenta Cloud.",
+      "flow.kicker": "MUCHO MÁS QUE UN CLIENTE DE PETICIONES",
+      "flow.title": "Enviar una petición es solo el principio.",
+      "flow.intro":
+        "Necesitas API que funcionen, documentación fiel al código y una IA que sepa qué construir. Powerduck conecta ese trabajo.",
+      "flow.baseTitle": "Tu banco de trabajo para API. Empieza sin cuenta.",
+      "flow.baseBody":
+        "Lo esencial de una alternativa a Postman: importar peticiones, configurar autenticación y entornos, revisar respuestas, añadir aserciones y ejecutar mocks. Todo en tu espacio local.",
+      "flow.base0": "Importar cURL / Postman / OpenAPI",
+      "flow.base1": "Autenticación y entornos",
+      "flow.base2": "Scripts y aserciones",
+      "flow.base3": "Colecciones y pruebas de escenarios",
+      "flow.base4": "Servidores mock locales",
+      "flow.base5": "Depuración de 7 protocolos",
+      "flow.difference": "Ve más allá de enviar peticiones.",
+      "flow.all": "Explorar todos los flujos",
+      "flow.1.pain": "El código ya existe. La documentación de la API, no.",
+      "flow.1.title": "Código → API",
+      "flow.1.body":
+        "Analiza un proyecto compatible desde tu agente mediante MCP. Genera una definición de API y ábrela como documentación.",
+      "flow.result": "EL RESULTADO",
+      "flow.1.result":
+        "Una definición revisable y un enlace local a la documentación.",
+      "flow.promptLabel": "Pídele a tu agente",
+      "flow.1.prompt":
+        "Analiza este proyecto y dame un enlace a la documentación de su API.",
+      "flow.try": "Probar este flujo",
+      "flow.2.pain":
+        "La IA crea endpoints que no coinciden con la especificación.",
+      "flow.2.title": "API → código",
+      "flow.2.body":
+        "Tu agente lee las rutas, esquemas y requisitos de autenticación reales mediante MCP antes de implementar. Después verifica la API en ejecución.",
+      "flow.2.result":
+        "Una implementación guiada por el contrato y comprobada con respuestas reales.",
+      "flow.2.prompt":
+        "Implementa esta API según su definición y ejecuta pruebas de contrato.",
+      "flow.3.pain": "Cada cambio obliga a probar el flujo de negocio a mano.",
+      "flow.3.title": "La IA planifica y prueba. Tú ves los resultados.",
+      "flow.3.body":
+        "Describe iniciar sesión → crear pedido → consultarlo. La IA organiza el escenario, pasa valores entre pasos y lo ejecuta.",
+      "flow.3.result":
+        "Resultados por paso y aserciones fallidas, no solo un script de pruebas.",
+      "flow.3.prompt":
+        "Prueba iniciar sesión → crear pedido → consultarlo. Muéstrame qué paso falla.",
+      "flow.4.pain": "Siete protocolos. Demasiadas herramientas distintas.",
+      "flow.4.title": "Un espacio. Siete protocolos.",
+      "flow.4.body":
+        "Depura HTTP, GraphQL, WebSocket, SSE, gRPC, MCP y A2A. Revisa respuestas, flujos y llamadas a herramientas en el mismo lugar.",
+      "flow.4.result": "Control manual para entender exactamente qué ocurrió.",
+      "flow.5.pain": "La API falla. Toca copiar registros al chat.",
+      "flow.5.title": "Depura con IA junto a la petición.",
+      "flow.5.body":
+        "Dale al asistente el contexto relevante de la API. Pídele que envíe una petición, revise la respuesta y ayude a acotar el fallo.",
+      "flow.5.result":
+        "Un diagnóstico basado en resultados reales y cambios que puedes revisar.",
+      "flow.5.prompt":
+        "Investiga por qué falla esta petición. Revisa la respuesta antes de proponer un arreglo.",
+      "flow.6.pain": "Compartir la API implica montar otro servicio.",
+      "flow.6.title": "Publica documentación y un endpoint MCP.",
+      "flow.6.body":
+        "Publica una versión de tu API en Powerduck Cloud. Las personas reciben documentación legible y los clientes de IA, un endpoint MCP.",
+      "flow.6.result":
+        "URL de documentación y MCP sin mantener tu propia infraestructura de alojamiento.",
+      "scenes.metaTitle":
+        "Casos de uso de Powerduck — Del código a la documentación API, pruebas y mocks",
+      "scenes.metaDescription":
+        "Genera documentación API con tu asistente, depura solicitudes reales, verifica contratos y simula endpoints antes de que el backend esté listo.",
+      "scenes.back": "Volver al inicio",
+      "scenes.jump": "Encuentra tu caso de uso",
+      "flow.solution": "CON POWERDUCK",
+      "scenes.know": "Ten en cuenta",
+      "scenes.s1.note":
+        "Solo frameworks compatibles. Revisa los campos inferidos y las advertencias. Los enlaces locales funcionan en el equipo del servidor MCP mientras dure la sesión.",
+      "flow.boundary": "Configuración y requisitos",
+      "scenes.s3.note":
+        "Las comprobaciones cubren las operaciones, entradas y aserciones ejecutadas. No garantizan todos los comportamientos del backend.",
+      "scenes.s8.note":
+        "La compatibilidad varía entre escritorio y navegador. Usa la aplicación de escritorio para transportes nativos como gRPC.",
+      "scenes.s5.note":
+        "Las funciones de IA necesitan un modelo configurado. Con un proveedor remoto, el contexto enviado sale de tu dispositivo. La edición manual no requiere IA.",
+      "scenes.s6.note":
+        "El alojamiento Cloud usa la cuota de tu cuenta. Revisa los ejemplos y la información interna de la definición antes de compartirla.",
+      "scenes.ready": "Empieza probando una sola API.",
+      "scenes.readyBody":
+        "Abre una especificación existente o usa el ejemplo integrado. Conoce el flujo antes de conectar tu proyecto.",
+      "scenes.download": "Descargar Powerduck",
+      "scenes.example": "Probar el espacio web",
     },
   };
   Object.keys(messages).forEach(function (lang) {

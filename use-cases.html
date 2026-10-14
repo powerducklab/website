@@ -79,7 +79,7 @@
     <link rel="stylesheet" href="assets/css/common.css?v=20260929" />
     <link rel="stylesheet" href="assets/css/contour.css?v=20261013" />
     <link rel="stylesheet" href="assets/css/product-paths.css" />
-    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261015" />
+    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261015b" />
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -529,15 +529,13 @@
           <a class="scenes-back" href="/"
             >← <span data-i18n="scenes.back">Back to home</span></a
           >
-          <p data-i18n="scenes.kicker" class="scenes-kicker">
-            WHAT CAN YOU DO WITH POWERDUCK?
+          <p data-i18n="flow.kicker" class="scenes-kicker">
+            MORE THAN A REQUEST CLIENT
           </p>
-          <h1 data-i18n="scenes.pageTitle">
-            What will you build with Powerduck?
-          </h1>
-          <p data-i18n="scenes.pageIntro" class="scenes-intro">
-            Eight practical ways to go from an API idea or an existing project
-            to something you can inspect, test and share.
+          <h1 data-i18n="flow.title">Sending a request is just the start.</h1>
+          <p data-i18n="flow.intro" class="scenes-intro">
+            You need APIs that work, docs that match, and an AI that knows what
+            to build. Here’s how Powerduck connects the work.
           </p>
         </header>
         <nav class="scenes-index" aria-labelledby="scenes-index-title">
@@ -548,66 +546,44 @@
             <li>
               <a href="#code-to-docs"
                 ><span class="scene-number" aria-hidden="true">01</span
-                ><span data-i18n="scenes.s1.title"
-                  >Turn your code into API docs — from your editor.</span
-                ></a
+                ><span data-i18n="flow.1.title">Code → API</span></a
               >
             </li>
             <li>
-              <a href="#debug-requests"
+              <a href="#design-api"
                 ><span class="scene-number" aria-hidden="true">02</span
-                ><span data-i18n="scenes.s2.title"
-                  >Reproduce an API problem without rebuilding the
-                  request.</span
-                ></a
+                ><span data-i18n="flow.2.title">API → code</span></a
               >
             </li>
             <li>
               <a href="#contract-tests"
                 ><span class="scene-number" aria-hidden="true">03</span
-                ><span data-i18n="scenes.s3.title"
-                  >Catch API changes before they break the frontend.</span
+                ><span data-i18n="flow.3.title"
+                  >AI plans. AI tests. You see the results.</span
                 ></a
               >
             </li>
             <li>
-              <a href="#mock-backend"
+              <a href="#protocols"
                 ><span class="scene-number" aria-hidden="true">04</span
-                ><span data-i18n="scenes.s4.title"
-                  >Build the frontend before the backend is ready.</span
+                ><span data-i18n="flow.4.title"
+                  >One workspace. Seven protocols.</span
                 ></a
               >
             </li>
             <li>
-              <a href="#design-api"
+              <a href="#ai-debug"
                 ><span class="scene-number" aria-hidden="true">05</span
-                ><span data-i18n="scenes.s5.title"
-                  >Describe an API change. Review it before applying it.</span
+                ><span data-i18n="flow.5.title"
+                  >Debug with AI beside the request.</span
                 ></a
               >
             </li>
             <li>
               <a href="#share-docs"
                 ><span class="scene-number" aria-hidden="true">06</span
-                ><span data-i18n="scenes.s6.title"
-                  >Give your teammates a documentation link, not another
-                  file.</span
-                ></a
-              >
-            </li>
-            <li>
-              <a href="#database-model"
-                ><span class="scene-number" aria-hidden="true">07</span
-                ><span data-i18n="scenes.s7.title"
-                  >See what your API means for the database.</span
-                ></a
-              >
-            </li>
-            <li>
-              <a href="#protocols"
-                ><span class="scene-number" aria-hidden="true">08</span
-                ><span data-i18n="scenes.s8.title"
-                  >Debug more than REST without changing tools.</span
+                ><span data-i18n="flow.6.title"
+                  >Publish docs and an MCP endpoint.</span
                 ></a
               >
             </li>
@@ -621,28 +597,27 @@
           >
             <div class="scene-detail-title">
               <span class="scene-number" aria-hidden="true">01</span>
-              <h2 data-i18n="scenes.s1.title" id="title-code-to-docs">
-                Turn your code into API docs — from your editor.
+              <h2 data-i18n="flow.1.title" id="title-code-to-docs">
+                Code → API
               </h2>
-              <p data-i18n="scenes.s1.body">
-                Connect Powerduck’s MCP to Cursor, Claude Code or Codex. Ask it
-                to scan your project and return a documentation link, without
-                switching to a separate docs-writing workflow.
-              </p>
+              <p data-i18n="flow.1.pain">Code exists. The API docs don’t.</p>
             </div>
             <div class="scene-detail-steps">
-              <h3 data-i18n="scenes.start">How to get started</h3>
-              <p data-i18n="scenes.s1.start">
-                Configure the developer MCP server with your project folder,
-                then ask your agent to generate a local documentation link.
+              <h3 data-i18n="flow.solution">WITH POWERDUCK</h3>
+              <p data-i18n="flow.1.body">
+                Scan a supported project from your coding agent through MCP.
+                Generate an API definition and open it as documentation.
+              </p>
+              <h3 data-i18n="flow.result">WHAT YOU GET</h3>
+              <p data-i18n="flow.1.result">
+                A reviewable API definition + a local docs link.
               </p>
               <div class="scene-inline-prompt">
-                <p data-i18n="scenes.promptLabel" class="scene-prompt-label">
-                  Ask your coding agent
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">
+                  Ask your agent
                 </p>
-                <blockquote data-i18n="scenes.prompt">
-                  Use Powerduck to generate API docs for this project and give
-                  me a link.
+                <blockquote data-i18n="flow.1.prompt">
+                  Scan this project and give me an API documentation link.
                 </blockquote>
               </div>
               <aside class="scene-detail-note">
@@ -657,46 +632,60 @@
                 class="scene-link"
                 data-docs-path="client/coding-agent/"
                 href="/docs/client/coding-agent/"
-                ><span data-i18n="scenes.guide">Read the guide</span>
+                ><span data-i18n="flow.boundary"
+                  >See setup &amp; requirements</span
+                >
                 <span aria-hidden="true">↗</span></a
               >
             </div>
           </article>
           <article
             class="scene-detail"
-            id="debug-requests"
-            aria-labelledby="title-debug-requests"
+            id="design-api"
+            aria-labelledby="title-design-api"
           >
             <div class="scene-detail-title">
               <span class="scene-number" aria-hidden="true">02</span>
-              <h2 data-i18n="scenes.s2.title" id="title-debug-requests">
-                Reproduce an API problem without rebuilding the request.
-              </h2>
-              <p data-i18n="scenes.s2.body">
-                Bring in a cURL command, Postman collection or OpenAPI file.
-                Fill in your environment and credentials, send the request, and
-                inspect what actually came back.
+              <h2 data-i18n="flow.2.title" id="title-design-api">API → code</h2>
+              <p data-i18n="flow.2.pain">
+                AI writes endpoints that don’t match the spec.
               </p>
             </div>
             <div class="scene-detail-steps">
-              <h3 data-i18n="scenes.start">How to get started</h3>
-              <p data-i18n="scenes.s2.start">
-                Import your request, select a server, then inspect the status,
-                headers and response body in the debugger.
+              <h3 data-i18n="flow.solution">WITH POWERDUCK</h3>
+              <p data-i18n="flow.2.body">
+                Connect your coding agent to Powerduck’s MCP. Let it read the
+                actual paths, schemas and auth before implementing, then verify
+                the running API.
               </p>
+              <h3 data-i18n="flow.result">WHAT YOU GET</h3>
+              <p data-i18n="flow.2.result">
+                Implementation guided by the contract, checked against real
+                responses.
+              </p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">
+                  Ask your agent
+                </p>
+                <blockquote data-i18n="flow.2.prompt">
+                  Implement this API from its definition, then run contract
+                  tests.
+                </blockquote>
+              </div>
               <aside class="scene-detail-note">
                 <h3 data-i18n="scenes.know">Good to know</h3>
-                <p data-i18n="scenes.s2.note">
-                  Use the desktop app for local services and requests that
-                  browser restrictions block. Request scripts and credentials
-                  need review.
+                <p data-i18n="scenes.s3.note">
+                  Checks cover the operations, inputs and assertions you run.
+                  They do not prove every behavior of the backend is correct.
                 </p>
               </aside>
               <a
                 class="scene-link"
-                data-docs-path="client/debug/"
-                href="/docs/client/debug/"
-                ><span data-i18n="scenes.guide">Read the guide</span>
+                data-docs-path="client/coding-agent/"
+                href="/docs/client/coding-agent/"
+                ><span data-i18n="flow.boundary"
+                  >See setup &amp; requirements</span
+                >
                 <span aria-hidden="true">↗</span></a
               >
             </div>
@@ -708,22 +697,34 @@
           >
             <div class="scene-detail-title">
               <span class="scene-number" aria-hidden="true">03</span>
-              <h2 data-i18n="scenes.s3.title" id="title-contract-tests">
-                Catch API changes before they break the frontend.
+              <h2 data-i18n="flow.3.title" id="title-contract-tests">
+                AI plans. AI tests. You see the results.
               </h2>
-              <p data-i18n="scenes.s3.body">
-                A request can return 200 and still return the wrong data. Check
-                actual responses against your OpenAPI definition and run
-                multi-step scenarios after a change.
+              <p data-i18n="flow.3.pain">
+                The business flow works… until the next change.
               </p>
             </div>
             <div class="scene-detail-steps">
-              <h3 data-i18n="scenes.start">How to get started</h3>
-              <p data-i18n="scenes.s3.start">
-                Start your backend, choose the operations or scenario to test,
-                and review failed checks. Your coding agent can also run
-                contract tests through MCP.
+              <h3 data-i18n="flow.solution">WITH POWERDUCK</h3>
+              <p data-i18n="flow.3.body">
+                Describe a flow such as sign in → create an order → retrieve it.
+                Let AI compose the scenario, pass values between steps and
+                execute the test.
               </p>
+              <h3 data-i18n="flow.result">WHAT YOU GET</h3>
+              <p data-i18n="flow.3.result">
+                Step-by-step results and failed assertions, not just a generated
+                test script.
+              </p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">
+                  Ask your agent
+                </p>
+                <blockquote data-i18n="flow.3.prompt">
+                  Test sign in → create an order → retrieve it. Show which step
+                  fails.
+                </blockquote>
+              </div>
               <aside class="scene-detail-note">
                 <h3 data-i18n="scenes.know">Good to know</h3>
                 <p data-i18n="scenes.s3.note">
@@ -735,162 +736,9 @@
                 class="scene-link"
                 data-docs-path="client/scenario-testing/"
                 href="/docs/client/scenario-testing/"
-                ><span data-i18n="scenes.guide">Read the guide</span>
-                <span aria-hidden="true">↗</span></a
-              >
-            </div>
-          </article>
-          <article
-            class="scene-detail"
-            id="mock-backend"
-            aria-labelledby="title-mock-backend"
-          >
-            <div class="scene-detail-title">
-              <span class="scene-number" aria-hidden="true">04</span>
-              <h2 data-i18n="scenes.s4.title" id="title-mock-backend">
-                Build the frontend before the backend is ready.
-              </h2>
-              <p data-i18n="scenes.s4.body">
-                Start a local mock server from your API definition. Give the
-                frontend predictable sample responses while the real endpoints
-                are still being built.
-              </p>
-            </div>
-            <div class="scene-detail-steps">
-              <h3 data-i18n="scenes.start">How to get started</h3>
-              <p data-i18n="scenes.s4.start">
-                Open an OpenAPI file, start a mock server, and point your
-                frontend at its local base URL.
-              </p>
-              <aside class="scene-detail-note">
-                <h3 data-i18n="scenes.know">Good to know</h3>
-                <p data-i18n="scenes.s4.note">
-                  Mocks return sample data from the definition. They do not
-                  replace your real authentication, database or business logic.
-                </p>
-              </aside>
-              <a
-                class="scene-link"
-                data-docs-path="client/mock-server/"
-                href="/docs/client/mock-server/"
-                ><span data-i18n="scenes.guide">Read the guide</span>
-                <span aria-hidden="true">↗</span></a
-              >
-            </div>
-          </article>
-          <article
-            class="scene-detail"
-            id="design-api"
-            aria-labelledby="title-design-api"
-          >
-            <div class="scene-detail-title">
-              <span class="scene-number" aria-hidden="true">05</span>
-              <h2 data-i18n="scenes.s5.title" id="title-design-api">
-                Describe an API change. Review it before applying it.
-              </h2>
-              <p data-i18n="scenes.s5.body">
-                Ask Powerduck’s AI assistant to add an endpoint or adjust a
-                schema. Review the proposed changes, then keep the visual editor
-                and YAML in sync.
-              </p>
-            </div>
-            <div class="scene-detail-steps">
-              <h3 data-i18n="scenes.start">How to get started</h3>
-              <p data-i18n="scenes.s5.start">
-                Open a specification, describe what should change, and inspect
-                the proposed patch before accepting it.
-              </p>
-              <aside class="scene-detail-note">
-                <h3 data-i18n="scenes.know">Good to know</h3>
-                <p data-i18n="scenes.s5.note">
-                  AI features require a configured model. Context sent to a
-                  remote provider leaves your device; manual editing does not
-                  require AI.
-                </p>
-              </aside>
-              <a
-                class="scene-link"
-                data-docs-path="client/design/"
-                href="/docs/client/design/"
-                ><span data-i18n="scenes.guide">Read the guide</span>
-                <span aria-hidden="true">↗</span></a
-              >
-            </div>
-          </article>
-          <article
-            class="scene-detail"
-            id="share-docs"
-            aria-labelledby="title-share-docs"
-          >
-            <div class="scene-detail-title">
-              <span class="scene-number" aria-hidden="true">06</span>
-              <h2 data-i18n="scenes.s6.title" id="title-share-docs">
-                Give your teammates a documentation link, not another file.
-              </h2>
-              <p data-i18n="scenes.s6.body">
-                Publish your API definition to Powerduck Cloud so teammates can
-                read it in a browser. Your coding agent can start this workflow
-                through MCP too.
-              </p>
-            </div>
-            <div class="scene-detail-steps">
-              <h3 data-i18n="scenes.start">How to get started</h3>
-              <p data-i18n="scenes.s6.start">
-                Choose Cloud publishing, sign in and confirm the upload. Share
-                the final documentation URL once publishing finishes.
-              </p>
-              <aside class="scene-detail-note">
-                <h3 data-i18n="scenes.know">Good to know</h3>
-                <p data-i18n="scenes.s6.note">
-                  Cloud hosting uses your account quota. The uploaded API
-                  definition may contain examples or internal details: review it
-                  before sharing.
-                </p>
-              </aside>
-              <a
-                class="scene-link"
-                data-docs-path="cloud/documents-versions/"
-                href="/docs/cloud/documents-versions/"
-                ><span data-i18n="scenes.guide">Read the guide</span>
-                <span aria-hidden="true">↗</span></a
-              >
-            </div>
-          </article>
-          <article
-            class="scene-detail"
-            id="database-model"
-            aria-labelledby="title-database-model"
-          >
-            <div class="scene-detail-title">
-              <span class="scene-number" aria-hidden="true">07</span>
-              <h2 data-i18n="scenes.s7.title" id="title-database-model">
-                See what your API means for the database.
-              </h2>
-              <p data-i18n="scenes.s7.body">
-                Turn API schemas into tables and relationships. Compare them
-                with existing database evidence and review suggested SQL and a
-                model report.
-              </p>
-            </div>
-            <div class="scene-detail-steps">
-              <h3 data-i18n="scenes.start">How to get started</h3>
-              <p data-i18n="scenes.s7.start">
-                Open Data model, inspect the ER diagram and differences, then
-                generate SQL or a report for review.
-              </p>
-              <aside class="scene-detail-note">
-                <h3 data-i18n="scenes.know">Good to know</h3>
-                <p data-i18n="scenes.s7.note">
-                  Powerduck generates SQL; it does not execute DDL. Check the
-                  proposed changes and unresolved mappings before applying
-                  anything yourself.
-                </p>
-              </aside>
-              <a
-                class="scene-link"
-                data-docs-path="client/data-model/"
-                href="/docs/client/data-model/"
-                ><span data-i18n="scenes.guide">Read the guide</span>
+                ><span data-i18n="flow.boundary"
+                  >See setup &amp; requirements</span
+                >
                 <span aria-hidden="true">↗</span></a
               >
             </div>
@@ -901,21 +749,23 @@
             aria-labelledby="title-protocols"
           >
             <div class="scene-detail-title">
-              <span class="scene-number" aria-hidden="true">08</span>
-              <h2 data-i18n="scenes.s8.title" id="title-protocols">
-                Debug more than REST without changing tools.
+              <span class="scene-number" aria-hidden="true">04</span>
+              <h2 data-i18n="flow.4.title" id="title-protocols">
+                One workspace. Seven protocols.
               </h2>
-              <p data-i18n="scenes.s8.body">
-                Work with HTTP, GraphQL, WebSocket, SSE, gRPC and MCP in the
-                same workspace. Inspect responses, messages or tool results
-                where you sent them.
+              <p data-i18n="flow.4.pain">
+                Seven protocols. Too many separate tools.
               </p>
             </div>
             <div class="scene-detail-steps">
-              <h3 data-i18n="scenes.start">How to get started</h3>
-              <p data-i18n="scenes.s8.start">
-                Choose the protocol, configure its connection and
-                authentication, then send a request or inspect the stream.
+              <h3 data-i18n="flow.solution">WITH POWERDUCK</h3>
+              <p data-i18n="flow.4.body">
+                Debug HTTP, GraphQL, WebSocket, SSE, gRPC, MCP and A2A. Inspect
+                responses, streams and tool calls in the same workspace.
+              </p>
+              <h3 data-i18n="flow.result">WHAT YOU GET</h3>
+              <p data-i18n="flow.4.result">
+                Manual control when you need to inspect exactly what happened.
               </p>
               <aside class="scene-detail-note">
                 <h3 data-i18n="scenes.know">Good to know</h3>
@@ -928,7 +778,106 @@
                 class="scene-link"
                 data-docs-path="client/protocols/"
                 href="/docs/client/protocols/"
-                ><span data-i18n="scenes.guide">Read the guide</span>
+                ><span data-i18n="flow.boundary"
+                  >See setup &amp; requirements</span
+                >
+                <span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </article>
+          <article
+            class="scene-detail"
+            id="ai-debug"
+            aria-labelledby="title-ai-debug"
+          >
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">05</span>
+              <h2 data-i18n="flow.5.title" id="title-ai-debug">
+                Debug with AI beside the request.
+              </h2>
+              <p data-i18n="flow.5.pain">
+                An API fails. Now you’re copying logs into chat.
+              </p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">WITH POWERDUCK</h3>
+              <p data-i18n="flow.5.body">
+                Give the assistant the relevant API context. Ask it to send a
+                request, inspect the response and help narrow down the failure.
+              </p>
+              <h3 data-i18n="flow.result">WHAT YOU GET</h3>
+              <p data-i18n="flow.5.result">
+                A diagnosis grounded in request results, with changes you can
+                review.
+              </p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">
+                  Ask your agent
+                </p>
+                <blockquote data-i18n="flow.5.prompt">
+                  Investigate why this request fails. Check the response before
+                  suggesting a fix.
+                </blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Good to know</h3>
+                <p data-i18n="scenes.s5.note">
+                  AI features require a configured model. Context sent to a
+                  remote provider leaves your device; manual editing does not
+                  require AI.
+                </p>
+              </aside>
+              <a
+                class="scene-link"
+                data-docs-path="client/debug/"
+                href="/docs/client/debug/"
+                ><span data-i18n="flow.boundary"
+                  >See setup &amp; requirements</span
+                >
+                <span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </article>
+          <article
+            class="scene-detail"
+            id="share-docs"
+            aria-labelledby="title-share-docs"
+          >
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">06</span>
+              <h2 data-i18n="flow.6.title" id="title-share-docs">
+                Publish docs and an MCP endpoint.
+              </h2>
+              <p data-i18n="flow.6.pain">
+                Sharing an API means setting up another service.
+              </p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">WITH POWERDUCK</h3>
+              <p data-i18n="flow.6.body">
+                Publish a version of your API to Powerduck Cloud. Give people
+                readable docs and give AI clients an MCP endpoint.
+              </p>
+              <h3 data-i18n="flow.result">WHAT YOU GET</h3>
+              <p data-i18n="flow.6.result">
+                Hosted documentation and an MCP URL, without running your own
+                hosting stack.
+              </p>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Good to know</h3>
+                <p data-i18n="scenes.s6.note">
+                  Cloud hosting uses your account quota. The uploaded API
+                  definition may contain examples or internal details: review it
+                  before sharing.
+                </p>
+              </aside>
+              <a
+                class="scene-link"
+                data-docs-path="cloud/exposure/"
+                href="/docs/cloud/exposure/"
+                ><span data-i18n="flow.boundary"
+                  >See setup &amp; requirements</span
+                >
                 <span aria-hidden="true">↗</span></a
               >
             </div>
@@ -1140,7 +1089,7 @@
     </div>
 
     <script src="assets/js/i18n.js?v=20261013"></script>
-    <script src="/assets/js/scenarios-i18n.js?v=20261015"></script>
+    <script src="/assets/js/scenarios-i18n.js?v=20261015b"></script>
     <script src="assets/js/common.js?v=20261015"></script>
     <script src="assets/js/cloud.js?v=20260924"></script>
     <script>

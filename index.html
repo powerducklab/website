@@ -27,9 +27,9 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="icon" href="/favicon.ico" sizes="32x32">
-<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
-<link rel="apple-touch-icon" href="/assets/images/icon-192.png">
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/images/icon-192.png" />
     <link rel="canonical" href="https://www.powerduck.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Powerduck" />
@@ -69,16 +69,21 @@
     <link rel="stylesheet" href="assets/css/common.css?v=20260929" />
     <link rel="stylesheet" href="assets/css/contour.css?v=20261013" />
     <link rel="stylesheet" href="assets/css/product-paths.css" />
-    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261015" />
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8HXDV7CDEB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-8HXDV7CDEB');
-</script>
-</head>
+    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261015b" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-8HXDV7CDEB"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-8HXDV7CDEB");
+    </script>
+  </head>
 
   <body>
     <div class="page-shell">
@@ -244,7 +249,10 @@
                 </div>
               </div>
 
-              <a class="nav-direct" href="/pricing?product=client" data-i18n="nav.pricing"
+              <a
+                class="nav-direct"
+                href="/pricing?product=client"
+                data-i18n="nav.pricing"
                 >Pricing</a
               >
 
@@ -282,9 +290,41 @@
                       ></span
                     ></a
                   >
-                  <a class="dropdown-item" href="/use-cases.html" role="menuitem"><span class="dropdown-item-text"><span data-i18n="scenes.all" class="dropdown-item-title">Explore all use cases</span></span></a>
-                  <a class="dropdown-item" href="/blog/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.blog">Blog</span><span class="dropdown-item-desc" data-i18n="nav.blogDesc">Product and engineering notes</span></span></a>
-                  <a class="dropdown-item" href="/blog/tag/release-notes/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.releaseNotes">Release notes</span><span class="dropdown-item-desc" data-i18n="nav.releaseNotesDesc">What changed in every version</span></span></a>
+                  <a
+                    class="dropdown-item"
+                    href="/use-cases.html"
+                    role="menuitem"
+                    ><span class="dropdown-item-text"
+                      ><span data-i18n="scenes.all" class="dropdown-item-title"
+                        >Explore all use cases</span
+                      ></span
+                    ></a
+                  >
+                  <a class="dropdown-item" href="/blog/" role="menuitem"
+                    ><span class="dropdown-item-text"
+                      ><span class="dropdown-item-title" data-i18n="nav.blog"
+                        >Blog</span
+                      ><span class="dropdown-item-desc" data-i18n="nav.blogDesc"
+                        >Product and engineering notes</span
+                      ></span
+                    ></a
+                  >
+                  <a
+                    class="dropdown-item"
+                    href="/blog/tag/release-notes/"
+                    role="menuitem"
+                    ><span class="dropdown-item-text"
+                      ><span
+                        class="dropdown-item-title"
+                        data-i18n="nav.releaseNotes"
+                        >Release notes</span
+                      ><span
+                        class="dropdown-item-desc"
+                        data-i18n="nav.releaseNotesDesc"
+                        >What changed in every version</span
+                      ></span
+                    ></a
+                  >
                   <a class="dropdown-item" href="demo/" role="menuitem"
                     ><span class="dropdown-item-text"
                       ><span
@@ -300,9 +340,7 @@
                   >
                   <a class="dropdown-item" href="/app/" role="menuitem"
                     ><span class="dropdown-item-text"
-                      ><span
-                        class="dropdown-item-title"
-                        data-i18n="nav.webApp"
+                      ><span class="dropdown-item-title" data-i18n="nav.webApp"
                         >Web App</span
                       ><span
                         class="dropdown-item-desc"
@@ -471,15 +509,20 @@
       <section class="hero">
         <p class="eyebrow">
           <span class="status-dot"></span>
-          <span
-            data-i18n="hero.badge"
+          <span data-i18n="hero.badge"
             >The local-first, AI-native OpenAPI studio</span
           >
         </p>
 
-        <h1 data-i18n-html="hero.title">The local-first OpenAPI studio where AI builds against your contract &mdash; and verifies the result.</h1>
+        <h1 data-i18n-html="flow.hero">
+          Your agent writes the code.<br />Powerduck handles the API.
+        </h1>
 
-        <p class="hero-sub" data-i18n="hero.sub">One OpenAPI file becomes a local workspace for design, debug, test, mock, docs and MCP &mdash; so any AI coding agent builds against your contract and you can verify the real implementation matches it.</p>
+        <p data-i18n="flow.sub" class="hero-sub">
+          Give Codex, Claude Code or Cursor the API contract. Turn code into
+          docs, run business scenarios with AI, and check real results — from a
+          local-first API workspace.
+        </p>
 
         <div class="hero-actions">
           <a
@@ -490,14 +533,18 @@
             Try in browser
           </a>
 
-          <a class="btn btn-secondary" href="/download.html" data-i18n="hero.download">
+          <a
+            class="btn btn-secondary"
+            href="/download.html"
+            data-i18n="hero.download"
+          >
             Download desktop
           </a>
         </div>
 
-        <p class="hero-micro" data-i18n="hero.trust">
-          No signup or credit card &nbsp;·&nbsp; Runs fully offline &nbsp;·&nbsp;
-          macOS · Windows · Linux
+        <p class="hero-micro" data-i18n="flow.baseNote">
+          No signup or credit card &nbsp;·&nbsp; Runs fully offline
+          &nbsp;·&nbsp; macOS · Windows · Linux
         </p>
 
         <p class="hero-strip" data-i18n-html="hero.capabilities">
@@ -506,7 +553,298 @@
         </p>
       </section>
 
-<section class="scenes-section" id="use-cases" aria-labelledby="scenes-title"><div class="scenes-heading"><div><p data-i18n="scenes.kicker" class="scenes-kicker">WHAT CAN YOU DO WITH POWERDUCK?</p><h2 data-i18n="scenes.title" id="scenes-title">Less API busywork. More working software.</h2><p data-i18n="scenes.intro" class="scenes-intro">Start with the job you need to get done. Keep your code, API docs and real responses connected.</p></div><a class="scenes-more" href="/use-cases.html"><span data-i18n="scenes.all" >Explore all use cases</span> <span aria-hidden="true">↗</span></a></div><article class="scene-feature"><div class="scene-copy"><div class="scene-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14"/></svg></div><h3 data-i18n="scenes.s1.title" >Turn your code into API docs — from your editor.</h3><p data-i18n="scenes.s1.body" >Connect Powerduck’s MCP to Cursor, Claude Code or Codex. Ask it to scan your project and return a documentation link, without switching to a separate docs-writing workflow.</p><a class="scene-link" href="/use-cases.html#code-to-docs"><span data-i18n="scenes.learn" >See how it works</span> <span aria-hidden="true">→</span></a></div><div class="scene-conversation"><p data-i18n="scenes.agent" class="scene-apps">Cursor · Claude Code · Codex</p><p data-i18n="scenes.promptLabel" class="scene-prompt-label">Ask your coding agent</p><blockquote data-i18n="scenes.prompt" >Use Powerduck to generate API docs for this project and give me a link.</blockquote><div class="scene-result"><span aria-hidden="true">✓</span><span data-i18n="scenes.result" >Code → API specification → readable docs</span></div><p data-i18n="scenes.local" class="scene-note">Local preview by default. Share online after Cloud sign-in and confirmation.</p></div></article><div class="scene-grid"><article class="scene-card"><div class="scene-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6"/></svg></div><h3 data-i18n="scenes.s2.title" >Reproduce an API problem without rebuilding the request.</h3><p data-i18n="scenes.s2.body" >Bring in a cURL command, Postman collection or OpenAPI file. Fill in your environment and credentials, send the request, and inspect what actually came back.</p><a class="scene-link" href="/use-cases.html#debug-requests"><span data-i18n="scenes.learn" >See how it works</span> <span aria-hidden="true">→</span></a></article><article class="scene-card"><div class="scene-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m5 12 4 4L19 6M5 21h14"/></svg></div><h3 data-i18n="scenes.s3.title" >Catch API changes before they break the frontend.</h3><p data-i18n="scenes.s3.body" >A request can return 200 and still return the wrong data. Check actual responses against your OpenAPI definition and run multi-step scenarios after a change.</p><a class="scene-link" href="/use-cases.html#contract-tests"><span data-i18n="scenes.learn" >See how it works</span> <span aria-hidden="true">→</span></a></article><article class="scene-card"><div class="scene-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 6h16v12H4zM8 10l3 2-3 2m6 0h3"/></svg></div><h3 data-i18n="scenes.s4.title" >Build the frontend before the backend is ready.</h3><p data-i18n="scenes.s4.body" >Start a local mock server from your API definition. Give the frontend predictable sample responses while the real endpoints are still being built.</p><a class="scene-link" href="/use-cases.html#mock-backend"><span data-i18n="scenes.learn" >See how it works</span> <span aria-hidden="true">→</span></a></article></div></section>
+      <section
+        class="scenes-section flows-section"
+        id="use-cases"
+        aria-labelledby="scenes-title"
+      >
+        <div class="scenes-heading">
+          <div>
+            <p data-i18n="flow.kicker" class="scenes-kicker">
+              MORE THAN A REQUEST CLIENT
+            </p>
+            <h2 data-i18n="flow.title" id="scenes-title">
+              Sending a request is just the start.
+            </h2>
+            <p data-i18n="flow.intro" class="scenes-intro">
+              You need APIs that work, docs that match, and an AI that knows
+              what to build. Here’s how Powerduck connects the work.
+            </p>
+          </div>
+        </div>
+        <div class="flow-baseline">
+          <div>
+            <h3 data-i18n="flow.baseTitle">
+              Your everyday API workbench. No account needed to start.
+            </h3>
+            <p data-i18n="flow.baseBody">
+              The essentials you expect from a Postman alternative: import
+              requests, configure auth and environments, inspect responses, add
+              assertions and run mocks. Keep your workspace local.
+            </p>
+          </div>
+          <ul>
+            <li>
+              <span aria-hidden="true">✓</span
+              ><span data-i18n="flow.base0"
+                >cURL / Postman / OpenAPI import</span
+              >
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span
+              ><span data-i18n="flow.base1">Auth &amp; environments</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span
+              ><span data-i18n="flow.base2">Scripts &amp; assertions</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span
+              ><span data-i18n="flow.base3"
+                >Collections &amp; scenario tests</span
+              >
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span
+              ><span data-i18n="flow.base4">Local mock servers</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span
+              ><span data-i18n="flow.base5">7-protocol debugging</span>
+            </li>
+          </ul>
+          <p data-i18n="flow.baseNote" class="flow-baseline-note">
+            Local work needs no account. Remote AI uses your chosen model
+            service; online hosting requires a Cloud account.
+          </p>
+        </div>
+        <div class="flow-section-label">
+          <h3 data-i18n="flow.difference">Now go beyond sending requests.</h3>
+          <a class="scenes-more" href="/use-cases.html"
+            ><span data-i18n="flow.all">Explore all workflows</span>
+            <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <div class="flow-grid">
+          <article class="flow-card">
+            <div class="flow-pain">
+              <span class="flow-number" aria-hidden="true">01</span>
+              <p data-i18n="flow.1.pain">Code exists. The API docs don’t.</p>
+            </div>
+            <div class="flow-answer">
+              <h3 data-i18n="flow.1.title">Code → API</h3>
+              <p data-i18n="flow.1.body">
+                Scan a supported project from your coding agent through MCP.
+                Generate an API definition and open it as documentation.
+              </p>
+              <div class="flow-result">
+                <span data-i18n="flow.result" class="flow-label"
+                  >WHAT YOU GET</span
+                >
+                <p data-i18n="flow.1.result">
+                  A reviewable API definition + a local docs link.
+                </p>
+              </div>
+              <details class="flow-example">
+                <summary>
+                  <span data-i18n="flow.promptLabel">Ask your agent</span
+                  ><span aria-hidden="true">＋</span>
+                </summary>
+                <blockquote data-i18n="flow.1.prompt">
+                  Scan this project and give me an API documentation link.
+                </blockquote>
+              </details>
+              <a class="scene-link" href="/use-cases.html#code-to-docs"
+                ><span data-i18n="flow.try">Try this workflow</span>
+                <span aria-hidden="true">→</span></a
+              >
+            </div>
+          </article>
+          <article class="flow-card">
+            <div class="flow-pain">
+              <span class="flow-number" aria-hidden="true">02</span>
+              <p data-i18n="flow.2.pain">
+                AI writes endpoints that don’t match the spec.
+              </p>
+            </div>
+            <div class="flow-answer">
+              <h3 data-i18n="flow.2.title">API → code</h3>
+              <p data-i18n="flow.2.body">
+                Connect your coding agent to Powerduck’s MCP. Let it read the
+                actual paths, schemas and auth before implementing, then verify
+                the running API.
+              </p>
+              <div class="flow-result">
+                <span data-i18n="flow.result" class="flow-label"
+                  >WHAT YOU GET</span
+                >
+                <p data-i18n="flow.2.result">
+                  Implementation guided by the contract, checked against real
+                  responses.
+                </p>
+              </div>
+              <details class="flow-example">
+                <summary>
+                  <span data-i18n="flow.promptLabel">Ask your agent</span
+                  ><span aria-hidden="true">＋</span>
+                </summary>
+                <blockquote data-i18n="flow.2.prompt">
+                  Implement this API from its definition, then run contract
+                  tests.
+                </blockquote>
+              </details>
+              <a class="scene-link" href="/use-cases.html#design-api"
+                ><span data-i18n="flow.try">Try this workflow</span>
+                <span aria-hidden="true">→</span></a
+              >
+            </div>
+          </article>
+          <article class="flow-card">
+            <div class="flow-pain">
+              <span class="flow-number" aria-hidden="true">03</span>
+              <p data-i18n="flow.3.pain">
+                The business flow works… until the next change.
+              </p>
+            </div>
+            <div class="flow-answer">
+              <h3 data-i18n="flow.3.title">
+                AI plans. AI tests. You see the results.
+              </h3>
+              <p data-i18n="flow.3.body">
+                Describe a flow such as sign in → create an order → retrieve it.
+                Let AI compose the scenario, pass values between steps and
+                execute the test.
+              </p>
+              <div class="flow-result">
+                <span data-i18n="flow.result" class="flow-label"
+                  >WHAT YOU GET</span
+                >
+                <p data-i18n="flow.3.result">
+                  Step-by-step results and failed assertions, not just a
+                  generated test script.
+                </p>
+              </div>
+              <details class="flow-example">
+                <summary>
+                  <span data-i18n="flow.promptLabel">Ask your agent</span
+                  ><span aria-hidden="true">＋</span>
+                </summary>
+                <blockquote data-i18n="flow.3.prompt">
+                  Test sign in → create an order → retrieve it. Show which step
+                  fails.
+                </blockquote>
+              </details>
+              <a class="scene-link" href="/use-cases.html#contract-tests"
+                ><span data-i18n="flow.try">Try this workflow</span>
+                <span aria-hidden="true">→</span></a
+              >
+            </div>
+          </article>
+          <article class="flow-card">
+            <div class="flow-pain">
+              <span class="flow-number" aria-hidden="true">04</span>
+              <p data-i18n="flow.4.pain">
+                Seven protocols. Too many separate tools.
+              </p>
+            </div>
+            <div class="flow-answer">
+              <h3 data-i18n="flow.4.title">One workspace. Seven protocols.</h3>
+              <p data-i18n="flow.4.body">
+                Debug HTTP, GraphQL, WebSocket, SSE, gRPC, MCP and A2A. Inspect
+                responses, streams and tool calls in the same workspace.
+              </p>
+              <div class="flow-result">
+                <span data-i18n="flow.result" class="flow-label"
+                  >WHAT YOU GET</span
+                >
+                <p data-i18n="flow.4.result">
+                  Manual control when you need to inspect exactly what happened.
+                </p>
+              </div>
+              <div class="flow-protocols" aria-hidden="true">
+                HTTP · GraphQL · WebSocket · SSE · gRPC · MCP · A2A
+              </div>
+              <a class="scene-link" href="/use-cases.html#protocols"
+                ><span data-i18n="flow.try">Try this workflow</span>
+                <span aria-hidden="true">→</span></a
+              >
+            </div>
+          </article>
+          <article class="flow-card">
+            <div class="flow-pain">
+              <span class="flow-number" aria-hidden="true">05</span>
+              <p data-i18n="flow.5.pain">
+                An API fails. Now you’re copying logs into chat.
+              </p>
+            </div>
+            <div class="flow-answer">
+              <h3 data-i18n="flow.5.title">
+                Debug with AI beside the request.
+              </h3>
+              <p data-i18n="flow.5.body">
+                Give the assistant the relevant API context. Ask it to send a
+                request, inspect the response and help narrow down the failure.
+              </p>
+              <div class="flow-result">
+                <span data-i18n="flow.result" class="flow-label"
+                  >WHAT YOU GET</span
+                >
+                <p data-i18n="flow.5.result">
+                  A diagnosis grounded in request results, with changes you can
+                  review.
+                </p>
+              </div>
+              <details class="flow-example">
+                <summary>
+                  <span data-i18n="flow.promptLabel">Ask your agent</span
+                  ><span aria-hidden="true">＋</span>
+                </summary>
+                <blockquote data-i18n="flow.5.prompt">
+                  Investigate why this request fails. Check the response before
+                  suggesting a fix.
+                </blockquote>
+              </details>
+              <a class="scene-link" href="/use-cases.html#ai-debug"
+                ><span data-i18n="flow.try">Try this workflow</span>
+                <span aria-hidden="true">→</span></a
+              >
+            </div>
+          </article>
+          <article class="flow-card">
+            <div class="flow-pain">
+              <span class="flow-number" aria-hidden="true">06</span>
+              <p data-i18n="flow.6.pain">
+                Sharing an API means setting up another service.
+              </p>
+            </div>
+            <div class="flow-answer">
+              <h3 data-i18n="flow.6.title">
+                Publish docs and an MCP endpoint.
+              </h3>
+              <p data-i18n="flow.6.body">
+                Publish a version of your API to Powerduck Cloud. Give people
+                readable docs and give AI clients an MCP endpoint.
+              </p>
+              <div class="flow-result">
+                <span data-i18n="flow.result" class="flow-label"
+                  >WHAT YOU GET</span
+                >
+                <p data-i18n="flow.6.result">
+                  Hosted documentation and an MCP URL, without running your own
+                  hosting stack.
+                </p>
+              </div>
+              <div class="flow-protocols" aria-hidden="true">
+                OpenAPI → Docs + MCP
+              </div>
+              <a class="scene-link" href="/use-cases.html#share-docs"
+                ><span data-i18n="flow.try">Try this workflow</span>
+                <span aria-hidden="true">→</span></a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
       <!-- =======================================================================
      SPEC LOADER
      ======================================================================= -->
@@ -613,10 +951,14 @@
 
             <article class="quick-card quick-card-desktop">
               <div class="quick-card-top">
-                <span class="quick-badge quick-badge-muted" data-i18n="quick.desktopTag"
+                <span
+                  class="quick-badge quick-badge-muted"
+                  data-i18n="quick.desktopTag"
                   >Local files · offline · code scanning</span
                 >
-                <h3 data-i18n="quick.desktopTitle">Go all-in on the desktop app</h3>
+                <h3 data-i18n="quick.desktopTitle">
+                  Go all-in on the desktop app
+                </h3>
                 <p data-i18n="quick.desktopBody">
                   For local OpenAPI files, scanning an existing codebase,
                   bringing your own model key, and working fully offline.
@@ -675,8 +1017,8 @@
             </h2>
             <p class="section-deck" data-i18n="verify.deck">
               Ordinary API clients send the request and show the response.
-              Powerduck also checks every response against the OpenAPI
-              contract, so drift from the spec is caught the moment it happens.
+              Powerduck also checks every response against the OpenAPI contract,
+              so drift from the spec is caught the moment it happens.
             </p>
             <a
               class="btn btn-secondary"
@@ -707,14 +1049,20 @@
 
               <div class="verify-block verify-bad">
                 <div class="verify-label">
-                  <span class="verify-mark verify-mark-bad" aria-hidden="true">✕</span>
-                  <span data-i18n="verify.responseLabel">Backend returns a string</span>
+                  <span class="verify-mark verify-mark-bad" aria-hidden="true"
+                    >✕</span
+                  >
+                  <span data-i18n="verify.responseLabel"
+                    >Backend returns a string</span
+                  >
                 </div>
                 <pre class="verify-code"><code>{
   "total": "49.00"
 }</code></pre>
                 <div class="verify-msg verify-msg-bad">
-                  <span class="verify-mark verify-mark-bad" aria-hidden="true">✕</span>
+                  <span class="verify-mark verify-mark-bad" aria-hidden="true"
+                    >✕</span
+                  >
                   <span data-i18n="verify.failMsg"
                     >/total must be number — response fails the contract</span
                   >
@@ -723,14 +1071,18 @@
 
               <div class="verify-block verify-good">
                 <div class="verify-label">
-                  <span class="verify-mark verify-mark-good" aria-hidden="true">✓</span>
+                  <span class="verify-mark verify-mark-good" aria-hidden="true"
+                    >✓</span
+                  >
                   <span data-i18n="verify.fixLabel">Return a number</span>
                 </div>
                 <pre class="verify-code"><code>{
   "total": 49
 }</code></pre>
                 <div class="verify-msg verify-msg-good">
-                  <span class="verify-mark verify-mark-good" aria-hidden="true">✓</span>
+                  <span class="verify-mark verify-mark-good" aria-hidden="true"
+                    >✓</span
+                  >
                   <span data-i18n="verify.passMsg"
                     >Response matches the contract</span
                   >
@@ -1952,8 +2304,7 @@ curl /users/{id}
 {
   "id": "usr_...",
   "email": "ada@..."
-}</pre
-                  >
+}</pre>
                 </div>
               </div>
             </div>
@@ -2135,13 +2486,26 @@ curl /users/{id}
      LICENSING
      ======================================================================= -->
 
-      <section class="section outcome-section" id="data-boundaries"><h2 data-i18n="start.privacy">Local work, remote services and your choices</h2><p data-i18n="faq.a1">Local files need no account. Remote AI receives related context. Cloud publishing uploads selected content. Optional usage statistics are off by default.</p><a href="/privacy.html">Privacy / 隐私 / プライバシー</a></section>
+      <section class="section outcome-section" id="data-boundaries">
+        <h2 data-i18n="start.privacy">
+          Local work, remote services and your choices
+        </h2>
+        <p data-i18n="faq.a1">
+          Local files need no account. Remote AI receives related context. Cloud
+          publishing uploads selected content. Optional usage statistics are off
+          by default.
+        </p>
+        <a href="/privacy.html">Privacy / 隐私 / プライバシー</a>
+      </section>
       <section
         class="product-paths"
         id="licensing"
         aria-labelledby="product-paths-title"
       >
-        <p class="hero-micro" data-i18n="hero.micro">Local use needs no Cloud purchase. A desktop license removes the free specification-slot limit. Model fees are separate.</p>
+        <p class="hero-micro" data-i18n="hero.micro">
+          Local use needs no Cloud purchase. A desktop license removes the free
+          specification-slot limit. Model fees are separate.
+        </p>
         <div class="product-paths-heading">
           <h2 id="product-paths-title" data-i18n="guide.title">
             Choose your next step.
@@ -2228,7 +2592,12 @@ curl /users/{id}
                 Does Powerduck upload my OpenAPI specification anywhere?
               </summary>
 
-              <p data-i18n="faq.a1">Local files need no account. Remote AI sends relevant context to your configured model. Cloud publishing uploads selected content. Optional usage statistics are off by default. See our privacy policy.</p>
+              <p data-i18n="faq.a1">
+                Local files need no account. Remote AI sends relevant context to
+                your configured model. Cloud publishing uploads selected
+                content. Optional usage statistics are off by default. See our
+                privacy policy.
+              </p>
             </details>
 
             <details>
@@ -2360,9 +2729,19 @@ curl /users/{id}
                 <li>
                   <a href="/download.html" data-i18n="nav.download">Download</a>
                 </li>
-                <li><a href="/pricing?product=client" data-i18n="footer.prices">Prices</a></li>
+                <li>
+                  <a href="/pricing?product=client" data-i18n="footer.prices"
+                    >Prices</a
+                  >
+                </li>
                 <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
-                <li><a href="/blog/tag/release-notes/" data-i18n="nav.releaseNotes">Release notes</a></li>
+                <li>
+                  <a
+                    href="/blog/tag/release-notes/"
+                    data-i18n="nav.releaseNotes"
+                    >Release notes</a
+                  >
+                </li>
               </ul>
             </div>
             <div class="footer-column">
@@ -2589,7 +2968,7 @@ curl /users/{id}
       })();
     </script>
     <script src="assets/js/i18n.js?v=20261013"></script>
-    <script src="/assets/js/scenarios-i18n.js?v=20261015"></script>
+    <script src="/assets/js/scenarios-i18n.js?v=20261015b"></script>
     <script src="assets/js/common.js?v=20261015"></script>
     <script src="assets/js/cloud.js?v=20260924"></script>
     <script>
