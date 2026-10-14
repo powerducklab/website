@@ -3,7 +3,7 @@
   "use strict";
   var messages = {
     en: {
-      "scenes.all": "Explore all use cases",
+      "scenes.all": "Scenario guides",
       "flow.hero": "Your agent writes the code.<br>Powerduck handles the API.",
       "flow.sub":
         "Give Codex, Claude Code or Cursor the API contract. Turn code into docs, run business scenarios with AI, and check real results — from a local-first API workspace.",
@@ -23,11 +23,11 @@
       "flow.base3": "Collections & scenario tests",
       "flow.base4": "Local mock servers",
       "flow.base5": "7-protocol debugging",
-      "flow.difference": "Do these problems keep interrupting your work?",
-      "flow.all": "Explore all workflows",
+      "flow.difference": "What would you like to stop doing manually?",
+      "flow.all": "Explore these scenarios",
       "flow.1.pain":
         "Do you still read the source code to find out whether the API docs are right?",
-      "flow.1.title": "Stop documenting from a blank page.",
+      "flow.1.title": "Generate docs from the project.",
       "flow.1.body":
         "Scan a supported project from your coding agent through MCP. Generate an API definition and open it as documentation.",
       "flow.result": "WHAT YOU GET",
@@ -38,8 +38,7 @@
       "flow.try": "Try this workflow",
       "flow.2.pain":
         "Have you given AI the spec, only to get different fields and paths back?",
-      "flow.2.title":
-        "Give your agent the contract, not another guessing game.",
+      "flow.2.title": "Implement from the actual API contract.",
       "flow.2.body":
         "Connect your coding agent to Powerduck’s MCP. Let it read the actual paths, schemas and auth before implementing, then verify the running API.",
       "flow.2.result":
@@ -48,7 +47,7 @@
         "Implement this API from its definition, then run contract tests.",
       "flow.3.pain":
         "Do you manually repeat the same business flow after every API change?",
-      "flow.3.title": "Describe the flow. Let AI run the checks.",
+      "flow.3.title": "Run the whole business scenario.",
       "flow.3.body":
         "Describe a flow such as sign in → create an order → retrieve it. Let AI compose the scenario, pass values between steps and execute the test.",
       "flow.3.result":
@@ -57,14 +56,14 @@
         "Test sign in → create an order → retrieve it. Show which step fails.",
       "flow.4.pain":
         "Do you switch tools just because the next endpoint uses a different protocol?",
-      "flow.4.title": "Keep the investigation in one workspace.",
+      "flow.4.title": "Inspect seven protocols in one place.",
       "flow.4.body":
         "Debug HTTP, GraphQL, WebSocket, SSE, gRPC, MCP and A2A. Inspect responses, streams and tool calls in the same workspace.",
       "flow.4.result":
         "Manual control when you need to inspect exactly what happened.",
       "flow.5.pain":
         "Do you copy requests and responses into chat every time you need AI’s help?",
-      "flow.5.title": "Keep your assistant beside the failing request.",
+      "flow.5.title": "Investigate with real request context.",
       "flow.5.body":
         "Give the assistant the relevant API context. Ask it to send a request, inspect the response and help narrow down the failure.",
       "flow.5.result":
@@ -73,7 +72,7 @@
         "Investigate why this request fails. Check the response before suggesting a fix.",
       "flow.6.pain":
         "Do you maintain a separate hosting setup just to share API docs and MCP?",
-      "flow.6.title": "Send the link. Skip the hosting setup.",
+      "flow.6.title": "Publish docs and MCP from one API.",
       "flow.6.body":
         "Publish a version of your API to Powerduck Cloud. Give people readable docs and give AI clients an MCP endpoint.",
       "flow.6.result":
@@ -115,9 +114,16 @@
       "quick.browserBody":
         "The web demo uses a shared cloud model and requires sign-in. For local work without an account, download the desktop app.",
       "flow.openWeb": "Open web app",
+      "flow.diagramLabel": "Workflow example",
+      "flow.tab1": "Writing API docs",
+      "flow.tab2": "Correcting AI-generated code",
+      "flow.tab3": "Repeating business tests",
+      "flow.tab4": "Switching debugging tools",
+      "flow.tab5": "Explaining failures to AI",
+      "flow.tab6": "Managing hosting",
     },
     "zh-CN": {
-      "scenes.all": "查看全部使用场景",
+      "scenes.all": "场景指南",
       "flow.hero": "代码交给编程助手。<br>API 交给 Powerduck。",
       "flow.sub":
         "让 Codex、Claude Code、Cursor 按接口定义写代码。扫描代码生成文档，让 AI 编排业务测试、执行并给出结果——都从本地优先的 API 工作台开始。",
@@ -136,10 +142,10 @@
       "flow.base3": "请求集合与场景测试",
       "flow.base4": "本地 Mock 服务",
       "flow.base5": "七种协议调试",
-      "flow.difference": "你是否还在为这些问题反复花时间？",
-      "flow.all": "查看全部工作流",
+      "flow.difference": "哪些工作，你不想再手动重复？",
+      "flow.all": "查看场景指南",
       "flow.1.pain": "你是否拿到了接口文档，却还得翻源码才能确认它写得对不对？",
-      "flow.1.title": "别再从空白页开始补文档。",
+      "flow.1.title": "从项目生成接口文档。",
       "flow.1.body":
         "在编程助手里连接 Powerduck MCP，扫描已适配框架的项目，生成接口定义并打开文档。",
       "flow.result": "你得到的结果",
@@ -148,33 +154,33 @@
       "flow.1.prompt": "扫描这个项目，生成 API 文档，给我一个可以打开的链接。",
       "flow.try": "试试这个流程",
       "flow.2.pain": "你是否把文档给了 AI，生成的字段和路径却仍然对不上？",
-      "flow.2.title": "让 AI 按约定写，别让你替它收拾。",
+      "flow.2.title": "让编程助手读取真实接口定义。",
       "flow.2.body":
         "让编程助手通过 MCP 读取真实的路径、数据结构与鉴权要求，再按定义实现，最后对运行中的接口做验证。",
       "flow.2.result": "代码有定义可依，结果有真实响应可验。",
       "flow.2.prompt":
         "根据这份 API 定义实现接口，再运行契约测试，检查是否一致。",
       "flow.3.pain": "你是否每改一次接口，就得手动重跑一遍相同的业务流程？",
-      "flow.3.title": "业务你来说，测试让 AI 跑。",
+      "flow.3.title": "让 AI 编排并运行整个业务场景。",
       "flow.3.body":
         "描述业务流程，让 AI 组织测试步骤、传递上一步的返回值，再运行整个场景。",
       "flow.3.result": "每一步的执行结果和失败断言，不是只给你一段测试代码。",
       "flow.3.prompt":
         "测试登录 → 创建订单 → 查询订单，告诉我哪一步失败、为什么。",
       "flow.4.pain": "你是否只是换了一种接口协议，就不得不换一个调试工具？",
-      "flow.4.title": "换协议，不用换工作台。",
+      "flow.4.title": "七种协议，在一个工作台排查。",
       "flow.4.body":
         "HTTP、GraphQL、WebSocket、SSE、gRPC、MCP、A2A，在同一工作区查看响应、消息流和工具调用。",
       "flow.4.result": "需要亲自排查时，每一次请求和返回都看得清。",
       "flow.5.pain": "你是否每次让 AI 排错，都得重新复制请求、响应和接口背景？",
-      "flow.5.title": "别搬来搬去，让 AI 就在这里查。",
+      "flow.5.title": "带着真实请求上下文，让 AI 排错。",
       "flow.5.body":
         "给助手相关接口上下文，让它发送请求、查看返回，结合实际结果定位问题，提出可审阅的修改建议。",
       "flow.5.result": "基于真实请求结果的排查，而不是凭空猜原因。",
       "flow.5.prompt": "帮我查这个请求为什么失败，先看响应，再给修改建议。",
       "flow.6.pain":
         "你是否只是想分享文档和 MCP，却还要单独搭建、维护托管服务？",
-      "flow.6.title": "文档和 MCP 发出去，托管的事交给我们。",
+      "flow.6.title": "一份 API，发布文档与 MCP。",
       "flow.6.body":
         "将一个 API 版本发布到 Powerduck Cloud：给人看文档，给 AI 客户端连 MCP。",
       "flow.6.result": "文档地址 + MCP 服务地址，不用自己搭建托管环境。",
@@ -215,9 +221,16 @@
       "quick.browserBody":
         "网页版演示使用共享云端模型，需要登录。无需账号的本地工作，请下载桌面版。",
       "flow.openWeb": "打开网页版",
+      "flow.diagramLabel": "流程示意",
+      "flow.tab1": "手动补文档",
+      "flow.tab2": "纠正 AI 实现",
+      "flow.tab3": "重复业务测试",
+      "flow.tab4": "切换调试工具",
+      "flow.tab5": "搬运排错上下文",
+      "flow.tab6": "维护托管服务",
     },
     ja: {
-      "scenes.all": "すべての活用シーンを見る",
+      "scenes.all": "活用ガイド",
       "flow.hero": "コードは AI エージェントに。<br>API は Powerduck に。",
       "flow.sub":
         "Codex、Claude Code、Cursor に API 定義を渡す。コードからドキュメントを生成し、AI で業務シナリオを実行して実際の結果を確かめる。ローカル優先の API ワークスペースで。",
@@ -237,11 +250,11 @@
       "flow.base3": "コレクションとシナリオテスト",
       "flow.base4": "ローカル Mock サーバー",
       "flow.base5": "7 プロトコルのデバッグ",
-      "flow.difference": "こんな問題に、何度も時間を使っていませんか？",
-      "flow.all": "すべてのワークフローを見る",
+      "flow.difference": "手作業で繰り返したくないのは、どの仕事ですか？",
+      "flow.all": "活用ガイドを見る",
       "flow.1.pain":
         "ドキュメントが正しいか確かめるために、ソースコードを読んでいませんか？",
-      "flow.1.title": "白紙からドキュメントを書かない。",
+      "flow.1.title": "プロジェクトから API ドキュメントを生成。",
       "flow.1.body":
         "MCP 経由で対応フレームワークのプロジェクトを解析。API 定義を生成し、ドキュメントとして開きます。",
       "flow.result": "得られるもの",
@@ -252,7 +265,7 @@
       "flow.try": "この流れを試す",
       "flow.2.pain":
         "AI に仕様を渡したのに、違うフィールドやパスが返ってきませんか？",
-      "flow.2.title": "AI に推測させず、定義を渡す。",
+      "flow.2.title": "実際の API 定義をエージェントに渡す。",
       "flow.2.body":
         "エージェントが MCP から実際のパス、スキーマ、認証要件を読んで実装。起動した API を検証します。",
       "flow.2.result": "定義に基づく実装と、実際のレスポンスによる確認。",
@@ -260,7 +273,7 @@
         "この API 定義に沿って実装し、契約テストで一致を確認してください。",
       "flow.3.pain":
         "API を変えるたびに、同じ業務フローを手動でテストしていませんか？",
-      "flow.3.title": "業務フローを伝えたら、AI がテスト。",
+      "flow.3.title": "業務シナリオ全体を AI で実行。",
       "flow.3.body":
         "ログイン → 注文作成 → 取得のような流れを伝えると、AI がステップを構成し、値を引き継いで実行します。",
       "flow.3.result":
@@ -269,13 +282,13 @@
         "ログイン → 注文作成 → 取得をテストし、失敗したステップを教えてください。",
       "flow.4.pain":
         "プロトコルが変わるだけで、別のデバッグツールが必要ですか？",
-      "flow.4.title": "調査を一つのワークスペースに。",
+      "flow.4.title": "7 プロトコルを一つの場所で確認。",
       "flow.4.body":
         "HTTP、GraphQL、WebSocket、SSE、gRPC、MCP、A2A。レスポンス、ストリーム、ツール呼び出しを同じ画面で確認。",
       "flow.4.result": "何が起きたかを自分で詳しく調べられる操作性。",
       "flow.5.pain":
         "AI に調査を頼むたびに、リクエストやレスポンスを貼り直していませんか？",
-      "flow.5.title": "失敗したリクエストの隣に、AI を。",
+      "flow.5.title": "実際のリクエスト情報で AI と調査。",
       "flow.5.body":
         "関連する API 情報を助手に渡し、送信とレスポンス確認を依頼。実際の結果から原因を絞り込みます。",
       "flow.5.result": "リクエスト結果に基づく調査と、確認できる修正案。",
@@ -283,7 +296,7 @@
         "このリクエストの失敗を調べてください。修正案の前にレスポンスを確認してください。",
       "flow.6.pain":
         "ドキュメントと MCP を共有するだけなのに、別のホスティング環境を管理していませんか？",
-      "flow.6.title": "リンクを送る。ホスティングは任せる。",
+      "flow.6.title": "一つの API からドキュメントと MCP を公開。",
       "flow.6.body":
         "API のバージョンを Powerduck Cloud に公開。人にはドキュメントを、AI クライアントには MCP 接続先を渡せます。",
       "flow.6.result":
@@ -325,9 +338,16 @@
       "quick.browserBody":
         "ブラウザー版デモは共有クラウドモデルを使用するため、ログインが必要です。アカウントなしのローカル作業にはデスクトップ版をご利用ください。",
       "flow.openWeb": "ブラウザー版を開く",
+      "flow.diagramLabel": "ワークフロー例",
+      "flow.tab1": "ドキュメント作成",
+      "flow.tab2": "AI の実装を修正",
+      "flow.tab3": "業務テストの反復",
+      "flow.tab4": "調査ツールの切り替え",
+      "flow.tab5": "AI への状況説明",
+      "flow.tab6": "ホスティング管理",
     },
     de: {
-      "scenes.all": "Alle Anwendungsfälle ansehen",
+      "scenes.all": "Szenarioanleitungen",
       "flow.hero":
         "Dein Agent schreibt den Code.<br>Powerduck übernimmt die API.",
       "flow.sub":
@@ -349,12 +369,12 @@
       "flow.base3": "Sammlungen & Szenariotests",
       "flow.base4": "Lokale Mock-Server",
       "flow.base5": "7 Protokolle debuggen",
-      "flow.difference": "Kosten dich diese Probleme immer wieder Zeit?",
-      "flow.all": "Alle Workflows entdecken",
+      "flow.difference":
+        "Welche Arbeit möchtest du nicht mehr von Hand wiederholen?",
+      "flow.all": "Szenarioanleitungen ansehen",
       "flow.1.pain":
         "Liest du noch den Quellcode, um herauszufinden, ob die API-Dokumentation stimmt?",
-      "flow.1.title":
-        "Dokumentation muss nicht mit einer leeren Seite anfangen.",
+      "flow.1.title": "Dokumentation aus dem Projekt erzeugen.",
       "flow.1.body":
         "Analysiere ein unterstütztes Projekt über MCP mit deinem Coding-Agenten. Erzeuge eine API-Definition und öffne sie als Dokumentation.",
       "flow.result": "DAS ERGEBNIS",
@@ -366,7 +386,7 @@
       "flow.try": "Workflow ausprobieren",
       "flow.2.pain":
         "Hast du der KI die Spezifikation gegeben und trotzdem andere Felder und Pfade erhalten?",
-      "flow.2.title": "Gib deinem Agenten den Vertrag statt Raum zum Raten.",
+      "flow.2.title": "Nach der tatsächlichen API-Definition implementieren.",
       "flow.2.body":
         "Lass deinen Agenten per MCP die tatsächlichen Pfade, Schemas und Authentifizierung lesen, bevor er implementiert. Prüfe danach die laufende API.",
       "flow.2.result":
@@ -375,7 +395,7 @@
         "Implementiere diese API nach ihrer Definition und führe Vertragstests aus.",
       "flow.3.pain":
         "Testest du nach jeder API-Änderung denselben Geschäftsablauf wieder von Hand?",
-      "flow.3.title": "Beschreibe den Ablauf. Lass die KI prüfen.",
+      "flow.3.title": "Das gesamte Geschäftsszenario ausführen.",
       "flow.3.body":
         "Beschreibe Anmeldung → Bestellung anlegen → abrufen. Die KI erstellt das Szenario, reicht Werte zwischen Schritten weiter und führt es aus.",
       "flow.3.result":
@@ -384,14 +404,14 @@
         "Teste Anmeldung → Bestellung anlegen → abrufen. Zeige den fehlerhaften Schritt.",
       "flow.4.pain":
         "Wechselst du das Tool, nur weil der nächste Endpunkt ein anderes Protokoll nutzt?",
-      "flow.4.title": "Untersuche das Problem in einem Arbeitsbereich.",
+      "flow.4.title": "Sieben Protokolle an einem Ort prüfen.",
       "flow.4.body":
         "Debugge HTTP, GraphQL, WebSocket, SSE, gRPC, MCP und A2A. Prüfe Antworten, Streams und Tool-Aufrufe an einem Ort.",
       "flow.4.result":
         "Manuelle Kontrolle, wenn du genau verstehen willst, was passiert ist.",
       "flow.5.pain":
         "Kopierst du bei jeder KI-Fehlersuche Anfragen, Antworten und Kontext erneut in den Chat?",
-      "flow.5.title": "Hol die KI direkt zur fehlerhaften Anfrage.",
+      "flow.5.title": "Mit echtem Anfragekontext untersuchen.",
       "flow.5.body":
         "Gib dem Assistenten den relevanten API-Kontext. Lass ihn eine Anfrage senden, die Antwort prüfen und den Fehler eingrenzen.",
       "flow.5.result":
@@ -400,7 +420,7 @@
         "Untersuche diesen Fehler. Prüfe die Antwort, bevor du eine Korrektur vorschlägst.",
       "flow.6.pain":
         "Betreibst du eigenes Hosting, nur um API-Dokumentation und MCP zu teilen?",
-      "flow.6.title": "Link verschicken. Hosting-Einrichtung sparen.",
+      "flow.6.title": "Doku und MCP aus einer API veröffentlichen.",
       "flow.6.body":
         "Veröffentliche eine API-Version in Powerduck Cloud. Menschen erhalten lesbare Dokumentation, KI-Clients einen MCP-Endpunkt.",
       "flow.6.result":
@@ -442,9 +462,16 @@
       "quick.browserBody":
         "Die Web-Demo nutzt ein gemeinsames Cloud-Modell und erfordert eine Anmeldung. Für lokale Arbeit ohne Konto lade die Desktop-App herunter.",
       "flow.openWeb": "Web-App öffnen",
+      "flow.diagramLabel": "Beispielablauf",
+      "flow.tab1": "API-Doku schreiben",
+      "flow.tab2": "KI-Code korrigieren",
+      "flow.tab3": "Geschäftsabläufe testen",
+      "flow.tab4": "Debugging-Tools wechseln",
+      "flow.tab5": "Fehler der KI erklären",
+      "flow.tab6": "Hosting verwalten",
     },
     fr: {
-      "scenes.all": "Voir tous les cas d’usage",
+      "scenes.all": "Guides par scénario",
       "flow.hero": "Votre agent écrit le code.<br>Powerduck s’occupe de l’API.",
       "flow.sub":
         "Donnez le contrat API à Codex, Claude Code ou Cursor. Générez la documentation depuis le code, testez vos parcours métier avec l’IA et vérifiez les résultats réels, dans un espace API local.",
@@ -465,11 +492,11 @@
       "flow.base3": "Collections et tests de scénarios",
       "flow.base4": "Serveurs mock locaux",
       "flow.base5": "Débogage de 7 protocoles",
-      "flow.difference": "Ces problèmes vous font-ils encore perdre du temps ?",
-      "flow.all": "Découvrir tous les parcours",
+      "flow.difference": "Quelle tâche ne voulez-vous plus répéter à la main ?",
+      "flow.all": "Voir les guides par scénario",
       "flow.1.pain":
         "Lisez-vous encore le code source pour vérifier si la documentation API est correcte ?",
-      "flow.1.title": "Ne repartez pas d’une page blanche pour documenter.",
+      "flow.1.title": "Générez la documentation depuis le projet.",
       "flow.1.body":
         "Analysez un projet compatible depuis votre agent via MCP. Générez une définition API et ouvrez-la sous forme de documentation.",
       "flow.result": "LE RÉSULTAT",
@@ -481,8 +508,7 @@
       "flow.try": "Essayer ce parcours",
       "flow.2.pain":
         "Avez-vous donné la spécification à l’IA pour recevoir malgré tout d’autres champs et chemins ?",
-      "flow.2.title":
-        "Donnez le contrat à l’agent, au lieu de le laisser deviner.",
+      "flow.2.title": "Implémentez à partir du vrai contrat API.",
       "flow.2.body":
         "Votre agent lit les vrais chemins, schémas et règles d’authentification via MCP avant d’implémenter. Vérifiez ensuite l’API en cours d’exécution.",
       "flow.2.result":
@@ -491,7 +517,7 @@
         "Implémente cette API à partir de sa définition, puis exécute les tests de contrat.",
       "flow.3.pain":
         "Retestez-vous manuellement le même parcours métier après chaque modification de l’API ?",
-      "flow.3.title": "Décrivez le parcours. Laissez l’IA le tester.",
+      "flow.3.title": "Exécutez le scénario métier complet.",
       "flow.3.body":
         "Décrivez connexion → création de commande → consultation. L’IA compose le scénario, transmet les valeurs entre étapes et l’exécute.",
       "flow.3.result":
@@ -500,14 +526,14 @@
         "Teste connexion → création de commande → consultation. Montre l’étape qui échoue.",
       "flow.4.pain":
         "Changez-vous d’outil simplement parce que le prochain endpoint utilise un autre protocole ?",
-      "flow.4.title": "Gardez l’enquête dans un seul espace.",
+      "flow.4.title": "Examinez sept protocoles au même endroit.",
       "flow.4.body":
         "Déboguez HTTP, GraphQL, WebSocket, SSE, gRPC, MCP et A2A. Examinez réponses, flux et appels d’outils au même endroit.",
       "flow.4.result":
         "Le contrôle manuel pour comprendre précisément ce qui s’est passé.",
       "flow.5.pain":
         "Recopiez-vous requêtes, réponses et contexte à chaque demande d’aide à l’IA ?",
-      "flow.5.title": "Gardez l’assistant près de la requête qui échoue.",
+      "flow.5.title": "Enquêtez avec le contexte réel de la requête.",
       "flow.5.body":
         "Fournissez le contexte API pertinent à l’assistant. Demandez-lui d’envoyer une requête, d’examiner la réponse et de cerner le problème.",
       "flow.5.result":
@@ -516,8 +542,7 @@
         "Cherche pourquoi cette requête échoue. Examine la réponse avant de proposer une correction.",
       "flow.6.pain":
         "Gérez-vous un hébergement séparé uniquement pour partager votre documentation API et votre MCP ?",
-      "flow.6.title":
-        "Envoyez le lien. Évitez la mise en place de l’hébergement.",
+      "flow.6.title": "Publiez documentation et MCP depuis une API.",
       "flow.6.body":
         "Publiez une version de votre API sur Powerduck Cloud. Les personnes lisent la documentation, les clients IA se connectent au MCP.",
       "flow.6.result":
@@ -559,9 +584,16 @@
       "quick.browserBody":
         "La démo web utilise un modèle cloud partagé et nécessite une connexion. Pour travailler en local sans compte, téléchargez l’application de bureau.",
       "flow.openWeb": "Ouvrir l’application web",
+      "flow.diagramLabel": "Exemple de parcours",
+      "flow.tab1": "Rédiger la documentation",
+      "flow.tab2": "Corriger le code de l’IA",
+      "flow.tab3": "Retester les parcours",
+      "flow.tab4": "Changer d’outil de débogage",
+      "flow.tab5": "Expliquer les erreurs à l’IA",
+      "flow.tab6": "Gérer l’hébergement",
     },
     es: {
-      "scenes.all": "Ver todos los casos de uso",
+      "scenes.all": "Guías por escenario",
       "flow.hero":
         "Tu agente escribe el código.<br>Powerduck se encarga de la API.",
       "flow.sub":
@@ -583,12 +615,11 @@
       "flow.base3": "Colecciones y pruebas de escenarios",
       "flow.base4": "Servidores mock locales",
       "flow.base5": "Depuración de 7 protocolos",
-      "flow.difference": "¿Estos problemas siguen quitándote tiempo?",
-      "flow.all": "Explorar todos los flujos",
+      "flow.difference": "¿Qué trabajo no quieres seguir repitiendo a mano?",
+      "flow.all": "Ver guías por escenario",
       "flow.1.pain":
         "¿Todavía lees el código fuente para comprobar si la documentación de la API es correcta?",
-      "flow.1.title":
-        "No empieces la documentación desde una página en blanco.",
+      "flow.1.title": "Genera documentación desde el proyecto.",
       "flow.1.body":
         "Analiza un proyecto compatible desde tu agente mediante MCP. Genera una definición de API y ábrela como documentación.",
       "flow.result": "EL RESULTADO",
@@ -600,8 +631,7 @@
       "flow.try": "Probar este flujo",
       "flow.2.pain":
         "¿Le has dado la especificación a la IA y aun así te devuelve otros campos y rutas?",
-      "flow.2.title":
-        "Dale el contrato al agente, no otra ocasión para adivinar.",
+      "flow.2.title": "Implementa según el contrato real de la API.",
       "flow.2.body":
         "Tu agente lee las rutas, esquemas y requisitos de autenticación reales mediante MCP antes de implementar. Después verifica la API en ejecución.",
       "flow.2.result":
@@ -610,7 +640,7 @@
         "Implementa esta API según su definición y ejecuta pruebas de contrato.",
       "flow.3.pain":
         "¿Repites manualmente el mismo flujo de negocio tras cada cambio en la API?",
-      "flow.3.title": "Describe el flujo. Deja que la IA lo pruebe.",
+      "flow.3.title": "Ejecuta el escenario de negocio completo.",
       "flow.3.body":
         "Describe iniciar sesión → crear pedido → consultarlo. La IA organiza el escenario, pasa valores entre pasos y lo ejecuta.",
       "flow.3.result":
@@ -619,13 +649,13 @@
         "Prueba iniciar sesión → crear pedido → consultarlo. Muéstrame qué paso falla.",
       "flow.4.pain":
         "¿Cambias de herramienta solo porque el siguiente endpoint usa otro protocolo?",
-      "flow.4.title": "Investiga en un único espacio de trabajo.",
+      "flow.4.title": "Examina siete protocolos en un solo lugar.",
       "flow.4.body":
         "Depura HTTP, GraphQL, WebSocket, SSE, gRPC, MCP y A2A. Revisa respuestas, flujos y llamadas a herramientas en el mismo lugar.",
       "flow.4.result": "Control manual para entender exactamente qué ocurrió.",
       "flow.5.pain":
         "¿Vuelves a copiar peticiones, respuestas y contexto cada vez que pides ayuda a la IA?",
-      "flow.5.title": "Mantén al asistente junto a la petición que falla.",
+      "flow.5.title": "Investiga con el contexto real de la petición.",
       "flow.5.body":
         "Dale al asistente el contexto relevante de la API. Pídele que envíe una petición, revise la respuesta y ayude a acotar el fallo.",
       "flow.5.result":
@@ -634,8 +664,7 @@
         "Investiga por qué falla esta petición. Revisa la respuesta antes de proponer un arreglo.",
       "flow.6.pain":
         "¿Mantienes un alojamiento aparte solo para compartir documentación de API y MCP?",
-      "flow.6.title":
-        "Envía el enlace. Ahorra la configuración del alojamiento.",
+      "flow.6.title": "Publica documentación y MCP desde una API.",
       "flow.6.body":
         "Publica una versión de tu API en Powerduck Cloud. Las personas reciben documentación legible y los clientes de IA, un endpoint MCP.",
       "flow.6.result":
@@ -677,6 +706,13 @@
       "quick.browserBody":
         "La demo web usa un modelo compartido en la nube y requiere iniciar sesión. Para trabajar en local sin cuenta, descarga la aplicación de escritorio.",
       "flow.openWeb": "Abrir aplicación web",
+      "flow.diagramLabel": "Ejemplo de flujo",
+      "flow.tab1": "Escribir documentación",
+      "flow.tab2": "Corregir código de la IA",
+      "flow.tab3": "Repetir pruebas de negocio",
+      "flow.tab4": "Cambiar de depurador",
+      "flow.tab5": "Explicar fallos a la IA",
+      "flow.tab6": "Administrar alojamiento",
     },
   };
   Object.keys(messages).forEach(function (l) {

@@ -69,7 +69,7 @@
     <link rel="stylesheet" href="assets/css/common.css?v=20260929" />
     <link rel="stylesheet" href="assets/css/contour.css?v=20261013" />
     <link rel="stylesheet" href="assets/css/product-paths.css" />
-    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261015f" />
+    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261015g" />
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -296,7 +296,7 @@
                     role="menuitem"
                     ><span class="dropdown-item-text"
                       ><span data-i18n="scenes.all" class="dropdown-item-title"
-                        >Explore all use cases</span
+                        >Scenario guides</span
                       ></span
                     ></a
                   >
@@ -615,246 +615,380 @@
           </p>
         </div>
         <div class="flow-section-label">
-          <h3 data-i18n="flow.difference">
-            Do these problems keep interrupting your work?
+          <h3 id="workflow-selector-title" data-i18n="flow.difference">
+            What would you like to stop doing manually?
           </h3>
           <a class="scenes-more" href="/use-cases.html"
-            ><span data-i18n="flow.all">Explore all workflows</span>
+            ><span data-i18n="flow.all">Explore these scenarios</span>
             <span aria-hidden="true">↗</span></a
           >
         </div>
-        <div class="flow-grid">
-          <article class="flow-card">
-            <div class="flow-pain">
-              <span class="flow-number" aria-hidden="true">01</span>
-              <p data-i18n="flow.1.pain">
-                Do you still read the source code to find out whether the API
-                docs are right?
-              </p>
-            </div>
-            <div class="flow-answer">
-              <h3 data-i18n="flow.1.title">
-                Stop documenting from a blank page.
-              </h3>
-              <p data-i18n="flow.1.body">
-                Scan a supported project from your coding agent through MCP.
-                Generate an API definition and open it as documentation.
-              </p>
-              <div class="flow-result">
-                <span data-i18n="flow.result" class="flow-label"
-                  >WHAT YOU GET</span
-                >
-                <p data-i18n="flow.1.result">
-                  A reviewable API definition + a local docs link.
+        <div class="workflow-explorer" data-workflow-explorer>
+          <div
+            class="workflow-choices"
+            aria-label="API workflows"
+            data-workflow-choices
+          >
+            <button
+              type="button"
+              class="workflow-choice"
+              id="workflow-tab-1"
+              data-workflow-tab="1"
+            >
+              <span class="workflow-index" aria-hidden="true">01</span
+              ><span data-i18n="flow.tab1">Writing API docs</span
+              ><span class="workflow-arrow" aria-hidden="true">→</span></button
+            ><button
+              type="button"
+              class="workflow-choice"
+              id="workflow-tab-2"
+              data-workflow-tab="2"
+            >
+              <span class="workflow-index" aria-hidden="true">02</span
+              ><span data-i18n="flow.tab2">Correcting AI-generated code</span
+              ><span class="workflow-arrow" aria-hidden="true">→</span></button
+            ><button
+              type="button"
+              class="workflow-choice"
+              id="workflow-tab-3"
+              data-workflow-tab="3"
+            >
+              <span class="workflow-index" aria-hidden="true">03</span
+              ><span data-i18n="flow.tab3">Repeating business tests</span
+              ><span class="workflow-arrow" aria-hidden="true">→</span></button
+            ><button
+              type="button"
+              class="workflow-choice"
+              id="workflow-tab-4"
+              data-workflow-tab="4"
+            >
+              <span class="workflow-index" aria-hidden="true">04</span
+              ><span data-i18n="flow.tab4">Switching debugging tools</span
+              ><span class="workflow-arrow" aria-hidden="true">→</span></button
+            ><button
+              type="button"
+              class="workflow-choice"
+              id="workflow-tab-5"
+              data-workflow-tab="5"
+            >
+              <span class="workflow-index" aria-hidden="true">05</span
+              ><span data-i18n="flow.tab5">Explaining failures to AI</span
+              ><span class="workflow-arrow" aria-hidden="true">→</span></button
+            ><button
+              type="button"
+              class="workflow-choice"
+              id="workflow-tab-6"
+              data-workflow-tab="6"
+            >
+              <span class="workflow-index" aria-hidden="true">06</span
+              ><span data-i18n="flow.tab6">Managing hosting</span
+              ><span class="workflow-arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+          <div class="workflow-panels">
+            <article
+              class="workflow-panel"
+              id="workflow-panel-1"
+              data-workflow-panel="1"
+            >
+              <div class="workflow-question">
+                <h3 data-i18n="flow.1.pain">
+                  Do you still read the source code to find out whether the API
+                  docs are right?
+                </h3>
+              </div>
+              <div class="workflow-solution">
+                <h4 data-i18n="flow.1.title">
+                  Generate docs from the project.
+                </h4>
+                <p data-i18n="flow.1.body">
+                  Scan a supported project from your coding agent through MCP.
+                  Generate an API definition and open it as documentation.
                 </p>
               </div>
-              <details class="flow-example">
-                <summary>
-                  <span data-i18n="flow.promptLabel">Ask your agent</span
-                  ><span aria-hidden="true">＋</span>
-                </summary>
+              <div class="workflow-diagram">
+                <span data-i18n="flow.diagramLabel" class="workflow-caption"
+                  >Workflow example</span
+                >
+                <ol>
+                  <li><code>src/</code></li>
+                  <li><code>openapi.yaml</code></li>
+                  <li><code>127.0.0.1/…</code></li>
+                </ol>
+              </div>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span
+                ><span data-i18n="flow.1.result"
+                  >A reviewable API definition + a local docs link.</span
+                >
+              </p>
+              <div class="workflow-prompt">
+                <span data-i18n="flow.promptLabel" class="workflow-caption"
+                  >Ask your agent</span
+                >
                 <blockquote data-i18n="flow.1.prompt">
                   Scan this project and give me an API documentation link.
                 </blockquote>
-              </details>
+              </div>
               <a class="scene-link" href="/use-cases.html#code-to-docs"
-                ><span data-i18n="flow.try">Try this workflow</span>
+                ><span data-i18n="flow.boundary"
+                  >See setup &amp; requirements</span
+                >
                 <span aria-hidden="true">→</span></a
               >
-            </div>
-          </article>
-          <article class="flow-card">
-            <div class="flow-pain">
-              <span class="flow-number" aria-hidden="true">02</span>
-              <p data-i18n="flow.2.pain">
-                Have you given AI the spec, only to get different fields and
-                paths back?
-              </p>
-            </div>
-            <div class="flow-answer">
-              <h3 data-i18n="flow.2.title">
-                Give your agent the contract, not another guessing game.
-              </h3>
-              <p data-i18n="flow.2.body">
-                Connect your coding agent to Powerduck’s MCP. Let it read the
-                actual paths, schemas and auth before implementing, then verify
-                the running API.
-              </p>
-              <div class="flow-result">
-                <span data-i18n="flow.result" class="flow-label"
-                  >WHAT YOU GET</span
-                >
-                <p data-i18n="flow.2.result">
-                  Implementation guided by the contract, checked against real
-                  responses.
+            </article>
+            <article
+              class="workflow-panel"
+              id="workflow-panel-2"
+              data-workflow-panel="2"
+            >
+              <div class="workflow-question">
+                <h3 data-i18n="flow.2.pain">
+                  Have you given AI the spec, only to get different fields and
+                  paths back?
+                </h3>
+              </div>
+              <div class="workflow-solution">
+                <h4 data-i18n="flow.2.title">
+                  Implement from the actual API contract.
+                </h4>
+                <p data-i18n="flow.2.body">
+                  Connect your coding agent to Powerduck’s MCP. Let it read the
+                  actual paths, schemas and auth before implementing, then
+                  verify the running API.
                 </p>
               </div>
-              <details class="flow-example">
-                <summary>
-                  <span data-i18n="flow.promptLabel">Ask your agent</span
-                  ><span aria-hidden="true">＋</span>
-                </summary>
+              <div class="workflow-diagram">
+                <span data-i18n="flow.diagramLabel" class="workflow-caption"
+                  >Workflow example</span
+                >
+                <ol>
+                  <li><code>openapi.yaml</code></li>
+                  <li><code>MCP</code></li>
+                  <li><code>Codex · Claude Code · Cursor</code></li>
+                </ol>
+              </div>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span
+                ><span data-i18n="flow.2.result"
+                  >Implementation guided by the contract, checked against real
+                  responses.</span
+                >
+              </p>
+              <div class="workflow-prompt">
+                <span data-i18n="flow.promptLabel" class="workflow-caption"
+                  >Ask your agent</span
+                >
                 <blockquote data-i18n="flow.2.prompt">
                   Implement this API from its definition, then run contract
                   tests.
                 </blockquote>
-              </details>
+              </div>
               <a class="scene-link" href="/use-cases.html#design-api"
-                ><span data-i18n="flow.try">Try this workflow</span>
+                ><span data-i18n="flow.boundary"
+                  >See setup &amp; requirements</span
+                >
                 <span aria-hidden="true">→</span></a
               >
-            </div>
-          </article>
-          <article class="flow-card">
-            <div class="flow-pain">
-              <span class="flow-number" aria-hidden="true">03</span>
-              <p data-i18n="flow.3.pain">
-                Do you manually repeat the same business flow after every API
-                change?
-              </p>
-            </div>
-            <div class="flow-answer">
-              <h3 data-i18n="flow.3.title">
-                Describe the flow. Let AI run the checks.
-              </h3>
-              <p data-i18n="flow.3.body">
-                Describe a flow such as sign in → create an order → retrieve it.
-                Let AI compose the scenario, pass values between steps and
-                execute the test.
-              </p>
-              <div class="flow-result">
-                <span data-i18n="flow.result" class="flow-label"
-                  >WHAT YOU GET</span
-                >
-                <p data-i18n="flow.3.result">
-                  Step-by-step results and failed assertions, not just a
-                  generated test script.
+            </article>
+            <article
+              class="workflow-panel"
+              id="workflow-panel-3"
+              data-workflow-panel="3"
+            >
+              <div class="workflow-question">
+                <h3 data-i18n="flow.3.pain">
+                  Do you manually repeat the same business flow after every API
+                  change?
+                </h3>
+              </div>
+              <div class="workflow-solution">
+                <h4 data-i18n="flow.3.title">
+                  Run the whole business scenario.
+                </h4>
+                <p data-i18n="flow.3.body">
+                  Describe a flow such as sign in → create an order → retrieve
+                  it. Let AI compose the scenario, pass values between steps and
+                  execute the test.
                 </p>
               </div>
-              <details class="flow-example">
-                <summary>
-                  <span data-i18n="flow.promptLabel">Ask your agent</span
-                  ><span aria-hidden="true">＋</span>
-                </summary>
+              <div class="workflow-diagram">
+                <span data-i18n="flow.diagramLabel" class="workflow-caption"
+                  >Workflow example</span
+                >
+                <ol>
+                  <li><code>POST /login</code></li>
+                  <li><code>POST /orders</code></li>
+                  <li><code>GET /orders/{id}</code></li>
+                </ol>
+              </div>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span
+                ><span data-i18n="flow.3.result"
+                  >Step-by-step results and failed assertions, not just a
+                  generated test script.</span
+                >
+              </p>
+              <div class="workflow-prompt">
+                <span data-i18n="flow.promptLabel" class="workflow-caption"
+                  >Ask your agent</span
+                >
                 <blockquote data-i18n="flow.3.prompt">
                   Test sign in → create an order → retrieve it. Show which step
                   fails.
                 </blockquote>
-              </details>
+              </div>
               <a class="scene-link" href="/use-cases.html#contract-tests"
-                ><span data-i18n="flow.try">Try this workflow</span>
+                ><span data-i18n="flow.boundary"
+                  >See setup &amp; requirements</span
+                >
                 <span aria-hidden="true">→</span></a
               >
-            </div>
-          </article>
-          <article class="flow-card">
-            <div class="flow-pain">
-              <span class="flow-number" aria-hidden="true">04</span>
-              <p data-i18n="flow.4.pain">
-                Do you switch tools just because the next endpoint uses a
-                different protocol?
-              </p>
-            </div>
-            <div class="flow-answer">
-              <h3 data-i18n="flow.4.title">
-                Keep the investigation in one workspace.
-              </h3>
-              <p data-i18n="flow.4.body">
-                Debug HTTP, GraphQL, WebSocket, SSE, gRPC, MCP and A2A. Inspect
-                responses, streams and tool calls in the same workspace.
-              </p>
-              <div class="flow-result">
-                <span data-i18n="flow.result" class="flow-label"
-                  >WHAT YOU GET</span
-                >
-                <p data-i18n="flow.4.result">
-                  Manual control when you need to inspect exactly what happened.
+            </article>
+            <article
+              class="workflow-panel"
+              id="workflow-panel-4"
+              data-workflow-panel="4"
+            >
+              <div class="workflow-question">
+                <h3 data-i18n="flow.4.pain">
+                  Do you switch tools just because the next endpoint uses a
+                  different protocol?
+                </h3>
+              </div>
+              <div class="workflow-solution">
+                <h4 data-i18n="flow.4.title">
+                  Inspect seven protocols in one place.
+                </h4>
+                <p data-i18n="flow.4.body">
+                  Debug HTTP, GraphQL, WebSocket, SSE, gRPC, MCP and A2A.
+                  Inspect responses, streams and tool calls in the same
+                  workspace.
                 </p>
               </div>
-              <div class="flow-protocols" aria-hidden="true">
-                HTTP · GraphQL · WebSocket · SSE · gRPC · MCP · A2A
+              <div class="workflow-diagram">
+                <span data-i18n="flow.diagramLabel" class="workflow-caption"
+                  >Workflow example</span
+                >
+                <ol>
+                  <li><code>HTTP · GraphQL · WebSocket</code></li>
+                  <li><code>SSE · gRPC</code></li>
+                  <li><code>MCP · A2A</code></li>
+                </ol>
               </div>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span
+                ><span data-i18n="flow.4.result"
+                  >Manual control when you need to inspect exactly what
+                  happened.</span
+                >
+              </p>
               <a class="scene-link" href="/use-cases.html#protocols"
-                ><span data-i18n="flow.try">Try this workflow</span>
+                ><span data-i18n="flow.boundary"
+                  >See setup &amp; requirements</span
+                >
                 <span aria-hidden="true">→</span></a
               >
-            </div>
-          </article>
-          <article class="flow-card">
-            <div class="flow-pain">
-              <span class="flow-number" aria-hidden="true">05</span>
-              <p data-i18n="flow.5.pain">
-                Do you copy requests and responses into chat every time you need
-                AI’s help?
-              </p>
-            </div>
-            <div class="flow-answer">
-              <h3 data-i18n="flow.5.title">
-                Keep your assistant beside the failing request.
-              </h3>
-              <p data-i18n="flow.5.body">
-                Give the assistant the relevant API context. Ask it to send a
-                request, inspect the response and help narrow down the failure.
-              </p>
-              <div class="flow-result">
-                <span data-i18n="flow.result" class="flow-label"
-                  >WHAT YOU GET</span
-                >
-                <p data-i18n="flow.5.result">
-                  A diagnosis grounded in request results, with changes you can
-                  review.
+            </article>
+            <article
+              class="workflow-panel"
+              id="workflow-panel-5"
+              data-workflow-panel="5"
+            >
+              <div class="workflow-question">
+                <h3 data-i18n="flow.5.pain">
+                  Do you copy requests and responses into chat every time you
+                  need AI’s help?
+                </h3>
+              </div>
+              <div class="workflow-solution">
+                <h4 data-i18n="flow.5.title">
+                  Investigate with real request context.
+                </h4>
+                <p data-i18n="flow.5.body">
+                  Give the assistant the relevant API context. Ask it to send a
+                  request, inspect the response and help narrow down the
+                  failure.
                 </p>
               </div>
-              <details class="flow-example">
-                <summary>
-                  <span data-i18n="flow.promptLabel">Ask your agent</span
-                  ><span aria-hidden="true">＋</span>
-                </summary>
+              <div class="workflow-diagram">
+                <span data-i18n="flow.diagramLabel" class="workflow-caption"
+                  >Workflow example</span
+                >
+                <ol>
+                  <li><code>HTTP 4xx / 5xx</code></li>
+                  <li><code>Powerduck AI</code></li>
+                  <li><code>HTTP / JSON</code></li>
+                </ol>
+              </div>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span
+                ><span data-i18n="flow.5.result"
+                  >A diagnosis grounded in request results, with changes you can
+                  review.</span
+                >
+              </p>
+              <div class="workflow-prompt">
+                <span data-i18n="flow.promptLabel" class="workflow-caption"
+                  >Ask your agent</span
+                >
                 <blockquote data-i18n="flow.5.prompt">
                   Investigate why this request fails. Check the response before
                   suggesting a fix.
                 </blockquote>
-              </details>
+              </div>
               <a class="scene-link" href="/use-cases.html#ai-debug"
-                ><span data-i18n="flow.try">Try this workflow</span>
+                ><span data-i18n="flow.boundary"
+                  >See setup &amp; requirements</span
+                >
                 <span aria-hidden="true">→</span></a
               >
-            </div>
-          </article>
-          <article class="flow-card">
-            <div class="flow-pain">
-              <span class="flow-number" aria-hidden="true">06</span>
-              <p data-i18n="flow.6.pain">
-                Do you maintain a separate hosting setup just to share API docs
-                and MCP?
-              </p>
-            </div>
-            <div class="flow-answer">
-              <h3 data-i18n="flow.6.title">
-                Send the link. Skip the hosting setup.
-              </h3>
-              <p data-i18n="flow.6.body">
-                Publish a version of your API to Powerduck Cloud. Give people
-                readable docs and give AI clients an MCP endpoint.
-              </p>
-              <div class="flow-result">
-                <span data-i18n="flow.result" class="flow-label"
-                  >WHAT YOU GET</span
-                >
-                <p data-i18n="flow.6.result">
-                  Hosted documentation and an MCP URL, without running your own
-                  hosting stack.
+            </article>
+            <article
+              class="workflow-panel"
+              id="workflow-panel-6"
+              data-workflow-panel="6"
+            >
+              <div class="workflow-question">
+                <h3 data-i18n="flow.6.pain">
+                  Do you maintain a separate hosting setup just to share API
+                  docs and MCP?
+                </h3>
+              </div>
+              <div class="workflow-solution">
+                <h4 data-i18n="flow.6.title">
+                  Publish docs and MCP from one API.
+                </h4>
+                <p data-i18n="flow.6.body">
+                  Publish a version of your API to Powerduck Cloud. Give people
+                  readable docs and give AI clients an MCP endpoint.
                 </p>
               </div>
-              <div class="flow-protocols" aria-hidden="true">
-                OpenAPI → Docs + MCP
+              <div class="workflow-diagram">
+                <span data-i18n="flow.diagramLabel" class="workflow-caption"
+                  >Workflow example</span
+                >
+                <ol>
+                  <li><code>openapi.yaml</code></li>
+                  <li><code>Powerduck Cloud</code></li>
+                  <li><code>HTTPS · MCP</code></li>
+                </ol>
               </div>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span
+                ><span data-i18n="flow.6.result"
+                  >Hosted documentation and an MCP URL, without running your own
+                  hosting stack.</span
+                >
+              </p>
               <a class="scene-link" href="/use-cases.html#share-docs"
-                ><span data-i18n="flow.try">Try this workflow</span>
+                ><span data-i18n="flow.boundary"
+                  >See setup &amp; requirements</span
+                >
                 <span aria-hidden="true">→</span></a
               >
-            </div>
-          </article>
+            </article>
+          </div>
         </div>
       </section>
       <!-- =======================================================================
@@ -2924,7 +3058,7 @@ curl /users/{id}
       })();
     </script>
     <script src="assets/js/i18n.js?v=20261013"></script>
-    <script src="/assets/js/scenarios-i18n.js?v=20261015f"></script>
+    <script src="/assets/js/scenarios-i18n.js?v=20261015g"></script>
     <script src="assets/js/common.js?v=20261015"></script>
     <script src="assets/js/cloud.js?v=20260924"></script>
     <script>
@@ -2952,5 +3086,6 @@ curl /users/{id}
         }
       })();
     </script>
+    <script src="/assets/js/workflow-explorer.js?v=20261015"></script>
   </body>
 </html>
