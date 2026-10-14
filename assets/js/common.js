@@ -119,6 +119,15 @@
       el.textContent = t(el.getAttribute("data-i18n"));
     });
 
+    scope.querySelectorAll("[data-i18n-content]").forEach(function (el) {
+      el.setAttribute("content", t(el.getAttribute("data-i18n-content")));
+    });
+
+    var docsLocales = { "zh-CN": "zh-CN/", ja: "ja-JP/", de: "de-DE/", fr: "fr-FR/", es: "es-ES/" };
+    scope.querySelectorAll("[data-docs-path]").forEach(function (el) {
+      el.setAttribute("href", "/docs/" + (docsLocales[currentLang] || "") + el.getAttribute("data-docs-path"));
+    });
+
     scope.querySelectorAll("[data-i18n-html]").forEach(function (el) {
       el.innerHTML = t(el.getAttribute("data-i18n-html"));
     });

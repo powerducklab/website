@@ -69,6 +69,7 @@
     <link rel="stylesheet" href="assets/css/common.css?v=20260929" />
     <link rel="stylesheet" href="assets/css/contour.css?v=20261013" />
     <link rel="stylesheet" href="assets/css/product-paths.css" />
+    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261015" />
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8HXDV7CDEB"></script>
 <script>
@@ -281,6 +282,7 @@
                       ></span
                     ></a
                   >
+                  <a class="dropdown-item" href="/use-cases.html" role="menuitem"><span class="dropdown-item-text"><span data-i18n="scenes.all" class="dropdown-item-title">Explore all use cases</span></span></a>
                   <a class="dropdown-item" href="/blog/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.blog">Blog</span><span class="dropdown-item-desc" data-i18n="nav.blogDesc">Product and engineering notes</span></span></a>
                   <a class="dropdown-item" href="/blog/tag/release-notes/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.releaseNotes">Release notes</span><span class="dropdown-item-desc" data-i18n="nav.releaseNotesDesc">What changed in every version</span></span></a>
                   <a class="dropdown-item" href="demo/" role="menuitem"
@@ -504,6 +506,7 @@
         </p>
       </section>
 
+<section class="scenes-section" id="use-cases" aria-labelledby="scenes-title"><div class="scenes-heading"><div><p data-i18n="scenes.kicker" class="scenes-kicker">WHAT CAN YOU DO WITH POWERDUCK?</p><h2 data-i18n="scenes.title" id="scenes-title">Less API busywork. More working software.</h2><p data-i18n="scenes.intro" class="scenes-intro">Start with the job you need to get done. Keep your code, API docs and real responses connected.</p></div><a class="scenes-more" href="/use-cases.html"><span data-i18n="scenes.all" >Explore all use cases</span> <span aria-hidden="true">↗</span></a></div><article class="scene-feature"><div class="scene-copy"><div class="scene-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14"/></svg></div><h3 data-i18n="scenes.s1.title" >Turn your code into API docs — from your editor.</h3><p data-i18n="scenes.s1.body" >Connect Powerduck’s MCP to Cursor, Claude Code or Codex. Ask it to scan your project and return a documentation link, without switching to a separate docs-writing workflow.</p><a class="scene-link" href="/use-cases.html#code-to-docs"><span data-i18n="scenes.learn" >See how it works</span> <span aria-hidden="true">→</span></a></div><div class="scene-conversation"><p data-i18n="scenes.agent" class="scene-apps">Cursor · Claude Code · Codex</p><p data-i18n="scenes.promptLabel" class="scene-prompt-label">Ask your coding agent</p><blockquote data-i18n="scenes.prompt" >Use Powerduck to generate API docs for this project and give me a link.</blockquote><div class="scene-result"><span aria-hidden="true">✓</span><span data-i18n="scenes.result" >Code → API specification → readable docs</span></div><p data-i18n="scenes.local" class="scene-note">Local preview by default. Share online after Cloud sign-in and confirmation.</p></div></article><div class="scene-grid"><article class="scene-card"><div class="scene-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M7 10h6"/></svg></div><h3 data-i18n="scenes.s2.title" >Reproduce an API problem without rebuilding the request.</h3><p data-i18n="scenes.s2.body" >Bring in a cURL command, Postman collection or OpenAPI file. Fill in your environment and credentials, send the request, and inspect what actually came back.</p><a class="scene-link" href="/use-cases.html#debug-requests"><span data-i18n="scenes.learn" >See how it works</span> <span aria-hidden="true">→</span></a></article><article class="scene-card"><div class="scene-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m5 12 4 4L19 6M5 21h14"/></svg></div><h3 data-i18n="scenes.s3.title" >Catch API changes before they break the frontend.</h3><p data-i18n="scenes.s3.body" >A request can return 200 and still return the wrong data. Check actual responses against your OpenAPI definition and run multi-step scenarios after a change.</p><a class="scene-link" href="/use-cases.html#contract-tests"><span data-i18n="scenes.learn" >See how it works</span> <span aria-hidden="true">→</span></a></article><article class="scene-card"><div class="scene-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 6h16v12H4zM8 10l3 2-3 2m6 0h3"/></svg></div><h3 data-i18n="scenes.s4.title" >Build the frontend before the backend is ready.</h3><p data-i18n="scenes.s4.body" >Start a local mock server from your API definition. Give the frontend predictable sample responses while the real endpoints are still being built.</p><a class="scene-link" href="/use-cases.html#mock-backend"><span data-i18n="scenes.learn" >See how it works</span> <span aria-hidden="true">→</span></a></article></div></section>
       <!-- =======================================================================
      SPEC LOADER
      ======================================================================= -->
@@ -2586,7 +2589,8 @@ curl /users/{id}
       })();
     </script>
     <script src="assets/js/i18n.js?v=20261013"></script>
-    <script src="assets/js/common.js?v=20260924"></script>
+    <script src="/assets/js/scenarios-i18n.js?v=20261015"></script>
+    <script src="assets/js/common.js?v=20261015"></script>
     <script src="assets/js/cloud.js?v=20260924"></script>
     <script>
       (function () {
