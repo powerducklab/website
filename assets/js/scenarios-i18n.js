@@ -9,24 +9,24 @@
         "Give Codex, Claude Code or Cursor the API contract. Turn code into docs, run business scenarios with AI, and check real results — from a local-first API workspace.",
       "flow.baseNote":
         "Local work needs no account. Remote AI uses your chosen model service; online hosting requires a Cloud account.",
-      "flow.kicker": "MORE THAN A REQUEST CLIENT",
-      "flow.title": "Sending a request is just the start.",
+      "flow.kicker": "JUST LET ME GET TO WORK",
+      "flow.title": "Another login. Just to test an API?",
       "flow.intro":
-        "You need APIs that work, docs that match, and an AI that knows what to build. Here’s how Powerduck connects the work.",
-      "flow.baseTitle":
-        "Your everyday API workbench. No account needed to start.",
+        "You came to fix an endpoint, not reset a password, rewrite docs or repeat yesterday’s tests. Get back to the work you actually wanted to do.",
+      "flow.baseTitle": "Open the app. Open your file. Get to work.",
       "flow.baseBody":
-        "The essentials you expect from a Postman alternative: import requests, configure auth and environments, inspect responses, add assertions and run mocks. Keep your workspace local.",
+        "Your local API workspace starts without an account or an upload. Bring your requests, auth, environments and assertions with you. Choose Cloud when you want to publish online.",
       "flow.base0": "cURL / Postman / OpenAPI import",
       "flow.base1": "Auth & environments",
       "flow.base2": "Scripts & assertions",
       "flow.base3": "Collections & scenario tests",
       "flow.base4": "Local mock servers",
       "flow.base5": "7-protocol debugging",
-      "flow.difference": "Now go beyond sending requests.",
+      "flow.difference": "Less chasing. Less repeating. More done.",
       "flow.all": "Explore all workflows",
-      "flow.1.pain": "Code exists. The API docs don’t.",
-      "flow.1.title": "Code → API",
+      "flow.1.pain":
+        "The code is done. Now someone wants you to write it all again as docs.",
+      "flow.1.title": "Stop documenting from a blank page.",
       "flow.1.body":
         "Scan a supported project from your coding agent through MCP. Generate an API definition and open it as documentation.",
       "flow.result": "WHAT YOU GET",
@@ -35,38 +35,43 @@
       "flow.1.prompt":
         "Scan this project and give me an API documentation link.",
       "flow.try": "Try this workflow",
-      "flow.2.pain": "AI writes endpoints that don’t match the spec.",
-      "flow.2.title": "API → code",
+      "flow.2.pain":
+        "AI says ‘done’. You’re still fixing the wrong fields and endpoints.",
+      "flow.2.title":
+        "Give your agent the contract, not another guessing game.",
       "flow.2.body":
         "Connect your coding agent to Powerduck’s MCP. Let it read the actual paths, schemas and auth before implementing, then verify the running API.",
       "flow.2.result":
         "Implementation guided by the contract, checked against real responses.",
       "flow.2.prompt":
         "Implement this API from its definition, then run contract tests.",
-      "flow.3.pain": "The business flow works… until the next change.",
-      "flow.3.title": "AI plans. AI tests. You see the results.",
+      "flow.3.pain":
+        "Another small change. Another afternoon clicking through the same flow.",
+      "flow.3.title": "Describe the flow. Let AI run the checks.",
       "flow.3.body":
         "Describe a flow such as sign in → create an order → retrieve it. Let AI compose the scenario, pass values between steps and execute the test.",
       "flow.3.result":
         "Step-by-step results and failed assertions, not just a generated test script.",
       "flow.3.prompt":
         "Test sign in → create an order → retrieve it. Show which step fails.",
-      "flow.4.pain": "Seven protocols. Too many separate tools.",
-      "flow.4.title": "One workspace. Seven protocols.",
+      "flow.4.pain": "You’re debugging one product. Why are five tools open?",
+      "flow.4.title": "Keep the investigation in one workspace.",
       "flow.4.body":
         "Debug HTTP, GraphQL, WebSocket, SSE, gRPC, MCP and A2A. Inspect responses, streams and tool calls in the same workspace.",
       "flow.4.result":
         "Manual control when you need to inspect exactly what happened.",
-      "flow.5.pain": "An API fails. Now you’re copying logs into chat.",
-      "flow.5.title": "Debug with AI beside the request.",
+      "flow.5.pain":
+        "Copy the request. Paste the response. Explain the whole thing to AI again.",
+      "flow.5.title": "Keep your assistant beside the failing request.",
       "flow.5.body":
         "Give the assistant the relevant API context. Ask it to send a request, inspect the response and help narrow down the failure.",
       "flow.5.result":
         "A diagnosis grounded in request results, with changes you can review.",
       "flow.5.prompt":
         "Investigate why this request fails. Check the response before suggesting a fix.",
-      "flow.6.pain": "Sharing an API means setting up another service.",
-      "flow.6.title": "Publish docs and an MCP endpoint.",
+      "flow.6.pain":
+        "You just want to share an API. Not maintain another server.",
+      "flow.6.title": "Send the link. Skip the hosting setup.",
       "flow.6.body":
         "Publish a version of your API to Powerduck Cloud. Give people readable docs and give AI clients an MCP endpoint.",
       "flow.6.result":
@@ -103,23 +108,23 @@
         "让 Codex、Claude Code、Cursor 按接口定义写代码。扫描代码生成文档，让 AI 编排业务测试、执行并给出结果——都从本地优先的 API 工作台开始。",
       "flow.baseNote":
         "本地工作无需账号；远程 AI 使用你选择的模型服务，在线托管需要 Cloud 账号。",
-      "flow.kicker": "不止是 POSTMAN 的替代品",
-      "flow.title": "发出请求，只是起点。",
+      "flow.kicker": "工具应该帮你干活，不该给你添活",
+      "flow.title": "只想调个接口，又要我登录？",
       "flow.intro":
-        "你真正要的是：接口跑得通，文档跟得上，AI 写的代码不跑偏。把这些工作串起来，才是 Powerduck。",
-      "flow.baseTitle": "日常 API 工作台，该有的都在。打开就用，无需注册。",
+        "你是来解决接口问题的，不是来找密码、补文档、重复昨天的测试的。把时间还给真正想做的事。",
+      "flow.baseTitle": "打开软件，打开文件，直接干活。",
       "flow.baseBody":
-        "导入请求、配置鉴权和环境、查看响应、编写断言、运行 Mock——熟悉的 Postman 核心工作流，在本地继续。",
+        "本地 API 工作台，无需账号，也不用先上传文件。请求、鉴权、环境、断言，熟悉的工作照常做。需要在线发布时，再选择 Cloud。",
       "flow.base0": "导入 cURL / Postman / OpenAPI",
       "flow.base1": "鉴权与环境变量",
       "flow.base2": "脚本与断言",
       "flow.base3": "请求集合与场景测试",
       "flow.base4": "本地 Mock 服务",
       "flow.base5": "七种协议调试",
-      "flow.difference": "真正的差异，从这里开始。",
+      "flow.difference": "少一点折腾，少一点重复，早点做完。",
       "flow.all": "查看全部工作流",
-      "flow.1.pain": "代码都写好了，接口文档还没开始。",
-      "flow.1.title": "代码即接口",
+      "flow.1.pain": "代码都写完了，还要照着代码再抄一遍文档？",
+      "flow.1.title": "别再从空白页开始补文档。",
       "flow.1.body":
         "在编程助手里连接 Powerduck MCP，扫描已适配框架的项目，生成接口定义并打开文档。",
       "flow.result": "你得到的结果",
@@ -127,33 +132,33 @@
       "flow.promptLabel": "可以直接这样说",
       "flow.1.prompt": "扫描这个项目，生成 API 文档，给我一个可以打开的链接。",
       "flow.try": "试试这个流程",
-      "flow.2.pain": "AI 写得很快，接口却和约定对不上。",
-      "flow.2.title": "接口即代码",
+      "flow.2.pain": "AI 说写好了，你却还在改错字段、对接口。",
+      "flow.2.title": "让 AI 按约定写，别让你替它收拾。",
       "flow.2.body":
         "让编程助手通过 MCP 读取真实的路径、数据结构与鉴权要求，再按定义实现，最后对运行中的接口做验证。",
       "flow.2.result": "代码有定义可依，结果有真实响应可验。",
       "flow.2.prompt":
         "根据这份 API 定义实现接口，再运行契约测试，检查是否一致。",
-      "flow.3.pain": "登录、下单、查询……改一次就得手测一遍。",
-      "flow.3.title": "AI 编排业务测试，执行后直接看结果。",
+      "flow.3.pain": "又改了一点代码，又得把登录、下单、查询点一遍。",
+      "flow.3.title": "业务你来说，测试让 AI 跑。",
       "flow.3.body":
         "描述业务流程，让 AI 组织测试步骤、传递上一步的返回值，再运行整个场景。",
       "flow.3.result": "每一步的执行结果和失败断言，不是只给你一段测试代码。",
       "flow.3.prompt":
         "测试登录 → 创建订单 → 查询订单，告诉我哪一步失败、为什么。",
-      "flow.4.pain": "HTTP、流式接口、MCP，调一个换一个工具。",
-      "flow.4.title": "七种协议，一个调试工作台。",
+      "flow.4.pain": "只是查一个问题，怎么开了这么多工具？",
+      "flow.4.title": "换协议，不用换工作台。",
       "flow.4.body":
         "HTTP、GraphQL、WebSocket、SSE、gRPC、MCP、A2A，在同一工作区查看响应、消息流和工具调用。",
       "flow.4.result": "需要亲自排查时，每一次请求和返回都看得清。",
-      "flow.5.pain": "接口报错，还得把请求和响应搬到聊天框。",
-      "flow.5.title": "让 AI 在请求旁边帮你排错。",
+      "flow.5.pain": "复制请求、粘贴响应，还得从头给 AI 解释一遍。",
+      "flow.5.title": "别搬来搬去，让 AI 就在这里查。",
       "flow.5.body":
         "给助手相关接口上下文，让它发送请求、查看返回，结合实际结果定位问题，提出可审阅的修改建议。",
       "flow.5.result": "基于真实请求结果的排查，而不是凭空猜原因。",
       "flow.5.prompt": "帮我查这个请求为什么失败，先看响应，再给修改建议。",
-      "flow.6.pain": "想把 API 给别人用，还得折腾文档站和服务。",
-      "flow.6.title": "文档和 MCP 服务，直接托管。",
+      "flow.6.pain": "只想给别人一个链接，不想再养一套服务。",
+      "flow.6.title": "文档和 MCP 发出去，托管的事交给我们。",
       "flow.6.body":
         "将一个 API 版本发布到 Powerduck Cloud：给人看文档，给 AI 客户端连 MCP。",
       "flow.6.result": "文档地址 + MCP 服务地址，不用自己搭建托管环境。",
@@ -189,23 +194,23 @@
         "Codex、Claude Code、Cursor に API 定義を渡す。コードからドキュメントを生成し、AI で業務シナリオを実行して実際の結果を確かめる。ローカル優先の API ワークスペースで。",
       "flow.baseNote":
         "ローカル作業はアカウント不要。リモート AI は選択したモデルサービスを使用し、オンライン公開には Cloud アカウントが必要です。",
-      "flow.kicker": "リクエスト送信の、その先へ",
-      "flow.title": "リクエストを送って、終わりではない。",
+      "flow.kicker": "作業を進めたい。それだけなのに。",
+      "flow.title": "API を試すだけなのに、またログイン？",
       "flow.intro":
-        "動く API、実装に合ったドキュメント、仕様を理解する AI。Powerduck は、その仕事をつなぎます。",
-      "flow.baseTitle": "日々の API 作業に。アカウントなしで始められる。",
+        "直したいのは API。パスワード探しでも、ドキュメントの書き直しでも、昨日と同じテストでもありません。本来の仕事に戻りましょう。",
+      "flow.baseTitle": "アプリを開く。ファイルを開く。すぐ作業。",
       "flow.baseBody":
-        "リクエストのインポート、認証・環境設定、レスポンス確認、アサーション、Mock。Postman 代替に求める基本機能を、ローカルのワークスペースで。",
+        "ローカルの API 作業はアカウントもアップロードも不要。リクエスト、認証、環境、アサーションをそのまま使い、オンライン公開が必要なときに Cloud を選べます。",
       "flow.base0": "cURL / Postman / OpenAPI のインポート",
       "flow.base1": "認証と環境変数",
       "flow.base2": "スクリプトとアサーション",
       "flow.base3": "コレクションとシナリオテスト",
       "flow.base4": "ローカル Mock サーバー",
       "flow.base5": "7 プロトコルのデバッグ",
-      "flow.difference": "送信だけでは解決しない仕事に。",
+      "flow.difference": "手間と繰り返しを減らして、先へ。",
       "flow.all": "すべてのワークフローを見る",
-      "flow.1.pain": "コードはある。でも API ドキュメントがない。",
-      "flow.1.title": "コード → API",
+      "flow.1.pain": "コードは完成。今度は同じ内容をドキュメントに書き直す？",
+      "flow.1.title": "白紙からドキュメントを書かない。",
       "flow.1.body":
         "MCP 経由で対応フレームワークのプロジェクトを解析。API 定義を生成し、ドキュメントとして開きます。",
       "flow.result": "得られるもの",
@@ -214,35 +219,37 @@
       "flow.1.prompt":
         "このプロジェクトを解析して、API ドキュメントのリンクをください。",
       "flow.try": "この流れを試す",
-      "flow.2.pain": "AI が作ったエンドポイントが仕様と違う。",
-      "flow.2.title": "API → コード",
+      "flow.2.pain":
+        "AI は「完了」と言う。でもフィールドもエンドポイントも違う。",
+      "flow.2.title": "AI に推測させず、定義を渡す。",
       "flow.2.body":
         "エージェントが MCP から実際のパス、スキーマ、認証要件を読んで実装。起動した API を検証します。",
       "flow.2.result": "定義に基づく実装と、実際のレスポンスによる確認。",
       "flow.2.prompt":
         "この API 定義に沿って実装し、契約テストで一致を確認してください。",
-      "flow.3.pain": "業務フローを変更のたびに手動で確認している。",
-      "flow.3.title": "AI が組み立て、実行。結果を確認。",
+      "flow.3.pain": "少し変えただけ。またログインから注文まで手動確認。",
+      "flow.3.title": "業務フローを伝えたら、AI がテスト。",
       "flow.3.body":
         "ログイン → 注文作成 → 取得のような流れを伝えると、AI がステップを構成し、値を引き継いで実行します。",
       "flow.3.result":
         "生成コードだけでなく、各ステップの結果と失敗したアサーション。",
       "flow.3.prompt":
         "ログイン → 注文作成 → 取得をテストし、失敗したステップを教えてください。",
-      "flow.4.pain": "プロトコルが変わるたびにツールを切り替える。",
-      "flow.4.title": "7 プロトコルを一つの場所で。",
+      "flow.4.pain": "一つの問題を調べるのに、いくつツールを開くの？",
+      "flow.4.title": "調査を一つのワークスペースに。",
       "flow.4.body":
         "HTTP、GraphQL、WebSocket、SSE、gRPC、MCP、A2A。レスポンス、ストリーム、ツール呼び出しを同じ画面で確認。",
       "flow.4.result": "何が起きたかを自分で詳しく調べられる操作性。",
-      "flow.5.pain": "失敗のたびにログをチャットへ貼り付けている。",
-      "flow.5.title": "リクエストの隣で AI とデバッグ。",
+      "flow.5.pain":
+        "リクエストをコピー、レスポンスを貼り付け、AI にまた説明。",
+      "flow.5.title": "失敗したリクエストの隣に、AI を。",
       "flow.5.body":
         "関連する API 情報を助手に渡し、送信とレスポンス確認を依頼。実際の結果から原因を絞り込みます。",
       "flow.5.result": "リクエスト結果に基づく調査と、確認できる修正案。",
       "flow.5.prompt":
         "このリクエストの失敗を調べてください。修正案の前にレスポンスを確認してください。",
-      "flow.6.pain": "API を共有するために別のサーバーを用意している。",
-      "flow.6.title": "ドキュメントと MCP を公開。",
+      "flow.6.pain": "リンクを共有したいだけ。サーバーの管理までしたくない。",
+      "flow.6.title": "リンクを送る。ホスティングは任せる。",
       "flow.6.body":
         "API のバージョンを Powerduck Cloud に公開。人にはドキュメントを、AI クライアントには MCP 接続先を渡せます。",
       "flow.6.result":
@@ -280,23 +287,26 @@
         "Gib Codex, Claude Code oder Cursor die API-Definition. Erzeuge Dokumentation aus Code, führe Geschäftsabläufe mit KI aus und prüfe echte Ergebnisse — in einem lokalen API-Arbeitsbereich.",
       "flow.baseNote":
         "Lokale Arbeit braucht kein Konto. Remote-KI nutzt deinen gewählten Modelldienst; Online-Hosting erfordert ein Cloud-Konto.",
-      "flow.kicker": "MEHR ALS EIN REQUEST-CLIENT",
-      "flow.title": "Eine Anfrage senden ist erst der Anfang.",
+      "flow.kicker": "LASS MICH EINFACH ARBEITEN",
+      "flow.title": "Schon wieder anmelden — nur um eine API zu testen?",
       "flow.intro":
-        "Du brauchst APIs, die funktionieren, passende Dokumentation und eine KI, die weiß, was sie bauen soll. Powerduck verbindet diese Arbeit.",
-      "flow.baseTitle": "Deine API-Werkbank für jeden Tag. Start ohne Konto.",
+        "Du willst einen Endpunkt reparieren, kein Passwort zurücksetzen, Dokumentation abschreiben oder gestrige Tests wiederholen. Zurück zur eigentlichen Arbeit.",
+      "flow.baseTitle": "App öffnen. Datei öffnen. Loslegen.",
       "flow.baseBody":
-        "Die Grundlagen einer Postman-Alternative: Anfragen importieren, Authentifizierung und Umgebungen einrichten, Antworten prüfen, Assertions hinzufügen und Mocks starten. Dein Arbeitsbereich bleibt lokal.",
+        "Dein lokaler API-Arbeitsbereich startet ohne Konto und Upload. Anfragen, Authentifizierung, Umgebungen und Assertions bleiben dabei. Cloud wählst du, wenn du online veröffentlichen willst.",
       "flow.base0": "cURL / Postman / OpenAPI importieren",
       "flow.base1": "Authentifizierung & Umgebungen",
       "flow.base2": "Skripte & Assertions",
       "flow.base3": "Sammlungen & Szenariotests",
       "flow.base4": "Lokale Mock-Server",
       "flow.base5": "7 Protokolle debuggen",
-      "flow.difference": "Hier geht es über Anfragen hinaus.",
+      "flow.difference":
+        "Weniger hinterherlaufen. Weniger wiederholen. Mehr erledigen.",
       "flow.all": "Alle Workflows entdecken",
-      "flow.1.pain": "Der Code ist fertig. Die API-Doku fehlt.",
-      "flow.1.title": "Code → API",
+      "flow.1.pain":
+        "Der Code ist fertig. Jetzt sollst du alles noch einmal als Doku schreiben.",
+      "flow.1.title":
+        "Dokumentation muss nicht mit einer leeren Seite anfangen.",
       "flow.1.body":
         "Analysiere ein unterstütztes Projekt über MCP mit deinem Coding-Agenten. Erzeuge eine API-Definition und öffne sie als Dokumentation.",
       "flow.result": "DAS ERGEBNIS",
@@ -307,8 +317,8 @@
         "Analysiere dieses Projekt und gib mir einen Link zur API-Dokumentation.",
       "flow.try": "Workflow ausprobieren",
       "flow.2.pain":
-        "Die KI baut Endpunkte, die nicht zur Spezifikation passen.",
-      "flow.2.title": "API → Code",
+        "Die KI sagt „fertig“. Du korrigierst noch falsche Felder und Endpunkte.",
+      "flow.2.title": "Gib deinem Agenten den Vertrag statt Raum zum Raten.",
       "flow.2.body":
         "Lass deinen Agenten per MCP die tatsächlichen Pfade, Schemas und Authentifizierung lesen, bevor er implementiert. Prüfe danach die laufende API.",
       "flow.2.result":
@@ -316,22 +326,23 @@
       "flow.2.prompt":
         "Implementiere diese API nach ihrer Definition und führe Vertragstests aus.",
       "flow.3.pain":
-        "Nach jeder Änderung wird der Geschäftsablauf von Hand getestet.",
-      "flow.3.title": "KI plant und testet. Du siehst die Ergebnisse.",
+        "Eine kleine Änderung. Wieder den ganzen Ablauf von Hand durchklicken.",
+      "flow.3.title": "Beschreibe den Ablauf. Lass die KI prüfen.",
       "flow.3.body":
         "Beschreibe Anmeldung → Bestellung anlegen → abrufen. Die KI erstellt das Szenario, reicht Werte zwischen Schritten weiter und führt es aus.",
       "flow.3.result":
         "Ergebnisse je Schritt und fehlgeschlagene Assertions statt nur Testcode.",
       "flow.3.prompt":
         "Teste Anmeldung → Bestellung anlegen → abrufen. Zeige den fehlerhaften Schritt.",
-      "flow.4.pain": "Sieben Protokolle. Zu viele einzelne Tools.",
-      "flow.4.title": "Ein Arbeitsbereich. Sieben Protokolle.",
+      "flow.4.pain": "Ein Produkt debuggen — warum sind fünf Tools offen?",
+      "flow.4.title": "Untersuche das Problem in einem Arbeitsbereich.",
       "flow.4.body":
         "Debugge HTTP, GraphQL, WebSocket, SSE, gRPC, MCP und A2A. Prüfe Antworten, Streams und Tool-Aufrufe an einem Ort.",
       "flow.4.result":
         "Manuelle Kontrolle, wenn du genau verstehen willst, was passiert ist.",
-      "flow.5.pain": "Eine API scheitert. Du kopierst Logs in den Chat.",
-      "flow.5.title": "KI-Debugging direkt bei der Anfrage.",
+      "flow.5.pain":
+        "Anfrage kopieren, Antwort einfügen, der KI alles noch einmal erklären.",
+      "flow.5.title": "Hol die KI direkt zur fehlerhaften Anfrage.",
       "flow.5.body":
         "Gib dem Assistenten den relevanten API-Kontext. Lass ihn eine Anfrage senden, die Antwort prüfen und den Fehler eingrenzen.",
       "flow.5.result":
@@ -339,8 +350,8 @@
       "flow.5.prompt":
         "Untersuche diesen Fehler. Prüfe die Antwort, bevor du eine Korrektur vorschlägst.",
       "flow.6.pain":
-        "Zum Teilen der API brauchst du noch einen Hosting-Dienst.",
-      "flow.6.title": "Dokumentation und MCP veröffentlichen.",
+        "Du willst eine API teilen, nicht noch einen Server betreuen.",
+      "flow.6.title": "Link verschicken. Hosting-Einrichtung sparen.",
       "flow.6.body":
         "Veröffentliche eine API-Version in Powerduck Cloud. Menschen erhalten lesbare Dokumentation, KI-Clients einen MCP-Endpunkt.",
       "flow.6.result":
@@ -377,24 +388,25 @@
         "Donnez le contrat API à Codex, Claude Code ou Cursor. Générez la documentation depuis le code, testez vos parcours métier avec l’IA et vérifiez les résultats réels, dans un espace API local.",
       "flow.baseNote":
         "Le travail local ne nécessite aucun compte. L’IA distante utilise le modèle choisi ; l’hébergement en ligne nécessite un compte Cloud.",
-      "flow.kicker": "BIEN PLUS QU’UN CLIENT DE REQUÊTES",
-      "flow.title": "Envoyer une requête n’est que le début.",
+      "flow.kicker": "LAISSEZ-MOI SIMPLEMENT TRAVAILLER",
+      "flow.title": "Encore une connexion, juste pour tester une API ?",
       "flow.intro":
-        "Des API qui fonctionnent, une documentation à jour, une IA qui sait quoi implémenter. Powerduck relie ces tâches.",
-      "flow.baseTitle":
-        "Votre atelier API quotidien. Sans compte pour commencer.",
+        "Vous êtes là pour corriger un endpoint, pas retrouver un mot de passe, réécrire la documentation ou refaire les tests d’hier. Revenez à votre vrai travail.",
+      "flow.baseTitle": "Ouvrez l’application. Ouvrez le fichier. C’est parti.",
       "flow.baseBody":
-        "L’essentiel d’une alternative à Postman : importer des requêtes, configurer l’authentification et les environnements, examiner les réponses, ajouter des assertions et lancer des mocks. Le tout en local.",
+        "Votre espace API local démarre sans compte ni import dans le cloud. Retrouvez requêtes, authentification, environnements et assertions. Choisissez Cloud quand vous souhaitez publier en ligne.",
       "flow.base0": "Import cURL / Postman / OpenAPI",
       "flow.base1": "Authentification et environnements",
       "flow.base2": "Scripts et assertions",
       "flow.base3": "Collections et tests de scénarios",
       "flow.base4": "Serveurs mock locaux",
       "flow.base5": "Débogage de 7 protocoles",
-      "flow.difference": "Allez au-delà de l’envoi de requêtes.",
+      "flow.difference":
+        "Moins de détours. Moins de répétitions. Plus de travail accompli.",
       "flow.all": "Découvrir tous les parcours",
-      "flow.1.pain": "Le code existe. Pas la documentation API.",
-      "flow.1.title": "Code → API",
+      "flow.1.pain":
+        "Le code est terminé. Il faut maintenant tout recopier dans la documentation ?",
+      "flow.1.title": "Ne repartez pas d’une page blanche pour documenter.",
       "flow.1.body":
         "Analysez un projet compatible depuis votre agent via MCP. Générez une définition API et ouvrez-la sous forme de documentation.",
       "flow.result": "LE RÉSULTAT",
@@ -405,8 +417,9 @@
         "Analyse ce projet et donne-moi un lien vers sa documentation API.",
       "flow.try": "Essayer ce parcours",
       "flow.2.pain":
-        "L’IA crée des endpoints qui ne respectent pas la spécification.",
-      "flow.2.title": "API → code",
+        "L’IA dit « terminé ». Vous corrigez encore les champs et endpoints erronés.",
+      "flow.2.title":
+        "Donnez le contrat à l’agent, au lieu de le laisser deviner.",
       "flow.2.body":
         "Votre agent lit les vrais chemins, schémas et règles d’authentification via MCP avant d’implémenter. Vérifiez ensuite l’API en cours d’exécution.",
       "flow.2.result":
@@ -414,30 +427,34 @@
       "flow.2.prompt":
         "Implémente cette API à partir de sa définition, puis exécute les tests de contrat.",
       "flow.3.pain":
-        "Chaque modification impose de retester le parcours à la main.",
-      "flow.3.title": "L’IA prépare et teste. Vous voyez les résultats.",
+        "Un petit changement. Encore tout le parcours à vérifier à la main.",
+      "flow.3.title": "Décrivez le parcours. Laissez l’IA le tester.",
       "flow.3.body":
         "Décrivez connexion → création de commande → consultation. L’IA compose le scénario, transmet les valeurs entre étapes et l’exécute.",
       "flow.3.result":
         "Les résultats de chaque étape et les assertions en échec, pas seulement un script.",
       "flow.3.prompt":
         "Teste connexion → création de commande → consultation. Montre l’étape qui échoue.",
-      "flow.4.pain": "Sept protocoles. Trop d’outils séparés.",
-      "flow.4.title": "Un espace. Sept protocoles.",
+      "flow.4.pain":
+        "Un seul produit à déboguer. Pourquoi cinq outils ouverts ?",
+      "flow.4.title": "Gardez l’enquête dans un seul espace.",
       "flow.4.body":
         "Déboguez HTTP, GraphQL, WebSocket, SSE, gRPC, MCP et A2A. Examinez réponses, flux et appels d’outils au même endroit.",
       "flow.4.result":
         "Le contrôle manuel pour comprendre précisément ce qui s’est passé.",
-      "flow.5.pain": "L’API échoue. Vous copiez les logs dans un chat.",
-      "flow.5.title": "L’IA débogue à côté de la requête.",
+      "flow.5.pain":
+        "Copier la requête, coller la réponse, tout réexpliquer à l’IA.",
+      "flow.5.title": "Gardez l’assistant près de la requête qui échoue.",
       "flow.5.body":
         "Fournissez le contexte API pertinent à l’assistant. Demandez-lui d’envoyer une requête, d’examiner la réponse et de cerner le problème.",
       "flow.5.result":
         "Un diagnostic fondé sur les résultats et des modifications à examiner.",
       "flow.5.prompt":
         "Cherche pourquoi cette requête échoue. Examine la réponse avant de proposer une correction.",
-      "flow.6.pain": "Partager l’API oblige à monter un autre service.",
-      "flow.6.title": "Publiez documentation et endpoint MCP.",
+      "flow.6.pain":
+        "Vous voulez partager une API, pas gérer un serveur de plus.",
+      "flow.6.title":
+        "Envoyez le lien. Évitez la mise en place de l’hébergement.",
       "flow.6.body":
         "Publiez une version de votre API sur Powerduck Cloud. Les personnes lisent la documentation, les clients IA se connectent au MCP.",
       "flow.6.result":
@@ -475,23 +492,26 @@
         "Dale el contrato de la API a Codex, Claude Code o Cursor. Genera documentación desde el código, ejecuta flujos de negocio con IA y comprueba resultados reales en un espacio de trabajo local.",
       "flow.baseNote":
         "El trabajo local no requiere cuenta. La IA remota usa el servicio de modelos que elijas; el alojamiento en línea requiere una cuenta Cloud.",
-      "flow.kicker": "MUCHO MÁS QUE UN CLIENTE DE PETICIONES",
-      "flow.title": "Enviar una petición es solo el principio.",
+      "flow.kicker": "SOLO QUIERO PONERME A TRABAJAR",
+      "flow.title": "¿Otra vez iniciar sesión, solo para probar una API?",
       "flow.intro":
-        "Necesitas API que funcionen, documentación fiel al código y una IA que sepa qué construir. Powerduck conecta ese trabajo.",
-      "flow.baseTitle": "Tu banco de trabajo para API. Empieza sin cuenta.",
+        "Vienes a arreglar un endpoint, no a recuperar una contraseña, reescribir documentación o repetir las pruebas de ayer. Vuelve al trabajo que querías hacer.",
+      "flow.baseTitle": "Abre la aplicación. Abre tu archivo. Empieza.",
       "flow.baseBody":
-        "Lo esencial de una alternativa a Postman: importar peticiones, configurar autenticación y entornos, revisar respuestas, añadir aserciones y ejecutar mocks. Todo en tu espacio local.",
+        "Tu espacio de API local arranca sin cuenta ni subida de archivos. Conserva tus peticiones, autenticación, entornos y aserciones. Elige Cloud cuando quieras publicar en línea.",
       "flow.base0": "Importar cURL / Postman / OpenAPI",
       "flow.base1": "Autenticación y entornos",
       "flow.base2": "Scripts y aserciones",
       "flow.base3": "Colecciones y pruebas de escenarios",
       "flow.base4": "Servidores mock locales",
       "flow.base5": "Depuración de 7 protocolos",
-      "flow.difference": "Ve más allá de enviar peticiones.",
+      "flow.difference":
+        "Menos vueltas. Menos repeticiones. Más trabajo terminado.",
       "flow.all": "Explorar todos los flujos",
-      "flow.1.pain": "El código ya existe. La documentación de la API, no.",
-      "flow.1.title": "Código → API",
+      "flow.1.pain":
+        "El código ya está. ¿Ahora hay que copiarlo todo como documentación?",
+      "flow.1.title":
+        "No empieces la documentación desde una página en blanco.",
       "flow.1.body":
         "Analiza un proyecto compatible desde tu agente mediante MCP. Genera una definición de API y ábrela como documentación.",
       "flow.result": "EL RESULTADO",
@@ -502,37 +522,42 @@
         "Analiza este proyecto y dame un enlace a la documentación de su API.",
       "flow.try": "Probar este flujo",
       "flow.2.pain":
-        "La IA crea endpoints que no coinciden con la especificación.",
-      "flow.2.title": "API → código",
+        "La IA dice «listo». Tú sigues corrigiendo campos y endpoints equivocados.",
+      "flow.2.title":
+        "Dale el contrato al agente, no otra ocasión para adivinar.",
       "flow.2.body":
         "Tu agente lee las rutas, esquemas y requisitos de autenticación reales mediante MCP antes de implementar. Después verifica la API en ejecución.",
       "flow.2.result":
         "Una implementación guiada por el contrato y comprobada con respuestas reales.",
       "flow.2.prompt":
         "Implementa esta API según su definición y ejecuta pruebas de contrato.",
-      "flow.3.pain": "Cada cambio obliga a probar el flujo de negocio a mano.",
-      "flow.3.title": "La IA planifica y prueba. Tú ves los resultados.",
+      "flow.3.pain":
+        "Otro pequeño cambio. Otra vez el mismo recorrido de pruebas manuales.",
+      "flow.3.title": "Describe el flujo. Deja que la IA lo pruebe.",
       "flow.3.body":
         "Describe iniciar sesión → crear pedido → consultarlo. La IA organiza el escenario, pasa valores entre pasos y lo ejecuta.",
       "flow.3.result":
         "Resultados por paso y aserciones fallidas, no solo un script de pruebas.",
       "flow.3.prompt":
         "Prueba iniciar sesión → crear pedido → consultarlo. Muéstrame qué paso falla.",
-      "flow.4.pain": "Siete protocolos. Demasiadas herramientas distintas.",
-      "flow.4.title": "Un espacio. Siete protocolos.",
+      "flow.4.pain":
+        "Depuras un solo producto. ¿Por qué tienes cinco herramientas abiertas?",
+      "flow.4.title": "Investiga en un único espacio de trabajo.",
       "flow.4.body":
         "Depura HTTP, GraphQL, WebSocket, SSE, gRPC, MCP y A2A. Revisa respuestas, flujos y llamadas a herramientas en el mismo lugar.",
       "flow.4.result": "Control manual para entender exactamente qué ocurrió.",
-      "flow.5.pain": "La API falla. Toca copiar registros al chat.",
-      "flow.5.title": "Depura con IA junto a la petición.",
+      "flow.5.pain":
+        "Copiar petición, pegar respuesta y volver a explicárselo todo a la IA.",
+      "flow.5.title": "Mantén al asistente junto a la petición que falla.",
       "flow.5.body":
         "Dale al asistente el contexto relevante de la API. Pídele que envíe una petición, revise la respuesta y ayude a acotar el fallo.",
       "flow.5.result":
         "Un diagnóstico basado en resultados reales y cambios que puedes revisar.",
       "flow.5.prompt":
         "Investiga por qué falla esta petición. Revisa la respuesta antes de proponer un arreglo.",
-      "flow.6.pain": "Compartir la API implica montar otro servicio.",
-      "flow.6.title": "Publica documentación y un endpoint MCP.",
+      "flow.6.pain": "Quieres compartir una API, no mantener otro servidor.",
+      "flow.6.title":
+        "Envía el enlace. Ahorra la configuración del alojamiento.",
       "flow.6.body":
         "Publica una versión de tu API en Powerduck Cloud. Las personas reciben documentación legible y los clientes de IA, un endpoint MCP.",
       "flow.6.result":

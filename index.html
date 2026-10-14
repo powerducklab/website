@@ -69,7 +69,7 @@
     <link rel="stylesheet" href="assets/css/common.css?v=20260929" />
     <link rel="stylesheet" href="assets/css/contour.css?v=20261013" />
     <link rel="stylesheet" href="assets/css/product-paths.css" />
-    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261015b" />
+    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261015c" />
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -527,24 +527,20 @@
         <div class="hero-actions">
           <a
             class="btn btn-primary"
-            href="https://www.powerduck.com/app/#/spec"
-            data-i18n="hero.webApp"
-          >
-            Try in browser
-          </a>
-
-          <a
-            class="btn btn-secondary"
             href="/download.html"
             data-i18n="hero.download"
+            >Download desktop</a
+          ><a
+            class="hero-browser-link"
+            href="https://www.powerduck.com/app/#/spec"
+            data-i18n="hero.webApp"
+            >Try in browser</a
           >
-            Download desktop
-          </a>
         </div>
 
         <p class="hero-micro" data-i18n="flow.baseNote">
-          No signup or credit card &nbsp;·&nbsp; Runs fully offline
-          &nbsp;·&nbsp; macOS · Windows · Linux
+          Local work needs no account. Remote AI uses your chosen model service;
+          online hosting requires a Cloud account.
         </p>
 
         <p class="hero-strip" data-i18n-html="hero.capabilities">
@@ -561,26 +557,27 @@
         <div class="scenes-heading">
           <div>
             <p data-i18n="flow.kicker" class="scenes-kicker">
-              MORE THAN A REQUEST CLIENT
+              JUST LET ME GET TO WORK
             </p>
             <h2 data-i18n="flow.title" id="scenes-title">
-              Sending a request is just the start.
+              Another login. Just to test an API?
             </h2>
             <p data-i18n="flow.intro" class="scenes-intro">
-              You need APIs that work, docs that match, and an AI that knows
-              what to build. Here’s how Powerduck connects the work.
+              You came to fix an endpoint, not reset a password, rewrite docs or
+              repeat yesterday’s tests. Get back to the work you actually wanted
+              to do.
             </p>
           </div>
         </div>
         <div class="flow-baseline">
           <div>
             <h3 data-i18n="flow.baseTitle">
-              Your everyday API workbench. No account needed to start.
+              Open the app. Open your file. Get to work.
             </h3>
             <p data-i18n="flow.baseBody">
-              The essentials you expect from a Postman alternative: import
-              requests, configure auth and environments, inspect responses, add
-              assertions and run mocks. Keep your workspace local.
+              Your local API workspace starts without an account or an upload.
+              Bring your requests, auth, environments and assertions with you.
+              Choose Cloud when you want to publish online.
             </p>
           </div>
           <ul>
@@ -619,7 +616,9 @@
           </p>
         </div>
         <div class="flow-section-label">
-          <h3 data-i18n="flow.difference">Now go beyond sending requests.</h3>
+          <h3 data-i18n="flow.difference">
+            Less chasing. Less repeating. More done.
+          </h3>
           <a class="scenes-more" href="/use-cases.html"
             ><span data-i18n="flow.all">Explore all workflows</span>
             <span aria-hidden="true">↗</span></a
@@ -629,10 +628,15 @@
           <article class="flow-card">
             <div class="flow-pain">
               <span class="flow-number" aria-hidden="true">01</span>
-              <p data-i18n="flow.1.pain">Code exists. The API docs don’t.</p>
+              <p data-i18n="flow.1.pain">
+                The code is done. Now someone wants you to write it all again as
+                docs.
+              </p>
             </div>
             <div class="flow-answer">
-              <h3 data-i18n="flow.1.title">Code → API</h3>
+              <h3 data-i18n="flow.1.title">
+                Stop documenting from a blank page.
+              </h3>
               <p data-i18n="flow.1.body">
                 Scan a supported project from your coding agent through MCP.
                 Generate an API definition and open it as documentation.
@@ -664,11 +668,14 @@
             <div class="flow-pain">
               <span class="flow-number" aria-hidden="true">02</span>
               <p data-i18n="flow.2.pain">
-                AI writes endpoints that don’t match the spec.
+                AI says ‘done’. You’re still fixing the wrong fields and
+                endpoints.
               </p>
             </div>
             <div class="flow-answer">
-              <h3 data-i18n="flow.2.title">API → code</h3>
+              <h3 data-i18n="flow.2.title">
+                Give your agent the contract, not another guessing game.
+              </h3>
               <p data-i18n="flow.2.body">
                 Connect your coding agent to Powerduck’s MCP. Let it read the
                 actual paths, schemas and auth before implementing, then verify
@@ -703,12 +710,13 @@
             <div class="flow-pain">
               <span class="flow-number" aria-hidden="true">03</span>
               <p data-i18n="flow.3.pain">
-                The business flow works… until the next change.
+                Another small change. Another afternoon clicking through the
+                same flow.
               </p>
             </div>
             <div class="flow-answer">
               <h3 data-i18n="flow.3.title">
-                AI plans. AI tests. You see the results.
+                Describe the flow. Let AI run the checks.
               </h3>
               <p data-i18n="flow.3.body">
                 Describe a flow such as sign in → create an order → retrieve it.
@@ -744,11 +752,13 @@
             <div class="flow-pain">
               <span class="flow-number" aria-hidden="true">04</span>
               <p data-i18n="flow.4.pain">
-                Seven protocols. Too many separate tools.
+                You’re debugging one product. Why are five tools open?
               </p>
             </div>
             <div class="flow-answer">
-              <h3 data-i18n="flow.4.title">One workspace. Seven protocols.</h3>
+              <h3 data-i18n="flow.4.title">
+                Keep the investigation in one workspace.
+              </h3>
               <p data-i18n="flow.4.body">
                 Debug HTTP, GraphQL, WebSocket, SSE, gRPC, MCP and A2A. Inspect
                 responses, streams and tool calls in the same workspace.
@@ -774,12 +784,13 @@
             <div class="flow-pain">
               <span class="flow-number" aria-hidden="true">05</span>
               <p data-i18n="flow.5.pain">
-                An API fails. Now you’re copying logs into chat.
+                Copy the request. Paste the response. Explain the whole thing to
+                AI again.
               </p>
             </div>
             <div class="flow-answer">
               <h3 data-i18n="flow.5.title">
-                Debug with AI beside the request.
+                Keep your assistant beside the failing request.
               </h3>
               <p data-i18n="flow.5.body">
                 Give the assistant the relevant API context. Ask it to send a
@@ -814,12 +825,12 @@
             <div class="flow-pain">
               <span class="flow-number" aria-hidden="true">06</span>
               <p data-i18n="flow.6.pain">
-                Sharing an API means setting up another service.
+                You just want to share an API. Not maintain another server.
               </p>
             </div>
             <div class="flow-answer">
               <h3 data-i18n="flow.6.title">
-                Publish docs and an MCP endpoint.
+                Send the link. Skip the hosting setup.
               </h3>
               <p data-i18n="flow.6.body">
                 Publish a version of your API to Powerduck Cloud. Give people
@@ -2968,7 +2979,7 @@ curl /users/{id}
       })();
     </script>
     <script src="assets/js/i18n.js?v=20261013"></script>
-    <script src="/assets/js/scenarios-i18n.js?v=20261015b"></script>
+    <script src="/assets/js/scenarios-i18n.js?v=20261015c"></script>
     <script src="assets/js/common.js?v=20261015"></script>
     <script src="assets/js/cloud.js?v=20260924"></script>
     <script>

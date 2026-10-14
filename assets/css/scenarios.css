@@ -654,3 +654,19 @@ html[data-theme="dark"] .scenes-page {
 .flow-example summary {
   font-size: 13px;
 }
+/* Download is the primary conversion; browser access stays a quiet alternative. */
+.hero-browser-link {
+  color: var(--muted);
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  padding: 12px 4px;
+}
+.hero-browser-link:hover {
+  color: var(--ink);
+}
+.hero-browser-link:focus-visible {
+  outline: 2px solid var(--scene-accent, var(--accent));
+  outline-offset: 4px;
+  border-radius: 4px;
+}
