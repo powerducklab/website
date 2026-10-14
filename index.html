@@ -69,7 +69,7 @@
     <link rel="stylesheet" href="assets/css/common.css?v=20260929" />
     <link rel="stylesheet" href="assets/css/contour.css?v=20261013" />
     <link rel="stylesheet" href="assets/css/product-paths.css" />
-    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261015c" />
+    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261015d" />
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -557,15 +557,15 @@
         <div class="scenes-heading">
           <div>
             <p data-i18n="flow.kicker" class="scenes-kicker">
-              JUST LET ME GET TO WORK
+              YOUR TIME IS FOR BUILDING
             </p>
             <h2 data-i18n="flow.title" id="scenes-title">
-              Another login. Just to test an API?
+              You bought a tool. Not another chore.
             </h2>
             <p data-i18n="flow.intro" class="scenes-intro">
-              You came to fix an endpoint, not reset a password, rewrite docs or
-              repeat yesterday’s tests. Get back to the work you actually wanted
-              to do.
+              Log in again. Explain the API again. Test the same flow again.
+              None of that moves your product forward. Your API tool should take
+              work off your hands.
             </p>
           </div>
         </div>
@@ -868,28 +868,82 @@
         <div class="quick-shell">
           <div class="quick-head">
             <p class="section-kicker" data-i18n="quick.kicker">
-              Up and running in 60 seconds
+              START ON YOUR MACHINE
             </p>
             <h2 class="section-title" data-i18n="quick.title">
-              Open a real API in your browser &mdash; or work fully offline.
+              Download it. Get your work back.
             </h2>
             <p class="section-deck" data-i18n="quick.deck">
-              Load a public OpenAPI spec to explore the studio instantly, or
-              install the desktop app for local files, codebase scanning and
-              offline agents.
+              Powerduck is a desktop API workspace. Open a local file, send your
+              first request and connect your coding agent when you’re ready. No
+              account needed to start.
             </p>
           </div>
 
           <div class="quick-grid">
+            <article class="quick-card quick-card-desktop">
+              <div class="quick-card-top">
+                <span
+                  class="quick-badge quick-badge-muted"
+                  data-i18n="quick.desktopTag"
+                  >THE MAIN WORKSPACE</span
+                >
+                <h3 data-i18n="quick.desktopTitle">
+                  Make this your API workbench.
+                </h3>
+                <p data-i18n="quick.desktopBody">
+                  Local files, code scanning and native protocol debugging
+                  belong here. Connect your chosen AI model when you want help
+                  designing, investigating or testing.
+                </p>
+              </div>
+
+              <ol class="quick-steps">
+                <li>
+                  <span class="quick-step-num">1</span>
+                  <span data-i18n="quick.step1"
+                    >Download the app and try the local example — no account or
+                    model key.</span
+                  >
+                </li>
+                <li>
+                  <span class="quick-step-num">2</span>
+                  <span data-i18n="quick.step2"
+                    >Open your OpenAPI file or scan an existing codebase.</span
+                  >
+                </li>
+                <li>
+                  <span class="quick-step-num">3</span>
+                  <span data-i18n="quick.step3"
+                    >Connect a coding agent, change the code, and verify the
+                    real backend against the contract.</span
+                  >
+                </li>
+              </ol>
+
+              <a
+                class="btn btn-primary btn-sm quick-download"
+                href="/download.html"
+                data-i18n="hero.download"
+                >Download desktop</a
+              >
+              <p class="quick-os-note" data-i18n="quick.desktopNote">
+                macOS 12+ · Windows 10+ · Linux
+              </p>
+            </article>
+
             <article class="quick-card quick-card-browser">
               <div class="quick-card-top">
                 <span class="quick-badge" data-i18n="quick.browserTag"
-                  >No download · no account</span
+                  >JUST LOOKING AROUND?</span
                 >
-                <h3 data-i18n="quick.browserTitle">Try it in your browser</h3>
+                <h3 data-i18n="quick.browserTitle">
+                  Take a quick browser tour.
+                </h3>
                 <p data-i18n="quick.browserBody">
-                  Load a public OpenAPI spec and explore the spec editor, API
-                  debugger and generated docs right now.
+                  Explore the editor and docs with a sample or a public API
+                  definition. This is a browser preview, not Cloud hosting.
+                  Download the desktop app for your everyday workflow.
                 </p>
               </div>
 
@@ -903,7 +957,7 @@
                 />
 
                 <button
-                  class="btn btn-primary btn-sm"
+                  class="btn btn-secondary btn-sm"
                   type="submit"
                   data-i18n="loader.load"
                 >
@@ -958,56 +1012,6 @@
                   Open a local file…
                 </button>
               </div>
-            </article>
-
-            <article class="quick-card quick-card-desktop">
-              <div class="quick-card-top">
-                <span
-                  class="quick-badge quick-badge-muted"
-                  data-i18n="quick.desktopTag"
-                  >Local files · offline · code scanning</span
-                >
-                <h3 data-i18n="quick.desktopTitle">
-                  Go all-in on the desktop app
-                </h3>
-                <p data-i18n="quick.desktopBody">
-                  For local OpenAPI files, scanning an existing codebase,
-                  bringing your own model key, and working fully offline.
-                </p>
-              </div>
-
-              <ol class="quick-steps">
-                <li>
-                  <span class="quick-step-num">1</span>
-                  <span data-i18n="quick.step1"
-                    >Download the app and try the local example — no account or
-                    model key.</span
-                  >
-                </li>
-                <li>
-                  <span class="quick-step-num">2</span>
-                  <span data-i18n="quick.step2"
-                    >Open your OpenAPI file or scan an existing codebase.</span
-                  >
-                </li>
-                <li>
-                  <span class="quick-step-num">3</span>
-                  <span data-i18n="quick.step3"
-                    >Connect a coding agent, change the code, and verify the
-                    real backend against the contract.</span
-                  >
-                </li>
-              </ol>
-
-              <a
-                class="btn btn-primary btn-sm quick-download"
-                href="/download.html"
-                data-i18n="hero.download"
-                >Download desktop</a
-              >
-              <p class="quick-os-note" data-i18n="quick.desktopNote">
-                macOS 12+ · Windows 10+ · Linux
-              </p>
             </article>
           </div>
         </div>
@@ -2979,7 +2983,7 @@ curl /users/{id}
       })();
     </script>
     <script src="assets/js/i18n.js?v=20261013"></script>
-    <script src="/assets/js/scenarios-i18n.js?v=20261015c"></script>
+    <script src="/assets/js/scenarios-i18n.js?v=20261015d"></script>
     <script src="assets/js/common.js?v=20261015"></script>
     <script src="assets/js/cloud.js?v=20260924"></script>
     <script>

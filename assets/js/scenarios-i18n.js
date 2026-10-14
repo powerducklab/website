@@ -1,4 +1,4 @@
-// Complete workflow copy for all six marketing locales. Load before common.js.
+// Complete marketing copy for all six locales. Load before common.js.
 (function () {
   "use strict";
   var messages = {
@@ -9,10 +9,10 @@
         "Give Codex, Claude Code or Cursor the API contract. Turn code into docs, run business scenarios with AI, and check real results — from a local-first API workspace.",
       "flow.baseNote":
         "Local work needs no account. Remote AI uses your chosen model service; online hosting requires a Cloud account.",
-      "flow.kicker": "JUST LET ME GET TO WORK",
-      "flow.title": "Another login. Just to test an API?",
+      "flow.kicker": "YOUR TIME IS FOR BUILDING",
+      "flow.title": "You bought a tool. Not another chore.",
       "flow.intro":
-        "You came to fix an endpoint, not reset a password, rewrite docs or repeat yesterday’s tests. Get back to the work you actually wanted to do.",
+        "Log in again. Explain the API again. Test the same flow again. None of that moves your product forward. Your API tool should take work off your hands.",
       "flow.baseTitle": "Open the app. Open your file. Get to work.",
       "flow.baseBody":
         "Your local API workspace starts without an account or an upload. Bring your requests, auth, environments and assertions with you. Choose Cloud when you want to publish online.",
@@ -100,6 +100,18 @@
         "Open a specification you already have, or start with the built-in example. Explore the workflow before connecting your own project.",
       "scenes.download": "Download Powerduck",
       "scenes.example": "Try the browser workspace",
+      "quick.kicker": "START ON YOUR MACHINE",
+      "quick.title": "Download it. Get your work back.",
+      "quick.deck":
+        "Powerduck is a desktop API workspace. Open a local file, send your first request and connect your coding agent when you’re ready. No account needed to start.",
+      "quick.desktopTag": "THE MAIN WORKSPACE",
+      "quick.desktopTitle": "Make this your API workbench.",
+      "quick.desktopBody":
+        "Local files, code scanning and native protocol debugging belong here. Connect your chosen AI model when you want help designing, investigating or testing.",
+      "quick.browserTag": "JUST LOOKING AROUND?",
+      "quick.browserTitle": "Take a quick browser tour.",
+      "quick.browserBody":
+        "Explore the editor and docs with a sample or a public API definition. This is a browser preview, not Cloud hosting. Download the desktop app for your everyday workflow.",
     },
     "zh-CN": {
       "scenes.all": "查看全部使用场景",
@@ -108,10 +120,10 @@
         "让 Codex、Claude Code、Cursor 按接口定义写代码。扫描代码生成文档，让 AI 编排业务测试、执行并给出结果——都从本地优先的 API 工作台开始。",
       "flow.baseNote":
         "本地工作无需账号；远程 AI 使用你选择的模型服务，在线托管需要 Cloud 账号。",
-      "flow.kicker": "工具应该帮你干活，不该给你添活",
-      "flow.title": "只想调个接口，又要我登录？",
+      "flow.kicker": "你的时间，该花在做产品上",
+      "flow.title": "工具是来省事的，不是来找事的。",
       "flow.intro":
-        "你是来解决接口问题的，不是来找密码、补文档、重复昨天的测试的。把时间还给真正想做的事。",
+        "登录再来一遍，接口再解释一遍，业务再手测一遍。一天忙完，产品没往前走多少。你需要的是替你干活的工具，不是另一份工作。",
       "flow.baseTitle": "打开软件，打开文件，直接干活。",
       "flow.baseBody":
         "本地 API 工作台，无需账号，也不用先上传文件。请求、鉴权、环境、断言，熟悉的工作照常做。需要在线发布时，再选择 Cloud。",
@@ -186,6 +198,18 @@
         "打开已有的接口定义，或者使用内置示例。先跑通流程，再接入自己的项目。",
       "scenes.download": "下载 Powerduck",
       "scenes.example": "体验网页版工作区",
+      "quick.kicker": "从你自己的电脑开始",
+      "quick.title": "下载，打开，把活干完。",
+      "quick.deck":
+        "Powerduck 的主场是桌面：打开本地文件，发出第一个请求，需要时再接上编程助手。开始工作，不需要先注册。",
+      "quick.desktopTag": "日常工作的主力",
+      "quick.desktopTitle": "把这里变成你的 API 工作台。",
+      "quick.desktopBody":
+        "本地文件、代码扫描、原生协议调试，都在桌面版。需要帮手时，接入你选择的 AI 模型，协助设计、排错和测试。",
+      "quick.browserTag": "还想先看看？",
+      "quick.browserTitle": "浏览器里，快速体验一下。",
+      "quick.browserBody":
+        "用示例或公开接口定义，看看编辑器和文档长什么样。这是网页版体验，不是 Cloud 托管；日常开发，请下载桌面版。",
     },
     ja: {
       "scenes.all": "すべての活用シーンを見る",
@@ -194,10 +218,10 @@
         "Codex、Claude Code、Cursor に API 定義を渡す。コードからドキュメントを生成し、AI で業務シナリオを実行して実際の結果を確かめる。ローカル優先の API ワークスペースで。",
       "flow.baseNote":
         "ローカル作業はアカウント不要。リモート AI は選択したモデルサービスを使用し、オンライン公開には Cloud アカウントが必要です。",
-      "flow.kicker": "作業を進めたい。それだけなのに。",
-      "flow.title": "API を試すだけなのに、またログイン？",
+      "flow.kicker": "時間は、プロダクトを作るために",
+      "flow.title": "ツールを選んだ。雑用を増やしたかったわけじゃない。",
       "flow.intro":
-        "直したいのは API。パスワード探しでも、ドキュメントの書き直しでも、昨日と同じテストでもありません。本来の仕事に戻りましょう。",
+        "またログイン。また API の説明。また同じ手動テスト。それではプロダクトは前に進みません。ツールには、仕事を減らしてほしい。",
       "flow.baseTitle": "アプリを開く。ファイルを開く。すぐ作業。",
       "flow.baseBody":
         "ローカルの API 作業はアカウントもアップロードも不要。リクエスト、認証、環境、アサーションをそのまま使い、オンライン公開が必要なときに Cloud を選べます。",
@@ -278,6 +302,18 @@
         "既存の API 定義を開くか、組み込みのサンプルを使ってください。自分のプロジェクトを接続する前に、流れを確認できます。",
       "scenes.download": "Powerduck をダウンロード",
       "scenes.example": "ブラウザー版を試す",
+      "quick.kicker": "自分のパソコンから始める",
+      "quick.title": "ダウンロードして、本来の仕事へ。",
+      "quick.deck":
+        "Powerduck の中心はデスクトップ。ローカルファイルを開き、リクエストを送り、必要になったらエージェントを接続。開始にアカウントは不要です。",
+      "quick.desktopTag": "毎日のメインワークスペース",
+      "quick.desktopTitle": "ここを API 作業の拠点に。",
+      "quick.desktopBody":
+        "ローカルファイル、コード解析、ネイティブ通信のデバッグをデスクトップで。設計・調査・テストには、選んだ AI モデルを接続できます。",
+      "quick.browserTag": "まずは見てみたい？",
+      "quick.browserTitle": "ブラウザーで少し体験。",
+      "quick.browserBody":
+        "サンプルや公開 API 定義で編集画面とドキュメントを確認できます。Cloud ホスティングではなく、ブラウザー版の体験です。日々の作業にはデスクトップ版を。",
     },
     de: {
       "scenes.all": "Alle Anwendungsfälle ansehen",
@@ -287,10 +323,10 @@
         "Gib Codex, Claude Code oder Cursor die API-Definition. Erzeuge Dokumentation aus Code, führe Geschäftsabläufe mit KI aus und prüfe echte Ergebnisse — in einem lokalen API-Arbeitsbereich.",
       "flow.baseNote":
         "Lokale Arbeit braucht kein Konto. Remote-KI nutzt deinen gewählten Modelldienst; Online-Hosting erfordert ein Cloud-Konto.",
-      "flow.kicker": "LASS MICH EINFACH ARBEITEN",
-      "flow.title": "Schon wieder anmelden — nur um eine API zu testen?",
+      "flow.kicker": "DEINE ZEIT IST ZUM ENTWICKELN DA",
+      "flow.title": "Du wolltest ein Werkzeug. Keine neue Aufgabe.",
       "flow.intro":
-        "Du willst einen Endpunkt reparieren, kein Passwort zurücksetzen, Dokumentation abschreiben oder gestrige Tests wiederholen. Zurück zur eigentlichen Arbeit.",
+        "Wieder anmelden. Die API wieder erklären. Denselben Ablauf wieder testen. Dein Produkt kommt dadurch nicht voran. Dein API-Tool sollte dir Arbeit abnehmen.",
       "flow.baseTitle": "App öffnen. Datei öffnen. Loslegen.",
       "flow.baseBody":
         "Dein lokaler API-Arbeitsbereich startet ohne Konto und Upload. Anfragen, Authentifizierung, Umgebungen und Assertions bleiben dabei. Cloud wählst du, wenn du online veröffentlichen willst.",
@@ -380,6 +416,18 @@
         "Öffne eine vorhandene Spezifikation oder nutze das integrierte Beispiel. Lerne den Ablauf kennen, bevor du dein eigenes Projekt verbindest.",
       "scenes.download": "Powerduck herunterladen",
       "scenes.example": "Browser-Workspace ausprobieren",
+      "quick.kicker": "AUF DEINEM RECHNER STARTEN",
+      "quick.title": "Herunterladen. Zur eigentlichen Arbeit zurück.",
+      "quick.deck":
+        "Powerduck ist ein API-Arbeitsbereich für den Desktop. Öffne eine lokale Datei, sende die erste Anfrage und verbinde bei Bedarf deinen Coding-Agenten. Der Start braucht kein Konto.",
+      "quick.desktopTag": "DEIN HAUPTARBEITSBEREICH",
+      "quick.desktopTitle": "Mach ihn zu deiner API-Werkbank.",
+      "quick.desktopBody":
+        "Lokale Dateien, Codeanalyse und native Protokolldiagnose gehören hierher. Verbinde dein gewähltes KI-Modell für Hilfe beim Entwurf, bei der Fehlersuche oder beim Testen.",
+      "quick.browserTag": "ERST EINMAL UMSCHAUEN?",
+      "quick.browserTitle": "Eine kurze Tour im Browser.",
+      "quick.browserBody":
+        "Erkunde Editor und Dokumentation mit einem Beispiel oder einer öffentlichen API-Definition. Das ist eine Browser-Vorschau, kein Cloud-Hosting. Für den Alltag gibt es die Desktop-App.",
     },
     fr: {
       "scenes.all": "Voir tous les cas d’usage",
@@ -388,10 +436,10 @@
         "Donnez le contrat API à Codex, Claude Code ou Cursor. Générez la documentation depuis le code, testez vos parcours métier avec l’IA et vérifiez les résultats réels, dans un espace API local.",
       "flow.baseNote":
         "Le travail local ne nécessite aucun compte. L’IA distante utilise le modèle choisi ; l’hébergement en ligne nécessite un compte Cloud.",
-      "flow.kicker": "LAISSEZ-MOI SIMPLEMENT TRAVAILLER",
-      "flow.title": "Encore une connexion, juste pour tester une API ?",
+      "flow.kicker": "VOTRE TEMPS EST FAIT POUR CRÉER",
+      "flow.title": "Vous vouliez un outil. Pas une corvée de plus.",
       "flow.intro":
-        "Vous êtes là pour corriger un endpoint, pas retrouver un mot de passe, réécrire la documentation ou refaire les tests d’hier. Revenez à votre vrai travail.",
+        "Se reconnecter. Réexpliquer l’API. Retester le même parcours. Votre produit n’avance pas pour autant. Votre outil API devrait vous enlever du travail.",
       "flow.baseTitle": "Ouvrez l’application. Ouvrez le fichier. C’est parti.",
       "flow.baseBody":
         "Votre espace API local démarre sans compte ni import dans le cloud. Retrouvez requêtes, authentification, environnements et assertions. Choisissez Cloud quand vous souhaitez publier en ligne.",
@@ -483,6 +531,18 @@
         "Ouvrez une spécification existante ou essayez l’exemple intégré. Découvrez le parcours avant de connecter votre projet.",
       "scenes.download": "Télécharger Powerduck",
       "scenes.example": "Essayer l’espace de travail web",
+      "quick.kicker": "COMMENCEZ SUR VOTRE MACHINE",
+      "quick.title": "Téléchargez. Retrouvez votre vrai travail.",
+      "quick.deck":
+        "Powerduck est un espace API de bureau. Ouvrez un fichier local, envoyez une première requête, puis connectez votre agent quand vous le souhaitez. Sans compte pour commencer.",
+      "quick.desktopTag": "VOTRE ESPACE PRINCIPAL",
+      "quick.desktopTitle": "Faites-en votre atelier API.",
+      "quick.desktopBody":
+        "Fichiers locaux, analyse de code et débogage des protocoles natifs : tout se passe ici. Connectez le modèle IA choisi pour vous aider à concevoir, enquêter et tester.",
+      "quick.browserTag": "VOUS VOULEZ D’ABORD VOIR ?",
+      "quick.browserTitle": "Un aperçu rapide dans le navigateur.",
+      "quick.browserBody":
+        "Explorez l’éditeur et la documentation avec un exemple ou une définition API publique. Il s’agit d’un aperçu web, pas d’hébergement Cloud. Pour le quotidien, téléchargez l’application.",
     },
     es: {
       "scenes.all": "Ver todos los casos de uso",
@@ -492,10 +552,10 @@
         "Dale el contrato de la API a Codex, Claude Code o Cursor. Genera documentación desde el código, ejecuta flujos de negocio con IA y comprueba resultados reales en un espacio de trabajo local.",
       "flow.baseNote":
         "El trabajo local no requiere cuenta. La IA remota usa el servicio de modelos que elijas; el alojamiento en línea requiere una cuenta Cloud.",
-      "flow.kicker": "SOLO QUIERO PONERME A TRABAJAR",
-      "flow.title": "¿Otra vez iniciar sesión, solo para probar una API?",
+      "flow.kicker": "TU TIEMPO ES PARA CONSTRUIR",
+      "flow.title": "Querías una herramienta. No otra tarea.",
       "flow.intro":
-        "Vienes a arreglar un endpoint, no a recuperar una contraseña, reescribir documentación o repetir las pruebas de ayer. Vuelve al trabajo que querías hacer.",
+        "Volver a iniciar sesión. Volver a explicar la API. Volver a probar el mismo flujo. Así tu producto no avanza. Tu herramienta de API debería quitarte trabajo.",
       "flow.baseTitle": "Abre la aplicación. Abre tu archivo. Empieza.",
       "flow.baseBody":
         "Tu espacio de API local arranca sin cuenta ni subida de archivos. Conserva tus peticiones, autenticación, entornos y aserciones. Elige Cloud cuando quieras publicar en línea.",
@@ -586,9 +646,21 @@
         "Abre una especificación existente o usa el ejemplo integrado. Conoce el flujo antes de conectar tu proyecto.",
       "scenes.download": "Descargar Powerduck",
       "scenes.example": "Probar el espacio web",
+      "quick.kicker": "EMPIEZA EN TU EQUIPO",
+      "quick.title": "Descarga. Recupera tu tiempo de trabajo.",
+      "quick.deck":
+        "Powerduck es un espacio de API de escritorio. Abre un archivo local, envía tu primera petición y conecta tu agente cuando lo necesites. Sin cuenta para empezar.",
+      "quick.desktopTag": "TU ESPACIO PRINCIPAL",
+      "quick.desktopTitle": "Haz de él tu banco de trabajo para API.",
+      "quick.desktopBody":
+        "Archivos locales, análisis de código y depuración de protocolos nativos, en el escritorio. Conecta el modelo de IA que elijas para ayudarte a diseñar, investigar o probar.",
+      "quick.browserTag": "¿PRIMERO QUIERES ECHAR UN VISTAZO?",
+      "quick.browserTitle": "Una visita rápida desde el navegador.",
+      "quick.browserBody":
+        "Explora el editor y la documentación con un ejemplo o una definición de API pública. Es una vista previa web, no alojamiento Cloud. Para el trabajo diario, descarga la aplicación.",
     },
   };
-  Object.keys(messages).forEach(function (lang) {
-    Object.assign(window.POWERDUCK_I18N.messages[lang], messages[lang]);
+  Object.keys(messages).forEach(function (l) {
+    Object.assign(window.POWERDUCK_I18N.messages[l], messages[l]);
   });
 })();

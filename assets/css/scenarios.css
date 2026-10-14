@@ -670,3 +670,46 @@ html[data-theme="dark"] .scenes-page {
   outline-offset: 4px;
   border-radius: 4px;
 }
+/* Desktop leads in both source order and visual hierarchy. */
+#quickstart .quick-grid {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: start;
+}
+#quickstart .quick-card-desktop {
+  border-color: #e4b780;
+  background: linear-gradient(145deg, #fff9f1, var(--surface));
+  box-shadow: 0 8px 30px rgba(135, 78, 15, 0.06);
+}
+#quickstart .quick-card-browser {
+  border-color: var(--line);
+  box-shadow: none;
+  background: var(--surface);
+  margin-top: 24px;
+}
+#quickstart .quick-card-browser .quick-badge {
+  background: transparent;
+  color: var(--muted);
+  border-color: var(--line);
+}
+#quickstart .quick-card-desktop .quick-badge {
+  background: #fff0dd;
+  color: #884208;
+  border-color: #ebcfab;
+}
+html[data-theme="dark"] #quickstart .quick-card-desktop {
+  background: linear-gradient(145deg, #251e16, var(--surface));
+  border-color: #725331;
+}
+html[data-theme="dark"] #quickstart .quick-card-desktop .quick-badge {
+  background: #352719;
+  color: #ffbc79;
+  border-color: #725331;
+}
+@media (max-width: 900px) {
+  #quickstart .quick-grid {
+    grid-template-columns: 1fr;
+  }
+  #quickstart .quick-card-browser {
+    margin-top: 0;
+  }
+}
