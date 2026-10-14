@@ -740,247 +740,87 @@ html[data-theme="dark"] #quickstart .quick-card-desktop .quick-badge {
     padding: 24px 0;
   }
 }
-/* Focused scenario explorer: one question, one workflow, one outcome. */
-.flows-section .scenes-heading h2 {
-  max-width: 26ch;
-  font-size: clamp(28px, 3.2vw, 42px);
-  line-height: 1.3;
-  letter-spacing: -0.035em;
-  text-wrap: pretty;
-}
-.flows-section .scenes-intro {
-  max-width: 78ch;
-  font-size: 15px;
-  line-height: 1.8;
-}
-.flows-section .flow-baseline {
-  padding: 22px 26px;
-  margin-bottom: 38px;
-  box-shadow: none;
-  border-radius: 12px;
-}
-.workflow-explorer {
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  overflow: hidden;
-  background: var(--surface);
-}
-.workflow-explorer.is-interactive {
+/* All scenarios are readable without clicking. */
+.scenario-overview {
   display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
 }
-.workflow-choices {
-  display: none;
-}
-.is-interactive .workflow-choices {
+.scenario-tile {
+  min-width: 0;
+  padding: 28px 24px;
   display: flex;
   flex-direction: column;
-  padding: 16px;
-  background: var(--scene-tint);
-  border-right: 1px solid var(--scene-edge);
-  gap: 6px;
-}
-.workflow-choice {
-  appearance: none;
-  width: 100%;
-  border: 1px solid transparent;
-  background: transparent;
-  color: var(--muted);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 18px 14px;
-  text-align: left;
-  font: inherit;
-  font-size: 14px;
-  line-height: 1.5;
-  border-radius: 9px;
-  cursor: pointer;
-}
-.workflow-choice:hover {
-  color: var(--ink);
-  background: var(--surface);
-}
-.workflow-choice[aria-selected="true"] {
-  color: var(--ink);
-  background: var(--surface);
-  border-color: var(--scene-edge);
-  font-weight: 650;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.025);
-}
-.workflow-index {
-  font: 11px monospace;
-  color: var(--scene-accent);
-}
-.workflow-arrow {
-  margin-left: auto;
-  color: var(--scene-accent);
-  opacity: 0;
-}
-.workflow-choice[aria-selected="true"] .workflow-arrow {
-  opacity: 1;
-}
-.workflow-panels {
-  min-width: 0;
-}
-.workflow-panel {
-  padding: 32px 36px;
   border-bottom: 1px solid var(--line);
 }
-.is-interactive .workflow-panel {
-  min-height: 530px;
-  border: 0;
+.scenario-tile:not(:nth-child(3n)) {
+  border-right: 1px solid var(--line);
 }
-.workflow-panel[hidden] {
+.scenario-index {
+  font: 11px monospace;
+  color: var(--scene-accent);
+  margin-bottom: 16px;
+}
+.scenario-tile h3 {
+  font-size: 19px;
+  line-height: 1.55;
+  letter-spacing: -0.02em;
+  margin: 0 0 22px;
+  text-wrap: pretty;
+}
+.scenario-answer {
+  margin-top: auto;
+}
+.scenario-answer h4 {
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0 0 8px;
+  font-weight: 600;
+  color: var(--scene-accent);
+}
+.scenario-tile .workflow-output {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--muted);
+  margin: 0 0 22px;
+}
+.scenario-tile .workflow-output > span:first-child {
   display: none;
 }
-.workflow-question h3 {
-  font-size: clamp(22px, 2.1vw, 29px);
-  font-weight: 650;
-  letter-spacing: -0.03em;
-  line-height: 1.45;
-  text-wrap: pretty;
-  margin: 0 0 24px;
-  max-width: 32ch;
-}
-.workflow-solution h4 {
-  font-size: 16px;
-  line-height: 1.55;
-  margin: 0 0 8px;
-  color: var(--scene-accent);
-  font-weight: 650;
-}
-.workflow-solution p {
-  font-size: 14px;
-  line-height: 1.85;
-  margin: 0;
-  color: var(--muted);
-  max-width: 72ch;
-}
-.workflow-diagram {
-  margin: 26px 0 14px;
-  padding: 18px 20px;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: var(--scene-tint);
-}
-.workflow-caption {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--muted);
-  letter-spacing: 0.02em;
-}
-.workflow-diagram ol {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  gap: 12px;
-  margin: 12px 0 0;
-  padding: 0;
-  flex-wrap: wrap;
-}
-.workflow-diagram li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-width: 0;
-}
-.workflow-diagram li + li::before {
-  content: "→";
-  color: var(--scene-accent);
-}
-.workflow-diagram code {
+.scenario-tile .scene-link {
   font-size: 12px;
-  line-height: 1.7;
-  overflow-wrap: anywhere;
-  background: none;
-  color: var(--ink);
-}
-.workflow-output {
-  display: flex;
-  gap: 10px;
-  font-size: 13px;
-  line-height: 1.7;
-  margin: 0 0 24px;
-  color: var(--ink);
-}
-.workflow-output > span:first-child {
-  color: var(--scene-accent);
-}
-.workflow-prompt {
-  margin-bottom: 24px;
-  border-top: 1px solid var(--line);
-  padding-top: 16px;
-}
-.workflow-prompt blockquote {
-  font-size: 13px;
-  line-height: 1.8;
-  margin: 8px 0 0;
-  color: var(--muted);
-}
-.workflow-panel .scene-link {
-  font-size: 13px;
   margin: 0;
-}
-.workflow-choice:focus-visible,
-.workflow-panel:focus-visible {
-  outline: 2px solid var(--scene-accent);
-  outline-offset: -3px;
-}
-@media (max-width: 900px) {
-  .workflow-explorer.is-interactive {
-    grid-template-columns: 210px minmax(0, 1fr);
-  }
-  .workflow-choice {
-    padding: 15px 10px;
-    font-size: 13px;
-  }
-  .workflow-panel {
-    padding: 26px;
-  }
-  .is-interactive .workflow-panel {
-    min-height: 560px;
-  }
-}
-@media (max-width: 640px) {
-  .workflow-explorer.is-interactive {
-    display: block;
-  }
-  .is-interactive .workflow-choices {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-right: 0;
-    border-bottom: 1px solid var(--scene-edge);
-    padding: 10px;
-    gap: 4px;
-  }
-  .workflow-choice {
-    padding: 12px 9px;
-    gap: 8px;
-    font-size: 12px;
-  }
-  .workflow-arrow {
-    display: none;
-  }
-  .workflow-panel {
-    padding: 24px 20px;
-  }
-  .is-interactive .workflow-panel {
-    min-height: 0;
-  }
-  .workflow-question h3 {
-    font-size: 23px;
-  }
-  .workflow-diagram {
-    padding: 14px;
-  }
-  .flows-section .flow-baseline {
-    padding: 20px;
-  }
-  .flows-section .scenes-heading h2 {
-    font-size: 28px;
-  }
+  align-self: flex-start;
 }
 #workflow-selector-title {
   scroll-margin-top: 100px;
+}
+@media (max-width: 1000px) {
+  .scenario-overview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .scenario-tile:not(:nth-child(3n)) {
+    border-right: 0;
+  }
+  .scenario-tile:nth-child(odd) {
+    border-right: 1px solid var(--line);
+  }
+}
+@media (max-width: 640px) {
+  .scenario-overview {
+    grid-template-columns: 1fr;
+  }
+  .scenario-tile {
+    padding: 24px 0;
+  }
+  .scenario-tile:nth-child(odd) {
+    border-right: 0;
+  }
+  .scenario-tile h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .scenario-index {
+    margin-bottom: 10px;
+  }
 }
