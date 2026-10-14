@@ -69,7 +69,7 @@
     <link rel="stylesheet" href="assets/css/common.css?v=20260929" />
     <link rel="stylesheet" href="assets/css/contour.css?v=20261013" />
     <link rel="stylesheet" href="assets/css/product-paths.css" />
-    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261015d" />
+    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261015e" />
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -530,10 +530,7 @@
             href="/download.html"
             data-i18n="hero.download"
             >Download desktop</a
-          ><a
-            class="hero-browser-link"
-            href="https://www.powerduck.com/app/#/spec"
-            data-i18n="hero.webApp"
+          ><a class="hero-browser-link" href="/app/" data-i18n="hero.webApp"
             >Try in browser</a
           >
         </div>
@@ -557,22 +554,21 @@
         <div class="scenes-heading">
           <div>
             <p data-i18n="flow.kicker" class="scenes-kicker">
-              YOUR TIME IS FOR BUILDING
+              DOES THIS SOUND FAMILIAR?
             </p>
             <h2 data-i18n="flow.title" id="scenes-title">
-              You bought a tool. Not another chore.
+              Do you need a cloud login just to test a local API?
             </h2>
             <p data-i18n="flow.intro" class="scenes-intro">
-              Log in again. Explain the API again. Test the same flow again.
-              None of that moves your product forward. Your API tool should take
-              work off your hands.
+              Keep your API files on your machine and start without an account.
+              Connect AI or publish online when you choose to.
             </p>
           </div>
         </div>
         <div class="flow-baseline">
           <div>
             <h3 data-i18n="flow.baseTitle">
-              Open the app. Open your file. Get to work.
+              A local workspace. Your files, under your control.
             </h3>
             <p data-i18n="flow.baseBody">
               Your local API workspace starts without an account or an upload.
@@ -617,7 +613,7 @@
         </div>
         <div class="flow-section-label">
           <h3 data-i18n="flow.difference">
-            Less chasing. Less repeating. More done.
+            Do these problems keep interrupting your work?
           </h3>
           <a class="scenes-more" href="/use-cases.html"
             ><span data-i18n="flow.all">Explore all workflows</span>
@@ -629,8 +625,8 @@
             <div class="flow-pain">
               <span class="flow-number" aria-hidden="true">01</span>
               <p data-i18n="flow.1.pain">
-                The code is done. Now someone wants you to write it all again as
-                docs.
+                Do you still read the source code to find out whether the API
+                docs are right?
               </p>
             </div>
             <div class="flow-answer">
@@ -668,8 +664,8 @@
             <div class="flow-pain">
               <span class="flow-number" aria-hidden="true">02</span>
               <p data-i18n="flow.2.pain">
-                AI says ‘done’. You’re still fixing the wrong fields and
-                endpoints.
+                Have you given AI the spec, only to get different fields and
+                paths back?
               </p>
             </div>
             <div class="flow-answer">
@@ -710,8 +706,8 @@
             <div class="flow-pain">
               <span class="flow-number" aria-hidden="true">03</span>
               <p data-i18n="flow.3.pain">
-                Another small change. Another afternoon clicking through the
-                same flow.
+                Do you manually repeat the same business flow after every API
+                change?
               </p>
             </div>
             <div class="flow-answer">
@@ -752,7 +748,8 @@
             <div class="flow-pain">
               <span class="flow-number" aria-hidden="true">04</span>
               <p data-i18n="flow.4.pain">
-                You’re debugging one product. Why are five tools open?
+                Do you switch tools just because the next endpoint uses a
+                different protocol?
               </p>
             </div>
             <div class="flow-answer">
@@ -784,8 +781,8 @@
             <div class="flow-pain">
               <span class="flow-number" aria-hidden="true">05</span>
               <p data-i18n="flow.5.pain">
-                Copy the request. Paste the response. Explain the whole thing to
-                AI again.
+                Do you copy requests and responses into chat every time you need
+                AI’s help?
               </p>
             </div>
             <div class="flow-answer">
@@ -825,7 +822,8 @@
             <div class="flow-pain">
               <span class="flow-number" aria-hidden="true">06</span>
               <p data-i18n="flow.6.pain">
-                You just want to share an API. Not maintain another server.
+                Do you maintain a separate hosting setup just to share API docs
+                and MCP?
               </p>
             </div>
             <div class="flow-answer">
@@ -947,6 +945,12 @@
                 </p>
               </div>
 
+              <a
+                class="btn btn-secondary quick-web-open"
+                href="/app/"
+                data-i18n="flow.openWeb"
+                >Open web app</a
+              >
               <form class="spec-input" id="specLoaderForm">
                 <input
                   type="url"
@@ -2983,7 +2987,7 @@ curl /users/{id}
       })();
     </script>
     <script src="assets/js/i18n.js?v=20261013"></script>
-    <script src="/assets/js/scenarios-i18n.js?v=20261015d"></script>
+    <script src="/assets/js/scenarios-i18n.js?v=20261015e"></script>
     <script src="assets/js/common.js?v=20261015"></script>
     <script src="assets/js/cloud.js?v=20260924"></script>
     <script>

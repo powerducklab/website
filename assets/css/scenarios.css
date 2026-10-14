@@ -713,3 +713,7 @@ html[data-theme="dark"] #quickstart .quick-card-desktop .quick-badge {
     margin-top: 0;
   }
 }
+.quick-web-open {
+  align-self: flex-start;
+  margin: 0 0 20px;
+}
