@@ -717,3 +717,26 @@ html[data-theme="dark"] #quickstart .quick-card-desktop .quick-badge {
   align-self: flex-start;
   margin: 0 0 20px;
 }
+/* Keep the secondary web entry compact rather than an empty product-sized panel. */
+#quickstart .quick-card-browser {
+  margin-top: 0;
+  padding: 28px;
+  background: transparent;
+  border: 0;
+  border-left: 1px solid var(--line);
+  border-radius: 0;
+  align-self: center;
+}
+#quickstart .quick-card-browser .quick-card-top h3 {
+  font-size: 21px;
+}
+#quickstart .quick-web-open {
+  margin-bottom: 0;
+}
+@media (max-width: 900px) {
+  #quickstart .quick-card-browser {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding: 24px 0;
+  }
+}

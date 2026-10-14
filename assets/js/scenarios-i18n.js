@@ -10,10 +10,11 @@
       "flow.baseNote":
         "Local work needs no account. Remote AI uses your chosen model service; online hosting requires a Cloud account.",
       "flow.kicker": "DOES THIS SOUND FAMILIAR?",
-      "flow.title": "Do you need a cloud login just to test a local API?",
+      "flow.title":
+        "Are you tired of needing a cloud account to use your own API files?",
       "flow.intro":
-        "Keep your API files on your machine and start without an account. Connect AI or publish online when you choose to.",
-      "flow.baseTitle": "A local workspace. Your files, under your control.",
+        "Do you want to keep collections local, without giving up environments, tests or mocks? Powerduck puts those workflows on your machine. You decide whether to connect AI or publish to Cloud.",
+      "flow.baseTitle": "Local work should not mean a stripped-down workspace.",
       "flow.baseBody":
         "Your local API workspace starts without an account or an upload. Bring your requests, auth, environments and assertions with you. Choose Cloud when you want to publish online.",
       "flow.base0": "cURL / Postman / OpenAPI import",
@@ -112,7 +113,7 @@
       "quick.browserTag": "JUST LOOKING AROUND?",
       "quick.browserTitle": "Take a quick browser tour.",
       "quick.browserBody":
-        "Explore the editor and docs with a sample or a public API definition. This is a browser preview, not Cloud hosting. Download the desktop app for your everyday workflow.",
+        "The web demo uses a shared cloud model and requires sign-in. For local work without an account, download the desktop app.",
       "flow.openWeb": "Open web app",
     },
     "zh-CN": {
@@ -123,10 +124,10 @@
       "flow.baseNote":
         "本地工作无需账号；远程 AI 使用你选择的模型服务，在线托管需要 Cloud 账号。",
       "flow.kicker": "你是否也遇到过这些问题？",
-      "flow.title": "你是否只想调试本地接口，却得先登录一个云端账号？",
+      "flow.title": "你是否受够了：用自己的接口文件，还得先登录别人的云？",
       "flow.intro":
-        "API 文件留在自己的电脑上，无需账号即可开始。需要 AI 协助或在线发布时，再由你决定接入。",
-      "flow.baseTitle": "本地工作台，文件由你掌握。",
+        "你是否只想把请求集合留在本地，却不愿为此放弃环境变量、测试和 Mock？Powerduck 把这些工作流放回你的电脑。接不接 AI、发不发 Cloud，由你决定。",
+      "flow.baseTitle": "选择本地，不该意味着功能缩水。",
       "flow.baseBody":
         "本地 API 工作台，无需账号，也不用先上传文件。请求、鉴权、环境、断言，熟悉的工作照常做。需要在线发布时，再选择 Cloud。",
       "flow.base0": "导入 cURL / Postman / OpenAPI",
@@ -212,7 +213,7 @@
       "quick.browserTag": "还想先看看？",
       "quick.browserTitle": "浏览器里，快速体验一下。",
       "quick.browserBody":
-        "用示例或公开接口定义，看看编辑器和文档长什么样。这是网页版体验，不是 Cloud 托管；日常开发，请下载桌面版。",
+        "网页版演示使用共享云端模型，需要登录。无需账号的本地工作，请下载桌面版。",
       "flow.openWeb": "打开网页版",
     },
     ja: {
@@ -224,10 +225,10 @@
         "ローカル作業はアカウント不要。リモート AI は選択したモデルサービスを使用し、オンライン公開には Cloud アカウントが必要です。",
       "flow.kicker": "こんな経験はありませんか？",
       "flow.title":
-        "ローカル API を試すだけなのに、クラウドへのログインが必要ですか？",
+        "自分の API ファイルを使うために、他社のクラウドへログインすることに疲れていませんか？",
       "flow.intro":
-        "API ファイルは自分のパソコンに置いたまま、アカウントなしで開始。AI への接続やオンライン公開は、必要なときに選べます。",
-      "flow.baseTitle": "ローカルで作業。ファイルは自分で管理。",
+        "コレクションはローカルに置きたい。でも環境変数、テスト、Mock は諦めたくない。Powerduck はその作業を自分のパソコンで実現します。AI 接続や Cloud 公開は、自分で選べます。",
+      "flow.baseTitle": "ローカルを選んでも、機能を諦める必要はない。",
       "flow.baseBody":
         "ローカルの API 作業はアカウントもアップロードも不要。リクエスト、認証、環境、アサーションをそのまま使い、オンライン公開が必要なときに Cloud を選べます。",
       "flow.base0": "cURL / Postman / OpenAPI のインポート",
@@ -322,7 +323,7 @@
       "quick.browserTag": "まずは見てみたい？",
       "quick.browserTitle": "ブラウザーで少し体験。",
       "quick.browserBody":
-        "サンプルや公開 API 定義で編集画面とドキュメントを確認できます。Cloud ホスティングではなく、ブラウザー版の体験です。日々の作業にはデスクトップ版を。",
+        "ブラウザー版デモは共有クラウドモデルを使用するため、ログインが必要です。アカウントなしのローカル作業にはデスクトップ版をご利用ください。",
       "flow.openWeb": "ブラウザー版を開く",
     },
     de: {
@@ -335,10 +336,11 @@
         "Lokale Arbeit braucht kein Konto. Remote-KI nutzt deinen gewählten Modelldienst; Online-Hosting erfordert ein Cloud-Konto.",
       "flow.kicker": "KOMMT DIR DAS BEKANNT VOR?",
       "flow.title":
-        "Brauchst du einen Cloud-Login, nur um eine lokale API zu testen?",
+        "Hast du genug davon, für deine eigenen API-Dateien ein Cloud-Konto zu brauchen?",
       "flow.intro":
-        "Deine API-Dateien bleiben auf deinem Rechner. Starte ohne Konto und entscheide selbst, wann du KI verbindest oder online veröffentlichst.",
-      "flow.baseTitle": "Lokal arbeiten. Deine Dateien selbst kontrollieren.",
+        "Willst du Sammlungen lokal behalten, ohne auf Umgebungen, Tests oder Mocks zu verzichten? Powerduck bringt diese Abläufe auf deinen Rechner. Du entscheidest über KI-Anbindung und Cloud-Veröffentlichung.",
+      "flow.baseTitle":
+        "Lokal arbeiten sollte nicht weniger Funktionen bedeuten.",
       "flow.baseBody":
         "Dein lokaler API-Arbeitsbereich startet ohne Konto und Upload. Anfragen, Authentifizierung, Umgebungen und Assertions bleiben dabei. Cloud wählst du, wenn du online veröffentlichen willst.",
       "flow.base0": "cURL / Postman / OpenAPI importieren",
@@ -438,7 +440,7 @@
       "quick.browserTag": "ERST EINMAL UMSCHAUEN?",
       "quick.browserTitle": "Eine kurze Tour im Browser.",
       "quick.browserBody":
-        "Erkunde Editor und Dokumentation mit einem Beispiel oder einer öffentlichen API-Definition. Das ist eine Browser-Vorschau, kein Cloud-Hosting. Für den Alltag gibt es die Desktop-App.",
+        "Die Web-Demo nutzt ein gemeinsames Cloud-Modell und erfordert eine Anmeldung. Für lokale Arbeit ohne Konto lade die Desktop-App herunter.",
       "flow.openWeb": "Web-App öffnen",
     },
     fr: {
@@ -450,10 +452,11 @@
         "Le travail local ne nécessite aucun compte. L’IA distante utilise le modèle choisi ; l’hébergement en ligne nécessite un compte Cloud.",
       "flow.kicker": "VOUS RECONNAISSEZ CES SITUATIONS ?",
       "flow.title":
-        "Faut-il vous connecter au cloud pour tester une API locale ?",
+        "En avez-vous assez de devoir vous connecter à un cloud pour utiliser vos propres fichiers API ?",
       "flow.intro":
-        "Gardez vos fichiers API sur votre machine et commencez sans compte. Connectez l’IA ou publiez en ligne quand vous le décidez.",
-      "flow.baseTitle": "Un espace local. Vos fichiers sous votre contrôle.",
+        "Voulez-vous garder vos collections en local sans renoncer aux environnements, aux tests et aux mocks ? Powerduck remet ces usages sur votre machine. L’IA et la publication Cloud restent votre choix.",
+      "flow.baseTitle":
+        "Choisir le local ne devrait pas réduire vos possibilités.",
       "flow.baseBody":
         "Votre espace API local démarre sans compte ni import dans le cloud. Retrouvez requêtes, authentification, environnements et assertions. Choisissez Cloud quand vous souhaitez publier en ligne.",
       "flow.base0": "Import cURL / Postman / OpenAPI",
@@ -554,7 +557,7 @@
       "quick.browserTag": "VOUS VOULEZ D’ABORD VOIR ?",
       "quick.browserTitle": "Un aperçu rapide dans le navigateur.",
       "quick.browserBody":
-        "Explorez l’éditeur et la documentation avec un exemple ou une définition API publique. Il s’agit d’un aperçu web, pas d’hébergement Cloud. Pour le quotidien, téléchargez l’application.",
+        "La démo web utilise un modèle cloud partagé et nécessite une connexion. Pour travailler en local sans compte, téléchargez l’application de bureau.",
       "flow.openWeb": "Ouvrir l’application web",
     },
     es: {
@@ -567,10 +570,11 @@
         "El trabajo local no requiere cuenta. La IA remota usa el servicio de modelos que elijas; el alojamiento en línea requiere una cuenta Cloud.",
       "flow.kicker": "¿TE RESULTA FAMILIAR?",
       "flow.title":
-        "¿Necesitas iniciar sesión en la nube solo para probar una API local?",
+        "¿Te has cansado de necesitar una cuenta en la nube para usar tus propios archivos de API?",
       "flow.intro":
-        "Mantén tus archivos de API en tu equipo y empieza sin cuenta. Conecta la IA o publica en línea cuando tú decidas.",
-      "flow.baseTitle": "Un espacio local. Tus archivos bajo tu control.",
+        "¿Quieres mantener tus colecciones en local sin renunciar a entornos, pruebas y mocks? Powerduck lleva esos flujos a tu equipo. Tú decides si conectas IA o publicas en Cloud.",
+      "flow.baseTitle":
+        "Elegir lo local no debería significar perder funciones.",
       "flow.baseBody":
         "Tu espacio de API local arranca sin cuenta ni subida de archivos. Conserva tus peticiones, autenticación, entornos y aserciones. Elige Cloud cuando quieras publicar en línea.",
       "flow.base0": "Importar cURL / Postman / OpenAPI",
@@ -671,7 +675,7 @@
       "quick.browserTag": "¿PRIMERO QUIERES ECHAR UN VISTAZO?",
       "quick.browserTitle": "Una visita rápida desde el navegador.",
       "quick.browserBody":
-        "Explora el editor y la documentación con un ejemplo o una definición de API pública. Es una vista previa web, no alojamiento Cloud. Para el trabajo diario, descarga la aplicación.",
+        "La demo web usa un modelo compartido en la nube y requiere iniciar sesión. Para trabajar en local sin cuenta, descarga la aplicación de escritorio.",
       "flow.openWeb": "Abrir aplicación web",
     },
   };
