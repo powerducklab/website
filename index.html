@@ -67,7 +67,7 @@
     <meta name="theme-color" content="#ffffff" />
 
     <link rel="stylesheet" href="assets/css/common.css?v=20260929" />
-    <link rel="stylesheet" href="assets/css/contour.css?v=20261013" />
+    <link rel="stylesheet" href="assets/css/contour.css?v=20261015a" />
     <link rel="stylesheet" href="assets/css/product-paths.css" />
     <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261015h" />
     <!-- Google tag (gtag.js) -->
@@ -535,6 +535,138 @@
           >
         </div>
 
+        <div class="hero-visual" data-hero-demo>
+          <div class="hv-window is-pass">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="chrome-path">commerce-api/openapi.yaml</span>
+              <span class="chrome-spacer"></span>
+              <span class="pill" data-i18n="hv.local"
+                >OpenAPI 3.1 · local file</span
+              >
+            </div>
+
+            <div class="hv-body">
+              <div class="hv-col hv-contract">
+                <div class="hv-col-label">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    />
+                    <polyline points="14 2 14 8 20 8" />
+                  </svg>
+                  <span data-i18n="hv.contract">One OpenAPI contract</span>
+                </div>
+                <pre class="hv-code"><code>/orders:
+  <span class="hv-k">post</span>:
+    total:
+      <span class="hv-k">type</span>: <span class="hv-ty">number</span></code></pre>
+                <div class="hv-agent">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M12 2a3 3 0 0 1 3 3v1a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"
+                    />
+                    <path d="M5 21a7 7 0 0 1 14 0" />
+                  </svg>
+                  <span data-i18n="hv.agent"
+                    >Codex, Claude Code and Cursor read this same file — design,
+                    debug, test, mock, docs and MCP stay in sync.</span
+                  >
+                </div>
+              </div>
+
+              <div class="hv-col hv-live">
+                <div class="hv-request">
+                  <span class="hv-method">POST</span>
+                  <span class="hv-url">/orders</span>
+                  <button class="hv-send" type="button" data-hv-send>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                    <span data-i18n="hv.send">Send &amp; verify</span>
+                  </button>
+                </div>
+
+                <div class="hv-col-label">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                  </svg>
+                  <span data-i18n="hv.response">Live response</span>
+                </div>
+                <pre class="hv-code hv-json"><code>{
+  "total": <span class="hv-value"><span class="hv-wrong">"49.00"</span><span class="hv-right">49</span></span>
+}</code></pre>
+                <div class="hv-result">
+                  <div class="hv-result-bad" data-hv-bad>
+                    <span
+                      class="verify-mark verify-mark-bad"
+                      aria-hidden="true"
+                      >✕</span
+                    >
+                    <span data-i18n="hv.fail"
+                      >/total must be number — response fails the contract</span
+                    >
+                  </div>
+                  <div class="hv-result-good" data-hv-good>
+                    <span
+                      class="verify-mark verify-mark-good"
+                      aria-hidden="true"
+                      >✓</span
+                    >
+                    <span data-i18n="hv.pass"
+                      >Response matches the contract</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hv-foot">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 11.08V12a10 10 0 1 1-5.93-9.14"
+                />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <span data-i18n-html="hv.foot"
+                >Ordinary clients send the request and show the response.
+                <strong>Powerduck verifies it against the contract</strong>, so
+                drift is caught the moment it happens.</span
+              >
+            </div>
+          </div>
+        </div>
+
         <p class="hero-micro" data-i18n="flow.baseNote">
           Local work needs no account. Remote AI uses your chosen model service;
           online hosting requires a Cloud account.
@@ -546,420 +678,133 @@
         </p>
       </section>
 
-      <section
-        class="scenes-section flows-section"
-        id="use-cases"
-        aria-labelledby="scenes-title"
-      >
-        <div class="scenes-heading">
-          <div>
-            <p data-i18n="flow.kicker" class="scenes-kicker">
-              DOES THIS SOUND FAMILIAR?
-            </p>
-            <h2 data-i18n="flow.title" id="scenes-title">
-              Are you tired of needing a cloud account to use your own API
-              files?
-            </h2>
-            <p data-i18n="flow.intro" class="scenes-intro">
-              Do you want to keep collections local, without giving up
-              environments, tests or mocks? Powerduck puts those workflows on
-              your machine. You decide whether to connect AI or publish to
-              Cloud.
-            </p>
-          </div>
-        </div>
-        <div class="flow-baseline">
-          <div>
-            <h3 data-i18n="flow.baseTitle">
-              Local work should not mean a stripped-down workspace.
-            </h3>
-            <p data-i18n="flow.baseBody">
-              Your local API workspace starts without an account or an upload.
-              Bring your requests, auth, environments and assertions with you.
-              Choose Cloud when you want to publish online.
-            </p>
-          </div>
-          <ul>
-            <li>
-              <span aria-hidden="true">✓</span
-              ><span data-i18n="flow.base0"
-                >cURL / Postman / OpenAPI import</span
-              >
-            </li>
-            <li>
-              <span aria-hidden="true">✓</span
-              ><span data-i18n="flow.base1">Auth &amp; environments</span>
-            </li>
-            <li>
-              <span aria-hidden="true">✓</span
-              ><span data-i18n="flow.base2">Scripts &amp; assertions</span>
-            </li>
-            <li>
-              <span aria-hidden="true">✓</span
-              ><span data-i18n="flow.base3"
-                >Collections &amp; scenario tests</span
-              >
-            </li>
-            <li>
-              <span aria-hidden="true">✓</span
-              ><span data-i18n="flow.base4">Local mock servers</span>
-            </li>
-            <li>
-              <span aria-hidden="true">✓</span
-              ><span data-i18n="flow.base5">7-protocol debugging</span>
-            </li>
-          </ul>
-          <p data-i18n="flow.baseNote" class="flow-baseline-note">
-            Local work needs no account. Remote AI uses your chosen model
-            service; online hosting requires a Cloud account.
+      <section class="why-band" aria-labelledby="why-title">
+        <div class="why-head">
+          <p class="section-kicker" data-i18n="why.kicker">Why Powerduck</p>
+          <h2 class="section-title" id="why-title" data-i18n="why.title">
+            One local file replaces the API tool pile.
+          </h2>
+          <p class="section-deck" data-i18n="why.deck">
+            A single OpenAPI YAML in your repo drives design, debugging, tests,
+            mocks, docs and MCP — and your coding agents use that same file.
           </p>
         </div>
-        <div class="flow-section-label">
-          <h3 id="workflow-selector-title" data-i18n="flow.difference">
-            What would you like to stop doing manually?
-          </h3>
-          <a class="scenes-more" href="/use-cases.html"
-            ><span data-i18n="flow.all">Explore these scenarios</span>
-            <span aria-hidden="true">↗</span></a
-          >
-        </div>
-        <div class="scenario-overview">
-          <article class="scenario-tile">
-            <span class="scenario-index" aria-hidden="true">01</span>
-            <h3 data-i18n="flow.1.pain">
-              Do you still read the source code to find out whether the API docs
-              are right?
-            </h3>
-            <div class="scenario-answer">
-              <h4 data-i18n="flow.1.title">Generate docs from the project.</h4>
-              <p class="workflow-output">
-                <span aria-hidden="true">↳</span
-                ><span data-i18n="flow.1.result"
-                  >A reviewable API definition + a local docs link.</span
-                >
-              </p>
-            </div>
-            <a class="scene-link" href="/use-cases.html#code-to-docs"
-              ><span data-i18n="flow.boundary"
-                >See setup &amp; requirements</span
-              >
-              <span aria-hidden="true">→</span></a
-            >
-          </article>
-          <article class="scenario-tile">
-            <span class="scenario-index" aria-hidden="true">02</span>
-            <h3 data-i18n="flow.2.pain">
-              Have you given AI the spec, only to get different fields and paths
-              back?
-            </h3>
-            <div class="scenario-answer">
-              <h4 data-i18n="flow.2.title">
-                Implement from the actual API contract.
-              </h4>
-              <p class="workflow-output">
-                <span aria-hidden="true">↳</span
-                ><span data-i18n="flow.2.result"
-                  >Implementation guided by the contract, checked against real
-                  responses.</span
-                >
-              </p>
-            </div>
-            <a class="scene-link" href="/use-cases.html#design-api"
-              ><span data-i18n="flow.boundary"
-                >See setup &amp; requirements</span
-              >
-              <span aria-hidden="true">→</span></a
-            >
-          </article>
-          <article class="scenario-tile">
-            <span class="scenario-index" aria-hidden="true">03</span>
-            <h3 data-i18n="flow.3.pain">
-              Do you manually repeat the same business flow after every API
-              change?
-            </h3>
-            <div class="scenario-answer">
-              <h4 data-i18n="flow.3.title">Run the whole business scenario.</h4>
-              <p class="workflow-output">
-                <span aria-hidden="true">↳</span
-                ><span data-i18n="flow.3.result"
-                  >Step-by-step results and failed assertions, not just a
-                  generated test script.</span
-                >
-              </p>
-            </div>
-            <a class="scene-link" href="/use-cases.html#contract-tests"
-              ><span data-i18n="flow.boundary"
-                >See setup &amp; requirements</span
-              >
-              <span aria-hidden="true">→</span></a
-            >
-          </article>
-          <article class="scenario-tile">
-            <span class="scenario-index" aria-hidden="true">04</span>
-            <h3 data-i18n="flow.4.pain">
-              Do you switch tools just because the next endpoint uses a
-              different protocol?
-            </h3>
-            <div class="scenario-answer">
-              <h4 data-i18n="flow.4.title">
-                Inspect seven protocols in one place.
-              </h4>
-              <p class="workflow-output">
-                <span aria-hidden="true">↳</span
-                ><span data-i18n="flow.4.result"
-                  >Manual control when you need to inspect exactly what
-                  happened.</span
-                >
-              </p>
-            </div>
-            <a class="scene-link" href="/use-cases.html#protocols"
-              ><span data-i18n="flow.boundary"
-                >See setup &amp; requirements</span
-              >
-              <span aria-hidden="true">→</span></a
-            >
-          </article>
-          <article class="scenario-tile">
-            <span class="scenario-index" aria-hidden="true">05</span>
-            <h3 data-i18n="flow.5.pain">
-              Do you copy requests and responses into chat every time you need
-              AI’s help?
-            </h3>
-            <div class="scenario-answer">
-              <h4 data-i18n="flow.5.title">
-                Investigate with real request context.
-              </h4>
-              <p class="workflow-output">
-                <span aria-hidden="true">↳</span
-                ><span data-i18n="flow.5.result"
-                  >A diagnosis grounded in request results, with changes you can
-                  review.</span
-                >
-              </p>
-            </div>
-            <a class="scene-link" href="/use-cases.html#ai-debug"
-              ><span data-i18n="flow.boundary"
-                >See setup &amp; requirements</span
-              >
-              <span aria-hidden="true">→</span></a
-            >
-          </article>
-          <article class="scenario-tile">
-            <span class="scenario-index" aria-hidden="true">06</span>
-            <h3 data-i18n="flow.6.pain">
-              Do you maintain a separate hosting setup just to share API docs
-              and MCP?
-            </h3>
-            <div class="scenario-answer">
-              <h4 data-i18n="flow.6.title">
-                Publish docs and MCP from one API.
-              </h4>
-              <p class="workflow-output">
-                <span aria-hidden="true">↳</span
-                ><span data-i18n="flow.6.result"
-                  >Hosted documentation and an MCP URL, without running your own
-                  hosting stack.</span
-                >
-              </p>
-            </div>
-            <a class="scene-link" href="/use-cases.html#share-docs"
-              ><span data-i18n="flow.boundary"
-                >See setup &amp; requirements</span
-              >
-              <span aria-hidden="true">→</span></a
-            >
-          </article>
-        </div>
-      </section>
-      <!-- =======================================================================
-     SPEC LOADER
-     ======================================================================= -->
 
-      <!-- =======================================================================
-     QUICK START (browser vs desktop)
-     ======================================================================= -->
-
-      <section class="section quick-section" id="quickstart">
-        <div class="quick-shell">
-          <div class="quick-head">
-            <p class="section-kicker" data-i18n="quick.kicker">
-              START ON YOUR MACHINE
+        <div class="why-grid">
+          <article class="why-card reveal">
+            <span class="why-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                <polyline points="2 17 12 22 22 17" />
+                <polyline points="2 12 12 17 22 12" />
+              </svg>
+            </span>
+            <h3 data-i18n="why.1.title">One file runs every surface</h3>
+            <p data-i18n="why.1.body">
+              Design, debug, test, mock, document and expose MCP from the same
+              OpenAPI spec, so nothing drifts apart.
             </p>
-            <h2 class="section-title" data-i18n="quick.title">
-              Download it. Get your work back.
-            </h2>
-            <p class="section-deck" data-i18n="quick.deck">
-              Powerduck is a desktop API workspace. Open a local file, send your
-              first request and connect your coding agent when you’re ready. No
-              account needed to start.
-            </p>
-          </div>
-
-          <div class="quick-grid">
-            <article class="quick-card quick-card-desktop">
-              <div class="quick-card-top">
-                <span
-                  class="quick-badge quick-badge-muted"
-                  data-i18n="quick.desktopTag"
-                  >THE MAIN WORKSPACE</span
+            <div class="why-vs">
+              <div class="why-vs-row why-vs-old">
+                <span class="why-vs-tag" data-i18n="why.old">Others</span>
+                <span data-i18n="why.1.old"
+                  >Separate collection, docs, mock and test files</span
                 >
-                <h3 data-i18n="quick.desktopTitle">
-                  Make this your API workbench.
-                </h3>
-                <p data-i18n="quick.desktopBody">
-                  Local files, code scanning and native protocol debugging
-                  belong here. Connect your chosen AI model when you want help
-                  designing, investigating or testing.
-                </p>
               </div>
-
-              <ol class="quick-steps">
-                <li>
-                  <span class="quick-step-num">1</span>
-                  <span data-i18n="quick.step1"
-                    >Download the app and try the local example — no account or
-                    model key.</span
-                  >
-                </li>
-                <li>
-                  <span class="quick-step-num">2</span>
-                  <span data-i18n="quick.step2"
-                    >Open your OpenAPI file or scan an existing codebase.</span
-                  >
-                </li>
-                <li>
-                  <span class="quick-step-num">3</span>
-                  <span data-i18n="quick.step3"
-                    >Connect a coding agent, change the code, and verify the
-                    real backend against the contract.</span
-                  >
-                </li>
-              </ol>
-
-              <a
-                class="btn btn-primary btn-sm quick-download"
-                href="/download.html"
-                data-i18n="hero.download"
-                >Download desktop</a
-              >
-              <p class="quick-os-note" data-i18n="quick.desktopNote">
-                macOS 12+ · Windows 10+ · Linux
-              </p>
-            </article>
-
-            <article class="quick-card quick-card-browser">
-              <div class="quick-card-top">
-                <span class="quick-badge" data-i18n="quick.browserTag"
-                  >JUST LOOKING AROUND?</span
+              <div class="why-vs-row why-vs-new">
+                <span class="why-vs-tag" data-i18n="why.pd">Powerduck</span>
+                <span data-i18n-html="why.1.new"
+                  ><strong>One YAML</strong> drives every tool and your
+                  agents</span
                 >
-                <h3 data-i18n="quick.browserTitle">
-                  Take a quick browser tour.
-                </h3>
-                <p data-i18n="quick.browserBody">
-                  The web demo uses a shared cloud model and requires sign-in.
-                  For local work without an account, download the desktop app.
-                </p>
-              </div>
-
-              <a
-                class="btn btn-secondary quick-web-open"
-                href="/app/"
-                data-i18n="flow.openWeb"
-                >Open web app</a
-              >
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- =======================================================================
-     CONTRACT VERIFICATION (core differentiator)
-     ======================================================================= -->
-
-      <section class="section verify-section" id="contract-example">
-        <div class="verify-shell">
-          <div class="verify-copy">
-            <p class="section-kicker" data-i18n="verify.kicker">
-              Contract verification
-            </p>
-            <h2 class="section-title" data-i18n="verify.title">
-              A real contract error, then a verified fix
-            </h2>
-            <p class="section-deck" data-i18n="verify.deck">
-              Ordinary API clients send the request and show the response.
-              Powerduck also checks every response against the OpenAPI contract,
-              so drift from the spec is caught the moment it happens.
-            </p>
-            <a
-              class="btn btn-secondary"
-              href="/docs/client/contract-example/"
-              data-i18n="start.exampleCta"
-              >See a working example</a
-            >
-          </div>
-
-          <div class="verify-panel">
-            <div class="chrome">
-              <div class="chrome-lights">
-                <span></span><span></span><span></span>
-              </div>
-              <span class="chrome-path">~/commerce-api — response check</span>
-              <span class="chrome-spacer"></span>
-              <span class="pill">OpenAPI 3.1</span>
-            </div>
-
-            <div class="verify-body">
-              <div class="verify-block">
-                <div class="verify-label" data-i18n="verify.contractRequires">
-                  Contract requires
-                </div>
-                <pre class="verify-code"><code>total:
-  type: number</code></pre>
-              </div>
-
-              <div class="verify-block verify-bad">
-                <div class="verify-label">
-                  <span class="verify-mark verify-mark-bad" aria-hidden="true"
-                    >✕</span
-                  >
-                  <span data-i18n="verify.responseLabel"
-                    >Backend returns a string</span
-                  >
-                </div>
-                <pre class="verify-code"><code>{
-  "total": "49.00"
-}</code></pre>
-                <div class="verify-msg verify-msg-bad">
-                  <span class="verify-mark verify-mark-bad" aria-hidden="true"
-                    >✕</span
-                  >
-                  <span data-i18n="verify.failMsg"
-                    >/total must be number — response fails the contract</span
-                  >
-                </div>
-              </div>
-
-              <div class="verify-block verify-good">
-                <div class="verify-label">
-                  <span class="verify-mark verify-mark-good" aria-hidden="true"
-                    >✓</span
-                  >
-                  <span data-i18n="verify.fixLabel">Return a number</span>
-                </div>
-                <pre class="verify-code"><code>{
-  "total": 49
-}</code></pre>
-                <div class="verify-msg verify-msg-good">
-                  <span class="verify-mark verify-mark-good" aria-hidden="true"
-                    >✓</span
-                  >
-                  <span data-i18n="verify.passMsg"
-                    >Response matches the contract</span
-                  >
-                </div>
               </div>
             </div>
-          </div>
+          </article>
+
+          <article class="why-card reveal">
+            <span class="why-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+            </span>
+            <h3 data-i18n="why.2.title">
+              Every response is contract-verified
+            </h3>
+            <p data-i18n="why.2.body">
+              Each response is checked against the OpenAPI spec — not just
+              displayed — so a wrong type or path is caught on the spot.
+            </p>
+            <div class="why-vs">
+              <div class="why-vs-row why-vs-old">
+                <span class="why-vs-tag" data-i18n="why.old">Others</span>
+                <span data-i18n="why.2.old"
+                  >Sends the request and shows the 200 response</span
+                >
+              </div>
+              <div class="why-vs-row why-vs-new">
+                <span class="why-vs-tag" data-i18n="why.pd">Powerduck</span>
+                <span data-i18n-html="why.2.new"
+                  ><strong>Spec drift is flagged</strong> the moment the
+                  response returns</span
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="why-card reveal">
+            <span class="why-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="4" width="18" height="12" rx="2" />
+                <line x1="2" y1="20" x2="22" y2="20" />
+              </svg>
+            </span>
+            <h3 data-i18n="why.3.title">
+              Local-first, no account, agent-ready
+            </h3>
+            <p data-i18n="why.3.body">
+              Your files stay on your machine and work with no account or
+              upload. Codex, Claude Code and Cursor read the same spec you do.
+            </p>
+            <div class="why-vs">
+              <div class="why-vs-row why-vs-old">
+                <span class="why-vs-tag" data-i18n="why.old">Others</span>
+                <span data-i18n="why.3.old"
+                  >Cloud account and upload before you can start</span
+                >
+              </div>
+              <div class="why-vs-row why-vs-new">
+                <span class="why-vs-tag" data-i18n="why.pd">Powerduck</span>
+                <span data-i18n-html="why.3.new"
+                  ><strong>Runs locally</strong>; your agents read the same
+                  file</span
+                >
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -1718,6 +1563,421 @@
 }</pre>
                 </div>
               </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="scenes-section flows-section"
+        id="use-cases"
+        aria-labelledby="scenes-title"
+      >
+        <div class="scenes-heading">
+          <div>
+            <p data-i18n="flow.kicker" class="scenes-kicker">
+              SEE IT IN A WORKFLOW
+            </p>
+            <h2 data-i18n="flow.title" id="scenes-title">
+              Each familiar chore becomes a contract-driven flow.
+            </h2>
+            <p data-i18n="flow.intro" class="scenes-intro">
+              Pick a task below. Powerduck runs it from the OpenAPI file on your
+              machine — environments, tests and mocks included, with no account
+              or upload required.
+            </p>
+          </div>
+        </div>
+        <div class="flow-baseline">
+          <div>
+            <h3 data-i18n="flow.baseTitle">
+              Local work should not mean a stripped-down workspace.
+            </h3>
+            <p data-i18n="flow.baseBody">
+              Your local API workspace starts without an account or an upload.
+              Bring your requests, auth, environments and assertions with you.
+              Choose Cloud when you want to publish online.
+            </p>
+          </div>
+          <ul>
+            <li>
+              <span aria-hidden="true">✓</span
+              ><span data-i18n="flow.base0"
+                >cURL / Postman / OpenAPI import</span
+              >
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span
+              ><span data-i18n="flow.base1">Auth &amp; environments</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span
+              ><span data-i18n="flow.base2">Scripts &amp; assertions</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span
+              ><span data-i18n="flow.base3"
+                >Collections &amp; scenario tests</span
+              >
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span
+              ><span data-i18n="flow.base4">Local mock servers</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span
+              ><span data-i18n="flow.base5">7-protocol debugging</span>
+            </li>
+          </ul>
+          <p data-i18n="flow.baseNote" class="flow-baseline-note">
+            Local work needs no account. Remote AI uses your chosen model
+            service; online hosting requires a Cloud account.
+          </p>
+        </div>
+        <div class="flow-section-label">
+          <h3 id="workflow-selector-title" data-i18n="flow.difference">
+            What would you like to stop doing manually?
+          </h3>
+          <a class="scenes-more" href="/use-cases.html"
+            ><span data-i18n="flow.all">Explore these scenarios</span>
+            <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <div class="scenario-overview">
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">01</span>
+            <h3 data-i18n="flow.1.pain">
+              Do you still read the source code to find out whether the API docs
+              are right?
+            </h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.1.title">Generate docs from the project.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span
+                ><span data-i18n="flow.1.result"
+                  >A reviewable API definition + a local docs link.</span
+                >
+              </p>
+            </div>
+            <a class="scene-link" href="/use-cases.html#code-to-docs"
+              ><span data-i18n="flow.boundary"
+                >See setup &amp; requirements</span
+              >
+              <span aria-hidden="true">→</span></a
+            >
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">02</span>
+            <h3 data-i18n="flow.2.pain">
+              Have you given AI the spec, only to get different fields and paths
+              back?
+            </h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.2.title">
+                Implement from the actual API contract.
+              </h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span
+                ><span data-i18n="flow.2.result"
+                  >Implementation guided by the contract, checked against real
+                  responses.</span
+                >
+              </p>
+            </div>
+            <a class="scene-link" href="/use-cases.html#design-api"
+              ><span data-i18n="flow.boundary"
+                >See setup &amp; requirements</span
+              >
+              <span aria-hidden="true">→</span></a
+            >
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">03</span>
+            <h3 data-i18n="flow.3.pain">
+              Do you manually repeat the same business flow after every API
+              change?
+            </h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.3.title">Run the whole business scenario.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span
+                ><span data-i18n="flow.3.result"
+                  >Step-by-step results and failed assertions, not just a
+                  generated test script.</span
+                >
+              </p>
+            </div>
+            <a class="scene-link" href="/use-cases.html#contract-tests"
+              ><span data-i18n="flow.boundary"
+                >See setup &amp; requirements</span
+              >
+              <span aria-hidden="true">→</span></a
+            >
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">04</span>
+            <h3 data-i18n="flow.4.pain">
+              Do you switch tools just because the next endpoint uses a
+              different protocol?
+            </h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.4.title">
+                Inspect seven protocols in one place.
+              </h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span
+                ><span data-i18n="flow.4.result"
+                  >Manual control when you need to inspect exactly what
+                  happened.</span
+                >
+              </p>
+            </div>
+            <a class="scene-link" href="/use-cases.html#protocols"
+              ><span data-i18n="flow.boundary"
+                >See setup &amp; requirements</span
+              >
+              <span aria-hidden="true">→</span></a
+            >
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">05</span>
+            <h3 data-i18n="flow.5.pain">
+              Do you copy requests and responses into chat every time you need
+              AI’s help?
+            </h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.5.title">
+                Investigate with real request context.
+              </h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span
+                ><span data-i18n="flow.5.result"
+                  >A diagnosis grounded in request results, with changes you can
+                  review.</span
+                >
+              </p>
+            </div>
+            <a class="scene-link" href="/use-cases.html#ai-debug"
+              ><span data-i18n="flow.boundary"
+                >See setup &amp; requirements</span
+              >
+              <span aria-hidden="true">→</span></a
+            >
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">06</span>
+            <h3 data-i18n="flow.6.pain">
+              Do you maintain a separate hosting setup just to share API docs
+              and MCP?
+            </h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.6.title">
+                Publish docs and MCP from one API.
+              </h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span
+                ><span data-i18n="flow.6.result"
+                  >Hosted documentation and an MCP URL, without running your own
+                  hosting stack.</span
+                >
+              </p>
+            </div>
+            <a class="scene-link" href="/use-cases.html#share-docs"
+              ><span data-i18n="flow.boundary"
+                >See setup &amp; requirements</span
+              >
+              <span aria-hidden="true">→</span></a
+            >
+          </article>
+        </div>
+      </section>
+      <!-- =======================================================================
+     SPEC LOADER
+     ======================================================================= -->
+
+      <!-- =======================================================================
+     QUICK START (browser vs desktop)
+     ======================================================================= -->
+
+      <section class="section quick-section" id="quickstart">
+        <div class="quick-shell">
+          <div class="quick-head">
+            <p class="section-kicker" data-i18n="quick.kicker">
+              START ON YOUR MACHINE
+            </p>
+            <h2 class="section-title" data-i18n="quick.title">
+              Download it. Get your work back.
+            </h2>
+            <p class="section-deck" data-i18n="quick.deck">
+              Powerduck is a desktop API workspace. Open a local file, send your
+              first request and connect your coding agent when you’re ready. No
+              account needed to start.
+            </p>
+          </div>
+
+          <div class="quick-grid">
+            <article class="quick-card quick-card-desktop">
+              <div class="quick-card-top">
+                <span
+                  class="quick-badge quick-badge-muted"
+                  data-i18n="quick.desktopTag"
+                  >THE MAIN WORKSPACE</span
+                >
+                <h3 data-i18n="quick.desktopTitle">
+                  Make this your API workbench.
+                </h3>
+                <p data-i18n="quick.desktopBody">
+                  Local files, code scanning and native protocol debugging
+                  belong here. Connect your chosen AI model when you want help
+                  designing, investigating or testing.
+                </p>
+              </div>
+
+              <ol class="quick-steps">
+                <li>
+                  <span class="quick-step-num">1</span>
+                  <span data-i18n="quick.step1"
+                    >Download the app and try the local example — no account or
+                    model key.</span
+                  >
+                </li>
+                <li>
+                  <span class="quick-step-num">2</span>
+                  <span data-i18n="quick.step2"
+                    >Open your OpenAPI file or scan an existing codebase.</span
+                  >
+                </li>
+                <li>
+                  <span class="quick-step-num">3</span>
+                  <span data-i18n="quick.step3"
+                    >Connect a coding agent, change the code, and verify the
+                    real backend against the contract.</span
+                  >
+                </li>
+              </ol>
+
+              <a
+                class="btn btn-primary btn-sm quick-download"
+                href="/download.html"
+                data-i18n="hero.download"
+                >Download desktop</a
+              >
+              <p class="quick-os-note" data-i18n="quick.desktopNote">
+                macOS 12+ · Windows 10+ · Linux
+              </p>
+            </article>
+
+            <article class="quick-card quick-card-browser">
+              <div class="quick-card-top">
+                <span class="quick-badge" data-i18n="quick.browserTag"
+                  >JUST LOOKING AROUND?</span
+                >
+                <h3 data-i18n="quick.browserTitle">
+                  Take a quick browser tour.
+                </h3>
+                <p data-i18n="quick.browserBody">
+                  The web demo uses a shared cloud model and requires sign-in.
+                  For local work without an account, download the desktop app.
+                </p>
+              </div>
+
+              <a
+                class="btn btn-secondary quick-web-open"
+                href="/app/"
+                data-i18n="flow.openWeb"
+                >Open web app</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     CONTRACT VERIFICATION (core differentiator)
+     ======================================================================= -->
+
+      <section class="section verify-section" id="contract-example">
+        <div class="verify-shell">
+          <div class="verify-copy">
+            <p class="section-kicker" data-i18n="verify.kicker">
+              Contract verification
+            </p>
+            <h2 class="section-title" data-i18n="verify.title">
+              A real contract error, then a verified fix
+            </h2>
+            <p class="section-deck" data-i18n="verify.deck">
+              Ordinary API clients send the request and show the response.
+              Powerduck also checks every response against the OpenAPI contract,
+              so drift from the spec is caught the moment it happens.
+            </p>
+            <a
+              class="btn btn-secondary"
+              href="/docs/client/contract-example/"
+              data-i18n="start.exampleCta"
+              >See a working example</a
+            >
+          </div>
+
+          <div class="verify-panel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="chrome-path">~/commerce-api — response check</span>
+              <span class="chrome-spacer"></span>
+              <span class="pill">OpenAPI 3.1</span>
+            </div>
+
+            <div class="verify-body">
+              <div class="verify-block">
+                <div class="verify-label" data-i18n="verify.contractRequires">
+                  Contract requires
+                </div>
+                <pre class="verify-code"><code>total:
+  type: number</code></pre>
+              </div>
+
+              <div class="verify-block verify-bad">
+                <div class="verify-label">
+                  <span class="verify-mark verify-mark-bad" aria-hidden="true"
+                    >✕</span
+                  >
+                  <span data-i18n="verify.responseLabel"
+                    >Backend returns a string</span
+                  >
+                </div>
+                <pre class="verify-code"><code>{
+  "total": "49.00"
+}</code></pre>
+                <div class="verify-msg verify-msg-bad">
+                  <span class="verify-mark verify-mark-bad" aria-hidden="true"
+                    >✕</span
+                  >
+                  <span data-i18n="verify.failMsg"
+                    >/total must be number — response fails the contract</span
+                  >
+                </div>
+              </div>
+
+              <div class="verify-block verify-good">
+                <div class="verify-label">
+                  <span class="verify-mark verify-mark-good" aria-hidden="true"
+                    >✓</span
+                  >
+                  <span data-i18n="verify.fixLabel">Return a number</span>
+                </div>
+                <pre class="verify-code"><code>{
+  "total": 49
+}</code></pre>
+                <div class="verify-msg verify-msg-good">
+                  <span class="verify-mark verify-mark-good" aria-hidden="true"
+                    >✓</span
+                  >
+                  <span data-i18n="verify.passMsg"
+                    >Response matches the contract</span
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -2750,6 +3010,120 @@ curl /users/{id}
       (function () {
         "use strict";
 
+        var reduceMotion =
+          window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        /* ----------------------------------------------------------------
+        Hero contract-check demo: cycles a failing response (string) into a
+        verified one (number). Static default is the green "pass" state.
+        ---------------------------------------------------------------- */
+
+        var heroDemo = document.querySelector("[data-hero-demo]");
+        var heroWindow = heroDemo
+          ? heroDemo.querySelector(".hv-window")
+          : null;
+        var timers = [];
+
+        function clearTimers() {
+          while (timers.length) {
+            clearTimeout(timers.pop());
+          }
+        }
+
+        function setState(state) {
+          if (!heroWindow) {
+            return;
+          }
+          heroWindow.classList.toggle("is-fail", state === "fail");
+          heroWindow.classList.toggle("is-pass", state === "pass");
+        }
+
+        function runCycle() {
+          clearTimers();
+          setState("fail");
+          timers.push(
+            setTimeout(function () {
+              setState("pass");
+            }, 2200)
+          );
+          timers.push(setTimeout(runCycle, 4800));
+        }
+
+        if (heroDemo) {
+          var sendBtn = heroDemo.querySelector("[data-hv-send]");
+
+          setState("pass");
+
+          if (sendBtn) {
+            sendBtn.addEventListener("click", function () {
+              if (reduceMotion) {
+                setState("fail");
+                setTimeout(function () {
+                  setState("pass");
+                }, 900);
+                return;
+              }
+              runCycle();
+            });
+          }
+
+          if (!reduceMotion) {
+            if ("IntersectionObserver" in window) {
+              var heroObserver = new IntersectionObserver(
+                function (entries) {
+                  entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                      runCycle();
+                      heroObserver.disconnect();
+                    }
+                  });
+                },
+                { threshold: 0.4 }
+              );
+              heroObserver.observe(heroDemo);
+            } else {
+              runCycle();
+            }
+          }
+        }
+
+        /* ----------------------------------------------------------------
+        Scroll reveal for the differentiator cards.
+        ---------------------------------------------------------------- */
+
+        var revealEls = document.querySelectorAll(".reveal");
+
+        if (!reduceMotion && revealEls.length) {
+          document.documentElement.classList.add("js");
+
+          if ("IntersectionObserver" in window) {
+            var revealObserver = new IntersectionObserver(
+              function (entries) {
+                entries.forEach(function (entry) {
+                  if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    revealObserver.unobserve(entry.target);
+                  }
+                });
+              },
+              { threshold: 0.12 }
+            );
+            revealEls.forEach(function (el) {
+              revealObserver.observe(el);
+            });
+          } else {
+            revealEls.forEach(function (el) {
+              el.classList.add("is-visible");
+            });
+          }
+        }
+      })();
+    </script>
+    <script>
+      (function () {
+        "use strict";
+
         /* ------------------------------------------------------------------------
      Theme
      ------------------------------------------------------------------------ */
@@ -2827,19 +3201,29 @@ curl /users/{id}
               'a[href="#api-docs"]',
           )
           .forEach(function (link) {
-            link.addEventListener("click", function () {
+            link.setAttribute("data-demo-tab", "");
+            link.addEventListener("click", function (e) {
               var key = hashMap[link.getAttribute("href")];
 
               if (key) {
+                e.preventDefault();
                 activateTab(key);
+                var demoSection = document.querySelector(".demo-section");
+
+                if (demoSection) {
+                  demoSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }
               }
             });
           });
       })();
     </script>
     <script src="assets/js/i18n.js?v=20261013"></script>
-    <script src="/assets/js/scenarios-i18n.js?v=20261015h"></script>
-    <script src="assets/js/common.js?v=20261015"></script>
+    <script src="/assets/js/scenarios-i18n.js?v=20261015i"></script>
+    <script src="assets/js/common.js?v=20261015b"></script>
     <script src="assets/js/cloud.js?v=20260924"></script>
     <script>
       (function () {

@@ -296,6 +296,9 @@
       link.addEventListener("click", function (e) {
         var href = link.getAttribute("href");
         if (!href || href === "#" || href.length < 2) return;
+        // Links that drive the interactive product demo manage their own
+        // tab activation and scroll; do not also scroll to the hash target.
+        if (link.hasAttribute("data-demo-tab")) return;
         var target = document.querySelector(href);
         if (target) {
           e.preventDefault();

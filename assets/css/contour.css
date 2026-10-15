@@ -3659,3 +3659,509 @@
     padding: 14px;
   }
 }
+
+/* ==========================================================================
+   HERO PRODUCT VISUAL — live contract verification
+   Shows the differentiator in the first screen: other clients only send a
+   request and show the response; Powerduck also verifies it against the
+   OpenAPI contract. The static, no-JS state is the green "pass" view.
+   ========================================================================== */
+
+.hero-visual {
+  width: min(calc(100% - 16px), 960px);
+  margin: 46px auto 0;
+  text-align: left;
+}
+
+.hv-window {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+}
+
+.hv-body {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+}
+
+.hv-col {
+  padding: 22px;
+}
+
+.hv-col + .hv-col {
+  border-left: 1px solid var(--line);
+}
+
+.hv-col-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hv-col-label svg {
+  width: 13px;
+  height: 13px;
+  color: var(--accent);
+}
+
+.hv-code {
+  margin: 0;
+  padding: 14px 15px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--bg-subtle);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--ink);
+  white-space: pre;
+  overflow-x: auto;
+  transition:
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.hv-contract {
+  background: var(--bg-subtle);
+}
+
+.hv-k {
+  color: var(--accent);
+}
+
+.hv-ty {
+  color: var(--muted);
+}
+
+.hv-agent {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.hv-agent svg {
+  flex: 0 0 auto;
+  width: 15px;
+  height: 15px;
+  margin-top: 1px;
+  color: var(--accent);
+}
+
+.hv-request {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.hv-method {
+  flex: 0 0 auto;
+  padding: 3px 8px;
+  border: 1px solid var(--ok-border);
+  border-radius: 6px;
+  background: var(--ok-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ok);
+}
+
+.hv-url {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.hv-send {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 600;
+  transition:
+    filter 0.15s ease,
+    transform 0.1s ease;
+}
+
+.hv-send:hover {
+  filter: brightness(1.07);
+}
+
+.hv-send:active {
+  transform: translateY(1px);
+}
+
+.hv-send svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* The two response values occupy the same grid cell so toggling them never
+   reflows the surrounding JSON. */
+.hv-value {
+  display: inline-grid;
+}
+
+.hv-value > span {
+  grid-area: 1 / 1;
+  padding: 0 4px;
+  border-radius: 5px;
+  white-space: nowrap;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.hv-wrong {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.hv-right {
+  color: var(--ok);
+  background: var(--ok-soft);
+}
+
+.hv-result {
+  margin-top: 14px;
+}
+
+.hv-result-bad,
+.hv-result-good {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.hv-result-bad {
+  border: 1px solid var(--danger);
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.hv-result-good {
+  border: 1px solid var(--ok-border);
+  background: var(--ok-soft);
+  color: var(--ok);
+}
+
+/* Default (also the no-JS and reduced-motion) state: contract verified. */
+.hv-right {
+  display: inline-block;
+}
+
+.hv-wrong {
+  display: none;
+}
+
+.hv-result-good {
+  display: flex;
+}
+
+.hv-result-bad {
+  display: none;
+}
+
+.hv-json {
+  border-color: var(--ok-border);
+  background: var(--ok-soft);
+}
+
+.hv-window.is-pass .hv-right {
+  display: inline-block;
+  animation: hv-pop 0.4s ease;
+}
+
+.hv-window.is-pass .hv-wrong {
+  display: none;
+}
+
+.hv-window.is-pass .hv-result-good {
+  display: flex;
+}
+
+.hv-window.is-pass .hv-result-bad {
+  display: none;
+}
+
+.hv-window.is-pass .hv-json {
+  border-color: var(--ok-border);
+  background: var(--ok-soft);
+}
+
+.hv-window.is-fail .hv-wrong {
+  display: inline-block;
+  animation: hv-pop 0.4s ease;
+}
+
+.hv-window.is-fail .hv-right {
+  display: none;
+}
+
+.hv-window.is-fail .hv-result-bad {
+  display: flex;
+}
+
+.hv-window.is-fail .hv-result-good {
+  display: none;
+}
+
+.hv-window.is-fail .hv-json {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+}
+
+@keyframes hv-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hv-foot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-top: 1px solid var(--line);
+  background: var(--bg-subtle);
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.hv-foot svg {
+  flex: 0 0 auto;
+  width: 15px;
+  height: 15px;
+  color: var(--ok);
+}
+
+.hv-foot strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .hero-visual {
+    margin-top: 34px;
+  }
+
+  .hv-body {
+    grid-template-columns: 1fr;
+  }
+
+  .hv-col + .hv-col {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+}
+
+/* ==========================================================================
+   WHY POWERDUCK — differentiator band (top of the second screen)
+   Three scannable cards communicate the core differences before the longer
+   pain-point scenarios below.
+   ========================================================================== */
+
+.why-band {
+  width: min(calc(100% - 48px), var(--content-max));
+  margin: 0 auto;
+  padding: 74px 0 6px;
+}
+
+.why-head {
+  max-width: 720px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.why-head .section-title {
+  margin: 14px 0 0;
+}
+
+.why-head .section-deck {
+  margin: 16px auto 0;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.why-card {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.why-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 2px;
+  border: 1px solid var(--accent-border);
+  border-radius: 11px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.why-icon svg {
+  width: 21px;
+  height: 21px;
+}
+
+.why-card h3 {
+  font-size: 17.5px;
+  line-height: 1.32;
+  letter-spacing: -0.01em;
+}
+
+.why-card > p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.why-vs {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+}
+
+.why-vs-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.why-vs-tag {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  padding: 2px 7px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--bg-soft);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.why-vs-old {
+  color: var(--muted);
+}
+
+.why-vs-new {
+  color: var(--ink-soft);
+}
+
+.why-vs-new .why-vs-tag {
+  border-color: var(--accent-border);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.why-vs-new strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+@media (max-width: 920px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   SCROLL REVEAL — visible by default. Only hidden before entering the
+   viewport when JS is present AND motion is allowed (html.js gate keeps
+   content visible with no JS).
+   ========================================================================== */
+
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+html.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hv-window.is-pass .hv-right,
+  .hv-window.is-fail .hv-wrong {
+    animation: none;
+  }
+}
+
+/* Anchor the interactive demo below the sticky nav when a tab is opened. */
+.demo-section {
+  scroll-margin-top: 80px;
+}
