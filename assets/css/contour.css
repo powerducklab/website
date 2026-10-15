@@ -3687,6 +3687,7 @@
 }
 
 .hv-col {
+  min-width: 0;
   padding: 22px;
 }
 
@@ -3713,6 +3714,21 @@
   color: var(--accent);
 }
 
+.hv-agentname {
+  margin-left: auto;
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--muted-light);
+  white-space: nowrap;
+}
+
 .hv-code {
   margin: 0;
   padding: 14px 15px;
@@ -3721,13 +3737,10 @@
   background: var(--bg-subtle);
   font-family: var(--mono);
   font-size: 13px;
-  line-height: 1.75;
+  line-height: 1.8;
   color: var(--ink);
   white-space: pre;
   overflow-x: auto;
-  transition:
-    border-color 0.35s ease,
-    background-color 0.35s ease;
 }
 
 .hv-contract {
@@ -3738,25 +3751,21 @@
   color: var(--accent);
 }
 
-.hv-ty {
-  color: var(--muted);
-}
-
-.hv-agent {
+.hv-compile {
   display: flex;
   align-items: flex-start;
   gap: 9px;
   margin-top: 14px;
   padding: 10px 12px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--accent-border);
   border-radius: var(--radius-md);
-  background: var(--surface);
+  background: var(--accent-soft);
   font-size: 12px;
   line-height: 1.5;
-  color: var(--muted);
+  color: var(--ink-soft);
 }
 
-.hv-agent svg {
+.hv-compile svg {
   flex: 0 0 auto;
   width: 15px;
   height: 15px;
@@ -3764,185 +3773,190 @@
   color: var(--accent);
 }
 
-.hv-request {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 16px;
+/* Agent tool-call log ------------------------------------------------ */
+.hv-log {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--bg-subtle);
+  overflow: hidden;
 }
 
-.hv-method {
+.hv-loghead {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.hv-live {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ok);
+  box-shadow: 0 0 0 3px var(--ok-soft);
+}
+
+.hv-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 12px;
+}
+
+.hv-step + .hv-step {
+  border-top: 1px dashed var(--line);
+}
+
+.hv-status {
+  position: relative;
   flex: 0 0 auto;
-  padding: 3px 8px;
-  border: 1px solid var(--ok-border);
-  border-radius: 6px;
-  background: var(--ok-soft);
+  width: 15px;
+  height: 15px;
+  margin-top: 3px;
+}
+
+.hv-status svg {
+  position: absolute;
+  inset: 0;
+  width: 15px;
+  height: 15px;
+}
+
+.hv-steptext {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.hv-cmd {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.hv-cmd::-webkit-scrollbar {
+  display: none;
+}
+
+.hv-out {
+  margin-top: 2px;
   font-family: var(--mono);
   font-size: 11px;
-  font-weight: 700;
-  color: var(--ok);
-}
-
-.hv-url {
-  flex: 1;
-  min-width: 0;
-  font-family: var(--mono);
-  font-size: 13px;
-  color: var(--ink-soft);
-}
-
-.hv-send {
-  flex: 0 0 auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 13px;
-  border-radius: 8px;
-  background: var(--accent);
-  color: #ffffff;
-  font-size: 12.5px;
-  font-weight: 600;
+  line-height: 1.4;
+  color: var(--muted);
+  opacity: 1;
   transition:
-    filter 0.15s ease,
-    transform 0.1s ease;
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
-.hv-send:hover {
-  filter: brightness(1.07);
+.hv-out::before {
+  content: "\21B3";
+  margin-right: 6px;
+  color: var(--muted-light);
 }
 
-.hv-send:active {
-  transform: translateY(1px);
-}
-
-.hv-send svg {
-  width: 12px;
-  height: 12px;
-}
-
-/* The two response values occupy the same grid cell so toggling them never
-   reflows the surrounding JSON. */
-.hv-value {
-  display: inline-grid;
-}
-
-.hv-value > span {
-  grid-area: 1 / 1;
-  padding: 0 4px;
-  border-radius: 5px;
-  white-space: nowrap;
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
-}
-
-.hv-wrong {
-  color: var(--danger);
-  background: var(--danger-soft);
-}
-
-.hv-right {
-  color: var(--ok);
-  background: var(--ok-soft);
-}
-
-.hv-result {
-  margin-top: 14px;
-}
-
-.hv-result-bad,
-.hv-result-good {
-  display: none;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 12px;
-  border-radius: var(--radius-md);
-  font-size: 12.5px;
-  font-weight: 600;
-}
-
-.hv-result-bad {
-  border: 1px solid var(--danger);
-  background: var(--danger-soft);
-  color: var(--danger);
-}
-
-.hv-result-good {
-  border: 1px solid var(--ok-border);
-  background: var(--ok-soft);
+.hv-out-ok {
   color: var(--ok);
 }
 
-/* Default (also the no-JS and reduced-motion) state: contract verified. */
-.hv-right {
-  display: inline-block;
-}
-
-.hv-wrong {
+/* Step states. Static / no-JS / reduced-motion default: every step is done
+   (check shown, output visible). When JS starts the animation it adds
+   is-animating, resets the steps to pending, then walks each step through
+   active -> done. */
+.hv-dot,
+.hv-spin {
   display: none;
 }
 
-.hv-result-good {
-  display: flex;
+.hv-check {
+  display: block;
+  color: var(--ok);
 }
 
-.hv-result-bad {
+.hv-window.is-animating .hv-dot {
+  display: block;
+  color: var(--muted-light);
+}
+
+.hv-window.is-animating .hv-spin,
+.hv-window.is-animating .hv-check {
   display: none;
 }
 
-.hv-json {
-  border-color: var(--ok-border);
-  background: var(--ok-soft);
+.hv-window.is-animating .hv-out {
+  opacity: 0;
+  transform: translateY(2px);
 }
 
-.hv-window.is-pass .hv-right {
-  display: inline-block;
-  animation: hv-pop 0.4s ease;
+.hv-window.is-animating .hv-cmd {
+  color: var(--muted);
 }
 
-.hv-window.is-pass .hv-wrong {
+.hv-window.is-animating .hv-step.is-active .hv-dot {
   display: none;
 }
 
-.hv-window.is-pass .hv-result-good {
-  display: flex;
+.hv-window.is-animating .hv-step.is-active .hv-spin {
+  display: block;
+  color: var(--accent);
+  animation: hv-spin 0.8s linear infinite;
 }
 
-.hv-window.is-pass .hv-result-bad {
+.hv-window.is-animating .hv-step.is-active .hv-cmd {
+  color: var(--ink);
+}
+
+.hv-window.is-animating .hv-step.is-done .hv-dot {
   display: none;
 }
 
-.hv-window.is-pass .hv-json {
-  border-color: var(--ok-border);
-  background: var(--ok-soft);
+.hv-window.is-animating .hv-step.is-done .hv-check {
+  display: block;
+  color: var(--ok);
+  animation: hv-pop 0.35s ease;
 }
 
-.hv-window.is-fail .hv-wrong {
-  display: inline-block;
-  animation: hv-pop 0.4s ease;
+.hv-window.is-animating .hv-step.is-done .hv-out {
+  opacity: 1;
+  transform: none;
+  animation: hv-fade 0.35s ease;
 }
 
-.hv-window.is-fail .hv-right {
-  display: none;
+.hv-window.is-animating .hv-step.is-done .hv-cmd {
+  color: var(--ink);
 }
 
-.hv-window.is-fail .hv-result-bad {
-  display: flex;
-}
-
-.hv-window.is-fail .hv-result-good {
-  display: none;
-}
-
-.hv-window.is-fail .hv-json {
-  border-color: var(--danger);
-  background: var(--danger-soft);
+@keyframes hv-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes hv-pop {
   0% {
     opacity: 0;
-    transform: scale(0.96) translateY(2px);
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hv-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(2px);
   }
   100% {
     opacity: 1;
@@ -3965,7 +3979,7 @@
   flex: 0 0 auto;
   width: 15px;
   height: 15px;
-  color: var(--ok);
+  color: var(--accent);
 }
 
 .hv-foot strong {
@@ -3979,12 +3993,22 @@
   }
 
   .hv-body {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .hv-col + .hv-col {
     border-left: 0;
     border-top: 1px solid var(--line);
+  }
+
+  .hv-agentname {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hv-window.is-animating .hv-spin {
+    animation: none;
   }
 }
 
@@ -4153,11 +4177,6 @@ html.js .reveal.is-visible {
     opacity: 1;
     transform: none;
     transition: none;
-  }
-
-  .hv-window.is-pass .hv-right,
-  .hv-window.is-fail .hv-wrong {
-    animation: none;
   }
 }
 

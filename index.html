@@ -536,7 +536,7 @@
         </div>
 
         <div class="hero-visual" data-hero-demo>
-          <div class="hv-window is-pass">
+          <div class="hv-window is-done">
             <div class="chrome">
               <div class="chrome-lights">
                 <span></span><span></span><span></span>
@@ -566,11 +566,34 @@
                   </svg>
                   <span data-i18n="hv.contract">One OpenAPI contract</span>
                 </div>
-                <pre class="hv-code"><code>/orders:
-  <span class="hv-k">post</span>:
-    total:
-      <span class="hv-k">type</span>: <span class="hv-ty">number</span></code></pre>
-                <div class="hv-agent">
+                <pre class="hv-code hv-spec"><code>/orders
+  <span class="hv-k">post</span>  createOrder
+  <span class="hv-k">get</span>   listOrders
+/products
+  <span class="hv-k">get</span>   listProducts
+/customers
+  <span class="hv-k">get</span>   listCustomers</code></pre>
+                <div class="hv-compile">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="4 17 10 11 4 5" />
+                    <line x1="12" y1="19" x2="20" y2="19" />
+                  </svg>
+                  <span data-i18n="hv.compile"
+                    >Compiled into a runnable MCP server · 12 callable
+                    tools</span
+                  >
+                </div>
+              </div>
+
+              <div class="hv-col hv-agentcol">
+                <div class="hv-col-label">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -584,61 +607,194 @@
                     />
                     <path d="M5 21a7 7 0 0 1 14 0" />
                   </svg>
-                  <span data-i18n="hv.agent"
-                    >Codex, Claude Code and Cursor read this same file — design,
-                    debug, test, mock, docs and MCP stay in sync.</span
-                  >
+                  <span data-i18n="hv.agentTitle">Your coding agent</span>
+                  <span class="hv-agentname">Cursor · Claude Code · Codex</span>
                 </div>
-              </div>
-
-              <div class="hv-col hv-live">
-                <div class="hv-request">
-                  <span class="hv-method">POST</span>
-                  <span class="hv-url">/orders</span>
-                  <button class="hv-send" type="button" data-hv-send>
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                    <span data-i18n="hv.send">Send &amp; verify</span>
-                  </button>
-                </div>
-
-                <div class="hv-col-label">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                  </svg>
-                  <span data-i18n="hv.response">Live response</span>
-                </div>
-                <pre class="hv-code hv-json"><code>{
-  "total": <span class="hv-value"><span class="hv-wrong">"49.00"</span><span class="hv-right">49</span></span>
-}</code></pre>
-                <div class="hv-result">
-                  <div class="hv-result-bad" data-hv-bad>
-                    <span
-                      class="verify-mark verify-mark-bad"
-                      aria-hidden="true"
-                      >✕</span
-                    >
-                    <span data-i18n="hv.fail"
-                      >/total must be number — response fails the contract</span
-                    >
+                <div class="hv-log" data-hv-log>
+                  <div class="hv-loghead">
+                    <span class="hv-live" aria-hidden="true"></span>
+                    <span>powerduck · MCP server</span>
                   </div>
-                  <div class="hv-result-good" data-hv-good>
-                    <span
-                      class="verify-mark verify-mark-good"
-                      aria-hidden="true"
-                      >✓</span
-                    >
-                    <span data-i18n="hv.pass"
-                      >Response matches the contract</span
-                    >
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4" />
+                      </svg>
+                      <svg
+                        class="hv-spin"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                      >
+                        <path d="M21 12a9 9 0 1 0-9 9" />
+                      </svg>
+                      <svg
+                        class="hv-check"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.read_spec()</code>
+                      <span class="hv-out" data-i18n="hv.out.ops"
+                        >12 operations found</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4" />
+                      </svg>
+                      <svg
+                        class="hv-spin"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                      >
+                        <path d="M21 12a9 9 0 1 0-9 9" />
+                      </svg>
+                      <svg
+                        class="hv-check"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd"
+                        >powerduck.start_mock("POST /orders")</code
+                      >
+                      <span class="hv-out" data-i18n="hv.out.mock"
+                        >Mock server live on :4010</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4" />
+                      </svg>
+                      <svg
+                        class="hv-spin"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                      >
+                        <path d="M21 12a9 9 0 1 0-9 9" />
+                      </svg>
+                      <svg
+                        class="hv-check"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd"
+                        >powerduck.generate_tests("POST /orders")</code
+                      >
+                      <span class="hv-out" data-i18n="hv.out.tests"
+                        >orders.test.js written</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4" />
+                      </svg>
+                      <svg
+                        class="hv-spin"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                      >
+                        <path d="M21 12a9 9 0 1 0-9 9" />
+                      </svg>
+                      <svg
+                        class="hv-check"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd"
+                        >powerduck.call_api("POST /orders", {total:49})</code
+                      >
+                      <span class="hv-out hv-out-ok" data-i18n="hv.out.call"
+                        >200 OK · verified against contract</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4" />
+                      </svg>
+                      <svg
+                        class="hv-spin"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                      >
+                        <path d="M21 12a9 9 0 1 0-9 9" />
+                      </svg>
+                      <svg
+                        class="hv-check"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.publish_docs()</code>
+                      <span class="hv-out" data-i18n="hv.out.docs"
+                        >Reference docs updated</span
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
@@ -653,15 +809,14 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
-                <path
-                  d="M22 11.08V12a10 10 0 1 1-5.93-9.14"
-                />
-                <polyline points="22 4 12 14.01 9 11.01" />
+                <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                <polyline points="2 17 12 22 22 17" />
+                <polyline points="2 12 12 17 22 12" />
               </svg>
               <span data-i18n-html="hv.foot"
-                >Ordinary clients send the request and show the response.
-                <strong>Powerduck verifies it against the contract</strong>, so
-                drift is caught the moment it happens.</span
+                >One OpenAPI file compiles into tools
+                <strong>your agent calls</strong> — mock, tests, API calls and
+                docs, all verified against the same contract.</span
               >
             </div>
           </div>
@@ -3015,15 +3170,25 @@ curl /users/{id}
           window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         /* ----------------------------------------------------------------
-        Hero contract-check demo: cycles a failing response (string) into a
-        verified one (number). Static default is the green "pass" state.
+        Hero agent-flow demo: the coding agent calls the Powerduck MCP tools
+        in sequence (read spec -> mock -> tests -> call -> docs). Each step
+        lights up pending -> active -> done. The static default is the fully
+        completed state.
         ---------------------------------------------------------------- */
 
         var heroDemo = document.querySelector("[data-hero-demo]");
         var heroWindow = heroDemo
           ? heroDemo.querySelector(".hv-window")
           : null;
+        var heroSteps = heroWindow
+          ? Array.prototype.slice.call(
+              heroWindow.querySelectorAll("[data-hv-log] .hv-step")
+            )
+          : [];
         var timers = [];
+        var STEP_MS = 700;
+        var START_MS = 160;
+        var HOLD_MS = 1900;
 
         function clearTimers() {
           while (timers.length) {
@@ -3031,60 +3196,53 @@ curl /users/{id}
           }
         }
 
-        function setState(state) {
-          if (!heroWindow) {
-            return;
-          }
-          heroWindow.classList.toggle("is-fail", state === "fail");
-          heroWindow.classList.toggle("is-pass", state === "pass");
+        function resetSteps() {
+          heroSteps.forEach(function (step) {
+            step.classList.remove("is-active", "is-done");
+          });
         }
 
         function runCycle() {
           clearTimers();
-          setState("fail");
-          timers.push(
-            setTimeout(function () {
-              setState("pass");
-            }, 2200)
-          );
-          timers.push(setTimeout(runCycle, 4800));
+          heroWindow.classList.add("is-animating");
+          heroWindow.classList.remove("is-done");
+          resetSteps();
+
+          heroSteps.forEach(function (step, i) {
+            var start = START_MS + i * STEP_MS;
+            timers.push(
+              setTimeout(function () {
+                step.classList.add("is-active");
+              }, start)
+            );
+            timers.push(
+              setTimeout(function () {
+                step.classList.remove("is-active");
+                step.classList.add("is-done");
+              }, start + STEP_MS)
+            );
+          });
+
+          var loopMs = START_MS + heroSteps.length * STEP_MS + HOLD_MS;
+          timers.push(setTimeout(runCycle, loopMs));
         }
 
-        if (heroDemo) {
-          var sendBtn = heroDemo.querySelector("[data-hv-send]");
-
-          setState("pass");
-
-          if (sendBtn) {
-            sendBtn.addEventListener("click", function () {
-              if (reduceMotion) {
-                setState("fail");
-                setTimeout(function () {
-                  setState("pass");
-                }, 900);
-                return;
-              }
-              runCycle();
-            });
-          }
-
-          if (!reduceMotion) {
-            if ("IntersectionObserver" in window) {
-              var heroObserver = new IntersectionObserver(
-                function (entries) {
-                  entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                      runCycle();
-                      heroObserver.disconnect();
-                    }
-                  });
-                },
-                { threshold: 0.4 }
-              );
-              heroObserver.observe(heroDemo);
-            } else {
-              runCycle();
-            }
+        if (heroDemo && heroWindow && heroSteps.length && !reduceMotion) {
+          if ("IntersectionObserver" in window) {
+            var heroObserver = new IntersectionObserver(
+              function (entries) {
+                entries.forEach(function (entry) {
+                  if (entry.isIntersecting) {
+                    runCycle();
+                    heroObserver.disconnect();
+                  }
+                });
+              },
+              { threshold: 0.4 }
+            );
+            heroObserver.observe(heroDemo);
+          } else {
+            runCycle();
           }
         }
 
