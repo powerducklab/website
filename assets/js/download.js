@@ -4,7 +4,7 @@
   // documentation locale without rebuilding the platform controls.
   var docsLocales = { en: "", "zh-CN": "zh-CN", ja: "ja-JP", de: "de-DE", fr: "fr-FR", es: "es-ES" };
   var guideLinks = Array.from(document.querySelectorAll('a[href^="/docs/"], a[href^="docs/"]')).map(function (link) {
-    return { link: link, path: link.getAttribute("href").replace(/^\/?docs\//, "") };
+    return { link: link, path: link.getAttribute("href").replace(/^\/?docs\//, "").replace(/^(zh-CN|ja-JP|de-DE|fr-FR|es-ES)\//, "") };
   });
   function localizeExtras() {
     if (!window.Powerduck) return;

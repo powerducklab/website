@@ -1,0 +1,2378 @@
+<!DOCTYPE html><html lang="ko-KR" data-theme="light" data-page-locale="ko-KR" data-page-route="/" dir="ltr"><head>
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("pd_theme");
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          var root = document.documentElement;
+          root.setAttribute("data-theme", theme);
+          root.classList.add(theme);
+          root.classList.remove(theme === "dark" ? "light" : "dark");
+
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/images/icon-192.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Powerduck">
+    <meta property="og:title" content="Powerduck — 데스크톱 API 클라이언트와 무료 OpenAPI·MCP 호스팅">
+    <meta property="og:description" content="Codex, Claude Code, Cursor가 API 정의에 맞춰 코드를 작성하도록 하세요. 로컬 작업을 우선하는 Powerduck 데스크톱 앱에서 코드로 문서를 생성하고 AI로 테스트를 구성하세요. OpenAPI 문서와 MCP 서버는 Hub에서 무료로 호스팅할 수 있습니다.">
+    <meta property="og:url" content="https://www.powerduck.com/ko-KR/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Powerduck — 데스크톱 API 클라이언트와 무료 OpenAPI·MCP 호스팅">
+    <meta name="twitter:description" content="Codex, Claude Code, Cursor가 API 정의에 맞춰 코드를 작성하도록 하세요. 로컬 작업을 우선하는 Powerduck 데스크톱 앱에서 코드로 문서를 생성하고 AI로 테스트를 구성하세요. OpenAPI 문서와 MCP 서버는 Hub에서 무료로 호스팅할 수 있습니다.">
+
+    <title>Powerduck — 데스크톱 API 클라이언트와 무료 OpenAPI·MCP 호스팅</title>
+
+    <meta name="description" content="Codex, Claude Code, Cursor가 API 정의에 맞춰 코드를 작성하도록 하세요. 로컬 작업을 우선하는 Powerduck 데스크톱 앱에서 코드로 문서를 생성하고 AI로 테스트를 구성하세요. OpenAPI 문서와 MCP 서버는 Hub에서 무료로 호스팅할 수 있습니다.">
+
+    <meta name="keywords" content="Powerduck, AI API development, AI-native OpenAPI studio, local-first API tool, OpenAPI editor, API debugging, MCP server generator, API documentation, OpenAPI 3.2, offline API client, AI coding agent, bring your own model">
+
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/assets/css/common.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/contour.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/product-paths.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261019d">
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-8HXDV7CDEB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-8HXDV7CDEB");
+    </script>
+  <meta property="og:image" content="https://www.powerduck.com/assets/images/icon-192.png"><meta property="og:locale" content="ko_KR"><link rel="canonical" href="https://www.powerduck.com/ko-KR/"><link rel="alternate" hreflang="en" href="https://www.powerduck.com/"><link rel="alternate" hreflang="zh-CN" href="https://www.powerduck.com/zh-CN/"><link rel="alternate" hreflang="ja" href="https://www.powerduck.com/ja/"><link rel="alternate" hreflang="de" href="https://www.powerduck.com/de/"><link rel="alternate" hreflang="fr" href="https://www.powerduck.com/fr/"><link rel="alternate" hreflang="es" href="https://www.powerduck.com/es/"><link rel="alternate" hreflang="pt-BR" href="https://www.powerduck.com/pt-BR/"><link rel="alternate" hreflang="zh-TW" href="https://www.powerduck.com/zh-TW/"><link rel="alternate" hreflang="it-IT" href="https://www.powerduck.com/it-IT/"><link rel="alternate" hreflang="ko-KR" href="https://www.powerduck.com/ko-KR/"><link rel="alternate" hreflang="ru-RU" href="https://www.powerduck.com/ru-RU/"><link rel="alternate" hreflang="id-ID" href="https://www.powerduck.com/id-ID/"><link rel="alternate" hreflang="tr-TR" href="https://www.powerduck.com/tr-TR/"><link rel="alternate" hreflang="vi-VN" href="https://www.powerduck.com/vi-VN/"><link rel="alternate" hreflang="ar-SA" href="https://www.powerduck.com/ar-SA/"><link rel="alternate" hreflang="hi-IN" href="https://www.powerduck.com/hi-IN/"><link rel="alternate" hreflang="x-default" href="https://www.powerduck.com/"><script type="application/ld+json" data-site-schema="">{"@context":"https://schema.org","@type":"WebPage","name":"Powerduck — 데스크톱 API 클라이언트와 무료 OpenAPI·MCP 호스팅","description":"Codex, Claude Code, Cursor가 API 정의에 맞춰 코드를 작성하도록 하세요. 로컬 작업을 우선하는 Powerduck 데스크톱 앱에서 코드로 문서를 생성하고 AI로 테스트를 구성하세요. OpenAPI 문서와 MCP 서버는 Hub에서 무료로 호스팅할 수 있습니다.","url":"https://www.powerduck.com/ko-KR/","inLanguage":"ko-KR","isPartOf":{"@type":"WebSite","name":"Powerduck","url":"https://www.powerduck.com/"}}</script></head>
+
+  <body>
+    <div class="page-shell">
+      <!-- =======================================================================
+     NAV
+     ======================================================================= -->
+
+      <header class="nav">
+        <div class="nav-inner">
+          <a href="/ko-KR/" class="brand" aria-label="Powerduck 홈">
+            <img src="/assets/images/logo.svg" alt="Powerduck logo" class="brand-mark">
+
+            <span>Powerduck</span>
+          </a>
+
+          <button class="nav-hamburger" aria-label="탐색 메뉴 열기 또는 닫기" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+
+          <div class="nav-drawer" id="navDrawer">
+            <nav class="nav-links">
+
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                  <span data-i18n="nav.client">데스크톱 앱</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="#spec-editor" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.specEditor">명세 편집기</span><span class="dropdown-item-desc" data-i18n="nav.specEditorDesc">OpenAPI 명세를 직접 편집하세요</span></span></a>
+                  <a class="dropdown-item" href="#api-debug" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDebug">API 디버거</span><span class="dropdown-item-desc" data-i18n="nav.apiDebugDesc">요청을 보내고 응답을 살펴보세요</span></span></a>
+                  <a class="dropdown-item" href="#mcp-server" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.mcpServer">MCP 서버</span><span class="dropdown-item-desc" data-i18n="nav.mcpServerDesc">명세를 호출 가능한 도구로 변환하세요</span></span></a>
+                  <a class="dropdown-item" href="#api-docs" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDocs">API 문서</span><span class="dropdown-item-desc" data-i18n="nav.apiDocsDesc">같은 명세로 문서를 생성하세요</span></span></a>
+                </div>
+              </div><a class="nav-hub-link" href="/ko-KR/hub" data-i18n="nav.hub">Hub</a>
+
+
+
+              <a class="nav-direct" href="/ko-KR/pricing?product=client" data-i18n="nav.pricing">요금제</a>
+
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                  <span data-i18n="nav.resources">자료</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="/docs/ko-KR/overview/introduction/index.html" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.documentation">문서</span><span class="dropdown-item-desc" data-i18n="nav.documentationDesc">가이드와 API 레퍼런스</span></span></a>
+                  <a class="dropdown-item" href="/ko-KR/use-cases/" role="menuitem"><span class="dropdown-item-text"><span data-i18n="scenes.all" class="dropdown-item-title">활용 가이드</span></span></a>
+                  <a class="dropdown-item" href="/blog/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.blog">블로그</span><span class="dropdown-item-desc" data-i18n="nav.blogDesc">제품 소식과 개발 이야기</span></span></a>
+                  <a class="dropdown-item" href="/blog/tag/release-notes/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.releaseNotes">릴리스 노트</span><span class="dropdown-item-desc" data-i18n="nav.releaseNotesDesc">버전별 변경 사항</span></span></a>
+                  <a class="dropdown-item" href="/demo/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.liveDemo">라이브 데모</span><span class="dropdown-item-desc" data-i18n="nav.liveDemoDesc">브라우저에서 모든 도구를 체험하세요</span></span></a>
+                  <a class="dropdown-item" href="/app/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.webApp">웹 앱</span><span class="dropdown-item-desc" data-i18n="nav.webAppDesc">브라우저에서 Powerduck의 모든 기능을 사용하세요</span></span></a>
+                  <a class="dropdown-item" href="https://github.com/powerducklab" target="_blank" role="menuitem" rel="nofollow noopener noreferrer"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.openSource">오픈 소스</span><span class="dropdown-item-desc" data-i18n="nav.openSourceDesc">GitHub와 npm에서 제공하는 라이브러리</span></span></a>
+                </div>
+              </div>
+            </nav>
+
+            <div class="nav-actions">
+              <a class="nav-icon-btn" href="https://github.com/powerducklab" target="_blank" aria-label="GitHub" rel="nofollow noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12 12-12z"></path>
+                </svg>
+              </a>
+              <div class="nav-account-slot" id="navAccountSlot">
+                <a class="nav-signin" data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">로그인</a>
+              </div>
+
+              <div class="nav-dropdown" id="langMenu">
+                <button class="nav-icon-btn nav-dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-label="언어 선택">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20"></path>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu align-right" role="menu" id="langMenuContent"></div>
+              </div>
+
+              <button class="theme-toggle" data-theme-toggle="" id="themeToggle" type="button" aria-label="색상 테마 전환">
+                <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none">
+                  <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+                </svg>
+
+                <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"></circle>
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                </svg>
+              </button>
+
+              <a class="btn btn-primary btn-sm" href="/ko-KR/download/" data-i18n="nav.download">다운로드</a>
+            </div>
+          </div>
+        </div>
+
+        <style>
+          .nav-dropdown:hover .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+          .nav-dropdown:hover .chevron {
+            transform: rotate(180deg);
+          }
+          .nav-dropdown.open .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+        </style>
+      </header>
+
+      <!-- =======================================================================
+     HERO
+     ======================================================================= -->
+
+      <section class="hero">
+        <p class="eyebrow">
+          <span class="status-dot"></span>
+          <span data-i18n="hero.badge">로컬 중심의 AI 네이티브 OpenAPI 스튜디오</span>
+        </p>
+
+        <h1 data-i18n-html="hub.hero">로컬 개발부터 문서와 AI 연결까지,<br>하나의 API로.</h1>
+
+        <p data-i18n="hub.heroSub" class="hero-sub">Codex, Claude Code, Cursor가 API 정의에 맞춰 코드를 작성하도록 하세요. 로컬 작업을 우선하는 Powerduck 데스크톱 앱에서 코드로 문서를 생성하고 AI로 테스트를 구성하세요. OpenAPI 문서와 MCP 서버는 Hub에서 무료로 호스팅할 수 있습니다.</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/ko-KR/download/" data-i18n="hero.download">데스크톱 앱 다운로드</a><a class="btn btn-secondary" href="/console/projects" data-i18n="hub.publish">Hub에 무료로 게시</a>
+        </div>
+
+        <div class="hero-visual" data-hero-demo="">
+          <div class="hv-window is-done">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="chrome-path">commerce-api/openapi.yaml</span>
+              <span class="chrome-spacer"></span>
+              <span class="pill" data-i18n="hv.local">OpenAPI 3.1 · 로컬 파일</span>
+            </div>
+
+            <div class="hv-body">
+              <div class="hv-col hv-contract">
+                <div class="hv-col-label">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                  </svg>
+                  <span data-i18n="hv.contract">하나의 OpenAPI 계약</span>
+                </div>
+                <pre class="hv-code hv-spec"><code>/orders
+  <span class="hv-k">post</span>  createOrder
+  <span class="hv-k">get</span>   listOrders
+/products
+  <span class="hv-k">get</span>   listProducts
+/customers
+  <span class="hv-k">get</span>   listCustomers</code></pre>
+                <div class="hv-compile">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="4 17 10 11 4 5"></polyline>
+                    <line x1="12" y1="19" x2="20" y2="19"></line>
+                  </svg>
+                  <span data-i18n="hv.compile">실행 가능한 MCP 서버로 변환 · 호출 가능한 도구 12개</span>
+                </div>
+              </div>
+
+              <div class="hv-col hv-agentcol">
+                <div class="hv-col-label">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2a3 3 0 0 1 3 3v1a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"></path>
+                    <path d="M5 21a7 7 0 0 1 14 0"></path>
+                  </svg>
+                  <span data-i18n="hv.agentTitle">나의 코딩 에이전트</span>
+                  <span class="hv-agentname">Cursor · Claude Code · Codex</span>
+                </div>
+                <div class="hv-log" data-hv-log="">
+                  <div class="hv-loghead">
+                    <span class="hv-live" aria-hidden="true"></span>
+                    <span>powerduck · MCP server</span>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.read_spec()</code>
+                      <span class="hv-out" data-i18n="hv.out.ops">작업 12개 발견</span>
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.start_mock("POST /orders")</code>
+                      <span class="hv-out" data-i18n="hv.out.mock">포트 4010에서 목 서버 실행 중</span>
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.generate_tests("POST /orders")</code>
+                      <span class="hv-out" data-i18n="hv.out.tests">orders.test.js 작성 완료</span>
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.call_api("POST /orders", {total:49})</code>
+                      <span class="hv-out hv-out-ok" data-i18n="hv.out.call">200 OK · 계약 검증 완료</span>
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.publish_docs()</code>
+                      <span class="hv-out" data-i18n="hv.out.docs">레퍼런스 문서 갱신 완료</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hv-foot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+              <span data-i18n-html="hv.foot">하나의 OpenAPI 파일을 <strong>에이전트가 호출하는 도구</strong>로 변환합니다. 목 서버, 테스트, API 호출, 문서를 모두 같은 계약으로 검증합니다.</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="hero-micro" data-i18n="flow.baseNote">로컬 작업에는 계정이 필요하지 않습니다. 원격 AI는 선택한 모델 서비스를 사용하며, 온라인 호스팅에는 Cloud 계정이 필요합니다.</p>
+
+        <p class="hero-strip" data-i18n-html="hero.capabilities">명세 편집기 · API 디버깅 · 테스트 · 목 서버 · API 문서 · MCP 서버</p>
+      </section>
+      <section class="hub-workflow" aria-labelledby="hub-workflow-title">
+        <div class="hub-workflow-heading">
+          <p class="eyebrow">POWERDUCK HUB</p>
+          <h2 id="hub-workflow-title" data-i18n="hub.workflow.title">하나의 OpenAPI 명세. 로컬에서 개발하고 온라인으로 공유하세요.</h2>
+          <p data-i18n="hub.workflow.sub">데스크톱 앱에서 API 작업을 이어가세요. Hub에서는 문서를 공유하고 AI 도구를 API에 연결할 수 있습니다.</p>
+        </div>
+        <ol class="hub-workflow-steps">
+<li><span class="hub-step-number">01</span><h3 data-i18n="hub.step1.title">구현하고 검증</h3><p data-i18n="hub.step1.body">Powerduck에서 API를 설계하고 디버깅하고 테스트하세요.</p></li>
+<li><span class="hub-step-number">02</span><h3 data-i18n="hub.step2.title">OpenAPI에서 바로 게시</h3><p data-i18n="hub.step2.body">명세를 호스팅된 문서와 MCP 엔드포인트로 변환하세요.</p></li>
+<li><span class="hub-step-number">03</span><h3 data-i18n="hub.step3.title">공유하고 연결</h3><p data-i18n="hub.step3.body">문서 링크를 공유하고 MCP 클라이언트를 연결하세요. 프로젝트를 공개 목록에 표시할지도 선택할 수 있습니다.</p></li>
+</ol><div class="hub-workflow-actions"><a class="btn btn-primary" href="/console/projects" data-i18n="hub.publish">Hub에 무료로 게시</a><a class="btn btn-secondary" href="/ko-KR/hub" data-i18n="hub.explore">Hub 둘러보기</a></div><p class="hub-workflow-note" data-i18n="hub.limit">요금제 한도 내에서 무료로 호스팅합니다. 실제 비즈니스 API는 기존 백엔드에서 계속 실행됩니다.</p></section>
+
+
+      <section class="why-band" aria-labelledby="why-title">
+        <div class="why-head">
+          <p class="section-kicker" data-i18n="why.kicker">Powerduck을 선택하는 이유</p>
+          <h2 class="section-title" id="why-title" data-i18n="why.title">여러 API 도구 대신 하나의 로컬 파일로.</h2>
+          <p class="section-deck" data-i18n="why.deck">저장소의 OpenAPI YAML 하나로 설계, 디버깅, 테스트, 목 서버, 문서, MCP를 사용하세요. 코딩 에이전트도 같은 파일을 사용합니다.</p>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-card reveal">
+            <span class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </span>
+            <h3 data-i18n="why.1.title">하나의 파일로 모든 기능 연결</h3>
+            <p data-i18n="why.1.body">같은 OpenAPI 명세로 설계, 디버깅, 테스트, 목 서버, 문서화, MCP 제공까지 처리해 서로 어긋나지 않게 합니다.</p>
+            <div class="why-vs">
+              <div class="why-vs-row why-vs-old">
+                <span class="why-vs-tag" data-i18n="why.old">다른 방식</span>
+                <span data-i18n="why.1.old">컬렉션, 문서, 목 서버, 테스트 파일을 따로 관리</span>
+              </div>
+              <div class="why-vs-row why-vs-new">
+                <span class="why-vs-tag" data-i18n="why.pd">Powerduck</span>
+                <span data-i18n-html="why.1.new"><strong>YAML 하나</strong>로 모든 도구와 에이전트 연결</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="why-card reveal">
+            <span class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </span>
+            <h3 data-i18n="why.2.title">모든 응답을 계약으로 검증</h3>
+            <p data-i18n="why.2.body">응답을 보여주는 데 그치지 않고 OpenAPI 명세와 비교해 잘못된 타입이나 경로를 즉시 찾아냅니다.</p>
+            <div class="why-vs">
+              <div class="why-vs-row why-vs-old">
+                <span class="why-vs-tag" data-i18n="why.old">다른 방식</span>
+                <span data-i18n="why.2.old">요청을 보내고 200 응답을 표시</span>
+              </div>
+              <div class="why-vs-row why-vs-new">
+                <span class="why-vs-tag" data-i18n="why.pd">Powerduck</span>
+                <span data-i18n-html="why.2.new">응답이 돌아오는 즉시 <strong>명세 불일치 표시</strong></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="why-card reveal">
+            <span class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+                <line x1="2" y1="20" x2="22" y2="20"></line>
+              </svg>
+            </span>
+            <h3 data-i18n="why.3.title">로컬 중심, 계정 없이, 에이전트와 함께</h3>
+            <p data-i18n="why.3.body">파일은 내 컴퓨터에 두고 계정이나 업로드 없이 작업하세요. Codex, Claude Code, Cursor도 같은 명세를 읽습니다.</p>
+            <div class="why-vs">
+              <div class="why-vs-row why-vs-old">
+                <span class="why-vs-tag" data-i18n="why.old">다른 방식</span>
+                <span data-i18n="why.3.old">시작하기 전에 클라우드 계정과 업로드 필요</span>
+              </div>
+              <div class="why-vs-row why-vs-new">
+                <span class="why-vs-tag" data-i18n="why.pd">Powerduck</span>
+                <span data-i18n-html="why.3.new"><strong>로컬에서 실행</strong>하고 에이전트도 같은 파일 사용</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     INTERACTIVE PRODUCT DEMO
+     ======================================================================= -->
+
+      <section class="demo-section">
+        <div class="demo-shell">
+          <div class="demo-tabs-wrap">
+            <div class="demo-tabs" role="tablist" aria-label="데스크톱 앱">
+              <button class="demo-tab" role="tab" aria-selected="true" data-tab="editor" data-i18n="nav.specEditor">명세 편집기</button>
+
+              <button class="demo-tab" role="tab" aria-selected="false" data-tab="debug" data-i18n="nav.apiDebug">API 디버거</button>
+
+              <button class="demo-tab" role="tab" aria-selected="false" data-tab="mcp" data-i18n="nav.mcpServer">MCP 서버</button>
+
+              <button class="demo-tab" role="tab" aria-selected="false" data-tab="docs" data-i18n="nav.apiDocs">API 문서</button>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     SPEC EDITOR
+     ================================================================ -->
+
+          <div class="stage on" id="stage-editor" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path"> ~/commerce-api/openapi.yaml </span>
+
+              <span class="pill"> OpenAPI 3.1.0 </span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill pill-warn"><span data-i18n="demo.ui.0">문제 3개</span></span>
+
+              <span class="pill"><span data-i18n="demo.ui.1">저장 안 됨</span></span>
+            </div>
+
+            <div class="editor-demo">
+              <aside class="outline">
+                <div class="panel-label"><span data-i18n="demo.ui.2">개요</span></div>
+
+                <div class="tree-row indent-1">▾ info</div>
+                <div class="tree-row indent-3">title</div>
+                <div class="tree-row indent-3">version</div>
+                <div class="tree-row indent-3">contact</div>
+
+                <div class="tree-row indent-3">
+                  license
+                  <span class="flag">⚠</span>
+                </div>
+
+                <div class="tree-row indent-1">▸ servers</div>
+
+                <div class="tree-row indent-1">▾ paths</div>
+
+                <div class="tree-row indent-2">▾ /auth/login</div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag post">POST</span>
+                  loginUser
+                </div>
+
+                <div class="tree-row indent-2">▾ /users</div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag get">GET</span>
+                  listUsers
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag post">POST</span>
+                  createUser
+                </div>
+
+                <div class="tree-row indent-2">▾ /users/{id}</div>
+
+                <div class="tree-row indent-4 active">
+                  <span class="method-tag get">GET</span>
+                  getUser
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag put">PUT</span>
+                  updateUser
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag delete">DEL</span>
+                  deleteUser
+                </div>
+
+                <div class="tree-row indent-2">▾ /orders</div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag get">GET</span>
+                  listOrders
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag post">POST</span>
+                  createOrder
+                </div>
+
+                <div class="tree-row indent-1">▾ components</div>
+
+                <div class="tree-row indent-2">▸ schemas (14)</div>
+
+                <div class="tree-row indent-2">▸ responses (6)</div>
+
+                <div class="tree-row indent-2">▸ parameters (4)</div>
+
+                <div class="tree-row indent-2">▸ securitySchemes (2)</div>
+              </aside>
+
+              <div class="editor-main">
+                <div class="code-area">
+                  <div class="code-line" style="--lvl: 0">
+                    <span class="code-number">142</span>
+                    <span class="code-content">
+                      <span class="syntax-key">/users/{id}:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 1">
+                    <span class="code-number">143</span>
+                    <span class="code-content">
+                      <span class="syntax-key">get:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line highlight" style="--lvl: 2">
+                    <span class="code-number">144</span>
+                    <span class="code-content">
+                      <span class="syntax-key">operationId:</span>
+                      <span class="syntax-string">getUser</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">145</span>
+                    <span class="code-content">
+                      <span class="syntax-key">summary:</span>
+                      <span class="syntax-string">Retrieve a user</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">146</span>
+                    <span class="code-content">
+                      <span class="syntax-key">tags:</span>
+                      [<span class="syntax-string">Users</span>]
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">147</span>
+                    <span class="code-content">
+                      <span class="syntax-key">parameters:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 3">
+                    <span class="code-number">148</span>
+                    <span class="code-content">
+                      <span class="syntax-key">- $ref:</span>
+                      <span class="syntax-string">'#/components/parameters/UserId'</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">149</span>
+                    <span class="code-content">
+                      <span class="syntax-key">responses:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 3">
+                    <span class="code-number">150</span>
+                    <span class="code-content">
+                      <span class="syntax-number">'200':</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 4">
+                    <span class="code-number">151</span>
+                    <span class="code-content">
+                      <span class="syntax-key">description:</span>
+                      <span class="syntax-string">The requested user</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 4">
+                    <span class="code-number">152</span>
+                    <span class="code-content">
+                      <span class="syntax-key">content:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 5">
+                    <span class="code-number">153</span>
+                    <span class="code-content">
+                      <span class="syntax-key">application/json:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 6">
+                    <span class="code-number">154</span>
+                    <span class="code-content">
+                      <span class="syntax-key">schema:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 7">
+                    <span class="code-number">155</span>
+                    <span class="code-content">
+                      <span class="syntax-key">$ref:</span>
+                      <span class="syntax-string">'#/components/schemas/User'</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 3">
+                    <span class="code-number error">156</span>
+                    <span class="code-content">
+                      <span class="syntax-number">'404':</span>
+                      <span class="syntax-comment"># description is required</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 4">
+                    <span class="code-number">157</span>
+                    <span class="code-content">
+                      <span class="squiggle syntax-key">contents:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 5">
+                    <span class="code-number">158</span>
+                    <span class="code-content">
+                      <span class="syntax-key">application/json:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 6">
+                    <span class="code-number">159</span>
+                    <span class="code-content">
+                      <span class="syntax-key">schema:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 7">
+                    <span class="code-number">160</span>
+                    <span class="code-content">
+                      <span class="syntax-key">$ref:</span>
+                      <span class="squiggle syntax-string">'#/components/schemas/Erorr'</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 1">
+                    <span class="code-number">161</span>
+                    <span class="code-content">
+                      <span class="syntax-key">delete:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number error">162</span>
+                    <span class="code-content">
+                      <span class="syntax-key">summary:</span>
+                      <span class="syntax-string">Delete a user</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="problems">
+                  <div class="problems-head">
+                    <strong><span data-i18n="demo.ui.3">문제</span></strong>
+                    <span><span data-i18n="demo.ui.4">오류 2개 · 경고 1개</span></span>
+                    <span class="pill"><span data-i18n="demo.ui.5">3.1 방언으로 검증됨</span></span>
+                  </div>
+
+                  <div class="problem-row">
+                    <span class="problem-location">156:9</span>
+                    <span class="problem-message">
+                      <strong>contents</strong> is not a valid Response Object
+                      key. Did you mean <strong>content</strong>?
+                    </span>
+                    <span class="problem-rule">oas3-schema</span>
+                  </div>
+
+                  <div class="problem-row">
+                    <span class="problem-location">160:24</span>
+                    <span class="problem-message">
+                      Unresolved <strong>$ref</strong> —
+                      <code>schemas/Erorr</code> does not exist.
+                    </span>
+                    <span class="problem-rule">ref-resolution</span>
+                  </div>
+
+                  <div class="problem-row">
+                    <span class="problem-location">162:7</span>
+                    <span class="problem-message">
+                      Operation has no <strong>operationId</strong>. It will be
+                      skipped when generating MCP tools.
+                    </span>
+                    <span class="problem-rule">operation-operationId</span>
+                  </div>
+                </div>
+
+                <div class="status-bar">
+                  <span><span data-i18n="demo.ui.6">156행, 9열</span></span>
+                  <span>YAML</span>
+                  <span>UTF-8</span>
+                  <span><span data-i18n="demo.ui.7">공백: 2</span></span>
+                  <span>3.1.0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     API DEBUG
+     ================================================================ -->
+
+          <div class="stage" id="stage-debug" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path"><span data-i18n="demo.ui.8">openapi.yaml에서 생성한 컬렉션</span></span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill"><span data-i18n="demo.ui.9">Postman 가져오기</span></span>
+
+              <span class="pill pill-ok"><span data-i18n="demo.ui.10">계약 검사 켜짐</span></span>
+            </div>
+
+            <div class="debug-demo">
+              <aside class="collection">
+                <div class="panel-label"><span data-i18n="demo.ui.11">커머스 API</span></div>
+
+                <div class="collection-row">▾ Auth</div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag post">POST</span>
+                  loginUser
+                </div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag post">POST</span>
+                  refreshToken
+                </div>
+
+                <div class="collection-row">▾ Users</div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag get">GET</span>
+                  listUsers
+                </div>
+
+                <div class="collection-row indent-3 active">
+                  <span class="method-tag get">GET</span>
+                  getUser
+                </div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag put">PUT</span>
+                  updateUser
+                </div>
+
+                <div class="collection-row">▾ Orders</div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag get">GET</span>
+                  listOrders
+                </div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag post">POST</span>
+                  createOrder
+                </div>
+              </aside>
+
+              <div class="request-pane">
+                <div class="url-bar">
+                  <span class="http-method">GET ▾</span>
+
+                  <div class="request-url">
+                    {{baseUrl}}/users/<span class="request-var">{{userId}}</span>?include=profile
+                  </div>
+
+                  <span class="environment"><span data-i18n="demo.ui.12">스테이징 ▾</span></span>
+
+                  <button class="btn btn-primary btn-sm"><span data-i18n="demo.ui.13">전송</span></button>
+                </div>
+
+                <div class="subtabs">
+                  <span class="subtab"><span data-i18n="demo.ui.14">매개변수</span><i class="badge">1</i></span>
+                  <span class="subtab"><span data-i18n="demo.ui.15">인증</span><i class="badge">bearer</i></span>
+                  <span class="subtab"><span data-i18n="demo.ui.16">헤더</span><i class="badge">3</i></span>
+                  <span class="subtab active"><span data-i18n="demo.ui.17">본문</span></span>
+                  <span class="subtab"><span data-i18n="demo.ui.18">스크립트</span></span>
+                  <span class="subtab"><span data-i18n="demo.ui.19">설정</span></span>
+                </div>
+
+                <div class="request-body">
+                  # GET has no requestBody in the specification — body
+                  disabled<br>
+                  # Path parameter id resolved from environment → userId =
+                  usr_8Kd2Xa
+                </div>
+
+                <div class="response-meta">
+                  <span class="pill pill-ok">200 OK</span>
+                  <span class="pill">148 ms</span>
+                  <span class="pill">1.2 KB</span>
+
+                  <span class="chrome-spacer"></span>
+
+                  <span class="pill pill-warn"><span data-i18n="demo.ui.20">계약: 불일치 1개</span></span>
+                </div>
+
+                <div class="subtabs">
+                  <span class="subtab active"><span data-i18n="demo.ui.17">본문</span></span>
+                  <span class="subtab"><span data-i18n="demo.ui.16">헤더</span><i class="badge">9</i></span>
+                  <span class="subtab"><span data-i18n="demo.ui.21">쿠키</span></span>
+                  <span class="subtab"><span data-i18n="demo.ui.22">계약</span><i class="badge">1</i></span>
+                  <span class="subtab"><span data-i18n="demo.ui.23">타임라인</span></span>
+                </div>
+
+                <div class="response-body">
+                  <pre>{
+  <span class="syntax-key">"id"</span>: <span class="syntax-string">"usr_8Kd2Xa"</span>,
+  <span class="syntax-key">"email"</span>: <span class="syntax-string">"ada@example.com"</span>,
+  <span class="syntax-key">"created"</span>: <span class="syntax-number">1757030400</span>,
+  <span class="syntax-key">"profile"</span>: {
+    <span class="syntax-key">"name"</span>: <span class="syntax-string">"Ada L."</span>,
+    <span class="syntax-key">"locale"</span>: <span class="syntax-string">"en-GB"</span>
+  },
+  <span class="squiggle syntax-key">"scope"</span>: <span class="syntax-string">"users:read orders:read"</span>
+}</pre>
+                </div>
+
+                <div class="contract-warning">
+                  <strong>
+                    Contract mismatch — response differs from the specification
+                  </strong>
+
+                  <code>scope</code> is present in the response but is not
+                  declared on <code>components/schemas/User</code>. Add the
+                  property to the schema or remove it from the handler.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     MCP SERVER
+     ================================================================ -->
+
+          <div class="stage" id="stage-mcp" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path"> mcp://localhost:7433 </span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill pill-ok"><span data-i18n="demo.ui.24">실행 중</span></span>
+              <span class="pill">stdio + HTTP</span>
+            </div>
+
+            <div class="mcp-demo">
+              <div class="mcp-header">
+                <h4><span data-i18n="demo.ui.25">openapi.yaml에서 생성됨</span></h4>
+
+                <span class="pill"><span data-i18n="demo.ui.26">도구 6개</span></span>
+                <span class="pill"><span data-i18n="demo.ui.27">리소스 7개</span></span>
+                <span class="pill pill-warn"><span data-i18n="demo.ui.28">성능 저하 1개</span></span>
+                <span class="pill pill-ok"><span data-i18n="demo.ui.29">저장 시 다시 생성</span></span>
+              </div>
+
+              <p class="mcp-description">
+                Every operation with an operationId becomes a tool. Arguments
+                come from parameters and requestBody. Nothing is hand-written.
+              </p>
+
+              <div class="tools-grid">
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    POST /auth/login → operationId → <strong>loginUser</strong>
+                  </div>
+
+                  <h5>loginUser</h5>
+
+                  <p>Exchange credentials for a bearer token.</p>
+
+                  <div class="arguments">
+                    <span class="argument">email : string</span>
+                    <span class="argument">password : string</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-ok"><span data-i18n="demo.ui.30">정상</span></span>
+                    args from requestBody
+                  </div>
+                </div>
+
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    GET /users/{id} → operationId → <strong>getUser</strong>
+                  </div>
+
+                  <h5>getUser</h5>
+
+                  <p>Retrieve a single user by identifier.</p>
+
+                  <div class="arguments">
+                    <span class="argument">id : string</span>
+                    <span class="argument">include? : string</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-ok"><span data-i18n="demo.ui.30">정상</span></span>
+                    args from 2 parameters
+                  </div>
+                </div>
+
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    POST /orders → operationId → <strong>createOrder</strong>
+                  </div>
+
+                  <h5>createOrder</h5>
+
+                  <p>Create an order for the authenticated customer.</p>
+
+                  <div class="arguments">
+                    <span class="argument">items : array</span>
+                    <span class="argument">currency : string</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-ok"><span data-i18n="demo.ui.30">정상</span></span>
+                    args from requestBody
+                  </div>
+                </div>
+
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    POST /orders/{id}/refund → operationId →
+                    <strong>refundOrder</strong>
+                  </div>
+
+                  <h5>refundOrder</h5>
+
+                  <p>Refund an order in full or in part.</p>
+
+                  <div class="arguments">
+                    <span class="argument">id : string</span>
+                    <span class="argument">amount? : integer</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-warn"><span data-i18n="demo.ui.31">성능 저하</span></span>
+                    amount has no description
+                  </div>
+                </div>
+              </div>
+
+              <div class="mcp-log">
+                <span class="log-time">14:02:11</span> watch openapi.yaml
+                changed <span class="log-time">(line 144)</span><br>
+                <span class="log-time">14:02:11</span> build parsed 3.1.0 · 11
+                operations · 14 schemas<br>
+                <span class="log-time">14:02:11</span> build
+                <span class="log-ok"><span data-i18n="demo.ui.26">도구 6개</span></span>, 7 resources ·
+                <span class="log-warn">1 skipped (no operationId)</span><br>
+                <span class="log-time">14:02:12</span> serve listening on stdio
+                and http://localhost:7433<br>
+                <span class="log-time">14:02:31</span> call
+                <span class="log-ok">getUser</span> { id: "usr_8Kd2Xa" } → 200
+                in 148 ms
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     API DOCS
+     ================================================================ -->
+
+          <div class="stage" id="stage-docs" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path">
+                docs.example.dev/reference/users/get
+              </span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill"><span data-i18n="demo.ui.32">정적 내보내기</span></span>
+              <span class="pill pill-ok"><span data-i18n="demo.ui.33">명세와 동기화됨</span></span>
+            </div>
+
+            <div class="docs-demo">
+              <aside class="docs-nav">
+                <div class="docs-group"><span data-i18n="demo.ui.34">시작하기</span></div>
+
+                <a href="#"><span data-i18n="demo.ui.35">소개</span></a>
+                <a href="#"><span data-i18n="demo.ui.36">인증</span></a>
+                <a href="#"><span data-i18n="demo.ui.37">오류</span></a>
+                <a href="#"><span data-i18n="demo.ui.38">페이지 나누기</span></a>
+
+                <div class="docs-group"><span data-i18n="demo.ui.39">주요 리소스</span></div>
+
+                <a href="#">Users</a>
+                <a href="#" class="active">Retrieve a user</a>
+                <a href="#">List users</a>
+                <a href="#">Update a user</a>
+                <a href="#">Orders</a>
+                <a href="#">Refunds</a>
+              </aside>
+
+              <main class="docs-main">
+                <h3>Retrieve a user</h3>
+
+                <p class="endpoint-path">GET /v1/users/{id}</p>
+
+                <p class="docs-lede">
+                  Returns the user object for a valid identifier. If the user
+                  has been deleted, an Error object is returned with status 404.
+                </p>
+
+                <div class="docs-heading"><span data-i18n="demo.ui.40">경로 매개변수</span></div>
+
+                <div class="parameter-list">
+                  <div class="parameter">
+                    <div>
+                      <span class="parameter-name">id</span>
+                      <span class="parameter-type">string</span>
+                      <span class="required"><span data-i18n="demo.ui.41">필수</span></span>
+                    </div>
+
+                    <div class="parameter-description">
+                      The identifier of the user, prefixed with
+                      <code>usr_</code>.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="docs-heading"><span data-i18n="demo.ui.42">쿼리 매개변수</span></div>
+
+                <div class="parameter-list">
+                  <div class="parameter">
+                    <div>
+                      <span class="parameter-name">include</span>
+                      <span class="parameter-type">string</span>
+                    </div>
+
+                    <div class="parameter-description">
+                      Expand a related object.
+                    </div>
+                  </div>
+                </div>
+              </main>
+
+              <aside class="code-panel">
+                <div class="languages">
+                  <span class="language active">cURL</span>
+                  <span class="language">Node</span>
+                  <span class="language">Python</span>
+                  <span class="language">Go</span>
+                </div>
+
+                <div class="code-panel-title"><span data-i18n="demo.ui.43">요청</span></div>
+
+                <div class="code-box">
+                  <pre><span class="cmd">curl</span> https://api.example.dev/v1/users/usr_8Kd2Xa \
+  <span class="flag-code">-H</span> <span class="string-code">"Authorization: Bearer $API_KEY"</span> \
+  <span class="flag-code">-G</span> <span class="flag-code">-d</span> <span class="string-code">include=profile</span></pre>
+                </div>
+
+                <div class="code-panel-title"><span data-i18n="demo.ui.44">응답</span></div>
+
+                <div class="code-box">
+                  <pre>{
+  <span class="key-code">"id"</span>: <span class="string-code">"usr_8Kd2Xa"</span>,
+  <span class="key-code">"email"</span>: <span class="string-code">"ada@example.com"</span>,
+  <span class="key-code">"created"</span>: <span class="number-code">1757030400</span>
+}</pre>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenes-section flows-section" id="use-cases" aria-labelledby="scenes-title">
+        <div class="scenes-heading">
+          <div>
+            <p data-i18n="flow.kicker" class="scenes-kicker">실제 작업에서 살펴보기</p>
+            <h2 data-i18n="flow.title" id="scenes-title">반복하던 작업을 계약 중심의 흐름으로 바꾸세요.</h2>
+            <p data-i18n="flow.intro" class="scenes-intro">아래에서 작업을 선택하세요. Powerduck은 내 컴퓨터의 OpenAPI 파일을 기준으로 환경, 테스트, 목 서버까지 실행합니다. 계정이나 업로드는 필요하지 않습니다.</p>
+          </div>
+        </div>
+        <div class="flow-baseline">
+          <div>
+            <h3 data-i18n="flow.baseTitle">로컬에서도 온전한 작업 공간을.</h3>
+            <p data-i18n="flow.baseBody">계정이나 업로드 없이 로컬 API 작업을 시작하세요. 요청, 인증, 환경, 어서션을 함께 사용할 수 있습니다. 온라인에 게시하고 싶을 때 Cloud를 선택하면 됩니다.</p>
+          </div>
+          <ul>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base0">cURL / Postman / OpenAPI 가져오기</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base1">인증 및 환경</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base2">스크립트 및 어서션</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base3">컬렉션 및 시나리오 테스트</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base4">로컬 목 서버</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base5">7개 프로토콜 디버깅</span>
+            </li>
+          </ul>
+          <p data-i18n="flow.baseNote" class="flow-baseline-note">로컬 작업에는 계정이 필요하지 않습니다. 원격 AI는 선택한 모델 서비스를 사용하며, 온라인 호스팅에는 Cloud 계정이 필요합니다.</p>
+        </div>
+        <div class="flow-section-label">
+          <h3 id="workflow-selector-title" data-i18n="flow.difference">어떤 수작업을 줄이고 싶으신가요?</h3>
+          <a class="scenes-more" href="/ko-KR/use-cases/"><span data-i18n="flow.all">활용 사례 살펴보기</span>
+            <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="scenario-overview">
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">01</span>
+            <h3 data-i18n="flow.1.pain">API 문서가 맞는지 확인하려고 아직도 소스 코드를 읽고 계신가요?</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.1.title">프로젝트에서 문서를 생성하세요.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.1.result">검토 가능한 API 정의와 로컬 문서 링크.</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/ko-KR/use-cases/#code-to-docs"><span data-i18n="flow.boundary">설정 및 요구 사항 보기</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">02</span>
+            <h3 data-i18n="flow.2.pain">AI에 명세를 줬는데 다른 필드와 경로로 구현한 적이 있나요?</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.2.title">실제 API 계약을 기준으로 구현하세요.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.2.result">계약에 따라 구현하고 실제 응답으로 확인한 결과.</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/ko-KR/use-cases/#design-api"><span data-i18n="flow.boundary">설정 및 요구 사항 보기</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">03</span>
+            <h3 data-i18n="flow.3.pain">API가 바뀔 때마다 같은 업무 흐름을 수동으로 반복하시나요?</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.3.title">업무 시나리오 전체를 실행하세요.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.3.result">테스트 스크립트 생성에 그치지 않고 단계별 결과와 실패한 어서션까지 확인.</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/ko-KR/use-cases/#contract-tests"><span data-i18n="flow.boundary">설정 및 요구 사항 보기</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">04</span>
+            <h3 data-i18n="flow.4.pain">다음 엔드포인트의 프로토콜이 다르다는 이유로 도구를 바꾸시나요?</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.4.title">7개 프로토콜을 한곳에서 살펴보세요.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.4.result">정확히 무슨 일이 있었는지 직접 살펴볼 수 있는 수동 제어.</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/ko-KR/use-cases/#protocols"><span data-i18n="flow.boundary">설정 및 요구 사항 보기</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">05</span>
+            <h3 data-i18n="flow.5.pain">AI의 도움이 필요할 때마다 요청과 응답을 채팅에 복사하시나요?</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.5.title">실제 요청 컨텍스트로 원인을 조사하세요.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.5.result">실제 요청 결과에 근거한 진단과 검토 가능한 변경 사항.</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/ko-KR/use-cases/#ai-debug"><span data-i18n="flow.boundary">설정 및 요구 사항 보기</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">06</span>
+            <h3 data-i18n="flow.6.pain">API 문서와 MCP를 공유하려고 별도 호스팅 환경을 관리하시나요?</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.6.title">하나의 API에서 문서와 MCP를 게시하세요.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.6.result">호스팅 인프라를 직접 운영하지 않고도 문서와 MCP URL 제공.</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/ko-KR/use-cases/#share-docs"><span data-i18n="flow.boundary">설정 및 요구 사항 보기</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </section>
+      <!-- =======================================================================
+     SPEC LOADER
+     ======================================================================= -->
+
+      <!-- =======================================================================
+     QUICK START (browser vs desktop)
+     ======================================================================= -->
+
+      <section class="section quick-section" id="quickstart">
+        <div class="quick-shell">
+          <div class="quick-head">
+            <p class="section-kicker" data-i18n="quick.kicker">내 컴퓨터에서 시작</p>
+            <h2 class="section-title" data-i18n="quick.title">다운로드하고, 내 환경에서 작업하세요.</h2>
+            <p class="section-deck" data-i18n="quick.deck">Powerduck은 데스크톱 API 작업 공간입니다. 로컬 파일을 열어 첫 요청을 보내고, 준비되면 코딩 에이전트를 연결하세요. 계정 없이 시작할 수 있습니다.</p>
+          </div>
+
+          <div class="quick-grid">
+            <article class="quick-card quick-card-desktop">
+              <div class="quick-card-top">
+                <span class="quick-badge quick-badge-muted" data-i18n="quick.desktopTag">기본 작업 공간</span>
+                <h3 data-i18n="quick.desktopTitle">나만의 API 작업대를 마련하세요.</h3>
+                <p data-i18n="quick.desktopBody">로컬 파일, 코드 스캔, 네이티브 프로토콜 디버깅을 한곳에서 사용하세요. 설계, 조사, 테스트에 도움이 필요할 때 원하는 AI 모델을 연결하면 됩니다.</p>
+              </div>
+
+              <ol class="quick-steps">
+                <li>
+                  <span class="quick-step-num">1</span>
+                  <span data-i18n="quick.step1">앱을 다운로드하고 로컬 예제를 실행하세요. 계정이나 모델 키가 필요하지 않습니다.</span>
+                </li>
+                <li>
+                  <span class="quick-step-num">2</span>
+                  <span data-i18n="quick.step2">OpenAPI 파일을 열거나 기존 코드베이스를 스캔하세요.</span>
+                </li>
+                <li>
+                  <span class="quick-step-num">3</span>
+                  <span data-i18n="quick.step3">코딩 에이전트를 연결해 코드를 변경하고, 실제 백엔드가 계약을 따르는지 검증하세요.</span>
+                </li>
+              </ol>
+
+              <a class="btn btn-primary btn-sm quick-download" href="/ko-KR/download/" data-i18n="hero.download">데스크톱 앱 다운로드</a>
+              <p class="quick-os-note" data-i18n="quick.desktopNote">macOS 12 이상 · Windows 10 이상 · Linux</p>
+            </article>
+
+            <article class="quick-card quick-card-browser">
+              <div class="quick-card-top">
+                <span class="quick-badge" data-i18n="quick.browserTag">먼저 둘러보고 싶으신가요?</span>
+                <h3 data-i18n="quick.browserTitle">브라우저에서 간단히 체험하세요.</h3>
+                <p data-i18n="quick.browserBody">웹 데모는 공유 클라우드 모델을 사용하므로 로그인이 필요합니다. 계정 없이 로컬에서 작업하려면 데스크톱 앱을 다운로드하세요.</p>
+              </div>
+
+              <a class="btn btn-secondary quick-web-open" href="/app/" data-i18n="flow.openWeb">웹 앱 열기</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     CONTRACT VERIFICATION (core differentiator)
+     ======================================================================= -->
+
+      <section class="section verify-section" id="contract-example">
+        <div class="verify-shell">
+          <div class="verify-copy">
+            <p class="section-kicker" data-i18n="verify.kicker">계약 검증</p>
+            <h2 class="section-title" data-i18n="verify.title">실제 계약 오류를 찾고, 수정 결과까지 검증</h2>
+            <p class="section-deck" data-i18n="verify.deck">일반적인 API 클라이언트는 요청을 보내고 응답을 보여줍니다. Powerduck은 모든 응답을 OpenAPI 계약과 비교해, 명세와 달라진 부분을 바로 찾아냅니다.</p>
+            <a class="btn btn-secondary" href="/docs/ko-KR/client/contract-example/" data-i18n="start.exampleCta">실행 가능한 예제 보기</a>
+          </div>
+
+          <div class="verify-panel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="chrome-path">~/commerce-api — response check</span>
+              <span class="chrome-spacer"></span>
+              <span class="pill">OpenAPI 3.1</span>
+            </div>
+
+            <div class="verify-body">
+              <div class="verify-block">
+                <div class="verify-label" data-i18n="verify.contractRequires">계약의 요구 사항</div>
+                <pre class="verify-code"><code>total:
+  type: number</code></pre>
+              </div>
+
+              <div class="verify-block verify-bad">
+                <div class="verify-label">
+                  <span class="verify-mark verify-mark-bad" aria-hidden="true">✕</span>
+                  <span data-i18n="verify.responseLabel">백엔드가 문자열을 반환</span>
+                </div>
+                <pre class="verify-code"><code>{
+  "total": "49.00"
+}</code></pre>
+                <div class="verify-msg verify-msg-bad">
+                  <span class="verify-mark verify-mark-bad" aria-hidden="true">✕</span>
+                  <span data-i18n="verify.failMsg">/total은 숫자여야 합니다 — 응답이 계약을 위반했습니다</span>
+                </div>
+              </div>
+
+              <div class="verify-block verify-good">
+                <div class="verify-label">
+                  <span class="verify-mark verify-mark-good" aria-hidden="true">✓</span>
+                  <span data-i18n="verify.fixLabel">숫자를 반환하도록 수정</span>
+                </div>
+                <pre class="verify-code"><code>{
+  "total": 49
+}</code></pre>
+                <div class="verify-msg verify-msg-good">
+                  <span class="verify-mark verify-mark-good" aria-hidden="true">✓</span>
+                  <span data-i18n="verify.passMsg">응답이 계약과 일치합니다</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: SPEC EDITOR
+     ======================================================================= -->
+
+      <section class="feature-section" id="spec-editor">
+        <div class="section-shell">
+          <div class="feature-layout">
+            <div class="feature-copy">
+              <p class="section-kicker" data-i18n="f1.kicker">OpenAPI 명세 편집기</p>
+
+              <h2 class="section-title" data-i18n="f1.title">OpenAPI 명세 편집기</h2>
+
+              <p class="section-deck" data-i18n="f1.deck">개요는 들여쓰기를 추측하지 않고 명세의 실제 구조를 따릅니다. 경로와 컴포넌트를 트리로 탐색하고 문제가 있는 위치에서 바로 수정하세요.</p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong data-i18n="f1.b1Title">스키마 기반 검증</strong>
+                  <span data-i18n="f1.b1Body">파일에 선언된 3.0, 3.1 또는 3.2 규격에 맞춰 검증합니다.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f1.b2Title">$ref 참조 탐색</strong>
+                  <span data-i18n="f1.b2Body">정의로 이동하고 사용 위치를 확인하며, 잘못 입력한 참조의 수정 제안도 받으세요.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f1.b3Title">원본 파일에서 바로 편집</strong>
+                  <span data-i18n="f1.b3Body">저장소의 파일이 언제나 기준입니다.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f1.b4Title">규칙 이름이 표시되는 진단</strong>
+                  <span data-i18n="f1.b4Body">CI 오류와 편집기 진단이 같은 용어를 사용합니다.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-preview mini-spec-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"> openapi.yaml </span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill pill-warn"><span data-i18n="demo.ui.0">문제 3개</span></span>
+              </div>
+
+              <div class="preview-body mini-editor">
+                <div class="mini-tree">
+                  <div class="mini-tree-row">▾ info</div>
+                  <div class="mini-tree-row">▾ paths</div>
+                  <div class="mini-tree-row">　/users</div>
+                  <div class="mini-tree-row active">　/users/{id}</div>
+                  <div class="mini-tree-row">　/orders</div>
+                  <div class="mini-tree-row">▾ components</div>
+                  <div class="mini-tree-row">　schemas</div>
+                  <div class="mini-tree-row">　responses</div>
+                </div>
+
+                <div class="mini-code">
+                  <div class="mini-code-content">
+                    <div class="mini-line">
+                      <span class="mini-ln">142</span>
+                      <span>/users/{id}:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">143</span>
+                      <span> get:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">144</span>
+                      <span> operationId: getUser</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">145</span>
+                      <span> responses:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">156</span>
+                      <span class="squiggle"> contents:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">160</span>
+                      <span class="squiggle">$ref: Erorr</span>
+                    </div>
+                  </div>
+
+                  <div class="mini-problems">
+                    <div class="mini-problem-head"><span data-i18n="demo.ui.45">문제 · 오류 2개 · 경고 1개</span></div>
+
+                    <div class="mini-problem">
+                      <b>156:9</b>
+                      contents is not a valid Response Object key
+                    </div>
+
+                    <div class="mini-problem">
+                      <b>160:24</b>
+                      Unresolved $ref. Closest match: Error
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: API DEBUG
+     ======================================================================= -->
+
+      <section class="feature-section" id="api-debug">
+        <div class="section-shell">
+          <div class="feature-layout reverse">
+            <div class="feature-preview mini-debug-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"><span data-i18n="demo.ui.46">API 디버깅</span></span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill pill-ok"><span data-i18n="demo.ui.10">계약 검사 켜짐</span></span>
+              </div>
+
+              <div class="preview-body mini-debug">
+                <div class="mini-collection">
+                  <div class="mini-tree-row">▾ Users</div>
+                  <div class="mini-tree-row">　GET listUsers</div>
+                  <div class="mini-tree-row active">　GET getUser</div>
+                  <div class="mini-tree-row">▾ Orders</div>
+                  <div class="mini-tree-row">　POST createOrder</div>
+                </div>
+
+                <div class="mini-request">
+                  <div class="mini-url">
+                    <span class="mini-method">GET</span>
+
+                    <span class="mini-url-input">
+                      {{baseUrl}}/users/{{userId}}
+                    </span>
+
+                    <span class="mini-send"><span data-i18n="demo.ui.13">전송</span></span>
+                  </div>
+
+                  <div class="mini-tabs">
+                    <span><span data-i18n="demo.ui.14">매개변수</span></span>
+                    <span><span data-i18n="demo.ui.15">인증</span></span>
+                    <span class="active"><span data-i18n="demo.ui.17">본문</span></span>
+                    <span><span data-i18n="demo.ui.16">헤더</span></span>
+                  </div>
+
+                  <div class="mini-response">
+                    <pre>{
+  "id": "usr_8Kd2Xa",
+  "email": "ada@example.com",
+  <span class="squiggle">"scope"</span>: "users:read"
+}</pre>
+                  </div>
+
+                  <div class="mini-contract">
+                    Contract mismatch — "scope" is not declared on User.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-copy">
+              <p class="section-kicker" data-i18n="f2.kicker">API 디버깅</p>
+
+              <h2 class="section-title" data-i18n="f2.title">명세를 기준으로 API 디버깅</h2>
+
+              <p class="section-deck" data-i18n="f2.deck">개발자에게 익숙한 요청 작성 도구에 계약 기반 응답 검증을 더했습니다.</p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong data-i18n="f2.b1Title">경로와 태그로 컬렉션 자동 구성</strong>
+                  <span data-i18n="f2.b1Body">별도로 가져오거나 수동으로 다시 동기화할 필요가 없습니다.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f2.b2Title">모든 응답의 계약 검사</strong>
+                  <span data-i18n="f2.b2Body">선언되지 않은 속성, 누락된 필드, 타입 불일치를 응답에서 바로 확인하세요.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f2.b3Title">환경과 변수</strong>
+                  <span data-i18n="f2.b3Body">기존 개발 및 스테이징 설정을 재사용하세요.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f2.b4Title">securitySchemes 기반 인증 설정</strong>
+                  <span data-i18n="f2.b4Body">명세를 바탕으로 Bearer, API 키, OAuth 인증을 설정합니다.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: MCP
+     ======================================================================= -->
+
+      <section class="feature-section" id="mcp-server">
+        <div class="section-shell">
+          <div class="feature-layout">
+            <div class="feature-copy">
+              <p class="section-kicker" data-i18n="f3.kicker">MCP 서버 생성기</p>
+
+              <h2 class="section-title" data-i18n="f3.title">OpenAPI로 MCP 서버 생성</h2>
+
+              <p class="section-deck" data-i18n="f3.deck">명세에는 이미 도구를 정의할 정보가 담겨 있습니다. Powerduck은 이를 실행 가능한 MCP 서버로 변환하고, 각 도구가 어떤 OpenAPI 필드에서 만들어졌는지 보여줍니다.</p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong data-i18n="f3.b1Title">명확한 출처</strong>
+                  <span data-i18n="f3.b1Body">모든 도구에서 원본 작업, operationId, 스키마를 추적할 수 있습니다.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f3.b2Title">제한되거나 건너뛴 항목 표시</strong>
+                  <span data-i18n="f3.b2Body">메타데이터가 부족하면 불완전한 도구를 조용히 생성하는 대신 부족한 내용을 표시합니다.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f3.b3Title">저장 시 다시 생성</strong>
+                  <span data-i18n="f3.b3Body">명세를 변경하면 별도 빌드 없이 도구가 갱신됩니다.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f3.b4Title">로컬 전송 방식</strong>
+                  <span data-i18n="f3.b4Body">로컬 에이전트와 워크플로에서 stdio 또는 HTTP로 실행하세요.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-preview mini-mcp-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"> mcp://localhost:7433 </span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill pill-ok"><span data-i18n="demo.ui.24">실행 중</span></span>
+              </div>
+
+              <div class="preview-body mini-mcp">
+                <div class="mini-mcp-header">
+                  <span class="mini-mcp-title"><span data-i18n="demo.ui.25">openapi.yaml에서 생성됨</span></span>
+
+                  <span class="mini-mcp-count"><span data-i18n="demo.ui.26">도구 6개</span></span>
+                  <span class="mini-mcp-count"><span data-i18n="demo.ui.27">리소스 7개</span></span>
+                </div>
+
+                <div class="mini-tools">
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">
+                      GET /users/{id} → operationId
+                    </div>
+
+                    <div class="mini-tool-name">getUser</div>
+
+                    <div class="mini-tool-args">id: string</div>
+                  </div>
+
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">
+                      POST /orders → operationId
+                    </div>
+
+                    <div class="mini-tool-name">createOrder</div>
+
+                    <div class="mini-tool-args">items: array</div>
+                  </div>
+
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">POST /auth/login</div>
+
+                    <div class="mini-tool-name">loginUser</div>
+
+                    <div class="mini-tool-args">email, password</div>
+                  </div>
+
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">DELETE /users/{id}</div>
+
+                    <div class="mini-tool-name"><span data-i18n="demo.ui.47">건너뜀</span></div>
+
+                    <div class="mini-tool-args"><span data-i18n="demo.ui.48">operationId 없음</span></div>
+                  </div>
+                </div>
+
+                <div class="mini-log">
+                  14:02 build 6 tools, 7 resources<br>
+                  14:02 serve listening on :7433<br>
+                  14:03 call getUser → 200
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: DOCS
+     ======================================================================= -->
+
+      <section class="feature-section" id="api-docs">
+        <div class="section-shell">
+          <div class="feature-layout reverse">
+            <div class="feature-preview mini-doc-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"><span data-i18n="demo.ui.49">API 레퍼런스</span></span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill"><span data-i18n="demo.ui.32">정적 내보내기</span></span>
+              </div>
+
+              <div class="preview-body mini-docs">
+                <div class="mini-doc-nav">
+                  <div class="mini-doc-nav-title">Users</div>
+
+                  <div class="mini-doc-nav-item"><span data-i18n="demo.ui.50">개요</span></div>
+
+                  <div class="mini-doc-nav-item active">Retrieve a user</div>
+
+                  <div class="mini-doc-nav-item">List users</div>
+
+                  <div class="mini-doc-nav-item">Update user</div>
+                </div>
+
+                <div class="mini-doc-main">
+                  <h4>Retrieve a user</h4>
+
+                  <div class="mini-doc-path">GET /v1/users/{id}</div>
+
+                  <div class="mini-doc-text">
+                    Returns the user object for a valid identifier.
+                  </div>
+
+                  <div class="mini-doc-section"><span data-i18n="demo.ui.40">경로 매개변수</span></div>
+
+                  <div class="mini-doc-param">id · string · required</div>
+
+                  <div class="mini-doc-section"><span data-i18n="demo.ui.51">반환값</span></div>
+
+                  <div class="mini-doc-param">User · object</div>
+                </div>
+
+                <div class="mini-doc-code">
+                  <pre>curl /users/{id}
+
+{
+  "id": "usr_...",
+  "email": "ada@..."
+}</pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-copy">
+              <p class="section-kicker" data-i18n="f4.kicker">API 문서 생성기</p>
+
+              <h2 class="section-title" data-i18n="f4.title">하나의 계약에서 API 문서까지</h2>
+
+              <p class="section-deck" data-i18n="f4.deck">OpenAPI 모델에서 레퍼런스 문서를 직접 생성하세요. 정적 파일로 내보내 원하는 곳에 호스팅할 수 있습니다.</p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong data-i18n="f4.b1Title">스키마에서 생성하는 매개변수 표</strong>
+                  <span data-i18n="f4.b1Body">필수 여부, 열거형 값, 설명이 명세와 일치합니다.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f4.b2Title">여러 언어의 코드 예제</strong>
+                  <span data-i18n="f4.b2Body">각 작업에서 cURL, Node, Python, Go 예제를 생성하세요.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f4.b3Title">실제 계약에 기반한 응답</strong>
+                  <span data-i18n="f4.b3Body">성공 및 오류 응답은 디버거가 검증하는 것과 동일한 객체에서 생성됩니다.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f4.b4Title">정적 파일로 내보내기</strong>
+                  <span data-i18n="f4.b4Body">런타임 의존성이 없으며 특정 문서 플랫폼에 종속되지 않습니다.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     ONE SOURCE OF TRUTH
+     ======================================================================= -->
+
+      <section class="section product-story-section">
+        <div class="section-shell">
+          <div class="product-story-head">
+            <div>
+              <p class="section-kicker" data-i18n="story.kicker">하나의 기준</p>
+              <h2 class="section-title" data-i18n-html="story.title">하나의 로컬 OpenAPI 파일.<br>모든 기능을 AI와 함께.</h2>
+            </div>
+
+            <p class="product-story-deck" data-i18n-html="story.deck">로컬의 <strong>openapi.yaml</strong> 또는 <strong>openapi.json</strong>을 열면, 기존 계약이 완전한 API 작업 공간이 됩니다. 가져오기나 변환, 별도 컬렉션, 클라우드 복사본이 필요하지 않습니다. 원하는 결과를 자연어로 설명하면 내장 어시스턴트가 검토 가능한 단계로 실행합니다. 같은 파일을 MCP를 통해 AI 코딩 에이전트와 연결할 수도 있습니다.</p>
+          </div>
+
+          <div class="product-flow" aria-label="하나의 로컬 OpenAPI 파일. 모든 기능을 AI와 함께.">
+            <div class="product-flow-source">
+              <div class="product-flow-eyebrow" data-i18n="story.openLocal">로컬에서 열기</div>
+              <div class="product-file-icon">{ }</div>
+              <div class="product-file-name">openapi.yaml</div>
+              <div class="product-file-alt"><span data-i18n="demo.ui.52">또는 openapi.json</span></div>
+              <p data-i18n="story.fileNote">파일은 저장소에 그대로 유지됩니다.</p>
+            </div>
+
+            <div class="product-flow-connector" aria-hidden="true">
+              <span></span>
+            </div>
+
+            <div class="product-flow-tools">
+              <div class="product-flow-tool">
+                <span class="product-flow-index">01</span>
+                <strong data-i18n="nav.specEditor">명세 편집기</strong>
+                <p data-i18n="story.tool1">실제 계약을 편집하고 탐색하고 검증하세요.</p>
+              </div>
+              <div class="product-flow-tool">
+                <span class="product-flow-index">02</span>
+                <strong data-i18n="nav.apiDebug">API 디버거</strong>
+                <p data-i18n="story.tool2">같은 작업 정의에서 생성한 요청을 보내세요.</p>
+              </div>
+              <div class="product-flow-tool">
+                <span class="product-flow-index">03</span>
+                <strong data-i18n="nav.mcpServer">MCP 서버</strong>
+                <p data-i18n="story.tool3">작업을 에이전트가 사용할 도구로 변환하세요.</p>
+              </div>
+              <div class="product-flow-tool">
+                <span class="product-flow-index">04</span>
+                <strong data-i18n="nav.apiDocs">API 문서</strong>
+                <p data-i18n="story.tool4">같은 원본으로 문서를 게시하세요.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-positioning">
+            <div class="positioning-statement">
+              <span class="positioning-mark">Powerduck</span>
+              <h3 data-i18n-html="story.posTitle">API 클라이언트와 명세 뷰어를 넘어.<br>AI와 함께 API를 개발하는<br>하나의 작업 공간.</h3>
+              <p data-i18n="story.posBody">OpenAPI 파일을 중심으로 AI와 함께 작업하는 로컬 작업 공간입니다.</p>
+            </div>
+
+            <div class="positioning-points">
+              <div>
+                <span data-i18n="story.noCloud">클라우드 없이 시작</span><strong data-i18n="story.point1">로컬 작업을 위해 명세를 업로드할 필요가 없습니다.</strong>
+              </div>
+              <div>
+                <span data-i18n="story.noSync">수동 동기화 불필요</span><strong data-i18n="story.point2">계약과 별도로 동기화할 자료가 없습니다.</strong>
+              </div>
+              <div>
+                <span data-i18n="story.noCopy">추가 복사본 불필요</span><strong data-i18n="story.point3">기존 YAML 또는 JSON이 곧 작업 공간입니다.</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     LICENSING
+     ======================================================================= -->
+
+      <section class="section outcome-section" id="data-boundaries">
+        <h2 data-i18n="start.privacy">로컬 작업, 원격 서비스, 그리고 사용자의 선택</h2>
+        <p data-i18n="faq.a1">로컬 파일 사용에는 계정이 필요하지 않습니다. 원격 AI를 사용하면 관련 컨텍스트가 설정한 공급자에게 전송됩니다. Cloud에 게시할 때는 선택한 콘텐츠가 업로드됩니다. 선택적 사용 통계는 기본적으로 꺼져 있습니다. 수집 항목과 설정 방법은 개인정보 처리방침을 확인하세요.</p>
+        <a href="/privacy.html" data-i18n="footer.privacy">개인정보 처리방침</a>
+      </section>
+      <section class="product-paths" id="licensing" aria-labelledby="product-paths-title">
+        <p class="hero-micro" data-i18n="hero.micro">로컬 사용에는 Cloud 구매가 필요하지 않습니다. 무료로 명세 두 개를 사용할 수 있으며, 승인된 공유 보상으로 한도를 늘릴 수 있습니다. 데스크톱 라이선스를 구매하면 명세 개수 제한이 사라집니다. 본인 모델 키의 사용료는 해당 공급자가 청구합니다. 호스팅 모델 크레딧과 Cloud 호스팅 요금은 별도입니다.</p>
+        <div class="product-paths-heading">
+          <h2 id="product-paths-title" data-i18n="guide.title">다음 단계를 선택하세요.</h2>
+          <a href="/ko-KR/pricing?product=client" data-i18n="guide.compare">제품과 요금제 비교 →</a>
+        </div>
+        <div class="product-paths-grid">
+          <a class="product-path" href="/console/billing?buy=desktop">
+            <span class="product-path-job" data-i18n="guide.client.job">로컬에서 개발</span>
+            <h3 data-i18n="guide.client.title">데스크톱 라이선스</h3>
+            <p data-i18n="guide.client.desc">로컬 OpenAPI 파일을 사용해 대화로 API를 설계하고 디버깅하고 테스트하세요.</p>
+            <strong data-i18n="guide.client.cost">일회성 구매 · 영구 라이선스</strong>
+            <span aria-hidden="true"> ↗</span>
+          </a>
+          <a class="product-path" href="/console/billing?buy=cloud">
+            <span class="product-path-job" data-i18n="guide.cloud.job">온라인에 게시</span>
+            <h3 data-i18n="guide.cloud.title">Cloud 호스팅</h3>
+            <p data-i18n="guide.cloud.desc">호스팅된 API 문서와 MCP 서비스를 팀 및 AI 에이전트와 공유하세요.</p>
+            <strong data-i18n="guide.cloud.cost">무료 요금제 · 월간 또는 연간 요금제</strong>
+            <span aria-hidden="true"> ↗</span>
+          </a>
+          <a class="product-path" href="/console/billing?buy=model-pro">
+            <span class="product-path-job" data-i18n="guide.models.job">모델 선택</span>
+            <h3 data-i18n="guide.models.title">AI 크레딧</h3>
+            <p data-i18n="guide.models.desc">크레딧을 충전해 호스팅 모델을 사용하거나, 데스크톱 앱에서 원하는 모델 공급자를 설정하세요.</p>
+            <strong data-i18n="guide.models.cost">선불 모델 크레딧</strong>
+            <span aria-hidden="true"> ↗</span>
+          </a>
+        </div>
+        <p class="product-paths-account">
+          <span data-i18n="guide.account">이미 계정이 있으신가요? 게시 항목, 데스크톱 라이선스, AI 크레딧을 관리하세요.</span>
+          <a href="/signin" data-i18n="guide.signin">콘솔에 로그인 →</a>
+        </p>
+      </section>
+
+      <!-- =======================================================================
+     FAQ
+     ======================================================================= -->
+
+      <section class="section" id="faq">
+        <div class="section-shell">
+          <div class="faq-shell">
+            <div class="faq-heading">
+              <p class="section-kicker" data-i18n="faq.kicker">자주 묻는 질문</p>
+
+              <h2 class="section-title" data-i18n="faq.title">개발자가 먼저 궁금해하는 것들</h2>
+
+              <p class="section-deck" data-i18n="faq.deck">로컬 파일, OpenAPI 버전, MCP 생성, 라이선스에 관한 안내입니다.</p>
+            </div>
+
+            <details open="">
+              <summary data-i18n="faq.q1">Powerduck이 제 OpenAPI 명세를 업로드하나요?</summary>
+
+              <p data-i18n="faq.a1">로컬 파일 사용에는 계정이 필요하지 않습니다. 원격 AI를 사용하면 관련 컨텍스트가 설정한 공급자에게 전송됩니다. Cloud에 게시할 때는 선택한 콘텐츠가 업로드됩니다. 선택적 사용 통계는 기본적으로 꺼져 있습니다. 수집 항목과 설정 방법은 개인정보 처리방침을 확인하세요.</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q2">어떤 OpenAPI 버전을 지원하나요?</summary>
+
+              <p data-i18n="faq.a2">OpenAPI 3.0, 3.1, 3.2를 지원합니다. 공통 기능만으로 검증하지 않고 파일에 선언된 버전을 감지해 해당 규격으로 검증합니다.</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q3">MCP 서버는 어떻게 생성되나요?</summary>
+
+              <p data-i18n="faq.a3">operationId가 있는 작업이 MCP 도구가 됩니다. 매개변수와 requestBody 스키마에서 인수를 생성합니다. 컴포넌트 스키마를 리소스로 제공할 수도 있습니다. 명세가 변경될 때마다 생성된 서버가 갱신됩니다.</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q4">데스크톱 라이선스는 구독 방식인가요?</summary>
+
+              <p data-i18n="faq.a4">아닙니다. Powerduck Desktop은 한 번 구매하는 영구 라이선스입니다. 동일한 메이저 버전의 업데이트가 포함되며, 이후 메이저 버전 업그레이드는 선택 사항입니다.</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q5">기존 Postman 컬렉션을 계속 사용할 수 있나요?</summary>
+
+              <p data-i18n="faq.a5">네. 기존 컬렉션과 환경을 계속 사용할 수 있습니다. Powerduck은 OpenAPI 명세를 기준 계약으로 삼고 요청이 계약과 다른 부분을 찾아줍니다.</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q6">CI에서도 사용할 수 있나요?</summary>
+
+              <p>
+                <span data-i18n="faq.a6Before">네. 동일한 검증 및 생성 엔진을 제공하는 </span>
+                <a href="/opensource/openapi-cli.html" style="color: var(--accent); text-decoration: underline">@powerduck/openapi-cli</a><span data-i18n="faq.a6After"> 명령줄 도구를 풀 리퀘스트와 자동화 파이프라인에서 실행할 수 있습니다. 6개 프로토콜(HTTP, SSE, WebSocket, gRPC, MCP, GraphQL)의 일괄 테스트, 동시 실행 수 설정, CI 연동용 JUnit 호환 보고서를 지원합니다.</span>
+              </p>
+              <p style="margin-top: 8px">
+                <a href="/opensource/openapi-cli.html" class="btn btn-secondary" style="
+                    display: inline-flex;
+                    padding: 6px 14px;
+                    font-size: 13px;
+                  " data-i18n="faq.a6Btn">openapi-cli 살펴보기 →</a>
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FOOTER
+     ======================================================================= -->
+
+      <footer class="site-footer">
+        <div class="footer-shell">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <a href="/ko-KR/" class="brand" aria-label="Powerduck 홈">
+                <img src="/assets/images/logo.svg" alt="Powerduck logo" class="brand-logo">
+                <span>Powerduck</span>
+              </a>
+              <p data-i18n="footer.brand">현대적인 API 워크플로를 위한 개발 도구를 만듭니다. 오픈 소스로 제공하며, 실제 운영 환경과 커뮤니티를 함께 생각합니다.</p>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="footer.product">제품</h6>
+              <ul>
+                <li>
+                  <a href="#spec-editor" data-i18n="nav.specEditor">명세 편집기</a>
+                </li>
+                <li>
+                  <a href="#api-debug" data-i18n="nav.apiDebug">API 디버거</a>
+                </li>
+                <li>
+                  <a href="#mcp-server" data-i18n="nav.mcpServer">MCP 서버</a>
+                </li>
+                <li>
+                  <a href="#api-docs" data-i18n="nav.apiDocs">API 문서</a>
+                </li>
+                <li>
+                  <a href="/ko-KR/download/" data-i18n="nav.download">다운로드</a>
+                </li>
+                <li>
+                  <a href="/ko-KR/pricing?product=client" data-i18n="footer.prices">가격</a>
+                </li>
+                <li><a href="/blog/" data-i18n="nav.blog">블로그</a></li>
+                <li>
+                  <a href="/blog/tag/release-notes/" data-i18n="nav.releaseNotes">릴리스 노트</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="nav.cloud">Cloud</h6>
+              <ul>
+                <li>
+                  <a data-cloud-signin="/hub" href="/ko-KR/hub" data-i18n="nav.hub">Hub</a>
+                </li>
+                <li>
+                  <a data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">로그인</a>
+                </li>
+                <li>
+                  <a href="/docs/ko-KR/cloud/quickstart/index.html" data-i18n="footer.quickstart">빠른 시작</a>
+                </li>
+                <li>
+                  <a href="/docs/ko-KR/cloud/access-control/index.html" data-i18n="footer.accessControl">접근 제어</a>
+                </li>
+                <li>
+                  <a href="/docs/ko-KR/cloud/custom-domains/index.html" data-i18n="footer.customDomains">사용자 지정 도메인</a>
+                </li>
+                <li>
+                  <a href="/docs/ko-KR/cloud/billing/index.html" data-i18n="footer.billing">결제</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="nav.resources">자료</h6>
+              <ul>
+                <li>
+                  <a href="/docs/ko-KR/overview/introduction/index.html" data-i18n="nav.documentation">문서</a>
+                </li>
+                <li>
+                  <a href="/docs/ko-KR/client/introduction/index.html" data-i18n="footer.clientGuide">클라이언트 가이드</a>
+                </li>
+                <li>
+                  <a href="/docs/ko-KR/cloud/introduction/index.html" data-i18n="footer.cloudGuide">Cloud 가이드</a>
+                </li>
+                <li>
+                  <a href="https://github.com/powerducklab" target="_blank" rel="nofollow noopener noreferrer">GitHub</a>
+                </li>
+                <li>
+                  <a href="https://www.npmjs.com/search?q=%40powerduck" target="_blank" data-i18n="footer.npmPackages" rel="nofollow noopener noreferrer">npm 패키지</a>
+                </li>
+                <li><a href="#faq" data-i18n="faq.kicker">자주 묻는 질문</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="footer.legal">법적 고지</h6>
+              <ul>
+                <li>
+                  <a href="/terms.html" data-i18n="footer.terms">서비스 이용약관</a>
+                </li>
+                <li>
+                  <a href="/privacy.html" data-i18n="footer.privacy">개인정보 처리방침</a>
+                </li>
+                <li>
+                  <a href="/refunds.html" data-i18n="footer.refunds">환불 정책</a>
+                </li>
+                <li>
+                  <a href="/cookie.html" data-i18n="footer.cookie">쿠키 안내</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span data-i18n="dl.copyright">© 2026 POWERDUCK LIMITED. 모든 권리 보유.</span>
+            <div class="footer-bottom-links">
+              <a href="/terms.html" data-i18n="footer.termsShort">이용약관</a>
+              <a href="/privacy.html" data-i18n="footer.privacyShort">개인정보 보호</a>
+              <a href="/cookie.html" data-i18n="footer.cookieShort">쿠키</a>
+            </div>
+          </div>
+        </div>
+      <nav data-locale-links="" class="locale-links" aria-label="언어 선택"><a href="/" hreflang="en" lang="en">English (US)</a><a href="/zh-CN/" hreflang="zh-CN" lang="zh-CN">简体中文</a><a href="/ja/" hreflang="ja" lang="ja">日本語</a><a href="/de/" hreflang="de" lang="de">Deutsch</a><a href="/fr/" hreflang="fr" lang="fr">Français</a><a href="/es/" hreflang="es" lang="es">Español</a><a href="/pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a><a href="/zh-TW/" hreflang="zh-TW" lang="zh-TW">繁體中文</a><a href="/it-IT/" hreflang="it-IT" lang="it-IT">Italiano</a><a href="/ko-KR/" hreflang="ko-KR" lang="ko-KR" aria-current="page">한국어</a><a href="/ru-RU/" hreflang="ru-RU" lang="ru-RU">Русский</a><a href="/id-ID/" hreflang="id-ID" lang="id-ID">Bahasa Indonesia</a><a href="/tr-TR/" hreflang="tr-TR" lang="tr-TR">Türkçe</a><a href="/vi-VN/" hreflang="vi-VN" lang="vi-VN">Tiếng Việt</a><a href="/ar-SA/" hreflang="ar-SA" lang="ar-SA">العربية</a><a href="/hi-IN/" hreflang="hi-IN" lang="hi-IN">हिन्दी</a></nav></footer>
+    </div>
+
+    <!-- =======================================================================
+     JAVASCRIPT
+     ======================================================================= -->
+
+    <script>
+      (function () {
+        "use strict";
+
+        var reduceMotion =
+          window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        /* ----------------------------------------------------------------
+        Hero agent-flow demo: the coding agent calls the Powerduck MCP tools
+        in sequence (read spec -> mock -> tests -> call -> docs). Each step
+        lights up pending -> active -> done. The static default is the fully
+        completed state.
+        ---------------------------------------------------------------- */
+
+        var heroDemo = document.querySelector("[data-hero-demo]");
+        var heroWindow = heroDemo
+          ? heroDemo.querySelector(".hv-window")
+          : null;
+        var heroSteps = heroWindow
+          ? Array.prototype.slice.call(
+              heroWindow.querySelectorAll("[data-hv-log] .hv-step")
+            )
+          : [];
+        var timers = [];
+        var STEP_MS = 700;
+        var START_MS = 160;
+        var HOLD_MS = 1900;
+
+        function clearTimers() {
+          while (timers.length) {
+            clearTimeout(timers.pop());
+          }
+        }
+
+        function resetSteps() {
+          heroSteps.forEach(function (step) {
+            step.classList.remove("is-active", "is-done");
+          });
+        }
+
+        function runCycle() {
+          clearTimers();
+          heroWindow.classList.add("is-animating");
+          heroWindow.classList.remove("is-done");
+          resetSteps();
+
+          heroSteps.forEach(function (step, i) {
+            var start = START_MS + i * STEP_MS;
+            timers.push(
+              setTimeout(function () {
+                step.classList.add("is-active");
+              }, start)
+            );
+            timers.push(
+              setTimeout(function () {
+                step.classList.remove("is-active");
+                step.classList.add("is-done");
+              }, start + STEP_MS)
+            );
+          });
+
+          var loopMs = START_MS + heroSteps.length * STEP_MS + HOLD_MS;
+          timers.push(setTimeout(runCycle, loopMs));
+        }
+
+        if (heroDemo && heroWindow && heroSteps.length && !reduceMotion) {
+          if ("IntersectionObserver" in window) {
+            var heroObserver = new IntersectionObserver(
+              function (entries) {
+                entries.forEach(function (entry) {
+                  if (entry.isIntersecting) {
+                    runCycle();
+                    heroObserver.disconnect();
+                  }
+                });
+              },
+              { threshold: 0.4 }
+            );
+            heroObserver.observe(heroDemo);
+          } else {
+            runCycle();
+          }
+        }
+
+        /* ----------------------------------------------------------------
+        Scroll reveal for the differentiator cards.
+        ---------------------------------------------------------------- */
+
+        var revealEls = document.querySelectorAll(".reveal");
+
+        if (!reduceMotion && revealEls.length) {
+          document.documentElement.classList.add("js");
+
+          if ("IntersectionObserver" in window) {
+            var revealObserver = new IntersectionObserver(
+              function (entries) {
+                entries.forEach(function (entry) {
+                  if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    revealObserver.unobserve(entry.target);
+                  }
+                });
+              },
+              { threshold: 0.12 }
+            );
+            revealEls.forEach(function (el) {
+              revealObserver.observe(el);
+            });
+          } else {
+            revealEls.forEach(function (el) {
+              el.classList.add("is-visible");
+            });
+          }
+        }
+      })();
+    </script>
+    <script>
+      (function () {
+        "use strict";
+
+        /* ------------------------------------------------------------------------
+     Theme
+     ------------------------------------------------------------------------ */
+        /* ------------------------------------------------------------------------
+     Product demo tabs
+     ------------------------------------------------------------------------ */
+
+        var tabs = document.querySelectorAll("[data-tab]");
+
+        var stageMap = {
+          editor: document.getElementById("stage-editor"),
+          debug: document.getElementById("stage-debug"),
+          mcp: document.getElementById("stage-mcp"),
+          docs: document.getElementById("stage-docs"),
+        };
+
+        function activateTab(key) {
+          tabs.forEach(function (tab) {
+            var active = tab.getAttribute("data-tab") === key;
+
+            tab.setAttribute("aria-selected", active ? "true" : "false");
+          });
+
+          Object.keys(stageMap).forEach(function (name) {
+            var stage = stageMap[name];
+
+            if (!stage) {
+              return;
+            }
+
+            stage.classList.toggle("on", name === key);
+          });
+        }
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            var key = tab.getAttribute("data-tab");
+
+            activateTab(key);
+          });
+        });
+
+        /* ------------------------------------------------------------------------
+     Deep-link mapping
+     ------------------------------------------------------------------------ */
+
+        var hashMap = {
+          "#spec-editor": "editor",
+          "#api-debug": "debug",
+          "#mcp-server": "mcp",
+          "#api-docs": "docs",
+        };
+
+        function activateFromHash() {
+          var key = hashMap[window.location.hash];
+
+          if (key) {
+            activateTab(key);
+          }
+        }
+
+        activateFromHash();
+
+        window.addEventListener("hashchange", activateFromHash);
+
+        /* ------------------------------------------------------------------------
+     Navigation -> corresponding demo surface
+     ------------------------------------------------------------------------ */
+
+        document
+          .querySelectorAll(
+            'a[href="#spec-editor"],' +
+              'a[href="#api-debug"],' +
+              'a[href="#mcp-server"],' +
+              'a[href="#api-docs"]',
+          )
+          .forEach(function (link) {
+            link.setAttribute("data-demo-tab", "");
+            link.addEventListener("click", function (e) {
+              var key = hashMap[link.getAttribute("href")];
+
+              if (key) {
+                e.preventDefault();
+                activateTab(key);
+                var demoSection = document.querySelector(".demo-section");
+
+                if (demoSection) {
+                  demoSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }
+              }
+            });
+          });
+      })();
+    </script>
+
+
+    <script src="/assets/locales/ko-KR.js?v=20261019d"></script><script src="/assets/js/common.js?v=20261019d"></script>
+    <script src="/assets/js/cloud.js?v=20261019d"></script>
+    <script>
+      (function () {
+        var btn = document.querySelector(".nav-hamburger");
+        var drawer = document.getElementById("navDrawer");
+        if (btn && drawer) {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            var open = drawer.classList.toggle("open");
+            btn.classList.toggle("open", open);
+            btn.setAttribute("aria-expanded", open);
+          });
+          document.addEventListener("click", function (e) {
+            if (
+              drawer.classList.contains("open") &&
+              !drawer.contains(e.target) &&
+              !btn.contains(e.target)
+            ) {
+              drawer.classList.remove("open");
+              btn.classList.remove("open");
+              btn.setAttribute("aria-expanded", "false");
+            }
+          });
+        }
+      })();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

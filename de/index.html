@@ -1,0 +1,2378 @@
+<!DOCTYPE html><html lang="de-DE" data-theme="light" data-page-locale="de" data-page-route="/" dir="ltr"><head>
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("pd_theme");
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          var root = document.documentElement;
+          root.setAttribute("data-theme", theme);
+          root.classList.add(theme);
+          root.classList.remove(theme === "dark" ? "light" : "dark");
+
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/images/icon-192.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Powerduck">
+    <meta property="og:title" content="Powerduck — API-Desktop-Client und kostenloses OpenAPI-/MCP-Hosting">
+    <meta property="og:description" content="Klare API-Definitionen für Code mit Codex, Claude Code und Cursor. Mit der Local-first-Desktop-App Powerduck Dokumentation aus Code erstellen und Tests mit KI orchestrieren. OpenAPI-Dokumentation und MCP-Server kostenlos auf Hub hosten.">
+    <meta property="og:url" content="https://www.powerduck.com/de/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Powerduck — API-Desktop-Client und kostenloses OpenAPI-/MCP-Hosting">
+    <meta name="twitter:description" content="Klare API-Definitionen für Code mit Codex, Claude Code und Cursor. Mit der Local-first-Desktop-App Powerduck Dokumentation aus Code erstellen und Tests mit KI orchestrieren. OpenAPI-Dokumentation und MCP-Server kostenlos auf Hub hosten.">
+
+    <title>Powerduck — API-Desktop-Client und kostenloses OpenAPI-/MCP-Hosting</title>
+
+    <meta name="description" content="Klare API-Definitionen für Code mit Codex, Claude Code und Cursor. Mit der Local-first-Desktop-App Powerduck Dokumentation aus Code erstellen und Tests mit KI orchestrieren. OpenAPI-Dokumentation und MCP-Server kostenlos auf Hub hosten.">
+
+    <meta name="keywords" content="Powerduck, AI API development, AI-native OpenAPI studio, local-first API tool, OpenAPI editor, API debugging, MCP server generator, API documentation, OpenAPI 3.2, offline API client, AI coding agent, bring your own model">
+
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/assets/css/common.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/contour.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/product-paths.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261019d">
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-8HXDV7CDEB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-8HXDV7CDEB");
+    </script>
+  <meta property="og:image" content="https://www.powerduck.com/assets/images/icon-192.png"><meta property="og:locale" content="de_DE"><link rel="canonical" href="https://www.powerduck.com/de/"><link rel="alternate" hreflang="en" href="https://www.powerduck.com/"><link rel="alternate" hreflang="zh-CN" href="https://www.powerduck.com/zh-CN/"><link rel="alternate" hreflang="ja" href="https://www.powerduck.com/ja/"><link rel="alternate" hreflang="de" href="https://www.powerduck.com/de/"><link rel="alternate" hreflang="fr" href="https://www.powerduck.com/fr/"><link rel="alternate" hreflang="es" href="https://www.powerduck.com/es/"><link rel="alternate" hreflang="pt-BR" href="https://www.powerduck.com/pt-BR/"><link rel="alternate" hreflang="zh-TW" href="https://www.powerduck.com/zh-TW/"><link rel="alternate" hreflang="it-IT" href="https://www.powerduck.com/it-IT/"><link rel="alternate" hreflang="ko-KR" href="https://www.powerduck.com/ko-KR/"><link rel="alternate" hreflang="ru-RU" href="https://www.powerduck.com/ru-RU/"><link rel="alternate" hreflang="id-ID" href="https://www.powerduck.com/id-ID/"><link rel="alternate" hreflang="tr-TR" href="https://www.powerduck.com/tr-TR/"><link rel="alternate" hreflang="vi-VN" href="https://www.powerduck.com/vi-VN/"><link rel="alternate" hreflang="ar-SA" href="https://www.powerduck.com/ar-SA/"><link rel="alternate" hreflang="hi-IN" href="https://www.powerduck.com/hi-IN/"><link rel="alternate" hreflang="x-default" href="https://www.powerduck.com/"><script type="application/ld+json" data-site-schema="">{"@context":"https://schema.org","@type":"WebPage","name":"Powerduck — API-Desktop-Client und kostenloses OpenAPI-/MCP-Hosting","description":"Klare API-Definitionen für Code mit Codex, Claude Code und Cursor. Mit der Local-first-Desktop-App Powerduck Dokumentation aus Code erstellen und Tests mit KI orchestrieren. OpenAPI-Dokumentation und MCP-Server kostenlos auf Hub hosten.","url":"https://www.powerduck.com/de/","inLanguage":"de","isPartOf":{"@type":"WebSite","name":"Powerduck","url":"https://www.powerduck.com/"}}</script></head>
+
+  <body>
+    <div class="page-shell">
+      <!-- =======================================================================
+     NAV
+     ======================================================================= -->
+
+      <header class="nav">
+        <div class="nav-inner">
+          <a href="/de/" class="brand" aria-label="Powerduck-Startseite">
+            <img src="/assets/images/logo.svg" alt="Powerduck logo" class="brand-mark">
+
+            <span>Powerduck</span>
+          </a>
+
+          <button class="nav-hamburger" aria-label="Navigationsmenü öffnen oder schließen" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+
+          <div class="nav-drawer" id="navDrawer">
+            <nav class="nav-links">
+
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                  <span data-i18n="nav.client">Desktop-App</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="#spec-editor" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.specEditor">Spezifikationseditor</span><span class="dropdown-item-desc" data-i18n="nav.specEditorDesc">OpenAPI direkt bearbeiten</span></span></a>
+                  <a class="dropdown-item" href="#api-debug" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDebug">API-Debugging</span><span class="dropdown-item-desc" data-i18n="nav.apiDebugDesc">Anfragen senden und Antworten prüfen</span></span></a>
+                  <a class="dropdown-item" href="#mcp-server" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.mcpServer">MCP-Server</span><span class="dropdown-item-desc" data-i18n="nav.mcpServerDesc">Eine Spezifikation in aufrufbare Tools verwandeln</span></span></a>
+                  <a class="dropdown-item" href="#api-docs" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDocs">API-Dokumentation</span><span class="dropdown-item-desc" data-i18n="nav.apiDocsDesc">Dokumentation aus derselben Spezifikation erstellen</span></span></a>
+                </div>
+              </div><a class="nav-hub-link" href="/de/hub" data-i18n="nav.hub">Hub</a>
+
+
+
+              <a class="nav-direct" href="/de/pricing?product=client" data-i18n="nav.pricing">Preise</a>
+
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                  <span data-i18n="nav.resources">Ressourcen</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="/docs/de-DE/overview/introduction/index.html" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.documentation">Dokumentation</span><span class="dropdown-item-desc" data-i18n="nav.documentationDesc">Anleitungen und API-Referenzen</span></span></a>
+                  <a class="dropdown-item" href="/de/use-cases/" role="menuitem"><span class="dropdown-item-text"><span data-i18n="scenes.all" class="dropdown-item-title">Szenarioanleitungen</span></span></a>
+                  <a class="dropdown-item" href="/blog/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.blog">Blog</span><span class="dropdown-item-desc" data-i18n="nav.blogDesc">Beiträge zu Produkt und Entwicklung</span></span></a>
+                  <a class="dropdown-item" href="/blog/tag/release-notes/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.releaseNotes">Release Notes</span><span class="dropdown-item-desc" data-i18n="nav.releaseNotesDesc">Änderungen in jeder Version</span></span></a>
+                  <a class="dropdown-item" href="/demo/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.liveDemo">Live-Demo</span><span class="dropdown-item-desc" data-i18n="nav.liveDemoDesc">Jedes Tool im Browser ausprobieren</span></span></a>
+                  <a class="dropdown-item" href="/app/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.webApp">Web-App</span><span class="dropdown-item-desc" data-i18n="nav.webAppDesc">Die volle Powerduck-App im Browser nutzen</span></span></a>
+                  <a class="dropdown-item" href="https://github.com/powerducklab" target="_blank" role="menuitem" rel="nofollow noopener noreferrer"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.openSource">Open Source</span><span class="dropdown-item-desc" data-i18n="nav.openSourceDesc">Bibliotheken auf GitHub und npm</span></span></a>
+                </div>
+              </div>
+            </nav>
+
+            <div class="nav-actions">
+              <a class="nav-icon-btn" href="https://github.com/powerducklab" target="_blank" aria-label="GitHub" rel="nofollow noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12 12-12z"></path>
+                </svg>
+              </a>
+              <div class="nav-account-slot" id="navAccountSlot">
+                <a class="nav-signin" data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">Anmelden</a>
+              </div>
+
+              <div class="nav-dropdown" id="langMenu">
+                <button class="nav-icon-btn nav-dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Sprache auswählen">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20"></path>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu align-right" role="menu" id="langMenuContent"></div>
+              </div>
+
+              <button class="theme-toggle" data-theme-toggle="" id="themeToggle" type="button" aria-label="Farbschema wechseln">
+                <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none">
+                  <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+                </svg>
+
+                <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"></circle>
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                </svg>
+              </button>
+
+              <a class="btn btn-primary btn-sm" href="/de/download/" data-i18n="nav.download">Herunterladen</a>
+            </div>
+          </div>
+        </div>
+
+        <style>
+          .nav-dropdown:hover .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+          .nav-dropdown:hover .chevron {
+            transform: rotate(180deg);
+          }
+          .nav-dropdown.open .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+        </style>
+      </header>
+
+      <!-- =======================================================================
+     HERO
+     ======================================================================= -->
+
+      <section class="hero">
+        <p class="eyebrow">
+          <span class="status-dot"></span>
+          <span data-i18n="hero.badge">Das lokal-firste, KI-native OpenAPI-Studio</span>
+        </p>
+
+        <h1 data-i18n-html="hub.hero">APIs lokal entwickeln.<br>Dokumentation und KI verbinden.</h1>
+
+        <p data-i18n="hub.heroSub" class="hero-sub">Klare API-Definitionen für Code mit Codex, Claude Code und Cursor. Mit der Local-first-Desktop-App Powerduck Dokumentation aus Code erstellen und Tests mit KI orchestrieren. OpenAPI-Dokumentation und MCP-Server kostenlos auf Hub hosten.</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/de/download/" data-i18n="hero.download">Desktop-App herunterladen</a><a class="btn btn-secondary" href="/console/projects" data-i18n="hub.publish">Kostenlos auf Hub veröffentlichen</a>
+        </div>
+
+        <div class="hero-visual" data-hero-demo="">
+          <div class="hv-window is-done">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="chrome-path">commerce-api/openapi.yaml</span>
+              <span class="chrome-spacer"></span>
+              <span class="pill" data-i18n="hv.local">OpenAPI 3.1 · lokale Datei</span>
+            </div>
+
+            <div class="hv-body">
+              <div class="hv-col hv-contract">
+                <div class="hv-col-label">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                  </svg>
+                  <span data-i18n="hv.contract">Ein OpenAPI-Vertrag</span>
+                </div>
+                <pre class="hv-code hv-spec"><code>/orders
+  <span class="hv-k">post</span>  createOrder
+  <span class="hv-k">get</span>   listOrders
+/products
+  <span class="hv-k">get</span>   listProducts
+/customers
+  <span class="hv-k">get</span>   listCustomers</code></pre>
+                <div class="hv-compile">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="4 17 10 11 4 5"></polyline>
+                    <line x1="12" y1="19" x2="20" y2="19"></line>
+                  </svg>
+                  <span data-i18n="hv.compile">Zu einem ausführbaren MCP-Server kompiliert · 12 aufrufbare Tools</span>
+                </div>
+              </div>
+
+              <div class="hv-col hv-agentcol">
+                <div class="hv-col-label">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2a3 3 0 0 1 3 3v1a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"></path>
+                    <path d="M5 21a7 7 0 0 1 14 0"></path>
+                  </svg>
+                  <span data-i18n="hv.agentTitle">Dein Coding-Agent</span>
+                  <span class="hv-agentname">Cursor · Claude Code · Codex</span>
+                </div>
+                <div class="hv-log" data-hv-log="">
+                  <div class="hv-loghead">
+                    <span class="hv-live" aria-hidden="true"></span>
+                    <span>powerduck · MCP server</span>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.read_spec()</code>
+                      <span class="hv-out" data-i18n="hv.out.ops">12 Operationen gefunden</span>
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.start_mock("POST /orders")</code>
+                      <span class="hv-out" data-i18n="hv.out.mock">Mock-Server live auf :4010</span>
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.generate_tests("POST /orders")</code>
+                      <span class="hv-out" data-i18n="hv.out.tests">orders.test.js erstellt</span>
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.call_api("POST /orders", {total:49})</code>
+                      <span class="hv-out hv-out-ok" data-i18n="hv.out.call">200 OK · gegen den Vertrag verifiziert</span>
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.publish_docs()</code>
+                      <span class="hv-out" data-i18n="hv.out.docs">Referenzdokumentation aktualisiert</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hv-foot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+              <span data-i18n-html="hv.foot">Eine OpenAPI-Datei kompiliert zu Tools, <strong>die dein Agent aufruft</strong> – Mocks, Tests, API-Aufrufe und Doku, alle gegen denselben Vertrag verifiziert.</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="hero-micro" data-i18n="flow.baseNote">Lokale Arbeit braucht kein Konto. Remote-KI nutzt deinen gewählten Modelldienst; Online-Hosting erfordert ein Cloud-Konto.</p>
+
+        <p class="hero-strip" data-i18n-html="hero.capabilities">Spezifikationen bearbeiten · APIs debuggen · Tests · Mock-Server · API-Dokumentation · MCP-Server</p>
+      </section>
+      <section class="hub-workflow" aria-labelledby="hub-workflow-title">
+        <div class="hub-workflow-heading">
+          <p class="eyebrow">POWERDUCK HUB</p>
+          <h2 id="hub-workflow-title" data-i18n="hub.workflow.title">Eine OpenAPI-Spezifikation. Lokal entwickeln. Online teilen.</h2>
+          <p data-i18n="hub.workflow.sub">Prüfe deine APIs in der Desktop-App. Teile Dokumentation über Hub und verbinde KI-Tools mit deiner API.</p>
+        </div>
+        <ol class="hub-workflow-steps">
+<li><span class="hub-step-number">01</span><h3 data-i18n="hub.step1.title">Entwickeln und prüfen</h3><p data-i18n="hub.step1.body">APIs mit Powerduck entwerfen, debuggen und testen.</p></li>
+<li><span class="hub-step-number">02</span><h3 data-i18n="hub.step2.title">OpenAPI-Spezifikation veröffentlichen</h3><p data-i18n="hub.step2.body">Aus deiner Spezifikation werden gehostete Dokumentation und ein MCP-Endpunkt.</p></li>
+<li><span class="hub-step-number">03</span><h3 data-i18n="hub.step3.title">Teilen und verbinden</h3><p data-i18n="hub.step3.body">Teile den Dokumentationslink, verbinde einen MCP-Client und entscheide über einen öffentlichen Hub-Eintrag.</p></li>
+</ol><div class="hub-workflow-actions"><a class="btn btn-primary" href="/console/projects" data-i18n="hub.publish">Kostenlos auf Hub veröffentlichen</a><a class="btn btn-secondary" href="/de/hub" data-i18n="hub.explore">Hub entdecken</a></div><p class="hub-workflow-note" data-i18n="hub.limit">Kostenloses Hosting innerhalb der Tarifgrenzen. Deine API läuft weiterhin auf deinem eigenen Backend.</p></section>
+
+
+      <section class="why-band" aria-labelledby="why-title">
+        <div class="why-head">
+          <p class="section-kicker" data-i18n="why.kicker">Warum Powerduck</p>
+          <h2 class="section-title" id="why-title" data-i18n="why.title">Eine lokale Datei ersetzt den Werkzeugberg.</h2>
+          <p class="section-deck" data-i18n="why.deck">Ein einziges OpenAPI-YAML in Ihrem Repository steuert Design, Debug, Tests, Mocks, Doku und MCP – und Ihre Coding-Agents nutzen dieselbe Datei.</p>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-card reveal">
+            <span class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </span>
+            <h3 data-i18n="why.1.title">Eine Datei für alle Bereiche</h3>
+            <p data-i18n="why.1.body">Design, Debug, Test, Mock, Dokumentation und MCP aus derselben OpenAPI-Spezifikation – nichts läuft auseinander.</p>
+            <div class="why-vs">
+              <div class="why-vs-row why-vs-old">
+                <span class="why-vs-tag" data-i18n="why.old">Andere</span>
+                <span data-i18n="why.1.old">Getrennte Collection-, Doku-, Mock- und Testdateien</span>
+              </div>
+              <div class="why-vs-row why-vs-new">
+                <span class="why-vs-tag" data-i18n="why.pd">Powerduck</span>
+                <span data-i18n-html="why.1.new"><strong>Ein YAML</strong> steuert alle Werkzeuge und Ihre Agents</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="why-card reveal">
+            <span class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </span>
+            <h3 data-i18n="why.2.title">Jede Antwort wird vertraglich geprüft</h3>
+            <p data-i18n="why.2.body">Jede Antwort wird mit der OpenAPI-Spezifikation abgeglichen, nicht nur angezeigt – falscher Typ oder Pfad fallen sofort auf.</p>
+            <div class="why-vs">
+              <div class="why-vs-row why-vs-old">
+                <span class="why-vs-tag" data-i18n="why.old">Andere</span>
+                <span data-i18n="why.2.old">Sendet die Anfrage und zeigt die 200-Antwort</span>
+              </div>
+              <div class="why-vs-row why-vs-new">
+                <span class="why-vs-tag" data-i18n="why.pd">Powerduck</span>
+                <span data-i18n-html="why.2.new"><strong>Spezifikationsabweichung wird sofort markiert</strong></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="why-card reveal">
+            <span class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+                <line x1="2" y1="20" x2="22" y2="20"></line>
+              </svg>
+            </span>
+            <h3 data-i18n="why.3.title">Local-First, ohne Konto, Agenten-fähig</h3>
+            <p data-i18n="why.3.body">Ihre Dateien bleiben auf Ihrem Rechner und funktionieren ohne Konto oder Upload. Codex, Claude Code und Cursor lesen dasselbe Spezifikationsdokument.</p>
+            <div class="why-vs">
+              <div class="why-vs-row why-vs-old">
+                <span class="why-vs-tag" data-i18n="why.old">Andere</span>
+                <span data-i18n="why.3.old">Cloud-Konto und Upload vor dem Start nötig</span>
+              </div>
+              <div class="why-vs-row why-vs-new">
+                <span class="why-vs-tag" data-i18n="why.pd">Powerduck</span>
+                <span data-i18n-html="why.3.new"><strong>Läuft lokal</strong>; Ihre Agents lesen dieselbe Datei</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     INTERACTIVE PRODUCT DEMO
+     ======================================================================= -->
+
+      <section class="demo-section">
+        <div class="demo-shell">
+          <div class="demo-tabs-wrap">
+            <div class="demo-tabs" role="tablist" aria-label="Desktop-App">
+              <button class="demo-tab" role="tab" aria-selected="true" data-tab="editor" data-i18n="nav.specEditor">Spezifikationseditor</button>
+
+              <button class="demo-tab" role="tab" aria-selected="false" data-tab="debug" data-i18n="nav.apiDebug">API-Debugging</button>
+
+              <button class="demo-tab" role="tab" aria-selected="false" data-tab="mcp" data-i18n="nav.mcpServer">MCP-Server</button>
+
+              <button class="demo-tab" role="tab" aria-selected="false" data-tab="docs" data-i18n="nav.apiDocs">API-Dokumentation</button>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     SPEC EDITOR
+     ================================================================ -->
+
+          <div class="stage on" id="stage-editor" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path"> ~/commerce-api/openapi.yaml </span>
+
+              <span class="pill"> OpenAPI 3.1.0 </span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill pill-warn"><span data-i18n="demo.ui.0">3 Probleme</span></span>
+
+              <span class="pill"><span data-i18n="demo.ui.1">nicht gespeichert</span></span>
+            </div>
+
+            <div class="editor-demo">
+              <aside class="outline">
+                <div class="panel-label"><span data-i18n="demo.ui.2">Gliederung</span></div>
+
+                <div class="tree-row indent-1">▾ info</div>
+                <div class="tree-row indent-3">title</div>
+                <div class="tree-row indent-3">version</div>
+                <div class="tree-row indent-3">contact</div>
+
+                <div class="tree-row indent-3">
+                  license
+                  <span class="flag">⚠</span>
+                </div>
+
+                <div class="tree-row indent-1">▸ servers</div>
+
+                <div class="tree-row indent-1">▾ paths</div>
+
+                <div class="tree-row indent-2">▾ /auth/login</div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag post">POST</span>
+                  loginUser
+                </div>
+
+                <div class="tree-row indent-2">▾ /users</div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag get">GET</span>
+                  listUsers
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag post">POST</span>
+                  createUser
+                </div>
+
+                <div class="tree-row indent-2">▾ /users/{id}</div>
+
+                <div class="tree-row indent-4 active">
+                  <span class="method-tag get">GET</span>
+                  getUser
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag put">PUT</span>
+                  updateUser
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag delete">DEL</span>
+                  deleteUser
+                </div>
+
+                <div class="tree-row indent-2">▾ /orders</div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag get">GET</span>
+                  listOrders
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag post">POST</span>
+                  createOrder
+                </div>
+
+                <div class="tree-row indent-1">▾ components</div>
+
+                <div class="tree-row indent-2">▸ schemas (14)</div>
+
+                <div class="tree-row indent-2">▸ responses (6)</div>
+
+                <div class="tree-row indent-2">▸ parameters (4)</div>
+
+                <div class="tree-row indent-2">▸ securitySchemes (2)</div>
+              </aside>
+
+              <div class="editor-main">
+                <div class="code-area">
+                  <div class="code-line" style="--lvl: 0">
+                    <span class="code-number">142</span>
+                    <span class="code-content">
+                      <span class="syntax-key">/users/{id}:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 1">
+                    <span class="code-number">143</span>
+                    <span class="code-content">
+                      <span class="syntax-key">get:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line highlight" style="--lvl: 2">
+                    <span class="code-number">144</span>
+                    <span class="code-content">
+                      <span class="syntax-key">operationId:</span>
+                      <span class="syntax-string">getUser</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">145</span>
+                    <span class="code-content">
+                      <span class="syntax-key">summary:</span>
+                      <span class="syntax-string">Retrieve a user</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">146</span>
+                    <span class="code-content">
+                      <span class="syntax-key">tags:</span>
+                      [<span class="syntax-string">Users</span>]
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">147</span>
+                    <span class="code-content">
+                      <span class="syntax-key">parameters:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 3">
+                    <span class="code-number">148</span>
+                    <span class="code-content">
+                      <span class="syntax-key">- $ref:</span>
+                      <span class="syntax-string">'#/components/parameters/UserId'</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">149</span>
+                    <span class="code-content">
+                      <span class="syntax-key">responses:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 3">
+                    <span class="code-number">150</span>
+                    <span class="code-content">
+                      <span class="syntax-number">'200':</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 4">
+                    <span class="code-number">151</span>
+                    <span class="code-content">
+                      <span class="syntax-key">description:</span>
+                      <span class="syntax-string">The requested user</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 4">
+                    <span class="code-number">152</span>
+                    <span class="code-content">
+                      <span class="syntax-key">content:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 5">
+                    <span class="code-number">153</span>
+                    <span class="code-content">
+                      <span class="syntax-key">application/json:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 6">
+                    <span class="code-number">154</span>
+                    <span class="code-content">
+                      <span class="syntax-key">schema:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 7">
+                    <span class="code-number">155</span>
+                    <span class="code-content">
+                      <span class="syntax-key">$ref:</span>
+                      <span class="syntax-string">'#/components/schemas/User'</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 3">
+                    <span class="code-number error">156</span>
+                    <span class="code-content">
+                      <span class="syntax-number">'404':</span>
+                      <span class="syntax-comment"># description is required</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 4">
+                    <span class="code-number">157</span>
+                    <span class="code-content">
+                      <span class="squiggle syntax-key">contents:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 5">
+                    <span class="code-number">158</span>
+                    <span class="code-content">
+                      <span class="syntax-key">application/json:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 6">
+                    <span class="code-number">159</span>
+                    <span class="code-content">
+                      <span class="syntax-key">schema:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 7">
+                    <span class="code-number">160</span>
+                    <span class="code-content">
+                      <span class="syntax-key">$ref:</span>
+                      <span class="squiggle syntax-string">'#/components/schemas/Erorr'</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 1">
+                    <span class="code-number">161</span>
+                    <span class="code-content">
+                      <span class="syntax-key">delete:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number error">162</span>
+                    <span class="code-content">
+                      <span class="syntax-key">summary:</span>
+                      <span class="syntax-string">Delete a user</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="problems">
+                  <div class="problems-head">
+                    <strong><span data-i18n="demo.ui.3">Probleme</span></strong>
+                    <span><span data-i18n="demo.ui.4">2 Fehler · 1 Warnung</span></span>
+                    <span class="pill"><span data-i18n="demo.ui.5">Nach Dialekt 3.1 validiert</span></span>
+                  </div>
+
+                  <div class="problem-row">
+                    <span class="problem-location">156:9</span>
+                    <span class="problem-message">
+                      <strong>contents</strong> is not a valid Response Object
+                      key. Did you mean <strong>content</strong>?
+                    </span>
+                    <span class="problem-rule">oas3-schema</span>
+                  </div>
+
+                  <div class="problem-row">
+                    <span class="problem-location">160:24</span>
+                    <span class="problem-message">
+                      Unresolved <strong>$ref</strong> —
+                      <code>schemas/Erorr</code> does not exist.
+                    </span>
+                    <span class="problem-rule">ref-resolution</span>
+                  </div>
+
+                  <div class="problem-row">
+                    <span class="problem-location">162:7</span>
+                    <span class="problem-message">
+                      Operation has no <strong>operationId</strong>. It will be
+                      skipped when generating MCP tools.
+                    </span>
+                    <span class="problem-rule">operation-operationId</span>
+                  </div>
+                </div>
+
+                <div class="status-bar">
+                  <span><span data-i18n="demo.ui.6">Zeile 156, Spalte 9</span></span>
+                  <span>YAML</span>
+                  <span>UTF-8</span>
+                  <span><span data-i18n="demo.ui.7">Leerzeichen: 2</span></span>
+                  <span>3.1.0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     API DEBUG
+     ================================================================ -->
+
+          <div class="stage" id="stage-debug" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path"><span data-i18n="demo.ui.8">Aus openapi.yaml erzeugte Sammlungen</span></span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill"><span data-i18n="demo.ui.9">Postman-Import</span></span>
+
+              <span class="pill pill-ok"><span data-i18n="demo.ui.10">Vertragsprüfung aktiv</span></span>
+            </div>
+
+            <div class="debug-demo">
+              <aside class="collection">
+                <div class="panel-label"><span data-i18n="demo.ui.11">Commerce-API</span></div>
+
+                <div class="collection-row">▾ Auth</div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag post">POST</span>
+                  loginUser
+                </div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag post">POST</span>
+                  refreshToken
+                </div>
+
+                <div class="collection-row">▾ Users</div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag get">GET</span>
+                  listUsers
+                </div>
+
+                <div class="collection-row indent-3 active">
+                  <span class="method-tag get">GET</span>
+                  getUser
+                </div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag put">PUT</span>
+                  updateUser
+                </div>
+
+                <div class="collection-row">▾ Orders</div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag get">GET</span>
+                  listOrders
+                </div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag post">POST</span>
+                  createOrder
+                </div>
+              </aside>
+
+              <div class="request-pane">
+                <div class="url-bar">
+                  <span class="http-method">GET ▾</span>
+
+                  <div class="request-url">
+                    {{baseUrl}}/users/<span class="request-var">{{userId}}</span>?include=profile
+                  </div>
+
+                  <span class="environment"><span data-i18n="demo.ui.12">Staging ▾</span></span>
+
+                  <button class="btn btn-primary btn-sm"><span data-i18n="demo.ui.13">Senden</span></button>
+                </div>
+
+                <div class="subtabs">
+                  <span class="subtab"><span data-i18n="demo.ui.14">Parameter</span><i class="badge">1</i></span>
+                  <span class="subtab"><span data-i18n="demo.ui.15">Auth</span><i class="badge">bearer</i></span>
+                  <span class="subtab"><span data-i18n="demo.ui.16">Header</span><i class="badge">3</i></span>
+                  <span class="subtab active"><span data-i18n="demo.ui.17">Body</span></span>
+                  <span class="subtab"><span data-i18n="demo.ui.18">Skripte</span></span>
+                  <span class="subtab"><span data-i18n="demo.ui.19">Einstellungen</span></span>
+                </div>
+
+                <div class="request-body">
+                  # GET has no requestBody in the specification — body
+                  disabled<br>
+                  # Path parameter id resolved from environment → userId =
+                  usr_8Kd2Xa
+                </div>
+
+                <div class="response-meta">
+                  <span class="pill pill-ok">200 OK</span>
+                  <span class="pill">148 ms</span>
+                  <span class="pill">1.2 KB</span>
+
+                  <span class="chrome-spacer"></span>
+
+                  <span class="pill pill-warn"><span data-i18n="demo.ui.20">Vertrag: 1 Abweichung</span></span>
+                </div>
+
+                <div class="subtabs">
+                  <span class="subtab active"><span data-i18n="demo.ui.17">Body</span></span>
+                  <span class="subtab"><span data-i18n="demo.ui.16">Header</span><i class="badge">9</i></span>
+                  <span class="subtab"><span data-i18n="demo.ui.21">Cookies</span></span>
+                  <span class="subtab"><span data-i18n="demo.ui.22">Vertrag</span><i class="badge">1</i></span>
+                  <span class="subtab"><span data-i18n="demo.ui.23">Zeitverlauf</span></span>
+                </div>
+
+                <div class="response-body">
+                  <pre>{
+  <span class="syntax-key">"id"</span>: <span class="syntax-string">"usr_8Kd2Xa"</span>,
+  <span class="syntax-key">"email"</span>: <span class="syntax-string">"ada@example.com"</span>,
+  <span class="syntax-key">"created"</span>: <span class="syntax-number">1757030400</span>,
+  <span class="syntax-key">"profile"</span>: {
+    <span class="syntax-key">"name"</span>: <span class="syntax-string">"Ada L."</span>,
+    <span class="syntax-key">"locale"</span>: <span class="syntax-string">"en-GB"</span>
+  },
+  <span class="squiggle syntax-key">"scope"</span>: <span class="syntax-string">"users:read orders:read"</span>
+}</pre>
+                </div>
+
+                <div class="contract-warning">
+                  <strong>
+                    Contract mismatch — response differs from the specification
+                  </strong>
+
+                  <code>scope</code> is present in the response but is not
+                  declared on <code>components/schemas/User</code>. Add the
+                  property to the schema or remove it from the handler.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     MCP SERVER
+     ================================================================ -->
+
+          <div class="stage" id="stage-mcp" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path"> mcp://localhost:7433 </span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill pill-ok"><span data-i18n="demo.ui.24">läuft</span></span>
+              <span class="pill">stdio + HTTP</span>
+            </div>
+
+            <div class="mcp-demo">
+              <div class="mcp-header">
+                <h4><span data-i18n="demo.ui.25">Aus openapi.yaml erzeugt</span></h4>
+
+                <span class="pill"><span data-i18n="demo.ui.26">6 Werkzeuge</span></span>
+                <span class="pill"><span data-i18n="demo.ui.27">7 Ressourcen</span></span>
+                <span class="pill pill-warn"><span data-i18n="demo.ui.28">1 eingeschränkt</span></span>
+                <span class="pill pill-ok"><span data-i18n="demo.ui.29">Neuerstellung beim Speichern</span></span>
+              </div>
+
+              <p class="mcp-description">
+                Every operation with an operationId becomes a tool. Arguments
+                come from parameters and requestBody. Nothing is hand-written.
+              </p>
+
+              <div class="tools-grid">
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    POST /auth/login → operationId → <strong>loginUser</strong>
+                  </div>
+
+                  <h5>loginUser</h5>
+
+                  <p>Exchange credentials for a bearer token.</p>
+
+                  <div class="arguments">
+                    <span class="argument">email : string</span>
+                    <span class="argument">password : string</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-ok"><span data-i18n="demo.ui.30">funktionsfähig</span></span>
+                    args from requestBody
+                  </div>
+                </div>
+
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    GET /users/{id} → operationId → <strong>getUser</strong>
+                  </div>
+
+                  <h5>getUser</h5>
+
+                  <p>Retrieve a single user by identifier.</p>
+
+                  <div class="arguments">
+                    <span class="argument">id : string</span>
+                    <span class="argument">include? : string</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-ok"><span data-i18n="demo.ui.30">funktionsfähig</span></span>
+                    args from 2 parameters
+                  </div>
+                </div>
+
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    POST /orders → operationId → <strong>createOrder</strong>
+                  </div>
+
+                  <h5>createOrder</h5>
+
+                  <p>Create an order for the authenticated customer.</p>
+
+                  <div class="arguments">
+                    <span class="argument">items : array</span>
+                    <span class="argument">currency : string</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-ok"><span data-i18n="demo.ui.30">funktionsfähig</span></span>
+                    args from requestBody
+                  </div>
+                </div>
+
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    POST /orders/{id}/refund → operationId →
+                    <strong>refundOrder</strong>
+                  </div>
+
+                  <h5>refundOrder</h5>
+
+                  <p>Refund an order in full or in part.</p>
+
+                  <div class="arguments">
+                    <span class="argument">id : string</span>
+                    <span class="argument">amount? : integer</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-warn"><span data-i18n="demo.ui.31">eingeschränkt</span></span>
+                    amount has no description
+                  </div>
+                </div>
+              </div>
+
+              <div class="mcp-log">
+                <span class="log-time">14:02:11</span> watch openapi.yaml
+                changed <span class="log-time">(line 144)</span><br>
+                <span class="log-time">14:02:11</span> build parsed 3.1.0 · 11
+                operations · 14 schemas<br>
+                <span class="log-time">14:02:11</span> build
+                <span class="log-ok"><span data-i18n="demo.ui.26">6 Werkzeuge</span></span>, 7 resources ·
+                <span class="log-warn">1 skipped (no operationId)</span><br>
+                <span class="log-time">14:02:12</span> serve listening on stdio
+                and http://localhost:7433<br>
+                <span class="log-time">14:02:31</span> call
+                <span class="log-ok">getUser</span> { id: "usr_8Kd2Xa" } → 200
+                in 148 ms
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     API DOCS
+     ================================================================ -->
+
+          <div class="stage" id="stage-docs" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path">
+                docs.example.dev/reference/users/get
+              </span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill"><span data-i18n="demo.ui.32">statischer Export</span></span>
+              <span class="pill pill-ok"><span data-i18n="demo.ui.33">mit Spezifikation synchron</span></span>
+            </div>
+
+            <div class="docs-demo">
+              <aside class="docs-nav">
+                <div class="docs-group"><span data-i18n="demo.ui.34">Erste Schritte</span></div>
+
+                <a href="#"><span data-i18n="demo.ui.35">Einführung</span></a>
+                <a href="#"><span data-i18n="demo.ui.36">Authentifizierung</span></a>
+                <a href="#"><span data-i18n="demo.ui.37">Fehler</span></a>
+                <a href="#"><span data-i18n="demo.ui.38">Paginierung</span></a>
+
+                <div class="docs-group"><span data-i18n="demo.ui.39">Kernressourcen</span></div>
+
+                <a href="#">Users</a>
+                <a href="#" class="active">Retrieve a user</a>
+                <a href="#">List users</a>
+                <a href="#">Update a user</a>
+                <a href="#">Orders</a>
+                <a href="#">Refunds</a>
+              </aside>
+
+              <main class="docs-main">
+                <h3>Retrieve a user</h3>
+
+                <p class="endpoint-path">GET /v1/users/{id}</p>
+
+                <p class="docs-lede">
+                  Returns the user object for a valid identifier. If the user
+                  has been deleted, an Error object is returned with status 404.
+                </p>
+
+                <div class="docs-heading"><span data-i18n="demo.ui.40">Pfadparameter</span></div>
+
+                <div class="parameter-list">
+                  <div class="parameter">
+                    <div>
+                      <span class="parameter-name">id</span>
+                      <span class="parameter-type">string</span>
+                      <span class="required"><span data-i18n="demo.ui.41">Erforderlich</span></span>
+                    </div>
+
+                    <div class="parameter-description">
+                      The identifier of the user, prefixed with
+                      <code>usr_</code>.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="docs-heading"><span data-i18n="demo.ui.42">Abfrageparameter</span></div>
+
+                <div class="parameter-list">
+                  <div class="parameter">
+                    <div>
+                      <span class="parameter-name">include</span>
+                      <span class="parameter-type">string</span>
+                    </div>
+
+                    <div class="parameter-description">
+                      Expand a related object.
+                    </div>
+                  </div>
+                </div>
+              </main>
+
+              <aside class="code-panel">
+                <div class="languages">
+                  <span class="language active">cURL</span>
+                  <span class="language">Node</span>
+                  <span class="language">Python</span>
+                  <span class="language">Go</span>
+                </div>
+
+                <div class="code-panel-title"><span data-i18n="demo.ui.43">Anfrage</span></div>
+
+                <div class="code-box">
+                  <pre><span class="cmd">curl</span> https://api.example.dev/v1/users/usr_8Kd2Xa \
+  <span class="flag-code">-H</span> <span class="string-code">"Authorization: Bearer $API_KEY"</span> \
+  <span class="flag-code">-G</span> <span class="flag-code">-d</span> <span class="string-code">include=profile</span></pre>
+                </div>
+
+                <div class="code-panel-title"><span data-i18n="demo.ui.44">Antwort</span></div>
+
+                <div class="code-box">
+                  <pre>{
+  <span class="key-code">"id"</span>: <span class="string-code">"usr_8Kd2Xa"</span>,
+  <span class="key-code">"email"</span>: <span class="string-code">"ada@example.com"</span>,
+  <span class="key-code">"created"</span>: <span class="number-code">1757030400</span>
+}</pre>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenes-section flows-section" id="use-cases" aria-labelledby="scenes-title">
+        <div class="scenes-heading">
+          <div>
+            <p data-i18n="flow.kicker" class="scenes-kicker">IN EINEM WORKFLOW SEHEN</p>
+            <h2 data-i18n="flow.title" id="scenes-title">Jede vertraute Routine wird zu einem vertragsgesteuerten Ablauf.</h2>
+            <p data-i18n="flow.intro" class="scenes-intro">Wählen Sie unten eine Aufgabe. Powerduck führt sie direkt aus der OpenAPI-Datei auf Ihrem Rechner aus – inkl. Umgebungen, Tests und Mocks, ohne Konto oder Upload.</p>
+          </div>
+        </div>
+        <div class="flow-baseline">
+          <div>
+            <h3 data-i18n="flow.baseTitle">Lokal arbeiten sollte nicht weniger Funktionen bedeuten.</h3>
+            <p data-i18n="flow.baseBody">Dein lokaler API-Arbeitsbereich startet ohne Konto und Upload. Anfragen, Authentifizierung, Umgebungen und Assertions bleiben dabei. Cloud wählst du, wenn du online veröffentlichen willst.</p>
+          </div>
+          <ul>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base0">cURL / Postman / OpenAPI importieren</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base1">Authentifizierung &amp; Umgebungen</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base2">Skripte &amp; Assertions</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base3">Sammlungen &amp; Szenariotests</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base4">Lokale Mock-Server</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base5">7 Protokolle debuggen</span>
+            </li>
+          </ul>
+          <p data-i18n="flow.baseNote" class="flow-baseline-note">Lokale Arbeit braucht kein Konto. Remote-KI nutzt deinen gewählten Modelldienst; Online-Hosting erfordert ein Cloud-Konto.</p>
+        </div>
+        <div class="flow-section-label">
+          <h3 id="workflow-selector-title" data-i18n="flow.difference">Welche Arbeit möchtest du nicht mehr von Hand wiederholen?</h3>
+          <a class="scenes-more" href="/de/use-cases/"><span data-i18n="flow.all">Szenarioanleitungen ansehen</span>
+            <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="scenario-overview">
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">01</span>
+            <h3 data-i18n="flow.1.pain">Liest du noch den Quellcode, um herauszufinden, ob die API-Dokumentation stimmt?</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.1.title">Dokumentation aus dem Projekt erzeugen.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.1.result">Eine prüfbare API-Definition und ein lokaler Dokumentationslink.</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/de/use-cases/#code-to-docs"><span data-i18n="flow.boundary">Einrichtung &amp; Voraussetzungen</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">02</span>
+            <h3 data-i18n="flow.2.pain">Hast du der KI die Spezifikation gegeben und trotzdem andere Felder und Pfade erhalten?</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.2.title">Nach der tatsächlichen API-Definition implementieren.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.2.result">Implementierung nach Vertrag, geprüft an echten Antworten.</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/de/use-cases/#design-api"><span data-i18n="flow.boundary">Einrichtung &amp; Voraussetzungen</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">03</span>
+            <h3 data-i18n="flow.3.pain">Testest du nach jeder API-Änderung denselben Geschäftsablauf wieder von Hand?</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.3.title">Das gesamte Geschäftsszenario ausführen.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.3.result">Ergebnisse je Schritt und fehlgeschlagene Assertions statt nur Testcode.</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/de/use-cases/#contract-tests"><span data-i18n="flow.boundary">Einrichtung &amp; Voraussetzungen</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">04</span>
+            <h3 data-i18n="flow.4.pain">Wechselst du das Tool, nur weil der nächste Endpunkt ein anderes Protokoll nutzt?</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.4.title">Sieben Protokolle an einem Ort prüfen.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.4.result">Manuelle Kontrolle, wenn du genau verstehen willst, was passiert ist.</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/de/use-cases/#protocols"><span data-i18n="flow.boundary">Einrichtung &amp; Voraussetzungen</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">05</span>
+            <h3 data-i18n="flow.5.pain">Kopierst du bei jeder KI-Fehlersuche Anfragen, Antworten und Kontext erneut in den Chat?</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.5.title">Mit echtem Anfragekontext untersuchen.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.5.result">Eine Analyse anhand echter Ergebnisse und prüfbare Änderungsvorschläge.</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/de/use-cases/#ai-debug"><span data-i18n="flow.boundary">Einrichtung &amp; Voraussetzungen</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">06</span>
+            <h3 data-i18n="flow.6.pain">Betreibst du eigenes Hosting, nur um API-Dokumentation und MCP zu teilen?</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.6.title">Doku und MCP aus einer API veröffentlichen.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.6.result">Dokumentations- und MCP-URL ohne eigene Hosting-Infrastruktur.</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/de/use-cases/#share-docs"><span data-i18n="flow.boundary">Einrichtung &amp; Voraussetzungen</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </section>
+      <!-- =======================================================================
+     SPEC LOADER
+     ======================================================================= -->
+
+      <!-- =======================================================================
+     QUICK START (browser vs desktop)
+     ======================================================================= -->
+
+      <section class="section quick-section" id="quickstart">
+        <div class="quick-shell">
+          <div class="quick-head">
+            <p class="section-kicker" data-i18n="quick.kicker">AUF DEINEM RECHNER STARTEN</p>
+            <h2 class="section-title" data-i18n="quick.title">Herunterladen. Zur eigentlichen Arbeit zurück.</h2>
+            <p class="section-deck" data-i18n="quick.deck">Powerduck ist ein API-Arbeitsbereich für den Desktop. Öffne eine lokale Datei, sende die erste Anfrage und verbinde bei Bedarf deinen Coding-Agenten. Der Start braucht kein Konto.</p>
+          </div>
+
+          <div class="quick-grid">
+            <article class="quick-card quick-card-desktop">
+              <div class="quick-card-top">
+                <span class="quick-badge quick-badge-muted" data-i18n="quick.desktopTag">DEIN HAUPTARBEITSBEREICH</span>
+                <h3 data-i18n="quick.desktopTitle">Mach ihn zu deiner API-Werkbank.</h3>
+                <p data-i18n="quick.desktopBody">Lokale Dateien, Codeanalyse und native Protokolldiagnose gehören hierher. Verbinde dein gewähltes KI-Modell für Hilfe beim Entwurf, bei der Fehlersuche oder beim Testen.</p>
+              </div>
+
+              <ol class="quick-steps">
+                <li>
+                  <span class="quick-step-num">1</span>
+                  <span data-i18n="quick.step1">App herunterladen und das lokale Beispiel testen — ohne Konto oder Modellschlüssel.</span>
+                </li>
+                <li>
+                  <span class="quick-step-num">2</span>
+                  <span data-i18n="quick.step2">Öffnen Sie Ihre OpenAPI-Datei oder scannen Sie eine bestehende Codebasis.</span>
+                </li>
+                <li>
+                  <span class="quick-step-num">3</span>
+                  <span data-i18n="quick.step3">KI-Agenten verbinden, Code ändern und das echte Backend gegen den Vertrag prüfen.</span>
+                </li>
+              </ol>
+
+              <a class="btn btn-primary btn-sm quick-download" href="/de/download/" data-i18n="hero.download">Desktop-App herunterladen</a>
+              <p class="quick-os-note" data-i18n="quick.desktopNote">macOS 12+ · Windows 10+ · Linux</p>
+            </article>
+
+            <article class="quick-card quick-card-browser">
+              <div class="quick-card-top">
+                <span class="quick-badge" data-i18n="quick.browserTag">ERST EINMAL UMSCHAUEN?</span>
+                <h3 data-i18n="quick.browserTitle">Eine kurze Tour im Browser.</h3>
+                <p data-i18n="quick.browserBody">Die Web-Demo nutzt ein gemeinsames Cloud-Modell und erfordert eine Anmeldung. Für lokale Arbeit ohne Konto lade die Desktop-App herunter.</p>
+              </div>
+
+              <a class="btn btn-secondary quick-web-open" href="/app/" data-i18n="flow.openWeb">Web-App öffnen</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     CONTRACT VERIFICATION (core differentiator)
+     ======================================================================= -->
+
+      <section class="section verify-section" id="contract-example">
+        <div class="verify-shell">
+          <div class="verify-copy">
+            <p class="section-kicker" data-i18n="verify.kicker">Vertragsprüfung</p>
+            <h2 class="section-title" data-i18n="verify.title">Ein echter Vertragsfehler — und die geprüfte Korrektur</h2>
+            <p class="section-deck" data-i18n="verify.deck">Gewöhnliche API-Clients senden die Anfrage und zeigen die Antwort. Powerduck prüft jede Antwort zusätzlich gegen den OpenAPI-Vertrag, damit Abweichungen sofort auffallen.</p>
+            <a class="btn btn-secondary" href="/docs/de-DE/client/contract-example/" data-i18n="start.exampleCta">Praxisbeispiel ansehen</a>
+          </div>
+
+          <div class="verify-panel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="chrome-path">~/commerce-api — response check</span>
+              <span class="chrome-spacer"></span>
+              <span class="pill">OpenAPI 3.1</span>
+            </div>
+
+            <div class="verify-body">
+              <div class="verify-block">
+                <div class="verify-label" data-i18n="verify.contractRequires">Vertrag verlangt</div>
+                <pre class="verify-code"><code>total:
+  type: number</code></pre>
+              </div>
+
+              <div class="verify-block verify-bad">
+                <div class="verify-label">
+                  <span class="verify-mark verify-mark-bad" aria-hidden="true">✕</span>
+                  <span data-i18n="verify.responseLabel">Backend gibt einen String zurück</span>
+                </div>
+                <pre class="verify-code"><code>{
+  "total": "49.00"
+}</code></pre>
+                <div class="verify-msg verify-msg-bad">
+                  <span class="verify-mark verify-mark-bad" aria-hidden="true">✕</span>
+                  <span data-i18n="verify.failMsg">/total muss number sein — Antwort entspricht nicht dem Vertrag</span>
+                </div>
+              </div>
+
+              <div class="verify-block verify-good">
+                <div class="verify-label">
+                  <span class="verify-mark verify-mark-good" aria-hidden="true">✓</span>
+                  <span data-i18n="verify.fixLabel">Eine Zahl zurückgeben</span>
+                </div>
+                <pre class="verify-code"><code>{
+  "total": 49
+}</code></pre>
+                <div class="verify-msg verify-msg-good">
+                  <span class="verify-mark verify-mark-good" aria-hidden="true">✓</span>
+                  <span data-i18n="verify.passMsg">Antwort entspricht dem Vertrag</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: SPEC EDITOR
+     ======================================================================= -->
+
+      <section class="feature-section" id="spec-editor">
+        <div class="section-shell">
+          <div class="feature-layout">
+            <div class="feature-copy">
+              <p class="section-kicker" data-i18n="f1.kicker">OpenAPI-Spec-Editor</p>
+
+              <h2 class="section-title" data-i18n="f1.title">OpenAPI-Spec-Editor</h2>
+
+              <p class="section-deck" data-i18n="f1.deck">Die Gliederung folgt der tatsächlichen Struktur der Spezifikation, nicht einer Schätzung anhand der Einrückung. Navigiere als Baum durch Pfade und Komponenten und behebe Fehler direkt dort, wo sie liegen.</p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong data-i18n="f1.b1Title">Schema-aware Validierung.</strong>
+                  <span data-i18n="f1.b1Body">Validiere gegen den 3.0-, 3.1- oder 3.2-Dialekt, den deine Datei tatsächlich deklariert.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f1.b2Title">Aufgelöste $ref-Navigation.</strong>
+                  <span data-i18n="f1.b2Body">Spring zu Definitionen, sieh Verwendungen ein und erhalte Vorschläge für vertippte Referenzen.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f1.b3Title">Bearbeitung direkt vor Ort.</strong>
+                  <span data-i18n="f1.b3Body">Dein Repository bleibt die maßgebliche Quelle.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f1.b4Title">Probleme mit Regelnamen.</strong>
+                  <span data-i18n="f1.b4Body">CI-Fehler und Editor-Diagnosen verwenden denselben Wortschatz.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-preview mini-spec-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"> openapi.yaml </span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill pill-warn"><span data-i18n="demo.ui.0">3 Probleme</span></span>
+              </div>
+
+              <div class="preview-body mini-editor">
+                <div class="mini-tree">
+                  <div class="mini-tree-row">▾ info</div>
+                  <div class="mini-tree-row">▾ paths</div>
+                  <div class="mini-tree-row">　/users</div>
+                  <div class="mini-tree-row active">　/users/{id}</div>
+                  <div class="mini-tree-row">　/orders</div>
+                  <div class="mini-tree-row">▾ components</div>
+                  <div class="mini-tree-row">　schemas</div>
+                  <div class="mini-tree-row">　responses</div>
+                </div>
+
+                <div class="mini-code">
+                  <div class="mini-code-content">
+                    <div class="mini-line">
+                      <span class="mini-ln">142</span>
+                      <span>/users/{id}:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">143</span>
+                      <span> get:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">144</span>
+                      <span> operationId: getUser</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">145</span>
+                      <span> responses:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">156</span>
+                      <span class="squiggle"> contents:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">160</span>
+                      <span class="squiggle">$ref: Erorr</span>
+                    </div>
+                  </div>
+
+                  <div class="mini-problems">
+                    <div class="mini-problem-head"><span data-i18n="demo.ui.45">Probleme · 2 Fehler · 1 Warnung</span></div>
+
+                    <div class="mini-problem">
+                      <b>156:9</b>
+                      contents is not a valid Response Object key
+                    </div>
+
+                    <div class="mini-problem">
+                      <b>160:24</b>
+                      Unresolved $ref. Closest match: Error
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: API DEBUG
+     ======================================================================= -->
+
+      <section class="feature-section" id="api-debug">
+        <div class="section-shell">
+          <div class="feature-layout reverse">
+            <div class="feature-preview mini-debug-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"><span data-i18n="demo.ui.46">API-Debugging</span></span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill pill-ok"><span data-i18n="demo.ui.10">Vertragsprüfung aktiv</span></span>
+              </div>
+
+              <div class="preview-body mini-debug">
+                <div class="mini-collection">
+                  <div class="mini-tree-row">▾ Users</div>
+                  <div class="mini-tree-row">　GET listUsers</div>
+                  <div class="mini-tree-row active">　GET getUser</div>
+                  <div class="mini-tree-row">▾ Orders</div>
+                  <div class="mini-tree-row">　POST createOrder</div>
+                </div>
+
+                <div class="mini-request">
+                  <div class="mini-url">
+                    <span class="mini-method">GET</span>
+
+                    <span class="mini-url-input">
+                      {{baseUrl}}/users/{{userId}}
+                    </span>
+
+                    <span class="mini-send"><span data-i18n="demo.ui.13">Senden</span></span>
+                  </div>
+
+                  <div class="mini-tabs">
+                    <span><span data-i18n="demo.ui.14">Parameter</span></span>
+                    <span><span data-i18n="demo.ui.15">Auth</span></span>
+                    <span class="active"><span data-i18n="demo.ui.17">Body</span></span>
+                    <span><span data-i18n="demo.ui.16">Header</span></span>
+                  </div>
+
+                  <div class="mini-response">
+                    <pre>{
+  "id": "usr_8Kd2Xa",
+  "email": "ada@example.com",
+  <span class="squiggle">"scope"</span>: "users:read"
+}</pre>
+                  </div>
+
+                  <div class="mini-contract">
+                    Contract mismatch — "scope" is not declared on User.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-copy">
+              <p class="section-kicker" data-i18n="f2.kicker">API-Debugging</p>
+
+              <h2 class="section-title" data-i18n="f2.title">API-Debugging auf Basis deiner Spezifikation</h2>
+
+              <p class="section-deck" data-i18n="f2.deck">Ein Anfrage-Builder in der Form der Tools, die Entwickler bereits nutzen – plus das, was diese Tools standardmäßig nicht können: Antworten gegen den Vertrag prüfen.</p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong data-i18n="f2.b1Title">Kollektionen aus Pfaden und Tags generiert.</strong>
+                  <span data-i18n="f2.b1Body">Kein Importschritt und nichts, das manuell neu synchronisiert werden muss.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f2.b2Title">Vertragsprüfung bei jeder Antwort.</strong>
+                  <span data-i18n="f2.b2Body">Nicht deklarierte Eigenschaften, fehlende Felder und Typabweichungen inline erkennen.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f2.b3Title">Umgebungen und Variablen.</strong>
+                  <span data-i18n="f2.b3Body">Vorhandene Entwicklungs- und Staging-Konfigurationen wiederverwenden.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f2.b4Title">Sicherheit aus securitySchemes.</strong>
+                  <span data-i18n="f2.b4Body">Bearer-, API-Key- und OAuth-Konfiguration beginnt mit der Spezifikation.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: MCP
+     ======================================================================= -->
+
+      <section class="feature-section" id="mcp-server">
+        <div class="section-shell">
+          <div class="feature-layout">
+            <div class="feature-copy">
+              <p class="section-kicker" data-i18n="f3.kicker">MCP-Server-Generator</p>
+
+              <h2 class="section-title" data-i18n="f3.title">MCP-Server aus OpenAPI generieren</h2>
+
+              <p class="section-deck" data-i18n="f3.deck">Deine Spezifikation ist bereits ein Tool-Manifest. Powerduck kompiliert sie zu einem ausführbaren MCP-Server und zeigt genau, welche OpenAPI-Felder jedes Tool erzeugt haben.</p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong data-i18n="f3.b1Title">Sichtbare Herkunft.</strong>
+                  <span data-i18n="f3.b1Body">Jedes Tool lässt sich bis zu seiner Operation, operationId und seinem Schema zurückverfolgen.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f3.b2Title">Verschlechterte und übersprungene Zustände.</strong>
+                  <span data-i18n="f3.b2Body">Fehlende Metadaten sind sichtbar, statt stillschweigend schwache Tools zu erzeugen.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f3.b3Title">Neugenerierung beim Speichern.</strong>
+                  <span data-i18n="f3.b3Body">Ändere die Spezifikation, und die Tools aktualisieren sich ohne Build-Schritt.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f3.b4Title">Lokale Transporte.</strong>
+                  <span data-i18n="f3.b4Body">Über stdio oder HTTP ausführen – für lokale Agenten und Arbeitsabläufe.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-preview mini-mcp-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"> mcp://localhost:7433 </span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill pill-ok"><span data-i18n="demo.ui.24">läuft</span></span>
+              </div>
+
+              <div class="preview-body mini-mcp">
+                <div class="mini-mcp-header">
+                  <span class="mini-mcp-title"><span data-i18n="demo.ui.25">Aus openapi.yaml erzeugt</span></span>
+
+                  <span class="mini-mcp-count"><span data-i18n="demo.ui.26">6 Werkzeuge</span></span>
+                  <span class="mini-mcp-count"><span data-i18n="demo.ui.27">7 Ressourcen</span></span>
+                </div>
+
+                <div class="mini-tools">
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">
+                      GET /users/{id} → operationId
+                    </div>
+
+                    <div class="mini-tool-name">getUser</div>
+
+                    <div class="mini-tool-args">id: string</div>
+                  </div>
+
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">
+                      POST /orders → operationId
+                    </div>
+
+                    <div class="mini-tool-name">createOrder</div>
+
+                    <div class="mini-tool-args">items: array</div>
+                  </div>
+
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">POST /auth/login</div>
+
+                    <div class="mini-tool-name">loginUser</div>
+
+                    <div class="mini-tool-args">email, password</div>
+                  </div>
+
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">DELETE /users/{id}</div>
+
+                    <div class="mini-tool-name"><span data-i18n="demo.ui.47">übersprungen</span></div>
+
+                    <div class="mini-tool-args"><span data-i18n="demo.ui.48">operationId fehlt</span></div>
+                  </div>
+                </div>
+
+                <div class="mini-log">
+                  14:02 build 6 tools, 7 resources<br>
+                  14:02 serve listening on :7433<br>
+                  14:03 call getUser → 200
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: DOCS
+     ======================================================================= -->
+
+      <section class="feature-section" id="api-docs">
+        <div class="section-shell">
+          <div class="feature-layout reverse">
+            <div class="feature-preview mini-doc-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"><span data-i18n="demo.ui.49">API-Referenz</span></span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill"><span data-i18n="demo.ui.32">statischer Export</span></span>
+              </div>
+
+              <div class="preview-body mini-docs">
+                <div class="mini-doc-nav">
+                  <div class="mini-doc-nav-title">Users</div>
+
+                  <div class="mini-doc-nav-item"><span data-i18n="demo.ui.50">Übersicht</span></div>
+
+                  <div class="mini-doc-nav-item active">Retrieve a user</div>
+
+                  <div class="mini-doc-nav-item">List users</div>
+
+                  <div class="mini-doc-nav-item">Update user</div>
+                </div>
+
+                <div class="mini-doc-main">
+                  <h4>Retrieve a user</h4>
+
+                  <div class="mini-doc-path">GET /v1/users/{id}</div>
+
+                  <div class="mini-doc-text">
+                    Returns the user object for a valid identifier.
+                  </div>
+
+                  <div class="mini-doc-section"><span data-i18n="demo.ui.40">Pfadparameter</span></div>
+
+                  <div class="mini-doc-param">id · string · required</div>
+
+                  <div class="mini-doc-section"><span data-i18n="demo.ui.51">Rückgabe</span></div>
+
+                  <div class="mini-doc-param">User · object</div>
+                </div>
+
+                <div class="mini-doc-code">
+                  <pre>curl /users/{id}
+
+{
+  "id": "usr_...",
+  "email": "ada@..."
+}</pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-copy">
+              <p class="section-kicker" data-i18n="f4.kicker">API-Dokumentationsgenerator</p>
+
+              <h2 class="section-title" data-i18n="f4.title">API-Dokumentation aus demselben Vertrag</h2>
+
+              <p class="section-deck" data-i18n="f4.deck">Referenzdokumentation, direkt aus deinem OpenAPI-Modell generiert, als statische Dateien exportiert und überall hostbar, wo du willst.</p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong data-i18n="f4.b1Title">Parametertabellen aus Schemas.</strong>
+                  <span data-i18n="f4.b1Body">Pflicht-Flags, Enums und Beschreibungen bleiben synchronisiert.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f4.b2Title">Mehrsprachige Beispiele.</strong>
+                  <span data-i18n="f4.b2Body">cURL-, Node-, Python- und Go-Beispiele aus Operationen generieren.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f4.b3Title">Antworten aus dem echten Vertrag.</strong>
+                  <span data-i18n="f4.b3Body">Erfolgs- und Fehlerantworten stammen aus denselben Objekten, die dein Debugger validiert.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f4.b4Title">Statischer Export.</strong>
+                  <span data-i18n="f4.b4Body">Keine Laufzeitabhängigkeit und keine Bindung an eine Dokumentationsplattform.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     ONE SOURCE OF TRUTH
+     ======================================================================= -->
+
+      <section class="section product-story-section">
+        <div class="section-shell">
+          <div class="product-story-head">
+            <div>
+              <p class="section-kicker" data-i18n="story.kicker">Eine einzige Quelle der Wahrheit</p>
+              <h2 class="section-title" data-i18n-html="story.title">Eine lokale OpenAPI-Datei.<br>Jede Funktion, KI-gesteuert.</h2>
+            </div>
+
+            <p class="product-story-deck" data-i18n-html="story.deck">Öffne <strong>openapi.yaml</strong> oder <strong>openapi.json</strong> lokal, und Powerduck verwandelt den Vertrag, den du bereits besitzt, in einen vollständigen API-Arbeitsbereich. Kein Import. Keine Konvertierung. Keine parallelen Kollektionen. Keine Cloud-Kopie. Beschreibe das Ergebnis in einfacher Sprache, und der eingebaute Assistent führt es in überprüfbaren Schritten aus – und dieselbe Datei spricht über MCP mit jedem KI-Coding-Agent.</p>
+          </div>
+
+          <div class="product-flow" aria-label="Eine lokale OpenAPI-Datei. Jede Funktion, KI-gesteuert.">
+            <div class="product-flow-source">
+              <div class="product-flow-eyebrow" data-i18n="story.openLocal">LOKAL ÖFFNEN</div>
+              <div class="product-file-icon">{ }</div>
+              <div class="product-file-name">openapi.yaml</div>
+              <div class="product-file-alt"><span data-i18n="demo.ui.52">oder openapi.json</span></div>
+              <p data-i18n="story.fileNote">Die Datei bleibt in deinem Repository.</p>
+            </div>
+
+            <div class="product-flow-connector" aria-hidden="true">
+              <span></span>
+            </div>
+
+            <div class="product-flow-tools">
+              <div class="product-flow-tool">
+                <span class="product-flow-index">01</span>
+                <strong data-i18n="nav.specEditor">Spezifikationseditor</strong>
+                <p data-i18n="story.tool1">Den echten Vertrag bearbeiten, navigieren und validieren.</p>
+              </div>
+              <div class="product-flow-tool">
+                <span class="product-flow-index">02</span>
+                <strong data-i18n="nav.apiDebug">API-Debugging</strong>
+                <p data-i18n="story.tool2">Anfragen senden, die aus denselben Operationen generiert wurden.</p>
+              </div>
+              <div class="product-flow-tool">
+                <span class="product-flow-index">03</span>
+                <strong data-i18n="nav.mcpServer">MCP-Server</strong>
+                <p data-i18n="story.tool3">Operationen in agentenfähige Tools kompilieren.</p>
+              </div>
+              <div class="product-flow-tool">
+                <span class="product-flow-index">04</span>
+                <strong data-i18n="nav.apiDocs">API-Dokumentation</strong>
+                <p data-i18n="story.tool4">Dokumentation aus derselben Quelle veröffentlichen.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-positioning">
+            <div class="positioning-statement">
+              <span class="positioning-mark">Powerduck</span>
+              <h3 data-i18n-html="story.posTitle">Nicht nur ein weiterer API-Client,<br>nicht nur ein weiterer Spec-Viewer,<br>sondern eine KI-native Art, APIs zu bauen.</h3>
+              <p data-i18n="story.posBody">Es ist der lokal-native, KI-gesteuerte Arbeitsbereich, der um die OpenAPI-Datei selbst herum aufgebaut ist.</p>
+            </div>
+
+            <div class="positioning-points">
+              <div>
+                <span data-i18n="story.noCloud">KEINE CLOUD NÖTIG</span><strong data-i18n="story.point1">Deine Spezifikation muss deinen Rechner nie verlassen.</strong>
+              </div>
+              <div>
+                <span data-i18n="story.noSync">KEIN MANUELLES SYNCHRONISIEREN</span><strong data-i18n="story.point2">Es gibt nichts Weiteres, das mit dem Vertrag abzugleichen wäre.</strong>
+              </div>
+              <div>
+                <span data-i18n="story.noCopy">KEINE ZUSÄTZLICHE KOPIE</span><strong data-i18n="story.point3">Deine vorhandene YAML oder JSON ist der Arbeitsbereich.</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     LICENSING
+     ======================================================================= -->
+
+      <section class="section outcome-section" id="data-boundaries">
+        <h2 data-i18n="start.privacy">Lokale Arbeit, Remote-Dienste und Ihre Wahl</h2>
+        <p data-i18n="faq.a1">Lokale Dateien benötigen kein Konto. Remote-KI erhält relevanten Kontext beim konfigurierten Anbieter. Cloud-Veröffentlichung lädt ausgewählte Inhalte hoch. Optionale Nutzungsstatistiken sind standardmäßig aus; Details in der Datenschutzerklärung.</p>
+        <a href="/privacy.html" data-i18n="footer.privacy">Datenschutzerklärung</a>
+      </section>
+      <section class="product-paths" id="licensing" aria-labelledby="product-paths-title">
+        <p class="hero-micro" data-i18n="hero.micro">Lokale Nutzung erfordert keinen Cloud-Kauf. Kostenlos sind zwei Spezifikationsplätze enthalten; geprüfte Beiträge können weitere Plätze bringen. Die Desktop-Lizenz hebt die Platzgrenze auf. Eigene Modellschlüssel werden vom Anbieter abgerechnet; gehostete KI und Cloud kosten separat.</p>
+        <div class="product-paths-heading">
+          <h2 id="product-paths-title" data-i18n="guide.title">Wählen Sie Ihren nächsten Schritt.</h2>
+          <a href="/de/pricing?product=client" data-i18n="guide.compare">Produkte und Preise vergleichen →</a>
+        </div>
+        <div class="product-paths-grid">
+          <a class="product-path" href="/console/billing?buy=desktop">
+            <span class="product-path-job" data-i18n="guide.client.job">Lokal erstellen</span>
+            <h3 data-i18n="guide.client.title">Desktop-Lizenz</h3>
+            <p data-i18n="guide.client.desc">Entwerfen, debuggen und testen Sie APIs über Chat mit lokalen OpenAPI-Dateien.</p>
+            <strong data-i18n="guide.client.cost">Einmalkauf · dauerhafte Lizenz</strong>
+            <span aria-hidden="true"> ↗</span>
+          </a>
+          <a class="product-path" href="/console/billing?buy=cloud">
+            <span class="product-path-job" data-i18n="guide.cloud.job">Online veröffentlichen</span>
+            <h3 data-i18n="guide.cloud.title">Cloud-Hosting</h3>
+            <p data-i18n="guide.cloud.desc">Teilen Sie gehostete API-Dokumentation und MCP-Dienste mit Ihrem Team und KI-Agenten.</p>
+            <strong data-i18n="guide.cloud.cost">Kostenloser Tarif · Monats- oder Jahrespläne</strong>
+            <span aria-hidden="true"> ↗</span>
+          </a>
+          <a class="product-path" href="/console/billing?buy=model-pro">
+            <span class="product-path-job" data-i18n="guide.models.job">Modell wählen</span>
+            <h3 data-i18n="guide.models.title">KI-Guthaben</h3>
+            <p data-i18n="guide.models.desc">Nutzen Sie gehostete Modelle mit einem Guthabenpaket oder konfigurieren Sie Ihren eigenen Modellanbieter in der Desktop-App.</p>
+            <strong data-i18n="guide.models.cost">Prepaid-Modellguthaben</strong>
+            <span aria-hidden="true"> ↗</span>
+          </a>
+        </div>
+        <p class="product-paths-account">
+          <span data-i18n="guide.account">Sie haben bereits ein Konto? Verwalten Sie Veröffentlichung, Desktop-Lizenzen und KI-Guthaben.</span>
+          <a href="/signin" data-i18n="guide.signin">Bei der Konsole anmelden →</a>
+        </p>
+      </section>
+
+      <!-- =======================================================================
+     FAQ
+     ======================================================================= -->
+
+      <section class="section" id="faq">
+        <div class="section-shell">
+          <div class="faq-shell">
+            <div class="faq-heading">
+              <p class="section-kicker" data-i18n="faq.kicker">FAQ</p>
+
+              <h2 class="section-title" data-i18n="faq.title">Fragen, die Entwickler zuerst stellen</h2>
+
+              <p class="section-deck" data-i18n="faq.deck">Die praktischen Details zu lokalen Dateien, OpenAPI-Versionen, MCP-Generierung und Lizenzierung.</p>
+            </div>
+
+            <details open="">
+              <summary data-i18n="faq.q1">Lädt Powerduck meine OpenAPI-Spezifikation irgendwohin hoch?</summary>
+
+              <p data-i18n="faq.a1">Lokale Dateien benötigen kein Konto. Remote-KI erhält relevanten Kontext beim konfigurierten Anbieter. Cloud-Veröffentlichung lädt ausgewählte Inhalte hoch. Optionale Nutzungsstatistiken sind standardmäßig aus; Details in der Datenschutzerklärung.</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q2">Welche OpenAPI-Versionen werden unterstützt?</summary>
+
+              <p data-i18n="faq.a2">OpenAPI 3.0, 3.1 und 3.2. Powerduck erkennt die deklarierte Version und validiert gegen den passenden Dialekt, statt einen kleinsten gemeinsamen Nenner zu verwenden.</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q3">Wie wird der MCP-Server generiert?</summary>
+
+              <p data-i18n="faq.a3">Operationen mit einer operationId werden zu MCP-Tools. Argumente werden aus Parameters und RequestBody-Schemas abgeleitet. Komponentenschemas können als Ressourcen bereitgestellt werden. Der generierte Server aktualisiert sich bei jeder Änderung der Spezifikation.</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q4">Ist die Desktop-Lizenz ein Abonnement?</summary>
+
+              <p data-i18n="faq.a4">Nein. Powerduck Desktop ist eine einmalig erworbene permanente Lizenz. Updates innerhalb der Hauptversion sind enthalten. Künftige Haupt-Upgrades bleiben optional.</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q5">Kann ich Postman-Kollektionen weiterverwenden?</summary>
+
+              <p data-i18n="faq.a5">Ja. Vorhandene Kollektionen und Umgebungen können weiter verwendet werden. Powerduck behandelt die OpenAPI-Spezifikation als maßgeblichen Vertrag und hilft zu erkennen, wo Anfragen davon abweichen.</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q6">Funktioniert es in der CI?</summary>
+
+              <p>
+                <span data-i18n="faq.a6Before">Ja. Dieselbe Validierungs- und Generierungsengine ist über</span>
+                <a href="/opensource/openapi-cli.html" style="color: var(--accent); text-decoration: underline">@powerduck/openapi-cli</a><span data-i18n="faq.a6After"> verfügbar, ein CI-fähiges Kommandozeilen-Tool, das während Pull-Requests und automatisierten Pipelines läuft. Es unterstützt Stapelprüfungen über 6 Protokolle (HTTP, SSE, WebSocket, gRPC, MCP, GraphQL), konfigurierbare Parallelität und JUnit-kompatible Berichte für die CI-Integration.</span>
+              </p>
+              <p style="margin-top: 8px">
+                <a href="/opensource/openapi-cli.html" class="btn btn-secondary" style="
+                    display: inline-flex;
+                    padding: 6px 14px;
+                    font-size: 13px;
+                  " data-i18n="faq.a6Btn">openapi-cli entdecken →</a>
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FOOTER
+     ======================================================================= -->
+
+      <footer class="site-footer">
+        <div class="footer-shell">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <a href="/de/" class="brand" aria-label="Powerduck-Startseite">
+                <img src="/assets/images/logo.svg" alt="Powerduck logo" class="brand-logo">
+                <span>Powerduck</span>
+              </a>
+              <p data-i18n="footer.brand">Wir bauen Entwicklerwerkzeuge für den modernen API-Arbeitsablauf. Open Source, produktionsreif und community-getrieben.</p>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="footer.product">Produkt</h6>
+              <ul>
+                <li>
+                  <a href="#spec-editor" data-i18n="nav.specEditor">Spezifikationseditor</a>
+                </li>
+                <li>
+                  <a href="#api-debug" data-i18n="nav.apiDebug">API-Debugging</a>
+                </li>
+                <li>
+                  <a href="#mcp-server" data-i18n="nav.mcpServer">MCP-Server</a>
+                </li>
+                <li>
+                  <a href="#api-docs" data-i18n="nav.apiDocs">API-Dokumentation</a>
+                </li>
+                <li>
+                  <a href="/de/download/" data-i18n="nav.download">Herunterladen</a>
+                </li>
+                <li>
+                  <a href="/de/pricing?product=client" data-i18n="footer.prices">Preise</a>
+                </li>
+                <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+                <li>
+                  <a href="/blog/tag/release-notes/" data-i18n="nav.releaseNotes">Release Notes</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="nav.cloud">Cloud</h6>
+              <ul>
+                <li>
+                  <a data-cloud-signin="/hub" href="/de/hub" data-i18n="nav.hub">Hub</a>
+                </li>
+                <li>
+                  <a data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">Anmelden</a>
+                </li>
+                <li>
+                  <a href="/docs/de-DE/cloud/quickstart/index.html" data-i18n="footer.quickstart">Schnellstart</a>
+                </li>
+                <li>
+                  <a href="/docs/de-DE/cloud/access-control/index.html" data-i18n="footer.accessControl">Zugriffskontrolle</a>
+                </li>
+                <li>
+                  <a href="/docs/de-DE/cloud/custom-domains/index.html" data-i18n="footer.customDomains">Eigene Domains</a>
+                </li>
+                <li>
+                  <a href="/docs/de-DE/cloud/billing/index.html" data-i18n="footer.billing">Abrechnung</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="nav.resources">Ressourcen</h6>
+              <ul>
+                <li>
+                  <a href="/docs/de-DE/overview/introduction/index.html" data-i18n="nav.documentation">Dokumentation</a>
+                </li>
+                <li>
+                  <a href="/docs/de-DE/client/introduction/index.html" data-i18n="footer.clientGuide">Client-Handbuch</a>
+                </li>
+                <li>
+                  <a href="/docs/de-DE/cloud/introduction/index.html" data-i18n="footer.cloudGuide">Cloud-Handbuch</a>
+                </li>
+                <li>
+                  <a href="https://github.com/powerducklab" target="_blank" rel="nofollow noopener noreferrer">GitHub</a>
+                </li>
+                <li>
+                  <a href="https://www.npmjs.com/search?q=%40powerduck" target="_blank" data-i18n="footer.npmPackages" rel="nofollow noopener noreferrer">npm-Pakete</a>
+                </li>
+                <li><a href="#faq" data-i18n="faq.kicker">FAQ</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="footer.legal">Rechtliches</h6>
+              <ul>
+                <li>
+                  <a href="/terms.html" data-i18n="footer.terms">Nutzungsbedingungen</a>
+                </li>
+                <li>
+                  <a href="/privacy.html" data-i18n="footer.privacy">Datenschutzerklärung</a>
+                </li>
+                <li>
+                  <a href="/refunds.html" data-i18n="footer.refunds">Rückerstattungsrichtlinie</a>
+                </li>
+                <li>
+                  <a href="/cookie.html" data-i18n="footer.cookie">Cookie-Hinweis</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span data-i18n="dl.copyright">© 2026 POWERDUCK LIMITED. Alle Rechte vorbehalten.</span>
+            <div class="footer-bottom-links">
+              <a href="/terms.html" data-i18n="footer.termsShort">AGB</a>
+              <a href="/privacy.html" data-i18n="footer.privacyShort">Datenschutz</a>
+              <a href="/cookie.html" data-i18n="footer.cookieShort">Cookies</a>
+            </div>
+          </div>
+        </div>
+      <nav data-locale-links="" class="locale-links" aria-label="Sprache auswählen"><a href="/" hreflang="en" lang="en">English (US)</a><a href="/zh-CN/" hreflang="zh-CN" lang="zh-CN">简体中文</a><a href="/ja/" hreflang="ja" lang="ja">日本語</a><a href="/de/" hreflang="de" lang="de" aria-current="page">Deutsch</a><a href="/fr/" hreflang="fr" lang="fr">Français</a><a href="/es/" hreflang="es" lang="es">Español</a><a href="/pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a><a href="/zh-TW/" hreflang="zh-TW" lang="zh-TW">繁體中文</a><a href="/it-IT/" hreflang="it-IT" lang="it-IT">Italiano</a><a href="/ko-KR/" hreflang="ko-KR" lang="ko-KR">한국어</a><a href="/ru-RU/" hreflang="ru-RU" lang="ru-RU">Русский</a><a href="/id-ID/" hreflang="id-ID" lang="id-ID">Bahasa Indonesia</a><a href="/tr-TR/" hreflang="tr-TR" lang="tr-TR">Türkçe</a><a href="/vi-VN/" hreflang="vi-VN" lang="vi-VN">Tiếng Việt</a><a href="/ar-SA/" hreflang="ar-SA" lang="ar-SA">العربية</a><a href="/hi-IN/" hreflang="hi-IN" lang="hi-IN">हिन्दी</a></nav></footer>
+    </div>
+
+    <!-- =======================================================================
+     JAVASCRIPT
+     ======================================================================= -->
+
+    <script>
+      (function () {
+        "use strict";
+
+        var reduceMotion =
+          window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        /* ----------------------------------------------------------------
+        Hero agent-flow demo: the coding agent calls the Powerduck MCP tools
+        in sequence (read spec -> mock -> tests -> call -> docs). Each step
+        lights up pending -> active -> done. The static default is the fully
+        completed state.
+        ---------------------------------------------------------------- */
+
+        var heroDemo = document.querySelector("[data-hero-demo]");
+        var heroWindow = heroDemo
+          ? heroDemo.querySelector(".hv-window")
+          : null;
+        var heroSteps = heroWindow
+          ? Array.prototype.slice.call(
+              heroWindow.querySelectorAll("[data-hv-log] .hv-step")
+            )
+          : [];
+        var timers = [];
+        var STEP_MS = 700;
+        var START_MS = 160;
+        var HOLD_MS = 1900;
+
+        function clearTimers() {
+          while (timers.length) {
+            clearTimeout(timers.pop());
+          }
+        }
+
+        function resetSteps() {
+          heroSteps.forEach(function (step) {
+            step.classList.remove("is-active", "is-done");
+          });
+        }
+
+        function runCycle() {
+          clearTimers();
+          heroWindow.classList.add("is-animating");
+          heroWindow.classList.remove("is-done");
+          resetSteps();
+
+          heroSteps.forEach(function (step, i) {
+            var start = START_MS + i * STEP_MS;
+            timers.push(
+              setTimeout(function () {
+                step.classList.add("is-active");
+              }, start)
+            );
+            timers.push(
+              setTimeout(function () {
+                step.classList.remove("is-active");
+                step.classList.add("is-done");
+              }, start + STEP_MS)
+            );
+          });
+
+          var loopMs = START_MS + heroSteps.length * STEP_MS + HOLD_MS;
+          timers.push(setTimeout(runCycle, loopMs));
+        }
+
+        if (heroDemo && heroWindow && heroSteps.length && !reduceMotion) {
+          if ("IntersectionObserver" in window) {
+            var heroObserver = new IntersectionObserver(
+              function (entries) {
+                entries.forEach(function (entry) {
+                  if (entry.isIntersecting) {
+                    runCycle();
+                    heroObserver.disconnect();
+                  }
+                });
+              },
+              { threshold: 0.4 }
+            );
+            heroObserver.observe(heroDemo);
+          } else {
+            runCycle();
+          }
+        }
+
+        /* ----------------------------------------------------------------
+        Scroll reveal for the differentiator cards.
+        ---------------------------------------------------------------- */
+
+        var revealEls = document.querySelectorAll(".reveal");
+
+        if (!reduceMotion && revealEls.length) {
+          document.documentElement.classList.add("js");
+
+          if ("IntersectionObserver" in window) {
+            var revealObserver = new IntersectionObserver(
+              function (entries) {
+                entries.forEach(function (entry) {
+                  if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    revealObserver.unobserve(entry.target);
+                  }
+                });
+              },
+              { threshold: 0.12 }
+            );
+            revealEls.forEach(function (el) {
+              revealObserver.observe(el);
+            });
+          } else {
+            revealEls.forEach(function (el) {
+              el.classList.add("is-visible");
+            });
+          }
+        }
+      })();
+    </script>
+    <script>
+      (function () {
+        "use strict";
+
+        /* ------------------------------------------------------------------------
+     Theme
+     ------------------------------------------------------------------------ */
+        /* ------------------------------------------------------------------------
+     Product demo tabs
+     ------------------------------------------------------------------------ */
+
+        var tabs = document.querySelectorAll("[data-tab]");
+
+        var stageMap = {
+          editor: document.getElementById("stage-editor"),
+          debug: document.getElementById("stage-debug"),
+          mcp: document.getElementById("stage-mcp"),
+          docs: document.getElementById("stage-docs"),
+        };
+
+        function activateTab(key) {
+          tabs.forEach(function (tab) {
+            var active = tab.getAttribute("data-tab") === key;
+
+            tab.setAttribute("aria-selected", active ? "true" : "false");
+          });
+
+          Object.keys(stageMap).forEach(function (name) {
+            var stage = stageMap[name];
+
+            if (!stage) {
+              return;
+            }
+
+            stage.classList.toggle("on", name === key);
+          });
+        }
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            var key = tab.getAttribute("data-tab");
+
+            activateTab(key);
+          });
+        });
+
+        /* ------------------------------------------------------------------------
+     Deep-link mapping
+     ------------------------------------------------------------------------ */
+
+        var hashMap = {
+          "#spec-editor": "editor",
+          "#api-debug": "debug",
+          "#mcp-server": "mcp",
+          "#api-docs": "docs",
+        };
+
+        function activateFromHash() {
+          var key = hashMap[window.location.hash];
+
+          if (key) {
+            activateTab(key);
+          }
+        }
+
+        activateFromHash();
+
+        window.addEventListener("hashchange", activateFromHash);
+
+        /* ------------------------------------------------------------------------
+     Navigation -> corresponding demo surface
+     ------------------------------------------------------------------------ */
+
+        document
+          .querySelectorAll(
+            'a[href="#spec-editor"],' +
+              'a[href="#api-debug"],' +
+              'a[href="#mcp-server"],' +
+              'a[href="#api-docs"]',
+          )
+          .forEach(function (link) {
+            link.setAttribute("data-demo-tab", "");
+            link.addEventListener("click", function (e) {
+              var key = hashMap[link.getAttribute("href")];
+
+              if (key) {
+                e.preventDefault();
+                activateTab(key);
+                var demoSection = document.querySelector(".demo-section");
+
+                if (demoSection) {
+                  demoSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }
+              }
+            });
+          });
+      })();
+    </script>
+
+
+    <script src="/assets/locales/de.js?v=20261019d"></script><script src="/assets/js/common.js?v=20261019d"></script>
+    <script src="/assets/js/cloud.js?v=20261019d"></script>
+    <script>
+      (function () {
+        var btn = document.querySelector(".nav-hamburger");
+        var drawer = document.getElementById("navDrawer");
+        if (btn && drawer) {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            var open = drawer.classList.toggle("open");
+            btn.classList.toggle("open", open);
+            btn.setAttribute("aria-expanded", open);
+          });
+          document.addEventListener("click", function (e) {
+            if (
+              drawer.classList.contains("open") &&
+              !drawer.contains(e.target) &&
+              !btn.contains(e.target)
+            ) {
+              drawer.classList.remove("open");
+              btn.classList.remove("open");
+              btn.setAttribute("aria-expanded", "false");
+            }
+          });
+        }
+      })();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

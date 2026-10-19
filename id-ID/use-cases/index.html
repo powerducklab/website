@@ -1,0 +1,519 @@
+<!DOCTYPE html><html lang="id-ID" data-theme="light" data-page-locale="id-ID" data-page-route="/use-cases.html" dir="ltr"><head>
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("pd_theme");
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          var root = document.documentElement;
+          root.setAttribute("data-theme", theme);
+          root.classList.add(theme);
+          root.classList.remove(theme === "dark" ? "light" : "dark");
+
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/images/icon-192.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Powerduck">
+    <meta property="og:title" data-i18n-content="scenes.metaTitle" content="Kegunaan Powerduck — Dari kode ke dokumentasi API, pengujian, dan mock">
+    <meta property="og:description" data-i18n-content="scenes.metaDescription" content="Buat dokumentasi API dari agen pemrograman, debug permintaan nyata, periksa kontrak API, dan gunakan endpoint mock sebelum backend siap.">
+    <meta property="og:url" content="https://www.powerduck.com/id-ID/use-cases/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" data-i18n-content="scenes.metaTitle" content="Kegunaan Powerduck — Dari kode ke dokumentasi API, pengujian, dan mock">
+    <meta name="twitter:description" data-i18n-content="scenes.metaDescription" content="Buat dokumentasi API dari agen pemrograman, debug permintaan nyata, periksa kontrak API, dan gunakan endpoint mock sebelum backend siap.">
+
+    <title data-i18n="scenes.metaTitle">Kegunaan Powerduck — Dari kode ke dokumentasi API, pengujian, dan mock</title>
+
+    <meta name="description" data-i18n-content="scenes.metaDescription" content="Buat dokumentasi API dari agen pemrograman, debug permintaan nyata, periksa kontrak API, dan gunakan endpoint mock sebelum backend siap.">
+
+    <meta name="keywords" content="Powerduck, AI API development, AI-native OpenAPI studio, local-first API tool, OpenAPI editor, API debugging, MCP server generator, API documentation, OpenAPI 3.2, offline API client, AI coding agent, bring your own model">
+
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/assets/css/common.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/contour.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/product-paths.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261019d">
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-8HXDV7CDEB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-8HXDV7CDEB");
+    </script>
+  <meta property="og:image" content="https://www.powerduck.com/assets/images/icon-192.png"><meta property="og:locale" content="id_ID"><link rel="canonical" href="https://www.powerduck.com/id-ID/use-cases/"><link rel="alternate" hreflang="en" href="https://www.powerduck.com/use-cases.html"><link rel="alternate" hreflang="zh-CN" href="https://www.powerduck.com/zh-CN/use-cases/"><link rel="alternate" hreflang="ja" href="https://www.powerduck.com/ja/use-cases/"><link rel="alternate" hreflang="de" href="https://www.powerduck.com/de/use-cases/"><link rel="alternate" hreflang="fr" href="https://www.powerduck.com/fr/use-cases/"><link rel="alternate" hreflang="es" href="https://www.powerduck.com/es/use-cases/"><link rel="alternate" hreflang="pt-BR" href="https://www.powerduck.com/pt-BR/use-cases/"><link rel="alternate" hreflang="zh-TW" href="https://www.powerduck.com/zh-TW/use-cases/"><link rel="alternate" hreflang="it-IT" href="https://www.powerduck.com/it-IT/use-cases/"><link rel="alternate" hreflang="ko-KR" href="https://www.powerduck.com/ko-KR/use-cases/"><link rel="alternate" hreflang="ru-RU" href="https://www.powerduck.com/ru-RU/use-cases/"><link rel="alternate" hreflang="id-ID" href="https://www.powerduck.com/id-ID/use-cases/"><link rel="alternate" hreflang="tr-TR" href="https://www.powerduck.com/tr-TR/use-cases/"><link rel="alternate" hreflang="vi-VN" href="https://www.powerduck.com/vi-VN/use-cases/"><link rel="alternate" hreflang="ar-SA" href="https://www.powerduck.com/ar-SA/use-cases/"><link rel="alternate" hreflang="hi-IN" href="https://www.powerduck.com/hi-IN/use-cases/"><link rel="alternate" hreflang="x-default" href="https://www.powerduck.com/use-cases.html"><script type="application/ld+json" data-site-schema="">{"@context":"https://schema.org","@type":"WebPage","name":"Kegunaan Powerduck — Dari kode ke dokumentasi API, pengujian, dan mock","description":"Buat dokumentasi API dari agen pemrograman, debug permintaan nyata, periksa kontrak API, dan gunakan endpoint mock sebelum backend siap.","url":"https://www.powerduck.com/id-ID/use-cases/","inLanguage":"id-ID","isPartOf":{"@type":"WebSite","name":"Powerduck","url":"https://www.powerduck.com/"}}</script></head>
+
+  <body>
+    <div class="page-shell">
+      <!-- =======================================================================
+     NAV
+     ======================================================================= -->
+
+      <header class="nav">
+        <div class="nav-inner">
+          <a href="/id-ID/" class="brand" aria-label="Beranda Powerduck">
+            <img src="/assets/images/logo.svg" alt="Powerduck logo" class="brand-mark">
+
+            <span>Powerduck</span>
+          </a>
+
+          <button class="nav-hamburger" aria-label="Buka atau tutup menu navigasi" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+
+          <div class="nav-drawer" id="navDrawer">
+            <nav class="nav-links">
+
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                  <span data-i18n="nav.client">Aplikasi desktop</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="/id-ID/#spec-editor" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.specEditor">Editor spesifikasi</span><span class="dropdown-item-desc" data-i18n="nav.specEditorDesc">Edit spesifikasi OpenAPI secara langsung</span></span></a>
+                  <a class="dropdown-item" href="/id-ID/#api-debug" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDebug">Debugger API</span><span class="dropdown-item-desc" data-i18n="nav.apiDebugDesc">Kirim permintaan dan periksa respons</span></span></a>
+                  <a class="dropdown-item" href="/id-ID/#mcp-server" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.mcpServer">Server MCP</span><span class="dropdown-item-desc" data-i18n="nav.mcpServerDesc">Ubah spesifikasi menjadi alat yang dapat dipanggil</span></span></a>
+                  <a class="dropdown-item" href="/id-ID/#api-docs" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDocs">Dokumentasi API</span><span class="dropdown-item-desc" data-i18n="nav.apiDocsDesc">Buat dokumentasi dari spesifikasi yang sama</span></span></a>
+                </div>
+              </div><a class="nav-hub-link" href="/id-ID/hub" data-i18n="nav.hub">Hub</a>
+
+
+
+              <a class="nav-direct" href="/id-ID/pricing?product=client" data-i18n="nav.pricing">Harga</a>
+
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                  <span data-i18n="nav.resources">Sumber daya</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="/docs/id-ID/overview/introduction/index.html" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.documentation">Dokumentasi</span><span class="dropdown-item-desc" data-i18n="nav.documentationDesc">Panduan dan referensi API</span></span></a>
+                  <a class="dropdown-item" href="/id-ID/use-cases/" role="menuitem"><span class="dropdown-item-text"><span data-i18n="scenes.all" class="dropdown-item-title">Panduan skenario</span></span></a>
+                  <a class="dropdown-item" href="/blog/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.blog">Blog</span><span class="dropdown-item-desc" data-i18n="nav.blogDesc">Kabar produk dan catatan pengembangan</span></span></a>
+                  <a class="dropdown-item" href="/blog/tag/release-notes/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.releaseNotes">Catatan rilis</span><span class="dropdown-item-desc" data-i18n="nav.releaseNotesDesc">Perubahan di setiap versi</span></span></a>
+                  <a class="dropdown-item" href="/demo/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.liveDemo">Demo langsung</span><span class="dropdown-item-desc" data-i18n="nav.liveDemoDesc">Coba semua alat di browser</span></span></a>
+                  <a class="dropdown-item" href="/app/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.webApp">Aplikasi web</span><span class="dropdown-item-desc" data-i18n="nav.webAppDesc">Gunakan aplikasi Powerduck lengkap di browser</span></span></a>
+                  <a class="dropdown-item" href="https://github.com/powerducklab" target="_blank" role="menuitem" rel="nofollow noopener noreferrer"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.openSource">Sumber terbuka</span><span class="dropdown-item-desc" data-i18n="nav.openSourceDesc">Pustaka di GitHub dan npm</span></span></a>
+                </div>
+              </div>
+            </nav>
+
+            <div class="nav-actions">
+              <a class="nav-icon-btn" href="https://github.com/powerducklab" target="_blank" aria-label="GitHub" rel="nofollow noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12 12-12z"></path>
+                </svg>
+              </a>
+              <div class="nav-account-slot" id="navAccountSlot">
+                <a class="nav-signin" data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">Masuk</a>
+              </div>
+
+              <div class="nav-dropdown" id="langMenu">
+                <button class="nav-icon-btn nav-dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Pilih bahasa">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20"></path>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu align-right" role="menu" id="langMenuContent"></div>
+              </div>
+
+              <button class="theme-toggle" data-theme-toggle="" id="themeToggle" type="button" aria-label="Ganti tema warna">
+                <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none">
+                  <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+                </svg>
+
+                <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"></circle>
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                </svg>
+              </button>
+
+              <a class="btn btn-primary btn-sm" href="/id-ID/download/" data-i18n="nav.download">Unduh</a>
+            </div>
+          </div>
+        </div>
+
+        <style>
+          .nav-dropdown:hover .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+          .nav-dropdown:hover .chevron {
+            transform: rotate(180deg);
+          }
+          .nav-dropdown.open .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+        </style>
+      </header>
+
+      <main class="scenes-page">
+        <header class="scenes-page-heading">
+          <a class="scenes-back" href="/id-ID/">← <span data-i18n="scenes.back">Kembali ke beranda</span></a>
+          <p data-i18n="flow.kicker" class="scenes-kicker">LIHAT DALAM ALUR KERJA</p>
+          <h1 data-i18n="flow.title">Ubah pekerjaan rutin menjadi alur berbasis kontrak.</h1>
+          <p data-i18n="flow.intro" class="scenes-intro">Pilih tugas di bawah. Powerduck menjalankannya dari berkas OpenAPI di komputer Anda, lengkap dengan lingkungan, pengujian, dan mock, tanpa akun atau unggahan.</p>
+        </header>
+        <nav class="scenes-index" aria-labelledby="scenes-index-title">
+          <h2 data-i18n="scenes.jump" id="scenes-index-title">Temukan kebutuhan Anda</h2>
+          <ol>
+            <li>
+              <a href="#code-to-docs"><span class="scene-number" aria-hidden="true">01</span><span data-i18n="flow.1.title">Buat dokumentasi dari proyek.</span></a>
+            </li>
+            <li>
+              <a href="#design-api"><span class="scene-number" aria-hidden="true">02</span><span data-i18n="flow.2.title">Implementasikan berdasarkan kontrak API yang sebenarnya.</span></a>
+            </li>
+            <li>
+              <a href="#contract-tests"><span class="scene-number" aria-hidden="true">03</span><span data-i18n="flow.3.title">Jalankan seluruh skenario bisnis.</span></a>
+            </li>
+            <li>
+              <a href="#protocols"><span class="scene-number" aria-hidden="true">04</span><span data-i18n="flow.4.title">Periksa tujuh protokol di satu tempat.</span></a>
+            </li>
+            <li>
+              <a href="#ai-debug"><span class="scene-number" aria-hidden="true">05</span><span data-i18n="flow.5.title">Selidiki dengan konteks permintaan nyata.</span></a>
+            </li>
+            <li>
+              <a href="#share-docs"><span class="scene-number" aria-hidden="true">06</span><span data-i18n="flow.6.title">Publikasikan dokumentasi dan MCP dari satu API.</span></a>
+            </li>
+          </ol>
+        </nav>
+        <div class="scenes-details">
+          <article class="scene-detail" id="code-to-docs" aria-labelledby="title-code-to-docs">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">01</span>
+              <h2 data-i18n="flow.1.title" id="title-code-to-docs">Buat dokumentasi dari proyek.</h2>
+              <p data-i18n="flow.1.pain">Masih membaca kode sumber untuk memastikan dokumentasi API sudah benar?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">DENGAN POWERDUCK</h3>
+              <p data-i18n="flow.1.body">Pindai proyek yang didukung melalui MCP dari agen pemrograman. Buat definisi API dan buka sebagai dokumentasi.</p>
+              <h3 data-i18n="flow.result">HASIL YANG ANDA DAPATKAN</h3>
+              <p data-i18n="flow.1.result">Definisi API yang dapat ditinjau dan tautan dokumentasi lokal.</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">Minta agen Anda</p>
+                <blockquote data-i18n="flow.1.prompt">Pindai proyek ini dan berikan tautan dokumentasi API.</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Perlu diketahui</h3>
+                <p data-i18n="scenes.s1.note">Hanya untuk framework yang didukung. Tinjau kolom hasil inferensi dan peringatan pemindaian. Tautan lokal berfungsi di host MCP selama sesinya berjalan.</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/coding-agent/" href="/docs/id-ID/client/coding-agent/"><span data-i18n="flow.boundary">Lihat pengaturan dan persyaratan</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="design-api" aria-labelledby="title-design-api">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">02</span>
+              <h2 data-i18n="flow.2.title" id="title-design-api">Implementasikan berdasarkan kontrak API yang sebenarnya.</h2>
+              <p data-i18n="flow.2.pain">Sudah memberi spesifikasi ke AI, tetapi hasilnya memakai kolom dan jalur yang berbeda?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">DENGAN POWERDUCK</h3>
+              <p data-i18n="flow.2.body">Hubungkan agen pemrograman ke MCP Powerduck. Biarkan agen membaca jalur, skema, dan autentikasi sebenarnya sebelum mengimplementasikan, lalu verifikasi API yang berjalan.</p>
+              <h3 data-i18n="flow.result">HASIL YANG ANDA DAPATKAN</h3>
+              <p data-i18n="flow.2.result">Implementasi berpanduan kontrak, diperiksa menggunakan respons nyata.</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">Minta agen Anda</p>
+                <blockquote data-i18n="flow.2.prompt">Implementasikan API ini berdasarkan definisinya, lalu jalankan pengujian kontrak.</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Perlu diketahui</h3>
+                <p data-i18n="scenes.s3.note">Pemeriksaan mencakup operasi, input, dan asersi yang Anda jalankan. Pemeriksaan ini tidak membuktikan bahwa semua perilaku backend sudah benar.</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/coding-agent/" href="/docs/id-ID/client/coding-agent/"><span data-i18n="flow.boundary">Lihat pengaturan dan persyaratan</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="contract-tests" aria-labelledby="title-contract-tests">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">03</span>
+              <h2 data-i18n="flow.3.title" id="title-contract-tests">Jalankan seluruh skenario bisnis.</h2>
+              <p data-i18n="flow.3.pain">Mengulang alur bisnis yang sama secara manual setelah setiap perubahan API?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">DENGAN POWERDUCK</h3>
+              <p data-i18n="flow.3.body">Jelaskan alur seperti masuk → buat pesanan → ambil pesanan. Biarkan AI menyusun skenario, meneruskan nilai antarlangkah, dan menjalankan pengujian.</p>
+              <h3 data-i18n="flow.result">HASIL YANG ANDA DAPATKAN</h3>
+              <p data-i18n="flow.3.result">Hasil per langkah dan asersi yang gagal, bukan sekadar skrip pengujian yang dihasilkan.</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">Minta agen Anda</p>
+                <blockquote data-i18n="flow.3.prompt">Uji masuk → buat pesanan → ambil pesanan. Tunjukkan langkah yang gagal.</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Perlu diketahui</h3>
+                <p data-i18n="scenes.s3.note">Pemeriksaan mencakup operasi, input, dan asersi yang Anda jalankan. Pemeriksaan ini tidak membuktikan bahwa semua perilaku backend sudah benar.</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/scenario-testing/" href="/docs/id-ID/client/scenario-testing/"><span data-i18n="flow.boundary">Lihat pengaturan dan persyaratan</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="protocols" aria-labelledby="title-protocols">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">04</span>
+              <h2 data-i18n="flow.4.title" id="title-protocols">Periksa tujuh protokol di satu tempat.</h2>
+              <p data-i18n="flow.4.pain">Berganti alat hanya karena endpoint berikutnya memakai protokol berbeda?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">DENGAN POWERDUCK</h3>
+              <p data-i18n="flow.4.body">Debug HTTP, GraphQL, WebSocket, SSE, gRPC, MCP, dan A2A. Periksa respons, stream, dan panggilan alat di ruang kerja yang sama.</p>
+              <h3 data-i18n="flow.result">HASIL YANG ANDA DAPATKAN</h3>
+              <p data-i18n="flow.4.result">Kendali manual saat Anda perlu memeriksa apa yang sebenarnya terjadi.</p>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Perlu diketahui</h3>
+                <p data-i18n="scenes.s8.note">Dukungan protokol berbeda antara desktop dan browser. Gunakan aplikasi desktop untuk transport native seperti gRPC.</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/protocols/" href="/docs/id-ID/client/protocols/"><span data-i18n="flow.boundary">Lihat pengaturan dan persyaratan</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="ai-debug" aria-labelledby="title-ai-debug">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">05</span>
+              <h2 data-i18n="flow.5.title" id="title-ai-debug">Selidiki dengan konteks permintaan nyata.</h2>
+              <p data-i18n="flow.5.pain">Menyalin permintaan dan respons ke chat setiap kali membutuhkan bantuan AI?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">DENGAN POWERDUCK</h3>
+              <p data-i18n="flow.5.body">Berikan konteks API yang relevan kepada asisten. Minta asisten mengirim permintaan, memeriksa respons, dan membantu mempersempit penyebab kegagalan.</p>
+              <h3 data-i18n="flow.result">HASIL YANG ANDA DAPATKAN</h3>
+              <p data-i18n="flow.5.result">Diagnosis berdasarkan hasil permintaan, dengan perubahan yang dapat Anda tinjau.</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">Minta agen Anda</p>
+                <blockquote data-i18n="flow.5.prompt">Selidiki mengapa permintaan ini gagal. Periksa respons sebelum menyarankan perbaikan.</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Perlu diketahui</h3>
+                <p data-i18n="scenes.s5.note">Fitur AI memerlukan model yang dikonfigurasi. Konteks yang dikirim ke penyedia jarak jauh meninggalkan perangkat Anda; pengeditan manual tidak memerlukan AI.</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/debug/" href="/docs/id-ID/client/debug/"><span data-i18n="flow.boundary">Lihat pengaturan dan persyaratan</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="share-docs" aria-labelledby="title-share-docs">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">06</span>
+              <h2 data-i18n="flow.6.title" id="title-share-docs">Publikasikan dokumentasi dan MCP dari satu API.</h2>
+              <p data-i18n="flow.6.pain">Mengelola hosting terpisah hanya untuk berbagi dokumentasi API dan MCP?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">DENGAN POWERDUCK</h3>
+              <p data-i18n="flow.6.body">Publikasikan versi API ke Powerduck Cloud. Sediakan dokumentasi yang mudah dibaca bagi pengguna dan endpoint MCP bagi klien AI.</p>
+              <h3 data-i18n="flow.result">HASIL YANG ANDA DAPATKAN</h3>
+              <p data-i18n="flow.6.result">Dokumentasi yang dihosting dan URL MCP tanpa mengoperasikan infrastruktur hosting sendiri.</p>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Perlu diketahui</h3>
+                <p data-i18n="scenes.s6.note">Hosting Cloud memakai kuota akun Anda. Definisi API yang diunggah mungkin memuat contoh atau informasi internal; tinjau sebelum dibagikan.</p>
+              </aside>
+              <a class="scene-link" data-docs-path="cloud/exposure/" href="/docs/id-ID/cloud/exposure/"><span data-i18n="flow.boundary">Lihat pengaturan dan persyaratan</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+        <section class="scenes-cta">
+          <h2 data-i18n="scenes.ready">Coba pada satu API terlebih dahulu.</h2>
+          <p data-i18n="scenes.readyBody">Buka spesifikasi yang sudah Anda miliki atau mulai dengan contoh bawaan. Jelajahi alur kerja sebelum menghubungkan proyek sendiri.</p>
+          <div>
+            <a class="btn btn-primary" href="/id-ID/download/"><span data-i18n="scenes.download">Unduh Powerduck</span></a><a class="btn btn-secondary" href="/app/"><span data-i18n="scenes.example">Coba ruang kerja browser</span></a>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <div class="footer-shell">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <a href="/id-ID/" class="brand" aria-label="Beranda Powerduck">
+                <img src="/assets/images/logo.svg" alt="Powerduck logo" class="brand-logo">
+                <span>Powerduck</span>
+              </a>
+              <p data-i18n="footer.brand">Membangun alat pengembang untuk alur kerja API modern. Sumber terbuka, siap untuk proyek nyata, dan tumbuh bersama komunitas.</p>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="footer.product">Produk</h6>
+              <ul>
+                <li>
+                  <a href="/id-ID/#spec-editor" data-i18n="nav.specEditor">Editor spesifikasi</a>
+                </li>
+                <li>
+                  <a href="/id-ID/#api-debug" data-i18n="nav.apiDebug">Debugger API</a>
+                </li>
+                <li>
+                  <a href="/id-ID/#mcp-server" data-i18n="nav.mcpServer">Server MCP</a>
+                </li>
+                <li>
+                  <a href="/id-ID/#api-docs" data-i18n="nav.apiDocs">Dokumentasi API</a>
+                </li>
+                <li>
+                  <a href="/id-ID/download/" data-i18n="nav.download">Unduh</a>
+                </li>
+                <li>
+                  <a href="/id-ID/pricing?product=client" data-i18n="footer.prices">Harga</a>
+                </li>
+                <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+                <li>
+                  <a href="/blog/tag/release-notes/" data-i18n="nav.releaseNotes">Catatan rilis</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="nav.cloud">Cloud</h6>
+              <ul>
+                <li>
+                  <a data-cloud-signin="/hub" href="/id-ID/hub" data-i18n="nav.hub">Hub</a>
+                </li>
+                <li>
+                  <a data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">Masuk</a>
+                </li>
+                <li>
+                  <a href="/docs/id-ID/cloud/quickstart/index.html" data-i18n="footer.quickstart">Mulai cepat</a>
+                </li>
+                <li>
+                  <a href="/docs/id-ID/cloud/access-control/index.html" data-i18n="footer.accessControl">Kontrol akses</a>
+                </li>
+                <li>
+                  <a href="/docs/id-ID/cloud/custom-domains/index.html" data-i18n="footer.customDomains">Domain khusus</a>
+                </li>
+                <li>
+                  <a href="/docs/id-ID/cloud/billing/index.html" data-i18n="footer.billing">Penagihan</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="nav.resources">Sumber daya</h6>
+              <ul>
+                <li>
+                  <a href="/docs/id-ID/overview/introduction/index.html" data-i18n="nav.documentation">Dokumentasi</a>
+                </li>
+                <li>
+                  <a href="/docs/id-ID/client/introduction/index.html" data-i18n="footer.clientGuide">Panduan klien</a>
+                </li>
+                <li>
+                  <a href="/docs/id-ID/cloud/introduction/index.html" data-i18n="footer.cloudGuide">Panduan Cloud</a>
+                </li>
+                <li>
+                  <a href="https://github.com/powerducklab" target="_blank" rel="nofollow noopener noreferrer">GitHub</a>
+                </li>
+                <li>
+                  <a href="https://www.npmjs.com/search?q=%40powerduck" target="_blank" data-i18n="footer.npmPackages" rel="nofollow noopener noreferrer">Paket npm</a>
+                </li>
+                <li>
+                  <a href="/id-ID/#faq" data-i18n="faq.kicker">Tanya jawab</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="footer.legal">Informasi hukum</h6>
+              <ul>
+                <li>
+                  <a href="/terms.html" data-i18n="footer.terms">Ketentuan Layanan</a>
+                </li>
+                <li>
+                  <a href="/privacy.html" data-i18n="footer.privacy">Kebijakan Privasi</a>
+                </li>
+                <li>
+                  <a href="/refunds.html" data-i18n="footer.refunds">Kebijakan Pengembalian Dana</a>
+                </li>
+                <li>
+                  <a href="/cookie.html" data-i18n="footer.cookie">Pemberitahuan Cookie</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span data-i18n="dl.copyright">© 2026 POWERDUCK LIMITED. Semua hak dilindungi.</span>
+            <div class="footer-bottom-links">
+              <a href="/terms.html" data-i18n="footer.termsShort">Ketentuan</a>
+              <a href="/privacy.html" data-i18n="footer.privacyShort">Privasi</a>
+              <a href="/cookie.html" data-i18n="footer.cookieShort">Cookie</a>
+            </div>
+          </div>
+        </div>
+      <nav data-locale-links="" class="locale-links" aria-label="Pilih bahasa"><a href="/use-cases.html" hreflang="en" lang="en">English (US)</a><a href="/zh-CN/use-cases/" hreflang="zh-CN" lang="zh-CN">简体中文</a><a href="/ja/use-cases/" hreflang="ja" lang="ja">日本語</a><a href="/de/use-cases/" hreflang="de" lang="de">Deutsch</a><a href="/fr/use-cases/" hreflang="fr" lang="fr">Français</a><a href="/es/use-cases/" hreflang="es" lang="es">Español</a><a href="/pt-BR/use-cases/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a><a href="/zh-TW/use-cases/" hreflang="zh-TW" lang="zh-TW">繁體中文</a><a href="/it-IT/use-cases/" hreflang="it-IT" lang="it-IT">Italiano</a><a href="/ko-KR/use-cases/" hreflang="ko-KR" lang="ko-KR">한국어</a><a href="/ru-RU/use-cases/" hreflang="ru-RU" lang="ru-RU">Русский</a><a href="/id-ID/use-cases/" hreflang="id-ID" lang="id-ID" aria-current="page">Bahasa Indonesia</a><a href="/tr-TR/use-cases/" hreflang="tr-TR" lang="tr-TR">Türkçe</a><a href="/vi-VN/use-cases/" hreflang="vi-VN" lang="vi-VN">Tiếng Việt</a><a href="/ar-SA/use-cases/" hreflang="ar-SA" lang="ar-SA">العربية</a><a href="/hi-IN/use-cases/" hreflang="hi-IN" lang="hi-IN">हिन्दी</a></nav></footer>
+    </div>
+
+
+
+    <script src="/assets/locales/id-ID.js?v=20261019d"></script><script src="/assets/js/common.js?v=20261019d"></script>
+    <script src="/assets/js/cloud.js?v=20261019d"></script>
+    <script>
+      (function () {
+        var btn = document.querySelector(".nav-hamburger");
+        var drawer = document.getElementById("navDrawer");
+        if (btn && drawer) {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            var open = drawer.classList.toggle("open");
+            btn.classList.toggle("open", open);
+            btn.setAttribute("aria-expanded", open);
+          });
+          document.addEventListener("click", function (e) {
+            if (
+              drawer.classList.contains("open") &&
+              !drawer.contains(e.target) &&
+              !btn.contains(e.target)
+            ) {
+              drawer.classList.remove("open");
+              btn.classList.remove("open");
+              btn.setAttribute("aria-expanded", "false");
+            }
+          });
+        }
+      })();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

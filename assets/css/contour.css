@@ -4184,3 +4184,7 @@ html.js .reveal.is-visible {
 .demo-section {
   scroll-margin-top: 80px;
 }
+
+/* Keep localized headlines balanced on narrow screens. */
+.hero h1[data-i18n-html="hub.hero"] { text-wrap: balance; }
+@media (max-width: 480px) { .hero h1[data-i18n-html="hub.hero"] { font-size: clamp(28px, 8vw, 36px); line-height: 1.15; } }

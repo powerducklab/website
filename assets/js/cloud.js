@@ -17,6 +17,10 @@
   }
 
   function cloudUrl(path, query) {
+    var locale = document.documentElement.getAttribute("data-page-locale");
+    var entry = window.POWERDUCK_I18N && window.POWERDUCK_I18N.languages.find(function (item) { return item.code === locale; });
+    var publicPages = entry && typeof entry.publicPages === "boolean" ? entry.publicPages : ["zh-CN", "ja", "de", "fr", "es"].indexOf(locale) !== -1;
+    if (locale && locale !== "en" && publicPages && /^\/(hub|cloud|pricing)$/.test(path)) path = "/" + locale + path;
     var url = cloudBaseUrl.replace(/\/$/, "") + path;
     if (query) {
       url += "?" + query;

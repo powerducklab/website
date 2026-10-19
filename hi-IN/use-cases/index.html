@@ -1,0 +1,519 @@
+<!DOCTYPE html><html lang="hi-IN" data-theme="light" data-page-locale="hi-IN" data-page-route="/use-cases.html" dir="ltr"><head>
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("pd_theme");
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          var root = document.documentElement;
+          root.setAttribute("data-theme", theme);
+          root.classList.add(theme);
+          root.classList.remove(theme === "dark" ? "light" : "dark");
+
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/images/icon-192.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Powerduck">
+    <meta property="og:title" data-i18n-content="scenes.metaTitle" content="Powerduck के उपयोग — कोड से API दस्तावेज़, टेस्ट और मॉक तक">
+    <meta property="og:description" data-i18n-content="scenes.metaDescription" content="अपने कोडिंग एजेंट से API दस्तावेज़ बनाएँ, वास्तविक अनुरोध डीबग करें, API कॉन्ट्रैक्ट जाँचें और बैकएंड तैयार होने से पहले एंडपॉइंट मॉक करें।">
+    <meta property="og:url" content="https://www.powerduck.com/hi-IN/use-cases/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" data-i18n-content="scenes.metaTitle" content="Powerduck के उपयोग — कोड से API दस्तावेज़, टेस्ट और मॉक तक">
+    <meta name="twitter:description" data-i18n-content="scenes.metaDescription" content="अपने कोडिंग एजेंट से API दस्तावेज़ बनाएँ, वास्तविक अनुरोध डीबग करें, API कॉन्ट्रैक्ट जाँचें और बैकएंड तैयार होने से पहले एंडपॉइंट मॉक करें।">
+
+    <title data-i18n="scenes.metaTitle">Powerduck के उपयोग — कोड से API दस्तावेज़, टेस्ट और मॉक तक</title>
+
+    <meta name="description" data-i18n-content="scenes.metaDescription" content="अपने कोडिंग एजेंट से API दस्तावेज़ बनाएँ, वास्तविक अनुरोध डीबग करें, API कॉन्ट्रैक्ट जाँचें और बैकएंड तैयार होने से पहले एंडपॉइंट मॉक करें।">
+
+    <meta name="keywords" content="Powerduck, AI API development, AI-native OpenAPI studio, local-first API tool, OpenAPI editor, API debugging, MCP server generator, API documentation, OpenAPI 3.2, offline API client, AI coding agent, bring your own model">
+
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/assets/css/common.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/contour.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/product-paths.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261019d">
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-8HXDV7CDEB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-8HXDV7CDEB");
+    </script>
+  <meta property="og:image" content="https://www.powerduck.com/assets/images/icon-192.png"><meta property="og:locale" content="hi_IN"><link rel="canonical" href="https://www.powerduck.com/hi-IN/use-cases/"><link rel="alternate" hreflang="en" href="https://www.powerduck.com/use-cases.html"><link rel="alternate" hreflang="zh-CN" href="https://www.powerduck.com/zh-CN/use-cases/"><link rel="alternate" hreflang="ja" href="https://www.powerduck.com/ja/use-cases/"><link rel="alternate" hreflang="de" href="https://www.powerduck.com/de/use-cases/"><link rel="alternate" hreflang="fr" href="https://www.powerduck.com/fr/use-cases/"><link rel="alternate" hreflang="es" href="https://www.powerduck.com/es/use-cases/"><link rel="alternate" hreflang="pt-BR" href="https://www.powerduck.com/pt-BR/use-cases/"><link rel="alternate" hreflang="zh-TW" href="https://www.powerduck.com/zh-TW/use-cases/"><link rel="alternate" hreflang="it-IT" href="https://www.powerduck.com/it-IT/use-cases/"><link rel="alternate" hreflang="ko-KR" href="https://www.powerduck.com/ko-KR/use-cases/"><link rel="alternate" hreflang="ru-RU" href="https://www.powerduck.com/ru-RU/use-cases/"><link rel="alternate" hreflang="id-ID" href="https://www.powerduck.com/id-ID/use-cases/"><link rel="alternate" hreflang="tr-TR" href="https://www.powerduck.com/tr-TR/use-cases/"><link rel="alternate" hreflang="vi-VN" href="https://www.powerduck.com/vi-VN/use-cases/"><link rel="alternate" hreflang="ar-SA" href="https://www.powerduck.com/ar-SA/use-cases/"><link rel="alternate" hreflang="hi-IN" href="https://www.powerduck.com/hi-IN/use-cases/"><link rel="alternate" hreflang="x-default" href="https://www.powerduck.com/use-cases.html"><script type="application/ld+json" data-site-schema="">{"@context":"https://schema.org","@type":"WebPage","name":"Powerduck के उपयोग — कोड से API दस्तावेज़, टेस्ट और मॉक तक","description":"अपने कोडिंग एजेंट से API दस्तावेज़ बनाएँ, वास्तविक अनुरोध डीबग करें, API कॉन्ट्रैक्ट जाँचें और बैकएंड तैयार होने से पहले एंडपॉइंट मॉक करें।","url":"https://www.powerduck.com/hi-IN/use-cases/","inLanguage":"hi-IN","isPartOf":{"@type":"WebSite","name":"Powerduck","url":"https://www.powerduck.com/"}}</script></head>
+
+  <body>
+    <div class="page-shell">
+      <!-- =======================================================================
+     NAV
+     ======================================================================= -->
+
+      <header class="nav">
+        <div class="nav-inner">
+          <a href="/hi-IN/" class="brand" aria-label="Powerduck मुख्य पृष्ठ">
+            <img src="/assets/images/logo.svg" alt="Powerduck logo" class="brand-mark">
+
+            <span>Powerduck</span>
+          </a>
+
+          <button class="nav-hamburger" aria-label="नेविगेशन मेनू खोलें या बंद करें" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+
+          <div class="nav-drawer" id="navDrawer">
+            <nav class="nav-links">
+
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                  <span data-i18n="nav.client">डेस्कटॉप ऐप</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="/hi-IN/#spec-editor" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.specEditor">स्पेसिफिकेशन एडिटर</span><span class="dropdown-item-desc" data-i18n="nav.specEditorDesc">अपना OpenAPI स्पेसिफिकेशन सीधे संपादित करें</span></span></a>
+                  <a class="dropdown-item" href="/hi-IN/#api-debug" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDebug">API डीबगर</span><span class="dropdown-item-desc" data-i18n="nav.apiDebugDesc">अनुरोध भेजें और जवाब जाँचें</span></span></a>
+                  <a class="dropdown-item" href="/hi-IN/#mcp-server" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.mcpServer">MCP सर्वर</span><span class="dropdown-item-desc" data-i18n="nav.mcpServerDesc">स्पेसिफिकेशन से कॉल करने योग्य टूल बनाएँ</span></span></a>
+                  <a class="dropdown-item" href="/hi-IN/#api-docs" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDocs">API दस्तावेज़</span><span class="dropdown-item-desc" data-i18n="nav.apiDocsDesc">उसी स्पेसिफिकेशन से दस्तावेज़ तैयार करें</span></span></a>
+                </div>
+              </div><a class="nav-hub-link" href="/hi-IN/hub" data-i18n="nav.hub">Hub</a>
+
+
+
+              <a class="nav-direct" href="/hi-IN/pricing?product=client" data-i18n="nav.pricing">कीमतें</a>
+
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                  <span data-i18n="nav.resources">संसाधन</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="/docs/hi-IN/overview/introduction/index.html" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.documentation">दस्तावेज़</span><span class="dropdown-item-desc" data-i18n="nav.documentationDesc">गाइड और API संदर्भ</span></span></a>
+                  <a class="dropdown-item" href="/hi-IN/use-cases/" role="menuitem"><span class="dropdown-item-text"><span data-i18n="scenes.all" class="dropdown-item-title">काम के उदाहरण और गाइड</span></span></a>
+                  <a class="dropdown-item" href="/blog/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.blog">ब्लॉग</span><span class="dropdown-item-desc" data-i18n="nav.blogDesc">उत्पाद और इंजीनियरिंग से जुड़ी बातें</span></span></a>
+                  <a class="dropdown-item" href="/blog/tag/release-notes/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.releaseNotes">रिलीज़ नोट्स</span><span class="dropdown-item-desc" data-i18n="nav.releaseNotesDesc">हर संस्करण में हुए बदलाव</span></span></a>
+                  <a class="dropdown-item" href="/demo/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.liveDemo">लाइव डेमो</span><span class="dropdown-item-desc" data-i18n="nav.liveDemoDesc">हर टूल ब्राउज़र में आज़माएँ</span></span></a>
+                  <a class="dropdown-item" href="/app/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.webApp">वेब ऐप</span><span class="dropdown-item-desc" data-i18n="nav.webAppDesc">पूरा Powerduck ऐप अपने ब्राउज़र में इस्तेमाल करें</span></span></a>
+                  <a class="dropdown-item" href="https://github.com/powerducklab" target="_blank" role="menuitem" rel="nofollow noopener noreferrer"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.openSource">ओपन सोर्स</span><span class="dropdown-item-desc" data-i18n="nav.openSourceDesc">GitHub और npm पर लाइब्रेरी</span></span></a>
+                </div>
+              </div>
+            </nav>
+
+            <div class="nav-actions">
+              <a class="nav-icon-btn" href="https://github.com/powerducklab" target="_blank" aria-label="GitHub" rel="nofollow noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12 12-12z"></path>
+                </svg>
+              </a>
+              <div class="nav-account-slot" id="navAccountSlot">
+                <a class="nav-signin" data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">साइन इन करें</a>
+              </div>
+
+              <div class="nav-dropdown" id="langMenu">
+                <button class="nav-icon-btn nav-dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-label="भाषा चुनें">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20"></path>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu align-right" role="menu" id="langMenuContent"></div>
+              </div>
+
+              <button class="theme-toggle" data-theme-toggle="" id="themeToggle" type="button" aria-label="रंग थीम बदलें">
+                <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none">
+                  <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+                </svg>
+
+                <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"></circle>
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                </svg>
+              </button>
+
+              <a class="btn btn-primary btn-sm" href="/hi-IN/download/" data-i18n="nav.download">डाउनलोड</a>
+            </div>
+          </div>
+        </div>
+
+        <style>
+          .nav-dropdown:hover .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+          .nav-dropdown:hover .chevron {
+            transform: rotate(180deg);
+          }
+          .nav-dropdown.open .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+        </style>
+      </header>
+
+      <main class="scenes-page">
+        <header class="scenes-page-heading">
+          <a class="scenes-back" href="/hi-IN/">← <span data-i18n="scenes.back">मुख्य पृष्ठ पर लौटें</span></a>
+          <p data-i18n="flow.kicker" class="scenes-kicker">देखें, काम कैसे होता है</p>
+          <h1 data-i18n="flow.title">रोज़ के API काम, कॉन्ट्रैक्ट पर आधारित एक वर्कफ़्लो में।</h1>
+          <p data-i18n="flow.intro" class="scenes-intro">नीचे कोई काम चुनें। Powerduck आपकी मशीन पर मौजूद OpenAPI फ़ाइल से उसे चलाता है — एनवायरनमेंट, टेस्ट और मॉक सहित। स्थानीय काम के लिए न खाता चाहिए, न अपलोड।</p>
+        </header>
+        <nav class="scenes-index" aria-labelledby="scenes-index-title">
+          <h2 data-i18n="scenes.jump" id="scenes-index-title">अपना उपयोग चुनें</h2>
+          <ol>
+            <li>
+              <a href="#code-to-docs"><span class="scene-number" aria-hidden="true">01</span><span data-i18n="flow.1.title">प्रोजेक्ट से दस्तावेज़ बनाएँ।</span></a>
+            </li>
+            <li>
+              <a href="#design-api"><span class="scene-number" aria-hidden="true">02</span><span data-i18n="flow.2.title">वास्तविक API कॉन्ट्रैक्ट के अनुसार इम्प्लीमेंट करें।</span></a>
+            </li>
+            <li>
+              <a href="#contract-tests"><span class="scene-number" aria-hidden="true">03</span><span data-i18n="flow.3.title">पूरा व्यावसायिक परिदृश्य चलाएँ।</span></a>
+            </li>
+            <li>
+              <a href="#protocols"><span class="scene-number" aria-hidden="true">04</span><span data-i18n="flow.4.title">एक जगह सात प्रोटोकॉल जाँचें।</span></a>
+            </li>
+            <li>
+              <a href="#ai-debug"><span class="scene-number" aria-hidden="true">05</span><span data-i18n="flow.5.title">वास्तविक अनुरोध के संदर्भ के साथ जाँचें।</span></a>
+            </li>
+            <li>
+              <a href="#share-docs"><span class="scene-number" aria-hidden="true">06</span><span data-i18n="flow.6.title">एक API से दस्तावेज़ और MCP प्रकाशित करें।</span></a>
+            </li>
+          </ol>
+        </nav>
+        <div class="scenes-details">
+          <article class="scene-detail" id="code-to-docs" aria-labelledby="title-code-to-docs">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">01</span>
+              <h2 data-i18n="flow.1.title" id="title-code-to-docs">प्रोजेक्ट से दस्तावेज़ बनाएँ।</h2>
+              <p data-i18n="flow.1.pain">API दस्तावेज़ सही हैं या नहीं, यह जानने के लिए क्या अब भी सोर्स कोड पढ़ना पड़ता है?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">POWERDUCK के साथ</h3>
+              <p data-i18n="flow.1.body">अपने कोडिंग एजेंट से MCP के ज़रिए समर्थित प्रोजेक्ट स्कैन करें। API परिभाषा बनाएँ और उसे दस्तावेज़ के रूप में खोलें।</p>
+              <h3 data-i18n="flow.result">आपको क्या मिलेगा</h3>
+              <p data-i18n="flow.1.result">समीक्षा योग्य API परिभाषा और स्थानीय दस्तावेज़ लिंक।</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">अपने एजेंट से कहें</p>
+                <blockquote data-i18n="flow.1.prompt">इस प्रोजेक्ट को स्कैन करें और मुझे API दस्तावेज़ का लिंक दें।</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">ध्यान रखने योग्य बातें</h3>
+                <p data-i18n="scenes.s1.note">केवल समर्थित फ़्रेमवर्क के लिए। अनुमानित फ़ील्ड और स्कैन की चेतावनियाँ जाँचें। स्थानीय लिंक MCP होस्ट पर उसका सत्र चलने तक काम करते हैं।</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/coding-agent/" href="/docs/hi-IN/client/coding-agent/"><span data-i18n="flow.boundary">सेटअप और आवश्यकताएँ देखें</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="design-api" aria-labelledby="title-design-api">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">02</span>
+              <h2 data-i18n="flow.2.title" id="title-design-api">वास्तविक API कॉन्ट्रैक्ट के अनुसार इम्प्लीमेंट करें।</h2>
+              <p data-i18n="flow.2.pain">क्या AI को स्पेसिफिकेशन देने पर भी अलग फ़ील्ड और पाथ मिलते हैं?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">POWERDUCK के साथ</h3>
+              <p data-i18n="flow.2.body">अपना कोडिंग एजेंट Powerduck के MCP से जोड़ें। कोड लिखने से पहले उसे वास्तविक पाथ, स्कीमा और प्रमाणीकरण पढ़ने दें, फिर चल रहे API को जाँचें।</p>
+              <h3 data-i18n="flow.result">आपको क्या मिलेगा</h3>
+              <p data-i18n="flow.2.result">कॉन्ट्रैक्ट के अनुसार इम्प्लीमेंटेशन, वास्तविक जवाबों से सत्यापित।</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">अपने एजेंट से कहें</p>
+                <blockquote data-i18n="flow.2.prompt">इस API को इसकी परिभाषा के अनुसार इम्प्लीमेंट करें, फिर कॉन्ट्रैक्ट टेस्ट चलाएँ।</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">ध्यान रखने योग्य बातें</h3>
+                <p data-i18n="scenes.s3.note">जाँच केवल आपके चलाए गए ऑपरेशन, इनपुट और असर्शन को कवर करती है। इससे बैकएंड के हर व्यवहार का सही होना सिद्ध नहीं होता।</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/coding-agent/" href="/docs/hi-IN/client/coding-agent/"><span data-i18n="flow.boundary">सेटअप और आवश्यकताएँ देखें</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="contract-tests" aria-labelledby="title-contract-tests">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">03</span>
+              <h2 data-i18n="flow.3.title" id="title-contract-tests">पूरा व्यावसायिक परिदृश्य चलाएँ।</h2>
+              <p data-i18n="flow.3.pain">क्या हर API बदलाव के बाद वही व्यावसायिक प्रक्रिया हाथ से दोहराते हैं?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">POWERDUCK के साथ</h3>
+              <p data-i18n="flow.3.body">साइन इन → ऑर्डर बनाएँ → ऑर्डर प्राप्त करें जैसी प्रक्रिया बताएँ। AI को परिदृश्य बनाने, चरणों के बीच मान भेजने और टेस्ट चलाने दें।</p>
+              <h3 data-i18n="flow.result">आपको क्या मिलेगा</h3>
+              <p data-i18n="flow.3.result">हर चरण के परिणाम और विफल असर्शन — सिर्फ़ बनाई गई टेस्ट स्क्रिप्ट नहीं।</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">अपने एजेंट से कहें</p>
+                <blockquote data-i18n="flow.3.prompt">साइन इन → ऑर्डर बनाएँ → ऑर्डर प्राप्त करें का टेस्ट करें। बताएँ कौन-सा चरण विफल होता है।</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">ध्यान रखने योग्य बातें</h3>
+                <p data-i18n="scenes.s3.note">जाँच केवल आपके चलाए गए ऑपरेशन, इनपुट और असर्शन को कवर करती है। इससे बैकएंड के हर व्यवहार का सही होना सिद्ध नहीं होता।</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/scenario-testing/" href="/docs/hi-IN/client/scenario-testing/"><span data-i18n="flow.boundary">सेटअप और आवश्यकताएँ देखें</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="protocols" aria-labelledby="title-protocols">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">04</span>
+              <h2 data-i18n="flow.4.title" id="title-protocols">एक जगह सात प्रोटोकॉल जाँचें।</h2>
+              <p data-i18n="flow.4.pain">क्या अगले एंडपॉइंट का प्रोटोकॉल अलग होने पर टूल बदलना पड़ता है?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">POWERDUCK के साथ</h3>
+              <p data-i18n="flow.4.body">HTTP, GraphQL, WebSocket, SSE, gRPC, MCP और A2A डीबग करें। एक ही कार्यक्षेत्र में जवाब, स्ट्रीम और टूल कॉल जाँचें।</p>
+              <h3 data-i18n="flow.result">आपको क्या मिलेगा</h3>
+              <p data-i18n="flow.4.result">ठीक-ठीक क्या हुआ, यह देखने के लिए मैन्युअल नियंत्रण।</p>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">ध्यान रखने योग्य बातें</h3>
+                <p data-i18n="scenes.s8.note">डेस्कटॉप और ब्राउज़र में प्रोटोकॉल समर्थन अलग है। gRPC जैसे नेटिव ट्रांसपोर्ट के लिए डेस्कटॉप ऐप इस्तेमाल करें।</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/protocols/" href="/docs/hi-IN/client/protocols/"><span data-i18n="flow.boundary">सेटअप और आवश्यकताएँ देखें</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="ai-debug" aria-labelledby="title-ai-debug">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">05</span>
+              <h2 data-i18n="flow.5.title" id="title-ai-debug">वास्तविक अनुरोध के संदर्भ के साथ जाँचें।</h2>
+              <p data-i18n="flow.5.pain">क्या AI की मदद लेने के लिए हर बार अनुरोध और जवाब चैट में कॉपी करते हैं?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">POWERDUCK के साथ</h3>
+              <p data-i18n="flow.5.body">सहायक को संबंधित API संदर्भ दें। उससे अनुरोध भेजने, जवाब जाँचने और विफलता का कारण खोजने में मदद माँगें।</p>
+              <h3 data-i18n="flow.result">आपको क्या मिलेगा</h3>
+              <p data-i18n="flow.5.result">अनुरोध के परिणामों पर आधारित निदान और समीक्षा योग्य बदलाव।</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">अपने एजेंट से कहें</p>
+                <blockquote data-i18n="flow.5.prompt">जाँचें कि यह अनुरोध क्यों विफल हो रहा है। सुधार सुझाने से पहले जवाब देखें।</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">ध्यान रखने योग्य बातें</h3>
+                <p data-i18n="scenes.s5.note">AI सुविधाओं के लिए कॉन्फ़िगर किया हुआ मॉडल चाहिए। रिमोट प्रदाता को भेजा गया संदर्भ आपके डिवाइस से बाहर जाता है; मैन्युअल संपादन के लिए AI ज़रूरी नहीं।</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/debug/" href="/docs/hi-IN/client/debug/"><span data-i18n="flow.boundary">सेटअप और आवश्यकताएँ देखें</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="share-docs" aria-labelledby="title-share-docs">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">06</span>
+              <h2 data-i18n="flow.6.title" id="title-share-docs">एक API से दस्तावेज़ और MCP प्रकाशित करें।</h2>
+              <p data-i18n="flow.6.pain">क्या सिर्फ़ API दस्तावेज़ और MCP साझा करने के लिए अलग होस्टिंग सँभालते हैं?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">POWERDUCK के साथ</h3>
+              <p data-i18n="flow.6.body">अपने API का एक संस्करण Powerduck Cloud पर प्रकाशित करें। लोगों को पढ़ने योग्य दस्तावेज़ और AI क्लाइंट को MCP एंडपॉइंट दें।</p>
+              <h3 data-i18n="flow.result">आपको क्या मिलेगा</h3>
+              <p data-i18n="flow.6.result">होस्ट किए गए दस्तावेज़ और MCP URL, बिना खुद होस्टिंग व्यवस्था चलाए।</p>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">ध्यान रखने योग्य बातें</h3>
+                <p data-i18n="scenes.s6.note">क्लाउड होस्टिंग आपके खाते के कोटे का इस्तेमाल करती है। अपलोड की गई API परिभाषा में उदाहरण या आंतरिक जानकारी हो सकती है; साझा करने से पहले जाँचें।</p>
+              </aside>
+              <a class="scene-link" data-docs-path="cloud/exposure/" href="/docs/hi-IN/cloud/exposure/"><span data-i18n="flow.boundary">सेटअप और आवश्यकताएँ देखें</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+        <section class="scenes-cta">
+          <h2 data-i18n="scenes.ready">पहले एक API पर आज़माएँ।</h2>
+          <p data-i18n="scenes.readyBody">अपना कोई मौजूदा स्पेसिफिकेशन खोलें या अंतर्निहित उदाहरण से शुरू करें। अपना प्रोजेक्ट जोड़ने से पहले वर्कफ़्लो समझें।</p>
+          <div>
+            <a class="btn btn-primary" href="/hi-IN/download/"><span data-i18n="scenes.download">Powerduck डाउनलोड करें</span></a><a class="btn btn-secondary" href="/app/"><span data-i18n="scenes.example">ब्राउज़र कार्यक्षेत्र आज़माएँ</span></a>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <div class="footer-shell">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <a href="/hi-IN/" class="brand" aria-label="Powerduck मुख्य पृष्ठ">
+                <img src="/assets/images/logo.svg" alt="Powerduck logo" class="brand-logo">
+                <span>Powerduck</span>
+              </a>
+              <p data-i18n="footer.brand">आधुनिक API वर्कफ़्लो के लिए डेवलपर टूल। ओपन सोर्स, प्रोडक्शन के लिए तैयार और समुदाय के सहयोग से विकसित।</p>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="footer.product">उत्पाद</h6>
+              <ul>
+                <li>
+                  <a href="/hi-IN/#spec-editor" data-i18n="nav.specEditor">स्पेसिफिकेशन एडिटर</a>
+                </li>
+                <li>
+                  <a href="/hi-IN/#api-debug" data-i18n="nav.apiDebug">API डीबगर</a>
+                </li>
+                <li>
+                  <a href="/hi-IN/#mcp-server" data-i18n="nav.mcpServer">MCP सर्वर</a>
+                </li>
+                <li>
+                  <a href="/hi-IN/#api-docs" data-i18n="nav.apiDocs">API दस्तावेज़</a>
+                </li>
+                <li>
+                  <a href="/hi-IN/download/" data-i18n="nav.download">डाउनलोड</a>
+                </li>
+                <li>
+                  <a href="/hi-IN/pricing?product=client" data-i18n="footer.prices">कीमतें</a>
+                </li>
+                <li><a href="/blog/" data-i18n="nav.blog">ब्लॉग</a></li>
+                <li>
+                  <a href="/blog/tag/release-notes/" data-i18n="nav.releaseNotes">रिलीज़ नोट्स</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="nav.cloud">क्लाउड</h6>
+              <ul>
+                <li>
+                  <a data-cloud-signin="/hub" href="/hi-IN/hub" data-i18n="nav.hub">Hub</a>
+                </li>
+                <li>
+                  <a data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">साइन इन करें</a>
+                </li>
+                <li>
+                  <a href="/docs/hi-IN/cloud/quickstart/index.html" data-i18n="footer.quickstart">तुरंत शुरुआत</a>
+                </li>
+                <li>
+                  <a href="/docs/hi-IN/cloud/access-control/index.html" data-i18n="footer.accessControl">ऐक्सेस नियंत्रण</a>
+                </li>
+                <li>
+                  <a href="/docs/hi-IN/cloud/custom-domains/index.html" data-i18n="footer.customDomains">कस्टम डोमेन</a>
+                </li>
+                <li>
+                  <a href="/docs/hi-IN/cloud/billing/index.html" data-i18n="footer.billing">बिलिंग</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="nav.resources">संसाधन</h6>
+              <ul>
+                <li>
+                  <a href="/docs/hi-IN/overview/introduction/index.html" data-i18n="nav.documentation">दस्तावेज़</a>
+                </li>
+                <li>
+                  <a href="/docs/hi-IN/client/introduction/index.html" data-i18n="footer.clientGuide">क्लाइंट गाइड</a>
+                </li>
+                <li>
+                  <a href="/docs/hi-IN/cloud/introduction/index.html" data-i18n="footer.cloudGuide">क्लाउड गाइड</a>
+                </li>
+                <li>
+                  <a href="https://github.com/powerducklab" target="_blank" rel="nofollow noopener noreferrer">GitHub</a>
+                </li>
+                <li>
+                  <a href="https://www.npmjs.com/search?q=%40powerduck" target="_blank" data-i18n="footer.npmPackages" rel="nofollow noopener noreferrer">npm पैकेज</a>
+                </li>
+                <li>
+                  <a href="/hi-IN/#faq" data-i18n="faq.kicker">अक्सर पूछे जाने वाले सवाल</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="footer.legal">कानूनी जानकारी</h6>
+              <ul>
+                <li>
+                  <a href="/terms.html" data-i18n="footer.terms">सेवा की शर्तें</a>
+                </li>
+                <li>
+                  <a href="/privacy.html" data-i18n="footer.privacy">निजता नीति</a>
+                </li>
+                <li>
+                  <a href="/refunds.html" data-i18n="footer.refunds">रिफ़ंड नीति</a>
+                </li>
+                <li>
+                  <a href="/cookie.html" data-i18n="footer.cookie">कुकी सूचना</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span data-i18n="dl.copyright">© 2026 POWERDUCK LIMITED. सर्वाधिकार सुरक्षित।</span>
+            <div class="footer-bottom-links">
+              <a href="/terms.html" data-i18n="footer.termsShort">शर्तें</a>
+              <a href="/privacy.html" data-i18n="footer.privacyShort">निजता</a>
+              <a href="/cookie.html" data-i18n="footer.cookieShort">कुकी</a>
+            </div>
+          </div>
+        </div>
+      <nav data-locale-links="" class="locale-links" aria-label="भाषा चुनें"><a href="/use-cases.html" hreflang="en" lang="en">English (US)</a><a href="/zh-CN/use-cases/" hreflang="zh-CN" lang="zh-CN">简体中文</a><a href="/ja/use-cases/" hreflang="ja" lang="ja">日本語</a><a href="/de/use-cases/" hreflang="de" lang="de">Deutsch</a><a href="/fr/use-cases/" hreflang="fr" lang="fr">Français</a><a href="/es/use-cases/" hreflang="es" lang="es">Español</a><a href="/pt-BR/use-cases/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a><a href="/zh-TW/use-cases/" hreflang="zh-TW" lang="zh-TW">繁體中文</a><a href="/it-IT/use-cases/" hreflang="it-IT" lang="it-IT">Italiano</a><a href="/ko-KR/use-cases/" hreflang="ko-KR" lang="ko-KR">한국어</a><a href="/ru-RU/use-cases/" hreflang="ru-RU" lang="ru-RU">Русский</a><a href="/id-ID/use-cases/" hreflang="id-ID" lang="id-ID">Bahasa Indonesia</a><a href="/tr-TR/use-cases/" hreflang="tr-TR" lang="tr-TR">Türkçe</a><a href="/vi-VN/use-cases/" hreflang="vi-VN" lang="vi-VN">Tiếng Việt</a><a href="/ar-SA/use-cases/" hreflang="ar-SA" lang="ar-SA">العربية</a><a href="/hi-IN/use-cases/" hreflang="hi-IN" lang="hi-IN" aria-current="page">हिन्दी</a></nav></footer>
+    </div>
+
+
+
+    <script src="/assets/locales/hi-IN.js?v=20261019d"></script><script src="/assets/js/common.js?v=20261019d"></script>
+    <script src="/assets/js/cloud.js?v=20261019d"></script>
+    <script>
+      (function () {
+        var btn = document.querySelector(".nav-hamburger");
+        var drawer = document.getElementById("navDrawer");
+        if (btn && drawer) {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            var open = drawer.classList.toggle("open");
+            btn.classList.toggle("open", open);
+            btn.setAttribute("aria-expanded", open);
+          });
+          document.addEventListener("click", function (e) {
+            if (
+              drawer.classList.contains("open") &&
+              !drawer.contains(e.target) &&
+              !btn.contains(e.target)
+            ) {
+              drawer.classList.remove("open");
+              btn.classList.remove("open");
+              btn.setAttribute("aria-expanded", "false");
+            }
+          });
+        }
+      })();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

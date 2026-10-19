@@ -1,0 +1,519 @@
+<!DOCTYPE html><html lang="vi-VN" data-theme="light" data-page-locale="vi-VN" data-page-route="/use-cases.html" dir="ltr"><head>
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("pd_theme");
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          var root = document.documentElement;
+          root.setAttribute("data-theme", theme);
+          root.classList.add(theme);
+          root.classList.remove(theme === "dark" ? "light" : "dark");
+
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/images/icon-192.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Powerduck">
+    <meta property="og:title" data-i18n-content="scenes.metaTitle" content="Ứng dụng Powerduck — Từ mã đến tài liệu API, kiểm thử và mock">
+    <meta property="og:description" data-i18n-content="scenes.metaDescription" content="Tạo tài liệu API từ tác nhân lập trình, gỡ lỗi yêu cầu thực, kiểm tra hợp đồng API và dùng điểm cuối mock trước khi backend sẵn sàng.">
+    <meta property="og:url" content="https://www.powerduck.com/vi-VN/use-cases/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" data-i18n-content="scenes.metaTitle" content="Ứng dụng Powerduck — Từ mã đến tài liệu API, kiểm thử và mock">
+    <meta name="twitter:description" data-i18n-content="scenes.metaDescription" content="Tạo tài liệu API từ tác nhân lập trình, gỡ lỗi yêu cầu thực, kiểm tra hợp đồng API và dùng điểm cuối mock trước khi backend sẵn sàng.">
+
+    <title data-i18n="scenes.metaTitle">Ứng dụng Powerduck — Từ mã đến tài liệu API, kiểm thử và mock</title>
+
+    <meta name="description" data-i18n-content="scenes.metaDescription" content="Tạo tài liệu API từ tác nhân lập trình, gỡ lỗi yêu cầu thực, kiểm tra hợp đồng API và dùng điểm cuối mock trước khi backend sẵn sàng.">
+
+    <meta name="keywords" content="Powerduck, AI API development, AI-native OpenAPI studio, local-first API tool, OpenAPI editor, API debugging, MCP server generator, API documentation, OpenAPI 3.2, offline API client, AI coding agent, bring your own model">
+
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/assets/css/common.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/contour.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/product-paths.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261019d">
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-8HXDV7CDEB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-8HXDV7CDEB");
+    </script>
+  <meta property="og:image" content="https://www.powerduck.com/assets/images/icon-192.png"><meta property="og:locale" content="vi_VN"><link rel="canonical" href="https://www.powerduck.com/vi-VN/use-cases/"><link rel="alternate" hreflang="en" href="https://www.powerduck.com/use-cases.html"><link rel="alternate" hreflang="zh-CN" href="https://www.powerduck.com/zh-CN/use-cases/"><link rel="alternate" hreflang="ja" href="https://www.powerduck.com/ja/use-cases/"><link rel="alternate" hreflang="de" href="https://www.powerduck.com/de/use-cases/"><link rel="alternate" hreflang="fr" href="https://www.powerduck.com/fr/use-cases/"><link rel="alternate" hreflang="es" href="https://www.powerduck.com/es/use-cases/"><link rel="alternate" hreflang="pt-BR" href="https://www.powerduck.com/pt-BR/use-cases/"><link rel="alternate" hreflang="zh-TW" href="https://www.powerduck.com/zh-TW/use-cases/"><link rel="alternate" hreflang="it-IT" href="https://www.powerduck.com/it-IT/use-cases/"><link rel="alternate" hreflang="ko-KR" href="https://www.powerduck.com/ko-KR/use-cases/"><link rel="alternate" hreflang="ru-RU" href="https://www.powerduck.com/ru-RU/use-cases/"><link rel="alternate" hreflang="id-ID" href="https://www.powerduck.com/id-ID/use-cases/"><link rel="alternate" hreflang="tr-TR" href="https://www.powerduck.com/tr-TR/use-cases/"><link rel="alternate" hreflang="vi-VN" href="https://www.powerduck.com/vi-VN/use-cases/"><link rel="alternate" hreflang="ar-SA" href="https://www.powerduck.com/ar-SA/use-cases/"><link rel="alternate" hreflang="hi-IN" href="https://www.powerduck.com/hi-IN/use-cases/"><link rel="alternate" hreflang="x-default" href="https://www.powerduck.com/use-cases.html"><script type="application/ld+json" data-site-schema="">{"@context":"https://schema.org","@type":"WebPage","name":"Ứng dụng Powerduck — Từ mã đến tài liệu API, kiểm thử và mock","description":"Tạo tài liệu API từ tác nhân lập trình, gỡ lỗi yêu cầu thực, kiểm tra hợp đồng API và dùng điểm cuối mock trước khi backend sẵn sàng.","url":"https://www.powerduck.com/vi-VN/use-cases/","inLanguage":"vi-VN","isPartOf":{"@type":"WebSite","name":"Powerduck","url":"https://www.powerduck.com/"}}</script></head>
+
+  <body>
+    <div class="page-shell">
+      <!-- =======================================================================
+     NAV
+     ======================================================================= -->
+
+      <header class="nav">
+        <div class="nav-inner">
+          <a href="/vi-VN/" class="brand" aria-label="Trang chủ Powerduck">
+            <img src="/assets/images/logo.svg" alt="Powerduck logo" class="brand-mark">
+
+            <span>Powerduck</span>
+          </a>
+
+          <button class="nav-hamburger" aria-label="Mở hoặc đóng menu điều hướng" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+
+          <div class="nav-drawer" id="navDrawer">
+            <nav class="nav-links">
+
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                  <span data-i18n="nav.client">Ứng dụng máy tính</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="/vi-VN/#spec-editor" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.specEditor">Trình sửa đặc tả</span><span class="dropdown-item-desc" data-i18n="nav.specEditorDesc">Chỉnh sửa trực tiếp đặc tả OpenAPI</span></span></a>
+                  <a class="dropdown-item" href="/vi-VN/#api-debug" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDebug">Trình gỡ lỗi API</span><span class="dropdown-item-desc" data-i18n="nav.apiDebugDesc">Gửi yêu cầu và kiểm tra phản hồi</span></span></a>
+                  <a class="dropdown-item" href="/vi-VN/#mcp-server" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.mcpServer">Máy chủ MCP</span><span class="dropdown-item-desc" data-i18n="nav.mcpServerDesc">Biến đặc tả thành công cụ có thể gọi</span></span></a>
+                  <a class="dropdown-item" href="/vi-VN/#api-docs" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDocs">Tài liệu API</span><span class="dropdown-item-desc" data-i18n="nav.apiDocsDesc">Tạo tài liệu từ cùng một đặc tả</span></span></a>
+                </div>
+              </div><a class="nav-hub-link" href="/vi-VN/hub" data-i18n="nav.hub">Hub</a>
+
+
+
+              <a class="nav-direct" href="/vi-VN/pricing?product=client" data-i18n="nav.pricing">Bảng giá</a>
+
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                  <span data-i18n="nav.resources">Tài nguyên</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="/docs/vi-VN/overview/introduction/index.html" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.documentation">Tài liệu</span><span class="dropdown-item-desc" data-i18n="nav.documentationDesc">Hướng dẫn và tham khảo API</span></span></a>
+                  <a class="dropdown-item" href="/vi-VN/use-cases/" role="menuitem"><span class="dropdown-item-text"><span data-i18n="scenes.all" class="dropdown-item-title">Hướng dẫn tình huống sử dụng</span></span></a>
+                  <a class="dropdown-item" href="/blog/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.blog">Blog</span><span class="dropdown-item-desc" data-i18n="nav.blogDesc">Tin sản phẩm và bài viết kỹ thuật</span></span></a>
+                  <a class="dropdown-item" href="/blog/tag/release-notes/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.releaseNotes">Ghi chú phát hành</span><span class="dropdown-item-desc" data-i18n="nav.releaseNotesDesc">Thay đổi trong từng phiên bản</span></span></a>
+                  <a class="dropdown-item" href="/demo/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.liveDemo">Demo trực tiếp</span><span class="dropdown-item-desc" data-i18n="nav.liveDemoDesc">Thử mọi công cụ trong trình duyệt</span></span></a>
+                  <a class="dropdown-item" href="/app/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.webApp">Ứng dụng web</span><span class="dropdown-item-desc" data-i18n="nav.webAppDesc">Dùng đầy đủ Powerduck trong trình duyệt</span></span></a>
+                  <a class="dropdown-item" href="https://github.com/powerducklab" target="_blank" role="menuitem" rel="nofollow noopener noreferrer"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.openSource">Mã nguồn mở</span><span class="dropdown-item-desc" data-i18n="nav.openSourceDesc">Thư viện trên GitHub và npm</span></span></a>
+                </div>
+              </div>
+            </nav>
+
+            <div class="nav-actions">
+              <a class="nav-icon-btn" href="https://github.com/powerducklab" target="_blank" aria-label="GitHub" rel="nofollow noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12 12-12z"></path>
+                </svg>
+              </a>
+              <div class="nav-account-slot" id="navAccountSlot">
+                <a class="nav-signin" data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">Đăng nhập</a>
+              </div>
+
+              <div class="nav-dropdown" id="langMenu">
+                <button class="nav-icon-btn nav-dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Chọn ngôn ngữ">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20"></path>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu align-right" role="menu" id="langMenuContent"></div>
+              </div>
+
+              <button class="theme-toggle" data-theme-toggle="" id="themeToggle" type="button" aria-label="Đổi giao diện màu">
+                <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none">
+                  <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+                </svg>
+
+                <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"></circle>
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                </svg>
+              </button>
+
+              <a class="btn btn-primary btn-sm" href="/vi-VN/download/" data-i18n="nav.download">Tải xuống</a>
+            </div>
+          </div>
+        </div>
+
+        <style>
+          .nav-dropdown:hover .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+          .nav-dropdown:hover .chevron {
+            transform: rotate(180deg);
+          }
+          .nav-dropdown.open .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+        </style>
+      </header>
+
+      <main class="scenes-page">
+        <header class="scenes-page-heading">
+          <a class="scenes-back" href="/vi-VN/">← <span data-i18n="scenes.back">Về trang chủ</span></a>
+          <p data-i18n="flow.kicker" class="scenes-kicker">XEM TRONG QUY TRÌNH THỰC TẾ</p>
+          <h1 data-i18n="flow.title">Biến việc quen thuộc thành quy trình dựa trên hợp đồng.</h1>
+          <p data-i18n="flow.intro" class="scenes-intro">Chọn tác vụ bên dưới. Powerduck chạy từ tệp OpenAPI trên máy bạn, gồm môi trường, kiểm thử và mock, không cần tài khoản hay tải lên.</p>
+        </header>
+        <nav class="scenes-index" aria-labelledby="scenes-index-title">
+          <h2 data-i18n="scenes.jump" id="scenes-index-title">Tìm tình huống phù hợp</h2>
+          <ol>
+            <li>
+              <a href="#code-to-docs"><span class="scene-number" aria-hidden="true">01</span><span data-i18n="flow.1.title">Tạo tài liệu từ dự án.</span></a>
+            </li>
+            <li>
+              <a href="#design-api"><span class="scene-number" aria-hidden="true">02</span><span data-i18n="flow.2.title">Triển khai theo hợp đồng API thực.</span></a>
+            </li>
+            <li>
+              <a href="#contract-tests"><span class="scene-number" aria-hidden="true">03</span><span data-i18n="flow.3.title">Chạy toàn bộ kịch bản nghiệp vụ.</span></a>
+            </li>
+            <li>
+              <a href="#protocols"><span class="scene-number" aria-hidden="true">04</span><span data-i18n="flow.4.title">Kiểm tra bảy giao thức tại một nơi.</span></a>
+            </li>
+            <li>
+              <a href="#ai-debug"><span class="scene-number" aria-hidden="true">05</span><span data-i18n="flow.5.title">Điều tra bằng ngữ cảnh yêu cầu thực.</span></a>
+            </li>
+            <li>
+              <a href="#share-docs"><span class="scene-number" aria-hidden="true">06</span><span data-i18n="flow.6.title">Xuất bản tài liệu và MCP từ một API.</span></a>
+            </li>
+          </ol>
+        </nav>
+        <div class="scenes-details">
+          <article class="scene-detail" id="code-to-docs" aria-labelledby="title-code-to-docs">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">01</span>
+              <h2 data-i18n="flow.1.title" id="title-code-to-docs">Tạo tài liệu từ dự án.</h2>
+              <p data-i18n="flow.1.pain">Vẫn đọc mã nguồn để biết tài liệu API có đúng không?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">VỚI POWERDUCK</h3>
+              <p data-i18n="flow.1.body">Quét dự án được hỗ trợ qua MCP từ tác nhân lập trình. Tạo định nghĩa API và mở dưới dạng tài liệu.</p>
+              <h3 data-i18n="flow.result">KẾT QUẢ NHẬN ĐƯỢC</h3>
+              <p data-i18n="flow.1.result">Định nghĩa API có thể xem xét và liên kết tài liệu cục bộ.</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">Yêu cầu tác nhân</p>
+                <blockquote data-i18n="flow.1.prompt">Quét dự án này và cho tôi liên kết tài liệu API.</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Điều cần biết</h3>
+                <p data-i18n="scenes.s1.note">Chỉ dành cho framework được hỗ trợ. Xem lại trường được suy luận và cảnh báo quét. Liên kết cục bộ hoạt động trên máy chủ MCP khi phiên của nó còn chạy.</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/coding-agent/" href="/docs/vi-VN/client/coding-agent/"><span data-i18n="flow.boundary">Xem thiết lập và yêu cầu</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="design-api" aria-labelledby="title-design-api">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">02</span>
+              <h2 data-i18n="flow.2.title" id="title-design-api">Triển khai theo hợp đồng API thực.</h2>
+              <p data-i18n="flow.2.pain">Đã đưa đặc tả cho AI mà vẫn nhận lại trường và đường dẫn khác?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">VỚI POWERDUCK</h3>
+              <p data-i18n="flow.2.body">Kết nối tác nhân lập trình với MCP của Powerduck. Cho tác nhân đọc đường dẫn, lược đồ và xác thực thực tế trước khi triển khai, rồi xác minh API đang chạy.</p>
+              <h3 data-i18n="flow.result">KẾT QUẢ NHẬN ĐƯỢC</h3>
+              <p data-i18n="flow.2.result">Triển khai theo hợp đồng, kiểm tra bằng phản hồi thực.</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">Yêu cầu tác nhân</p>
+                <blockquote data-i18n="flow.2.prompt">Triển khai API này theo định nghĩa, rồi chạy kiểm thử hợp đồng.</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Điều cần biết</h3>
+                <p data-i18n="scenes.s3.note">Phép kiểm tra chỉ bao gồm thao tác, đầu vào và khẳng định bạn đã chạy. Chúng không chứng minh mọi hành vi của backend đều đúng.</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/coding-agent/" href="/docs/vi-VN/client/coding-agent/"><span data-i18n="flow.boundary">Xem thiết lập và yêu cầu</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="contract-tests" aria-labelledby="title-contract-tests">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">03</span>
+              <h2 data-i18n="flow.3.title" id="title-contract-tests">Chạy toàn bộ kịch bản nghiệp vụ.</h2>
+              <p data-i18n="flow.3.pain">Lặp lại cùng luồng nghiệp vụ bằng tay sau mỗi thay đổi API?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">VỚI POWERDUCK</h3>
+              <p data-i18n="flow.3.body">Mô tả luồng như đăng nhập → tạo đơn hàng → lấy đơn hàng. AI sẽ dựng kịch bản, truyền giá trị giữa các bước và chạy kiểm thử.</p>
+              <h3 data-i18n="flow.result">KẾT QUẢ NHẬN ĐƯỢC</h3>
+              <p data-i18n="flow.3.result">Kết quả từng bước và khẳng định kiểm thử bị lỗi, không chỉ một tập lệnh được tạo ra.</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">Yêu cầu tác nhân</p>
+                <blockquote data-i18n="flow.3.prompt">Kiểm thử đăng nhập → tạo đơn hàng → lấy đơn hàng. Chỉ rõ bước nào lỗi.</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Điều cần biết</h3>
+                <p data-i18n="scenes.s3.note">Phép kiểm tra chỉ bao gồm thao tác, đầu vào và khẳng định bạn đã chạy. Chúng không chứng minh mọi hành vi của backend đều đúng.</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/scenario-testing/" href="/docs/vi-VN/client/scenario-testing/"><span data-i18n="flow.boundary">Xem thiết lập và yêu cầu</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="protocols" aria-labelledby="title-protocols">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">04</span>
+              <h2 data-i18n="flow.4.title" id="title-protocols">Kiểm tra bảy giao thức tại một nơi.</h2>
+              <p data-i18n="flow.4.pain">Phải đổi công cụ chỉ vì điểm cuối tiếp theo dùng giao thức khác?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">VỚI POWERDUCK</h3>
+              <p data-i18n="flow.4.body">Gỡ lỗi HTTP, GraphQL, WebSocket, SSE, gRPC, MCP và A2A. Xem phản hồi, luồng và lệnh gọi công cụ trong cùng không gian.</p>
+              <h3 data-i18n="flow.result">KẾT QUẢ NHẬN ĐƯỢC</h3>
+              <p data-i18n="flow.4.result">Điều khiển thủ công khi cần xem chính xác điều gì đã xảy ra.</p>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Điều cần biết</h3>
+                <p data-i18n="scenes.s8.note">Hỗ trợ giao thức khác nhau giữa máy tính và trình duyệt. Dùng ứng dụng máy tính cho truyền tải gốc như gRPC.</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/protocols/" href="/docs/vi-VN/client/protocols/"><span data-i18n="flow.boundary">Xem thiết lập và yêu cầu</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="ai-debug" aria-labelledby="title-ai-debug">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">05</span>
+              <h2 data-i18n="flow.5.title" id="title-ai-debug">Điều tra bằng ngữ cảnh yêu cầu thực.</h2>
+              <p data-i18n="flow.5.pain">Lần nào cần AI hỗ trợ cũng phải chép yêu cầu và phản hồi vào chat?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">VỚI POWERDUCK</h3>
+              <p data-i18n="flow.5.body">Cung cấp ngữ cảnh API liên quan cho trợ lý. Yêu cầu trợ lý gửi yêu cầu, kiểm tra phản hồi và giúp khoanh vùng nguyên nhân lỗi.</p>
+              <h3 data-i18n="flow.result">KẾT QUẢ NHẬN ĐƯỢC</h3>
+              <p data-i18n="flow.5.result">Chẩn đoán dựa trên kết quả yêu cầu, cùng thay đổi bạn có thể xem xét.</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">Yêu cầu tác nhân</p>
+                <blockquote data-i18n="flow.5.prompt">Điều tra vì sao yêu cầu này lỗi. Kiểm tra phản hồi trước khi đề xuất sửa.</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Điều cần biết</h3>
+                <p data-i18n="scenes.s5.note">Tính năng AI cần mô hình đã cấu hình. Ngữ cảnh gửi tới nhà cung cấp từ xa sẽ rời thiết bị; chỉnh sửa thủ công không cần AI.</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/debug/" href="/docs/vi-VN/client/debug/"><span data-i18n="flow.boundary">Xem thiết lập và yêu cầu</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="share-docs" aria-labelledby="title-share-docs">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">06</span>
+              <h2 data-i18n="flow.6.title" id="title-share-docs">Xuất bản tài liệu và MCP từ một API.</h2>
+              <p data-i18n="flow.6.pain">Duy trì hạ tầng riêng chỉ để chia sẻ tài liệu API và MCP?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">VỚI POWERDUCK</h3>
+              <p data-i18n="flow.6.body">Xuất bản một phiên bản API lên Powerduck Cloud. Cung cấp tài liệu dễ đọc cho người dùng và điểm cuối MCP cho ứng dụng khách AI.</p>
+              <h3 data-i18n="flow.result">KẾT QUẢ NHẬN ĐƯỢC</h3>
+              <p data-i18n="flow.6.result">Tài liệu được lưu trữ và URL MCP mà không cần tự vận hành hạ tầng.</p>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Điều cần biết</h3>
+                <p data-i18n="scenes.s6.note">Lưu trữ Cloud dùng hạn mức tài khoản. Định nghĩa API tải lên có thể chứa ví dụ hoặc thông tin nội bộ; hãy xem lại trước khi chia sẻ.</p>
+              </aside>
+              <a class="scene-link" data-docs-path="cloud/exposure/" href="/docs/vi-VN/cloud/exposure/"><span data-i18n="flow.boundary">Xem thiết lập và yêu cầu</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+        <section class="scenes-cta">
+          <h2 data-i18n="scenes.ready">Thử với một API trước.</h2>
+          <p data-i18n="scenes.readyBody">Mở đặc tả sẵn có hoặc bắt đầu với ví dụ tích hợp. Khám phá quy trình trước khi kết nối dự án riêng.</p>
+          <div>
+            <a class="btn btn-primary" href="/vi-VN/download/"><span data-i18n="scenes.download">Tải Powerduck</span></a><a class="btn btn-secondary" href="/app/"><span data-i18n="scenes.example">Thử không gian trình duyệt</span></a>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <div class="footer-shell">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <a href="/vi-VN/" class="brand" aria-label="Trang chủ Powerduck">
+                <img src="/assets/images/logo.svg" alt="Powerduck logo" class="brand-logo">
+                <span>Powerduck</span>
+              </a>
+              <p data-i18n="footer.brand">Xây dựng công cụ cho quy trình API hiện đại. Mã nguồn mở, sẵn sàng cho dự án thực tế và phát triển cùng cộng đồng.</p>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="footer.product">Sản phẩm</h6>
+              <ul>
+                <li>
+                  <a href="/vi-VN/#spec-editor" data-i18n="nav.specEditor">Trình sửa đặc tả</a>
+                </li>
+                <li>
+                  <a href="/vi-VN/#api-debug" data-i18n="nav.apiDebug">Trình gỡ lỗi API</a>
+                </li>
+                <li>
+                  <a href="/vi-VN/#mcp-server" data-i18n="nav.mcpServer">Máy chủ MCP</a>
+                </li>
+                <li>
+                  <a href="/vi-VN/#api-docs" data-i18n="nav.apiDocs">Tài liệu API</a>
+                </li>
+                <li>
+                  <a href="/vi-VN/download/" data-i18n="nav.download">Tải xuống</a>
+                </li>
+                <li>
+                  <a href="/vi-VN/pricing?product=client" data-i18n="footer.prices">Giá</a>
+                </li>
+                <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+                <li>
+                  <a href="/blog/tag/release-notes/" data-i18n="nav.releaseNotes">Ghi chú phát hành</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="nav.cloud">Cloud</h6>
+              <ul>
+                <li>
+                  <a data-cloud-signin="/hub" href="/vi-VN/hub" data-i18n="nav.hub">Hub</a>
+                </li>
+                <li>
+                  <a data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">Đăng nhập</a>
+                </li>
+                <li>
+                  <a href="/docs/vi-VN/cloud/quickstart/index.html" data-i18n="footer.quickstart">Bắt đầu nhanh</a>
+                </li>
+                <li>
+                  <a href="/docs/vi-VN/cloud/access-control/index.html" data-i18n="footer.accessControl">Kiểm soát truy cập</a>
+                </li>
+                <li>
+                  <a href="/docs/vi-VN/cloud/custom-domains/index.html" data-i18n="footer.customDomains">Tên miền riêng</a>
+                </li>
+                <li>
+                  <a href="/docs/vi-VN/cloud/billing/index.html" data-i18n="footer.billing">Thanh toán</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="nav.resources">Tài nguyên</h6>
+              <ul>
+                <li>
+                  <a href="/docs/vi-VN/overview/introduction/index.html" data-i18n="nav.documentation">Tài liệu</a>
+                </li>
+                <li>
+                  <a href="/docs/vi-VN/client/introduction/index.html" data-i18n="footer.clientGuide">Hướng dẫn ứng dụng khách</a>
+                </li>
+                <li>
+                  <a href="/docs/vi-VN/cloud/introduction/index.html" data-i18n="footer.cloudGuide">Hướng dẫn Cloud</a>
+                </li>
+                <li>
+                  <a href="https://github.com/powerducklab" target="_blank" rel="nofollow noopener noreferrer">GitHub</a>
+                </li>
+                <li>
+                  <a href="https://www.npmjs.com/search?q=%40powerduck" target="_blank" data-i18n="footer.npmPackages" rel="nofollow noopener noreferrer">Gói npm</a>
+                </li>
+                <li>
+                  <a href="/vi-VN/#faq" data-i18n="faq.kicker">Câu hỏi thường gặp</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="footer.legal">Pháp lý</h6>
+              <ul>
+                <li>
+                  <a href="/terms.html" data-i18n="footer.terms">Điều khoản dịch vụ</a>
+                </li>
+                <li>
+                  <a href="/privacy.html" data-i18n="footer.privacy">Chính sách quyền riêng tư</a>
+                </li>
+                <li>
+                  <a href="/refunds.html" data-i18n="footer.refunds">Chính sách hoàn tiền</a>
+                </li>
+                <li>
+                  <a href="/cookie.html" data-i18n="footer.cookie">Thông báo cookie</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span data-i18n="dl.copyright">© 2026 POWERDUCK LIMITED. Bảo lưu mọi quyền.</span>
+            <div class="footer-bottom-links">
+              <a href="/terms.html" data-i18n="footer.termsShort">Điều khoản</a>
+              <a href="/privacy.html" data-i18n="footer.privacyShort">Quyền riêng tư</a>
+              <a href="/cookie.html" data-i18n="footer.cookieShort">Cookie</a>
+            </div>
+          </div>
+        </div>
+      <nav data-locale-links="" class="locale-links" aria-label="Chọn ngôn ngữ"><a href="/use-cases.html" hreflang="en" lang="en">English (US)</a><a href="/zh-CN/use-cases/" hreflang="zh-CN" lang="zh-CN">简体中文</a><a href="/ja/use-cases/" hreflang="ja" lang="ja">日本語</a><a href="/de/use-cases/" hreflang="de" lang="de">Deutsch</a><a href="/fr/use-cases/" hreflang="fr" lang="fr">Français</a><a href="/es/use-cases/" hreflang="es" lang="es">Español</a><a href="/pt-BR/use-cases/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a><a href="/zh-TW/use-cases/" hreflang="zh-TW" lang="zh-TW">繁體中文</a><a href="/it-IT/use-cases/" hreflang="it-IT" lang="it-IT">Italiano</a><a href="/ko-KR/use-cases/" hreflang="ko-KR" lang="ko-KR">한국어</a><a href="/ru-RU/use-cases/" hreflang="ru-RU" lang="ru-RU">Русский</a><a href="/id-ID/use-cases/" hreflang="id-ID" lang="id-ID">Bahasa Indonesia</a><a href="/tr-TR/use-cases/" hreflang="tr-TR" lang="tr-TR">Türkçe</a><a href="/vi-VN/use-cases/" hreflang="vi-VN" lang="vi-VN" aria-current="page">Tiếng Việt</a><a href="/ar-SA/use-cases/" hreflang="ar-SA" lang="ar-SA">العربية</a><a href="/hi-IN/use-cases/" hreflang="hi-IN" lang="hi-IN">हिन्दी</a></nav></footer>
+    </div>
+
+
+
+    <script src="/assets/locales/vi-VN.js?v=20261019d"></script><script src="/assets/js/common.js?v=20261019d"></script>
+    <script src="/assets/js/cloud.js?v=20261019d"></script>
+    <script>
+      (function () {
+        var btn = document.querySelector(".nav-hamburger");
+        var drawer = document.getElementById("navDrawer");
+        if (btn && drawer) {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            var open = drawer.classList.toggle("open");
+            btn.classList.toggle("open", open);
+            btn.setAttribute("aria-expanded", open);
+          });
+          document.addEventListener("click", function (e) {
+            if (
+              drawer.classList.contains("open") &&
+              !drawer.contains(e.target) &&
+              !btn.contains(e.target)
+            ) {
+              drawer.classList.remove("open");
+              btn.classList.remove("open");
+              btn.setAttribute("aria-expanded", "false");
+            }
+          });
+        }
+      })();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

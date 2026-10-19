@@ -176,7 +176,7 @@ window.POWERDUCK_I18N = {
       "faq.a5": "Yes. Existing collections and environments can continue to be used. Powerduck treats the OpenAPI specification as the authoritative contract and helps identify where requests drift from it.",
       "faq.q6": "Does it work in CI?",
       "faq.a6Before": "Yes. The same validation and generation engine is exposed through",
-      "faq.a6After": ", a CI-ready command-line tool that runs during pull requests and automated pipelines. It supports batch testing across 6 protocols (HTTP, SSE, WebSocket, gRPC, MCP, tRPC), configurable concurrency, and JUnit-compatible reports for CI integration.",
+      "faq.a6After": ", a CI-ready command-line tool that runs during pull requests and automated pipelines. It supports batch testing across 6 protocols (HTTP, SSE, WebSocket, gRPC, MCP, GraphQL), configurable concurrency, and JUnit-compatible reports for CI integration.",
       "faq.a6Btn": "Explore openapi-cli →",
       "footer.brand": "Building developer tools for the modern API workflow. Open source, production-ready, and community-driven.",
       "footer.product": "Product",
@@ -361,7 +361,7 @@ window.POWERDUCK_I18N = {
       "faq.a5": "可以。已有的集合和环境都能继续使用。Powerduck 把 OpenAPI 规范当作权威契约，并帮你找出请求与契约的偏差。",
       "faq.q6": "能用在 CI 里吗？",
       "faq.a6Before": "可以。同一套校验和生成引擎通过",
-      "faq.a6After": " 暴露，这是一个可用于 CI 的命令行工具，在 Pull Request 和自动化流水线中运行。它支持跨 6 种协议（HTTP、SSE、WebSocket、gRPC、MCP、tRPC）批量测试、可配置并发，并生成兼容 JUnit 的报告用于 CI 集成。",
+      "faq.a6After": " 暴露，这是一个可用于 CI 的命令行工具，在 Pull Request 和自动化流水线中运行。它支持跨 6 种协议（HTTP、SSE、WebSocket、gRPC、MCP、GraphQL）批量测试、可配置并发，并生成兼容 JUnit 的报告用于 CI 集成。",
       "faq.a6Btn": "了解 openapi-cli →",
       "footer.brand": "为现代 API 工作流打造开发者工具。开源、可用于生产、由社区驱动。",
       "footer.product": "产品",
@@ -439,8 +439,7 @@ window.POWERDUCK_I18N = {
       "account.signout": "サインアウト",
       "hero.title": "AI に API 仕様に沿って開発させ、結果を検証する。",
       "hero.sub": "ローカルの OpenAPI から始め、コーディング Agent を接続。API をデバッグし、実装が仕様に一致するか確認します。",
-      "hero.download": "デスクトップ版をダウンロード",
-      "hero.demo": "ライブデモを見る",
+          "hero.demo": "ライブデモを見る",
       "hero.webApp": "オンラインで試す",
       "start.exampleCta": "実行できる例を見る",
       "hero.micro": "ローカル機能に Cloud の購入は不要です。無料利用は仕様ファイル 2 件まで。審査済みの共有特典で枠を追加でき、デスクトップライセンスで枠の制限を解除できます。持ち込みキーの料金はモデル提供者が請求し、ホスト型モデルのクレジットと Cloud は別料金です。",
@@ -546,7 +545,7 @@ window.POWERDUCK_I18N = {
       "faq.a5": "はい。既存のコレクションと環境は引き続き使用できます。Powerduck は OpenAPI 仕様を権威ある契約として扱い、リクエストがどこで契約から外れるかを特定するのに役立ちます。",
       "faq.q6": "CI で使えますか？",
       "faq.a6Before": "はい。同じ検証・生成エンジンは",
-      "faq.a6After": "を通じて公開されています。これは CI 対応のコマンドラインツールで、プルリクエストや自動パイプラインで実行されます。6 つのプロトコル（HTTP、SSE、WebSocket、gRPC、MCP、tRPC）にわたる一括テスト、設定可能な並行処理、CI 統合向けの JUnit 互換レポートをサポートします。",
+      "faq.a6After": "を通じて公開されています。これは CI 対応のコマンドラインツールで、プルリクエストや自動パイプラインで実行されます。6 つのプロトコル（HTTP、SSE、WebSocket、gRPC、MCP、GraphQL）にわたる一括テスト、設定可能な並行処理、CI 統合向けの JUnit 互換レポートをサポートします。",
       "faq.a6Btn": "openapi-cli を見る →",
       "footer.brand": "最新の API ワークフローのための開発者ツールを構築。オープンソースで、本番対応、コミュニティ駆動。",
       "footer.product": "製品",
@@ -731,7 +730,7 @@ window.POWERDUCK_I18N = {
       "faq.a5": "Ja. Vorhandene Kollektionen und Umgebungen können weiter verwendet werden. Powerduck behandelt die OpenAPI-Spezifikation als maßgeblichen Vertrag und hilft zu erkennen, wo Anfragen davon abweichen.",
       "faq.q6": "Funktioniert es in der CI?",
       "faq.a6Before": "Ja. Dieselbe Validierungs- und Generierungsengine ist über",
-      "faq.a6After": " verfügbar, ein CI-fähiges Kommandozeilen-Tool, das während Pull-Requests und automatisierten Pipelines läuft. Es unterstützt Stapelprüfungen über 6 Protokolle (HTTP, SSE, WebSocket, gRPC, MCP, tRPC), konfigurierbare Parallelität und JUnit-kompatible Berichte für die CI-Integration.",
+      "faq.a6After": " verfügbar, ein CI-fähiges Kommandozeilen-Tool, das während Pull-Requests und automatisierten Pipelines läuft. Es unterstützt Stapelprüfungen über 6 Protokolle (HTTP, SSE, WebSocket, gRPC, MCP, GraphQL), konfigurierbare Parallelität und JUnit-kompatible Berichte für die CI-Integration.",
       "faq.a6Btn": "openapi-cli entdecken →",
       "footer.brand": "Wir bauen Entwicklerwerkzeuge für den modernen API-Arbeitsablauf. Open Source, produktionsreif und community-getrieben.",
       "footer.product": "Produkt",
@@ -916,7 +915,7 @@ window.POWERDUCK_I18N = {
       "faq.a5": "Oui. Les collections et environnements existants peuvent continuer à être utilisés. Powerduck considère la spécification OpenAPI comme le contrat faisant autorité et aide à identifier où les requêtes en dérivent.",
       "faq.q6": "Est-ce que ça fonctionne en CI ?",
       "faq.a6Before": "Oui. Le même moteur de validation et de génération est exposé via",
-      "faq.a6After": ", un outil en ligne de commande prêt pour la CI qui s'exécute pendant les pull requests et les pipelines automatisés. Il prend en charge les tests par lots sur 6 protocoles (HTTP, SSE, WebSocket, gRPC, MCP, tRPC), une concurrence configurable et des rapports compatibles JUnit pour l'intégration CI.",
+      "faq.a6After": ", un outil en ligne de commande prêt pour la CI qui s'exécute pendant les pull requests et les pipelines automatisés. Il prend en charge les tests par lots sur 6 protocoles (HTTP, SSE, WebSocket, gRPC, MCP, GraphQL), une concurrence configurable et des rapports compatibles JUnit pour l'intégration CI.",
       "faq.a6Btn": "Découvrir openapi-cli →",
       "footer.brand": "Nous créons des outils pour développeurs adaptés au flux API moderne. Open source, prêts pour la production et portés par la communauté.",
       "footer.product": "Produit",
@@ -1101,7 +1100,7 @@ window.POWERDUCK_I18N = {
       "faq.a5": "Sí. Las colecciones y entornos existentes pueden seguir usándose. Powerduck trata la especificación OpenAPI como el contrato autoritativo y ayuda a identificar dónde las solicitudes se desvían de él.",
       "faq.q6": "¿Funciona en CI?",
       "faq.a6Before": "Sí. El mismo motor de validación y generación se expone a través de",
-      "faq.a6After": ", una herramienta de línea de comandos lista para CI que se ejecuta durante los pull requests y los pipelines automatizados. Admite pruebas por lotes en 6 protocolos (HTTP, SSE, WebSocket, gRPC, MCP, tRPC), concurrencia configurable e informes compatibles con JUnit para la integración de CI.",
+      "faq.a6After": ", una herramienta de línea de comandos lista para CI que se ejecuta durante los pull requests y los pipelines automatizados. Admite pruebas por lotes en 6 protocolos (HTTP, SSE, WebSocket, gRPC, MCP, GraphQL), concurrencia configurable e informes compatibles con JUnit para la integración de CI.",
       "faq.a6Btn": "Explorar openapi-cli →",
       "footer.brand": "Creamos herramientas para desarrolladores para el flujo de API moderno. Código abierto, listas para producción e impulsadas por la comunidad.",
       "footer.product": "Producto",
@@ -1352,3 +1351,212 @@ Object.assign(window.POWERDUCK_I18N.messages["es"], {
   "verify.fixLabel": "Devolver un n\u00famero",
   "verify.passMsg": "La respuesta cumple el contrato"
 });
+
+// Desktop remains the primary entry; Hub completes the publishing workflow.
+Object.assign(window.POWERDUCK_I18N.messages["en"], {
+  "hub.hero": "Your API, from local development<br>to docs and AI.",
+  "hub.heroSub": "Give Codex, Claude Code and Cursor clear API definitions to code against. Generate docs from code and orchestrate tests with AI in the local-first Powerduck desktop app. Host OpenAPI docs and MCP servers for free on Hub.",
+  "hub.publish": "Publish free on Hub",
+  "hub.workflow.title": "One OpenAPI. Develop locally. Share online.",
+  "hub.workflow.sub": "Keep your API workflow in the desktop app. Use Hub to share documentation and connect AI tools to your API.",
+  "hub.step1.title": "Build and verify",
+  "hub.step1.body": "Design, debug and test your API in Powerduck.",
+  "hub.step2.title": "Publish from OpenAPI",
+  "hub.step2.body": "Turn your specification into hosted documentation and an MCP endpoint.",
+  "hub.step3.title": "Share and connect",
+  "hub.step3.body": "Share the docs link, connect an MCP client, and choose whether to list your project publicly.",
+  "hub.explore": "Explore Hub",
+  "hub.limit": "Free hosting within plan limits. Your business API continues to run on your own backend.",
+  "hub.meta.title": "Powerduck — API Desktop Client & Free OpenAPI / MCP Hosting"
+});
+Object.assign(window.POWERDUCK_I18N.messages["zh-CN"], {
+  "hub.hero": "从本地 API 开发，<br>到文档发布与 AI 连接。",
+  "hub.heroSub": "让 Codex、Claude Code、Cursor 按接口定义写代码。在本地优先的 Powerduck 客户端中，扫描代码生成文档，用 AI 编排测试，再通过 Hub 免费托管 OpenAPI 文档与 MCP Server。",
+  "hub.publish": "免费发布到 Hub",
+  "hub.workflow.title": "同一份 OpenAPI，本地开发，云端分享。",
+  "hub.workflow.sub": "在客户端完成 API 开发与验证，通过 Hub 分享文档，让 AI 工具连接你的 API。",
+  "hub.step1.title": "开发与验证",
+  "hub.step1.body": "在 Powerduck 中设计、调试和测试 API。",
+  "hub.step2.title": "从 OpenAPI 发布",
+  "hub.step2.body": "将规范发布为在线 API 文档和可连接的 MCP 服务。",
+  "hub.step3.title": "分享与连接",
+  "hub.step3.body": "分享文档链接、连接 MCP 客户端，自主选择是否在 Hub 公开展示。",
+  "hub.explore": "探索 Hub",
+  "hub.limit": "免费托管受套餐额度限制；业务 API 仍由你自己的后端提供。",
+  "hub.meta.title": "Powerduck — API 开发客户端与免费 OpenAPI / MCP 托管"
+});
+Object.assign(window.POWERDUCK_I18N.messages["ja"], {
+  "hub.hero": "ローカルで API を開発。<br>ドキュメントと AI につなぐ。",
+  "hub.heroSub": "Codex、Claude Code、Cursor に API 定義に沿ったコードを書いてもらう。ローカルファーストの Powerduck デスクトップアプリで、コードからドキュメントを生成し、AI でテストを組み立てる。OpenAPI ドキュメントと MCP サーバーは Hub で無料ホスティング。",
+  "hub.publish": "Hub で無料公開",
+  "hub.workflow.title": "ひとつの OpenAPI。ローカルで開発、オンラインで共有。",
+  "hub.workflow.sub": "デスクトップで API を検証し、Hub でドキュメントを共有して AI ツールを接続します。",
+  "hub.step1.title": "開発と検証",
+  "hub.step1.body": "Powerduck で API を設計・デバッグ・テスト。",
+  "hub.step2.title": "OpenAPI から公開",
+  "hub.step2.body": "仕様からホストされたドキュメントと MCP エンドポイントを作成。",
+  "hub.step3.title": "共有と接続",
+  "hub.step3.body": "ドキュメントを共有し、MCP クライアントを接続。Hub への掲載は選択できます。",
+  "hub.explore": "Hub を探索",
+  "hub.limit": "無料枠には上限があります。業務 API は引き続きご自身のバックエンドで実行されます。",
+  "hub.meta.title": "Powerduck — API デスクトップクライアントと無料 OpenAPI・MCP ホスティング"
+});
+Object.assign(window.POWERDUCK_I18N.messages["de"], {
+  "hub.hero": "APIs lokal entwickeln.<br>Dokumentation und KI verbinden.",
+  "hub.heroSub": "Klare API-Definitionen für Code mit Codex, Claude Code und Cursor. Mit der Local-first-Desktop-App Powerduck Dokumentation aus Code erstellen und Tests mit KI orchestrieren. OpenAPI-Dokumentation und MCP-Server kostenlos auf Hub hosten.",
+  "hub.publish": "Kostenlos auf Hub veröffentlichen",
+  "hub.workflow.title": "Eine OpenAPI. Lokal entwickeln. Online teilen.",
+  "hub.workflow.sub": "Prüfe deine APIs in der Desktop-App. Teile Dokumentation über Hub und verbinde KI-Tools mit deiner API.",
+  "hub.step1.title": "Entwickeln und prüfen",
+  "hub.step1.body": "APIs mit Powerduck entwerfen, debuggen und testen.",
+  "hub.step2.title": "Aus OpenAPI veröffentlichen",
+  "hub.step2.body": "Aus deiner Spezifikation werden gehostete Dokumentation und ein MCP-Endpunkt.",
+  "hub.step3.title": "Teilen und verbinden",
+  "hub.step3.body": "Teile den Dokumentationslink, verbinde einen MCP-Client und entscheide über einen öffentlichen Hub-Eintrag.",
+  "hub.explore": "Hub entdecken",
+  "hub.limit": "Kostenloses Hosting innerhalb der Tarifgrenzen. Deine API läuft weiterhin auf deinem eigenen Backend.",
+  "hub.meta.title": "Powerduck — API-Desktop-Client und kostenloses OpenAPI-/MCP-Hosting"
+});
+Object.assign(window.POWERDUCK_I18N.messages["fr"], {
+  "hub.hero": "Développez vos API en local.<br>Publiez et connectez l’IA.",
+  "hub.heroSub": "Donnez à Codex, Claude Code et Cursor des définitions d’API pour guider leur code. Avec Powerduck sur votre ordinateur, générez la documentation à partir du code et orchestrez les tests avec l’IA. Hébergez gratuitement vos docs OpenAPI et serveurs MCP sur Hub.",
+  "hub.publish": "Publier gratuitement sur Hub",
+  "hub.workflow.title": "Une OpenAPI. Développez en local. Partagez en ligne.",
+  "hub.workflow.sub": "Validez vos API dans l’application de bureau. Partagez leur documentation sur Hub et connectez vos outils IA.",
+  "hub.step1.title": "Développer et vérifier",
+  "hub.step1.body": "Concevez, déboguez et testez vos API avec Powerduck.",
+  "hub.step2.title": "Publier depuis OpenAPI",
+  "hub.step2.body": "Transformez votre spécification en documentation hébergée et en point d’accès MCP.",
+  "hub.step3.title": "Partager et connecter",
+  "hub.step3.body": "Partagez la documentation, connectez un client MCP et choisissez de rendre votre projet visible sur Hub.",
+  "hub.explore": "Explorer Hub",
+  "hub.limit": "Hébergement gratuit dans les limites du forfait. Votre API métier reste sur votre propre backend.",
+  "hub.meta.title": "Powerduck — Client API et hébergement OpenAPI / MCP gratuit"
+});
+Object.assign(window.POWERDUCK_I18N.messages["es"], {
+  "hub.hero": "Desarrolla APIs en local.<br>Publica y conecta con la IA.",
+  "hub.heroSub": "Haz que Codex, Claude Code y Cursor programen siguiendo tus definiciones de API. Con Powerduck en tu equipo, genera documentación a partir del código y coordina pruebas con IA. Aloja gratis tus documentos OpenAPI y servidores MCP en Hub.",
+  "hub.publish": "Publicar gratis en Hub",
+  "hub.workflow.title": "Una OpenAPI. Desarrolla en local. Comparte en línea.",
+  "hub.workflow.sub": "Valida tus APIs en la aplicación de escritorio. Comparte documentación en Hub y conecta herramientas de IA.",
+  "hub.step1.title": "Desarrollar y verificar",
+  "hub.step1.body": "Diseña, depura y prueba APIs con Powerduck.",
+  "hub.step2.title": "Publicar desde OpenAPI",
+  "hub.step2.body": "Convierte tu especificación en documentación alojada y un endpoint MCP.",
+  "hub.step3.title": "Compartir y conectar",
+  "hub.step3.body": "Comparte la documentación, conecta un cliente MCP y elige si quieres aparecer públicamente en Hub.",
+  "hub.explore": "Explorar Hub",
+  "hub.limit": "Alojamiento gratuito dentro de los límites del plan. Tu API sigue ejecutándose en tu propio backend.",
+  "hub.meta.title": "Powerduck — Cliente API y alojamiento OpenAPI / MCP gratuito"
+});
+
+// Editorial review: terminology, natural phrasing and platform-neutral guidance.
+Object.assign(window.POWERDUCK_I18N.messages["en"], {
+  "nav.client": "Desktop app",
+  "nav.specEditorDesc": "Edit your OpenAPI specification directly",
+  "nav.apiDebug": "API Debugger",
+  "hub.workflow.title": "One OpenAPI specification. Develop locally. Share online."
+});
+Object.assign(window.POWERDUCK_I18N.messages["zh-CN"], {
+  "nav.client": "客户端",
+  "hub.workflow.title": "一份 OpenAPI 规范，贯穿本地开发与在线分享。"
+});
+Object.assign(window.POWERDUCK_I18N.messages["ja"], {
+  "hero.download": "デスクトップ版をダウンロード",
+  "nav.client": "デスクトップアプリ",
+  "nav.specEditor": "仕様エディター",
+  "nav.specEditorDesc": "OpenAPI 仕様を直接編集",
+  "nav.apiDocsDesc": "同じ仕様からドキュメントを生成",
+  "nav.signin": "ログイン",
+  "nav.liveDemo": "オンラインデモ",
+  "nav.webApp": "Web アプリ",
+  "nav.webAppDesc": "ブラウザで Powerduck を使う",
+  "hero.capabilities": "仕様編集 · API デバッグ · テスト · モック · API ドキュメント · MCP サーバー",
+  "hub.workflow.title": "ひとつの OpenAPI 仕様で、ローカル開発からオンライン共有まで。",
+  "hub.step2.body": "仕様を公開して、API ドキュメントと MCP エンドポイントを利用できるようにします。",
+  "hub.explore": "Hub を見る"
+});
+Object.assign(window.POWERDUCK_I18N.messages["de"], {
+  "hero.download": "Desktop-App herunterladen",
+  "hero.capabilities": "Spezifikationen bearbeiten · APIs debuggen · Tests · Mock-Server · API-Dokumentation · MCP-Server",
+  "nav.client": "Desktop-App",
+  "nav.specEditor": "Spezifikationseditor",
+  "nav.apiDocsDesc": "Dokumentation aus derselben Spezifikation erstellen",
+  "nav.blogDesc": "Beiträge zu Produkt und Entwicklung",
+  "hub.workflow.title": "Eine OpenAPI-Spezifikation. Lokal entwickeln. Online teilen.",
+  "hub.step2.title": "OpenAPI-Spezifikation veröffentlichen"
+});
+Object.assign(window.POWERDUCK_I18N.messages["fr"], {
+  "hero.badge": "Votre atelier OpenAPI local, avec l’IA intégrée",
+  "hero.download": "Télécharger l’application",
+  "hero.capabilities": "Édition de spécifications · Débogage d’API · Tests · Serveurs mock · Documentation d’API · Serveurs MCP",
+  "nav.client": "Application de bureau",
+  "nav.specEditor": "Éditeur de spécifications",
+  "nav.specEditorDesc": "Modifier directement votre spécification OpenAPI",
+  "nav.mcpServerDesc": "Transformer une spécification en outils utilisables par l’IA",
+  "nav.apiDocs": "Documentation des API",
+  "nav.apiDocsDesc": "Générer la documentation à partir de la même spécification",
+  "nav.cloudDocs": "Documentation Cloud",
+  "nav.hubDesc": "Découvrir les documentations et serveurs MCP publics",
+  "nav.signin": "Se connecter",
+  "nav.liveDemo": "Démo en ligne",
+  "hub.workflow.title": "Une seule spécification OpenAPI. Développez en local, partagez en ligne.",
+  "hub.step2.title": "Publier une spécification OpenAPI"
+});
+Object.assign(window.POWERDUCK_I18N.messages["es"], {
+  "hero.download": "Descargar la aplicación",
+  "hero.capabilities": "Edición de especificaciones · Depuración de API · Pruebas · Servidores mock · Documentación de API · Servidores MCP",
+  "nav.client": "Aplicación de escritorio",
+  "nav.specEditor": "Editor de especificaciones",
+  "nav.specEditorDesc": "Edita directamente tu especificación OpenAPI",
+  "nav.mcpServerDesc": "Convierte una especificación en herramientas para la IA",
+  "nav.apiDocs": "Documentación de API",
+  "nav.apiDocsDesc": "Genera documentación a partir de la misma especificación",
+  "nav.cloudDocs": "Documentación de Cloud",
+  "nav.cloudDocsDesc": "Alojamiento, control de acceso y dominios",
+  "nav.liveDemo": "Demo en línea",
+  "hub.workflow.title": "Una sola especificación OpenAPI. Desarrolla en local y comparte en línea.",
+  "hub.step2.title": "Publicar una especificación OpenAPI"
+});
+
+// Labels outside the illustrative code samples are localized as well.
+Object.assign(window.POWERDUCK_I18N.messages["en"], {"story.openLocal": "OPEN LOCALLY", "story.noCloud": "NO CLOUD REQUIRED", "story.noSync": "NO MANUAL SYNC", "story.noCopy": "NO EXTRA COPY"});
+Object.assign(window.POWERDUCK_I18N.messages["zh-CN"], {"story.openLocal": "本地打开", "story.noCloud": "无需云端", "story.noSync": "无需手动同步", "story.noCopy": "无需额外副本"});
+Object.assign(window.POWERDUCK_I18N.messages["ja"], {"story.openLocal": "ローカルで開く", "story.noCloud": "クラウド不要", "story.noSync": "手動同期不要", "story.noCopy": "別のコピーは不要"});
+Object.assign(window.POWERDUCK_I18N.messages["de"], {"story.openLocal": "LOKAL ÖFFNEN", "story.noCloud": "KEINE CLOUD NÖTIG", "story.noSync": "KEIN MANUELLES SYNCHRONISIEREN", "story.noCopy": "KEINE ZUSÄTZLICHE KOPIE"});
+Object.assign(window.POWERDUCK_I18N.messages["fr"], {"story.openLocal": "OUVRIR EN LOCAL", "story.noCloud": "SANS CLOUD OBLIGATOIRE", "story.noSync": "SANS SYNCHRONISATION MANUELLE", "story.noCopy": "SANS COPIE SUPPLÉMENTAIRE"});
+Object.assign(window.POWERDUCK_I18N.messages["es"], {"story.openLocal": "ABRIR EN LOCAL", "story.noCloud": "SIN NECESIDAD DE NUBE", "story.noSync": "SIN SINCRONIZACIÓN MANUAL", "story.noCopy": "SIN COPIAS ADICIONALES"});
+
+// Keep legacy pricing copy consistent with the current specification-slot model.
+Object.entries({
+  en: {
+    'lic.eval': '<strong>Free use:</strong> Start locally with two specification slots and no time limit. A desktop license removes the specification-slot limit.',
+    'lic.deck': 'Powerduck Desktop offers a perpetual license for your local API workspace. Hosted documentation and MCP endpoints are optional services, separate from local work.',
+    'hero.trust': 'No signup or credit card · Local work offline · macOS · Windows · Linux'
+  },
+  'zh-CN': {
+    'lic.eval': '<strong>免费使用：</strong>可在本地使用两份规范额度，没有时间限制。桌面许可证可解除规范数量限制。',
+    'lic.deck': 'Powerduck Desktop 为本地 API 工作区提供永久许可证。文档托管和 MCP 端点托管是独立于本地工作的可选服务。',
+    'hero.trust': '无需注册或信用卡 · 支持离线本地工作 · macOS · Windows · Linux'
+  },
+  ja: {
+    'lic.eval': '<strong>無料利用：</strong>2 件の仕様を時間制限なくローカルで使用できます。デスクトップライセンスで仕様数の上限を解除できます。',
+    'lic.deck': 'Powerduck Desktop はローカル API ワークスペース向けの永続ライセンスです。ドキュメントや MCP エンドポイントのホスティングは、ローカル作業とは別のオプションサービスです。',
+    'hero.trust': '登録・クレジットカード不要 · ローカル作業はオフライン対応 · macOS · Windows · Linux'
+  },
+  de: {
+    'lic.eval': '<strong>Kostenlose Nutzung:</strong> Arbeiten Sie lokal mit zwei Spezifikationsplätzen ohne Zeitlimit. Eine Desktop-Lizenz hebt die Begrenzung der Spezifikationen auf.',
+    'lic.deck': 'Powerduck Desktop bietet eine unbefristete Lizenz für Ihren lokalen API-Arbeitsbereich. Das Hosting von Dokumentation und MCP-Endpunkten ist ein optionaler Dienst, unabhängig von der lokalen Arbeit.',
+    'hero.trust': 'Keine Registrierung oder Kreditkarte · Lokal offline arbeiten · macOS · Windows · Linux'
+  },
+  fr: {
+    'lic.eval': '<strong>Utilisation gratuite :</strong> Commencez en local avec deux emplacements de spécification, sans limite de temps. Une licence desktop supprime la limite du nombre de spécifications.',
+    'lic.deck': 'Powerduck Desktop propose une licence perpétuelle pour votre espace de travail API local. L’hébergement de documentation et de points de terminaison MCP est un service facultatif, indépendant du travail local.',
+    'hero.trust': 'Sans inscription ni carte bancaire · Travail local hors ligne · macOS · Windows · Linux'
+  },
+  es: {
+    'lic.eval': '<strong>Uso gratuito:</strong> Empieza en local con espacio para dos especificaciones y sin límite de tiempo. La licencia de escritorio elimina el límite de especificaciones.',
+    'lic.deck': 'Powerduck Desktop ofrece una licencia perpetua para tu espacio de trabajo API local. El alojamiento de documentación y endpoints MCP es un servicio opcional, independiente del trabajo local.',
+    'hero.trust': 'Sin registro ni tarjeta · Trabajo local sin conexión · macOS · Windows · Linux'
+  }
+}).forEach(([language, copy]) => Object.assign(window.POWERDUCK_I18N.messages[language], copy));

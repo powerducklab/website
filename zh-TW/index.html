@@ -1,0 +1,2378 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="light" data-page-locale="zh-TW" data-page-route="/" dir="ltr"><head>
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("pd_theme");
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          var root = document.documentElement;
+          root.setAttribute("data-theme", theme);
+          root.classList.add(theme);
+          root.classList.remove(theme === "dark" ? "light" : "dark");
+
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/images/icon-192.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Powerduck">
+    <meta property="og:title" content="Powerduck — API 開發用戶端與免費 OpenAPI / MCP 託管">
+    <meta property="og:description" content="讓 Codex、Claude Code、Cursor 依照 API 定義撰寫程式。在以本機為優先的 Powerduck 桌面應用程式中，掃描程式碼產生文件、用 AI 規劃測試，再透過 Hub 免費託管 OpenAPI 文件與 MCP 伺服器。">
+    <meta property="og:url" content="https://www.powerduck.com/zh-TW/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Powerduck — API 開發用戶端與免費 OpenAPI / MCP 託管">
+    <meta name="twitter:description" content="讓 Codex、Claude Code、Cursor 依照 API 定義撰寫程式。在以本機為優先的 Powerduck 桌面應用程式中，掃描程式碼產生文件、用 AI 規劃測試，再透過 Hub 免費託管 OpenAPI 文件與 MCP 伺服器。">
+
+    <title>Powerduck — API 開發用戶端與免費 OpenAPI / MCP 託管</title>
+
+    <meta name="description" content="讓 Codex、Claude Code、Cursor 依照 API 定義撰寫程式。在以本機為優先的 Powerduck 桌面應用程式中，掃描程式碼產生文件、用 AI 規劃測試，再透過 Hub 免費託管 OpenAPI 文件與 MCP 伺服器。">
+
+    <meta name="keywords" content="Powerduck, AI API development, AI-native OpenAPI studio, local-first API tool, OpenAPI editor, API debugging, MCP server generator, API documentation, OpenAPI 3.2, offline API client, AI coding agent, bring your own model">
+
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/assets/css/common.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/contour.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/product-paths.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261019d">
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-8HXDV7CDEB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-8HXDV7CDEB");
+    </script>
+  <meta property="og:image" content="https://www.powerduck.com/assets/images/icon-192.png"><meta property="og:locale" content="zh_TW"><link rel="canonical" href="https://www.powerduck.com/zh-TW/"><link rel="alternate" hreflang="en" href="https://www.powerduck.com/"><link rel="alternate" hreflang="zh-CN" href="https://www.powerduck.com/zh-CN/"><link rel="alternate" hreflang="ja" href="https://www.powerduck.com/ja/"><link rel="alternate" hreflang="de" href="https://www.powerduck.com/de/"><link rel="alternate" hreflang="fr" href="https://www.powerduck.com/fr/"><link rel="alternate" hreflang="es" href="https://www.powerduck.com/es/"><link rel="alternate" hreflang="pt-BR" href="https://www.powerduck.com/pt-BR/"><link rel="alternate" hreflang="zh-TW" href="https://www.powerduck.com/zh-TW/"><link rel="alternate" hreflang="it-IT" href="https://www.powerduck.com/it-IT/"><link rel="alternate" hreflang="ko-KR" href="https://www.powerduck.com/ko-KR/"><link rel="alternate" hreflang="ru-RU" href="https://www.powerduck.com/ru-RU/"><link rel="alternate" hreflang="id-ID" href="https://www.powerduck.com/id-ID/"><link rel="alternate" hreflang="tr-TR" href="https://www.powerduck.com/tr-TR/"><link rel="alternate" hreflang="vi-VN" href="https://www.powerduck.com/vi-VN/"><link rel="alternate" hreflang="ar-SA" href="https://www.powerduck.com/ar-SA/"><link rel="alternate" hreflang="hi-IN" href="https://www.powerduck.com/hi-IN/"><link rel="alternate" hreflang="x-default" href="https://www.powerduck.com/"><script type="application/ld+json" data-site-schema="">{"@context":"https://schema.org","@type":"WebPage","name":"Powerduck — API 開發用戶端與免費 OpenAPI / MCP 託管","description":"讓 Codex、Claude Code、Cursor 依照 API 定義撰寫程式。在以本機為優先的 Powerduck 桌面應用程式中，掃描程式碼產生文件、用 AI 規劃測試，再透過 Hub 免費託管 OpenAPI 文件與 MCP 伺服器。","url":"https://www.powerduck.com/zh-TW/","inLanguage":"zh-TW","isPartOf":{"@type":"WebSite","name":"Powerduck","url":"https://www.powerduck.com/"}}</script></head>
+
+  <body>
+    <div class="page-shell">
+      <!-- =======================================================================
+     NAV
+     ======================================================================= -->
+
+      <header class="nav">
+        <div class="nav-inner">
+          <a href="/zh-TW/" class="brand" aria-label="Powerduck 首頁">
+            <img src="/assets/images/logo.svg" alt="Powerduck logo" class="brand-mark">
+
+            <span>Powerduck</span>
+          </a>
+
+          <button class="nav-hamburger" aria-label="展開或收合導覽選單" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+
+          <div class="nav-drawer" id="navDrawer">
+            <nav class="nav-links">
+
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                  <span data-i18n="nav.client">桌面應用程式</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="#spec-editor" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.specEditor">規格編輯器</span><span class="dropdown-item-desc" data-i18n="nav.specEditorDesc">直接編輯 OpenAPI 規格</span></span></a>
+                  <a class="dropdown-item" href="#api-debug" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDebug">API 偵錯</span><span class="dropdown-item-desc" data-i18n="nav.apiDebugDesc">傳送請求並檢查回應</span></span></a>
+                  <a class="dropdown-item" href="#mcp-server" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.mcpServer">MCP 伺服器</span><span class="dropdown-item-desc" data-i18n="nav.mcpServerDesc">將規格轉成可呼叫的工具</span></span></a>
+                  <a class="dropdown-item" href="#api-docs" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDocs">API 文件</span><span class="dropdown-item-desc" data-i18n="nav.apiDocsDesc">用同一份規格渲染文件</span></span></a>
+                </div>
+              </div><a class="nav-hub-link" href="/zh-TW/hub" data-i18n="nav.hub">Hub</a>
+
+
+
+              <a class="nav-direct" href="/zh-TW/pricing?product=client" data-i18n="nav.pricing">價格</a>
+
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                  <span data-i18n="nav.resources">資源</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="/docs/zh-TW/overview/introduction/index.html" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.documentation">文件</span><span class="dropdown-item-desc" data-i18n="nav.documentationDesc">指南與 API 參考</span></span></a>
+                  <a class="dropdown-item" href="/zh-TW/use-cases/" role="menuitem"><span class="dropdown-item-text"><span data-i18n="scenes.all" class="dropdown-item-title">場景指南</span></span></a>
+                  <a class="dropdown-item" href="/blog/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.blog">部落格</span><span class="dropdown-item-desc" data-i18n="nav.blogDesc">產品動態與工程實踐</span></span></a>
+                  <a class="dropdown-item" href="/blog/tag/release-notes/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.releaseNotes">更新紀錄</span><span class="dropdown-item-desc" data-i18n="nav.releaseNotesDesc">查看每個版本的更新內容</span></span></a>
+                  <a class="dropdown-item" href="/demo/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.liveDemo">互動示範</span><span class="dropdown-item-desc" data-i18n="nav.liveDemoDesc">在瀏覽器中體驗各項工具</span></span></a>
+                  <a class="dropdown-item" href="/app/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.webApp">網頁版應用程式</span><span class="dropdown-item-desc" data-i18n="nav.webAppDesc">在瀏覽器中使用完整的 Powerduck 應用程式</span></span></a>
+                  <a class="dropdown-item" href="https://github.com/powerducklab" target="_blank" role="menuitem" rel="nofollow noopener noreferrer"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.openSource">開源</span><span class="dropdown-item-desc" data-i18n="nav.openSourceDesc">GitHub 和 npm 上的開源套件</span></span></a>
+                </div>
+              </div>
+            </nav>
+
+            <div class="nav-actions">
+              <a class="nav-icon-btn" href="https://github.com/powerducklab" target="_blank" aria-label="GitHub" rel="nofollow noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12 12-12z"></path>
+                </svg>
+              </a>
+              <div class="nav-account-slot" id="navAccountSlot">
+                <a class="nav-signin" data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">登入</a>
+              </div>
+
+              <div class="nav-dropdown" id="langMenu">
+                <button class="nav-icon-btn nav-dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-label="選擇語言">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20"></path>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu align-right" role="menu" id="langMenuContent"></div>
+              </div>
+
+              <button class="theme-toggle" data-theme-toggle="" id="themeToggle" type="button" aria-label="切換淺色或深色主題">
+                <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none">
+                  <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+                </svg>
+
+                <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"></circle>
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                </svg>
+              </button>
+
+              <a class="btn btn-primary btn-sm" href="/zh-TW/download/" data-i18n="nav.download">下載</a>
+            </div>
+          </div>
+        </div>
+
+        <style>
+          .nav-dropdown:hover .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+          .nav-dropdown:hover .chevron {
+            transform: rotate(180deg);
+          }
+          .nav-dropdown.open .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+        </style>
+      </header>
+
+      <!-- =======================================================================
+     HERO
+     ======================================================================= -->
+
+      <section class="hero">
+        <p class="eyebrow">
+          <span class="status-dot"></span>
+          <span data-i18n="hero.badge">優先在本機運作、整合 AI 的 OpenAPI 工作室</span>
+        </p>
+
+        <h1 data-i18n-html="hub.hero">從本機 API 開發，<br>到文件發佈與 AI 連接。</h1>
+
+        <p data-i18n="hub.heroSub" class="hero-sub">讓 Codex、Claude Code、Cursor 依照 API 定義撰寫程式。在以本機為優先的 Powerduck 桌面應用程式中，掃描程式碼產生文件、用 AI 規劃測試，再透過 Hub 免費託管 OpenAPI 文件與 MCP 伺服器。</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/zh-TW/download/" data-i18n="hero.download">下載桌面版</a><a class="btn btn-secondary" href="/console/projects" data-i18n="hub.publish">免費發佈到 Hub</a>
+        </div>
+
+        <div class="hero-visual" data-hero-demo="">
+          <div class="hv-window is-done">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="chrome-path">commerce-api/openapi.yaml</span>
+              <span class="chrome-spacer"></span>
+              <span class="pill" data-i18n="hv.local">OpenAPI 3.1 · 本機檔案</span>
+            </div>
+
+            <div class="hv-body">
+              <div class="hv-col hv-contract">
+                <div class="hv-col-label">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                  </svg>
+                  <span data-i18n="hv.contract">一份 OpenAPI 契約</span>
+                </div>
+                <pre class="hv-code hv-spec"><code>/orders
+  <span class="hv-k">post</span>  createOrder
+  <span class="hv-k">get</span>   listOrders
+/products
+  <span class="hv-k">get</span>   listProducts
+/customers
+  <span class="hv-k">get</span>   listCustomers</code></pre>
+                <div class="hv-compile">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="4 17 10 11 4 5"></polyline>
+                    <line x1="12" y1="19" x2="20" y2="19"></line>
+                  </svg>
+                  <span data-i18n="hv.compile">編譯為可執行的 MCP 伺服器 · 12 個可呼叫的工具</span>
+                </div>
+              </div>
+
+              <div class="hv-col hv-agentcol">
+                <div class="hv-col-label">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2a3 3 0 0 1 3 3v1a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"></path>
+                    <path d="M5 21a7 7 0 0 1 14 0"></path>
+                  </svg>
+                  <span data-i18n="hv.agentTitle">你的程式開發代理</span>
+                  <span class="hv-agentname">Cursor · Claude Code · Codex</span>
+                </div>
+                <div class="hv-log" data-hv-log="">
+                  <div class="hv-loghead">
+                    <span class="hv-live" aria-hidden="true"></span>
+                    <span>powerduck · MCP server</span>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.read_spec()</code>
+                      <span class="hv-out" data-i18n="hv.out.ops">發現 12 個API</span>
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.start_mock("POST /orders")</code>
+                      <span class="hv-out" data-i18n="hv.out.mock">Mock 服務已啟動 :4010</span>
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.generate_tests("POST /orders")</code>
+                      <span class="hv-out" data-i18n="hv.out.tests">已生成 orders.test.js</span>
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.call_api("POST /orders", {total:49})</code>
+                      <span class="hv-out hv-out-ok" data-i18n="hv.out.call">200 OK · 已通過契約驗證</span>
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.publish_docs()</code>
+                      <span class="hv-out" data-i18n="hv.out.docs">參考文件已更新</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hv-foot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+              <span data-i18n-html="hv.foot">一份 OpenAPI 檔案可編譯為<strong>代理能呼叫的工具</strong>，包括 Mock、測試、API 呼叫與文件，全部依照同一份契約驗證。</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="hero-micro" data-i18n="flow.baseNote">本機工作無需帳號；遠端 AI 使用你選擇的模型服務，線上託管需要 Cloud 帳號。</p>
+
+        <p class="hero-strip" data-i18n-html="hero.capabilities">規格編輯器 &nbsp;·&nbsp; API 偵錯 &nbsp;·&nbsp; 測試 &nbsp;·&nbsp; Mock &nbsp;·&nbsp; API 文件 &nbsp;·&nbsp; MCP 服務</p>
+      </section>
+      <section class="hub-workflow" aria-labelledby="hub-workflow-title">
+        <div class="hub-workflow-heading">
+          <p class="eyebrow">POWERDUCK HUB</p>
+          <h2 id="hub-workflow-title" data-i18n="hub.workflow.title">一份 OpenAPI 規格，貫穿本機開發與線上分享。</h2>
+          <p data-i18n="hub.workflow.sub">在用戶端完成 API 開發與驗證，透過 Hub 分享文件，讓 AI 工具連接你的 API。</p>
+        </div>
+        <ol class="hub-workflow-steps">
+<li><span class="hub-step-number">01</span><h3 data-i18n="hub.step1.title">開發與驗證</h3><p data-i18n="hub.step1.body">在 Powerduck 中設計、偵錯和測試 API。</p></li>
+<li><span class="hub-step-number">02</span><h3 data-i18n="hub.step2.title">從 OpenAPI 發佈</h3><p data-i18n="hub.step2.body">將規格發佈為線上 API 文件和可連接的 MCP 服務。</p></li>
+<li><span class="hub-step-number">03</span><h3 data-i18n="hub.step3.title">分享與連接</h3><p data-i18n="hub.step3.body">分享文件連結、連接 MCP 用戶端，自主選擇是否在 Hub 公開展示。</p></li>
+</ol><div class="hub-workflow-actions"><a class="btn btn-primary" href="/console/projects" data-i18n="hub.publish">免費發佈到 Hub</a><a class="btn btn-secondary" href="/zh-TW/hub" data-i18n="hub.explore">探索 Hub</a></div><p class="hub-workflow-note" data-i18n="hub.limit">免費託管受方案額度限制；業務 API 仍由你自己的後端提供。</p></section>
+
+
+      <section class="why-band" aria-labelledby="why-title">
+        <div class="why-head">
+          <p class="section-kicker" data-i18n="why.kicker">為什麼選擇 Powerduck</p>
+          <h2 class="section-title" id="why-title" data-i18n="why.title">一個本機檔案，取代整套 API 工具。</h2>
+          <p class="section-deck" data-i18n="why.deck">儲存庫裡的一份 OpenAPI YAML 即可驅動設計、偵錯、測試、mock、文件與 MCP——你的程式開發助手也使用同一份檔案。</p>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-card reveal">
+            <span class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </span>
+            <h3 data-i18n="why.1.title">一份檔案，貫穿所有環節</h3>
+            <p data-i18n="why.1.body">用同一份 OpenAPI 規格完成設計、偵錯、測試、mock、文件與 MCP 發佈，任何環節都不會脫節。</p>
+            <div class="why-vs">
+              <div class="why-vs-row why-vs-old">
+                <span class="why-vs-tag" data-i18n="why.old">其他工具</span>
+                <span data-i18n="why.1.old">集合、文件、mock、測試檔案各自維護</span>
+              </div>
+              <div class="why-vs-row why-vs-new">
+                <span class="why-vs-tag" data-i18n="why.pd">Powerduck</span>
+                <span data-i18n-html="why.1.new"><strong>一份 YAML</strong> 驅動所有工具和你的程式開發助手</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="why-card reveal">
+            <span class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </span>
+            <h3 data-i18n="why.2.title">每個回應都經過契約驗證</h3>
+            <p data-i18n="why.2.body">每個回應都會對照 OpenAPI 規格檢查，而不僅僅是顯示——錯誤的型別或路徑當場就能發現。</p>
+            <div class="why-vs">
+              <div class="why-vs-row why-vs-old">
+                <span class="why-vs-tag" data-i18n="why.old">其他工具</span>
+                <span data-i18n="why.2.old">只傳送請求並顯示 200 回應</span>
+              </div>
+              <div class="why-vs-row why-vs-new">
+                <span class="why-vs-tag" data-i18n="why.pd">Powerduck</span>
+                <span data-i18n-html="why.2.new">回應一回傳，<strong>規格偏差立即被標記</strong></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="why-card reveal">
+            <span class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+                <line x1="2" y1="20" x2="22" y2="20"></line>
+              </svg>
+            </span>
+            <h3 data-i18n="why.3.title">本機優先，無需帳號，適配程式開發助手</h3>
+            <p data-i18n="why.3.body">檔案留在你的機器上，無需帳號或上傳即可使用。Codex、Claude Code 和 Cursor 讀取的正是你手上的同一份規格。</p>
+            <div class="why-vs">
+              <div class="why-vs-row why-vs-old">
+                <span class="why-vs-tag" data-i18n="why.old">其他工具</span>
+                <span data-i18n="why.3.old">開始前需要雲帳號並上傳檔案</span>
+              </div>
+              <div class="why-vs-row why-vs-new">
+                <span class="why-vs-tag" data-i18n="why.pd">Powerduck</span>
+                <span data-i18n-html="why.3.new"><strong>本機執行</strong>；你的程式開發助手讀取同一份檔案</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     INTERACTIVE PRODUCT DEMO
+     ======================================================================= -->
+
+      <section class="demo-section">
+        <div class="demo-shell">
+          <div class="demo-tabs-wrap">
+            <div class="demo-tabs" role="tablist" aria-label="桌面應用程式">
+              <button class="demo-tab" role="tab" aria-selected="true" data-tab="editor" data-i18n="nav.specEditor">規格編輯器</button>
+
+              <button class="demo-tab" role="tab" aria-selected="false" data-tab="debug" data-i18n="nav.apiDebug">API 偵錯</button>
+
+              <button class="demo-tab" role="tab" aria-selected="false" data-tab="mcp" data-i18n="nav.mcpServer">MCP 伺服器</button>
+
+              <button class="demo-tab" role="tab" aria-selected="false" data-tab="docs" data-i18n="nav.apiDocs">API 文件</button>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     SPEC EDITOR
+     ================================================================ -->
+
+          <div class="stage on" id="stage-editor" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path"> ~/commerce-api/openapi.yaml </span>
+
+              <span class="pill"> OpenAPI 3.1.0 </span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill pill-warn"><span data-i18n="demo.ui.0">3 個問題</span></span>
+
+              <span class="pill"><span data-i18n="demo.ui.1">尚未儲存</span></span>
+            </div>
+
+            <div class="editor-demo">
+              <aside class="outline">
+                <div class="panel-label"><span data-i18n="demo.ui.2">大綱</span></div>
+
+                <div class="tree-row indent-1">▾ info</div>
+                <div class="tree-row indent-3">title</div>
+                <div class="tree-row indent-3">version</div>
+                <div class="tree-row indent-3">contact</div>
+
+                <div class="tree-row indent-3">
+                  license
+                  <span class="flag">⚠</span>
+                </div>
+
+                <div class="tree-row indent-1">▸ servers</div>
+
+                <div class="tree-row indent-1">▾ paths</div>
+
+                <div class="tree-row indent-2">▾ /auth/login</div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag post">POST</span>
+                  loginUser
+                </div>
+
+                <div class="tree-row indent-2">▾ /users</div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag get">GET</span>
+                  listUsers
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag post">POST</span>
+                  createUser
+                </div>
+
+                <div class="tree-row indent-2">▾ /users/{id}</div>
+
+                <div class="tree-row indent-4 active">
+                  <span class="method-tag get">GET</span>
+                  getUser
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag put">PUT</span>
+                  updateUser
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag delete">DEL</span>
+                  deleteUser
+                </div>
+
+                <div class="tree-row indent-2">▾ /orders</div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag get">GET</span>
+                  listOrders
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag post">POST</span>
+                  createOrder
+                </div>
+
+                <div class="tree-row indent-1">▾ components</div>
+
+                <div class="tree-row indent-2">▸ schemas (14)</div>
+
+                <div class="tree-row indent-2">▸ responses (6)</div>
+
+                <div class="tree-row indent-2">▸ parameters (4)</div>
+
+                <div class="tree-row indent-2">▸ securitySchemes (2)</div>
+              </aside>
+
+              <div class="editor-main">
+                <div class="code-area">
+                  <div class="code-line" style="--lvl: 0">
+                    <span class="code-number">142</span>
+                    <span class="code-content">
+                      <span class="syntax-key">/users/{id}:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 1">
+                    <span class="code-number">143</span>
+                    <span class="code-content">
+                      <span class="syntax-key">get:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line highlight" style="--lvl: 2">
+                    <span class="code-number">144</span>
+                    <span class="code-content">
+                      <span class="syntax-key">operationId:</span>
+                      <span class="syntax-string">getUser</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">145</span>
+                    <span class="code-content">
+                      <span class="syntax-key">summary:</span>
+                      <span class="syntax-string">Retrieve a user</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">146</span>
+                    <span class="code-content">
+                      <span class="syntax-key">tags:</span>
+                      [<span class="syntax-string">Users</span>]
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">147</span>
+                    <span class="code-content">
+                      <span class="syntax-key">parameters:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 3">
+                    <span class="code-number">148</span>
+                    <span class="code-content">
+                      <span class="syntax-key">- $ref:</span>
+                      <span class="syntax-string">'#/components/parameters/UserId'</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">149</span>
+                    <span class="code-content">
+                      <span class="syntax-key">responses:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 3">
+                    <span class="code-number">150</span>
+                    <span class="code-content">
+                      <span class="syntax-number">'200':</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 4">
+                    <span class="code-number">151</span>
+                    <span class="code-content">
+                      <span class="syntax-key">description:</span>
+                      <span class="syntax-string">The requested user</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 4">
+                    <span class="code-number">152</span>
+                    <span class="code-content">
+                      <span class="syntax-key">content:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 5">
+                    <span class="code-number">153</span>
+                    <span class="code-content">
+                      <span class="syntax-key">application/json:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 6">
+                    <span class="code-number">154</span>
+                    <span class="code-content">
+                      <span class="syntax-key">schema:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 7">
+                    <span class="code-number">155</span>
+                    <span class="code-content">
+                      <span class="syntax-key">$ref:</span>
+                      <span class="syntax-string">'#/components/schemas/User'</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 3">
+                    <span class="code-number error">156</span>
+                    <span class="code-content">
+                      <span class="syntax-number">'404':</span>
+                      <span class="syntax-comment"># description is required</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 4">
+                    <span class="code-number">157</span>
+                    <span class="code-content">
+                      <span class="squiggle syntax-key">contents:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 5">
+                    <span class="code-number">158</span>
+                    <span class="code-content">
+                      <span class="syntax-key">application/json:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 6">
+                    <span class="code-number">159</span>
+                    <span class="code-content">
+                      <span class="syntax-key">schema:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 7">
+                    <span class="code-number">160</span>
+                    <span class="code-content">
+                      <span class="syntax-key">$ref:</span>
+                      <span class="squiggle syntax-string">'#/components/schemas/Erorr'</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 1">
+                    <span class="code-number">161</span>
+                    <span class="code-content">
+                      <span class="syntax-key">delete:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number error">162</span>
+                    <span class="code-content">
+                      <span class="syntax-key">summary:</span>
+                      <span class="syntax-string">Delete a user</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="problems">
+                  <div class="problems-head">
+                    <strong><span data-i18n="demo.ui.3">問題</span></strong>
+                    <span><span data-i18n="demo.ui.4">2 個錯誤 · 1 個警告</span></span>
+                    <span class="pill"><span data-i18n="demo.ui.5">已依 3.1 方言驗證</span></span>
+                  </div>
+
+                  <div class="problem-row">
+                    <span class="problem-location">156:9</span>
+                    <span class="problem-message">
+                      <strong>contents</strong> is not a valid Response Object
+                      key. Did you mean <strong>content</strong>?
+                    </span>
+                    <span class="problem-rule">oas3-schema</span>
+                  </div>
+
+                  <div class="problem-row">
+                    <span class="problem-location">160:24</span>
+                    <span class="problem-message">
+                      Unresolved <strong>$ref</strong> —
+                      <code>schemas/Erorr</code> does not exist.
+                    </span>
+                    <span class="problem-rule">ref-resolution</span>
+                  </div>
+
+                  <div class="problem-row">
+                    <span class="problem-location">162:7</span>
+                    <span class="problem-message">
+                      Operation has no <strong>operationId</strong>. It will be
+                      skipped when generating MCP tools.
+                    </span>
+                    <span class="problem-rule">operation-operationId</span>
+                  </div>
+                </div>
+
+                <div class="status-bar">
+                  <span><span data-i18n="demo.ui.6">第 156 行，第 9 欄</span></span>
+                  <span>YAML</span>
+                  <span>UTF-8</span>
+                  <span><span data-i18n="demo.ui.7">空格：2</span></span>
+                  <span>3.1.0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     API DEBUG
+     ================================================================ -->
+
+          <div class="stage" id="stage-debug" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path"><span data-i18n="demo.ui.8">從 openapi.yaml 產生的集合</span></span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill"><span data-i18n="demo.ui.9">Postman 匯入</span></span>
+
+              <span class="pill pill-ok"><span data-i18n="demo.ui.10">契約檢查已開啟</span></span>
+            </div>
+
+            <div class="debug-demo">
+              <aside class="collection">
+                <div class="panel-label"><span data-i18n="demo.ui.11">電子商務 API</span></div>
+
+                <div class="collection-row">▾ Auth</div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag post">POST</span>
+                  loginUser
+                </div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag post">POST</span>
+                  refreshToken
+                </div>
+
+                <div class="collection-row">▾ Users</div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag get">GET</span>
+                  listUsers
+                </div>
+
+                <div class="collection-row indent-3 active">
+                  <span class="method-tag get">GET</span>
+                  getUser
+                </div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag put">PUT</span>
+                  updateUser
+                </div>
+
+                <div class="collection-row">▾ Orders</div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag get">GET</span>
+                  listOrders
+                </div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag post">POST</span>
+                  createOrder
+                </div>
+              </aside>
+
+              <div class="request-pane">
+                <div class="url-bar">
+                  <span class="http-method">GET ▾</span>
+
+                  <div class="request-url">
+                    {{baseUrl}}/users/<span class="request-var">{{userId}}</span>?include=profile
+                  </div>
+
+                  <span class="environment"><span data-i18n="demo.ui.12">預備環境 ▾</span></span>
+
+                  <button class="btn btn-primary btn-sm"><span data-i18n="demo.ui.13">傳送</span></button>
+                </div>
+
+                <div class="subtabs">
+                  <span class="subtab"><span data-i18n="demo.ui.14">參數</span><i class="badge">1</i></span>
+                  <span class="subtab"><span data-i18n="demo.ui.15">驗證</span><i class="badge">bearer</i></span>
+                  <span class="subtab"><span data-i18n="demo.ui.16">標頭</span><i class="badge">3</i></span>
+                  <span class="subtab active"><span data-i18n="demo.ui.17">主體</span></span>
+                  <span class="subtab"><span data-i18n="demo.ui.18">指令碼</span></span>
+                  <span class="subtab"><span data-i18n="demo.ui.19">設定</span></span>
+                </div>
+
+                <div class="request-body">
+                  # GET has no requestBody in the specification — body
+                  disabled<br>
+                  # Path parameter id resolved from environment → userId =
+                  usr_8Kd2Xa
+                </div>
+
+                <div class="response-meta">
+                  <span class="pill pill-ok">200 OK</span>
+                  <span class="pill">148 ms</span>
+                  <span class="pill">1.2 KB</span>
+
+                  <span class="chrome-spacer"></span>
+
+                  <span class="pill pill-warn"><span data-i18n="demo.ui.20">契約：1 處不一致</span></span>
+                </div>
+
+                <div class="subtabs">
+                  <span class="subtab active"><span data-i18n="demo.ui.17">主體</span></span>
+                  <span class="subtab"><span data-i18n="demo.ui.16">標頭</span><i class="badge">9</i></span>
+                  <span class="subtab"><span data-i18n="demo.ui.21">Cookie</span></span>
+                  <span class="subtab"><span data-i18n="demo.ui.22">契約</span><i class="badge">1</i></span>
+                  <span class="subtab"><span data-i18n="demo.ui.23">時間軸</span></span>
+                </div>
+
+                <div class="response-body">
+                  <pre>{
+  <span class="syntax-key">"id"</span>: <span class="syntax-string">"usr_8Kd2Xa"</span>,
+  <span class="syntax-key">"email"</span>: <span class="syntax-string">"ada@example.com"</span>,
+  <span class="syntax-key">"created"</span>: <span class="syntax-number">1757030400</span>,
+  <span class="syntax-key">"profile"</span>: {
+    <span class="syntax-key">"name"</span>: <span class="syntax-string">"Ada L."</span>,
+    <span class="syntax-key">"locale"</span>: <span class="syntax-string">"en-GB"</span>
+  },
+  <span class="squiggle syntax-key">"scope"</span>: <span class="syntax-string">"users:read orders:read"</span>
+}</pre>
+                </div>
+
+                <div class="contract-warning">
+                  <strong>
+                    Contract mismatch — response differs from the specification
+                  </strong>
+
+                  <code>scope</code> is present in the response but is not
+                  declared on <code>components/schemas/User</code>. Add the
+                  property to the schema or remove it from the handler.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     MCP SERVER
+     ================================================================ -->
+
+          <div class="stage" id="stage-mcp" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path"> mcp://localhost:7433 </span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill pill-ok"><span data-i18n="demo.ui.24">執行中</span></span>
+              <span class="pill">stdio + HTTP</span>
+            </div>
+
+            <div class="mcp-demo">
+              <div class="mcp-header">
+                <h4><span data-i18n="demo.ui.25">從 openapi.yaml 產生</span></h4>
+
+                <span class="pill"><span data-i18n="demo.ui.26">6 個工具</span></span>
+                <span class="pill"><span data-i18n="demo.ui.27">7 個資源</span></span>
+                <span class="pill pill-warn"><span data-i18n="demo.ui.28">1 項降級</span></span>
+                <span class="pill pill-ok"><span data-i18n="demo.ui.29">儲存時重新產生</span></span>
+              </div>
+
+              <p class="mcp-description">
+                Every operation with an operationId becomes a tool. Arguments
+                come from parameters and requestBody. Nothing is hand-written.
+              </p>
+
+              <div class="tools-grid">
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    POST /auth/login → operationId → <strong>loginUser</strong>
+                  </div>
+
+                  <h5>loginUser</h5>
+
+                  <p>Exchange credentials for a bearer token.</p>
+
+                  <div class="arguments">
+                    <span class="argument">email : string</span>
+                    <span class="argument">password : string</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-ok"><span data-i18n="demo.ui.30">正常</span></span>
+                    args from requestBody
+                  </div>
+                </div>
+
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    GET /users/{id} → operationId → <strong>getUser</strong>
+                  </div>
+
+                  <h5>getUser</h5>
+
+                  <p>Retrieve a single user by identifier.</p>
+
+                  <div class="arguments">
+                    <span class="argument">id : string</span>
+                    <span class="argument">include? : string</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-ok"><span data-i18n="demo.ui.30">正常</span></span>
+                    args from 2 parameters
+                  </div>
+                </div>
+
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    POST /orders → operationId → <strong>createOrder</strong>
+                  </div>
+
+                  <h5>createOrder</h5>
+
+                  <p>Create an order for the authenticated customer.</p>
+
+                  <div class="arguments">
+                    <span class="argument">items : array</span>
+                    <span class="argument">currency : string</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-ok"><span data-i18n="demo.ui.30">正常</span></span>
+                    args from requestBody
+                  </div>
+                </div>
+
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    POST /orders/{id}/refund → operationId →
+                    <strong>refundOrder</strong>
+                  </div>
+
+                  <h5>refundOrder</h5>
+
+                  <p>Refund an order in full or in part.</p>
+
+                  <div class="arguments">
+                    <span class="argument">id : string</span>
+                    <span class="argument">amount? : integer</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-warn"><span data-i18n="demo.ui.31">已降級</span></span>
+                    amount has no description
+                  </div>
+                </div>
+              </div>
+
+              <div class="mcp-log">
+                <span class="log-time">14:02:11</span> watch openapi.yaml
+                changed <span class="log-time">(line 144)</span><br>
+                <span class="log-time">14:02:11</span> build parsed 3.1.0 · 11
+                operations · 14 schemas<br>
+                <span class="log-time">14:02:11</span> build
+                <span class="log-ok"><span data-i18n="demo.ui.26">6 個工具</span></span>, 7 resources ·
+                <span class="log-warn">1 skipped (no operationId)</span><br>
+                <span class="log-time">14:02:12</span> serve listening on stdio
+                and http://localhost:7433<br>
+                <span class="log-time">14:02:31</span> call
+                <span class="log-ok">getUser</span> { id: "usr_8Kd2Xa" } → 200
+                in 148 ms
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     API DOCS
+     ================================================================ -->
+
+          <div class="stage" id="stage-docs" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path">
+                docs.example.dev/reference/users/get
+              </span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill"><span data-i18n="demo.ui.32">靜態匯出</span></span>
+              <span class="pill pill-ok"><span data-i18n="demo.ui.33">與規格同步</span></span>
+            </div>
+
+            <div class="docs-demo">
+              <aside class="docs-nav">
+                <div class="docs-group"><span data-i18n="demo.ui.34">快速入門</span></div>
+
+                <a href="#"><span data-i18n="demo.ui.35">簡介</span></a>
+                <a href="#"><span data-i18n="demo.ui.36">身分驗證</span></a>
+                <a href="#"><span data-i18n="demo.ui.37">錯誤</span></a>
+                <a href="#"><span data-i18n="demo.ui.38">分頁</span></a>
+
+                <div class="docs-group"><span data-i18n="demo.ui.39">核心資源</span></div>
+
+                <a href="#">Users</a>
+                <a href="#" class="active">Retrieve a user</a>
+                <a href="#">List users</a>
+                <a href="#">Update a user</a>
+                <a href="#">Orders</a>
+                <a href="#">Refunds</a>
+              </aside>
+
+              <main class="docs-main">
+                <h3>Retrieve a user</h3>
+
+                <p class="endpoint-path">GET /v1/users/{id}</p>
+
+                <p class="docs-lede">
+                  Returns the user object for a valid identifier. If the user
+                  has been deleted, an Error object is returned with status 404.
+                </p>
+
+                <div class="docs-heading"><span data-i18n="demo.ui.40">路徑參數</span></div>
+
+                <div class="parameter-list">
+                  <div class="parameter">
+                    <div>
+                      <span class="parameter-name">id</span>
+                      <span class="parameter-type">string</span>
+                      <span class="required"><span data-i18n="demo.ui.41">必填</span></span>
+                    </div>
+
+                    <div class="parameter-description">
+                      The identifier of the user, prefixed with
+                      <code>usr_</code>.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="docs-heading"><span data-i18n="demo.ui.42">查詢參數</span></div>
+
+                <div class="parameter-list">
+                  <div class="parameter">
+                    <div>
+                      <span class="parameter-name">include</span>
+                      <span class="parameter-type">string</span>
+                    </div>
+
+                    <div class="parameter-description">
+                      Expand a related object.
+                    </div>
+                  </div>
+                </div>
+              </main>
+
+              <aside class="code-panel">
+                <div class="languages">
+                  <span class="language active">cURL</span>
+                  <span class="language">Node</span>
+                  <span class="language">Python</span>
+                  <span class="language">Go</span>
+                </div>
+
+                <div class="code-panel-title"><span data-i18n="demo.ui.43">請求</span></div>
+
+                <div class="code-box">
+                  <pre><span class="cmd">curl</span> https://api.example.dev/v1/users/usr_8Kd2Xa \
+  <span class="flag-code">-H</span> <span class="string-code">"Authorization: Bearer $API_KEY"</span> \
+  <span class="flag-code">-G</span> <span class="flag-code">-d</span> <span class="string-code">include=profile</span></pre>
+                </div>
+
+                <div class="code-panel-title"><span data-i18n="demo.ui.44">回應</span></div>
+
+                <div class="code-box">
+                  <pre>{
+  <span class="key-code">"id"</span>: <span class="string-code">"usr_8Kd2Xa"</span>,
+  <span class="key-code">"email"</span>: <span class="string-code">"ada@example.com"</span>,
+  <span class="key-code">"created"</span>: <span class="number-code">1757030400</span>
+}</pre>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenes-section flows-section" id="use-cases" aria-labelledby="scenes-title">
+        <div class="scenes-heading">
+          <div>
+            <p data-i18n="flow.kicker" class="scenes-kicker">在真實工作流中查看</p>
+            <h2 data-i18n="flow.title" id="scenes-title">每個熟悉的繁瑣工作，都變成契約驅動的流程。</h2>
+            <p data-i18n="flow.intro" class="scenes-intro">選擇下面的任務。Powerduck 直接用你機器上的 OpenAPI 檔案執行——環境、測試與 mock 一應俱全，無需帳號或上傳。</p>
+          </div>
+        </div>
+        <div class="flow-baseline">
+          <div>
+            <h3 data-i18n="flow.baseTitle">選擇本機，不該意味著功能縮水。</h3>
+            <p data-i18n="flow.baseBody">本機 API 工作台，無需帳號，也不用先上傳檔案。請求、驗證身分、環境、斷言，熟悉的工作照常做。需要線上發佈時，再選擇 Cloud。</p>
+          </div>
+          <ul>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base0">匯入 cURL / Postman / OpenAPI</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base1">驗證方式與環境變數</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base2">指令碼與斷言</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base3">請求集合與場景測試</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base4">本機 Mock 服務</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base5">七種通訊協定偵錯</span>
+            </li>
+          </ul>
+          <p data-i18n="flow.baseNote" class="flow-baseline-note">本機工作無需帳號；遠端 AI 使用你選擇的模型服務，線上託管需要 Cloud 帳號。</p>
+        </div>
+        <div class="flow-section-label">
+          <h3 id="workflow-selector-title" data-i18n="flow.difference">哪些工作，你不想再手動重複？</h3>
+          <a class="scenes-more" href="/zh-TW/use-cases/"><span data-i18n="flow.all">查看場景指南</span>
+            <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="scenario-overview">
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">01</span>
+            <h3 data-i18n="flow.1.pain">拿到 API 文件後，你還需要翻閱原始碼，才能確認內容是否正確嗎？</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.1.title">從專案生成API文件。</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.1.result">一份可審閱的API定義，以及能開啟的本機文件連結。</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/zh-TW/use-cases/#code-to-docs"><span data-i18n="flow.boundary">查看設定與使用條件</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">02</span>
+            <h3 data-i18n="flow.2.pain">你是否把文件給了 AI，生成的欄位和路徑卻仍然對不上？</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.2.title">讓程式開發助手讀取真實API定義。</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.2.result">程式碼有定義可依，結果有真實回應可驗。</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/zh-TW/use-cases/#design-api"><span data-i18n="flow.boundary">查看設定與使用條件</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">03</span>
+            <h3 data-i18n="flow.3.pain">你是否每改一次API，就得手動重跑一遍相同的業務流程？</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.3.title">讓 AI 編排並執行整個業務場景。</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.3.result">每一步的執行結果和失敗斷言，不是只給你一段測試程式碼。</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/zh-TW/use-cases/#contract-tests"><span data-i18n="flow.boundary">查看設定與使用條件</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">04</span>
+            <h3 data-i18n="flow.4.pain">你是否只是換了一種API通訊協定，就不得不換一個偵錯工具？</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.4.title">七種通訊協定，在一個工作台排查。</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.4.result">需要親自排查時，每一次請求和回傳都看得清。</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/zh-TW/use-cases/#protocols"><span data-i18n="flow.boundary">查看設定與使用條件</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">05</span>
+            <h3 data-i18n="flow.5.pain">你是否每次讓 AI 排錯，都得重新複製請求、回應和API背景？</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.5.title">帶著真實請求上下文，讓 AI 排錯。</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.5.result">基於真實請求結果的排查，而不是憑空猜原因。</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/zh-TW/use-cases/#ai-debug"><span data-i18n="flow.boundary">查看設定與使用條件</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">06</span>
+            <h3 data-i18n="flow.6.pain">你是否只是想分享文件和 MCP，卻還要單獨搭建、維護託管服務？</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.6.title">一份 API，發佈文件與 MCP。</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.6.result">文件位址 + MCP 服務位址，不用自己搭建託管環境。</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/zh-TW/use-cases/#share-docs"><span data-i18n="flow.boundary">查看設定與使用條件</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </section>
+      <!-- =======================================================================
+     SPEC LOADER
+     ======================================================================= -->
+
+      <!-- =======================================================================
+     QUICK START (browser vs desktop)
+     ======================================================================= -->
+
+      <section class="section quick-section" id="quickstart">
+        <div class="quick-shell">
+          <div class="quick-head">
+            <p class="section-kicker" data-i18n="quick.kicker">從你自己的電腦開始</p>
+            <h2 class="section-title" data-i18n="quick.title">下載後，開始處理你的 API 工作。</h2>
+            <p class="section-deck" data-i18n="quick.deck">Powerduck 是桌面上的 API 工作區。開啟本機檔案，送出第一個請求，再視需要連接程式開發助理。不必先註冊帳號。</p>
+          </div>
+
+          <div class="quick-grid">
+            <article class="quick-card quick-card-desktop">
+              <div class="quick-card-top">
+                <span class="quick-badge quick-badge-muted" data-i18n="quick.desktopTag">日常工作的主力</span>
+                <h3 data-i18n="quick.desktopTitle">打造你的 API 工作區。</h3>
+                <p data-i18n="quick.desktopBody">本機檔案、程式碼掃描、原生通訊協定偵錯，都在桌面版。需要幫手時，接入你選擇的 AI 模型，協助設計、排錯和測試。</p>
+              </div>
+
+              <ol class="quick-steps">
+                <li>
+                  <span class="quick-step-num">1</span>
+                  <span data-i18n="quick.step1">下載應用程式並體驗本機範例，不需要帳號或模型 API 金鑰。</span>
+                </li>
+                <li>
+                  <span class="quick-step-num">2</span>
+                  <span data-i18n="quick.step2">開啟你的 OpenAPI 檔案，或掃描現有程式碼庫。</span>
+                </li>
+                <li>
+                  <span class="quick-step-num">3</span>
+                  <span data-i18n="quick.step3">連接程式開發代理、修改程式碼，再依照契約驗證實際的後端。</span>
+                </li>
+              </ol>
+
+              <a class="btn btn-primary btn-sm quick-download" href="/zh-TW/download/" data-i18n="hero.download">下載桌面版</a>
+              <p class="quick-os-note" data-i18n="quick.desktopNote">macOS 12+ · Windows 10+ · Linux</p>
+            </article>
+
+            <article class="quick-card quick-card-browser">
+              <div class="quick-card-top">
+                <span class="quick-badge" data-i18n="quick.browserTag">還想先看看？</span>
+                <h3 data-i18n="quick.browserTitle">先在瀏覽器中快速體驗。</h3>
+                <p data-i18n="quick.browserBody">網頁版演示使用共享雲端模型，需要登入。無需帳號的本機工作，請下載桌面版。</p>
+              </div>
+
+              <a class="btn btn-secondary quick-web-open" href="/app/" data-i18n="flow.openWeb">開啟網頁版</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     CONTRACT VERIFICATION (core differentiator)
+     ======================================================================= -->
+
+      <section class="section verify-section" id="contract-example">
+        <div class="verify-shell">
+          <div class="verify-copy">
+            <p class="section-kicker" data-i18n="verify.kicker">契約驗證</p>
+            <h2 class="section-title" data-i18n="verify.title">一個真實的契約錯誤，以及驗證透過的修復</h2>
+            <p class="section-deck" data-i18n="verify.deck">普通 API 用戶端只傳送請求並展示回應；Powerduck 還會按 OpenAPI 契約驗證每一個回應，一旦偏離規格即可立即發現。</p>
+            <a class="btn btn-secondary" href="/docs/zh-TW/client/contract-example/" data-i18n="start.exampleCta">查看實戰範例</a>
+          </div>
+
+          <div class="verify-panel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="chrome-path">~/commerce-api — response check</span>
+              <span class="chrome-spacer"></span>
+              <span class="pill">OpenAPI 3.1</span>
+            </div>
+
+            <div class="verify-body">
+              <div class="verify-block">
+                <div class="verify-label" data-i18n="verify.contractRequires">契約要求</div>
+                <pre class="verify-code"><code>total:
+  type: number</code></pre>
+              </div>
+
+              <div class="verify-block verify-bad">
+                <div class="verify-label">
+                  <span class="verify-mark verify-mark-bad" aria-hidden="true">✕</span>
+                  <span data-i18n="verify.responseLabel">後端回傳了字串</span>
+                </div>
+                <pre class="verify-code"><code>{
+  "total": "49.00"
+}</code></pre>
+                <div class="verify-msg verify-msg-bad">
+                  <span class="verify-mark verify-mark-bad" aria-hidden="true">✕</span>
+                  <span data-i18n="verify.failMsg">/total 必須是 number —— 回應不符合契約</span>
+                </div>
+              </div>
+
+              <div class="verify-block verify-good">
+                <div class="verify-label">
+                  <span class="verify-mark verify-mark-good" aria-hidden="true">✓</span>
+                  <span data-i18n="verify.fixLabel">回傳數字</span>
+                </div>
+                <pre class="verify-code"><code>{
+  "total": 49
+}</code></pre>
+                <div class="verify-msg verify-msg-good">
+                  <span class="verify-mark verify-mark-good" aria-hidden="true">✓</span>
+                  <span data-i18n="verify.passMsg">回應符合契約</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: SPEC EDITOR
+     ======================================================================= -->
+
+      <section class="feature-section" id="spec-editor">
+        <div class="section-shell">
+          <div class="feature-layout">
+            <div class="feature-copy">
+              <p class="section-kicker" data-i18n="f1.kicker">OpenAPI 規格編輯器</p>
+
+              <h2 class="section-title" data-i18n="f1.title">OpenAPI 規格編輯器</h2>
+
+              <p class="section-deck" data-i18n="f1.deck">大綱根據規格的實際結構產生，不靠縮排推測。以樹狀結構瀏覽路徑和元件，直接在問題所在處修正。</p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong data-i18n="f1.b1Title">基於 Schema 的驗證。</strong>
+                  <span data-i18n="f1.b1Body">依照檔案宣告的 3.0、3.1 或 3.2 方言進行驗證。</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f1.b2Title">解析 $ref 並導覽。</strong>
+                  <span data-i18n="f1.b2Body">跳至到定義、查看引用，並獲得拼寫錯誤引用的建議。</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f1.b3Title">就地編輯。</strong>
+                  <span data-i18n="f1.b3Body">你的儲存庫始終是唯一事實來源。</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f1.b4Title">以規則名稱標示問題。</strong>
+                  <span data-i18n="f1.b4Body">CI 報錯和編輯器診斷使用同一套詞彙。</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-preview mini-spec-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"> openapi.yaml </span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill pill-warn"><span data-i18n="demo.ui.0">3 個問題</span></span>
+              </div>
+
+              <div class="preview-body mini-editor">
+                <div class="mini-tree">
+                  <div class="mini-tree-row">▾ info</div>
+                  <div class="mini-tree-row">▾ paths</div>
+                  <div class="mini-tree-row">　/users</div>
+                  <div class="mini-tree-row active">　/users/{id}</div>
+                  <div class="mini-tree-row">　/orders</div>
+                  <div class="mini-tree-row">▾ components</div>
+                  <div class="mini-tree-row">　schemas</div>
+                  <div class="mini-tree-row">　responses</div>
+                </div>
+
+                <div class="mini-code">
+                  <div class="mini-code-content">
+                    <div class="mini-line">
+                      <span class="mini-ln">142</span>
+                      <span>/users/{id}:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">143</span>
+                      <span> get:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">144</span>
+                      <span> operationId: getUser</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">145</span>
+                      <span> responses:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">156</span>
+                      <span class="squiggle"> contents:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">160</span>
+                      <span class="squiggle">$ref: Erorr</span>
+                    </div>
+                  </div>
+
+                  <div class="mini-problems">
+                    <div class="mini-problem-head"><span data-i18n="demo.ui.45">問題 · 2 個錯誤 · 1 個警告</span></div>
+
+                    <div class="mini-problem">
+                      <b>156:9</b>
+                      contents is not a valid Response Object key
+                    </div>
+
+                    <div class="mini-problem">
+                      <b>160:24</b>
+                      Unresolved $ref. Closest match: Error
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: API DEBUG
+     ======================================================================= -->
+
+      <section class="feature-section" id="api-debug">
+        <div class="section-shell">
+          <div class="feature-layout reverse">
+            <div class="feature-preview mini-debug-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"><span data-i18n="demo.ui.46">API 除錯</span></span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill pill-ok"><span data-i18n="demo.ui.10">契約檢查已開啟</span></span>
+              </div>
+
+              <div class="preview-body mini-debug">
+                <div class="mini-collection">
+                  <div class="mini-tree-row">▾ Users</div>
+                  <div class="mini-tree-row">　GET listUsers</div>
+                  <div class="mini-tree-row active">　GET getUser</div>
+                  <div class="mini-tree-row">▾ Orders</div>
+                  <div class="mini-tree-row">　POST createOrder</div>
+                </div>
+
+                <div class="mini-request">
+                  <div class="mini-url">
+                    <span class="mini-method">GET</span>
+
+                    <span class="mini-url-input">
+                      {{baseUrl}}/users/{{userId}}
+                    </span>
+
+                    <span class="mini-send"><span data-i18n="demo.ui.13">傳送</span></span>
+                  </div>
+
+                  <div class="mini-tabs">
+                    <span><span data-i18n="demo.ui.14">參數</span></span>
+                    <span><span data-i18n="demo.ui.15">驗證</span></span>
+                    <span class="active"><span data-i18n="demo.ui.17">主體</span></span>
+                    <span><span data-i18n="demo.ui.16">標頭</span></span>
+                  </div>
+
+                  <div class="mini-response">
+                    <pre>{
+  "id": "usr_8Kd2Xa",
+  "email": "ada@example.com",
+  <span class="squiggle">"scope"</span>: "users:read"
+}</pre>
+                  </div>
+
+                  <div class="mini-contract">
+                    Contract mismatch — "scope" is not declared on User.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-copy">
+              <p class="section-kicker" data-i18n="f2.kicker">API偵錯</p>
+
+              <h2 class="section-title" data-i18n="f2.title">基於規格偵錯 API</h2>
+
+              <p class="section-deck" data-i18n="f2.deck">請求介面沿用開發者熟悉的工具形態，再加上那些工具預設做不到的一件事：對照契約驗證回應。</p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong data-i18n="f2.b1Title">按路徑和標籤自動生成集合。</strong>
+                  <span data-i18n="f2.b1Body">無需匯入，也不用手動重新同步。</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f2.b2Title">每次回應都做契約檢查。</strong>
+                  <span data-i18n="f2.b2Body">直接標示未宣告的屬性、缺少的欄位與型別差異。</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f2.b3Title">環境與變數。</strong>
+                  <span data-i18n="f2.b3Body">重用既有的開發與預備環境設定。</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f2.b4Title">從 securitySchemes 取得安全性設定。</strong>
+                  <span data-i18n="f2.b4Body">Bearer、API Key 和 OAuth 設定都從規格開始。</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: MCP
+     ======================================================================= -->
+
+      <section class="feature-section" id="mcp-server">
+        <div class="section-shell">
+          <div class="feature-layout">
+            <div class="feature-copy">
+              <p class="section-kicker" data-i18n="f3.kicker">MCP 伺服器生成器</p>
+
+              <h2 class="section-title" data-i18n="f3.title">從 OpenAPI 生成 MCP 伺服器</h2>
+
+              <p class="section-deck" data-i18n="f3.deck">你的規格本身就是一份工具清單。Powerduck 把它編譯成可執行的 MCP 伺服器，並清楚展示每個工具來自哪些 OpenAPI 欄位。</p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong data-i18n="f3.b1Title">來源可見。</strong>
+                  <span data-i18n="f3.b1Body">每個工具都能追溯到它的 operation、operationId 和 schema。</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f3.b2Title">清楚標示功能受限與略過的狀態。</strong>
+                  <span data-i18n="f3.b2Body">缺失的中繼資料會明確顯示，而不是悄悄生成能力薄弱的工具。</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f3.b3Title">儲存後立即重新產生。</strong>
+                  <span data-i18n="f3.b3Body">修改規格後，工具會隨之更新，不需要額外的建置步驟。</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f3.b4Title">本機傳輸方式。</strong>
+                  <span data-i18n="f3.b4Body">透過 stdio 或 HTTP 執行，服務本機助手與工作流。</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-preview mini-mcp-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"> mcp://localhost:7433 </span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill pill-ok"><span data-i18n="demo.ui.24">執行中</span></span>
+              </div>
+
+              <div class="preview-body mini-mcp">
+                <div class="mini-mcp-header">
+                  <span class="mini-mcp-title"><span data-i18n="demo.ui.25">從 openapi.yaml 產生</span></span>
+
+                  <span class="mini-mcp-count"><span data-i18n="demo.ui.26">6 個工具</span></span>
+                  <span class="mini-mcp-count"><span data-i18n="demo.ui.27">7 個資源</span></span>
+                </div>
+
+                <div class="mini-tools">
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">
+                      GET /users/{id} → operationId
+                    </div>
+
+                    <div class="mini-tool-name">getUser</div>
+
+                    <div class="mini-tool-args">id: string</div>
+                  </div>
+
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">
+                      POST /orders → operationId
+                    </div>
+
+                    <div class="mini-tool-name">createOrder</div>
+
+                    <div class="mini-tool-args">items: array</div>
+                  </div>
+
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">POST /auth/login</div>
+
+                    <div class="mini-tool-name">loginUser</div>
+
+                    <div class="mini-tool-args">email, password</div>
+                  </div>
+
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">DELETE /users/{id}</div>
+
+                    <div class="mini-tool-name"><span data-i18n="demo.ui.47">已略過</span></div>
+
+                    <div class="mini-tool-args"><span data-i18n="demo.ui.48">缺少 operationId</span></div>
+                  </div>
+                </div>
+
+                <div class="mini-log">
+                  14:02 build 6 tools, 7 resources<br>
+                  14:02 serve listening on :7433<br>
+                  14:03 call getUser → 200
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: DOCS
+     ======================================================================= -->
+
+      <section class="feature-section" id="api-docs">
+        <div class="section-shell">
+          <div class="feature-layout reverse">
+            <div class="feature-preview mini-doc-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"><span data-i18n="demo.ui.49">API 參考</span></span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill"><span data-i18n="demo.ui.32">靜態匯出</span></span>
+              </div>
+
+              <div class="preview-body mini-docs">
+                <div class="mini-doc-nav">
+                  <div class="mini-doc-nav-title">Users</div>
+
+                  <div class="mini-doc-nav-item"><span data-i18n="demo.ui.50">總覽</span></div>
+
+                  <div class="mini-doc-nav-item active">Retrieve a user</div>
+
+                  <div class="mini-doc-nav-item">List users</div>
+
+                  <div class="mini-doc-nav-item">Update user</div>
+                </div>
+
+                <div class="mini-doc-main">
+                  <h4>Retrieve a user</h4>
+
+                  <div class="mini-doc-path">GET /v1/users/{id}</div>
+
+                  <div class="mini-doc-text">
+                    Returns the user object for a valid identifier.
+                  </div>
+
+                  <div class="mini-doc-section"><span data-i18n="demo.ui.40">路徑參數</span></div>
+
+                  <div class="mini-doc-param">id · string · required</div>
+
+                  <div class="mini-doc-section"><span data-i18n="demo.ui.51">回傳值</span></div>
+
+                  <div class="mini-doc-param">User · object</div>
+                </div>
+
+                <div class="mini-doc-code">
+                  <pre>curl /users/{id}
+
+{
+  "id": "usr_...",
+  "email": "ada@..."
+}</pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-copy">
+              <p class="section-kicker" data-i18n="f4.kicker">API文件生成器</p>
+
+              <h2 class="section-title" data-i18n="f4.title">來自同一契約的 API 文件</h2>
+
+              <p class="section-deck" data-i18n="f4.deck">參考文件直接從 OpenAPI 模型生成，匯出為靜態檔案，想部署到哪裡都可以。</p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong data-i18n="f4.b1Title">從 schema 生成參數表。</strong>
+                  <span data-i18n="f4.b1Body">必填標記、列舉和描述始終保持同步。</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f4.b2Title">多語言範例。</strong>
+                  <span data-i18n="f4.b2Body">從 operation 生成 cURL、Node、Python 和 Go 範例。</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f4.b3Title">回應來自真實契約。</strong>
+                  <span data-i18n="f4.b3Body">成功和錯誤回應與偵錯器驗證的是同一批物件。</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f4.b4Title">靜態匯出。</strong>
+                  <span data-i18n="f4.b4Body">無執行時依賴，也不被任何文件平台鎖定。</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     ONE SOURCE OF TRUTH
+     ======================================================================= -->
+
+      <section class="section product-story-section">
+        <div class="section-shell">
+          <div class="product-story-head">
+            <div>
+              <p class="section-kicker" data-i18n="story.kicker">唯一事實來源</p>
+              <h2 class="section-title" data-i18n-html="story.title">本機一個 OpenAPI 檔案，<br>所有能力，皆由 AI 驅動。</h2>
+            </div>
+
+            <p class="product-story-deck" data-i18n-html="story.deck">在本機開啟 <strong>openapi.yaml</strong> 或 <strong>openapi.json</strong>，Powerduck 就能將現有契約轉成完整的 API 工作區。不必匯入、轉換或另行維護集合，也不會建立雲端副本。用自然語言描述目標，內建助理便會提出可供審閱的步驟；同一份檔案也能透過 MCP 提供給其他 AI 程式開發代理使用。</p>
+          </div>
+
+          <div class="product-flow" aria-label="本機一個 OpenAPI 檔案， 所有能力，皆由 AI 驅動。">
+            <div class="product-flow-source">
+              <div class="product-flow-eyebrow" data-i18n="story.openLocal">在本機開啟</div>
+              <div class="product-file-icon">{ }</div>
+              <div class="product-file-name">openapi.yaml</div>
+              <div class="product-file-alt"><span data-i18n="demo.ui.52">或 openapi.json</span></div>
+              <p data-i18n="story.fileNote">檔案始終留在你的儲存庫裡。</p>
+            </div>
+
+            <div class="product-flow-connector" aria-hidden="true">
+              <span></span>
+            </div>
+
+            <div class="product-flow-tools">
+              <div class="product-flow-tool">
+                <span class="product-flow-index">01</span>
+                <strong data-i18n="nav.specEditor">規格編輯器</strong>
+                <p data-i18n="story.tool1">編輯、瀏覽並驗證真實契約。</p>
+              </div>
+              <div class="product-flow-tool">
+                <span class="product-flow-index">02</span>
+                <strong data-i18n="nav.apiDebug">API 偵錯</strong>
+                <p data-i18n="story.tool2">傳送由同一批 operation 生成的請求。</p>
+              </div>
+              <div class="product-flow-tool">
+                <span class="product-flow-index">03</span>
+                <strong data-i18n="nav.mcpServer">MCP 伺服器</strong>
+                <p data-i18n="story.tool3">把 operation 編譯成面向助手的工具。</p>
+              </div>
+              <div class="product-flow-tool">
+                <span class="product-flow-index">04</span>
+                <strong data-i18n="nav.apiDocs">API 文件</strong>
+                <p data-i18n="story.tool4">從同一來源發佈文件。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-positioning">
+            <div class="positioning-statement">
+              <span class="positioning-mark">Powerduck</span>
+              <h3 data-i18n-html="story.posTitle">不是又一個 API 用戶端，<br>不是又一個規格查看器，<br>而是一種 AI 原生的 API 建置方式。</h3>
+              <p data-i18n="story.posBody">這是圍繞 OpenAPI 檔案本身打造的本機原生、AI 驅動工作台。</p>
+            </div>
+
+            <div class="positioning-points">
+              <div>
+                <span data-i18n="story.noCloud">不需要雲端</span><strong data-i18n="story.point1">你的規格根本不需要離開你的機器。</strong>
+              </div>
+              <div>
+                <span data-i18n="story.noSync">不必手動同步</span><strong data-i18n="story.point2">再沒有別的東西需要和契約保持同步。</strong>
+              </div>
+              <div>
+                <span data-i18n="story.noCopy">不必另建副本</span><strong data-i18n="story.point3">你現有的 YAML 或 JSON 就是工作台。</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     LICENSING
+     ======================================================================= -->
+
+      <section class="section outcome-section" id="data-boundaries">
+        <h2 data-i18n="start.privacy">本機工作、遠端服務與你的選擇</h2>
+        <p data-i18n="faq.a1">本機檔案讀寫不需要帳號。遠端 AI 會將相關內容傳送至你設定的模型服務；主動發布至 Cloud 時才會上傳所選內容。選用的使用統計預設關閉，收集欄位與控制方式請參閱隱私權政策。</p>
+        <a href="/privacy.html" data-i18n="footer.privacy">隱私權政策</a>
+      </section>
+      <section class="product-paths" id="licensing" aria-labelledby="product-paths-title">
+        <p class="hero-micro" data-i18n="hero.micro">本機功能不需要購買 Cloud。免費方案可使用兩份規格；分享獎勵經審核通過後可增加名額。桌面授權可解除名額限制。使用自備 API 金鑰時，模型費用由服務供應商收取；託管模型額度與 Cloud 託管另行計費。</p>
+        <div class="product-paths-heading">
+          <h2 id="product-paths-title" data-i18n="guide.title">按你的需要，選擇下一步</h2>
+          <a href="/zh-TW/pricing?product=client" data-i18n="guide.compare">對比產品與價格 →</a>
+        </div>
+        <div class="product-paths-grid">
+          <a class="product-path" href="/console/billing?buy=desktop">
+            <span class="product-path-job" data-i18n="guide.client.job">本機開發</span>
+            <h3 data-i18n="guide.client.title">桌面授權</h3>
+            <p data-i18n="guide.client.desc">透過對話設計、偵錯和測試 API，直接使用本機 OpenAPI 檔案。</p>
+            <strong data-i18n="guide.client.cost">一次購買 · 永久授權</strong>
+            <span aria-hidden="true"> ↗</span>
+          </a>
+          <a class="product-path" href="/console/billing?buy=cloud">
+            <span class="product-path-job" data-i18n="guide.cloud.job">線上發佈</span>
+            <h3 data-i18n="guide.cloud.title">Cloud 託管</h3>
+            <p data-i18n="guide.cloud.desc">託管 API 文件與 MCP 服務，為團隊和 AI 工具提供線上存取。</p>
+            <strong data-i18n="guide.cloud.cost">免費方案 · 付費按月或按年</strong>
+            <span aria-hidden="true"> ↗</span>
+          </a>
+          <a class="product-path" href="/console/billing?buy=model-pro">
+            <span class="product-path-job" data-i18n="guide.models.job">選擇模型</span>
+            <h3 data-i18n="guide.models.title">AI 模型額度</h3>
+            <p data-i18n="guide.models.desc">購買額度使用託管模型，也可以在桌面應用程式中設定自己的模型服務供應商。</p>
+            <strong data-i18n="guide.models.cost">預付模型額度</strong>
+            <span aria-hidden="true"> ↗</span>
+          </a>
+        </div>
+        <p class="product-paths-account">
+          <span data-i18n="guide.account">已有帳號？管理線上發佈、桌面授權和 AI 額度。</span>
+          <a href="/signin" data-i18n="guide.signin">登入控制台 →</a>
+        </p>
+      </section>
+
+      <!-- =======================================================================
+     FAQ
+     ======================================================================= -->
+
+      <section class="section" id="faq">
+        <div class="section-shell">
+          <div class="faq-shell">
+            <div class="faq-heading">
+              <p class="section-kicker" data-i18n="faq.kicker">常見問題</p>
+
+              <h2 class="section-title" data-i18n="faq.title">開發者最先問的問題</h2>
+
+              <p class="section-deck" data-i18n="faq.deck">關於本機檔案、OpenAPI 版本、MCP 生成與授權的實用細節。</p>
+            </div>
+
+            <details open="">
+              <summary data-i18n="faq.q1">Powerduck 會把我的 OpenAPI 規格上傳到任何地方嗎？</summary>
+
+              <p data-i18n="faq.a1">本機檔案讀寫不需要帳號。遠端 AI 會將相關內容傳送至你設定的模型服務；主動發布至 Cloud 時才會上傳所選內容。選用的使用統計預設關閉，收集欄位與控制方式請參閱隱私權政策。</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q2">支援哪些 OpenAPI 版本？</summary>
+
+              <p data-i18n="faq.a2">支援 OpenAPI 3.0、3.1 和 3.2。Powerduck 會偵測宣告的版本，依照對應方言驗證，而非將所有版本限制在共通功能範圍內。</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q3">MCP 伺服器是怎麼生成的？</summary>
+
+              <p data-i18n="faq.a3">帶有 operationId 的操作會轉成 MCP 工具，參數則由 parameters 與 requestBody 的結構描述推導而來。元件的結構描述可公開為資源。規格變更時，產生的伺服器也會更新。</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q4">桌面授權是訂閱制嗎？</summary>
+
+              <p data-i18n="faq.a4">不是。Powerduck 桌面版採一次購買、永久授權，同一主要版本的更新均包含在內。未來是否升級至新的主要版本，由你自行決定。</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q5">我還能繼續用 Postman 集合嗎？</summary>
+
+              <p data-i18n="faq.a5">可以。已有的集合和環境都能繼續使用。Powerduck 把 OpenAPI 規格當作權威契約，並幫你找出請求與契約的偏差。</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q6">能用在 CI 裡嗎？</summary>
+
+              <p>
+                <span data-i18n="faq.a6Before">可以。同一套驗證和生成引擎透過</span>
+                <a href="/opensource/openapi-cli.html" style="color: var(--accent); text-decoration: underline">@powerduck/openapi-cli</a><span data-i18n="faq.a6After"> 提供。這套命令列工具可在 Pull Request 與 CI 自動化管線中執行，支援六種通訊協定（HTTP、SSE、WebSocket、gRPC、MCP、GraphQL）的批次測試、可設定的並行數，以及相容 JUnit 的報告。</span>
+              </p>
+              <p style="margin-top: 8px">
+                <a href="/opensource/openapi-cli.html" class="btn btn-secondary" style="
+                    display: inline-flex;
+                    padding: 6px 14px;
+                    font-size: 13px;
+                  " data-i18n="faq.a6Btn">瞭解 openapi-cli →</a>
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FOOTER
+     ======================================================================= -->
+
+      <footer class="site-footer">
+        <div class="footer-shell">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <a href="/zh-TW/" class="brand" aria-label="Powerduck 首頁">
+                <img src="/assets/images/logo.svg" alt="Powerduck logo" class="brand-logo">
+                <span>Powerduck</span>
+              </a>
+              <p data-i18n="footer.brand">為現代 API 工作流打造開發者工具。開源、可用於生產、由社群驅動。</p>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="footer.product">產品</h6>
+              <ul>
+                <li>
+                  <a href="#spec-editor" data-i18n="nav.specEditor">規格編輯器</a>
+                </li>
+                <li>
+                  <a href="#api-debug" data-i18n="nav.apiDebug">API 偵錯</a>
+                </li>
+                <li>
+                  <a href="#mcp-server" data-i18n="nav.mcpServer">MCP 伺服器</a>
+                </li>
+                <li>
+                  <a href="#api-docs" data-i18n="nav.apiDocs">API 文件</a>
+                </li>
+                <li>
+                  <a href="/zh-TW/download/" data-i18n="nav.download">下載</a>
+                </li>
+                <li>
+                  <a href="/zh-TW/pricing?product=client" data-i18n="footer.prices">價格</a>
+                </li>
+                <li><a href="/blog/" data-i18n="nav.blog">部落格</a></li>
+                <li>
+                  <a href="/blog/tag/release-notes/" data-i18n="nav.releaseNotes">更新紀錄</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="nav.cloud">雲端</h6>
+              <ul>
+                <li>
+                  <a data-cloud-signin="/hub" href="/zh-TW/hub" data-i18n="nav.hub">Hub</a>
+                </li>
+                <li>
+                  <a data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">登入</a>
+                </li>
+                <li>
+                  <a href="/docs/zh-TW/cloud/quickstart/index.html" data-i18n="footer.quickstart">快速開始</a>
+                </li>
+                <li>
+                  <a href="/docs/zh-TW/cloud/access-control/index.html" data-i18n="footer.accessControl">存取控制</a>
+                </li>
+                <li>
+                  <a href="/docs/zh-TW/cloud/custom-domains/index.html" data-i18n="footer.customDomains">自訂網域</a>
+                </li>
+                <li>
+                  <a href="/docs/zh-TW/cloud/billing/index.html" data-i18n="footer.billing">帳單</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="nav.resources">資源</h6>
+              <ul>
+                <li>
+                  <a href="/docs/zh-TW/overview/introduction/index.html" data-i18n="nav.documentation">文件</a>
+                </li>
+                <li>
+                  <a href="/docs/zh-TW/client/introduction/index.html" data-i18n="footer.clientGuide">用戶端指南</a>
+                </li>
+                <li>
+                  <a href="/docs/zh-TW/cloud/introduction/index.html" data-i18n="footer.cloudGuide">雲端指南</a>
+                </li>
+                <li>
+                  <a href="https://github.com/powerducklab" target="_blank" rel="nofollow noopener noreferrer">GitHub</a>
+                </li>
+                <li>
+                  <a href="https://www.npmjs.com/search?q=%40powerduck" target="_blank" data-i18n="footer.npmPackages" rel="nofollow noopener noreferrer">npm 套件</a>
+                </li>
+                <li><a href="#faq" data-i18n="faq.kicker">常見問題</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="footer.legal">法律資訊</h6>
+              <ul>
+                <li>
+                  <a href="/terms.html" data-i18n="footer.terms">服務條款</a>
+                </li>
+                <li>
+                  <a href="/privacy.html" data-i18n="footer.privacy">隱私權政策</a>
+                </li>
+                <li>
+                  <a href="/refunds.html" data-i18n="footer.refunds">退款政策</a>
+                </li>
+                <li>
+                  <a href="/cookie.html" data-i18n="footer.cookie">Cookie 聲明</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span data-i18n="dl.copyright">© 2026 POWERDUCK LIMITED。保留所有權利。</span>
+            <div class="footer-bottom-links">
+              <a href="/terms.html" data-i18n="footer.termsShort">條款</a>
+              <a href="/privacy.html" data-i18n="footer.privacyShort">隱私權</a>
+              <a href="/cookie.html" data-i18n="footer.cookieShort">Cookie</a>
+            </div>
+          </div>
+        </div>
+      <nav data-locale-links="" class="locale-links" aria-label="選擇語言"><a href="/" hreflang="en" lang="en">English (US)</a><a href="/zh-CN/" hreflang="zh-CN" lang="zh-CN">简体中文</a><a href="/ja/" hreflang="ja" lang="ja">日本語</a><a href="/de/" hreflang="de" lang="de">Deutsch</a><a href="/fr/" hreflang="fr" lang="fr">Français</a><a href="/es/" hreflang="es" lang="es">Español</a><a href="/pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a><a href="/zh-TW/" hreflang="zh-TW" lang="zh-TW" aria-current="page">繁體中文</a><a href="/it-IT/" hreflang="it-IT" lang="it-IT">Italiano</a><a href="/ko-KR/" hreflang="ko-KR" lang="ko-KR">한국어</a><a href="/ru-RU/" hreflang="ru-RU" lang="ru-RU">Русский</a><a href="/id-ID/" hreflang="id-ID" lang="id-ID">Bahasa Indonesia</a><a href="/tr-TR/" hreflang="tr-TR" lang="tr-TR">Türkçe</a><a href="/vi-VN/" hreflang="vi-VN" lang="vi-VN">Tiếng Việt</a><a href="/ar-SA/" hreflang="ar-SA" lang="ar-SA">العربية</a><a href="/hi-IN/" hreflang="hi-IN" lang="hi-IN">हिन्दी</a></nav></footer>
+    </div>
+
+    <!-- =======================================================================
+     JAVASCRIPT
+     ======================================================================= -->
+
+    <script>
+      (function () {
+        "use strict";
+
+        var reduceMotion =
+          window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        /* ----------------------------------------------------------------
+        Hero agent-flow demo: the coding agent calls the Powerduck MCP tools
+        in sequence (read spec -> mock -> tests -> call -> docs). Each step
+        lights up pending -> active -> done. The static default is the fully
+        completed state.
+        ---------------------------------------------------------------- */
+
+        var heroDemo = document.querySelector("[data-hero-demo]");
+        var heroWindow = heroDemo
+          ? heroDemo.querySelector(".hv-window")
+          : null;
+        var heroSteps = heroWindow
+          ? Array.prototype.slice.call(
+              heroWindow.querySelectorAll("[data-hv-log] .hv-step")
+            )
+          : [];
+        var timers = [];
+        var STEP_MS = 700;
+        var START_MS = 160;
+        var HOLD_MS = 1900;
+
+        function clearTimers() {
+          while (timers.length) {
+            clearTimeout(timers.pop());
+          }
+        }
+
+        function resetSteps() {
+          heroSteps.forEach(function (step) {
+            step.classList.remove("is-active", "is-done");
+          });
+        }
+
+        function runCycle() {
+          clearTimers();
+          heroWindow.classList.add("is-animating");
+          heroWindow.classList.remove("is-done");
+          resetSteps();
+
+          heroSteps.forEach(function (step, i) {
+            var start = START_MS + i * STEP_MS;
+            timers.push(
+              setTimeout(function () {
+                step.classList.add("is-active");
+              }, start)
+            );
+            timers.push(
+              setTimeout(function () {
+                step.classList.remove("is-active");
+                step.classList.add("is-done");
+              }, start + STEP_MS)
+            );
+          });
+
+          var loopMs = START_MS + heroSteps.length * STEP_MS + HOLD_MS;
+          timers.push(setTimeout(runCycle, loopMs));
+        }
+
+        if (heroDemo && heroWindow && heroSteps.length && !reduceMotion) {
+          if ("IntersectionObserver" in window) {
+            var heroObserver = new IntersectionObserver(
+              function (entries) {
+                entries.forEach(function (entry) {
+                  if (entry.isIntersecting) {
+                    runCycle();
+                    heroObserver.disconnect();
+                  }
+                });
+              },
+              { threshold: 0.4 }
+            );
+            heroObserver.observe(heroDemo);
+          } else {
+            runCycle();
+          }
+        }
+
+        /* ----------------------------------------------------------------
+        Scroll reveal for the differentiator cards.
+        ---------------------------------------------------------------- */
+
+        var revealEls = document.querySelectorAll(".reveal");
+
+        if (!reduceMotion && revealEls.length) {
+          document.documentElement.classList.add("js");
+
+          if ("IntersectionObserver" in window) {
+            var revealObserver = new IntersectionObserver(
+              function (entries) {
+                entries.forEach(function (entry) {
+                  if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    revealObserver.unobserve(entry.target);
+                  }
+                });
+              },
+              { threshold: 0.12 }
+            );
+            revealEls.forEach(function (el) {
+              revealObserver.observe(el);
+            });
+          } else {
+            revealEls.forEach(function (el) {
+              el.classList.add("is-visible");
+            });
+          }
+        }
+      })();
+    </script>
+    <script>
+      (function () {
+        "use strict";
+
+        /* ------------------------------------------------------------------------
+     Theme
+     ------------------------------------------------------------------------ */
+        /* ------------------------------------------------------------------------
+     Product demo tabs
+     ------------------------------------------------------------------------ */
+
+        var tabs = document.querySelectorAll("[data-tab]");
+
+        var stageMap = {
+          editor: document.getElementById("stage-editor"),
+          debug: document.getElementById("stage-debug"),
+          mcp: document.getElementById("stage-mcp"),
+          docs: document.getElementById("stage-docs"),
+        };
+
+        function activateTab(key) {
+          tabs.forEach(function (tab) {
+            var active = tab.getAttribute("data-tab") === key;
+
+            tab.setAttribute("aria-selected", active ? "true" : "false");
+          });
+
+          Object.keys(stageMap).forEach(function (name) {
+            var stage = stageMap[name];
+
+            if (!stage) {
+              return;
+            }
+
+            stage.classList.toggle("on", name === key);
+          });
+        }
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            var key = tab.getAttribute("data-tab");
+
+            activateTab(key);
+          });
+        });
+
+        /* ------------------------------------------------------------------------
+     Deep-link mapping
+     ------------------------------------------------------------------------ */
+
+        var hashMap = {
+          "#spec-editor": "editor",
+          "#api-debug": "debug",
+          "#mcp-server": "mcp",
+          "#api-docs": "docs",
+        };
+
+        function activateFromHash() {
+          var key = hashMap[window.location.hash];
+
+          if (key) {
+            activateTab(key);
+          }
+        }
+
+        activateFromHash();
+
+        window.addEventListener("hashchange", activateFromHash);
+
+        /* ------------------------------------------------------------------------
+     Navigation -> corresponding demo surface
+     ------------------------------------------------------------------------ */
+
+        document
+          .querySelectorAll(
+            'a[href="#spec-editor"],' +
+              'a[href="#api-debug"],' +
+              'a[href="#mcp-server"],' +
+              'a[href="#api-docs"]',
+          )
+          .forEach(function (link) {
+            link.setAttribute("data-demo-tab", "");
+            link.addEventListener("click", function (e) {
+              var key = hashMap[link.getAttribute("href")];
+
+              if (key) {
+                e.preventDefault();
+                activateTab(key);
+                var demoSection = document.querySelector(".demo-section");
+
+                if (demoSection) {
+                  demoSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }
+              }
+            });
+          });
+      })();
+    </script>
+
+
+    <script src="/assets/locales/zh-TW.js?v=20261019d"></script><script src="/assets/js/common.js?v=20261019d"></script>
+    <script src="/assets/js/cloud.js?v=20261019d"></script>
+    <script>
+      (function () {
+        var btn = document.querySelector(".nav-hamburger");
+        var drawer = document.getElementById("navDrawer");
+        if (btn && drawer) {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            var open = drawer.classList.toggle("open");
+            btn.classList.toggle("open", open);
+            btn.setAttribute("aria-expanded", open);
+          });
+          document.addEventListener("click", function (e) {
+            if (
+              drawer.classList.contains("open") &&
+              !drawer.contains(e.target) &&
+              !btn.contains(e.target)
+            ) {
+              drawer.classList.remove("open");
+              btn.classList.remove("open");
+              btn.setAttribute("aria-expanded", "false");
+            }
+          });
+        }
+      })();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

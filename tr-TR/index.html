@@ -1,0 +1,2378 @@
+<!DOCTYPE html><html lang="tr-TR" data-theme="light" data-page-locale="tr-TR" data-page-route="/" dir="ltr"><head>
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("pd_theme");
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          var root = document.documentElement;
+          root.setAttribute("data-theme", theme);
+          root.classList.add(theme);
+          root.classList.remove(theme === "dark" ? "light" : "dark");
+
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/images/icon-192.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Powerduck">
+    <meta property="og:title" content="Powerduck — Masaüstü API İstemcisi ve Ücretsiz OpenAPI / MCP Barındırma">
+    <meta property="og:description" content="Codex, Claude Code ve Cursor, API tanımlarınıza göre kod yazsın. Yerel çalışmayı ön planda tutan Powerduck masaüstü uygulamasında koddan dokümantasyon oluşturun, testleri yapay zekâyla düzenleyin. OpenAPI dokümanlarını ve MCP sunucularını Hub’da ücretsiz barındırın.">
+    <meta property="og:url" content="https://www.powerduck.com/tr-TR/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Powerduck — Masaüstü API İstemcisi ve Ücretsiz OpenAPI / MCP Barındırma">
+    <meta name="twitter:description" content="Codex, Claude Code ve Cursor, API tanımlarınıza göre kod yazsın. Yerel çalışmayı ön planda tutan Powerduck masaüstü uygulamasında koddan dokümantasyon oluşturun, testleri yapay zekâyla düzenleyin. OpenAPI dokümanlarını ve MCP sunucularını Hub’da ücretsiz barındırın.">
+
+    <title>Powerduck — Masaüstü API İstemcisi ve Ücretsiz OpenAPI / MCP Barındırma</title>
+
+    <meta name="description" content="Codex, Claude Code ve Cursor, API tanımlarınıza göre kod yazsın. Yerel çalışmayı ön planda tutan Powerduck masaüstü uygulamasında koddan dokümantasyon oluşturun, testleri yapay zekâyla düzenleyin. OpenAPI dokümanlarını ve MCP sunucularını Hub’da ücretsiz barındırın.">
+
+    <meta name="keywords" content="Powerduck, AI API development, AI-native OpenAPI studio, local-first API tool, OpenAPI editor, API debugging, MCP server generator, API documentation, OpenAPI 3.2, offline API client, AI coding agent, bring your own model">
+
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/assets/css/common.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/contour.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/product-paths.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261019d">
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-8HXDV7CDEB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-8HXDV7CDEB");
+    </script>
+  <meta property="og:image" content="https://www.powerduck.com/assets/images/icon-192.png"><meta property="og:locale" content="tr_TR"><link rel="canonical" href="https://www.powerduck.com/tr-TR/"><link rel="alternate" hreflang="en" href="https://www.powerduck.com/"><link rel="alternate" hreflang="zh-CN" href="https://www.powerduck.com/zh-CN/"><link rel="alternate" hreflang="ja" href="https://www.powerduck.com/ja/"><link rel="alternate" hreflang="de" href="https://www.powerduck.com/de/"><link rel="alternate" hreflang="fr" href="https://www.powerduck.com/fr/"><link rel="alternate" hreflang="es" href="https://www.powerduck.com/es/"><link rel="alternate" hreflang="pt-BR" href="https://www.powerduck.com/pt-BR/"><link rel="alternate" hreflang="zh-TW" href="https://www.powerduck.com/zh-TW/"><link rel="alternate" hreflang="it-IT" href="https://www.powerduck.com/it-IT/"><link rel="alternate" hreflang="ko-KR" href="https://www.powerduck.com/ko-KR/"><link rel="alternate" hreflang="ru-RU" href="https://www.powerduck.com/ru-RU/"><link rel="alternate" hreflang="id-ID" href="https://www.powerduck.com/id-ID/"><link rel="alternate" hreflang="tr-TR" href="https://www.powerduck.com/tr-TR/"><link rel="alternate" hreflang="vi-VN" href="https://www.powerduck.com/vi-VN/"><link rel="alternate" hreflang="ar-SA" href="https://www.powerduck.com/ar-SA/"><link rel="alternate" hreflang="hi-IN" href="https://www.powerduck.com/hi-IN/"><link rel="alternate" hreflang="x-default" href="https://www.powerduck.com/"><script type="application/ld+json" data-site-schema="">{"@context":"https://schema.org","@type":"WebPage","name":"Powerduck — Masaüstü API İstemcisi ve Ücretsiz OpenAPI / MCP Barındırma","description":"Codex, Claude Code ve Cursor, API tanımlarınıza göre kod yazsın. Yerel çalışmayı ön planda tutan Powerduck masaüstü uygulamasında koddan dokümantasyon oluşturun, testleri yapay zekâyla düzenleyin. OpenAPI dokümanlarını ve MCP sunucularını Hub’da ücretsiz barındırın.","url":"https://www.powerduck.com/tr-TR/","inLanguage":"tr-TR","isPartOf":{"@type":"WebSite","name":"Powerduck","url":"https://www.powerduck.com/"}}</script></head>
+
+  <body>
+    <div class="page-shell">
+      <!-- =======================================================================
+     NAV
+     ======================================================================= -->
+
+      <header class="nav">
+        <div class="nav-inner">
+          <a href="/tr-TR/" class="brand" aria-label="Powerduck ana sayfa">
+            <img src="/assets/images/logo.svg" alt="Powerduck logo" class="brand-mark">
+
+            <span>Powerduck</span>
+          </a>
+
+          <button class="nav-hamburger" aria-label="Gezinme menüsünü aç veya kapat" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+
+          <div class="nav-drawer" id="navDrawer">
+            <nav class="nav-links">
+
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                  <span data-i18n="nav.client">Masaüstü uygulaması</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="#spec-editor" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.specEditor">Belirtim düzenleyici</span><span class="dropdown-item-desc" data-i18n="nav.specEditorDesc">OpenAPI belirtiminizi doğrudan düzenleyin</span></span></a>
+                  <a class="dropdown-item" href="#api-debug" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDebug">API hata ayıklayıcı</span><span class="dropdown-item-desc" data-i18n="nav.apiDebugDesc">İstek gönderin ve yanıtları inceleyin</span></span></a>
+                  <a class="dropdown-item" href="#mcp-server" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.mcpServer">MCP sunucusu</span><span class="dropdown-item-desc" data-i18n="nav.mcpServerDesc">Belirtimi çağrılabilir araçlara dönüştürün</span></span></a>
+                  <a class="dropdown-item" href="#api-docs" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDocs">API belgeleri</span><span class="dropdown-item-desc" data-i18n="nav.apiDocsDesc">Aynı belirtimden belgeler oluşturun</span></span></a>
+                </div>
+              </div><a class="nav-hub-link" href="/tr-TR/hub" data-i18n="nav.hub">Hub</a>
+
+
+
+              <a class="nav-direct" href="/tr-TR/pricing?product=client" data-i18n="nav.pricing">Fiyatlandırma</a>
+
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                  <span data-i18n="nav.resources">Kaynaklar</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="/docs/tr-TR/overview/introduction/index.html" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.documentation">Belgeler</span><span class="dropdown-item-desc" data-i18n="nav.documentationDesc">Kılavuzlar ve API başvuruları</span></span></a>
+                  <a class="dropdown-item" href="/tr-TR/use-cases/" role="menuitem"><span class="dropdown-item-text"><span data-i18n="scenes.all" class="dropdown-item-title">Senaryo kılavuzları</span></span></a>
+                  <a class="dropdown-item" href="/blog/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.blog">Blog</span><span class="dropdown-item-desc" data-i18n="nav.blogDesc">Ürün ve geliştirme yazıları</span></span></a>
+                  <a class="dropdown-item" href="/blog/tag/release-notes/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.releaseNotes">Sürüm notları</span><span class="dropdown-item-desc" data-i18n="nav.releaseNotesDesc">Her sürümde neler değişti?</span></span></a>
+                  <a class="dropdown-item" href="/demo/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.liveDemo">Canlı demo</span><span class="dropdown-item-desc" data-i18n="nav.liveDemoDesc">Tüm araçları tarayıcıda deneyin</span></span></a>
+                  <a class="dropdown-item" href="/app/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.webApp">Web uygulaması</span><span class="dropdown-item-desc" data-i18n="nav.webAppDesc">Powerduck’ın tüm özelliklerini tarayıcıda kullanın</span></span></a>
+                  <a class="dropdown-item" href="https://github.com/powerducklab" target="_blank" role="menuitem" rel="nofollow noopener noreferrer"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.openSource">Açık kaynak</span><span class="dropdown-item-desc" data-i18n="nav.openSourceDesc">GitHub ve npm kitaplıkları</span></span></a>
+                </div>
+              </div>
+            </nav>
+
+            <div class="nav-actions">
+              <a class="nav-icon-btn" href="https://github.com/powerducklab" target="_blank" aria-label="GitHub" rel="nofollow noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12 12-12z"></path>
+                </svg>
+              </a>
+              <div class="nav-account-slot" id="navAccountSlot">
+                <a class="nav-signin" data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">Giriş yap</a>
+              </div>
+
+              <div class="nav-dropdown" id="langMenu">
+                <button class="nav-icon-btn nav-dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Dil seç">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20"></path>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu align-right" role="menu" id="langMenuContent"></div>
+              </div>
+
+              <button class="theme-toggle" data-theme-toggle="" id="themeToggle" type="button" aria-label="Renk temasını değiştir">
+                <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none">
+                  <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+                </svg>
+
+                <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"></circle>
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                </svg>
+              </button>
+
+              <a class="btn btn-primary btn-sm" href="/tr-TR/download/" data-i18n="nav.download">İndir</a>
+            </div>
+          </div>
+        </div>
+
+        <style>
+          .nav-dropdown:hover .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+          .nav-dropdown:hover .chevron {
+            transform: rotate(180deg);
+          }
+          .nav-dropdown.open .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+        </style>
+      </header>
+
+      <!-- =======================================================================
+     HERO
+     ======================================================================= -->
+
+      <section class="hero">
+        <p class="eyebrow">
+          <span class="status-dot"></span>
+          <span data-i18n="hero.badge">Yerel çalışmayı esas alan, AI destekli OpenAPI stüdyosu</span>
+        </p>
+
+        <h1 data-i18n-html="hub.hero">API’niz: yerel geliştirmeden<br>belgelere ve AI’a.</h1>
+
+        <p data-i18n="hub.heroSub" class="hero-sub">Codex, Claude Code ve Cursor, API tanımlarınıza göre kod yazsın. Yerel çalışmayı ön planda tutan Powerduck masaüstü uygulamasında koddan dokümantasyon oluşturun, testleri yapay zekâyla düzenleyin. OpenAPI dokümanlarını ve MCP sunucularını Hub’da ücretsiz barındırın.</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/tr-TR/download/" data-i18n="hero.download">Masaüstü uygulamasını indir</a><a class="btn btn-secondary" href="/console/projects" data-i18n="hub.publish">Hub’da ücretsiz yayımla</a>
+        </div>
+
+        <div class="hero-visual" data-hero-demo="">
+          <div class="hv-window is-done">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="chrome-path">commerce-api/openapi.yaml</span>
+              <span class="chrome-spacer"></span>
+              <span class="pill" data-i18n="hv.local">OpenAPI 3.1 · yerel dosya</span>
+            </div>
+
+            <div class="hv-body">
+              <div class="hv-col hv-contract">
+                <div class="hv-col-label">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                  </svg>
+                  <span data-i18n="hv.contract">Tek OpenAPI sözleşmesi</span>
+                </div>
+                <pre class="hv-code hv-spec"><code>/orders
+  <span class="hv-k">post</span>  createOrder
+  <span class="hv-k">get</span>   listOrders
+/products
+  <span class="hv-k">get</span>   listProducts
+/customers
+  <span class="hv-k">get</span>   listCustomers</code></pre>
+                <div class="hv-compile">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="4 17 10 11 4 5"></polyline>
+                    <line x1="12" y1="19" x2="20" y2="19"></line>
+                  </svg>
+                  <span data-i18n="hv.compile">Çalıştırılabilir MCP sunucusuna dönüştürüldü · 12 çağrılabilir araç</span>
+                </div>
+              </div>
+
+              <div class="hv-col hv-agentcol">
+                <div class="hv-col-label">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2a3 3 0 0 1 3 3v1a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"></path>
+                    <path d="M5 21a7 7 0 0 1 14 0"></path>
+                  </svg>
+                  <span data-i18n="hv.agentTitle">Kodlama aracınız</span>
+                  <span class="hv-agentname">Cursor · Claude Code · Codex</span>
+                </div>
+                <div class="hv-log" data-hv-log="">
+                  <div class="hv-loghead">
+                    <span class="hv-live" aria-hidden="true"></span>
+                    <span>powerduck · MCP server</span>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.read_spec()</code>
+                      <span class="hv-out" data-i18n="hv.out.ops">12 işlem bulundu</span>
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.start_mock("POST /orders")</code>
+                      <span class="hv-out" data-i18n="hv.out.mock">Mock sunucusu 4010 numaralı bağlantı noktasında çalışıyor</span>
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.generate_tests("POST /orders")</code>
+                      <span class="hv-out" data-i18n="hv.out.tests">orders.test.js yazıldı</span>
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.call_api("POST /orders", {total:49})</code>
+                      <span class="hv-out hv-out-ok" data-i18n="hv.out.call">200 OK · sözleşmeye göre doğrulandı</span>
+                    </div>
+                  </div>
+
+                  <div class="hv-step">
+                    <span class="hv-status" aria-hidden="true">
+                      <svg class="hv-dot" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="4"></circle>
+                      </svg>
+                      <svg class="hv-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <path d="M21 12a9 9 0 1 0-9 9"></path>
+                      </svg>
+                      <svg class="hv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    <div class="hv-steptext">
+                      <code class="hv-cmd">powerduck.publish_docs()</code>
+                      <span class="hv-out" data-i18n="hv.out.docs">Başvuru belgeleri güncellendi</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hv-foot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+              <span data-i18n-html="hv.foot">Tek bir OpenAPI dosyası, <strong>aracınızın çağırdığı araçlara</strong> dönüşür: mock’lar, testler, API çağrıları ve belgeler aynı sözleşmeye göre doğrulanır.</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="hero-micro" data-i18n="flow.baseNote">Yerel çalışma için hesap gerekmez. Uzak AI seçtiğiniz model hizmetini kullanır; çevrimiçi barındırma için Cloud hesabı gerekir.</p>
+
+        <p class="hero-strip" data-i18n-html="hero.capabilities">Belirtim düzenleyici · API hata ayıklama · Test · Mock · API belgeleri · MCP sunucusu</p>
+      </section>
+      <section class="hub-workflow" aria-labelledby="hub-workflow-title">
+        <div class="hub-workflow-heading">
+          <p class="eyebrow">POWERDUCK HUB</p>
+          <h2 id="hub-workflow-title" data-i18n="hub.workflow.title">Tek OpenAPI belirtimi. Yerelde geliştirin. Çevrimiçi paylaşın.</h2>
+          <p data-i18n="hub.workflow.sub">API işlerinizi masaüstü uygulamasında yürütün. Belgeleri paylaşmak ve AI araçlarını API’nize bağlamak için Hub’ı kullanın.</p>
+        </div>
+        <ol class="hub-workflow-steps">
+<li><span class="hub-step-number">01</span><h3 data-i18n="hub.step1.title">Geliştirin ve doğrulayın</h3><p data-i18n="hub.step1.body">Powerduck’ta API tasarlayın, hata ayıklayın ve test edin.</p></li>
+<li><span class="hub-step-number">02</span><h3 data-i18n="hub.step2.title">OpenAPI’den yayımlayın</h3><p data-i18n="hub.step2.body">Belirtiminizi barındırılan belgelere ve bir MCP uç noktasına dönüştürün.</p></li>
+<li><span class="hub-step-number">03</span><h3 data-i18n="hub.step3.title">Paylaşın ve bağlayın</h3><p data-i18n="hub.step3.body">Belge bağlantısını paylaşın, bir MCP istemcisi bağlayın ve projenizin herkese açık listede görünüp görünmeyeceğini seçin.</p></li>
+</ol><div class="hub-workflow-actions"><a class="btn btn-primary" href="/console/projects" data-i18n="hub.publish">Hub’da ücretsiz yayımla</a><a class="btn btn-secondary" href="/tr-TR/hub" data-i18n="hub.explore">Hub’ı keşfet</a></div><p class="hub-workflow-note" data-i18n="hub.limit">Plan sınırları içinde ücretsiz barındırma. İş API’niz kendi arka ucunuzda çalışmaya devam eder.</p></section>
+
+
+      <section class="why-band" aria-labelledby="why-title">
+        <div class="why-head">
+          <p class="section-kicker" data-i18n="why.kicker">Neden Powerduck?</p>
+          <h2 class="section-title" id="why-title" data-i18n="why.title">Bir yığın API aracı yerine tek yerel dosya.</h2>
+          <p class="section-deck" data-i18n="why.deck">Deponuzdaki tek OpenAPI YAML dosyası tasarımı, hata ayıklamayı, testleri, mock’ları, belgeleri ve MCP’yi yönetir. Kodlama aracılarınız da aynı dosyayı kullanır.</p>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-card reveal">
+            <span class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </span>
+            <h3 data-i18n="why.1.title">Tek dosya tüm özellikleri yönetir</h3>
+            <p data-i18n="why.1.body">Aynı OpenAPI belirtiminden tasarlayın, hata ayıklayın, test edin, mock oluşturun, belgeleyin ve MCP sunun; hiçbir şey birbirinden kopmasın.</p>
+            <div class="why-vs">
+              <div class="why-vs-row why-vs-old">
+                <span class="why-vs-tag" data-i18n="why.old">Diğer yaklaşımlar</span>
+                <span data-i18n="why.1.old">Ayrı koleksiyon, belge, mock ve test dosyaları</span>
+              </div>
+              <div class="why-vs-row why-vs-new">
+                <span class="why-vs-tag" data-i18n="why.pd">Powerduck</span>
+                <span data-i18n-html="why.1.new"><strong>Tek YAML</strong> tüm araçları ve aracıları yönetir</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="why-card reveal">
+            <span class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </span>
+            <h3 data-i18n="why.2.title">Her yanıt sözleşmeye göre doğrulanır</h3>
+            <p data-i18n="why.2.body">Yanıtlar yalnızca gösterilmez, OpenAPI belirtimine göre denetlenir. Yanlış tür veya yol anında yakalanır.</p>
+            <div class="why-vs">
+              <div class="why-vs-row why-vs-old">
+                <span class="why-vs-tag" data-i18n="why.old">Diğer yaklaşımlar</span>
+                <span data-i18n="why.2.old">İsteği gönderir ve 200 yanıtını gösterir</span>
+              </div>
+              <div class="why-vs-row why-vs-new">
+                <span class="why-vs-tag" data-i18n="why.pd">Powerduck</span>
+                <span data-i18n-html="why.2.new">Yanıt gelir gelmez <strong>belirtimden sapma işaretlenir</strong></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="why-card reveal">
+            <span class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+                <line x1="2" y1="20" x2="22" y2="20"></line>
+              </svg>
+            </span>
+            <h3 data-i18n="why.3.title">Yerel öncelikli, hesapsız, aracılara hazır</h3>
+            <p data-i18n="why.3.body">Dosyalarınız bilgisayarınızda kalır; hesap veya yükleme olmadan çalışın. Codex, Claude Code ve Cursor sizinle aynı belirtimi okur.</p>
+            <div class="why-vs">
+              <div class="why-vs-row why-vs-old">
+                <span class="why-vs-tag" data-i18n="why.old">Diğer yaklaşımlar</span>
+                <span data-i18n="why.3.old">Başlamadan önce bulut hesabı ve yükleme gerekir</span>
+              </div>
+              <div class="why-vs-row why-vs-new">
+                <span class="why-vs-tag" data-i18n="why.pd">Powerduck</span>
+                <span data-i18n-html="why.3.new"><strong>Yerelde çalışır</strong>; aracılarınız aynı dosyayı okur</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     INTERACTIVE PRODUCT DEMO
+     ======================================================================= -->
+
+      <section class="demo-section">
+        <div class="demo-shell">
+          <div class="demo-tabs-wrap">
+            <div class="demo-tabs" role="tablist" aria-label="Masaüstü uygulaması">
+              <button class="demo-tab" role="tab" aria-selected="true" data-tab="editor" data-i18n="nav.specEditor">Belirtim düzenleyici</button>
+
+              <button class="demo-tab" role="tab" aria-selected="false" data-tab="debug" data-i18n="nav.apiDebug">API hata ayıklayıcı</button>
+
+              <button class="demo-tab" role="tab" aria-selected="false" data-tab="mcp" data-i18n="nav.mcpServer">MCP sunucusu</button>
+
+              <button class="demo-tab" role="tab" aria-selected="false" data-tab="docs" data-i18n="nav.apiDocs">API belgeleri</button>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     SPEC EDITOR
+     ================================================================ -->
+
+          <div class="stage on" id="stage-editor" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path"> ~/commerce-api/openapi.yaml </span>
+
+              <span class="pill"> OpenAPI 3.1.0 </span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill pill-warn"><span data-i18n="demo.ui.0">3 sorun</span></span>
+
+              <span class="pill"><span data-i18n="demo.ui.1">kaydedilmedi</span></span>
+            </div>
+
+            <div class="editor-demo">
+              <aside class="outline">
+                <div class="panel-label"><span data-i18n="demo.ui.2">Anahat</span></div>
+
+                <div class="tree-row indent-1">▾ info</div>
+                <div class="tree-row indent-3">title</div>
+                <div class="tree-row indent-3">version</div>
+                <div class="tree-row indent-3">contact</div>
+
+                <div class="tree-row indent-3">
+                  license
+                  <span class="flag">⚠</span>
+                </div>
+
+                <div class="tree-row indent-1">▸ servers</div>
+
+                <div class="tree-row indent-1">▾ paths</div>
+
+                <div class="tree-row indent-2">▾ /auth/login</div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag post">POST</span>
+                  loginUser
+                </div>
+
+                <div class="tree-row indent-2">▾ /users</div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag get">GET</span>
+                  listUsers
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag post">POST</span>
+                  createUser
+                </div>
+
+                <div class="tree-row indent-2">▾ /users/{id}</div>
+
+                <div class="tree-row indent-4 active">
+                  <span class="method-tag get">GET</span>
+                  getUser
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag put">PUT</span>
+                  updateUser
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag delete">DEL</span>
+                  deleteUser
+                </div>
+
+                <div class="tree-row indent-2">▾ /orders</div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag get">GET</span>
+                  listOrders
+                </div>
+
+                <div class="tree-row indent-4">
+                  <span class="method-tag post">POST</span>
+                  createOrder
+                </div>
+
+                <div class="tree-row indent-1">▾ components</div>
+
+                <div class="tree-row indent-2">▸ schemas (14)</div>
+
+                <div class="tree-row indent-2">▸ responses (6)</div>
+
+                <div class="tree-row indent-2">▸ parameters (4)</div>
+
+                <div class="tree-row indent-2">▸ securitySchemes (2)</div>
+              </aside>
+
+              <div class="editor-main">
+                <div class="code-area">
+                  <div class="code-line" style="--lvl: 0">
+                    <span class="code-number">142</span>
+                    <span class="code-content">
+                      <span class="syntax-key">/users/{id}:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 1">
+                    <span class="code-number">143</span>
+                    <span class="code-content">
+                      <span class="syntax-key">get:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line highlight" style="--lvl: 2">
+                    <span class="code-number">144</span>
+                    <span class="code-content">
+                      <span class="syntax-key">operationId:</span>
+                      <span class="syntax-string">getUser</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">145</span>
+                    <span class="code-content">
+                      <span class="syntax-key">summary:</span>
+                      <span class="syntax-string">Retrieve a user</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">146</span>
+                    <span class="code-content">
+                      <span class="syntax-key">tags:</span>
+                      [<span class="syntax-string">Users</span>]
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">147</span>
+                    <span class="code-content">
+                      <span class="syntax-key">parameters:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 3">
+                    <span class="code-number">148</span>
+                    <span class="code-content">
+                      <span class="syntax-key">- $ref:</span>
+                      <span class="syntax-string">'#/components/parameters/UserId'</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number">149</span>
+                    <span class="code-content">
+                      <span class="syntax-key">responses:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 3">
+                    <span class="code-number">150</span>
+                    <span class="code-content">
+                      <span class="syntax-number">'200':</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 4">
+                    <span class="code-number">151</span>
+                    <span class="code-content">
+                      <span class="syntax-key">description:</span>
+                      <span class="syntax-string">The requested user</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 4">
+                    <span class="code-number">152</span>
+                    <span class="code-content">
+                      <span class="syntax-key">content:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 5">
+                    <span class="code-number">153</span>
+                    <span class="code-content">
+                      <span class="syntax-key">application/json:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 6">
+                    <span class="code-number">154</span>
+                    <span class="code-content">
+                      <span class="syntax-key">schema:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 7">
+                    <span class="code-number">155</span>
+                    <span class="code-content">
+                      <span class="syntax-key">$ref:</span>
+                      <span class="syntax-string">'#/components/schemas/User'</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 3">
+                    <span class="code-number error">156</span>
+                    <span class="code-content">
+                      <span class="syntax-number">'404':</span>
+                      <span class="syntax-comment"># description is required</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 4">
+                    <span class="code-number">157</span>
+                    <span class="code-content">
+                      <span class="squiggle syntax-key">contents:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 5">
+                    <span class="code-number">158</span>
+                    <span class="code-content">
+                      <span class="syntax-key">application/json:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 6">
+                    <span class="code-number">159</span>
+                    <span class="code-content">
+                      <span class="syntax-key">schema:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 7">
+                    <span class="code-number">160</span>
+                    <span class="code-content">
+                      <span class="syntax-key">$ref:</span>
+                      <span class="squiggle syntax-string">'#/components/schemas/Erorr'</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 1">
+                    <span class="code-number">161</span>
+                    <span class="code-content">
+                      <span class="syntax-key">delete:</span>
+                    </span>
+                  </div>
+
+                  <div class="code-line" style="--lvl: 2">
+                    <span class="code-number error">162</span>
+                    <span class="code-content">
+                      <span class="syntax-key">summary:</span>
+                      <span class="syntax-string">Delete a user</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="problems">
+                  <div class="problems-head">
+                    <strong><span data-i18n="demo.ui.3">Sorunlar</span></strong>
+                    <span><span data-i18n="demo.ui.4">2 hata · 1 uyarı</span></span>
+                    <span class="pill"><span data-i18n="demo.ui.5">3.1 lehçesiyle doğrulandı</span></span>
+                  </div>
+
+                  <div class="problem-row">
+                    <span class="problem-location">156:9</span>
+                    <span class="problem-message">
+                      <strong>contents</strong> is not a valid Response Object
+                      key. Did you mean <strong>content</strong>?
+                    </span>
+                    <span class="problem-rule">oas3-schema</span>
+                  </div>
+
+                  <div class="problem-row">
+                    <span class="problem-location">160:24</span>
+                    <span class="problem-message">
+                      Unresolved <strong>$ref</strong> —
+                      <code>schemas/Erorr</code> does not exist.
+                    </span>
+                    <span class="problem-rule">ref-resolution</span>
+                  </div>
+
+                  <div class="problem-row">
+                    <span class="problem-location">162:7</span>
+                    <span class="problem-message">
+                      Operation has no <strong>operationId</strong>. It will be
+                      skipped when generating MCP tools.
+                    </span>
+                    <span class="problem-rule">operation-operationId</span>
+                  </div>
+                </div>
+
+                <div class="status-bar">
+                  <span><span data-i18n="demo.ui.6">Satır 156, sütun 9</span></span>
+                  <span>YAML</span>
+                  <span>UTF-8</span>
+                  <span><span data-i18n="demo.ui.7">Boşluk: 2</span></span>
+                  <span>3.1.0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     API DEBUG
+     ================================================================ -->
+
+          <div class="stage" id="stage-debug" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path"><span data-i18n="demo.ui.8">openapi.yaml dosyasından oluşturulan koleksiyonlar</span></span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill"><span data-i18n="demo.ui.9">Postman içe aktarma</span></span>
+
+              <span class="pill pill-ok"><span data-i18n="demo.ui.10">Sözleşme denetimi açık</span></span>
+            </div>
+
+            <div class="debug-demo">
+              <aside class="collection">
+                <div class="panel-label"><span data-i18n="demo.ui.11">Ticaret API'si</span></div>
+
+                <div class="collection-row">▾ Auth</div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag post">POST</span>
+                  loginUser
+                </div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag post">POST</span>
+                  refreshToken
+                </div>
+
+                <div class="collection-row">▾ Users</div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag get">GET</span>
+                  listUsers
+                </div>
+
+                <div class="collection-row indent-3 active">
+                  <span class="method-tag get">GET</span>
+                  getUser
+                </div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag put">PUT</span>
+                  updateUser
+                </div>
+
+                <div class="collection-row">▾ Orders</div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag get">GET</span>
+                  listOrders
+                </div>
+
+                <div class="collection-row indent-3">
+                  <span class="method-tag post">POST</span>
+                  createOrder
+                </div>
+              </aside>
+
+              <div class="request-pane">
+                <div class="url-bar">
+                  <span class="http-method">GET ▾</span>
+
+                  <div class="request-url">
+                    {{baseUrl}}/users/<span class="request-var">{{userId}}</span>?include=profile
+                  </div>
+
+                  <span class="environment"><span data-i18n="demo.ui.12">Hazırlık ortamı ▾</span></span>
+
+                  <button class="btn btn-primary btn-sm"><span data-i18n="demo.ui.13">Gönder</span></button>
+                </div>
+
+                <div class="subtabs">
+                  <span class="subtab"><span data-i18n="demo.ui.14">Parametreler</span><i class="badge">1</i></span>
+                  <span class="subtab"><span data-i18n="demo.ui.15">Kimlik doğrulaması</span><i class="badge">bearer</i></span>
+                  <span class="subtab"><span data-i18n="demo.ui.16">Başlıklar</span><i class="badge">3</i></span>
+                  <span class="subtab active"><span data-i18n="demo.ui.17">Gövde</span></span>
+                  <span class="subtab"><span data-i18n="demo.ui.18">Betikler</span></span>
+                  <span class="subtab"><span data-i18n="demo.ui.19">Ayarlar</span></span>
+                </div>
+
+                <div class="request-body">
+                  # GET has no requestBody in the specification — body
+                  disabled<br>
+                  # Path parameter id resolved from environment → userId =
+                  usr_8Kd2Xa
+                </div>
+
+                <div class="response-meta">
+                  <span class="pill pill-ok">200 OK</span>
+                  <span class="pill">148 ms</span>
+                  <span class="pill">1.2 KB</span>
+
+                  <span class="chrome-spacer"></span>
+
+                  <span class="pill pill-warn"><span data-i18n="demo.ui.20">Sözleşme: 1 uyumsuzluk</span></span>
+                </div>
+
+                <div class="subtabs">
+                  <span class="subtab active"><span data-i18n="demo.ui.17">Gövde</span></span>
+                  <span class="subtab"><span data-i18n="demo.ui.16">Başlıklar</span><i class="badge">9</i></span>
+                  <span class="subtab"><span data-i18n="demo.ui.21">Çerezler</span></span>
+                  <span class="subtab"><span data-i18n="demo.ui.22">Sözleşme</span><i class="badge">1</i></span>
+                  <span class="subtab"><span data-i18n="demo.ui.23">Zaman çizelgesi</span></span>
+                </div>
+
+                <div class="response-body">
+                  <pre>{
+  <span class="syntax-key">"id"</span>: <span class="syntax-string">"usr_8Kd2Xa"</span>,
+  <span class="syntax-key">"email"</span>: <span class="syntax-string">"ada@example.com"</span>,
+  <span class="syntax-key">"created"</span>: <span class="syntax-number">1757030400</span>,
+  <span class="syntax-key">"profile"</span>: {
+    <span class="syntax-key">"name"</span>: <span class="syntax-string">"Ada L."</span>,
+    <span class="syntax-key">"locale"</span>: <span class="syntax-string">"en-GB"</span>
+  },
+  <span class="squiggle syntax-key">"scope"</span>: <span class="syntax-string">"users:read orders:read"</span>
+}</pre>
+                </div>
+
+                <div class="contract-warning">
+                  <strong>
+                    Contract mismatch — response differs from the specification
+                  </strong>
+
+                  <code>scope</code> is present in the response but is not
+                  declared on <code>components/schemas/User</code>. Add the
+                  property to the schema or remove it from the handler.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     MCP SERVER
+     ================================================================ -->
+
+          <div class="stage" id="stage-mcp" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path"> mcp://localhost:7433 </span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill pill-ok"><span data-i18n="demo.ui.24">çalışıyor</span></span>
+              <span class="pill">stdio + HTTP</span>
+            </div>
+
+            <div class="mcp-demo">
+              <div class="mcp-header">
+                <h4><span data-i18n="demo.ui.25">openapi.yaml dosyasından oluşturuldu</span></h4>
+
+                <span class="pill"><span data-i18n="demo.ui.26">6 araç</span></span>
+                <span class="pill"><span data-i18n="demo.ui.27">7 kaynak</span></span>
+                <span class="pill pill-warn"><span data-i18n="demo.ui.28">1 kısıtlı</span></span>
+                <span class="pill pill-ok"><span data-i18n="demo.ui.29">Kaydedildiğinde yeniden oluşturulur</span></span>
+              </div>
+
+              <p class="mcp-description">
+                Every operation with an operationId becomes a tool. Arguments
+                come from parameters and requestBody. Nothing is hand-written.
+              </p>
+
+              <div class="tools-grid">
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    POST /auth/login → operationId → <strong>loginUser</strong>
+                  </div>
+
+                  <h5>loginUser</h5>
+
+                  <p>Exchange credentials for a bearer token.</p>
+
+                  <div class="arguments">
+                    <span class="argument">email : string</span>
+                    <span class="argument">password : string</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-ok"><span data-i18n="demo.ui.30">sağlıklı</span></span>
+                    args from requestBody
+                  </div>
+                </div>
+
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    GET /users/{id} → operationId → <strong>getUser</strong>
+                  </div>
+
+                  <h5>getUser</h5>
+
+                  <p>Retrieve a single user by identifier.</p>
+
+                  <div class="arguments">
+                    <span class="argument">id : string</span>
+                    <span class="argument">include? : string</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-ok"><span data-i18n="demo.ui.30">sağlıklı</span></span>
+                    args from 2 parameters
+                  </div>
+                </div>
+
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    POST /orders → operationId → <strong>createOrder</strong>
+                  </div>
+
+                  <h5>createOrder</h5>
+
+                  <p>Create an order for the authenticated customer.</p>
+
+                  <div class="arguments">
+                    <span class="argument">items : array</span>
+                    <span class="argument">currency : string</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-ok"><span data-i18n="demo.ui.30">sağlıklı</span></span>
+                    args from requestBody
+                  </div>
+                </div>
+
+                <div class="tool-card">
+                  <div class="tool-derivation">
+                    POST /orders/{id}/refund → operationId →
+                    <strong>refundOrder</strong>
+                  </div>
+
+                  <h5>refundOrder</h5>
+
+                  <p>Refund an order in full or in part.</p>
+
+                  <div class="arguments">
+                    <span class="argument">id : string</span>
+                    <span class="argument">amount? : integer</span>
+                  </div>
+
+                  <div class="tool-footer">
+                    <span class="pill pill-warn"><span data-i18n="demo.ui.31">kısıtlı</span></span>
+                    amount has no description
+                  </div>
+                </div>
+              </div>
+
+              <div class="mcp-log">
+                <span class="log-time">14:02:11</span> watch openapi.yaml
+                changed <span class="log-time">(line 144)</span><br>
+                <span class="log-time">14:02:11</span> build parsed 3.1.0 · 11
+                operations · 14 schemas<br>
+                <span class="log-time">14:02:11</span> build
+                <span class="log-ok"><span data-i18n="demo.ui.26">6 araç</span></span>, 7 resources ·
+                <span class="log-warn">1 skipped (no operationId)</span><br>
+                <span class="log-time">14:02:12</span> serve listening on stdio
+                and http://localhost:7433<br>
+                <span class="log-time">14:02:31</span> call
+                <span class="log-ok">getUser</span> { id: "usr_8Kd2Xa" } → 200
+                in 148 ms
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================
+     API DOCS
+     ================================================================ -->
+
+          <div class="stage" id="stage-docs" role="tabpanel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="chrome-path">
+                docs.example.dev/reference/users/get
+              </span>
+
+              <span class="chrome-spacer"></span>
+
+              <span class="pill"><span data-i18n="demo.ui.32">Statik dışa aktarma</span></span>
+              <span class="pill pill-ok"><span data-i18n="demo.ui.33">Tanımla eşitlenmiş</span></span>
+            </div>
+
+            <div class="docs-demo">
+              <aside class="docs-nav">
+                <div class="docs-group"><span data-i18n="demo.ui.34">Başlarken</span></div>
+
+                <a href="#"><span data-i18n="demo.ui.35">Giriş</span></a>
+                <a href="#"><span data-i18n="demo.ui.36">Kimlik doğrulaması</span></a>
+                <a href="#"><span data-i18n="demo.ui.37">Hatalar</span></a>
+                <a href="#"><span data-i18n="demo.ui.38">Sayfalama</span></a>
+
+                <div class="docs-group"><span data-i18n="demo.ui.39">Temel kaynaklar</span></div>
+
+                <a href="#">Users</a>
+                <a href="#" class="active">Retrieve a user</a>
+                <a href="#">List users</a>
+                <a href="#">Update a user</a>
+                <a href="#">Orders</a>
+                <a href="#">Refunds</a>
+              </aside>
+
+              <main class="docs-main">
+                <h3>Retrieve a user</h3>
+
+                <p class="endpoint-path">GET /v1/users/{id}</p>
+
+                <p class="docs-lede">
+                  Returns the user object for a valid identifier. If the user
+                  has been deleted, an Error object is returned with status 404.
+                </p>
+
+                <div class="docs-heading"><span data-i18n="demo.ui.40">Yol parametreleri</span></div>
+
+                <div class="parameter-list">
+                  <div class="parameter">
+                    <div>
+                      <span class="parameter-name">id</span>
+                      <span class="parameter-type">string</span>
+                      <span class="required"><span data-i18n="demo.ui.41">Zorunlu</span></span>
+                    </div>
+
+                    <div class="parameter-description">
+                      The identifier of the user, prefixed with
+                      <code>usr_</code>.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="docs-heading"><span data-i18n="demo.ui.42">Sorgu parametreleri</span></div>
+
+                <div class="parameter-list">
+                  <div class="parameter">
+                    <div>
+                      <span class="parameter-name">include</span>
+                      <span class="parameter-type">string</span>
+                    </div>
+
+                    <div class="parameter-description">
+                      Expand a related object.
+                    </div>
+                  </div>
+                </div>
+              </main>
+
+              <aside class="code-panel">
+                <div class="languages">
+                  <span class="language active">cURL</span>
+                  <span class="language">Node</span>
+                  <span class="language">Python</span>
+                  <span class="language">Go</span>
+                </div>
+
+                <div class="code-panel-title"><span data-i18n="demo.ui.43">İstek</span></div>
+
+                <div class="code-box">
+                  <pre><span class="cmd">curl</span> https://api.example.dev/v1/users/usr_8Kd2Xa \
+  <span class="flag-code">-H</span> <span class="string-code">"Authorization: Bearer $API_KEY"</span> \
+  <span class="flag-code">-G</span> <span class="flag-code">-d</span> <span class="string-code">include=profile</span></pre>
+                </div>
+
+                <div class="code-panel-title"><span data-i18n="demo.ui.44">Yanıt</span></div>
+
+                <div class="code-box">
+                  <pre>{
+  <span class="key-code">"id"</span>: <span class="string-code">"usr_8Kd2Xa"</span>,
+  <span class="key-code">"email"</span>: <span class="string-code">"ada@example.com"</span>,
+  <span class="key-code">"created"</span>: <span class="number-code">1757030400</span>
+}</pre>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenes-section flows-section" id="use-cases" aria-labelledby="scenes-title">
+        <div class="scenes-heading">
+          <div>
+            <p data-i18n="flow.kicker" class="scenes-kicker">BİR İŞ AKIŞINDA GÖRÜN</p>
+            <h2 data-i18n="flow.title" id="scenes-title">Alışılmış işleri sözleşmeye dayalı akışlara dönüştürün.</h2>
+            <p data-i18n="flow.intro" class="scenes-intro">Aşağıdan bir görev seçin. Powerduck görevi bilgisayarınızdaki OpenAPI dosyasından yürütür; ortamlar, testler ve mock’lar dahildir. Hesap veya yükleme gerekmez.</p>
+          </div>
+        </div>
+        <div class="flow-baseline">
+          <div>
+            <h3 data-i18n="flow.baseTitle">Yerel çalışma, eksik özelliklerle çalışmak değildir.</h3>
+            <p data-i18n="flow.baseBody">Yerel API çalışma alanınıza hesap veya yükleme olmadan başlayın. İsteklerinizi, kimlik doğrulamanızı, ortamlarınızı ve doğrulamalarınızı kullanın. Çevrimiçi yayımlamak istediğinizde Cloud’u seçin.</p>
+          </div>
+          <ul>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base0">cURL / Postman / OpenAPI içe aktarma</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base1">Kimlik doğrulama ve ortamlar</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base2">Betikler ve doğrulamalar</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base3">Koleksiyonlar ve senaryo testleri</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base4">Yerel mock sunucuları</span>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span><span data-i18n="flow.base5">7 protokolde hata ayıklama</span>
+            </li>
+          </ul>
+          <p data-i18n="flow.baseNote" class="flow-baseline-note">Yerel çalışma için hesap gerekmez. Uzak AI seçtiğiniz model hizmetini kullanır; çevrimiçi barındırma için Cloud hesabı gerekir.</p>
+        </div>
+        <div class="flow-section-label">
+          <h3 id="workflow-selector-title" data-i18n="flow.difference">Hangi işi artık elle yapmak istemiyorsunuz?</h3>
+          <a class="scenes-more" href="/tr-TR/use-cases/"><span data-i18n="flow.all">Bu senaryoları keşfedin</span>
+            <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="scenario-overview">
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">01</span>
+            <h3 data-i18n="flow.1.pain">API belgelerinin doğru olup olmadığını anlamak için hâlâ kaynak kodu mu okuyorsunuz?</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.1.title">Projeden belge oluşturun.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.1.result">İncelenebilir bir API tanımı ve yerel belge bağlantısı.</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/tr-TR/use-cases/#code-to-docs"><span data-i18n="flow.boundary">Kurulumu ve gereksinimleri gör</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">02</span>
+            <h3 data-i18n="flow.2.pain">AI’a belirtimi verdiniz ama farklı alanlar ve yollar mı döndü?</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.2.title">Gerçek API sözleşmesine göre geliştirin.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.2.result">Sözleşmenin yönlendirdiği, gerçek yanıtlarla denetlenmiş bir uygulama.</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/tr-TR/use-cases/#design-api"><span data-i18n="flow.boundary">Kurulumu ve gereksinimleri gör</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">03</span>
+            <h3 data-i18n="flow.3.pain">Her API değişikliğinden sonra aynı iş akışını elle mi tekrarlıyorsunuz?</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.3.title">İş senaryosunun tamamını çalıştırın.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.3.result">Yalnızca üretilmiş bir test betiği değil; adım adım sonuçlar ve başarısız doğrulamalar.</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/tr-TR/use-cases/#contract-tests"><span data-i18n="flow.boundary">Kurulumu ve gereksinimleri gör</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">04</span>
+            <h3 data-i18n="flow.4.pain">Sıradaki uç nokta farklı bir protokol kullanıyor diye araç mı değiştiriyorsunuz?</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.4.title">Yedi protokolü tek yerde inceleyin.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.4.result">Tam olarak ne olduğunu incelemek istediğinizde elle denetim.</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/tr-TR/use-cases/#protocols"><span data-i18n="flow.boundary">Kurulumu ve gereksinimleri gör</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">05</span>
+            <h3 data-i18n="flow.5.pain">AI yardımı gerektiğinde her seferinde istek ve yanıtları sohbete mi kopyalıyorsunuz?</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.5.title">Gerçek istek bağlamıyla inceleyin.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.5.result">İstek sonuçlarına dayalı tanı ve inceleyebileceğiniz değişiklikler.</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/tr-TR/use-cases/#ai-debug"><span data-i18n="flow.boundary">Kurulumu ve gereksinimleri gör</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-tile">
+            <span class="scenario-index" aria-hidden="true">06</span>
+            <h3 data-i18n="flow.6.pain">Yalnızca API belgelerini ve MCP’yi paylaşmak için ayrı barındırma altyapısı mı yönetiyorsunuz?</h3>
+            <div class="scenario-answer">
+              <h4 data-i18n="flow.6.title">Tek API’den belgeler ve MCP yayımlayın.</h4>
+              <p class="workflow-output">
+                <span aria-hidden="true">↳</span><span data-i18n="flow.6.result">Kendi barındırma altyapınızı işletmeden barındırılan belgeler ve MCP adresi.</span>
+              </p>
+            </div>
+            <a class="scene-link" href="/tr-TR/use-cases/#share-docs"><span data-i18n="flow.boundary">Kurulumu ve gereksinimleri gör</span>
+              <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </section>
+      <!-- =======================================================================
+     SPEC LOADER
+     ======================================================================= -->
+
+      <!-- =======================================================================
+     QUICK START (browser vs desktop)
+     ======================================================================= -->
+
+      <section class="section quick-section" id="quickstart">
+        <div class="quick-shell">
+          <div class="quick-head">
+            <p class="section-kicker" data-i18n="quick.kicker">KENDİ BİLGİSAYARINIZDA BAŞLAYIN</p>
+            <h2 class="section-title" data-i18n="quick.title">İndirin. Kendi ortamınızda çalışın.</h2>
+            <p class="section-deck" data-i18n="quick.deck">Powerduck bir masaüstü API çalışma alanıdır. Yerel dosyanızı açın, ilk isteğinizi gönderin ve hazır olduğunuzda kodlama aracınızı bağlayın. Başlamak için hesap gerekmez.</p>
+          </div>
+
+          <div class="quick-grid">
+            <article class="quick-card quick-card-desktop">
+              <div class="quick-card-top">
+                <span class="quick-badge quick-badge-muted" data-i18n="quick.desktopTag">ANA ÇALIŞMA ALANI</span>
+                <h3 data-i18n="quick.desktopTitle">API çalışma tezgâhınız burada.</h3>
+                <p data-i18n="quick.desktopBody">Yerel dosyalar, kod tarama ve yerel protokol hata ayıklama burada. Tasarım, inceleme veya test için yardım istediğinizde seçtiğiniz AI modelini bağlayın.</p>
+              </div>
+
+              <ol class="quick-steps">
+                <li>
+                  <span class="quick-step-num">1</span>
+                  <span data-i18n="quick.step1">Uygulamayı indirin ve yerel örneği deneyin; hesap veya model anahtarı gerekmez.</span>
+                </li>
+                <li>
+                  <span class="quick-step-num">2</span>
+                  <span data-i18n="quick.step2">OpenAPI dosyanızı açın veya mevcut kod tabanını tarayın.</span>
+                </li>
+                <li>
+                  <span class="quick-step-num">3</span>
+                  <span data-i18n="quick.step3">Bir kodlama aracısı bağlayın, kodu değiştirin ve gerçek arka ucu sözleşmeye göre doğrulayın.</span>
+                </li>
+              </ol>
+
+              <a class="btn btn-primary btn-sm quick-download" href="/tr-TR/download/" data-i18n="hero.download">Masaüstü uygulamasını indir</a>
+              <p class="quick-os-note" data-i18n="quick.desktopNote">macOS 12+ · Windows 10+ · Linux</p>
+            </article>
+
+            <article class="quick-card quick-card-browser">
+              <div class="quick-card-top">
+                <span class="quick-badge" data-i18n="quick.browserTag">ÖNCE BİR BAKMAK MI İSTİYORSUNUZ?</span>
+                <h3 data-i18n="quick.browserTitle">Tarayıcıda kısa bir tur atın.</h3>
+                <p data-i18n="quick.browserBody">Web demosu ortak bir bulut modeli kullanır ve giriş gerektirir. Hesapsız yerel çalışma için masaüstü uygulamasını indirin.</p>
+              </div>
+
+              <a class="btn btn-secondary quick-web-open" href="/app/" data-i18n="flow.openWeb">Web uygulamasını aç</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     CONTRACT VERIFICATION (core differentiator)
+     ======================================================================= -->
+
+      <section class="section verify-section" id="contract-example">
+        <div class="verify-shell">
+          <div class="verify-copy">
+            <p class="section-kicker" data-i18n="verify.kicker">Sözleşme doğrulaması</p>
+            <h2 class="section-title" data-i18n="verify.title">Gerçek bir sözleşme hatası, ardından doğrulanmış bir düzeltme</h2>
+            <p class="section-deck" data-i18n="verify.deck">Sıradan API istemcileri isteği gönderip yanıtı gösterir. Powerduck ayrıca her yanıtı OpenAPI sözleşmesine göre denetler; belirtimden sapma anında yakalanır.</p>
+            <a class="btn btn-secondary" href="/docs/tr-TR/client/contract-example/" data-i18n="start.exampleCta">Çalışan bir örnek gör</a>
+          </div>
+
+          <div class="verify-panel">
+            <div class="chrome">
+              <div class="chrome-lights">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="chrome-path">~/commerce-api — response check</span>
+              <span class="chrome-spacer"></span>
+              <span class="pill">OpenAPI 3.1</span>
+            </div>
+
+            <div class="verify-body">
+              <div class="verify-block">
+                <div class="verify-label" data-i18n="verify.contractRequires">Sözleşmenin gerektirdiği</div>
+                <pre class="verify-code"><code>total:
+  type: number</code></pre>
+              </div>
+
+              <div class="verify-block verify-bad">
+                <div class="verify-label">
+                  <span class="verify-mark verify-mark-bad" aria-hidden="true">✕</span>
+                  <span data-i18n="verify.responseLabel">Arka uç bir dize döndürüyor</span>
+                </div>
+                <pre class="verify-code"><code>{
+  "total": "49.00"
+}</code></pre>
+                <div class="verify-msg verify-msg-bad">
+                  <span class="verify-mark verify-mark-bad" aria-hidden="true">✕</span>
+                  <span data-i18n="verify.failMsg">/total sayı olmalı — yanıt sözleşmeye uymuyor</span>
+                </div>
+              </div>
+
+              <div class="verify-block verify-good">
+                <div class="verify-label">
+                  <span class="verify-mark verify-mark-good" aria-hidden="true">✓</span>
+                  <span data-i18n="verify.fixLabel">Sayı döndürün</span>
+                </div>
+                <pre class="verify-code"><code>{
+  "total": 49
+}</code></pre>
+                <div class="verify-msg verify-msg-good">
+                  <span class="verify-mark verify-mark-good" aria-hidden="true">✓</span>
+                  <span data-i18n="verify.passMsg">Yanıt sözleşmeye uyuyor</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: SPEC EDITOR
+     ======================================================================= -->
+
+      <section class="feature-section" id="spec-editor">
+        <div class="section-shell">
+          <div class="feature-layout">
+            <div class="feature-copy">
+              <p class="section-kicker" data-i18n="f1.kicker">OpenAPI belirtim düzenleyici</p>
+
+              <h2 class="section-title" data-i18n="f1.title">OpenAPI Belirtim Düzenleyici</h2>
+
+              <p class="section-deck" data-i18n="f1.deck">Ana hat görünümü girintilerden tahmin yürütmez; belirtimin gerçek yapısını izler. Yolları ve bileşenleri ağaç yapısında gezin, hataları bulundukları yerde düzeltin.</p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong data-i18n="f1.b1Title">Şemaya göre doğrulama.</strong>
+                  <span data-i18n="f1.b1Body">Dosyanızda bildirilen 3.0, 3.1 veya 3.2 diyalektine göre doğrulayın.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f1.b2Title">$ref başvurularında gezinme.</strong>
+                  <span data-i18n="f1.b2Body">Tanımlara gidin, kullanımları inceleyin ve yanlış yazılmış başvurular için öneriler alın.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f1.b3Title">Dosyayı yerinde düzenleyin.</strong>
+                  <span data-i18n="f1.b3Body">Deponuz tek doğruluk kaynağı olmaya devam eder.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f1.b4Title">Kural adlarıyla tanılama.</strong>
+                  <span data-i18n="f1.b4Body">CI hataları ve düzenleyici tanılamaları aynı terimleri kullanır.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-preview mini-spec-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"> openapi.yaml </span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill pill-warn"><span data-i18n="demo.ui.0">3 sorun</span></span>
+              </div>
+
+              <div class="preview-body mini-editor">
+                <div class="mini-tree">
+                  <div class="mini-tree-row">▾ info</div>
+                  <div class="mini-tree-row">▾ paths</div>
+                  <div class="mini-tree-row">　/users</div>
+                  <div class="mini-tree-row active">　/users/{id}</div>
+                  <div class="mini-tree-row">　/orders</div>
+                  <div class="mini-tree-row">▾ components</div>
+                  <div class="mini-tree-row">　schemas</div>
+                  <div class="mini-tree-row">　responses</div>
+                </div>
+
+                <div class="mini-code">
+                  <div class="mini-code-content">
+                    <div class="mini-line">
+                      <span class="mini-ln">142</span>
+                      <span>/users/{id}:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">143</span>
+                      <span> get:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">144</span>
+                      <span> operationId: getUser</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">145</span>
+                      <span> responses:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">156</span>
+                      <span class="squiggle"> contents:</span>
+                    </div>
+
+                    <div class="mini-line">
+                      <span class="mini-ln">160</span>
+                      <span class="squiggle">$ref: Erorr</span>
+                    </div>
+                  </div>
+
+                  <div class="mini-problems">
+                    <div class="mini-problem-head"><span data-i18n="demo.ui.45">Sorunlar · 2 hata · 1 uyarı</span></div>
+
+                    <div class="mini-problem">
+                      <b>156:9</b>
+                      contents is not a valid Response Object key
+                    </div>
+
+                    <div class="mini-problem">
+                      <b>160:24</b>
+                      Unresolved $ref. Closest match: Error
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: API DEBUG
+     ======================================================================= -->
+
+      <section class="feature-section" id="api-debug">
+        <div class="section-shell">
+          <div class="feature-layout reverse">
+            <div class="feature-preview mini-debug-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"><span data-i18n="demo.ui.46">API hata ayıklama</span></span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill pill-ok"><span data-i18n="demo.ui.10">Sözleşme denetimi açık</span></span>
+              </div>
+
+              <div class="preview-body mini-debug">
+                <div class="mini-collection">
+                  <div class="mini-tree-row">▾ Users</div>
+                  <div class="mini-tree-row">　GET listUsers</div>
+                  <div class="mini-tree-row active">　GET getUser</div>
+                  <div class="mini-tree-row">▾ Orders</div>
+                  <div class="mini-tree-row">　POST createOrder</div>
+                </div>
+
+                <div class="mini-request">
+                  <div class="mini-url">
+                    <span class="mini-method">GET</span>
+
+                    <span class="mini-url-input">
+                      {{baseUrl}}/users/{{userId}}
+                    </span>
+
+                    <span class="mini-send"><span data-i18n="demo.ui.13">Gönder</span></span>
+                  </div>
+
+                  <div class="mini-tabs">
+                    <span><span data-i18n="demo.ui.14">Parametreler</span></span>
+                    <span><span data-i18n="demo.ui.15">Kimlik doğrulaması</span></span>
+                    <span class="active"><span data-i18n="demo.ui.17">Gövde</span></span>
+                    <span><span data-i18n="demo.ui.16">Başlıklar</span></span>
+                  </div>
+
+                  <div class="mini-response">
+                    <pre>{
+  "id": "usr_8Kd2Xa",
+  "email": "ada@example.com",
+  <span class="squiggle">"scope"</span>: "users:read"
+}</pre>
+                  </div>
+
+                  <div class="mini-contract">
+                    Contract mismatch — "scope" is not declared on User.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-copy">
+              <p class="section-kicker" data-i18n="f2.kicker">API hata ayıklama</p>
+
+              <h2 class="section-title" data-i18n="f2.title">Belirtiminize Göre API Hata Ayıklama</h2>
+
+              <p class="section-deck" data-i18n="f2.deck">Geliştiricilere tanıdık gelen bir istek oluşturucuya sözleşme tabanlı yanıt doğrulaması ekledik.</p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong data-i18n="f2.b1Title">Yollardan ve etiketlerden koleksiyonlar.</strong>
+                  <span data-i18n="f2.b1Body">İçe aktarma adımı veya elle yeniden eşitleme gerekmez.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f2.b2Title">Her yanıtta sözleşme denetimi.</strong>
+                  <span data-i18n="f2.b2Body">Bildirilmeyen özellikleri, eksik alanları ve tür uyuşmazlıklarını doğrudan yanıtta görün.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f2.b3Title">Ortamlar ve değişkenler.</strong>
+                  <span data-i18n="f2.b3Body">Mevcut geliştirme ve hazırlık ortamı yapılandırmalarını yeniden kullanın.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f2.b4Title">securitySchemes tabanlı kimlik doğrulama.</strong>
+                  <span data-i18n="f2.b4Body">Bearer, API anahtarı ve OAuth yapılandırması belirtimden başlar.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: MCP
+     ======================================================================= -->
+
+      <section class="feature-section" id="mcp-server">
+        <div class="section-shell">
+          <div class="feature-layout">
+            <div class="feature-copy">
+              <p class="section-kicker" data-i18n="f3.kicker">MCP sunucusu oluşturucu</p>
+
+              <h2 class="section-title" data-i18n="f3.title">OpenAPI’den MCP Sunucusu Oluşturun</h2>
+
+              <p class="section-deck" data-i18n="f3.deck">Belirtiminiz araçları tanımlayan bilgileri zaten içerir. Powerduck bunu çalıştırılabilir bir MCP sunucusuna dönüştürür ve her aracın hangi OpenAPI alanlarından üretildiğini gösterir.</p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong data-i18n="f3.b1Title">Kaynağı görünür.</strong>
+                  <span data-i18n="f3.b1Body">Her araç, kaynak işlemine, operationId değerine ve şemasına kadar izlenebilir.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f3.b2Title">Kısıtlı ve atlanan öğeler görünür.</strong>
+                  <span data-i18n="f3.b2Body">Eksik meta veriler, sessizce yetersiz araçlar üretmek yerine açıkça gösterilir.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f3.b3Title">Kaydederken yeniden oluşturma.</strong>
+                  <span data-i18n="f3.b3Body">Belirtimi değiştirin; araçlar ayrı bir derleme adımı olmadan güncellensin.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f3.b4Title">Yerel aktarım seçenekleri.</strong>
+                  <span data-i18n="f3.b4Body">Yerel aracılar ve iş akışları için stdio veya HTTP üzerinden çalıştırın.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-preview mini-mcp-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"> mcp://localhost:7433 </span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill pill-ok"><span data-i18n="demo.ui.24">çalışıyor</span></span>
+              </div>
+
+              <div class="preview-body mini-mcp">
+                <div class="mini-mcp-header">
+                  <span class="mini-mcp-title"><span data-i18n="demo.ui.25">openapi.yaml dosyasından oluşturuldu</span></span>
+
+                  <span class="mini-mcp-count"><span data-i18n="demo.ui.26">6 araç</span></span>
+                  <span class="mini-mcp-count"><span data-i18n="demo.ui.27">7 kaynak</span></span>
+                </div>
+
+                <div class="mini-tools">
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">
+                      GET /users/{id} → operationId
+                    </div>
+
+                    <div class="mini-tool-name">getUser</div>
+
+                    <div class="mini-tool-args">id: string</div>
+                  </div>
+
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">
+                      POST /orders → operationId
+                    </div>
+
+                    <div class="mini-tool-name">createOrder</div>
+
+                    <div class="mini-tool-args">items: array</div>
+                  </div>
+
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">POST /auth/login</div>
+
+                    <div class="mini-tool-name">loginUser</div>
+
+                    <div class="mini-tool-args">email, password</div>
+                  </div>
+
+                  <div class="mini-tool">
+                    <div class="mini-tool-source">DELETE /users/{id}</div>
+
+                    <div class="mini-tool-name"><span data-i18n="demo.ui.47">atlandı</span></div>
+
+                    <div class="mini-tool-args"><span data-i18n="demo.ui.48">operationId eksik</span></div>
+                  </div>
+                </div>
+
+                <div class="mini-log">
+                  14:02 build 6 tools, 7 resources<br>
+                  14:02 serve listening on :7433<br>
+                  14:03 call getUser → 200
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FEATURE: DOCS
+     ======================================================================= -->
+
+      <section class="feature-section" id="api-docs">
+        <div class="section-shell">
+          <div class="feature-layout reverse">
+            <div class="feature-preview mini-doc-preview">
+              <div class="preview-topbar">
+                <div class="preview-lights">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <span class="preview-title"><span data-i18n="demo.ui.49">API başvurusu</span></span>
+
+                <span class="chrome-spacer"></span>
+
+                <span class="pill"><span data-i18n="demo.ui.32">Statik dışa aktarma</span></span>
+              </div>
+
+              <div class="preview-body mini-docs">
+                <div class="mini-doc-nav">
+                  <div class="mini-doc-nav-title">Users</div>
+
+                  <div class="mini-doc-nav-item"><span data-i18n="demo.ui.50">Genel bakış</span></div>
+
+                  <div class="mini-doc-nav-item active">Retrieve a user</div>
+
+                  <div class="mini-doc-nav-item">List users</div>
+
+                  <div class="mini-doc-nav-item">Update user</div>
+                </div>
+
+                <div class="mini-doc-main">
+                  <h4>Retrieve a user</h4>
+
+                  <div class="mini-doc-path">GET /v1/users/{id}</div>
+
+                  <div class="mini-doc-text">
+                    Returns the user object for a valid identifier.
+                  </div>
+
+                  <div class="mini-doc-section"><span data-i18n="demo.ui.40">Yol parametreleri</span></div>
+
+                  <div class="mini-doc-param">id · string · required</div>
+
+                  <div class="mini-doc-section"><span data-i18n="demo.ui.51">Dönüş değeri</span></div>
+
+                  <div class="mini-doc-param">User · object</div>
+                </div>
+
+                <div class="mini-doc-code">
+                  <pre>curl /users/{id}
+
+{
+  "id": "usr_...",
+  "email": "ada@..."
+}</pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-copy">
+              <p class="section-kicker" data-i18n="f4.kicker">API belgesi oluşturucu</p>
+
+              <h2 class="section-title" data-i18n="f4.title">Aynı Sözleşmeden API Belgeleri</h2>
+
+              <p class="section-deck" data-i18n="f4.deck">Doğrudan OpenAPI modelinizden başvuru belgeleri üretin. Statik dosyalara aktarın ve istediğiniz yerde barındırın.</p>
+
+              <ul class="feature-list">
+                <li>
+                  <strong data-i18n="f4.b1Title">Şemalardan parametre tabloları.</strong>
+                  <span data-i18n="f4.b1Body">Zorunluluk işaretleri, enum değerleri ve açıklamalar eşit kalır.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f4.b2Title">Birden fazla dilde örnekler.</strong>
+                  <span data-i18n="f4.b2Body">İşlemlerden cURL, Node, Python ve Go örnekleri üretin.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f4.b3Title">Gerçek sözleşmeden yanıtlar.</strong>
+                  <span data-i18n="f4.b3Body">Başarı ve hata yanıtları, hata ayıklayıcının doğruladığı nesnelerden gelir.</span>
+                </li>
+
+                <li>
+                  <strong data-i18n="f4.b4Title">Statik dışa aktarma.</strong>
+                  <span data-i18n="f4.b4Body">Çalışma zamanı bağımlılığı veya belirli bir belge platformuna bağlılık yoktur.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     ONE SOURCE OF TRUTH
+     ======================================================================= -->
+
+      <section class="section product-story-section">
+        <div class="section-shell">
+          <div class="product-story-head">
+            <div>
+              <p class="section-kicker" data-i18n="story.kicker">Tek doğruluk kaynağı</p>
+              <h2 class="section-title" data-i18n-html="story.title">Tek bir yerel OpenAPI dosyası.<br>Tüm yetenekler, AI ile birlikte.</h2>
+            </div>
+
+            <p class="product-story-deck" data-i18n-html="story.deck">Yerel <strong>openapi.yaml</strong> veya <strong>openapi.json</strong> dosyanızı açın. Powerduck, sahip olduğunuz sözleşmeyi eksiksiz bir API çalışma alanına dönüştürür. İçe aktarma, dönüştürme, ayrı koleksiyon veya bulut kopyası gerekmez. İstediğiniz sonucu doğal dille anlatın; yerleşik asistan işi inceleyebileceğiniz adımlarla yürütsün. Aynı dosyayı MCP üzerinden AI kodlama aracılarına da sunabilirsiniz.</p>
+          </div>
+
+          <div class="product-flow" aria-label="Tek bir yerel OpenAPI dosyası. Tüm yetenekler, AI ile birlikte.">
+            <div class="product-flow-source">
+              <div class="product-flow-eyebrow" data-i18n="story.openLocal">YERELDE AÇIN</div>
+              <div class="product-file-icon">{ }</div>
+              <div class="product-file-name">openapi.yaml</div>
+              <div class="product-file-alt"><span data-i18n="demo.ui.52">veya openapi.json</span></div>
+              <p data-i18n="story.fileNote">Dosya deponuzda kalır.</p>
+            </div>
+
+            <div class="product-flow-connector" aria-hidden="true">
+              <span></span>
+            </div>
+
+            <div class="product-flow-tools">
+              <div class="product-flow-tool">
+                <span class="product-flow-index">01</span>
+                <strong data-i18n="nav.specEditor">Belirtim düzenleyici</strong>
+                <p data-i18n="story.tool1">Gerçek sözleşmeyi düzenleyin, gezin ve doğrulayın.</p>
+              </div>
+              <div class="product-flow-tool">
+                <span class="product-flow-index">02</span>
+                <strong data-i18n="nav.apiDebug">API hata ayıklayıcı</strong>
+                <p data-i18n="story.tool2">Aynı işlemlerden üretilen istekleri gönderin.</p>
+              </div>
+              <div class="product-flow-tool">
+                <span class="product-flow-index">03</span>
+                <strong data-i18n="nav.mcpServer">MCP sunucusu</strong>
+                <p data-i18n="story.tool3">İşlemleri aracıların kullanabileceği araçlara dönüştürün.</p>
+              </div>
+              <div class="product-flow-tool">
+                <span class="product-flow-index">04</span>
+                <strong data-i18n="nav.apiDocs">API belgeleri</strong>
+                <p data-i18n="story.tool4">Aynı kaynaktan belgeler yayımlayın.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-positioning">
+            <div class="positioning-statement">
+              <span class="positioning-mark">Powerduck</span>
+              <h3 data-i18n-html="story.posTitle">Bir API istemcisinden fazlası.<br>Bir belirtim görüntüleyicisinden fazlası.<br>AI ile API geliştirme alanınız.</h3>
+              <p data-i18n="story.posBody">OpenAPI dosyasının kendisi etrafında kurulmuş, yerel çalışan ve AI destekli bir çalışma alanı.</p>
+            </div>
+
+            <div class="positioning-points">
+              <div>
+                <span data-i18n="story.noCloud">BULUT GEREKMEZ</span><strong data-i18n="story.point1">Yerel çalışma için belirtiminizi yüklemeniz gerekmez.</strong>
+              </div>
+              <div>
+                <span data-i18n="story.noSync">ELLE EŞİTLEME YOK</span><strong data-i18n="story.point2">Sözleşmeyle eşit tutmanız gereken ayrı içerikler yoktur.</strong>
+              </div>
+              <div>
+                <span data-i18n="story.noCopy">EK KOPYA YOK</span><strong data-i18n="story.point3">Mevcut YAML veya JSON dosyanız çalışma alanınızdır.</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     LICENSING
+     ======================================================================= -->
+
+      <section class="section outcome-section" id="data-boundaries">
+        <h2 data-i18n="start.privacy">Yerel çalışma, uzak hizmetler ve sizin seçimleriniz</h2>
+        <p data-i18n="faq.a1">Yerel dosyalar için hesap gerekmez. Uzak AI, ilgili bağlamı yapılandırdığınız sağlayıcıya gönderir; Cloud’a yayımlarken seçtiğiniz içerik yüklenir. İsteğe bağlı kullanım istatistikleri varsayılan olarak kapalıdır. Veri alanları ve denetimler için Gizlilik Politikasına bakın.</p>
+        <a href="/privacy.html" data-i18n="footer.privacy">Gizlilik Politikası</a>
+      </section>
+      <section class="product-paths" id="licensing" aria-labelledby="product-paths-title">
+        <p class="hero-micro" data-i18n="hero.micro">Yerel kullanım için Cloud satın almanız gerekmez. Ücretsiz kullanım iki belirtim yuvası içerir; onaylanan paylaşım ödülleri bu sayıyı artırabilir. Masaüstü lisansı yuva sınırını kaldırır. Kendi anahtarınızın kullanımını model sağlayıcınız faturalandırır; barındırılan model kredileri ve Cloud barındırma ayrıdır.</p>
+        <div class="product-paths-heading">
+          <h2 id="product-paths-title" data-i18n="guide.title">Sonraki adımınızı seçin.</h2>
+          <a href="/tr-TR/pricing?product=client" data-i18n="guide.compare">Ürünleri ve fiyatları karşılaştır →</a>
+        </div>
+        <div class="product-paths-grid">
+          <a class="product-path" href="/console/billing?buy=desktop">
+            <span class="product-path-job" data-i18n="guide.client.job">Yerel geliştirme</span>
+            <h3 data-i18n="guide.client.title">Masaüstü lisansı</h3>
+            <p data-i18n="guide.client.desc">Yerel OpenAPI dosyalarıyla, sohbet üzerinden API tasarlayın, hata ayıklayın ve test edin.</p>
+            <strong data-i18n="guide.client.cost">Tek seferlik satın alma · süresiz lisans</strong>
+            <span aria-hidden="true"> ↗</span>
+          </a>
+          <a class="product-path" href="/console/billing?buy=cloud">
+            <span class="product-path-job" data-i18n="guide.cloud.job">Çevrimiçi yayımlama</span>
+            <h3 data-i18n="guide.cloud.title">Cloud barındırma</h3>
+            <p data-i18n="guide.cloud.desc">Barındırılan API belgelerini ve MCP hizmetlerini ekibinizle ve AI aracılarıyla paylaşın.</p>
+            <strong data-i18n="guide.cloud.cost">Ücretsiz katman · aylık veya yıllık planlar</strong>
+            <span aria-hidden="true"> ↗</span>
+          </a>
+          <a class="product-path" href="/console/billing?buy=model-pro">
+            <span class="product-path-job" data-i18n="guide.models.job">Modelinizi seçin</span>
+            <h3 data-i18n="guide.models.title">AI kredileri</h3>
+            <p data-i18n="guide.models.desc">Kredi paketiyle barındırılan modelleri kullanın veya masaüstü uygulamasında kendi model sağlayıcınızı yapılandırın.</p>
+            <strong data-i18n="guide.models.cost">Ön ödemeli model kredileri</strong>
+            <span aria-hidden="true"> ↗</span>
+          </a>
+        </div>
+        <p class="product-paths-account">
+          <span data-i18n="guide.account">Zaten hesabınız var mı? Yayınları, masaüstü lisanslarını ve AI kredilerini yönetin.</span>
+          <a href="/signin" data-i18n="guide.signin">Konsola giriş yap →</a>
+        </p>
+      </section>
+
+      <!-- =======================================================================
+     FAQ
+     ======================================================================= -->
+
+      <section class="section" id="faq">
+        <div class="section-shell">
+          <div class="faq-shell">
+            <div class="faq-heading">
+              <p class="section-kicker" data-i18n="faq.kicker">Sık sorulan sorular</p>
+
+              <h2 class="section-title" data-i18n="faq.title">Geliştiricilerin ilk sorduğu sorular</h2>
+
+              <p class="section-deck" data-i18n="faq.deck">Yerel dosyalar, OpenAPI sürümleri, MCP üretimi ve lisanslama hakkında pratik bilgiler.</p>
+            </div>
+
+            <details open="">
+              <summary data-i18n="faq.q1">Powerduck, OpenAPI belirtimimi bir yere yükler mi?</summary>
+
+              <p data-i18n="faq.a1">Yerel dosyalar için hesap gerekmez. Uzak AI, ilgili bağlamı yapılandırdığınız sağlayıcıya gönderir; Cloud’a yayımlarken seçtiğiniz içerik yüklenir. İsteğe bağlı kullanım istatistikleri varsayılan olarak kapalıdır. Veri alanları ve denetimler için Gizlilik Politikasına bakın.</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q2">Hangi OpenAPI sürümleri destekleniyor?</summary>
+
+              <p data-i18n="faq.a2">OpenAPI 3.0, 3.1 ve 3.2. Powerduck, bildirilen sürümü algılar ve en düşük ortak özellik kümesi yerine uygun diyalekte göre doğrular.</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q3">MCP sunucusu nasıl oluşturuluyor?</summary>
+
+              <p data-i18n="faq.a3">operationId içeren işlemler MCP araçlarına dönüşür. Bağımsız değişkenler parametrelerden ve requestBody şemalarından türetilir. Bileşen şemaları kaynak olarak sunulabilir. Oluşturulan sunucu, belirtim her değiştiğinde güncellenir.</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q4">Masaüstü lisansı bir abonelik mi?</summary>
+
+              <p data-i18n="faq.a4">Hayır. Powerduck Desktop tek seferlik satın alınan süresiz bir lisanstır. Aynı ana sürüm içindeki güncellemeler dahildir. Gelecekteki ana sürüm yükseltmeleri isteğe bağlıdır.</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q5">Postman koleksiyonlarımı kullanmaya devam edebilir miyim?</summary>
+
+              <p data-i18n="faq.a5">Evet. Mevcut koleksiyonlar ve ortamlar kullanılmaya devam edebilir. Powerduck, OpenAPI belirtimini esas sözleşme olarak alır ve isteklerin bu sözleşmeden nerede saptığını bulmanıza yardımcı olur.</p>
+            </details>
+
+            <details>
+              <summary data-i18n="faq.q6">CI’da çalışır mı?</summary>
+
+              <p>
+                <span data-i18n="faq.a6Before">Evet. Aynı doğrulama ve üretim motoru </span>
+                <a href="/opensource/openapi-cli.html" style="color: var(--accent); text-decoration: underline">@powerduck/openapi-cli</a><span data-i18n="faq.a6After"> aracılığıyla sunulur. Bu CI uyumlu komut satırı aracı, pull request’lerde ve otomatik işlem hatlarında çalışır. Altı protokolde (HTTP, SSE, WebSocket, gRPC, MCP, GraphQL) toplu test, ayarlanabilir eşzamanlılık ve CI entegrasyonu için JUnit uyumlu raporları destekler.</span>
+              </p>
+              <p style="margin-top: 8px">
+                <a href="/opensource/openapi-cli.html" class="btn btn-secondary" style="
+                    display: inline-flex;
+                    padding: 6px 14px;
+                    font-size: 13px;
+                  " data-i18n="faq.a6Btn">openapi-cli’yi keşfet →</a>
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+     FOOTER
+     ======================================================================= -->
+
+      <footer class="site-footer">
+        <div class="footer-shell">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <a href="/tr-TR/" class="brand" aria-label="Powerduck ana sayfa">
+                <img src="/assets/images/logo.svg" alt="Powerduck logo" class="brand-logo">
+                <span>Powerduck</span>
+              </a>
+              <p data-i18n="footer.brand">Modern API iş akışları için geliştirici araçları üretiyoruz. Açık kaynaklı, gerçek projeler için hazır ve toplulukla birlikte gelişen araçlar.</p>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="footer.product">Ürün</h6>
+              <ul>
+                <li>
+                  <a href="#spec-editor" data-i18n="nav.specEditor">Belirtim düzenleyici</a>
+                </li>
+                <li>
+                  <a href="#api-debug" data-i18n="nav.apiDebug">API hata ayıklayıcı</a>
+                </li>
+                <li>
+                  <a href="#mcp-server" data-i18n="nav.mcpServer">MCP sunucusu</a>
+                </li>
+                <li>
+                  <a href="#api-docs" data-i18n="nav.apiDocs">API belgeleri</a>
+                </li>
+                <li>
+                  <a href="/tr-TR/download/" data-i18n="nav.download">İndir</a>
+                </li>
+                <li>
+                  <a href="/tr-TR/pricing?product=client" data-i18n="footer.prices">Fiyatlar</a>
+                </li>
+                <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+                <li>
+                  <a href="/blog/tag/release-notes/" data-i18n="nav.releaseNotes">Sürüm notları</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="nav.cloud">Cloud</h6>
+              <ul>
+                <li>
+                  <a data-cloud-signin="/hub" href="/tr-TR/hub" data-i18n="nav.hub">Hub</a>
+                </li>
+                <li>
+                  <a data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">Giriş yap</a>
+                </li>
+                <li>
+                  <a href="/docs/tr-TR/cloud/quickstart/index.html" data-i18n="footer.quickstart">Hızlı başlangıç</a>
+                </li>
+                <li>
+                  <a href="/docs/tr-TR/cloud/access-control/index.html" data-i18n="footer.accessControl">Erişim denetimi</a>
+                </li>
+                <li>
+                  <a href="/docs/tr-TR/cloud/custom-domains/index.html" data-i18n="footer.customDomains">Özel alan adları</a>
+                </li>
+                <li>
+                  <a href="/docs/tr-TR/cloud/billing/index.html" data-i18n="footer.billing">Faturalandırma</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="nav.resources">Kaynaklar</h6>
+              <ul>
+                <li>
+                  <a href="/docs/tr-TR/overview/introduction/index.html" data-i18n="nav.documentation">Belgeler</a>
+                </li>
+                <li>
+                  <a href="/docs/tr-TR/client/introduction/index.html" data-i18n="footer.clientGuide">İstemci kılavuzu</a>
+                </li>
+                <li>
+                  <a href="/docs/tr-TR/cloud/introduction/index.html" data-i18n="footer.cloudGuide">Cloud kılavuzu</a>
+                </li>
+                <li>
+                  <a href="https://github.com/powerducklab" target="_blank" rel="nofollow noopener noreferrer">GitHub</a>
+                </li>
+                <li>
+                  <a href="https://www.npmjs.com/search?q=%40powerduck" target="_blank" data-i18n="footer.npmPackages" rel="nofollow noopener noreferrer">npm paketleri</a>
+                </li>
+                <li><a href="#faq" data-i18n="faq.kicker">Sık sorulan sorular</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="footer.legal">Yasal bilgiler</h6>
+              <ul>
+                <li>
+                  <a href="/terms.html" data-i18n="footer.terms">Hizmet Koşulları</a>
+                </li>
+                <li>
+                  <a href="/privacy.html" data-i18n="footer.privacy">Gizlilik Politikası</a>
+                </li>
+                <li>
+                  <a href="/refunds.html" data-i18n="footer.refunds">İade Politikası</a>
+                </li>
+                <li>
+                  <a href="/cookie.html" data-i18n="footer.cookie">Çerez Bildirimi</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span data-i18n="dl.copyright">© 2026 POWERDUCK LIMITED. Tüm hakları saklıdır.</span>
+            <div class="footer-bottom-links">
+              <a href="/terms.html" data-i18n="footer.termsShort">Koşullar</a>
+              <a href="/privacy.html" data-i18n="footer.privacyShort">Gizlilik</a>
+              <a href="/cookie.html" data-i18n="footer.cookieShort">Çerezler</a>
+            </div>
+          </div>
+        </div>
+      <nav data-locale-links="" class="locale-links" aria-label="Dil seç"><a href="/" hreflang="en" lang="en">English (US)</a><a href="/zh-CN/" hreflang="zh-CN" lang="zh-CN">简体中文</a><a href="/ja/" hreflang="ja" lang="ja">日本語</a><a href="/de/" hreflang="de" lang="de">Deutsch</a><a href="/fr/" hreflang="fr" lang="fr">Français</a><a href="/es/" hreflang="es" lang="es">Español</a><a href="/pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a><a href="/zh-TW/" hreflang="zh-TW" lang="zh-TW">繁體中文</a><a href="/it-IT/" hreflang="it-IT" lang="it-IT">Italiano</a><a href="/ko-KR/" hreflang="ko-KR" lang="ko-KR">한국어</a><a href="/ru-RU/" hreflang="ru-RU" lang="ru-RU">Русский</a><a href="/id-ID/" hreflang="id-ID" lang="id-ID">Bahasa Indonesia</a><a href="/tr-TR/" hreflang="tr-TR" lang="tr-TR" aria-current="page">Türkçe</a><a href="/vi-VN/" hreflang="vi-VN" lang="vi-VN">Tiếng Việt</a><a href="/ar-SA/" hreflang="ar-SA" lang="ar-SA">العربية</a><a href="/hi-IN/" hreflang="hi-IN" lang="hi-IN">हिन्दी</a></nav></footer>
+    </div>
+
+    <!-- =======================================================================
+     JAVASCRIPT
+     ======================================================================= -->
+
+    <script>
+      (function () {
+        "use strict";
+
+        var reduceMotion =
+          window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        /* ----------------------------------------------------------------
+        Hero agent-flow demo: the coding agent calls the Powerduck MCP tools
+        in sequence (read spec -> mock -> tests -> call -> docs). Each step
+        lights up pending -> active -> done. The static default is the fully
+        completed state.
+        ---------------------------------------------------------------- */
+
+        var heroDemo = document.querySelector("[data-hero-demo]");
+        var heroWindow = heroDemo
+          ? heroDemo.querySelector(".hv-window")
+          : null;
+        var heroSteps = heroWindow
+          ? Array.prototype.slice.call(
+              heroWindow.querySelectorAll("[data-hv-log] .hv-step")
+            )
+          : [];
+        var timers = [];
+        var STEP_MS = 700;
+        var START_MS = 160;
+        var HOLD_MS = 1900;
+
+        function clearTimers() {
+          while (timers.length) {
+            clearTimeout(timers.pop());
+          }
+        }
+
+        function resetSteps() {
+          heroSteps.forEach(function (step) {
+            step.classList.remove("is-active", "is-done");
+          });
+        }
+
+        function runCycle() {
+          clearTimers();
+          heroWindow.classList.add("is-animating");
+          heroWindow.classList.remove("is-done");
+          resetSteps();
+
+          heroSteps.forEach(function (step, i) {
+            var start = START_MS + i * STEP_MS;
+            timers.push(
+              setTimeout(function () {
+                step.classList.add("is-active");
+              }, start)
+            );
+            timers.push(
+              setTimeout(function () {
+                step.classList.remove("is-active");
+                step.classList.add("is-done");
+              }, start + STEP_MS)
+            );
+          });
+
+          var loopMs = START_MS + heroSteps.length * STEP_MS + HOLD_MS;
+          timers.push(setTimeout(runCycle, loopMs));
+        }
+
+        if (heroDemo && heroWindow && heroSteps.length && !reduceMotion) {
+          if ("IntersectionObserver" in window) {
+            var heroObserver = new IntersectionObserver(
+              function (entries) {
+                entries.forEach(function (entry) {
+                  if (entry.isIntersecting) {
+                    runCycle();
+                    heroObserver.disconnect();
+                  }
+                });
+              },
+              { threshold: 0.4 }
+            );
+            heroObserver.observe(heroDemo);
+          } else {
+            runCycle();
+          }
+        }
+
+        /* ----------------------------------------------------------------
+        Scroll reveal for the differentiator cards.
+        ---------------------------------------------------------------- */
+
+        var revealEls = document.querySelectorAll(".reveal");
+
+        if (!reduceMotion && revealEls.length) {
+          document.documentElement.classList.add("js");
+
+          if ("IntersectionObserver" in window) {
+            var revealObserver = new IntersectionObserver(
+              function (entries) {
+                entries.forEach(function (entry) {
+                  if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    revealObserver.unobserve(entry.target);
+                  }
+                });
+              },
+              { threshold: 0.12 }
+            );
+            revealEls.forEach(function (el) {
+              revealObserver.observe(el);
+            });
+          } else {
+            revealEls.forEach(function (el) {
+              el.classList.add("is-visible");
+            });
+          }
+        }
+      })();
+    </script>
+    <script>
+      (function () {
+        "use strict";
+
+        /* ------------------------------------------------------------------------
+     Theme
+     ------------------------------------------------------------------------ */
+        /* ------------------------------------------------------------------------
+     Product demo tabs
+     ------------------------------------------------------------------------ */
+
+        var tabs = document.querySelectorAll("[data-tab]");
+
+        var stageMap = {
+          editor: document.getElementById("stage-editor"),
+          debug: document.getElementById("stage-debug"),
+          mcp: document.getElementById("stage-mcp"),
+          docs: document.getElementById("stage-docs"),
+        };
+
+        function activateTab(key) {
+          tabs.forEach(function (tab) {
+            var active = tab.getAttribute("data-tab") === key;
+
+            tab.setAttribute("aria-selected", active ? "true" : "false");
+          });
+
+          Object.keys(stageMap).forEach(function (name) {
+            var stage = stageMap[name];
+
+            if (!stage) {
+              return;
+            }
+
+            stage.classList.toggle("on", name === key);
+          });
+        }
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            var key = tab.getAttribute("data-tab");
+
+            activateTab(key);
+          });
+        });
+
+        /* ------------------------------------------------------------------------
+     Deep-link mapping
+     ------------------------------------------------------------------------ */
+
+        var hashMap = {
+          "#spec-editor": "editor",
+          "#api-debug": "debug",
+          "#mcp-server": "mcp",
+          "#api-docs": "docs",
+        };
+
+        function activateFromHash() {
+          var key = hashMap[window.location.hash];
+
+          if (key) {
+            activateTab(key);
+          }
+        }
+
+        activateFromHash();
+
+        window.addEventListener("hashchange", activateFromHash);
+
+        /* ------------------------------------------------------------------------
+     Navigation -> corresponding demo surface
+     ------------------------------------------------------------------------ */
+
+        document
+          .querySelectorAll(
+            'a[href="#spec-editor"],' +
+              'a[href="#api-debug"],' +
+              'a[href="#mcp-server"],' +
+              'a[href="#api-docs"]',
+          )
+          .forEach(function (link) {
+            link.setAttribute("data-demo-tab", "");
+            link.addEventListener("click", function (e) {
+              var key = hashMap[link.getAttribute("href")];
+
+              if (key) {
+                e.preventDefault();
+                activateTab(key);
+                var demoSection = document.querySelector(".demo-section");
+
+                if (demoSection) {
+                  demoSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }
+              }
+            });
+          });
+      })();
+    </script>
+
+
+    <script src="/assets/locales/tr-TR.js?v=20261019d"></script><script src="/assets/js/common.js?v=20261019d"></script>
+    <script src="/assets/js/cloud.js?v=20261019d"></script>
+    <script>
+      (function () {
+        var btn = document.querySelector(".nav-hamburger");
+        var drawer = document.getElementById("navDrawer");
+        if (btn && drawer) {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            var open = drawer.classList.toggle("open");
+            btn.classList.toggle("open", open);
+            btn.setAttribute("aria-expanded", open);
+          });
+          document.addEventListener("click", function (e) {
+            if (
+              drawer.classList.contains("open") &&
+              !drawer.contains(e.target) &&
+              !btn.contains(e.target)
+            ) {
+              drawer.classList.remove("open");
+              btn.classList.remove("open");
+              btn.setAttribute("aria-expanded", "false");
+            }
+          });
+        }
+      })();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

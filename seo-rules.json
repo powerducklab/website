@@ -550,8 +550,1328 @@
     "status": "301"
   },
   {
+    "source": "/docs/it-IT/",
+    "target": "/docs/it-IT/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/it-IT/index.html",
+    "target": "/docs/it-IT/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/it-IT/getting-started/introduction",
+    "target": "/docs/it-IT/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/it-IT/getting-started/introduction/",
+    "target": "/docs/it-IT/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/it-IT/getting-started/introduction/index.html",
+    "target": "/docs/it-IT/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/it-IT/getting-started/installation",
+    "target": "/docs/it-IT/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/it-IT/getting-started/installation/",
+    "target": "/docs/it-IT/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/it-IT/getting-started/installation/index.html",
+    "target": "/docs/it-IT/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/it-IT/getting-started/quickstart",
+    "target": "/docs/it-IT/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/it-IT/getting-started/quickstart/",
+    "target": "/docs/it-IT/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/it-IT/getting-started/quickstart/index.html",
+    "target": "/docs/it-IT/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ru-RU/",
+    "target": "/docs/ru-RU/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ru-RU/index.html",
+    "target": "/docs/ru-RU/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ru-RU/getting-started/introduction",
+    "target": "/docs/ru-RU/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ru-RU/getting-started/introduction/",
+    "target": "/docs/ru-RU/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ru-RU/getting-started/introduction/index.html",
+    "target": "/docs/ru-RU/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ru-RU/getting-started/installation",
+    "target": "/docs/ru-RU/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ru-RU/getting-started/installation/",
+    "target": "/docs/ru-RU/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ru-RU/getting-started/installation/index.html",
+    "target": "/docs/ru-RU/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ru-RU/getting-started/quickstart",
+    "target": "/docs/ru-RU/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ru-RU/getting-started/quickstart/",
+    "target": "/docs/ru-RU/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/ru-RU/getting-started/quickstart/index.html",
+    "target": "/docs/ru-RU/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/hi-IN/",
+    "target": "/docs/hi-IN/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/hi-IN/index.html",
+    "target": "/docs/hi-IN/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/hi-IN/getting-started/introduction",
+    "target": "/docs/hi-IN/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/hi-IN/getting-started/introduction/",
+    "target": "/docs/hi-IN/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/hi-IN/getting-started/introduction/index.html",
+    "target": "/docs/hi-IN/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/hi-IN/getting-started/installation",
+    "target": "/docs/hi-IN/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/hi-IN/getting-started/installation/",
+    "target": "/docs/hi-IN/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/hi-IN/getting-started/installation/index.html",
+    "target": "/docs/hi-IN/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/hi-IN/getting-started/quickstart",
+    "target": "/docs/hi-IN/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/hi-IN/getting-started/quickstart/",
+    "target": "/docs/hi-IN/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/hi-IN/getting-started/quickstart/index.html",
+    "target": "/docs/hi-IN/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/id-ID/",
+    "target": "/docs/id-ID/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/id-ID/index.html",
+    "target": "/docs/id-ID/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/id-ID/getting-started/introduction",
+    "target": "/docs/id-ID/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/id-ID/getting-started/introduction/",
+    "target": "/docs/id-ID/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/id-ID/getting-started/introduction/index.html",
+    "target": "/docs/id-ID/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/id-ID/getting-started/installation",
+    "target": "/docs/id-ID/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/id-ID/getting-started/installation/",
+    "target": "/docs/id-ID/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/id-ID/getting-started/installation/index.html",
+    "target": "/docs/id-ID/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/id-ID/getting-started/quickstart",
+    "target": "/docs/id-ID/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/id-ID/getting-started/quickstart/",
+    "target": "/docs/id-ID/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/id-ID/getting-started/quickstart/index.html",
+    "target": "/docs/id-ID/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/vi-VN/",
+    "target": "/docs/vi-VN/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/vi-VN/index.html",
+    "target": "/docs/vi-VN/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/vi-VN/getting-started/introduction",
+    "target": "/docs/vi-VN/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/vi-VN/getting-started/introduction/",
+    "target": "/docs/vi-VN/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/vi-VN/getting-started/introduction/index.html",
+    "target": "/docs/vi-VN/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/vi-VN/getting-started/installation",
+    "target": "/docs/vi-VN/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/vi-VN/getting-started/installation/",
+    "target": "/docs/vi-VN/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/vi-VN/getting-started/installation/index.html",
+    "target": "/docs/vi-VN/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/vi-VN/getting-started/quickstart",
+    "target": "/docs/vi-VN/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/vi-VN/getting-started/quickstart/",
+    "target": "/docs/vi-VN/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/vi-VN/getting-started/quickstart/index.html",
+    "target": "/docs/vi-VN/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/tr-TR/",
+    "target": "/docs/tr-TR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/tr-TR/index.html",
+    "target": "/docs/tr-TR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/tr-TR/getting-started/introduction",
+    "target": "/docs/tr-TR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/tr-TR/getting-started/introduction/",
+    "target": "/docs/tr-TR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/tr-TR/getting-started/introduction/index.html",
+    "target": "/docs/tr-TR/overview/introduction/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/tr-TR/getting-started/installation",
+    "target": "/docs/tr-TR/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/tr-TR/getting-started/installation/",
+    "target": "/docs/tr-TR/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/tr-TR/getting-started/installation/index.html",
+    "target": "/docs/tr-TR/overview/installation/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/tr-TR/getting-started/quickstart",
+    "target": "/docs/tr-TR/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/tr-TR/getting-started/quickstart/",
+    "target": "/docs/tr-TR/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/docs/tr-TR/getting-started/quickstart/index.html",
+    "target": "/docs/tr-TR/overview/quickstart/",
+    "status": "301"
+  },
+  {
+    "source": "/zh-CN",
+    "target": "/zh-CN/",
+    "status": "301"
+  },
+  {
+    "source": "/zh-CN/index.html",
+    "target": "/zh-CN/",
+    "status": "301"
+  },
+  {
+    "source": "/zh-CN/",
+    "target": "/zh-CN/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/ja",
+    "target": "/ja/",
+    "status": "301"
+  },
+  {
+    "source": "/ja/index.html",
+    "target": "/ja/",
+    "status": "301"
+  },
+  {
+    "source": "/ja/",
+    "target": "/ja/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de",
+    "target": "/de/",
+    "status": "301"
+  },
+  {
+    "source": "/de/index.html",
+    "target": "/de/",
+    "status": "301"
+  },
+  {
+    "source": "/de/",
+    "target": "/de/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/fr",
+    "target": "/fr/",
+    "status": "301"
+  },
+  {
+    "source": "/fr/index.html",
+    "target": "/fr/",
+    "status": "301"
+  },
+  {
+    "source": "/fr/",
+    "target": "/fr/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/es",
+    "target": "/es/",
+    "status": "301"
+  },
+  {
+    "source": "/es/index.html",
+    "target": "/es/",
+    "status": "301"
+  },
+  {
+    "source": "/es/",
+    "target": "/es/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/pt-BR",
+    "target": "/pt-BR/",
+    "status": "301"
+  },
+  {
+    "source": "/pt-BR/index.html",
+    "target": "/pt-BR/",
+    "status": "301"
+  },
+  {
+    "source": "/pt-BR/",
+    "target": "/pt-BR/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/zh-TW",
+    "target": "/zh-TW/",
+    "status": "301"
+  },
+  {
+    "source": "/zh-TW/index.html",
+    "target": "/zh-TW/",
+    "status": "301"
+  },
+  {
+    "source": "/zh-TW/",
+    "target": "/zh-TW/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/it-IT",
+    "target": "/it-IT/",
+    "status": "301"
+  },
+  {
+    "source": "/it-IT/index.html",
+    "target": "/it-IT/",
+    "status": "301"
+  },
+  {
+    "source": "/it-IT/",
+    "target": "/it-IT/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/ko-KR",
+    "target": "/ko-KR/",
+    "status": "301"
+  },
+  {
+    "source": "/ko-KR/index.html",
+    "target": "/ko-KR/",
+    "status": "301"
+  },
+  {
+    "source": "/ko-KR/",
+    "target": "/ko-KR/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/ru-RU",
+    "target": "/ru-RU/",
+    "status": "301"
+  },
+  {
+    "source": "/ru-RU/index.html",
+    "target": "/ru-RU/",
+    "status": "301"
+  },
+  {
+    "source": "/ru-RU/",
+    "target": "/ru-RU/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/id-ID",
+    "target": "/id-ID/",
+    "status": "301"
+  },
+  {
+    "source": "/id-ID/index.html",
+    "target": "/id-ID/",
+    "status": "301"
+  },
+  {
+    "source": "/id-ID/",
+    "target": "/id-ID/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/tr-TR",
+    "target": "/tr-TR/",
+    "status": "301"
+  },
+  {
+    "source": "/tr-TR/index.html",
+    "target": "/tr-TR/",
+    "status": "301"
+  },
+  {
+    "source": "/tr-TR/",
+    "target": "/tr-TR/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/vi-VN",
+    "target": "/vi-VN/",
+    "status": "301"
+  },
+  {
+    "source": "/vi-VN/index.html",
+    "target": "/vi-VN/",
+    "status": "301"
+  },
+  {
+    "source": "/vi-VN/",
+    "target": "/vi-VN/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/ar-SA",
+    "target": "/ar-SA/",
+    "status": "301"
+  },
+  {
+    "source": "/ar-SA/index.html",
+    "target": "/ar-SA/",
+    "status": "301"
+  },
+  {
+    "source": "/ar-SA/",
+    "target": "/ar-SA/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/hi-IN",
+    "target": "/hi-IN/",
+    "status": "301"
+  },
+  {
+    "source": "/hi-IN/index.html",
+    "target": "/hi-IN/",
+    "status": "301"
+  },
+  {
+    "source": "/hi-IN/",
+    "target": "/hi-IN/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/zh-CN/download",
+    "target": "/zh-CN/download/",
+    "status": "301"
+  },
+  {
+    "source": "/zh-CN/download/index.html",
+    "target": "/zh-CN/download/",
+    "status": "301"
+  },
+  {
+    "source": "/zh-CN/download/",
+    "target": "/zh-CN/download/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/ja/download",
+    "target": "/ja/download/",
+    "status": "301"
+  },
+  {
+    "source": "/ja/download/index.html",
+    "target": "/ja/download/",
+    "status": "301"
+  },
+  {
+    "source": "/ja/download/",
+    "target": "/ja/download/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/download",
+    "target": "/de/download/",
+    "status": "301"
+  },
+  {
+    "source": "/de/download/index.html",
+    "target": "/de/download/",
+    "status": "301"
+  },
+  {
+    "source": "/de/download/",
+    "target": "/de/download/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/fr/download",
+    "target": "/fr/download/",
+    "status": "301"
+  },
+  {
+    "source": "/fr/download/index.html",
+    "target": "/fr/download/",
+    "status": "301"
+  },
+  {
+    "source": "/fr/download/",
+    "target": "/fr/download/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/es/download",
+    "target": "/es/download/",
+    "status": "301"
+  },
+  {
+    "source": "/es/download/index.html",
+    "target": "/es/download/",
+    "status": "301"
+  },
+  {
+    "source": "/es/download/",
+    "target": "/es/download/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/pt-BR/download",
+    "target": "/pt-BR/download/",
+    "status": "301"
+  },
+  {
+    "source": "/pt-BR/download/index.html",
+    "target": "/pt-BR/download/",
+    "status": "301"
+  },
+  {
+    "source": "/pt-BR/download/",
+    "target": "/pt-BR/download/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/zh-TW/download",
+    "target": "/zh-TW/download/",
+    "status": "301"
+  },
+  {
+    "source": "/zh-TW/download/index.html",
+    "target": "/zh-TW/download/",
+    "status": "301"
+  },
+  {
+    "source": "/zh-TW/download/",
+    "target": "/zh-TW/download/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/it-IT/download",
+    "target": "/it-IT/download/",
+    "status": "301"
+  },
+  {
+    "source": "/it-IT/download/index.html",
+    "target": "/it-IT/download/",
+    "status": "301"
+  },
+  {
+    "source": "/it-IT/download/",
+    "target": "/it-IT/download/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/ko-KR/download",
+    "target": "/ko-KR/download/",
+    "status": "301"
+  },
+  {
+    "source": "/ko-KR/download/index.html",
+    "target": "/ko-KR/download/",
+    "status": "301"
+  },
+  {
+    "source": "/ko-KR/download/",
+    "target": "/ko-KR/download/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/ru-RU/download",
+    "target": "/ru-RU/download/",
+    "status": "301"
+  },
+  {
+    "source": "/ru-RU/download/index.html",
+    "target": "/ru-RU/download/",
+    "status": "301"
+  },
+  {
+    "source": "/ru-RU/download/",
+    "target": "/ru-RU/download/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/id-ID/download",
+    "target": "/id-ID/download/",
+    "status": "301"
+  },
+  {
+    "source": "/id-ID/download/index.html",
+    "target": "/id-ID/download/",
+    "status": "301"
+  },
+  {
+    "source": "/id-ID/download/",
+    "target": "/id-ID/download/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/tr-TR/download",
+    "target": "/tr-TR/download/",
+    "status": "301"
+  },
+  {
+    "source": "/tr-TR/download/index.html",
+    "target": "/tr-TR/download/",
+    "status": "301"
+  },
+  {
+    "source": "/tr-TR/download/",
+    "target": "/tr-TR/download/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/vi-VN/download",
+    "target": "/vi-VN/download/",
+    "status": "301"
+  },
+  {
+    "source": "/vi-VN/download/index.html",
+    "target": "/vi-VN/download/",
+    "status": "301"
+  },
+  {
+    "source": "/vi-VN/download/",
+    "target": "/vi-VN/download/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/ar-SA/download",
+    "target": "/ar-SA/download/",
+    "status": "301"
+  },
+  {
+    "source": "/ar-SA/download/index.html",
+    "target": "/ar-SA/download/",
+    "status": "301"
+  },
+  {
+    "source": "/ar-SA/download/",
+    "target": "/ar-SA/download/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/hi-IN/download",
+    "target": "/hi-IN/download/",
+    "status": "301"
+  },
+  {
+    "source": "/hi-IN/download/index.html",
+    "target": "/hi-IN/download/",
+    "status": "301"
+  },
+  {
+    "source": "/hi-IN/download/",
+    "target": "/hi-IN/download/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/zh-CN/use-cases",
+    "target": "/zh-CN/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/zh-CN/use-cases/index.html",
+    "target": "/zh-CN/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/zh-CN/use-cases/",
+    "target": "/zh-CN/use-cases/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/ja/use-cases",
+    "target": "/ja/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/ja/use-cases/index.html",
+    "target": "/ja/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/ja/use-cases/",
+    "target": "/ja/use-cases/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/use-cases",
+    "target": "/de/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/de/use-cases/index.html",
+    "target": "/de/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/de/use-cases/",
+    "target": "/de/use-cases/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/fr/use-cases",
+    "target": "/fr/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/fr/use-cases/index.html",
+    "target": "/fr/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/fr/use-cases/",
+    "target": "/fr/use-cases/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/es/use-cases",
+    "target": "/es/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/es/use-cases/index.html",
+    "target": "/es/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/es/use-cases/",
+    "target": "/es/use-cases/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/pt-BR/use-cases",
+    "target": "/pt-BR/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/pt-BR/use-cases/index.html",
+    "target": "/pt-BR/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/pt-BR/use-cases/",
+    "target": "/pt-BR/use-cases/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/zh-TW/use-cases",
+    "target": "/zh-TW/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/zh-TW/use-cases/index.html",
+    "target": "/zh-TW/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/zh-TW/use-cases/",
+    "target": "/zh-TW/use-cases/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/it-IT/use-cases",
+    "target": "/it-IT/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/it-IT/use-cases/index.html",
+    "target": "/it-IT/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/it-IT/use-cases/",
+    "target": "/it-IT/use-cases/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/ko-KR/use-cases",
+    "target": "/ko-KR/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/ko-KR/use-cases/index.html",
+    "target": "/ko-KR/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/ko-KR/use-cases/",
+    "target": "/ko-KR/use-cases/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/ru-RU/use-cases",
+    "target": "/ru-RU/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/ru-RU/use-cases/index.html",
+    "target": "/ru-RU/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/ru-RU/use-cases/",
+    "target": "/ru-RU/use-cases/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/id-ID/use-cases",
+    "target": "/id-ID/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/id-ID/use-cases/index.html",
+    "target": "/id-ID/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/id-ID/use-cases/",
+    "target": "/id-ID/use-cases/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/tr-TR/use-cases",
+    "target": "/tr-TR/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/tr-TR/use-cases/index.html",
+    "target": "/tr-TR/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/tr-TR/use-cases/",
+    "target": "/tr-TR/use-cases/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/vi-VN/use-cases",
+    "target": "/vi-VN/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/vi-VN/use-cases/index.html",
+    "target": "/vi-VN/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/vi-VN/use-cases/",
+    "target": "/vi-VN/use-cases/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/ar-SA/use-cases",
+    "target": "/ar-SA/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/ar-SA/use-cases/index.html",
+    "target": "/ar-SA/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/ar-SA/use-cases/",
+    "target": "/ar-SA/use-cases/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/hi-IN/use-cases",
+    "target": "/hi-IN/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/hi-IN/use-cases/index.html",
+    "target": "/hi-IN/use-cases/",
+    "status": "301"
+  },
+  {
+    "source": "/hi-IN/use-cases/",
+    "target": "/hi-IN/use-cases/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/cloud/",
+    "target": "/cloud",
+    "status": "301"
+  },
+  {
+    "source": "/es/cloud/",
+    "target": "/es/cloud",
+    "status": "301"
+  },
+  {
+    "source": "/fr/cloud/",
+    "target": "/fr/cloud",
+    "status": "301"
+  },
+  {
+    "source": "/de/cloud/",
+    "target": "/de/cloud",
+    "status": "301"
+  },
+  {
+    "source": "/pt-BR/cloud/",
+    "target": "/pt-BR/cloud",
+    "status": "301"
+  },
+  {
+    "source": "/ja/cloud/",
+    "target": "/ja/cloud",
+    "status": "301"
+  },
+  {
+    "source": "/ko-KR/cloud/",
+    "target": "/ko-KR/cloud",
+    "status": "301"
+  },
+  {
+    "source": "/zh-CN/cloud/",
+    "target": "/zh-CN/cloud",
+    "status": "301"
+  },
+  {
+    "source": "/zh-TW/cloud/",
+    "target": "/zh-TW/cloud",
+    "status": "301"
+  },
+  {
+    "source": "/it-IT/cloud/",
+    "target": "/it-IT/cloud",
+    "status": "301"
+  },
+  {
+    "source": "/ru-RU/cloud/",
+    "target": "/ru-RU/cloud",
+    "status": "301"
+  },
+  {
+    "source": "/ar-SA/cloud/",
+    "target": "/ar-SA/cloud",
+    "status": "301"
+  },
+  {
+    "source": "/hi-IN/cloud/",
+    "target": "/hi-IN/cloud",
+    "status": "301"
+  },
+  {
+    "source": "/id-ID/cloud/",
+    "target": "/id-ID/cloud",
+    "status": "301"
+  },
+  {
+    "source": "/vi-VN/cloud/",
+    "target": "/vi-VN/cloud",
+    "status": "301"
+  },
+  {
+    "source": "/tr-TR/cloud/",
+    "target": "/tr-TR/cloud",
+    "status": "301"
+  },
+  {
+    "source": "/hub/",
+    "target": "/hub",
+    "status": "301"
+  },
+  {
+    "source": "/es/hub/",
+    "target": "/es/hub",
+    "status": "301"
+  },
+  {
+    "source": "/fr/hub/",
+    "target": "/fr/hub",
+    "status": "301"
+  },
+  {
+    "source": "/de/hub/",
+    "target": "/de/hub",
+    "status": "301"
+  },
+  {
+    "source": "/pt-BR/hub/",
+    "target": "/pt-BR/hub",
+    "status": "301"
+  },
+  {
+    "source": "/ja/hub/",
+    "target": "/ja/hub",
+    "status": "301"
+  },
+  {
+    "source": "/ko-KR/hub/",
+    "target": "/ko-KR/hub",
+    "status": "301"
+  },
+  {
+    "source": "/zh-CN/hub/",
+    "target": "/zh-CN/hub",
+    "status": "301"
+  },
+  {
+    "source": "/zh-TW/hub/",
+    "target": "/zh-TW/hub",
+    "status": "301"
+  },
+  {
+    "source": "/it-IT/hub/",
+    "target": "/it-IT/hub",
+    "status": "301"
+  },
+  {
+    "source": "/ru-RU/hub/",
+    "target": "/ru-RU/hub",
+    "status": "301"
+  },
+  {
+    "source": "/ar-SA/hub/",
+    "target": "/ar-SA/hub",
+    "status": "301"
+  },
+  {
+    "source": "/hi-IN/hub/",
+    "target": "/hi-IN/hub",
+    "status": "301"
+  },
+  {
+    "source": "/id-ID/hub/",
+    "target": "/id-ID/hub",
+    "status": "301"
+  },
+  {
+    "source": "/vi-VN/hub/",
+    "target": "/vi-VN/hub",
+    "status": "301"
+  },
+  {
+    "source": "/tr-TR/hub/",
+    "target": "/tr-TR/hub",
+    "status": "301"
+  },
+  {
+    "source": "/pricing/",
+    "target": "/pricing",
+    "status": "301"
+  },
+  {
+    "source": "/es/pricing/",
+    "target": "/es/pricing",
+    "status": "301"
+  },
+  {
+    "source": "/fr/pricing/",
+    "target": "/fr/pricing",
+    "status": "301"
+  },
+  {
+    "source": "/de/pricing/",
+    "target": "/de/pricing",
+    "status": "301"
+  },
+  {
+    "source": "/pt-BR/pricing/",
+    "target": "/pt-BR/pricing",
+    "status": "301"
+  },
+  {
+    "source": "/ja/pricing/",
+    "target": "/ja/pricing",
+    "status": "301"
+  },
+  {
+    "source": "/ko-KR/pricing/",
+    "target": "/ko-KR/pricing",
+    "status": "301"
+  },
+  {
+    "source": "/zh-CN/pricing/",
+    "target": "/zh-CN/pricing",
+    "status": "301"
+  },
+  {
+    "source": "/zh-TW/pricing/",
+    "target": "/zh-TW/pricing",
+    "status": "301"
+  },
+  {
+    "source": "/it-IT/pricing/",
+    "target": "/it-IT/pricing",
+    "status": "301"
+  },
+  {
+    "source": "/ru-RU/pricing/",
+    "target": "/ru-RU/pricing",
+    "status": "301"
+  },
+  {
+    "source": "/ar-SA/pricing/",
+    "target": "/ar-SA/pricing",
+    "status": "301"
+  },
+  {
+    "source": "/hi-IN/pricing/",
+    "target": "/hi-IN/pricing",
+    "status": "301"
+  },
+  {
+    "source": "/id-ID/pricing/",
+    "target": "/id-ID/pricing",
+    "status": "301"
+  },
+  {
+    "source": "/vi-VN/pricing/",
+    "target": "/vi-VN/pricing",
+    "status": "301"
+  },
+  {
+    "source": "/tr-TR/pricing/",
+    "target": "/tr-TR/pricing",
+    "status": "301"
+  },
+  {
     "source": "/cloud",
     "target": "/cloud-app/seo/cloud.html",
+    "status": "200"
+  },
+  {
+    "source": "/es/cloud",
+    "target": "/cloud-app/seo/es-cloud.html",
+    "status": "200"
+  },
+  {
+    "source": "/fr/cloud",
+    "target": "/cloud-app/seo/fr-cloud.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/cloud",
+    "target": "/cloud-app/seo/de-cloud.html",
+    "status": "200"
+  },
+  {
+    "source": "/pt-BR/cloud",
+    "target": "/cloud-app/seo/pt-BR-cloud.html",
+    "status": "200"
+  },
+  {
+    "source": "/ja/cloud",
+    "target": "/cloud-app/seo/ja-cloud.html",
+    "status": "200"
+  },
+  {
+    "source": "/ko-KR/cloud",
+    "target": "/cloud-app/seo/ko-KR-cloud.html",
+    "status": "200"
+  },
+  {
+    "source": "/zh-CN/cloud",
+    "target": "/cloud-app/seo/zh-CN-cloud.html",
+    "status": "200"
+  },
+  {
+    "source": "/zh-TW/cloud",
+    "target": "/cloud-app/seo/zh-TW-cloud.html",
+    "status": "200"
+  },
+  {
+    "source": "/it-IT/cloud",
+    "target": "/cloud-app/seo/it-IT-cloud.html",
+    "status": "200"
+  },
+  {
+    "source": "/ru-RU/cloud",
+    "target": "/cloud-app/seo/ru-RU-cloud.html",
+    "status": "200"
+  },
+  {
+    "source": "/ar-SA/cloud",
+    "target": "/cloud-app/seo/ar-SA-cloud.html",
+    "status": "200"
+  },
+  {
+    "source": "/hi-IN/cloud",
+    "target": "/cloud-app/seo/hi-IN-cloud.html",
+    "status": "200"
+  },
+  {
+    "source": "/id-ID/cloud",
+    "target": "/cloud-app/seo/id-ID-cloud.html",
+    "status": "200"
+  },
+  {
+    "source": "/vi-VN/cloud",
+    "target": "/cloud-app/seo/vi-VN-cloud.html",
+    "status": "200"
+  },
+  {
+    "source": "/tr-TR/cloud",
+    "target": "/cloud-app/seo/tr-TR-cloud.html",
     "status": "200"
   },
   {
@@ -560,8 +1880,158 @@
     "status": "200"
   },
   {
+    "source": "/es/hub",
+    "target": "/cloud-app/seo/es-hub.html",
+    "status": "200"
+  },
+  {
+    "source": "/fr/hub",
+    "target": "/cloud-app/seo/fr-hub.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/hub",
+    "target": "/cloud-app/seo/de-hub.html",
+    "status": "200"
+  },
+  {
+    "source": "/pt-BR/hub",
+    "target": "/cloud-app/seo/pt-BR-hub.html",
+    "status": "200"
+  },
+  {
+    "source": "/ja/hub",
+    "target": "/cloud-app/seo/ja-hub.html",
+    "status": "200"
+  },
+  {
+    "source": "/ko-KR/hub",
+    "target": "/cloud-app/seo/ko-KR-hub.html",
+    "status": "200"
+  },
+  {
+    "source": "/zh-CN/hub",
+    "target": "/cloud-app/seo/zh-CN-hub.html",
+    "status": "200"
+  },
+  {
+    "source": "/zh-TW/hub",
+    "target": "/cloud-app/seo/zh-TW-hub.html",
+    "status": "200"
+  },
+  {
+    "source": "/it-IT/hub",
+    "target": "/cloud-app/seo/it-IT-hub.html",
+    "status": "200"
+  },
+  {
+    "source": "/ru-RU/hub",
+    "target": "/cloud-app/seo/ru-RU-hub.html",
+    "status": "200"
+  },
+  {
+    "source": "/ar-SA/hub",
+    "target": "/cloud-app/seo/ar-SA-hub.html",
+    "status": "200"
+  },
+  {
+    "source": "/hi-IN/hub",
+    "target": "/cloud-app/seo/hi-IN-hub.html",
+    "status": "200"
+  },
+  {
+    "source": "/id-ID/hub",
+    "target": "/cloud-app/seo/id-ID-hub.html",
+    "status": "200"
+  },
+  {
+    "source": "/vi-VN/hub",
+    "target": "/cloud-app/seo/vi-VN-hub.html",
+    "status": "200"
+  },
+  {
+    "source": "/tr-TR/hub",
+    "target": "/cloud-app/seo/tr-TR-hub.html",
+    "status": "200"
+  },
+  {
     "source": "/pricing",
     "target": "/cloud-app/seo/pricing.html",
+    "status": "200"
+  },
+  {
+    "source": "/es/pricing",
+    "target": "/cloud-app/seo/es-pricing.html",
+    "status": "200"
+  },
+  {
+    "source": "/fr/pricing",
+    "target": "/cloud-app/seo/fr-pricing.html",
+    "status": "200"
+  },
+  {
+    "source": "/de/pricing",
+    "target": "/cloud-app/seo/de-pricing.html",
+    "status": "200"
+  },
+  {
+    "source": "/pt-BR/pricing",
+    "target": "/cloud-app/seo/pt-BR-pricing.html",
+    "status": "200"
+  },
+  {
+    "source": "/ja/pricing",
+    "target": "/cloud-app/seo/ja-pricing.html",
+    "status": "200"
+  },
+  {
+    "source": "/ko-KR/pricing",
+    "target": "/cloud-app/seo/ko-KR-pricing.html",
+    "status": "200"
+  },
+  {
+    "source": "/zh-CN/pricing",
+    "target": "/cloud-app/seo/zh-CN-pricing.html",
+    "status": "200"
+  },
+  {
+    "source": "/zh-TW/pricing",
+    "target": "/cloud-app/seo/zh-TW-pricing.html",
+    "status": "200"
+  },
+  {
+    "source": "/it-IT/pricing",
+    "target": "/cloud-app/seo/it-IT-pricing.html",
+    "status": "200"
+  },
+  {
+    "source": "/ru-RU/pricing",
+    "target": "/cloud-app/seo/ru-RU-pricing.html",
+    "status": "200"
+  },
+  {
+    "source": "/ar-SA/pricing",
+    "target": "/cloud-app/seo/ar-SA-pricing.html",
+    "status": "200"
+  },
+  {
+    "source": "/hi-IN/pricing",
+    "target": "/cloud-app/seo/hi-IN-pricing.html",
+    "status": "200"
+  },
+  {
+    "source": "/id-ID/pricing",
+    "target": "/cloud-app/seo/id-ID-pricing.html",
+    "status": "200"
+  },
+  {
+    "source": "/vi-VN/pricing",
+    "target": "/cloud-app/seo/vi-VN-pricing.html",
+    "status": "200"
+  },
+  {
+    "source": "/tr-TR/pricing",
+    "target": "/cloud-app/seo/tr-TR-pricing.html",
     "status": "200"
   },
   {

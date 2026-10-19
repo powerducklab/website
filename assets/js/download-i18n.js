@@ -381,3 +381,24 @@ Object.assign(window.POWERDUCK_I18N.messages["es"], {
   "dl.themeLabel": "Cambiar el tema de color",
   "dl.copyright": "© 2026 POWERDUCK LIMITED. Todos los derechos reservados."
 });
+
+// Editorial review: terminology, natural phrasing and platform-neutral guidance.
+Object.assign(window.POWERDUCK_I18N.messages["en"], {
+  "dl.deviceHint": "Choose the operating system of the computer where you’ll install Powerduck."
+});
+Object.assign(window.POWERDUCK_I18N.messages["zh-CN"], {
+  "dl.deviceHint": "请选择要安装 Powerduck 的电脑操作系统。"
+});
+Object.assign(window.POWERDUCK_I18N.messages["ja"], {
+  "dl.deviceHint": "Powerduck をインストールするパソコンの OS を選んでください。",
+  "dl.windowsTitle": "Windows 版 Powerduck"
+});
+Object.assign(window.POWERDUCK_I18N.messages["de"], {
+  "dl.deviceHint": "Wähle das Betriebssystem des Computers, auf dem du Powerduck installieren möchtest."
+});
+Object.assign(window.POWERDUCK_I18N.messages["fr"], {
+  "dl.deviceHint": "Sélectionnez le système de l’ordinateur sur lequel vous installerez Powerduck."
+});
+Object.assign(window.POWERDUCK_I18N.messages["es"], {
+  "dl.deviceHint": "Elige el sistema operativo del ordenador en el que vas a instalar Powerduck."
+});

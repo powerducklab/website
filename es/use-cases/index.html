@@ -1,0 +1,519 @@
+<!DOCTYPE html><html lang="es-ES" data-theme="light" data-page-locale="es" data-page-route="/use-cases.html" dir="ltr"><head>
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("pd_theme");
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          var root = document.documentElement;
+          root.setAttribute("data-theme", theme);
+          root.classList.add(theme);
+          root.classList.remove(theme === "dark" ? "light" : "dark");
+
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/images/icon-192.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Powerduck">
+    <meta property="og:title" data-i18n-content="scenes.metaTitle" content="Casos de uso de Powerduck — Del código a la documentación API, pruebas y mocks">
+    <meta property="og:description" data-i18n-content="scenes.metaDescription" content="Genera documentación API con tu asistente, depura solicitudes reales, verifica contratos y simula endpoints antes de que el backend esté listo.">
+    <meta property="og:url" content="https://www.powerduck.com/es/use-cases/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" data-i18n-content="scenes.metaTitle" content="Casos de uso de Powerduck — Del código a la documentación API, pruebas y mocks">
+    <meta name="twitter:description" data-i18n-content="scenes.metaDescription" content="Genera documentación API con tu asistente, depura solicitudes reales, verifica contratos y simula endpoints antes de que el backend esté listo.">
+
+    <title data-i18n="scenes.metaTitle">Casos de uso de Powerduck — Del código a la documentación API, pruebas y mocks</title>
+
+    <meta name="description" data-i18n-content="scenes.metaDescription" content="Genera documentación API con tu asistente, depura solicitudes reales, verifica contratos y simula endpoints antes de que el backend esté listo.">
+
+    <meta name="keywords" content="Powerduck, AI API development, AI-native OpenAPI studio, local-first API tool, OpenAPI editor, API debugging, MCP server generator, API documentation, OpenAPI 3.2, offline API client, AI coding agent, bring your own model">
+
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/assets/css/common.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/contour.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/product-paths.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261019d">
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-8HXDV7CDEB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-8HXDV7CDEB");
+    </script>
+  <meta property="og:image" content="https://www.powerduck.com/assets/images/icon-192.png"><meta property="og:locale" content="es_ES"><link rel="canonical" href="https://www.powerduck.com/es/use-cases/"><link rel="alternate" hreflang="en" href="https://www.powerduck.com/use-cases.html"><link rel="alternate" hreflang="zh-CN" href="https://www.powerduck.com/zh-CN/use-cases/"><link rel="alternate" hreflang="ja" href="https://www.powerduck.com/ja/use-cases/"><link rel="alternate" hreflang="de" href="https://www.powerduck.com/de/use-cases/"><link rel="alternate" hreflang="fr" href="https://www.powerduck.com/fr/use-cases/"><link rel="alternate" hreflang="es" href="https://www.powerduck.com/es/use-cases/"><link rel="alternate" hreflang="pt-BR" href="https://www.powerduck.com/pt-BR/use-cases/"><link rel="alternate" hreflang="zh-TW" href="https://www.powerduck.com/zh-TW/use-cases/"><link rel="alternate" hreflang="it-IT" href="https://www.powerduck.com/it-IT/use-cases/"><link rel="alternate" hreflang="ko-KR" href="https://www.powerduck.com/ko-KR/use-cases/"><link rel="alternate" hreflang="ru-RU" href="https://www.powerduck.com/ru-RU/use-cases/"><link rel="alternate" hreflang="id-ID" href="https://www.powerduck.com/id-ID/use-cases/"><link rel="alternate" hreflang="tr-TR" href="https://www.powerduck.com/tr-TR/use-cases/"><link rel="alternate" hreflang="vi-VN" href="https://www.powerduck.com/vi-VN/use-cases/"><link rel="alternate" hreflang="ar-SA" href="https://www.powerduck.com/ar-SA/use-cases/"><link rel="alternate" hreflang="hi-IN" href="https://www.powerduck.com/hi-IN/use-cases/"><link rel="alternate" hreflang="x-default" href="https://www.powerduck.com/use-cases.html"><script type="application/ld+json" data-site-schema="">{"@context":"https://schema.org","@type":"WebPage","name":"Casos de uso de Powerduck — Del código a la documentación API, pruebas y mocks","description":"Genera documentación API con tu asistente, depura solicitudes reales, verifica contratos y simula endpoints antes de que el backend esté listo.","url":"https://www.powerduck.com/es/use-cases/","inLanguage":"es","isPartOf":{"@type":"WebSite","name":"Powerduck","url":"https://www.powerduck.com/"}}</script></head>
+
+  <body>
+    <div class="page-shell">
+      <!-- =======================================================================
+     NAV
+     ======================================================================= -->
+
+      <header class="nav">
+        <div class="nav-inner">
+          <a href="/es/" class="brand" aria-label="Inicio de Powerduck">
+            <img src="/assets/images/logo.svg" alt="Powerduck logo" class="brand-mark">
+
+            <span>Powerduck</span>
+          </a>
+
+          <button class="nav-hamburger" aria-label="Abrir o cerrar el menú de navegación" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+
+          <div class="nav-drawer" id="navDrawer">
+            <nav class="nav-links">
+
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                  <span data-i18n="nav.client">Aplicación de escritorio</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="/es/#spec-editor" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.specEditor">Editor de especificaciones</span><span class="dropdown-item-desc" data-i18n="nav.specEditorDesc">Edita directamente tu especificación OpenAPI</span></span></a>
+                  <a class="dropdown-item" href="/es/#api-debug" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDebug">Depuración de API</span><span class="dropdown-item-desc" data-i18n="nav.apiDebugDesc">Enviar solicitudes e inspeccionar respuestas</span></span></a>
+                  <a class="dropdown-item" href="/es/#mcp-server" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.mcpServer">Servidor MCP</span><span class="dropdown-item-desc" data-i18n="nav.mcpServerDesc">Convierte una especificación en herramientas para la IA</span></span></a>
+                  <a class="dropdown-item" href="/es/#api-docs" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDocs">Documentación de API</span><span class="dropdown-item-desc" data-i18n="nav.apiDocsDesc">Genera documentación a partir de la misma especificación</span></span></a>
+                </div>
+              </div><a class="nav-hub-link" href="/es/hub" data-i18n="nav.hub">Hub</a>
+
+
+
+              <a class="nav-direct" href="/es/pricing?product=client" data-i18n="nav.pricing">Precios</a>
+
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                  <span data-i18n="nav.resources">Recursos</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="/docs/es-ES/overview/introduction/index.html" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.documentation">Documentación</span><span class="dropdown-item-desc" data-i18n="nav.documentationDesc">Guías y referencias de API</span></span></a>
+                  <a class="dropdown-item" href="/es/use-cases/" role="menuitem"><span class="dropdown-item-text"><span data-i18n="scenes.all" class="dropdown-item-title">Guías por escenario</span></span></a>
+                  <a class="dropdown-item" href="/blog/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.blog">Blog</span><span class="dropdown-item-desc" data-i18n="nav.blogDesc">Notas de producto e ingeniería</span></span></a>
+                  <a class="dropdown-item" href="/blog/tag/release-notes/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.releaseNotes">Notas de versión</span><span class="dropdown-item-desc" data-i18n="nav.releaseNotesDesc">Novedades de cada versión</span></span></a>
+                  <a class="dropdown-item" href="/demo/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.liveDemo">Demo en línea</span><span class="dropdown-item-desc" data-i18n="nav.liveDemoDesc">Probar cada herramienta en el navegador</span></span></a>
+                  <a class="dropdown-item" href="/app/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.webApp">Aplicación web</span><span class="dropdown-item-desc" data-i18n="nav.webAppDesc">Usa la aplicación completa de Powerduck en el navegador</span></span></a>
+                  <a class="dropdown-item" href="https://github.com/powerducklab" target="_blank" role="menuitem" rel="nofollow noopener noreferrer"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.openSource">Código abierto</span><span class="dropdown-item-desc" data-i18n="nav.openSourceDesc">Bibliotecas en GitHub y npm</span></span></a>
+                </div>
+              </div>
+            </nav>
+
+            <div class="nav-actions">
+              <a class="nav-icon-btn" href="https://github.com/powerducklab" target="_blank" aria-label="GitHub" rel="nofollow noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12 12-12z"></path>
+                </svg>
+              </a>
+              <div class="nav-account-slot" id="navAccountSlot">
+                <a class="nav-signin" data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">Iniciar sesión</a>
+              </div>
+
+              <div class="nav-dropdown" id="langMenu">
+                <button class="nav-icon-btn nav-dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Seleccionar idioma">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20"></path>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu align-right" role="menu" id="langMenuContent"></div>
+              </div>
+
+              <button class="theme-toggle" data-theme-toggle="" id="themeToggle" type="button" aria-label="Cambiar el tema de color">
+                <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none">
+                  <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+                </svg>
+
+                <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"></circle>
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                </svg>
+              </button>
+
+              <a class="btn btn-primary btn-sm" href="/es/download/" data-i18n="nav.download">Descargar</a>
+            </div>
+          </div>
+        </div>
+
+        <style>
+          .nav-dropdown:hover .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+          .nav-dropdown:hover .chevron {
+            transform: rotate(180deg);
+          }
+          .nav-dropdown.open .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+        </style>
+      </header>
+
+      <main class="scenes-page">
+        <header class="scenes-page-heading">
+          <a class="scenes-back" href="/es/">← <span data-i18n="scenes.back">Volver al inicio</span></a>
+          <p data-i18n="flow.kicker" class="scenes-kicker">VÉALO EN UN FLUJO</p>
+          <h1 data-i18n="flow.title">Cada tarea familiar se convierte en un flujo basado en el contrato.</h1>
+          <p data-i18n="flow.intro" class="scenes-intro">Elige una tarea a continuación. Powerduck la ejecuta desde el archivo OpenAPI en tu equipo — con entornos, pruebas y mocks, sin cuenta ni subida.</p>
+        </header>
+        <nav class="scenes-index" aria-labelledby="scenes-index-title">
+          <h2 data-i18n="scenes.jump" id="scenes-index-title">Encuentra tu caso de uso</h2>
+          <ol>
+            <li>
+              <a href="#code-to-docs"><span class="scene-number" aria-hidden="true">01</span><span data-i18n="flow.1.title">Genera documentación desde el proyecto.</span></a>
+            </li>
+            <li>
+              <a href="#design-api"><span class="scene-number" aria-hidden="true">02</span><span data-i18n="flow.2.title">Implementa según el contrato real de la API.</span></a>
+            </li>
+            <li>
+              <a href="#contract-tests"><span class="scene-number" aria-hidden="true">03</span><span data-i18n="flow.3.title">Ejecuta el escenario de negocio completo.</span></a>
+            </li>
+            <li>
+              <a href="#protocols"><span class="scene-number" aria-hidden="true">04</span><span data-i18n="flow.4.title">Examina siete protocolos en un solo lugar.</span></a>
+            </li>
+            <li>
+              <a href="#ai-debug"><span class="scene-number" aria-hidden="true">05</span><span data-i18n="flow.5.title">Investiga con el contexto real de la petición.</span></a>
+            </li>
+            <li>
+              <a href="#share-docs"><span class="scene-number" aria-hidden="true">06</span><span data-i18n="flow.6.title">Publica documentación y MCP desde una API.</span></a>
+            </li>
+          </ol>
+        </nav>
+        <div class="scenes-details">
+          <article class="scene-detail" id="code-to-docs" aria-labelledby="title-code-to-docs">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">01</span>
+              <h2 data-i18n="flow.1.title" id="title-code-to-docs">Genera documentación desde el proyecto.</h2>
+              <p data-i18n="flow.1.pain">¿Todavía lees el código fuente para comprobar si la documentación de la API es correcta?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">CON POWERDUCK</h3>
+              <p data-i18n="flow.1.body">Analiza un proyecto compatible desde tu agente mediante MCP. Genera una definición de API y ábrela como documentación.</p>
+              <h3 data-i18n="flow.result">EL RESULTADO</h3>
+              <p data-i18n="flow.1.result">Una definición revisable y un enlace local a la documentación.</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">Pídele a tu agente</p>
+                <blockquote data-i18n="flow.1.prompt">Analiza este proyecto y dame un enlace a la documentación de su API.</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Ten en cuenta</h3>
+                <p data-i18n="scenes.s1.note">Solo frameworks compatibles. Revisa los campos inferidos y las advertencias. Los enlaces locales funcionan en el equipo del servidor MCP mientras dure la sesión.</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/coding-agent/" href="/docs/es-ES/client/coding-agent/"><span data-i18n="flow.boundary">Configuración y requisitos</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="design-api" aria-labelledby="title-design-api">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">02</span>
+              <h2 data-i18n="flow.2.title" id="title-design-api">Implementa según el contrato real de la API.</h2>
+              <p data-i18n="flow.2.pain">¿Le has dado la especificación a la IA y aun así te devuelve otros campos y rutas?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">CON POWERDUCK</h3>
+              <p data-i18n="flow.2.body">Tu agente lee las rutas, esquemas y requisitos de autenticación reales mediante MCP antes de implementar. Después verifica la API en ejecución.</p>
+              <h3 data-i18n="flow.result">EL RESULTADO</h3>
+              <p data-i18n="flow.2.result">Una implementación guiada por el contrato y comprobada con respuestas reales.</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">Pídele a tu agente</p>
+                <blockquote data-i18n="flow.2.prompt">Implementa esta API según su definición y ejecuta pruebas de contrato.</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Ten en cuenta</h3>
+                <p data-i18n="scenes.s3.note">Las comprobaciones cubren las operaciones, entradas y aserciones ejecutadas. No garantizan todos los comportamientos del backend.</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/coding-agent/" href="/docs/es-ES/client/coding-agent/"><span data-i18n="flow.boundary">Configuración y requisitos</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="contract-tests" aria-labelledby="title-contract-tests">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">03</span>
+              <h2 data-i18n="flow.3.title" id="title-contract-tests">Ejecuta el escenario de negocio completo.</h2>
+              <p data-i18n="flow.3.pain">¿Repites manualmente el mismo flujo de negocio tras cada cambio en la API?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">CON POWERDUCK</h3>
+              <p data-i18n="flow.3.body">Describe iniciar sesión → crear pedido → consultarlo. La IA organiza el escenario, pasa valores entre pasos y lo ejecuta.</p>
+              <h3 data-i18n="flow.result">EL RESULTADO</h3>
+              <p data-i18n="flow.3.result">Resultados por paso y aserciones fallidas, no solo un script de pruebas.</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">Pídele a tu agente</p>
+                <blockquote data-i18n="flow.3.prompt">Prueba iniciar sesión → crear pedido → consultarlo. Muéstrame qué paso falla.</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Ten en cuenta</h3>
+                <p data-i18n="scenes.s3.note">Las comprobaciones cubren las operaciones, entradas y aserciones ejecutadas. No garantizan todos los comportamientos del backend.</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/scenario-testing/" href="/docs/es-ES/client/scenario-testing/"><span data-i18n="flow.boundary">Configuración y requisitos</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="protocols" aria-labelledby="title-protocols">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">04</span>
+              <h2 data-i18n="flow.4.title" id="title-protocols">Examina siete protocolos en un solo lugar.</h2>
+              <p data-i18n="flow.4.pain">¿Cambias de herramienta solo porque el siguiente endpoint usa otro protocolo?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">CON POWERDUCK</h3>
+              <p data-i18n="flow.4.body">Depura HTTP, GraphQL, WebSocket, SSE, gRPC, MCP y A2A. Revisa respuestas, flujos y llamadas a herramientas en el mismo lugar.</p>
+              <h3 data-i18n="flow.result">EL RESULTADO</h3>
+              <p data-i18n="flow.4.result">Control manual para entender exactamente qué ocurrió.</p>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Ten en cuenta</h3>
+                <p data-i18n="scenes.s8.note">La compatibilidad varía entre escritorio y navegador. Usa la aplicación de escritorio para transportes nativos como gRPC.</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/protocols/" href="/docs/es-ES/client/protocols/"><span data-i18n="flow.boundary">Configuración y requisitos</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="ai-debug" aria-labelledby="title-ai-debug">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">05</span>
+              <h2 data-i18n="flow.5.title" id="title-ai-debug">Investiga con el contexto real de la petición.</h2>
+              <p data-i18n="flow.5.pain">¿Vuelves a copiar peticiones, respuestas y contexto cada vez que pides ayuda a la IA?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">CON POWERDUCK</h3>
+              <p data-i18n="flow.5.body">Dale al asistente el contexto relevante de la API. Pídele que envíe una petición, revise la respuesta y ayude a acotar el fallo.</p>
+              <h3 data-i18n="flow.result">EL RESULTADO</h3>
+              <p data-i18n="flow.5.result">Un diagnóstico basado en resultados reales y cambios que puedes revisar.</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">Pídele a tu agente</p>
+                <blockquote data-i18n="flow.5.prompt">Investiga por qué falla esta petición. Revisa la respuesta antes de proponer un arreglo.</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Ten en cuenta</h3>
+                <p data-i18n="scenes.s5.note">Las funciones de IA necesitan un modelo configurado. Con un proveedor remoto, el contexto enviado sale de tu dispositivo. La edición manual no requiere IA.</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/debug/" href="/docs/es-ES/client/debug/"><span data-i18n="flow.boundary">Configuración y requisitos</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="share-docs" aria-labelledby="title-share-docs">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">06</span>
+              <h2 data-i18n="flow.6.title" id="title-share-docs">Publica documentación y MCP desde una API.</h2>
+              <p data-i18n="flow.6.pain">¿Mantienes un alojamiento aparte solo para compartir documentación de API y MCP?</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">CON POWERDUCK</h3>
+              <p data-i18n="flow.6.body">Publica una versión de tu API en Powerduck Cloud. Las personas reciben documentación legible y los clientes de IA, un endpoint MCP.</p>
+              <h3 data-i18n="flow.result">EL RESULTADO</h3>
+              <p data-i18n="flow.6.result">URL de documentación y MCP sin mantener tu propia infraestructura de alojamiento.</p>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">Ten en cuenta</h3>
+                <p data-i18n="scenes.s6.note">El alojamiento Cloud usa la cuota de tu cuenta. Revisa los ejemplos y la información interna de la definición antes de compartirla.</p>
+              </aside>
+              <a class="scene-link" data-docs-path="cloud/exposure/" href="/docs/es-ES/cloud/exposure/"><span data-i18n="flow.boundary">Configuración y requisitos</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+        <section class="scenes-cta">
+          <h2 data-i18n="scenes.ready">Empieza probando una sola API.</h2>
+          <p data-i18n="scenes.readyBody">Abre una especificación existente o usa el ejemplo integrado. Conoce el flujo antes de conectar tu proyecto.</p>
+          <div>
+            <a class="btn btn-primary" href="/es/download/"><span data-i18n="scenes.download">Descargar Powerduck</span></a><a class="btn btn-secondary" href="/app/"><span data-i18n="scenes.example">Probar el espacio web</span></a>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <div class="footer-shell">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <a href="/es/" class="brand" aria-label="Inicio de Powerduck">
+                <img src="/assets/images/logo.svg" alt="Powerduck logo" class="brand-logo">
+                <span>Powerduck</span>
+              </a>
+              <p data-i18n="footer.brand">Creamos herramientas para desarrolladores para el flujo de API moderno. Código abierto, listas para producción e impulsadas por la comunidad.</p>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="footer.product">Producto</h6>
+              <ul>
+                <li>
+                  <a href="/es/#spec-editor" data-i18n="nav.specEditor">Editor de especificaciones</a>
+                </li>
+                <li>
+                  <a href="/es/#api-debug" data-i18n="nav.apiDebug">Depuración de API</a>
+                </li>
+                <li>
+                  <a href="/es/#mcp-server" data-i18n="nav.mcpServer">Servidor MCP</a>
+                </li>
+                <li>
+                  <a href="/es/#api-docs" data-i18n="nav.apiDocs">Documentación de API</a>
+                </li>
+                <li>
+                  <a href="/es/download/" data-i18n="nav.download">Descargar</a>
+                </li>
+                <li>
+                  <a href="/es/pricing?product=client" data-i18n="footer.prices">Precios</a>
+                </li>
+                <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+                <li>
+                  <a href="/blog/tag/release-notes/" data-i18n="nav.releaseNotes">Notas de versión</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="nav.cloud">Cloud</h6>
+              <ul>
+                <li>
+                  <a data-cloud-signin="/hub" href="/es/hub" data-i18n="nav.hub">Hub</a>
+                </li>
+                <li>
+                  <a data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">Iniciar sesión</a>
+                </li>
+                <li>
+                  <a href="/docs/es-ES/cloud/quickstart/index.html" data-i18n="footer.quickstart">Inicio rápido</a>
+                </li>
+                <li>
+                  <a href="/docs/es-ES/cloud/access-control/index.html" data-i18n="footer.accessControl">Control de acceso</a>
+                </li>
+                <li>
+                  <a href="/docs/es-ES/cloud/custom-domains/index.html" data-i18n="footer.customDomains">Dominios personalizados</a>
+                </li>
+                <li>
+                  <a href="/docs/es-ES/cloud/billing/index.html" data-i18n="footer.billing">Facturación</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="nav.resources">Recursos</h6>
+              <ul>
+                <li>
+                  <a href="/docs/es-ES/overview/introduction/index.html" data-i18n="nav.documentation">Documentación</a>
+                </li>
+                <li>
+                  <a href="/docs/es-ES/client/introduction/index.html" data-i18n="footer.clientGuide">Guía del cliente</a>
+                </li>
+                <li>
+                  <a href="/docs/es-ES/cloud/introduction/index.html" data-i18n="footer.cloudGuide">Guía de Cloud</a>
+                </li>
+                <li>
+                  <a href="https://github.com/powerducklab" target="_blank" rel="nofollow noopener noreferrer">GitHub</a>
+                </li>
+                <li>
+                  <a href="https://www.npmjs.com/search?q=%40powerduck" target="_blank" data-i18n="footer.npmPackages" rel="nofollow noopener noreferrer">Paquetes npm</a>
+                </li>
+                <li>
+                  <a href="/es/#faq" data-i18n="faq.kicker">Preguntas frecuentes</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="footer.legal">Legal</h6>
+              <ul>
+                <li>
+                  <a href="/terms.html" data-i18n="footer.terms">Términos del servicio</a>
+                </li>
+                <li>
+                  <a href="/privacy.html" data-i18n="footer.privacy">Política de privacidad</a>
+                </li>
+                <li>
+                  <a href="/refunds.html" data-i18n="footer.refunds">Política de reembolsos</a>
+                </li>
+                <li>
+                  <a href="/cookie.html" data-i18n="footer.cookie">Aviso de cookies</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span data-i18n="dl.copyright">© 2026 POWERDUCK LIMITED. Todos los derechos reservados.</span>
+            <div class="footer-bottom-links">
+              <a href="/terms.html" data-i18n="footer.termsShort">Términos</a>
+              <a href="/privacy.html" data-i18n="footer.privacyShort">Privacidad</a>
+              <a href="/cookie.html" data-i18n="footer.cookieShort">Cookies</a>
+            </div>
+          </div>
+        </div>
+      <nav data-locale-links="" class="locale-links" aria-label="Seleccionar idioma"><a href="/use-cases.html" hreflang="en" lang="en">English (US)</a><a href="/zh-CN/use-cases/" hreflang="zh-CN" lang="zh-CN">简体中文</a><a href="/ja/use-cases/" hreflang="ja" lang="ja">日本語</a><a href="/de/use-cases/" hreflang="de" lang="de">Deutsch</a><a href="/fr/use-cases/" hreflang="fr" lang="fr">Français</a><a href="/es/use-cases/" hreflang="es" lang="es" aria-current="page">Español</a><a href="/pt-BR/use-cases/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a><a href="/zh-TW/use-cases/" hreflang="zh-TW" lang="zh-TW">繁體中文</a><a href="/it-IT/use-cases/" hreflang="it-IT" lang="it-IT">Italiano</a><a href="/ko-KR/use-cases/" hreflang="ko-KR" lang="ko-KR">한국어</a><a href="/ru-RU/use-cases/" hreflang="ru-RU" lang="ru-RU">Русский</a><a href="/id-ID/use-cases/" hreflang="id-ID" lang="id-ID">Bahasa Indonesia</a><a href="/tr-TR/use-cases/" hreflang="tr-TR" lang="tr-TR">Türkçe</a><a href="/vi-VN/use-cases/" hreflang="vi-VN" lang="vi-VN">Tiếng Việt</a><a href="/ar-SA/use-cases/" hreflang="ar-SA" lang="ar-SA">العربية</a><a href="/hi-IN/use-cases/" hreflang="hi-IN" lang="hi-IN">हिन्दी</a></nav></footer>
+    </div>
+
+
+
+    <script src="/assets/locales/es.js?v=20261019d"></script><script src="/assets/js/common.js?v=20261019d"></script>
+    <script src="/assets/js/cloud.js?v=20261019d"></script>
+    <script>
+      (function () {
+        var btn = document.querySelector(".nav-hamburger");
+        var drawer = document.getElementById("navDrawer");
+        if (btn && drawer) {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            var open = drawer.classList.toggle("open");
+            btn.classList.toggle("open", open);
+            btn.setAttribute("aria-expanded", open);
+          });
+          document.addEventListener("click", function (e) {
+            if (
+              drawer.classList.contains("open") &&
+              !drawer.contains(e.target) &&
+              !btn.contains(e.target)
+            ) {
+              drawer.classList.remove("open");
+              btn.classList.remove("open");
+              btn.setAttribute("aria-expanded", "false");
+            }
+          });
+        }
+      })();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

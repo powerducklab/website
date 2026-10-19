@@ -890,3 +890,29 @@
     Object.assign(window.POWERDUCK_I18N.messages[l], messages[l]);
   });
 })();
+
+// Editorial review: terminology, natural phrasing and platform-neutral guidance.
+Object.assign(window.POWERDUCK_I18N.messages["de"], {
+  "start.example": "Ein echter Vertragsfehler – und die überprüfte Korrektur",
+  "start.exampleBody": "Die Spezifikation verlangt für total eine Zahl. Das lokale Backend liefert einen String. Die Prüfung meldet, dass /total eine Zahl sein muss. Mit einer Zahl besteht die Antwort dieselbe Prüfung.",
+  "start.title": "In drei Schritten starten",
+  "start.one": "Lade die Desktop-App herunter und probiere das lokale Beispiel aus. Du brauchst weder ein Konto noch einen API-Schlüssel für ein KI-Modell.",
+  "start.two": "Öffne deine OpenAPI-Datei oder analysiere eine vorhandene Codebasis.",
+  "start.three": "Verbinde einen Coding-Agenten, ändere den Code und prüfe das echte Backend anhand der Spezifikation."
+});
+Object.assign(window.POWERDUCK_I18N.messages["fr"], {
+  "start.example": "Une erreur de contrat réelle, puis une correction vérifiée",
+  "start.exampleBody": "La spécification exige un nombre pour total. Le serveur local renvoie une chaîne. La validation indique que /total doit être un nombre. Une fois la réponse corrigée, la même vérification réussit.",
+  "start.title": "Démarrez en trois étapes",
+  "start.one": "Téléchargez l’application et essayez l’exemple local, sans compte ni clé d’API pour un modèle d’IA.",
+  "start.two": "Ouvrez votre fichier OpenAPI ou analysez un projet existant.",
+  "start.three": "Connectez un assistant de programmation, modifiez le code et vérifiez les réponses du serveur par rapport à la spécification."
+});
+Object.assign(window.POWERDUCK_I18N.messages["es"], {
+  "start.example": "Un error real del contrato y su corrección verificada",
+  "start.exampleBody": "La especificación exige que total sea un número, pero el servidor local devuelve una cadena. La validación indica que /total debe ser un número. Al corregir la respuesta, esta supera la misma comprobación.",
+  "start.title": "Empieza en tres pasos",
+  "start.one": "Descarga la aplicación y prueba el ejemplo local, sin cuenta ni clave de API de un modelo de IA.",
+  "start.two": "Abre tu archivo OpenAPI o analiza un proyecto existente.",
+  "start.three": "Conecta un asistente de programación, modifica el código y verifica las respuestas del servidor real con la especificación."
+});

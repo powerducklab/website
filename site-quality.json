@@ -1,0 +1,125 @@
+{
+  "checked": 64,
+  "issues": [],
+  "targetLanguages": 16,
+  "completeMarketingLanguages": [
+    "en",
+    "zh-CN",
+    "ja",
+    "de",
+    "fr",
+    "es",
+    "pt-BR",
+    "zh-TW",
+    "it-IT",
+    "ko-KR",
+    "ru-RU",
+    "id-ID",
+    "tr-TR",
+    "vi-VN",
+    "ar-SA",
+    "hi-IN"
+  ],
+  "missingMarketingLanguages": [],
+  "completePublicAppLanguages": [
+    "en",
+    "es",
+    "fr",
+    "de",
+    "pt-BR",
+    "ja",
+    "ko-KR",
+    "zh-CN",
+    "zh-TW",
+    "it-IT",
+    "ru-RU",
+    "ar-SA",
+    "hi-IN",
+    "id-ID",
+    "vi-VN",
+    "tr-TR"
+  ],
+  "missingPublicAppLanguages": [],
+  "bundles": [
+    {
+      "language": "en",
+      "bytes": 30767,
+      "gzipBytes": 10733
+    },
+    {
+      "language": "zh-CN",
+      "bytes": 30332,
+      "gzipBytes": 11919
+    },
+    {
+      "language": "ja",
+      "bytes": 39270,
+      "gzipBytes": 12488
+    },
+    {
+      "language": "de",
+      "bytes": 33811,
+      "gzipBytes": 11985
+    },
+    {
+      "language": "fr",
+      "bytes": 35502,
+      "gzipBytes": 12015
+    },
+    {
+      "language": "es",
+      "bytes": 34259,
+      "gzipBytes": 11522
+    },
+    {
+      "language": "pt-BR",
+      "bytes": 35273,
+      "gzipBytes": 11619
+    },
+    {
+      "language": "zh-TW",
+      "bytes": 30921,
+      "gzipBytes": 12170
+    },
+    {
+      "language": "it-IT",
+      "bytes": 34425,
+      "gzipBytes": 11471
+    },
+    {
+      "language": "ko-KR",
+      "bytes": 36498,
+      "gzipBytes": 11790
+    },
+    {
+      "language": "ru-RU",
+      "bytes": 51423,
+      "gzipBytes": 13763
+    },
+    {
+      "language": "id-ID",
+      "bytes": 32545,
+      "gzipBytes": 10708
+    },
+    {
+      "language": "tr-TR",
+      "bytes": 35317,
+      "gzipBytes": 11677
+    },
+    {
+      "language": "vi-VN",
+      "bytes": 37037,
+      "gzipBytes": 11227
+    },
+    {
+      "language": "ar-SA",
+      "bytes": 42723,
+      "gzipBytes": 12169
+    },
+    {
+      "language": "hi-IN",
+      "bytes": 62635,
+      "gzipBytes": 13006
+    }
+  ]
+}

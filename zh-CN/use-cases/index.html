@@ -1,0 +1,519 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light" data-page-locale="zh-CN" data-page-route="/use-cases.html" dir="ltr"><head>
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("pd_theme");
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          var root = document.documentElement;
+          root.setAttribute("data-theme", theme);
+          root.classList.add(theme);
+          root.classList.remove(theme === "dark" ? "light" : "dark");
+
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/images/icon-192.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Powerduck">
+    <meta property="og:title" data-i18n-content="scenes.metaTitle" content="Powerduck 使用场景 — 从代码生成文档，到接口测试与 Mock">
+    <meta property="og:description" data-i18n-content="scenes.metaDescription" content="在编程助手里生成 API 文档链接，复现请求、检查接口是否符合文档，在后端完成前用 Mock 开始联调。">
+    <meta property="og:url" content="https://www.powerduck.com/zh-CN/use-cases/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" data-i18n-content="scenes.metaTitle" content="Powerduck 使用场景 — 从代码生成文档，到接口测试与 Mock">
+    <meta name="twitter:description" data-i18n-content="scenes.metaDescription" content="在编程助手里生成 API 文档链接，复现请求、检查接口是否符合文档，在后端完成前用 Mock 开始联调。">
+
+    <title data-i18n="scenes.metaTitle">Powerduck 使用场景 — 从代码生成文档，到接口测试与 Mock</title>
+
+    <meta name="description" data-i18n-content="scenes.metaDescription" content="在编程助手里生成 API 文档链接，复现请求、检查接口是否符合文档，在后端完成前用 Mock 开始联调。">
+
+    <meta name="keywords" content="Powerduck, AI API development, AI-native OpenAPI studio, local-first API tool, OpenAPI editor, API debugging, MCP server generator, API documentation, OpenAPI 3.2, offline API client, AI coding agent, bring your own model">
+
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/assets/css/common.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/contour.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/product-paths.css?v=20261019d">
+    <link rel="stylesheet" href="/assets/css/scenarios.css?v=20261019d">
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-8HXDV7CDEB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-8HXDV7CDEB");
+    </script>
+  <meta property="og:image" content="https://www.powerduck.com/assets/images/icon-192.png"><meta property="og:locale" content="zh_CN"><link rel="canonical" href="https://www.powerduck.com/zh-CN/use-cases/"><link rel="alternate" hreflang="en" href="https://www.powerduck.com/use-cases.html"><link rel="alternate" hreflang="zh-CN" href="https://www.powerduck.com/zh-CN/use-cases/"><link rel="alternate" hreflang="ja" href="https://www.powerduck.com/ja/use-cases/"><link rel="alternate" hreflang="de" href="https://www.powerduck.com/de/use-cases/"><link rel="alternate" hreflang="fr" href="https://www.powerduck.com/fr/use-cases/"><link rel="alternate" hreflang="es" href="https://www.powerduck.com/es/use-cases/"><link rel="alternate" hreflang="pt-BR" href="https://www.powerduck.com/pt-BR/use-cases/"><link rel="alternate" hreflang="zh-TW" href="https://www.powerduck.com/zh-TW/use-cases/"><link rel="alternate" hreflang="it-IT" href="https://www.powerduck.com/it-IT/use-cases/"><link rel="alternate" hreflang="ko-KR" href="https://www.powerduck.com/ko-KR/use-cases/"><link rel="alternate" hreflang="ru-RU" href="https://www.powerduck.com/ru-RU/use-cases/"><link rel="alternate" hreflang="id-ID" href="https://www.powerduck.com/id-ID/use-cases/"><link rel="alternate" hreflang="tr-TR" href="https://www.powerduck.com/tr-TR/use-cases/"><link rel="alternate" hreflang="vi-VN" href="https://www.powerduck.com/vi-VN/use-cases/"><link rel="alternate" hreflang="ar-SA" href="https://www.powerduck.com/ar-SA/use-cases/"><link rel="alternate" hreflang="hi-IN" href="https://www.powerduck.com/hi-IN/use-cases/"><link rel="alternate" hreflang="x-default" href="https://www.powerduck.com/use-cases.html"><script type="application/ld+json" data-site-schema="">{"@context":"https://schema.org","@type":"WebPage","name":"Powerduck 使用场景 — 从代码生成文档，到接口测试与 Mock","description":"在编程助手里生成 API 文档链接，复现请求、检查接口是否符合文档，在后端完成前用 Mock 开始联调。","url":"https://www.powerduck.com/zh-CN/use-cases/","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Powerduck","url":"https://www.powerduck.com/"}}</script></head>
+
+  <body>
+    <div class="page-shell">
+      <!-- =======================================================================
+     NAV
+     ======================================================================= -->
+
+      <header class="nav">
+        <div class="nav-inner">
+          <a href="/zh-CN/" class="brand" aria-label="Powerduck 首页">
+            <img src="/assets/images/logo.svg" alt="Powerduck logo" class="brand-mark">
+
+            <span>Powerduck</span>
+          </a>
+
+          <button class="nav-hamburger" aria-label="展开或收起导航菜单" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+
+          <div class="nav-drawer" id="navDrawer">
+            <nav class="nav-links">
+
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                  <span data-i18n="nav.client">客户端</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="/zh-CN/#spec-editor" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.specEditor">规范编辑器</span><span class="dropdown-item-desc" data-i18n="nav.specEditorDesc">就地设计 OpenAPI</span></span></a>
+                  <a class="dropdown-item" href="/zh-CN/#api-debug" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDebug">接口调试</span><span class="dropdown-item-desc" data-i18n="nav.apiDebugDesc">发送请求并检查响应</span></span></a>
+                  <a class="dropdown-item" href="/zh-CN/#mcp-server" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.mcpServer">MCP 服务器</span><span class="dropdown-item-desc" data-i18n="nav.mcpServerDesc">把规范变成可调用的工具</span></span></a>
+                  <a class="dropdown-item" href="/zh-CN/#api-docs" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.apiDocs">接口文档</span><span class="dropdown-item-desc" data-i18n="nav.apiDocsDesc">用同一份规范渲染文档</span></span></a>
+                </div>
+              </div><a class="nav-hub-link" href="/zh-CN/hub" data-i18n="nav.hub">Hub</a>
+
+
+
+              <a class="nav-direct" href="/zh-CN/pricing?product=client" data-i18n="nav.pricing">价格</a>
+
+              <div class="nav-dropdown">
+                <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                  <span data-i18n="nav.resources">资源</span>
+                  <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="/docs/zh-CN/overview/introduction/index.html" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.documentation">文档</span><span class="dropdown-item-desc" data-i18n="nav.documentationDesc">指南与 API 参考</span></span></a>
+                  <a class="dropdown-item" href="/zh-CN/use-cases/" role="menuitem"><span class="dropdown-item-text"><span data-i18n="scenes.all" class="dropdown-item-title">场景指南</span></span></a>
+                  <a class="dropdown-item" href="/blog/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.blog">博客</span><span class="dropdown-item-desc" data-i18n="nav.blogDesc">产品动态与工程实践</span></span></a>
+                  <a class="dropdown-item" href="/blog/tag/release-notes/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.releaseNotes">更新日志</span><span class="dropdown-item-desc" data-i18n="nav.releaseNotesDesc">查看每个版本的更新内容</span></span></a>
+                  <a class="dropdown-item" href="/demo/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.liveDemo">在线演示</span><span class="dropdown-item-desc" data-i18n="nav.liveDemoDesc">在浏览器中体验所有工具</span></span></a>
+                  <a class="dropdown-item" href="/app/" role="menuitem"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.webApp">网页版应用</span><span class="dropdown-item-desc" data-i18n="nav.webAppDesc">在浏览器中使用完整的 Powerduck 应用</span></span></a>
+                  <a class="dropdown-item" href="https://github.com/powerducklab" target="_blank" role="menuitem" rel="nofollow noopener noreferrer"><span class="dropdown-item-text"><span class="dropdown-item-title" data-i18n="nav.openSource">开源</span><span class="dropdown-item-desc" data-i18n="nav.openSourceDesc">GitHub 和 npm 上的库</span></span></a>
+                </div>
+              </div>
+            </nav>
+
+            <div class="nav-actions">
+              <a class="nav-icon-btn" href="https://github.com/powerducklab" target="_blank" aria-label="GitHub" rel="nofollow noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12 12-12z"></path>
+                </svg>
+              </a>
+              <div class="nav-account-slot" id="navAccountSlot">
+                <a class="nav-signin" data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">登录</a>
+              </div>
+
+              <div class="nav-dropdown" id="langMenu">
+                <button class="nav-icon-btn nav-dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-label="选择语言">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20"></path>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                </button>
+                <div class="nav-dropdown-menu align-right" role="menu" id="langMenuContent"></div>
+              </div>
+
+              <button class="theme-toggle" data-theme-toggle="" id="themeToggle" type="button" aria-label="切换明暗主题">
+                <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none">
+                  <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+                </svg>
+
+                <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"></circle>
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                </svg>
+              </button>
+
+              <a class="btn btn-primary btn-sm" href="/zh-CN/download/" data-i18n="nav.download">下载</a>
+            </div>
+          </div>
+        </div>
+
+        <style>
+          .nav-dropdown:hover .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+          .nav-dropdown:hover .chevron {
+            transform: rotate(180deg);
+          }
+          .nav-dropdown.open .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+        </style>
+      </header>
+
+      <main class="scenes-page">
+        <header class="scenes-page-heading">
+          <a class="scenes-back" href="/zh-CN/">← <span data-i18n="scenes.back">返回首页</span></a>
+          <p data-i18n="flow.kicker" class="scenes-kicker">在真实工作流中查看</p>
+          <h1 data-i18n="flow.title">每个熟悉的繁琐工作，都变成契约驱动的流程。</h1>
+          <p data-i18n="flow.intro" class="scenes-intro">选择下面的任务。Powerduck 直接用你机器上的 OpenAPI 文件运行——环境、测试与 mock 一应俱全，无需账号或上传。</p>
+        </header>
+        <nav class="scenes-index" aria-labelledby="scenes-index-title">
+          <h2 data-i18n="scenes.jump" id="scenes-index-title">找到你的使用场景</h2>
+          <ol>
+            <li>
+              <a href="#code-to-docs"><span class="scene-number" aria-hidden="true">01</span><span data-i18n="flow.1.title">从项目生成接口文档。</span></a>
+            </li>
+            <li>
+              <a href="#design-api"><span class="scene-number" aria-hidden="true">02</span><span data-i18n="flow.2.title">让编程助手读取真实接口定义。</span></a>
+            </li>
+            <li>
+              <a href="#contract-tests"><span class="scene-number" aria-hidden="true">03</span><span data-i18n="flow.3.title">让 AI 编排并运行整个业务场景。</span></a>
+            </li>
+            <li>
+              <a href="#protocols"><span class="scene-number" aria-hidden="true">04</span><span data-i18n="flow.4.title">七种协议，在一个工作台排查。</span></a>
+            </li>
+            <li>
+              <a href="#ai-debug"><span class="scene-number" aria-hidden="true">05</span><span data-i18n="flow.5.title">带着真实请求上下文，让 AI 排错。</span></a>
+            </li>
+            <li>
+              <a href="#share-docs"><span class="scene-number" aria-hidden="true">06</span><span data-i18n="flow.6.title">一份 API，发布文档与 MCP。</span></a>
+            </li>
+          </ol>
+        </nav>
+        <div class="scenes-details">
+          <article class="scene-detail" id="code-to-docs" aria-labelledby="title-code-to-docs">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">01</span>
+              <h2 data-i18n="flow.1.title" id="title-code-to-docs">从项目生成接口文档。</h2>
+              <p data-i18n="flow.1.pain">你是否拿到了接口文档，却还得翻源码才能确认它写得对不对？</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">POWERDUCK 的解法</h3>
+              <p data-i18n="flow.1.body">在编程助手里连接 Powerduck MCP，扫描已适配框架的项目，生成接口定义并打开文档。</p>
+              <h3 data-i18n="flow.result">你得到的结果</h3>
+              <p data-i18n="flow.1.result">一份可审阅的接口定义，以及能打开的本机文档链接。</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">可以直接这样说</p>
+                <blockquote data-i18n="flow.1.prompt">扫描这个项目，生成 API 文档，给我一个可以打开的链接。</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">使用前了解</h3>
+                <p data-i18n="scenes.s1.note">仅支持已适配的框架，请检查推断字段和扫描提示。本机链接在 MCP 所在电脑上访问，会话结束后失效。</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/coding-agent/" href="/docs/zh-CN/client/coding-agent/"><span data-i18n="flow.boundary">查看配置与使用条件</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="design-api" aria-labelledby="title-design-api">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">02</span>
+              <h2 data-i18n="flow.2.title" id="title-design-api">让编程助手读取真实接口定义。</h2>
+              <p data-i18n="flow.2.pain">你是否把文档给了 AI，生成的字段和路径却仍然对不上？</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">POWERDUCK 的解法</h3>
+              <p data-i18n="flow.2.body">让编程助手通过 MCP 读取真实的路径、数据结构与鉴权要求，再按定义实现，最后对运行中的接口做验证。</p>
+              <h3 data-i18n="flow.result">你得到的结果</h3>
+              <p data-i18n="flow.2.result">代码有定义可依，结果有真实响应可验。</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">可以直接这样说</p>
+                <blockquote data-i18n="flow.2.prompt">根据这份 API 定义实现接口，再运行契约测试，检查是否一致。</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">使用前了解</h3>
+                <p data-i18n="scenes.s3.note">检查范围取决于实际运行的接口、输入和断言，不代表后端所有行为都已验证。</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/coding-agent/" href="/docs/zh-CN/client/coding-agent/"><span data-i18n="flow.boundary">查看配置与使用条件</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="contract-tests" aria-labelledby="title-contract-tests">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">03</span>
+              <h2 data-i18n="flow.3.title" id="title-contract-tests">让 AI 编排并运行整个业务场景。</h2>
+              <p data-i18n="flow.3.pain">你是否每改一次接口，就得手动重跑一遍相同的业务流程？</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">POWERDUCK 的解法</h3>
+              <p data-i18n="flow.3.body">描述业务流程，让 AI 组织测试步骤、传递上一步的返回值，再运行整个场景。</p>
+              <h3 data-i18n="flow.result">你得到的结果</h3>
+              <p data-i18n="flow.3.result">每一步的执行结果和失败断言，不是只给你一段测试代码。</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">可以直接这样说</p>
+                <blockquote data-i18n="flow.3.prompt">测试登录 → 创建订单 → 查询订单，告诉我哪一步失败、为什么。</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">使用前了解</h3>
+                <p data-i18n="scenes.s3.note">检查范围取决于实际运行的接口、输入和断言，不代表后端所有行为都已验证。</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/scenario-testing/" href="/docs/zh-CN/client/scenario-testing/"><span data-i18n="flow.boundary">查看配置与使用条件</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="protocols" aria-labelledby="title-protocols">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">04</span>
+              <h2 data-i18n="flow.4.title" id="title-protocols">七种协议，在一个工作台排查。</h2>
+              <p data-i18n="flow.4.pain">你是否只是换了一种接口协议，就不得不换一个调试工具？</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">POWERDUCK 的解法</h3>
+              <p data-i18n="flow.4.body">HTTP、GraphQL、WebSocket、SSE、gRPC、MCP、A2A，在同一工作区查看响应、消息流和工具调用。</p>
+              <h3 data-i18n="flow.result">你得到的结果</h3>
+              <p data-i18n="flow.4.result">需要亲自排查时，每一次请求和返回都看得清。</p>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">使用前了解</h3>
+                <p data-i18n="scenes.s8.note">桌面版和网页版支持范围不同。gRPC 等原生传输请使用桌面版。</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/protocols/" href="/docs/zh-CN/client/protocols/"><span data-i18n="flow.boundary">查看配置与使用条件</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="ai-debug" aria-labelledby="title-ai-debug">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">05</span>
+              <h2 data-i18n="flow.5.title" id="title-ai-debug">带着真实请求上下文，让 AI 排错。</h2>
+              <p data-i18n="flow.5.pain">你是否每次让 AI 排错，都得重新复制请求、响应和接口背景？</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">POWERDUCK 的解法</h3>
+              <p data-i18n="flow.5.body">给助手相关接口上下文，让它发送请求、查看返回，结合实际结果定位问题，提出可审阅的修改建议。</p>
+              <h3 data-i18n="flow.result">你得到的结果</h3>
+              <p data-i18n="flow.5.result">基于真实请求结果的排查，而不是凭空猜原因。</p>
+              <div class="scene-inline-prompt">
+                <p data-i18n="flow.promptLabel" class="scene-prompt-label">可以直接这样说</p>
+                <blockquote data-i18n="flow.5.prompt">帮我查这个请求为什么失败，先看响应，再给修改建议。</blockquote>
+              </div>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">使用前了解</h3>
+                <p data-i18n="scenes.s5.note">AI 功能需要配置模型。使用远程模型时，相关上下文会发送给模型服务商；手动编辑不需要 AI。</p>
+              </aside>
+              <a class="scene-link" data-docs-path="client/debug/" href="/docs/zh-CN/client/debug/"><span data-i18n="flow.boundary">查看配置与使用条件</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="scene-detail" id="share-docs" aria-labelledby="title-share-docs">
+            <div class="scene-detail-title">
+              <span class="scene-number" aria-hidden="true">06</span>
+              <h2 data-i18n="flow.6.title" id="title-share-docs">一份 API，发布文档与 MCP。</h2>
+              <p data-i18n="flow.6.pain">你是否只是想分享文档和 MCP，却还要单独搭建、维护托管服务？</p>
+            </div>
+            <div class="scene-detail-steps">
+              <h3 data-i18n="flow.solution">POWERDUCK 的解法</h3>
+              <p data-i18n="flow.6.body">将一个 API 版本发布到 Powerduck Cloud：给人看文档，给 AI 客户端连 MCP。</p>
+              <h3 data-i18n="flow.result">你得到的结果</h3>
+              <p data-i18n="flow.6.result">文档地址 + MCP 服务地址，不用自己搭建托管环境。</p>
+              <aside class="scene-detail-note">
+                <h3 data-i18n="scenes.know">使用前了解</h3>
+                <p data-i18n="scenes.s6.note">Cloud 托管受账户额度限制。接口定义可能包含示例或内部信息，分享前请检查内容。</p>
+              </aside>
+              <a class="scene-link" data-docs-path="cloud/exposure/" href="/docs/zh-CN/cloud/exposure/"><span data-i18n="flow.boundary">查看配置与使用条件</span>
+                <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+        <section class="scenes-cta">
+          <h2 data-i18n="scenes.ready">先拿一个接口试试。</h2>
+          <p data-i18n="scenes.readyBody">打开已有的接口定义，或者使用内置示例。先跑通流程，再接入自己的项目。</p>
+          <div>
+            <a class="btn btn-primary" href="/zh-CN/download/"><span data-i18n="scenes.download">下载 Powerduck</span></a><a class="btn btn-secondary" href="/app/"><span data-i18n="scenes.example">体验网页版工作区</span></a>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <div class="footer-shell">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <a href="/zh-CN/" class="brand" aria-label="Powerduck 首页">
+                <img src="/assets/images/logo.svg" alt="Powerduck logo" class="brand-logo">
+                <span>Powerduck</span>
+              </a>
+              <p data-i18n="footer.brand">为现代 API 工作流打造开发者工具。开源、可用于生产、由社区驱动。</p>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="footer.product">产品</h6>
+              <ul>
+                <li>
+                  <a href="/zh-CN/#spec-editor" data-i18n="nav.specEditor">规范编辑器</a>
+                </li>
+                <li>
+                  <a href="/zh-CN/#api-debug" data-i18n="nav.apiDebug">接口调试</a>
+                </li>
+                <li>
+                  <a href="/zh-CN/#mcp-server" data-i18n="nav.mcpServer">MCP 服务器</a>
+                </li>
+                <li>
+                  <a href="/zh-CN/#api-docs" data-i18n="nav.apiDocs">接口文档</a>
+                </li>
+                <li>
+                  <a href="/zh-CN/download/" data-i18n="nav.download">下载</a>
+                </li>
+                <li>
+                  <a href="/zh-CN/pricing?product=client" data-i18n="footer.prices">价格</a>
+                </li>
+                <li><a href="/blog/" data-i18n="nav.blog">博客</a></li>
+                <li>
+                  <a href="/blog/tag/release-notes/" data-i18n="nav.releaseNotes">更新日志</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="nav.cloud">云端</h6>
+              <ul>
+                <li>
+                  <a data-cloud-signin="/hub" href="/zh-CN/hub" data-i18n="nav.hub">Hub</a>
+                </li>
+                <li>
+                  <a data-cloud-signin="/signin" href="/signin" data-i18n="nav.signin">登录</a>
+                </li>
+                <li>
+                  <a href="/docs/zh-CN/cloud/quickstart/index.html" data-i18n="footer.quickstart">快速开始</a>
+                </li>
+                <li>
+                  <a href="/docs/zh-CN/cloud/access-control/index.html" data-i18n="footer.accessControl">访问控制</a>
+                </li>
+                <li>
+                  <a href="/docs/zh-CN/cloud/custom-domains/index.html" data-i18n="footer.customDomains">自定义域名</a>
+                </li>
+                <li>
+                  <a href="/docs/zh-CN/cloud/billing/index.html" data-i18n="footer.billing">账单</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="nav.resources">资源</h6>
+              <ul>
+                <li>
+                  <a href="/docs/zh-CN/overview/introduction/index.html" data-i18n="nav.documentation">文档</a>
+                </li>
+                <li>
+                  <a href="/docs/zh-CN/client/introduction/index.html" data-i18n="footer.clientGuide">客户端指南</a>
+                </li>
+                <li>
+                  <a href="/docs/zh-CN/cloud/introduction/index.html" data-i18n="footer.cloudGuide">云端指南</a>
+                </li>
+                <li>
+                  <a href="https://github.com/powerducklab" target="_blank" rel="nofollow noopener noreferrer">GitHub</a>
+                </li>
+                <li>
+                  <a href="https://www.npmjs.com/search?q=%40powerduck" target="_blank" data-i18n="footer.npmPackages" rel="nofollow noopener noreferrer">npm 包</a>
+                </li>
+                <li>
+                  <a href="/zh-CN/#faq" data-i18n="faq.kicker">常见问题</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h6 data-i18n="footer.legal">法律</h6>
+              <ul>
+                <li>
+                  <a href="/terms.html" data-i18n="footer.terms">服务条款</a>
+                </li>
+                <li>
+                  <a href="/privacy.html" data-i18n="footer.privacy">隐私政策</a>
+                </li>
+                <li>
+                  <a href="/refunds.html" data-i18n="footer.refunds">退款政策</a>
+                </li>
+                <li>
+                  <a href="/cookie.html" data-i18n="footer.cookie">Cookie 声明</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span data-i18n="dl.copyright">© 2026 POWERDUCK LIMITED。保留所有权利。</span>
+            <div class="footer-bottom-links">
+              <a href="/terms.html" data-i18n="footer.termsShort">条款</a>
+              <a href="/privacy.html" data-i18n="footer.privacyShort">隐私</a>
+              <a href="/cookie.html" data-i18n="footer.cookieShort">Cookie</a>
+            </div>
+          </div>
+        </div>
+      <nav data-locale-links="" class="locale-links" aria-label="选择语言"><a href="/use-cases.html" hreflang="en" lang="en">English (US)</a><a href="/zh-CN/use-cases/" hreflang="zh-CN" lang="zh-CN" aria-current="page">简体中文</a><a href="/ja/use-cases/" hreflang="ja" lang="ja">日本語</a><a href="/de/use-cases/" hreflang="de" lang="de">Deutsch</a><a href="/fr/use-cases/" hreflang="fr" lang="fr">Français</a><a href="/es/use-cases/" hreflang="es" lang="es">Español</a><a href="/pt-BR/use-cases/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a><a href="/zh-TW/use-cases/" hreflang="zh-TW" lang="zh-TW">繁體中文</a><a href="/it-IT/use-cases/" hreflang="it-IT" lang="it-IT">Italiano</a><a href="/ko-KR/use-cases/" hreflang="ko-KR" lang="ko-KR">한국어</a><a href="/ru-RU/use-cases/" hreflang="ru-RU" lang="ru-RU">Русский</a><a href="/id-ID/use-cases/" hreflang="id-ID" lang="id-ID">Bahasa Indonesia</a><a href="/tr-TR/use-cases/" hreflang="tr-TR" lang="tr-TR">Türkçe</a><a href="/vi-VN/use-cases/" hreflang="vi-VN" lang="vi-VN">Tiếng Việt</a><a href="/ar-SA/use-cases/" hreflang="ar-SA" lang="ar-SA">العربية</a><a href="/hi-IN/use-cases/" hreflang="hi-IN" lang="hi-IN">हिन्दी</a></nav></footer>
+    </div>
+
+
+
+    <script src="/assets/locales/zh-CN.js?v=20261019d"></script><script src="/assets/js/common.js?v=20261019d"></script>
+    <script src="/assets/js/cloud.js?v=20261019d"></script>
+    <script>
+      (function () {
+        var btn = document.querySelector(".nav-hamburger");
+        var drawer = document.getElementById("navDrawer");
+        if (btn && drawer) {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            var open = drawer.classList.toggle("open");
+            btn.classList.toggle("open", open);
+            btn.setAttribute("aria-expanded", open);
+          });
+          document.addEventListener("click", function (e) {
+            if (
+              drawer.classList.contains("open") &&
+              !drawer.contains(e.target) &&
+              !btn.contains(e.target)
+            ) {
+              drawer.classList.remove("open");
+              btn.classList.remove("open");
+              btn.setAttribute("aria-expanded", "false");
+            }
+          });
+        }
+      })();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

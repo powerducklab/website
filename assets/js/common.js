@@ -89,15 +89,23 @@
     var exact = nav.toLowerCase();
     var codes = supportedCodes();
 
-    if (codes.indexOf(exact) !== -1) return exact;
+    var matched = codes.find(function (code) { return code.toLowerCase() === exact; });
+    if (matched) return matched;
 
     var base = exact.split("-")[0];
-    if (base === "zh") return "zh-CN";
+    if (base === "zh") {
+      if (/^zh-(tw|hk|mo|hant)(-|$)/.test(exact) && codes.indexOf("zh-TW") !== -1) return "zh-TW";
+      return "zh-CN";
+    }
     if (codes.indexOf(base) !== -1) return base;
+    var regional = codes.find(function (code) { return code.toLowerCase().split("-")[0] === base; });
+    if (regional) return regional;
     return FALLBACK_LANG;
   }
 
   function resolveLang() {
+    var pageLang = document.documentElement.getAttribute("data-page-locale");
+    if (supportedCodes().indexOf(pageLang) !== -1) return pageLang;
     var stored = getStoredLang();
     if (stored === "auto") return detectBrowserLang();
     return supportedCodes().indexOf(stored) !== -1 ? stored : FALLBACK_LANG;
@@ -124,6 +132,9 @@
     });
 
     var docsLocales = { "zh-CN": "zh-CN/", ja: "ja-JP/", de: "de-DE/", fr: "fr-FR/", es: "es-ES/" };
+    i18n.languages.forEach(function (locale) {
+      if (locale.docs) docsLocales[locale.code] = locale.docs === "en" ? "" : locale.docs + "/";
+    });
     scope.querySelectorAll("[data-docs-path]").forEach(function (el) {
       el.setAttribute("href", "/docs/" + (docsLocales[currentLang] || "") + el.getAttribute("data-docs-path"));
     });
@@ -170,7 +181,7 @@
     if (!container) return;
 
     container.innerHTML = "";
-    var selected = getStoredLang();
+    var selected = document.documentElement.getAttribute("data-page-locale") || getStoredLang();
 
     var entries = [{ code: "auto" }].concat(
       i18n.languages.filter(function (l) {
@@ -215,12 +226,22 @@
     } catch (e) {
       /* storage unavailable — ignore */
     }
+    var page = document.documentElement.getAttribute("data-page-route");
+    if (page) {
+      var targetLang = code === "auto" ? detectBrowserLang() : code;
+      var route = page === "/" ? "/" : (page === "/download.html" ? "/download/" : "/use-cases/");
+      var target = targetLang === "en" ? page : "/" + targetLang + route;
+      window.location.assign(target + window.location.search + window.location.hash);
+      return;
+    }
     renderI18n();
   }
 
   function renderI18n() {
     currentLang = resolveLang();
-    document.documentElement.setAttribute("lang", currentLang);
+    var locale = i18n.languages.find(function (entry) { return entry.code === currentLang; });
+    document.documentElement.setAttribute("lang", locale && locale.htmlLang || currentLang);
+    document.documentElement.setAttribute("dir", locale && locale.rtl ? "rtl" : "ltr");
     applyTranslations(document);
     buildLanguageMenu();
   }
@@ -230,6 +251,11 @@
    * ------------------------------------------------------------------ */
 
   function initDropdowns() {
+    function closeDropdown(dropdown) {
+      dropdown.classList.remove("open");
+      var trigger = dropdown.querySelector(".nav-dropdown-trigger");
+      if (trigger) trigger.setAttribute("aria-expanded", "false");
+    }
     document.addEventListener("click", function (e) {
       var trigger = e.target.closest(".nav-dropdown-trigger");
 
@@ -239,16 +265,17 @@
           e.preventDefault();
           var isOpen = dd.classList.contains("open");
           document.querySelectorAll(".nav-dropdown.open").forEach(function (o) {
-            if (o !== dd) o.classList.remove("open");
+            if (o !== dd) closeDropdown(o);
           });
           dd.classList.toggle("open", !isOpen);
+          trigger.setAttribute("aria-expanded", String(!isOpen));
           return;
         }
       }
 
       if (!e.target.closest(".nav-dropdown")) {
         document.querySelectorAll(".nav-dropdown.open").forEach(function (o) {
-          o.classList.remove("open");
+          closeDropdown(o);
         });
       }
     });
@@ -256,7 +283,7 @@
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") {
         document.querySelectorAll(".nav-dropdown.open").forEach(function (o) {
-          o.classList.remove("open");
+          closeDropdown(o);
         });
       }
     });
@@ -346,7 +373,7 @@
   document.querySelectorAll('a[href]').forEach(function (link) {
     try {
       var url = new URL(link.getAttribute('href'), location.href);
-      if (url.origin !== location.origin || !(/\/download(?:\.html)?$/.test(url.pathname) || url.pathname.indexOf('/api/download/') === 0)) return;
+      if (url.origin !== location.origin || !(/\/download(?:\.html|\/)?$/.test(url.pathname) || url.pathname.indexOf('/api/download/') === 0)) return;
       Object.keys(values).forEach(function (key) { url.searchParams.set(key, values[key]); });
       link.setAttribute('href', url.pathname + url.search + url.hash);
     } catch (_) {}
