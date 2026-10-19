@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/cloud-app/static/css/main.b4ed9385.css",
-    "main.js": "/cloud-app/static/js/main.8e8324f9.js",
+    "main.css": "/cloud-app/static/css/main.7ae54853.css",
+    "main.js": "/cloud-app/static/js/main.7fc9b1d1.js",
     "locale-ar-SA-json.js": "/cloud-app/static/js/locale-ar-SA-json.c7a3470c.chunk.js",
     "locale-de-json.js": "/cloud-app/static/js/locale-de-json.5ce9bad9.chunk.js",
     "locale-en-json.js": "/cloud-app/static/js/locale-en-json.57a71159.chunk.js",
@@ -18,7 +18,7 @@
     "locale-vi-VN-json.js": "/cloud-app/static/js/locale-vi-VN-json.5c10d292.chunk.js",
     "locale-zh-CN-json.js": "/cloud-app/static/js/locale-zh-CN-json.923e3d6b.chunk.js",
     "locale-zh-TW-json.js": "/cloud-app/static/js/locale-zh-TW-json.1d3953e9.chunk.js",
-    "static/js/3868.cf43ea20.chunk.js": "/cloud-app/static/js/3868.cf43ea20.chunk.js",
+    "static/js/3868.eb9fe801.chunk.js": "/cloud-app/static/js/3868.eb9fe801.chunk.js",
     "static/js/8693.f02355b9.chunk.js": "/cloud-app/static/js/8693.f02355b9.chunk.js",
     "static/js/7708.cd651e4f.chunk.js": "/cloud-app/static/js/7708.cd651e4f.chunk.js",
     "static/js/4455.bc795441.chunk.js": "/cloud-app/static/js/4455.bc795441.chunk.js",
@@ -28,9 +28,9 @@
     "static/js/929.d25974ea.chunk.js": "/cloud-app/static/js/929.d25974ea.chunk.js",
     "static/js/6640.248a2f37.chunk.js": "/cloud-app/static/js/6640.248a2f37.chunk.js",
     "static/js/4582.77a67e6a.chunk.js": "/cloud-app/static/js/4582.77a67e6a.chunk.js",
-    "static/js/4184.bb7ebaee.chunk.js": "/cloud-app/static/js/4184.bb7ebaee.chunk.js",
+    "static/js/4184.1842833a.chunk.js": "/cloud-app/static/js/4184.1842833a.chunk.js",
     "static/js/1572.24e1940e.chunk.js": "/cloud-app/static/js/1572.24e1940e.chunk.js",
-    "static/js/6522.53f69062.chunk.js": "/cloud-app/static/js/6522.53f69062.chunk.js",
+    "static/js/6522.865a757b.chunk.js": "/cloud-app/static/js/6522.865a757b.chunk.js",
     "static/js/9508.e4be1d8a.chunk.js": "/cloud-app/static/js/9508.e4be1d8a.chunk.js",
     "static/js/1706.fb1c4e6b.chunk.js": "/cloud-app/static/js/1706.fb1c4e6b.chunk.js",
     "static/js/7580.d297751a.chunk.js": "/cloud-app/static/js/7580.d297751a.chunk.js",
@@ -356,7 +356,7 @@
     "index.html": "/cloud-app/index.html"
   },
   "entrypoints": [
-    "static/css/main.b4ed9385.css",
-    "static/js/main.8e8324f9.js"
+    "static/css/main.7ae54853.css",
+    "static/js/main.7fc9b1d1.js"
   ]
 }
