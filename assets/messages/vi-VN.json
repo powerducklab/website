@@ -259,8 +259,6 @@
   "dl.win32Desc": "Dành cho máy 32-bit (x86) cũ",
   "dl.win32Note": "Bản 32-bit không dùng được Oracle Thick mode; Thin mode mặc định viết bằng JS thuần vẫn hoạt động.",
   "dl.downloadExe": "Tải .exe",
-  "dl.winWarningTitle": "Cài đặt Windows",
-  "dl.windowsInstall": "Mở bộ cài .exe và làm theo hướng dẫn. Kiểm tra nhà phát hành là POWERDUCK LIMITED.",
   "dl.demoLimits": "Demo trình duyệt cho phép xem trước không gian làm việc; thực thi cục bộ cần ứng dụng máy tính.",
   "dl.installHelp": "Trợ giúp cài đặt",
   "dl.licenseLink": "Giấy phép máy tính",

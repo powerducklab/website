@@ -28,8 +28,6 @@ Object.assign(window.POWERDUCK_I18N.messages["en"], {
   "dl.win32Desc": "For older 32-bit (x86) PCs",
   "dl.win32Note": "The 32-bit build cannot use Oracle Thick mode; the default pure-JS Thin mode works.",
   "dl.downloadExe": "Download .exe",
-  "dl.winWarningTitle": "Windows installation",
-  "dl.windowsInstall": "Open the .exe installer and follow the setup instructions. Check that the publisher is POWERDUCK LIMITED.",
   "dl.demoLimits": "The browser demo previews the workspace; local execution needs the desktop app.",
   "dl.installHelp": "Installation help",
   "dl.licenseLink": "Desktop licensing",
@@ -83,8 +81,6 @@ Object.assign(window.POWERDUCK_I18N.messages["zh-CN"], {
   "dl.win32Desc": "适用于较旧的 32 位（x86）电脑",
   "dl.win32Note": "32 位版不支持 Oracle Thick 模式；默认的纯 JS Thin 模式可正常使用。",
   "dl.downloadExe": "下载 .exe",
-  "dl.winWarningTitle": "Windows 安装说明",
-  "dl.windowsInstall": "打开 .exe 安装包并按提示安装。请核对发布者为 POWERDUCK LIMITED。",
   "dl.demoLimits": "浏览器演示用于体验工作台，本地执行能力需要桌面应用。",
   "dl.installHelp": "安装帮助",
   "dl.licenseLink": "桌面授权说明",
@@ -156,8 +152,6 @@ Object.assign(window.POWERDUCK_I18N.messages["ja"], {
   "dl.win32Desc": "古い32ビット（x86）PC向け",
   "dl.win32Note": "32ビット版は Oracle Thick モードを利用できません。既定の純JS Thin モードは動作します。",
   "dl.downloadExe": ".exe をダウンロード",
-  "dl.winWarningTitle": "Windows のインストール",
-  "dl.windowsInstall": ".exe インストーラーを開き、画面の指示に従ってください。発行元が POWERDUCK LIMITED であることを確認してください。",
   "dl.demoLimits": "ブラウザーデモではワークスペースを体験できます。ローカルでの実行にはデスクトップアプリが必要です。",
   "dl.installHelp": "インストールガイド",
   "dl.licenseLink": "デスクトップライセンス",
@@ -218,8 +212,6 @@ Object.assign(window.POWERDUCK_I18N.messages["de"], {
   "dl.win32Desc": "Für ältere 32-Bit-PCs (x86)",
   "dl.win32Note": "Der 32-Bit-Build unterstützt keinen Oracle-Thick-Modus; der reine JavaScript-Thin-Modus (Standard) funktioniert.",
   "dl.downloadExe": ".exe herunterladen",
-  "dl.winWarningTitle": "Installation unter Windows",
-  "dl.windowsInstall": "Öffne die .exe-Datei und folge den Installationsschritten. Prüfe, ob der Herausgeber POWERDUCK LIMITED ist.",
   "dl.demoLimits": "Die Browser-Demo zeigt den Arbeitsbereich. Für die lokale Ausführung benötigst du die Desktop-App.",
   "dl.installHelp": "Installationshilfe",
   "dl.licenseLink": "Desktop-Lizenz",
@@ -280,8 +272,6 @@ Object.assign(window.POWERDUCK_I18N.messages["fr"], {
   "dl.win32Desc": "Pour les anciens PC 32 bits (x86)",
   "dl.win32Note": "La version 32 bits ne prend pas en charge le mode Thick d’Oracle ; le mode Thin pur JavaScript (par défaut) fonctionne.",
   "dl.downloadExe": "Télécharger le .exe (bêta)",
-  "dl.winWarningTitle": "Installation sous Windows",
-  "dl.windowsInstall": "Ouvrez le programme .exe et suivez les instructions. Vérifiez que l’éditeur est POWERDUCK LIMITED.",
   "dl.demoLimits": "La démo dans le navigateur présente l’espace de travail. L’exécution locale nécessite l’application de bureau.",
   "dl.installHelp": "Aide à l’installation",
   "dl.licenseLink": "Licence de bureau",
@@ -342,8 +332,6 @@ Object.assign(window.POWERDUCK_I18N.messages["es"], {
   "dl.win32Desc": "Para equipos antiguos de 32 bits (x86)",
   "dl.win32Note": "La compilación de 32 bits no admite el modo Thick de Oracle; el modo Thin puro en JavaScript (predeterminado) sí funciona.",
   "dl.downloadExe": "Descargar .exe",
-  "dl.winWarningTitle": "Instalación en Windows",
-  "dl.windowsInstall": "Abre el instalador .exe y sigue las instrucciones. Comprueba que el editor sea POWERDUCK LIMITED.",
   "dl.demoLimits": "La demo del navegador muestra el espacio de trabajo. La ejecución local requiere la aplicación de escritorio.",
   "dl.installHelp": "Ayuda de instalación",
   "dl.licenseLink": "Licencia de escritorio",
@@ -375,7 +363,6 @@ Object.assign(window.POWERDUCK_I18N.messages["es"], {
   "dl.themeLabel": "Cambiar el tema de color",
   "dl.copyright": "© 2026 POWERDUCK LIMITED. Todos los derechos reservados."
 });
-
 // Editorial review: terminology, natural phrasing and platform-neutral guidance.
 Object.assign(window.POWERDUCK_I18N.messages["en"], {
   "dl.deviceHint": "Choose the operating system of the computer where you’ll install Powerduck."

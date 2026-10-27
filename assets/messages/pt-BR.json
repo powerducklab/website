@@ -255,8 +255,6 @@
   "dl.win32Desc": "Para PCs antigos de 32 bits (x86)",
   "dl.win32Note": "A versão de 32 bits não oferece o modo Thick do Oracle; o modo Thin padrão, em JavaScript puro, funciona normalmente.",
   "dl.downloadExe": "Baixar .exe",
-  "dl.winWarningTitle": "Instalação no Windows",
-  "dl.windowsInstall": "Abra o instalador .exe e siga as instruções. Verifique se o editor é POWERDUCK LIMITED.",
   "dl.demoLimits": "A demonstração no navegador permite conhecer o espaço de trabalho; a execução local requer o aplicativo desktop.",
   "dl.installHelp": "Ajuda para instalar",
   "dl.licenseLink": "Licenciamento desktop",

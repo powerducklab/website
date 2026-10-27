@@ -259,8 +259,6 @@
   "dl.win32Desc": "구형 32비트(x86) PC용",
   "dl.win32Note": "32비트 빌드에서는 Oracle Thick 모드를 사용할 수 없습니다. 기본 제공되는 순수 JS Thin 모드는 사용할 수 있습니다.",
   "dl.downloadExe": ".exe 다운로드",
-  "dl.winWarningTitle": "Windows 설치 안내",
-  "dl.windowsInstall": ".exe 설치 파일을 열고 안내에 따라 설치하세요. 게시자가 POWERDUCK LIMITED인지 확인하세요.",
   "dl.demoLimits": "브라우저 데모에서는 작업 공간을 미리 볼 수 있습니다. 로컬 실행에는 데스크톱 앱이 필요합니다.",
   "dl.installHelp": "설치 도움말",
   "dl.licenseLink": "데스크톱 라이선스",

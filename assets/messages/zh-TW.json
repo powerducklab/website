@@ -255,8 +255,6 @@
   "dl.win32Desc": "適用於較舊的 32 位元（x86）電腦",
   "dl.win32Note": "32 位元版不支援 Oracle Thick 模式；預設的純 JS Thin 模式可正常使用。",
   "dl.downloadExe": "下載 .exe",
-  "dl.winWarningTitle": "Windows 安裝說明",
-  "dl.windowsInstall": "開啟 .exe 安裝程式並依照提示安裝。請確認發行者為 POWERDUCK LIMITED。",
   "dl.demoLimits": "瀏覽器演示用於體驗工作台，本機執行能力需要桌面應用。",
   "dl.installHelp": "安裝幫助",
   "dl.licenseLink": "桌面授權說明",

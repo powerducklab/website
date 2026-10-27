@@ -259,8 +259,6 @@
   "dl.win32Desc": "للأجهزة القديمة ذات 32 بت (x86)",
   "dl.win32Note": "لا تدعم بنية 32 بت وضع Oracle Thick؛ يعمل وضع Thin الافتراضي المكتوب بـ JS فقط.",
   "dl.downloadExe": "تنزيل .exe",
-  "dl.winWarningTitle": "التثبيت على Windows",
-  "dl.windowsInstall": "افتح مثبّت .exe واتبع التعليمات. تأكد من أن الناشر هو POWERDUCK LIMITED.",
   "dl.demoLimits": "يعرض نموذج المتصفح مساحة العمل؛ يتطلب التنفيذ المحلي تطبيق سطح المكتب.",
   "dl.installHelp": "مساعدة التثبيت",
   "dl.licenseLink": "ترخيص سطح المكتب",

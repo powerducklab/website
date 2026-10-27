@@ -259,8 +259,6 @@
   "dl.win32Desc": "Untuk PC 32-bit (x86) lama",
   "dl.win32Note": "Build 32-bit tidak dapat memakai Oracle Thick mode; Thin mode bawaan yang berbasis JS murni tetap berfungsi.",
   "dl.downloadExe": "Unduh .exe",
-  "dl.winWarningTitle": "Instalasi Windows",
-  "dl.windowsInstall": "Buka penginstal .exe dan ikuti petunjuknya. Pastikan penerbitnya adalah POWERDUCK LIMITED.",
   "dl.demoLimits": "Demo browser menampilkan pratinjau ruang kerja; eksekusi lokal memerlukan aplikasi desktop.",
   "dl.installHelp": "Bantuan instalasi",
   "dl.licenseLink": "Lisensi desktop",

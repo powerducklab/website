@@ -259,8 +259,6 @@
   "dl.win32Desc": "Eski 32 bit (x86) bilgisayarlar için",
   "dl.win32Note": "32 bit derleme Oracle Thick modunu kullanamaz; varsayılan saf JS Thin modu çalışır.",
   "dl.downloadExe": ".exe indir",
-  "dl.winWarningTitle": "Windows kurulumu",
-  "dl.windowsInstall": ".exe yükleyicisini açın ve talimatları izleyin. Yayıncının POWERDUCK LIMITED olduğunu doğrulayın.",
   "dl.demoLimits": "Tarayıcı demosu çalışma alanını tanıtır; yerel yürütme için masaüstü uygulaması gerekir.",
   "dl.installHelp": "Kurulum yardımı",
   "dl.licenseLink": "Masaüstü lisanslama",
