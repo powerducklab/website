@@ -1,72 +1,72 @@
 {
-  "checked": 1472,
-  "indexable": 1472,
-  "fallback": 0,
+  "checked": 1488,
+  "indexable": 1474,
+  "fallback": 14,
   "failures": [],
   "scripts": [
     {
-      "path": "ar-SA/assets/js/main.032112f3.js",
-      "gzipBytes": 144569
+      "path": "ar-SA/assets/js/main.d7e15c12.js",
+      "gzipBytes": 144658
     },
     {
-      "path": "assets/js/main.2824f163.js",
-      "gzipBytes": 141917
+      "path": "assets/js/main.832550ba.js",
+      "gzipBytes": 142005
     },
     {
-      "path": "de-DE/assets/js/main.237c7b7d.js",
-      "gzipBytes": 144079
+      "path": "de-DE/assets/js/main.65ac4739.js",
+      "gzipBytes": 144170
     },
     {
-      "path": "es-ES/assets/js/main.9dbdb3bf.js",
-      "gzipBytes": 144105
+      "path": "es-ES/assets/js/main.3a58f52b.js",
+      "gzipBytes": 144196
     },
     {
-      "path": "fr-FR/assets/js/main.8f09d98a.js",
-      "gzipBytes": 144177
+      "path": "fr-FR/assets/js/main.6f2d3c91.js",
+      "gzipBytes": 144270
     },
     {
-      "path": "hi-IN/assets/js/main.33da5475.js",
-      "gzipBytes": 144509
+      "path": "hi-IN/assets/js/main.1b877f7c.js",
+      "gzipBytes": 144602
     },
     {
-      "path": "id-ID/assets/js/main.1555ab66.js",
-      "gzipBytes": 143965
+      "path": "id-ID/assets/js/main.d746c85a.js",
+      "gzipBytes": 144055
     },
     {
-      "path": "it-IT/assets/js/main.e944fa32.js",
-      "gzipBytes": 144079
+      "path": "it-IT/assets/js/main.f3aed45b.js",
+      "gzipBytes": 144169
     },
     {
-      "path": "ja-JP/assets/js/main.303b6881.js",
-      "gzipBytes": 144398
+      "path": "ja-JP/assets/js/main.8ba84567.js",
+      "gzipBytes": 144489
     },
     {
-      "path": "ko-KR/assets/js/main.50bac16c.js",
-      "gzipBytes": 144327
+      "path": "ko-KR/assets/js/main.ac3cc401.js",
+      "gzipBytes": 144419
     },
     {
-      "path": "pt-BR/assets/js/main.909fa66b.js",
-      "gzipBytes": 144110
+      "path": "pt-BR/assets/js/main.38ba986a.js",
+      "gzipBytes": 144201
     },
     {
-      "path": "ru-RU/assets/js/main.ab287f60.js",
-      "gzipBytes": 144837
+      "path": "ru-RU/assets/js/main.9910ceef.js",
+      "gzipBytes": 144930
     },
     {
-      "path": "tr-TR/assets/js/main.6d300542.js",
-      "gzipBytes": 144214
+      "path": "tr-TR/assets/js/main.652444f3.js",
+      "gzipBytes": 144303
     },
     {
-      "path": "vi-VN/assets/js/main.325a1cd6.js",
-      "gzipBytes": 144323
+      "path": "vi-VN/assets/js/main.6978d7e2.js",
+      "gzipBytes": 144413
     },
     {
-      "path": "zh-CN/assets/js/main.f441bc60.js",
-      "gzipBytes": 144262
+      "path": "zh-CN/assets/js/main.c6db9514.js",
+      "gzipBytes": 144354
     },
     {
-      "path": "zh-TW/assets/js/main.64cbf6f2.js",
-      "gzipBytes": 144310
+      "path": "zh-TW/assets/js/main.0eebd3da.js",
+      "gzipBytes": 144405
     }
   ]
 }

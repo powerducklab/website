@@ -1,6 +1,8 @@
 {
   "locale": "hi-IN",
-  "total": 92,
+  "total": 93,
   "translated": 92,
-  "missing": []
+  "missing": [
+    "client/code-quality.md"
+  ]
 }

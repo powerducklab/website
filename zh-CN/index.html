@@ -40,7 +40,7 @@
 
     <meta name="description" content="让 Codex、Claude Code、Cursor 按接口定义写代码。在本地优先的 Powerduck 客户端中，扫描代码生成文档，用 AI 编排测试，再通过 Hub 免费托管 OpenAPI 文档与 MCP Server。">
 
-    <meta name="keywords" content="Powerduck, AI API development, AI-native OpenAPI studio, local-first API tool, OpenAPI editor, API debugging, MCP server generator, API documentation, OpenAPI 3.2, offline API client, AI coding agent, bring your own model">
+    <meta name="keywords" content="Powerduck, AI API development, AI-native OpenAPI studio, local-first API tool, OpenAPI editor, API debugging, MCP server generator, API documentation, OpenAPI 3.2, AI code quality workspace, AI coding agent, built-in AI models">
 
     <meta name="theme-color" content="#ffffff">
 
@@ -346,7 +346,7 @@
           </div>
         </div>
 
-        <p class="hero-micro" data-i18n="flow.baseNote">本地工作无需账号；远程 AI 使用你选择的模型服务，在线托管需要 Cloud 账号。</p>
+        <p class="hero-micro" data-i18n="flow.baseNote">使用 Google 或 GitHub 登录，直接使用 Powerduck 内置 AI 模型和账户额度。</p>
 
         <p class="hero-strip" data-i18n-html="hero.capabilities">规范编辑器 &nbsp;·&nbsp; API 调试 &nbsp;·&nbsp; 测试 &nbsp;·&nbsp; Mock &nbsp;·&nbsp; API 文档 &nbsp;·&nbsp; MCP 服务</p>
       </section>
@@ -421,16 +421,16 @@
                 <line x1="2" y1="20" x2="22" y2="20"></line>
               </svg>
             </span>
-            <h3 data-i18n="why.3.title">本地优先，无需账号，适配编程助手</h3>
-            <p data-i18n="why.3.body">文件留在你的机器上，无需账号或上传即可使用。Codex、Claude Code 和 Cursor 读取的正是你手上的同一份规范。</p>
+            <h3 data-i18n="why.3.title">本地项目，统一的 AI 工作区</h3>
+            <p data-i18n="why.3.body">使用 Google 或 GitHub 登录，通过内置 AI 审查代码、评估测试与查看变更；是否创建测试文件或发布文档始终由你决定。</p>
             <div class="why-vs">
               <div class="why-vs-row why-vs-old">
                 <span class="why-vs-tag" data-i18n="why.old">其他工具</span>
-                <span data-i18n="why.3.old">开始前需要云账号并上传文件</span>
+                <span data-i18n="why.3.old">代码审查、测试与变更记录分散在不同工具</span>
               </div>
               <div class="why-vs-row why-vs-new">
                 <span class="why-vs-tag" data-i18n="why.pd">Powerduck</span>
-                <span data-i18n-html="why.3.new"><strong>本地运行</strong>；你的编程助手读取同一份文件</span>
+                <span data-i18n-html="why.3.new"><strong>统一 AI Chat</strong>，定位到文件和代码行</span>
               </div>
             </div>
           </article>
@@ -1155,13 +1155,13 @@
           <div>
             <p data-i18n="flow.kicker" class="scenes-kicker">在真实工作流中查看</p>
             <h2 data-i18n="flow.title" id="scenes-title">每个熟悉的繁琐工作，都变成契约驱动的流程。</h2>
-            <p data-i18n="flow.intro" class="scenes-intro">选择下面的任务。Powerduck 直接用你机器上的 OpenAPI 文件运行——环境、测试与 mock 一应俱全，无需账号或上传。</p>
+            <p data-i18n="flow.intro" class="scenes-intro">使用 Google 或 GitHub 登录，直接使用 Powerduck 内置 AI 模型和账户额度。</p>
           </div>
         </div>
         <div class="flow-baseline">
           <div>
             <h3 data-i18n="flow.baseTitle">选择本地，不该意味着功能缩水。</h3>
-            <p data-i18n="flow.baseBody">本地 API 工作台，无需账号，也不用先上传文件。请求、鉴权、环境、断言，熟悉的工作照常做。需要在线发布时，再选择 Cloud。</p>
+            <p data-i18n="flow.baseBody">登录后进入本地工作区。项目文件保留在本机；发起 AI 分析时，所选代码上下文会发送至 Powerduck 管理的模型服务。</p>
           </div>
           <ul>
             <li>
@@ -1183,7 +1183,7 @@
               <span aria-hidden="true">✓</span><span data-i18n="flow.base5">七种协议调试</span>
             </li>
           </ul>
-          <p data-i18n="flow.baseNote" class="flow-baseline-note">本地工作无需账号；远程 AI 使用你选择的模型服务，在线托管需要 Cloud 账号。</p>
+          <p data-i18n="flow.baseNote" class="flow-baseline-note">使用 Google 或 GitHub 登录，直接使用 Powerduck 内置 AI 模型和账户额度。</p>
         </div>
         <div class="flow-section-label">
           <h3 id="workflow-selector-title" data-i18n="flow.difference">哪些工作，你不想再手动重复？</h3>
@@ -1278,7 +1278,7 @@
           <div class="quick-head">
             <p class="section-kicker" data-i18n="quick.kicker">从你自己的电脑开始</p>
             <h2 class="section-title" data-i18n="quick.title">下载，打开，把活干完。</h2>
-            <p class="section-deck" data-i18n="quick.deck">Powerduck 的主场是桌面：打开本地文件，发出第一个请求，需要时再接上编程助手。开始工作，不需要先注册。</p>
+            <p class="section-deck" data-i18n="quick.deck">使用 Google 或 GitHub 登录，直接使用 Powerduck 内置 AI 模型和账户额度。</p>
           </div>
 
           <div class="quick-grid">
@@ -1286,13 +1286,13 @@
               <div class="quick-card-top">
                 <span class="quick-badge quick-badge-muted" data-i18n="quick.desktopTag">日常工作的主力</span>
                 <h3 data-i18n="quick.desktopTitle">把这里变成你的 API 工作台。</h3>
-                <p data-i18n="quick.desktopBody">本地文件、代码扫描、原生协议调试，都在桌面版。需要帮手时，接入你选择的 AI 模型，协助设计、排错和测试。</p>
+                <p data-i18n="quick.desktopBody">使用 Google 或 GitHub 登录，直接使用 Powerduck 内置 AI 模型和账户额度。</p>
               </div>
 
               <ol class="quick-steps">
                 <li>
                   <span class="quick-step-num">1</span>
-                  <span data-i18n="quick.step1">下载应用并体验本地示例，无需账号或模型 Key。</span>
+                  <span data-i18n="quick.step1">使用 Google 或 GitHub 登录，直接使用 Powerduck 内置 AI 模型和账户额度。</span>
                 </li>
                 <li>
                   <span class="quick-step-num">2</span>
@@ -1312,7 +1312,7 @@
               <div class="quick-card-top">
                 <span class="quick-badge" data-i18n="quick.browserTag">还想先看看？</span>
                 <h3 data-i18n="quick.browserTitle">浏览器里，快速体验一下。</h3>
-                <p data-i18n="quick.browserBody">网页版演示使用共享云端模型，需要登录。无需账号的本地工作，请下载桌面版。</p>
+                <p data-i18n="quick.browserBody">登录即可使用浏览器工作区。本地项目扫描、测试生成与迭代历史请使用桌面客户端。</p>
               </div>
 
               <a class="btn btn-secondary quick-web-open" href="/app/" data-i18n="flow.openWeb">打开网页版</a>
@@ -1807,7 +1807,7 @@
               <h2 class="section-title" data-i18n-html="story.title">本地一个 OpenAPI 文件，<br>所有能力，皆由 AI 驱动。</h2>
             </div>
 
-            <p class="product-story-deck" data-i18n-html="story.deck">在本地打开 <strong>openapi.yaml</strong> 或 <strong>openapi.json</strong>，Powerduck 就把你已有的契约变成完整的 API 工作台。无需导入、无需转换、没有并行的集合、没有云端副本。用大白话描述想要的结果，内置助手就通过可审阅的步骤完成——同一份文件还能用 MCP 与任何 AI 编程助手对话。</p>
+            <p class="product-story-deck" data-i18n-html="story.deck">在本地打开 OpenAPI 文件，将 API 契约、代码质量发现、测试与迭代变更带入同一个 AI 工作区。内置模型提供有代码依据的审查结果，并通过修复提示词对接你的代码 Agent。</p>
           </div>
 
           <div class="product-flow" aria-label="本地一个 OpenAPI 文件， 所有能力，皆由 AI 驱动。">
@@ -1875,11 +1875,11 @@
 
       <section class="section outcome-section" id="data-boundaries">
         <h2 data-i18n="start.privacy">本地工作、远程服务与你的选择</h2>
-        <p data-i18n="faq.a1">本地文件读写无需账号。远程 AI 会向你配置的模型服务发送相关上下文；主动发布到 Cloud 时上传所选内容。可选使用统计默认关闭，采集字段与开关见隐私说明。</p>
+        <p data-i18n="faq.a1">项目保留在本机。发起 AI 请求时，所选源代码上下文会发送至 Powerduck 管理的模型供应商。文档发布是由你另行选择的操作。</p>
         <a href="/privacy.html" data-i18n="footer.privacy">隐私政策</a>
       </section>
       <section class="product-paths" id="licensing" aria-labelledby="product-paths-title">
-        <p class="hero-micro" data-i18n="hero.micro">本地功能不需要购买 Cloud。免费使用包含两个规范名额，审核通过的分享奖励可增加名额；桌面授权解除名额限制。自带 Key 的费用由模型服务商收取，托管模型额度与 Cloud 托管另行计费。</p>
+        <p class="hero-micro" data-i18n="hero.micro">使用 Google 或 GitHub 登录。Free 每日 30 万 credits；Pro 每月 $39，每 7 日 1800 万 credits；Max 每月 $99，每 7 日 6000 万 credits。内置 AI 贯穿 Chat、代码审查与测试评估。</p>
         <div class="product-paths-heading">
           <h2 id="product-paths-title" data-i18n="guide.title">按你的需要，选择下一步</h2>
           <a href="/zh-CN/pricing?product=client" data-i18n="guide.compare">对比产品与价格 →</a>
@@ -1887,9 +1887,9 @@
         <div class="product-paths-grid">
           <a class="product-path" href="/console/billing?buy=desktop">
             <span class="product-path-job" data-i18n="guide.client.job">本地开发</span>
-            <h3 data-i18n="guide.client.title">桌面授权</h3>
+            <h3 data-i18n="guide.client.title">Desktop workspace</h3>
             <p data-i18n="guide.client.desc">通过对话设计、调试和测试 API，直接使用本地 OpenAPI 文件。</p>
-            <strong data-i18n="guide.client.cost">一次购买 · 永久授权</strong>
+            <strong data-i18n="guide.client.cost">Sign in to use</strong>
             <span aria-hidden="true"> ↗</span>
           </a>
           <a class="product-path" href="/console/billing?buy=cloud">
@@ -1900,15 +1900,15 @@
             <span aria-hidden="true"> ↗</span>
           </a>
           <a class="product-path" href="/console/billing?buy=model-pro">
-            <span class="product-path-job" data-i18n="guide.models.job">选择模型</span>
-            <h3 data-i18n="guide.models.title">AI 模型额度</h3>
-            <p data-i18n="guide.models.desc">购买额度调用托管模型，也可以在桌面应用中配置自己的模型服务商。</p>
-            <strong data-i18n="guide.models.cost">预付模型额度</strong>
+            <span class="product-path-job" data-i18n="guide.models.job">One account allowance</span>
+            <h3 data-i18n="guide.models.title">Built-in AI models</h3>
+            <p data-i18n="guide.models.desc">订阅套餐 · 免费额度每日重置，付费额度每 7 日重置。</p>
+            <strong data-i18n="guide.models.cost">Credits included with your plan</strong>
             <span aria-hidden="true"> ↗</span>
           </a>
         </div>
         <p class="product-paths-account">
-          <span data-i18n="guide.account">已有账号？管理在线发布、桌面授权和 AI 额度。</span>
+          <span data-i18n="guide.account">在账户中管理订阅套餐和共享 AI 额度。</span>
           <a href="/signin" data-i18n="guide.signin">登录控制台 →</a>
         </p>
       </section>
@@ -1931,7 +1931,7 @@
             <details open="">
               <summary data-i18n="faq.q1">Powerduck 会把我的 OpenAPI 规范上传到任何地方吗？</summary>
 
-              <p data-i18n="faq.a1">本地文件读写无需账号。远程 AI 会向你配置的模型服务发送相关上下文；主动发布到 Cloud 时上传所选内容。可选使用统计默认关闭，采集字段与开关见隐私说明。</p>
+              <p data-i18n="faq.a1">项目保留在本机。发起 AI 请求时，所选源代码上下文会发送至 Powerduck 管理的模型供应商。文档发布是由你另行选择的操作。</p>
             </details>
 
             <details>
@@ -1947,9 +1947,9 @@
             </details>
 
             <details>
-              <summary data-i18n="faq.q4">桌面授权是订阅制吗？</summary>
+              <summary data-i18n="faq.q4">订阅和额度如何重置？</summary>
 
-              <p data-i18n="faq.a4">不是。Powerduck 桌面版是一次性购买的永久授权，大版本内的更新都包含在内，未来的大版本升级仍然可选。</p>
+              <p data-i18n="faq.a4">Powerduck 采用月度订阅。免费额度每日重置，付费额度每 7 日重置。</p>
             </details>
 
             <details>

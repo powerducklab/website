@@ -1,10 +1,10 @@
 {
-  "sourcePages": 92,
+  "sourcePages": 93,
   "languageCount": 16,
   "locales": [
     {
       "code": "en-US",
-      "translated": 92,
+      "translated": 93,
       "missing": [],
       "copiedEnglish": [],
       "missingDescription": [],
@@ -15,7 +15,9 @@
       "code": "es-ES",
       "translated": 92,
       "missing": [],
-      "copiedEnglish": [],
+      "copiedEnglish": [
+        "client/code-quality.md"
+      ],
       "missingDescription": [],
       "codeBlockCountNeedsReview": [],
       "linguisticReview": "not-certified"
@@ -24,7 +26,9 @@
       "code": "fr-FR",
       "translated": 92,
       "missing": [],
-      "copiedEnglish": [],
+      "copiedEnglish": [
+        "client/code-quality.md"
+      ],
       "missingDescription": [],
       "codeBlockCountNeedsReview": [],
       "linguisticReview": "not-certified"
@@ -33,7 +37,9 @@
       "code": "de-DE",
       "translated": 92,
       "missing": [],
-      "copiedEnglish": [],
+      "copiedEnglish": [
+        "client/code-quality.md"
+      ],
       "missingDescription": [],
       "codeBlockCountNeedsReview": [],
       "linguisticReview": "not-certified"
@@ -42,7 +48,9 @@
       "code": "pt-BR",
       "translated": 92,
       "missing": [],
-      "copiedEnglish": [],
+      "copiedEnglish": [
+        "client/code-quality.md"
+      ],
       "missingDescription": [],
       "codeBlockCountNeedsReview": [],
       "linguisticReview": "not-certified"
@@ -51,7 +59,9 @@
       "code": "ja-JP",
       "translated": 92,
       "missing": [],
-      "copiedEnglish": [],
+      "copiedEnglish": [
+        "client/code-quality.md"
+      ],
       "missingDescription": [],
       "codeBlockCountNeedsReview": [],
       "linguisticReview": "not-certified"
@@ -60,14 +70,16 @@
       "code": "ko-KR",
       "translated": 92,
       "missing": [],
-      "copiedEnglish": [],
+      "copiedEnglish": [
+        "client/code-quality.md"
+      ],
       "missingDescription": [],
       "codeBlockCountNeedsReview": [],
       "linguisticReview": "not-certified"
     },
     {
       "code": "zh-CN",
-      "translated": 92,
+      "translated": 93,
       "missing": [],
       "copiedEnglish": [],
       "missingDescription": [],
@@ -78,7 +90,9 @@
       "code": "zh-TW",
       "translated": 92,
       "missing": [],
-      "copiedEnglish": [],
+      "copiedEnglish": [
+        "client/code-quality.md"
+      ],
       "missingDescription": [],
       "codeBlockCountNeedsReview": [],
       "linguisticReview": "not-certified"
@@ -87,7 +101,9 @@
       "code": "it-IT",
       "translated": 92,
       "missing": [],
-      "copiedEnglish": [],
+      "copiedEnglish": [
+        "client/code-quality.md"
+      ],
       "missingDescription": [],
       "codeBlockCountNeedsReview": [],
       "linguisticReview": "not-certified"
@@ -96,7 +112,9 @@
       "code": "ru-RU",
       "translated": 92,
       "missing": [],
-      "copiedEnglish": [],
+      "copiedEnglish": [
+        "client/code-quality.md"
+      ],
       "missingDescription": [],
       "codeBlockCountNeedsReview": [],
       "linguisticReview": "not-certified"
@@ -105,7 +123,9 @@
       "code": "ar-SA",
       "translated": 92,
       "missing": [],
-      "copiedEnglish": [],
+      "copiedEnglish": [
+        "client/code-quality.md"
+      ],
       "missingDescription": [],
       "codeBlockCountNeedsReview": [],
       "linguisticReview": "not-certified"
@@ -114,7 +134,9 @@
       "code": "hi-IN",
       "translated": 92,
       "missing": [],
-      "copiedEnglish": [],
+      "copiedEnglish": [
+        "client/code-quality.md"
+      ],
       "missingDescription": [],
       "codeBlockCountNeedsReview": [],
       "linguisticReview": "not-certified"
@@ -123,7 +145,9 @@
       "code": "id-ID",
       "translated": 92,
       "missing": [],
-      "copiedEnglish": [],
+      "copiedEnglish": [
+        "client/code-quality.md"
+      ],
       "missingDescription": [],
       "codeBlockCountNeedsReview": [],
       "linguisticReview": "not-certified"
@@ -132,7 +156,9 @@
       "code": "vi-VN",
       "translated": 92,
       "missing": [],
-      "copiedEnglish": [],
+      "copiedEnglish": [
+        "client/code-quality.md"
+      ],
       "missingDescription": [],
       "codeBlockCountNeedsReview": [],
       "linguisticReview": "not-certified"
@@ -141,7 +167,9 @@
       "code": "tr-TR",
       "translated": 92,
       "missing": [],
-      "copiedEnglish": [],
+      "copiedEnglish": [
+        "client/code-quality.md"
+      ],
       "missingDescription": [],
       "codeBlockCountNeedsReview": [],
       "linguisticReview": "not-certified"
