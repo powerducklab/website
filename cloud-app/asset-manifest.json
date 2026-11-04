@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/cloud-app/static/css/main.7ae54853.css",
-    "main.js": "/cloud-app/static/js/main.7bda2f8f.js",
+    "main.js": "/cloud-app/static/js/main.eb86767d.js",
     "locale-ar-SA-json.js": "/cloud-app/static/js/locale-ar-SA-json.cfce0f70.chunk.js",
     "locale-de-json.js": "/cloud-app/static/js/locale-de-json.df5d362f.chunk.js",
     "locale-en-json.js": "/cloud-app/static/js/locale-en-json.1c683fca.chunk.js",
@@ -356,6 +356,6 @@
   },
   "entrypoints": [
     "static/css/main.7ae54853.css",
-    "static/js/main.7bda2f8f.js"
+    "static/js/main.eb86767d.js"
   ]
 }

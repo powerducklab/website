@@ -12,6 +12,11 @@
   var FALLBACK_LANG = "en";
 
   var i18n = window.POWERDUCK_I18N || { languages: [], messages: {} };
+  i18n.languages.sort(function (a, b) {
+    if (a.code === "auto") return -1;
+    if (b.code === "auto") return 1;
+    return a.native.localeCompare(b.native, "en", { numeric: true, sensitivity: "base" });
+  });
   var currentLang = FALLBACK_LANG;
 
   /* ------------------------------------------------------------------
