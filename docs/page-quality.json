@@ -5,68 +5,68 @@
   "failures": [],
   "scripts": [
     {
-      "path": "ar-SA/assets/js/main.9441e71a.js",
-      "gzipBytes": 144669
+      "path": "ar-SA/assets/js/main.385dcbfd.js",
+      "gzipBytes": 144663
     },
     {
-      "path": "assets/js/main.fce60072.js",
-      "gzipBytes": 142005
+      "path": "assets/js/main.456847b4.js",
+      "gzipBytes": 141999
     },
     {
-      "path": "de-DE/assets/js/main.0cb2faf8.js",
-      "gzipBytes": 144172
+      "path": "de-DE/assets/js/main.eaf08c28.js",
+      "gzipBytes": 144164
     },
     {
-      "path": "es-ES/assets/js/main.f1be2275.js",
-      "gzipBytes": 144200
+      "path": "es-ES/assets/js/main.aef44d5a.js",
+      "gzipBytes": 144194
     },
     {
-      "path": "fr-FR/assets/js/main.fe9163b7.js",
-      "gzipBytes": 144269
+      "path": "fr-FR/assets/js/main.b6965592.js",
+      "gzipBytes": 144264
     },
     {
-      "path": "hi-IN/assets/js/main.2c402f71.js",
-      "gzipBytes": 144604
+      "path": "hi-IN/assets/js/main.20e63aae.js",
+      "gzipBytes": 144596
     },
     {
-      "path": "id-ID/assets/js/main.fee00d1e.js",
-      "gzipBytes": 144053
+      "path": "id-ID/assets/js/main.dafc4553.js",
+      "gzipBytes": 144048
     },
     {
-      "path": "it-IT/assets/js/main.366e79d5.js",
-      "gzipBytes": 144167
+      "path": "it-IT/assets/js/main.cfc111e4.js",
+      "gzipBytes": 144161
     },
     {
-      "path": "ja-JP/assets/js/main.7d2d50c1.js",
-      "gzipBytes": 144487
+      "path": "ja-JP/assets/js/main.1f702fc6.js",
+      "gzipBytes": 144481
     },
     {
-      "path": "ko-KR/assets/js/main.915289bd.js",
-      "gzipBytes": 144418
-    },
-    {
-      "path": "pt-BR/assets/js/main.639d1c47.js",
-      "gzipBytes": 144201
-    },
-    {
-      "path": "ru-RU/assets/js/main.89516e9e.js",
-      "gzipBytes": 144932
-    },
-    {
-      "path": "tr-TR/assets/js/main.0125fcd8.js",
-      "gzipBytes": 144309
-    },
-    {
-      "path": "vi-VN/assets/js/main.8aa0180f.js",
+      "path": "ko-KR/assets/js/main.adcb8105.js",
       "gzipBytes": 144410
     },
     {
-      "path": "zh-CN/assets/js/main.30a18c9e.js",
-      "gzipBytes": 144355
+      "path": "pt-BR/assets/js/main.2be1b59b.js",
+      "gzipBytes": 144194
     },
     {
-      "path": "zh-TW/assets/js/main.fea91748.js",
+      "path": "ru-RU/assets/js/main.7364202a.js",
+      "gzipBytes": 144927
+    },
+    {
+      "path": "tr-TR/assets/js/main.0127f4ee.js",
+      "gzipBytes": 144301
+    },
+    {
+      "path": "vi-VN/assets/js/main.b768c646.js",
       "gzipBytes": 144404
+    },
+    {
+      "path": "zh-CN/assets/js/main.0b062c44.js",
+      "gzipBytes": 144347
+    },
+    {
+      "path": "zh-TW/assets/js/main.25d59061.js",
+      "gzipBytes": 144399
     }
   ]
 }
