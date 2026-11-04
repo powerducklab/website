@@ -1187,3 +1187,7 @@ html.dark .theme-toggle .icon-sun { display: block; }
   unicode-bidi: isolate;
   text-align: left;
 }
+
+/* API and code review share the same product section rhythm. */
+.review-workflow .hub-workflow-steps{grid-template-columns:repeat(2,minmax(0,1fr));}
+@media(max-width:640px){.review-workflow .hub-workflow-steps{grid-template-columns:1fr;}}

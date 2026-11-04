@@ -43,83 +43,83 @@
   "bundles": [
     {
       "language": "en",
-      "bytes": 30767,
-      "gzipBytes": 10733
+      "bytes": 31407,
+      "gzipBytes": 10427
     },
     {
       "language": "zh-CN",
-      "bytes": 30332,
-      "gzipBytes": 11919
+      "bytes": 30748,
+      "gzipBytes": 11768
     },
     {
       "language": "ja",
-      "bytes": 39270,
-      "gzipBytes": 12488
+      "bytes": 37973,
+      "gzipBytes": 11992
     },
     {
       "language": "de",
-      "bytes": 33811,
-      "gzipBytes": 11985
+      "bytes": 33361,
+      "gzipBytes": 11376
     },
     {
       "language": "fr",
-      "bytes": 35502,
-      "gzipBytes": 12015
+      "bytes": 34677,
+      "gzipBytes": 11393
     },
     {
       "language": "es",
-      "bytes": 34259,
-      "gzipBytes": 11522
+      "bytes": 33460,
+      "gzipBytes": 10970
     },
     {
       "language": "pt-BR",
-      "bytes": 35273,
-      "gzipBytes": 11619
+      "bytes": 33902,
+      "gzipBytes": 10992
     },
     {
       "language": "zh-TW",
-      "bytes": 30921,
-      "gzipBytes": 12170
+      "bytes": 30576,
+      "gzipBytes": 11813
     },
     {
       "language": "it-IT",
-      "bytes": 34425,
-      "gzipBytes": 11471
+      "bytes": 32996,
+      "gzipBytes": 10799
     },
     {
       "language": "ko-KR",
-      "bytes": 36498,
-      "gzipBytes": 11790
+      "bytes": 34631,
+      "gzipBytes": 11389
     },
     {
       "language": "ru-RU",
-      "bytes": 51423,
-      "gzipBytes": 13763
+      "bytes": 48870,
+      "gzipBytes": 13010
     },
     {
       "language": "id-ID",
-      "bytes": 32545,
-      "gzipBytes": 10708
+      "bytes": 31458,
+      "gzipBytes": 10209
     },
     {
       "language": "tr-TR",
-      "bytes": 35317,
-      "gzipBytes": 11677
+      "bytes": 33999,
+      "gzipBytes": 11217
     },
     {
       "language": "vi-VN",
-      "bytes": 37037,
-      "gzipBytes": 11227
+      "bytes": 35704,
+      "gzipBytes": 10816
     },
     {
       "language": "ar-SA",
-      "bytes": 42723,
-      "gzipBytes": 12169
+      "bytes": 41388,
+      "gzipBytes": 11693
     },
     {
       "language": "hi-IN",
-      "bytes": 62635,
-      "gzipBytes": 13006
+      "bytes": 60910,
+      "gzipBytes": 12805
     }
   ]
 }

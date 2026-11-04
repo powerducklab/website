@@ -1,83 +1,17 @@
 # Powerduck
 
-Open-source developer tools for API-first workflows. We build production-grade libraries for OpenAPI document processing, code generation, Markdown editing, and configuration patching.
+Powerduck combines an API workspace with a local code-review workspace for people working with AI-generated code.
 
-[Website](https://www.powerduck.com) &nbsp;·&nbsp; [Documentation](https://www.powerduck.com/docs/) &nbsp;·&nbsp; [Live Demos](https://www.powerduck.com/demo/)
+- **API workspace:** import OpenAPI YAML or JSON, design operations, send requests, run scenarios, use local mocks, explore data models and render API documentation.
+- **Code review:** inspect complete files and precise differences, track review rounds, navigate resolvable Git/AST relationships and request AI findings at the relevant code location.
+- **Project structure:** inspect references and conservative candidates for temporary, identical or unreferenced files. These signals do not authorize deletion.
+- **Agent handoff:** select suspicions and export a bounded Markdown task package; returned JSON reports remain subject to human review.
+- **Execution evidence:** explicitly run project checks and inspect commands, exit codes and output. Reading progress and AI suggestions do not mean tests passed.
 
----
+The desktop app supports local files and commands. The browser app at `/app/` previews API workflows; it does not provide unrestricted desktop filesystem access. Google/GitHub sign-in and built-in AI are used; custom model keys and model selection are not offered.
 
-## OpenAPI Toolchain
+New AI plans use separate conversation and review task allowances. Consult the [billing guide](https://www.powerduck.com/docs/cloud/billing/) and [pricing page](https://www.powerduck.com/pricing) for periods, settlement rules and any legacy entitlements. Upstream model tokens are internal usage telemetry, not the new customer billing unit.
 
-A complete suite of libraries for working with OpenAPI 3.2 documents — from parsing and validation to code generation, request debugging, and MCP server exposure.
+[Website](https://www.powerduck.com) · [Download](https://www.powerduck.com/download.html) · [Documentation](https://www.powerduck.com/docs/) · [Browser app](https://www.powerduck.com/app/)
 
-| Package | Version | Description |
-|---|---|---|
-| [`@powerduck/openapi-parser`](https://www.npmjs.com/package/@powerduck/openapi-parser) | [![npm](https://img.shields.io/npm/v/@powerduck/openapi-parser)](https://www.npmjs.com/package/@powerduck/openapi-parser) | Upgrade any Swagger 2.0 / OpenAPI 3.0 / 3.1 / 3.2 document to a validated OpenAPI 3.2 document. Zero input mutation, machine-readable error codes, circular-reference guard, dual ESM/CJS builds. |
-| [`@powerduck/openapi-codegen`](https://www.npmjs.com/package/@powerduck/openapi-codegen) | [![npm](https://img.shields.io/npm/v/@powerduck/openapi-codegen)](https://www.npmjs.com/package/@powerduck/openapi-codegen) | Generate runnable HTTP request examples from OpenAPI documents. 21 languages, 41 client combinations, browser-compatible, zero runtime dependencies. |
-| [`@powerduck/x-to-openapi`](https://www.npmjs.com/package/@powerduck/x-to-openapi) | [![npm](https://img.shields.io/npm/v/@powerduck/x-to-openapi)](https://www.npmjs.com/package/@powerduck/x-to-openapi) | Extensible production-grade X-to-OpenAPI 3.2 conversion framework. Convert curl commands and Postman collections to OpenAPI 3.2 documents. |
-| [`@powerduck/openapi-request`](https://www.npmjs.com/package/@powerduck/openapi-request) | [![npm](https://img.shields.io/npm/v/@powerduck/openapi-request)](https://www.npmjs.com/package/@powerduck/openapi-request) | OpenAPI 3.2 collection debugger with HTTP, SSE, and WebSocket support, plus response write-back. |
-| [`@powerduck/openapi-cli`](https://www.npmjs.com/package/@powerduck/openapi-cli) | [![npm](https://img.shields.io/npm/v/@powerduck/openapi-cli)](https://www.npmjs.com/package/@powerduck/openapi-cli) | CI-ready CLI for batch-testing OpenAPI documents across HTTP, SSE, WebSocket, GraphQL, gRPC, and MCP. |
-| [`@powerduck/openapi-mcp-server`](https://www.npmjs.com/package/@powerduck/openapi-mcp-server) | [![npm](https://img.shields.io/npm/v/@powerduck/openapi-mcp-server)](https://www.npmjs.com/package/@powerduck/openapi-mcp-server) | Production-oriented OpenAPI to MCP server library with Tools, Prompts, Resources, Web UI, and admin runtime. |
-
-## Editor & Config Tools
-
-| Package | Version | Description |
-|---|---|---|
-| [`@powerduck/md-editor`](https://www.npmjs.com/package/@powerduck/md-editor) | [![npm](https://img.shields.io/npm/v/@powerduck/md-editor)](https://www.npmjs.com/package/@powerduck/md-editor) | High-performance embeddable Markdown editor. KaTeX math, Markmap mindmaps, highlight.js code blocks, admonition blocks, rich toolbar, image upload hooks, block-level incremental rendering. Simple and complex modes, light/dark themes. |
-| [`@powerduck/conf-patch`](https://www.npmjs.com/package/@powerduck/conf-patch) | [![npm](https://img.shields.io/npm/v/@powerduck/conf-patch)](https://www.npmjs.com/package/@powerduck/conf-patch) | Two-layer configuration editor. Pure core for patching JSON/JSONC/YAML strings (browser-safe), plus file layer with atomic writes and locking for Node.js/Electron. RFC 6902 JSON Patch, comment and formatting preservation. |
-
----
-
-## Quick Start
-
-```bash
-# Install any package from npm
-npm install @powerduck/openapi-parser
-npm install @powerduck/openapi-codegen
-npm install @powerduck/md-editor
-```
-
-```ts
-import { upgradeOasTo32, isOpenApiUpgradeError } from "@powerduck/openapi-parser";
-
-// Upgrade and validate any OpenAPI document to 3.2
-try {
-  const document = await upgradeOasTo32(openApiDoc);
-  console.log("Valid OpenAPI 3.2:", document);
-} catch (error) {
-  if (isOpenApiUpgradeError(error)) {
-    console.error("Upgrade failed:", error.message, error.issues);
-  }
-}
-```
-
-## Live Demos
-
-Try all libraries in the browser — no signup required:
-
-- [Live Demos](https://www.powerduck.com/demo/)
-
-## License
-
-All packages are released under the [MIT License](https://opensource.org/licenses/MIT).
-
----
-
-<p align="center">
-  <sub>Built by <strong>POWERDUCK LIMITED</strong></sub>
-</p>
-
-## Desktop onboarding content and attribution
-
-The home page leads to desktop download and a reproducible contract-validation
-example, then explains local files, remote models, optional Cloud and desktop
-licensing. Privacy claims must match the opted-in desktop event payload; never
-promise that remote AI context stays on the device. Optional desktop usage
-statistics are separate from website analytics and download access logs.
-
-`common.js` forwards only bounded `utm_source`, `utm_medium`, `utm_campaign` and
-`utm_content` values to download links. The server measures download redirects,
-not completed transfers or a browser-to-desktop activation funnel. Invalid
-parameters are ignored. Static documentation is generated by the existing
-`powerduck-docs/scripts/build-docs.sh` workflow. A local build is not evidence of
-an online deployment.
+Marketing locale inputs live in `assets/messages/`; the Cloud frontend's SEO generator renders localized pages. Documentation source lives in the sibling `powerduck-docs` repository; do not edit generated `/docs/` HTML as the source. The browser app is staged by `powerduck-react/scripts/deploy-web-demo.sh`. All surfaces are published together by the existing Cloud frontend deployment pipeline.

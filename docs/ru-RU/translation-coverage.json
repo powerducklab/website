@@ -1,8 +1,6 @@
 {
   "locale": "ru-RU",
   "total": 93,
-  "translated": 92,
-  "missing": [
-    "client/code-quality.md"
-  ]
+  "translated": 93,
+  "missing": []
 }
