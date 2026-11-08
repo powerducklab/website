@@ -1,0 +1,725 @@
+{
+  "generatedAt": "2026-11-07T23:44:36.758Z",
+  "screens": [
+    {
+      "language": "en",
+      "screen": "review",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 232820,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "en",
+      "screen": "scenario",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 179528,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "en",
+      "screen": "mcp",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 173362,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "en",
+      "screen": "debug",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 173430,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "en",
+      "screen": "design",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 165154,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "es",
+      "screen": "review",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 253976,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "es",
+      "screen": "scenario",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 203736,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "es",
+      "screen": "mcp",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 187802,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "es",
+      "screen": "debug",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 178978,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "es",
+      "screen": "design",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 176808,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "fr",
+      "screen": "review",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 244818,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "fr",
+      "screen": "scenario",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 195372,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "fr",
+      "screen": "mcp",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 181984,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "fr",
+      "screen": "debug",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 176306,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "fr",
+      "screen": "design",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 174846,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "de",
+      "screen": "review",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 251580,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "de",
+      "screen": "scenario",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 191100,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "de",
+      "screen": "mcp",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 186210,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "de",
+      "screen": "debug",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 174716,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "de",
+      "screen": "design",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 170646,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "pt-BR",
+      "screen": "review",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 261344,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "pt-BR",
+      "screen": "scenario",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 200942,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "pt-BR",
+      "screen": "mcp",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 186040,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "pt-BR",
+      "screen": "debug",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 178066,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "pt-BR",
+      "screen": "design",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 179812,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "ja",
+      "screen": "review",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 259816,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "ja",
+      "screen": "scenario",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 189870,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "ja",
+      "screen": "mcp",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 187902,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "ja",
+      "screen": "debug",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 169140,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "ja",
+      "screen": "design",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 166496,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "ko-KR",
+      "screen": "review",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 185078,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "ko-KR",
+      "screen": "scenario",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 152188,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "ko-KR",
+      "screen": "mcp",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 145966,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "ko-KR",
+      "screen": "debug",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 141584,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "ko-KR",
+      "screen": "design",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 140454,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "zh-CN",
+      "screen": "review",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 222668,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "zh-CN",
+      "screen": "scenario",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 171760,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "zh-CN",
+      "screen": "mcp",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 159386,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "zh-CN",
+      "screen": "debug",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 161216,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "zh-CN",
+      "screen": "design",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 150680,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "zh-TW",
+      "screen": "review",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 236938,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "zh-TW",
+      "screen": "scenario",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 175140,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "zh-TW",
+      "screen": "mcp",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 165318,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "zh-TW",
+      "screen": "debug",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 162240,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "zh-TW",
+      "screen": "design",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 152636,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "it-IT",
+      "screen": "review",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 241266,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "it-IT",
+      "screen": "scenario",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 190802,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "it-IT",
+      "screen": "mcp",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 180106,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "it-IT",
+      "screen": "debug",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 173432,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "it-IT",
+      "screen": "design",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 174144,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "ru-RU",
+      "screen": "review",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 248034,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "ru-RU",
+      "screen": "scenario",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 191156,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "ru-RU",
+      "screen": "mcp",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 182882,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "ru-RU",
+      "screen": "debug",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 174210,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "ru-RU",
+      "screen": "design",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 175030,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "hi-IN",
+      "screen": "review",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 211756,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "hi-IN",
+      "screen": "scenario",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 161486,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "hi-IN",
+      "screen": "mcp",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 162648,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "hi-IN",
+      "screen": "debug",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 152770,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "hi-IN",
+      "screen": "design",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 155576,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "id-ID",
+      "screen": "review",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 234108,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "id-ID",
+      "screen": "scenario",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 185012,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "id-ID",
+      "screen": "mcp",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 173756,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "id-ID",
+      "screen": "debug",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 164114,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "id-ID",
+      "screen": "design",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 162066,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "vi-VN",
+      "screen": "review",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 235788,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "vi-VN",
+      "screen": "scenario",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 187662,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "vi-VN",
+      "screen": "mcp",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 184178,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "vi-VN",
+      "screen": "debug",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 173216,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "vi-VN",
+      "screen": "design",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 168218,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "tr-TR",
+      "screen": "review",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 240240,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "tr-TR",
+      "screen": "scenario",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 199772,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "tr-TR",
+      "screen": "mcp",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 178388,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "tr-TR",
+      "screen": "debug",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 172790,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "tr-TR",
+      "screen": "design",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 164144,
+      "format": "lossless WebP",
+      "source": "real Electron demo at deviceScaleFactor 3"
+    },
+    {
+      "language": "ar-SA",
+      "screen": "review",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 232704,
+      "format": "lossless WebP",
+      "source": "real Electron demo at 3x pixel density"
+    },
+    {
+      "language": "ar-SA",
+      "screen": "scenario",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 182934,
+      "format": "lossless WebP",
+      "source": "real Electron demo at 3x pixel density"
+    },
+    {
+      "language": "ar-SA",
+      "screen": "mcp",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 162274,
+      "format": "lossless WebP",
+      "source": "real Electron demo at 3x pixel density"
+    },
+    {
+      "language": "ar-SA",
+      "screen": "debug",
+      "width": 2880,
+      "height": 1700,
+      "bytes": 106376,
+      "format": "lossless WebP",
+      "source": "real Electron demo at 2x pixel density"
+    },
+    {
+      "language": "ar-SA",
+      "screen": "design",
+      "width": 4320,
+      "height": 2550,
+      "bytes": 158796,
+      "format": "lossless WebP",
+      "source": "real Electron demo at 3x pixel density"
+    }
+  ]
+}
